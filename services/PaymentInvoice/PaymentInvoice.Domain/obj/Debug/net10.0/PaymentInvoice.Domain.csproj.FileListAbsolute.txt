@@ -1,0 +1,15 @@
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\bin\Debug\net10.0\PaymentInvoice.Domain.deps.json
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\bin\Debug\net10.0\PaymentInvoice.Domain.dll
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\bin\Debug\net10.0\PaymentInvoice.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\bin\Debug\net10.0\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\bin\Debug\net10.0\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\obj\Debug\net10.0\PaymentInvoice.Domain.csproj.AssemblyReference.cache
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\obj\Debug\net10.0\PaymentInvoice.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\obj\Debug\net10.0\PaymentInvoice.Domain.AssemblyInfoInputs.cache
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\obj\Debug\net10.0\PaymentInvoice.Domain.AssemblyInfo.cs
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\obj\Debug\net10.0\PaymentInvoice.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\obj\Debug\net10.0\PaymentI.9612E244.Up2Date
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\obj\Debug\net10.0\PaymentInvoice.Domain.dll
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\obj\Debug\net10.0\refint\PaymentInvoice.Domain.dll
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\obj\Debug\net10.0\PaymentInvoice.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Domain\obj\Debug\net10.0\ref\PaymentInvoice.Domain.dll

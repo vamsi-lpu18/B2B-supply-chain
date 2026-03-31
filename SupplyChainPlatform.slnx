@@ -1,0 +1,46 @@
+<Solution>
+  <Folder Name="/gateway/">
+    <Project Path="gateway/OcelotGateway/OcelotGateway.csproj" />
+  </Folder>
+  <Folder Name="/services/" />
+  <Folder Name="/services/CatalogInventory/">
+    <Project Path="services/CatalogInventory/CatalogInventory.API/CatalogInventory.API.csproj" />
+    <Project Path="services/CatalogInventory/CatalogInventory.Application/CatalogInventory.Application.csproj" />
+    <Project Path="services/CatalogInventory/CatalogInventory.Domain/CatalogInventory.Domain.csproj" />
+    <Project Path="services/CatalogInventory/CatalogInventory.Infrastructure/CatalogInventory.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/services/IdentityAuth/">
+    <Project Path="services/IdentityAuth/IdentityAuth.API/IdentityAuth.API.csproj" />
+    <Project Path="services/IdentityAuth/IdentityAuth.Application/IdentityAuth.Application.csproj" />
+    <Project Path="services/IdentityAuth/IdentityAuth.Domain/IdentityAuth.Domain.csproj" />
+    <Project Path="services/IdentityAuth/IdentityAuth.Infrastructure/IdentityAuth.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/services/LogisticsTracking/">
+    <Project Path="services/LogisticsTracking/LogisticsTracking.API/LogisticsTracking.API.csproj" />
+    <Project Path="services/LogisticsTracking/LogisticsTracking.Application/LogisticsTracking.Application.csproj" />
+    <Project Path="services/LogisticsTracking/LogisticsTracking.Domain/LogisticsTracking.Domain.csproj" />
+    <Project Path="services/LogisticsTracking/LogisticsTracking.Infrastructure/LogisticsTracking.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/services/Notification/">
+    <Project Path="services/Notification/Notification.API/Notification.API.csproj" />
+    <Project Path="services/Notification/Notification.Application/Notification.Application.csproj" />
+    <Project Path="services/Notification/Notification.Domain/Notification.Domain.csproj" />
+    <Project Path="services/Notification/Notification.Infrastructure/Notification.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/services/Order/">
+    <Project Path="services/Order/Order.API/Order.API.csproj" />
+    <Project Path="services/Order/Order.Application/Order.Application.csproj" />
+    <Project Path="services/Order/Order.Domain/Order.Domain.csproj" />
+    <Project Path="services/Order/Order.Infrastructure/Order.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/services/PaymentInvoice/">
+    <Project Path="services/PaymentInvoice/PaymentInvoice.API/PaymentInvoice.API.csproj" />
+    <Project Path="services/PaymentInvoice/PaymentInvoice.Application/PaymentInvoice.Application.csproj" />
+    <Project Path="services/PaymentInvoice/PaymentInvoice.Domain/PaymentInvoice.Domain.csproj" />
+    <Project Path="services/PaymentInvoice/PaymentInvoice.Infrastructure/PaymentInvoice.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/BuildingBlocks/BuildingBlocks.csproj" />
+    <Project Path="src/SharedKernel/SharedKernel.csproj" />
+  </Folder>
+</Solution>

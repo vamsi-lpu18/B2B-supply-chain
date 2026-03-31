@@ -1,0 +1,7 @@
+Start-Process dotnet "run --project gateway/OcelotGateway/OcelotGateway.csproj --urls http://localhost:5000"
+Start-Process dotnet "run --project services/IdentityAuth/IdentityAuth.API --urls http://localhost:8001"
+Start-Process dotnet "run --project services/CatalogInventory/CatalogInventory.API --urls http://localhost:8002"
+Start-Process dotnet "run --project services/Order/Order.API --urls http://localhost:8003"
+Start-Process dotnet "run --project services/LogisticsTracking/LogisticsTracking.API --urls http://localhost:8004"
+Start-Process dotnet "run --project services/PaymentInvoice/PaymentInvoice.API --urls http://localhost:8005"
+Start-Process dotnet "run --project services/Notification/Notification.API --urls http://localhost:8006"

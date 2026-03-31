@@ -1,0 +1,35 @@
+{
+    "checkedAtUtc":  "2026-03-30T06:22:42.8913170Z",
+    "summary":  {
+                    "allEmailed":  true
+                },
+    "results":  [
+                    {
+                        "case":  "dealer_approved",
+                        "notificationId":  "0af8ce7a-05b3-479d-8865-8d3a9b8ae438",
+                        "channel":  1,
+                        "status":  1,
+                        "sentAtUtc":  "2026-03-30T05:47:19.4653564",
+                        "failureReason":  "",
+                        "emailed":  true
+                    },
+                    {
+                        "case":  "order_successful_orderplaced",
+                        "notificationId":  "3e7ee6ff-b48e-493f-bf94-953f62814842",
+                        "channel":  1,
+                        "status":  1,
+                        "sentAtUtc":  "2026-03-30T05:47:32.0544585",
+                        "failureReason":  "",
+                        "emailed":  true
+                    },
+                    {
+                        "case":  "payment_invoice_generated",
+                        "notificationId":  "d327e95f-c315-4644-8949-ba02df39eb3b",
+                        "channel":  1,
+                        "status":  1,
+                        "sentAtUtc":  "2026-03-30T05:47:36.2163446",
+                        "failureReason":  "",
+                        "emailed":  true
+                    }
+                ]
+}

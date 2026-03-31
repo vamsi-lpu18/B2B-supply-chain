@@ -1,0 +1,43 @@
+{
+    "summary":  {
+                    "dealerId":  "43b802ab-ba94-4475-95c2-70e98bce5e42",
+                    "dealerEmail":  "notify.core.20260330105633@supplychain.local",
+                    "orderId":  "35cd39b4-1019-4bb2-a863-2a71c3c13cb3",
+                    "invoiceId":  "dd395001-05aa-4394-88f4-4225cb783858",
+                    "allFound":  false,
+                    "allInDealerFeed":  false,
+                    "allEmailed":  false
+                },
+    "results":  [
+                    {
+                        "case":  "dealer_approved",
+                        "found":  false,
+                        "inDealerFeed":  false,
+                        "channel":  -1,
+                        "status":  -1,
+                        "emailed":  false,
+                        "notificationId":  "",
+                        "failureReason":  "Notification not found in timeout window."
+                    },
+                    {
+                        "case":  "order_successful_orderplaced",
+                        "found":  false,
+                        "inDealerFeed":  false,
+                        "channel":  -1,
+                        "status":  -1,
+                        "emailed":  false,
+                        "notificationId":  "",
+                        "failureReason":  "Notification not found in timeout window."
+                    },
+                    {
+                        "case":  "payment_invoice_generated",
+                        "found":  false,
+                        "inDealerFeed":  false,
+                        "channel":  -1,
+                        "status":  -1,
+                        "emailed":  false,
+                        "notificationId":  "",
+                        "failureReason":  "Notification not found in timeout window."
+                    }
+                ]
+}

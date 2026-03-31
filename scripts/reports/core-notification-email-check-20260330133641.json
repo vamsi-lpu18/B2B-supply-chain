@@ -1,0 +1,43 @@
+{
+    "summary":  {
+                    "dealerId":  "f10b77cd-6831-4fe8-9cec-885cb47b88a6",
+                    "dealerEmail":  "notify.core.20260330133641@supplychain.local",
+                    "orderId":  "596ffecf-e516-4399-ad63-d4dc92ae57f5",
+                    "invoiceId":  "219b1f0f-b648-4a6d-8470-a45109dd7d26",
+                    "allFound":  true,
+                    "allInDealerFeed":  true,
+                    "allEmailed":  true
+                },
+    "results":  [
+                    {
+                        "case":  "dealer_approved",
+                        "found":  true,
+                        "inDealerFeed":  true,
+                        "channel":  1,
+                        "status":  1,
+                        "emailed":  true,
+                        "notificationId":  "8202b56d-f71d-4ce0-a867-71a4efc0ca5f",
+                        "failureReason":  ""
+                    },
+                    {
+                        "case":  "order_successful_orderplaced",
+                        "found":  true,
+                        "inDealerFeed":  true,
+                        "channel":  1,
+                        "status":  1,
+                        "emailed":  true,
+                        "notificationId":  "d9395257-7c0d-4de9-9b76-114ff594d679",
+                        "failureReason":  ""
+                    },
+                    {
+                        "case":  "payment_invoice_generated",
+                        "found":  true,
+                        "inDealerFeed":  true,
+                        "channel":  1,
+                        "status":  1,
+                        "emailed":  true,
+                        "notificationId":  "ab5a7563-f0f6-43bb-bb6f-735f0b6c2d30",
+                        "failureReason":  ""
+                    }
+                ]
+}

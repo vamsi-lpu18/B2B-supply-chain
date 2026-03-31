@@ -1,0 +1,329 @@
+import { Component, inject, signal, OnInit, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { OrderApiService, AdminOrderApiService } from '../../../core/api/order-api.service';
+import { AuthStore } from '../../../core/stores/auth.store';
+import { ToastService } from '../../../core/services/toast.service';
+import { OrderDto } from '../../../core/models/order.models';
+import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRANSITIONS, UserRole, PaymentMode, CreditHoldStatus } from '../../../core/models/enums';
+
+@Component({
+  selector: 'app-order-detail',
+  standalone: true,
+  imports: [CommonModule, RouterLink, FormsModule],
+  template: `
+    <div class="page-content">
+      <div class="page-header">
+        <div>
+          <a routerLink="/orders" class="btn btn-ghost mb-2">← Orders</a>
+          <h1>{{ order()?.orderNumber ?? 'Order Detail' }}</h1>
+        </div>
+        <div class="d-flex gap-2 flex-wrap">
+          @if (canUpdateStatus()) {
+            <button class="btn btn-secondary" (click)="showStatusDialog.set(true)">Update Status</button>
+          }
+          @if (canCancel()) {
+            <button class="btn btn-danger" (click)="showCancelDialog.set(true)">Cancel Order</button>
+          }
+          @if (canReturn()) {
+            <button class="btn btn-secondary" (click)="showReturnDialog.set(true)">Request Return</button>
+          }
+          @if (canApproveHold()) {
+            <button class="btn btn-primary" (click)="approveHold()">Approve Hold</button>
+            <button class="btn btn-danger" (click)="showRejectHoldDialog.set(true)">Reject Hold</button>
+          }
+        </div>
+      </div>
+
+      @if (loading()) {
+        <div class="skeleton" style="height:400px;border-radius:8px"></div>
+      } @else if (order()) {
+        <!-- Header Card -->
+        <div class="card mb-4">
+          <div class="order-header-grid">
+            <div><span class="field-label">Status</span><span class="badge" [class]="statusBadge(order()!.status)">{{ statusLabel(order()!.status) }}</span></div>
+            <div><span class="field-label">Payment</span><span>{{ order()!.paymentMode === 0 ? 'COD' : 'PrePaid' }}</span></div>
+            <div><span class="field-label">Credit Hold</span><span>{{ creditHoldLabel(order()!.creditHoldStatus) }}</span></div>
+            <div><span class="field-label">Total</span><span class="fw-700 text-primary" style="font-size:18px">{{ order()!.totalAmount | currency:'INR':'symbol':'1.2-2' }}</span></div>
+            <div><span class="field-label">Placed At</span><span>{{ order()!.placedAtUtc | date:'dd MMM yyyy, HH:mm' }}</span></div>
+            <div><span class="field-label">Dealer ID</span><span class="text-xs text-secondary">{{ order()!.dealerId }}</span></div>
+          </div>
+          @if (order()!.cancellationReason) {
+            <div class="alert-error mt-4">Cancelled: {{ order()!.cancellationReason }}</div>
+          }
+        </div>
+
+        <!-- Order Lines -->
+        <div class="card mb-4">
+          <h2 class="mb-4">Order Items</h2>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead><tr><th>Product</th><th>SKU</th><th>Qty</th><th>Unit Price</th><th>Line Total</th></tr></thead>
+              <tbody>
+                @for (line of order()!.lines; track line.orderLineId) {
+                  <tr>
+                    <td class="fw-600">{{ line.productName }}</td>
+                    <td class="text-sm text-secondary">{{ line.sku }}</td>
+                    <td>{{ line.quantity }}</td>
+                    <td>{{ line.unitPrice | currency:'INR':'symbol':'1.2-2' }}</td>
+                    <td class="fw-600">{{ line.lineTotal | currency:'INR':'symbol':'1.2-2' }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Status History -->
+        <div class="card mb-4">
+          <h2 class="mb-4">Status History</h2>
+          <div class="timeline">
+            @for (h of order()!.statusHistory; track h.historyId) {
+              <div class="timeline-item">
+                <div class="timeline-time">{{ h.changedAtUtc | date:'dd MMM yyyy, HH:mm' }} · {{ h.changedByRole }}</div>
+                <div class="timeline-title">{{ statusLabel(h.fromStatus) }} → {{ statusLabel(h.toStatus) }}</div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- Return Request -->
+        @if (order()!.returnRequest) {
+          <div class="card">
+            <h2 class="mb-4">Return Request</h2>
+            <p><strong>Reason:</strong> {{ order()!.returnRequest!.reason }}</p>
+            <p><strong>Requested:</strong> {{ order()!.returnRequest!.requestedAtUtc | date:'dd MMM yyyy' }}</p>
+            @if (order()!.returnRequest!.isApproved) { <span class="badge badge-success">Approved</span> }
+            @if (order()!.returnRequest!.isRejected) { <span class="badge badge-error">Rejected</span> }
+          </div>
+        }
+      } @else {
+        <div class="empty-state">
+          <div class="empty-icon">❌</div>
+          <div class="empty-title">Order not found</div>
+          <a routerLink="/orders" class="btn btn-primary mt-4">Back to Orders</a>
+        </div>
+      }
+
+      <!-- Cancel Dialog -->
+      @if (showCancelDialog()) {
+        <div class="modal-backdrop" (click)="showCancelDialog.set(false)">
+          <div class="modal" (click)="$event.stopPropagation()">
+            <div class="modal-header"><h2>Cancel Order</h2><button class="btn btn-ghost btn-icon" (click)="showCancelDialog.set(false)">✕</button></div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Reason *</label>
+                <textarea class="form-control" [(ngModel)]="cancelReason" rows="3" maxlength="500" placeholder="Reason for cancellation..."></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" (click)="showCancelDialog.set(false)">Back</button>
+              <button class="btn btn-danger" (click)="cancelOrder()" [disabled]="!cancelReason.trim() || actionLoading()">Cancel Order</button>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- Return Dialog -->
+      @if (showReturnDialog()) {
+        <div class="modal-backdrop" (click)="showReturnDialog.set(false)">
+          <div class="modal" (click)="$event.stopPropagation()">
+            <div class="modal-header"><h2>Request Return</h2><button class="btn btn-ghost btn-icon" (click)="showReturnDialog.set(false)">✕</button></div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Reason *</label>
+                <textarea class="form-control" [(ngModel)]="returnReason" rows="3" maxlength="500" placeholder="Reason for return..."></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" (click)="showReturnDialog.set(false)">Back</button>
+              <button class="btn btn-primary" (click)="requestReturn()" [disabled]="!returnReason.trim() || actionLoading()">Submit Return</button>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- Update Status Dialog -->
+      @if (showStatusDialog()) {
+        <div class="modal-backdrop" (click)="showStatusDialog.set(false)">
+          <div class="modal" (click)="$event.stopPropagation()">
+            <div class="modal-header"><h2>Update Status</h2><button class="btn btn-ghost btn-icon" (click)="showStatusDialog.set(false)">✕</button></div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>New Status</label>
+                <select class="form-control" [(ngModel)]="newStatus">
+                  @for (s of nextStatuses(); track s) {
+                    <option [ngValue]="s">{{ statusLabel(s) }}</option>
+                  }
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" (click)="showStatusDialog.set(false)">Cancel</button>
+              <button class="btn btn-primary" (click)="updateStatus()" [disabled]="actionLoading() || nextStatuses().length === 0">Update</button>
+            </div>
+          </div>
+        </div>
+      }
+
+      <!-- Reject Hold Dialog -->
+      @if (showRejectHoldDialog()) {
+        <div class="modal-backdrop" (click)="showRejectHoldDialog.set(false)">
+          <div class="modal" (click)="$event.stopPropagation()">
+            <div class="modal-header"><h2>Reject Hold</h2><button class="btn btn-ghost btn-icon" (click)="showRejectHoldDialog.set(false)">✕</button></div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Reason</label>
+                <textarea class="form-control" [(ngModel)]="rejectHoldReason" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" (click)="showRejectHoldDialog.set(false)">Cancel</button>
+              <button class="btn btn-danger" (click)="rejectHold()" [disabled]="actionLoading()">Reject</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  `,
+  styles: [`
+    .order-header-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .field-label { display: block; font-size: 11px; color: #616161; text-transform: uppercase; margin-bottom: 4px; }
+    .alert-error { background: #ffebee; color: #c62828; border-radius: 4px; padding: 10px 12px; font-size: 14px; }
+    @media (max-width: 600px) { .order-header-grid { grid-template-columns: repeat(2, 1fr); } }
+  `]
+})
+export class OrderDetailComponent implements OnInit {
+  readonly id = input.required<string>();
+
+  private readonly orderApi      = inject(OrderApiService);
+  private readonly adminOrderApi = inject(AdminOrderApiService);
+  private readonly authStore     = inject(AuthStore);
+  private readonly toast         = inject(ToastService);
+
+  readonly loading             = signal(true);
+  readonly actionLoading       = signal(false);
+  readonly order               = signal<OrderDto | null>(null);
+  readonly showCancelDialog    = signal(false);
+  readonly showReturnDialog    = signal(false);
+  readonly showStatusDialog    = signal(false);
+  readonly showRejectHoldDialog = signal(false);
+
+  cancelReason    = '';
+  returnReason    = '';
+  rejectHoldReason = '';
+  newStatus: OrderStatus = OrderStatus.Processing;
+
+  statusLabel(s: OrderStatus): string { return ORDER_STATUS_LABELS[s] ?? String(s); }
+  statusBadge(s: OrderStatus): string { return `badge ${ORDER_STATUS_BADGE[s] ?? 'badge-neutral'}`; }
+  creditHoldLabel(s: CreditHoldStatus): string {
+    return ['Not Required', 'Pending Approval', 'Approved', 'Rejected'][s] ?? String(s);
+  }
+
+  readonly isDealer    = () => this.authStore.hasRole(UserRole.Dealer);
+  readonly isAdmin     = () => this.authStore.hasRole(UserRole.Admin);
+  readonly isStaff     = () => this.authStore.hasRole(UserRole.Admin, UserRole.Warehouse, UserRole.Logistics);
+
+  canCancel(): boolean {
+    const o = this.order();
+    if (!o) return false;
+    if (this.isDealer()) return o.status === OrderStatus.Placed || o.status === OrderStatus.OnHold;
+    if (this.isAdmin()) return o.status !== OrderStatus.Cancelled && o.status !== OrderStatus.Closed;
+    return false;
+  }
+  canReturn(): boolean { return this.isDealer() && this.order()?.status === OrderStatus.Delivered; }
+  canUpdateStatus(): boolean {
+    return this.isStaff() && this.nextStatuses().length > 0;
+  }
+  canApproveHold(): boolean { return this.isAdmin() && this.order()?.status === OrderStatus.OnHold; }
+
+  nextStatuses(): OrderStatus[] {
+    const cur = this.order()?.status;
+    if (cur === undefined) return [];
+    return ORDER_STATUS_TRANSITIONS[cur] ?? [];
+  }
+
+  ngOnInit(): void { this.loadOrder(); }
+
+  loadOrder(): void {
+    this.orderApi.getOrderById(this.id()).subscribe({
+      next: o => {
+        this.order.set(o);
+        const nexts = ORDER_STATUS_TRANSITIONS[o.status] ?? [];
+        if (nexts.length > 0) this.newStatus = nexts[0];
+        this.loading.set(false);
+      },
+      error: () => { this.order.set(null); this.loading.set(false); }
+    });
+  }
+
+  cancelOrder(): void {
+    if (!this.cancelReason.trim()) return;
+    this.actionLoading.set(true);
+    this.orderApi.cancelOrder(this.id(), { reason: this.cancelReason }).subscribe({
+      next: () => { this.toast.success('Order cancelled'); this.showCancelDialog.set(false); this.loadOrder(); this.actionLoading.set(false); },
+      error: err => {
+        this.toast.error(this.getErrorMessage(err, 'Failed to cancel order'));
+        this.actionLoading.set(false);
+      }
+    });
+  }
+
+  requestReturn(): void {
+    if (!this.returnReason.trim()) return;
+    this.actionLoading.set(true);
+    this.orderApi.requestReturn(this.id(), { reason: this.returnReason }).subscribe({
+      next: () => { this.toast.success('Return request submitted'); this.showReturnDialog.set(false); this.loadOrder(); this.actionLoading.set(false); },
+      error: err => {
+        this.toast.error(this.getErrorMessage(err, 'Failed to submit return request'));
+        this.actionLoading.set(false);
+      }
+    });
+  }
+
+  updateStatus(): void {
+    const allowed = this.nextStatuses();
+    const nextStatus = Number(this.newStatus) as OrderStatus;
+    if (allowed.length === 0 || !allowed.includes(nextStatus)) {
+      this.toast.error('No valid status transition available for this order');
+      return;
+    }
+
+    this.actionLoading.set(true);
+    this.orderApi.updateStatus(this.id(), { newStatus: nextStatus }).subscribe({
+      next: () => { this.toast.success('Status updated'); this.showStatusDialog.set(false); this.loadOrder(); this.actionLoading.set(false); },
+      error: err => {
+        this.toast.error(this.getErrorMessage(err, 'Failed to update order status'));
+        this.actionLoading.set(false);
+      }
+    });
+  }
+
+  approveHold(): void {
+    this.actionLoading.set(true);
+    this.adminOrderApi.approveHold(this.id()).subscribe({
+      next: () => { this.toast.success('Hold approved'); this.loadOrder(); this.actionLoading.set(false); },
+      error: err => {
+        this.toast.error(this.getErrorMessage(err, 'Failed to approve hold'));
+        this.actionLoading.set(false);
+      }
+    });
+  }
+
+  rejectHold(): void {
+    this.actionLoading.set(true);
+    this.adminOrderApi.rejectHold(this.id(), { reason: this.rejectHoldReason }).subscribe({
+      next: () => { this.toast.success('Hold rejected'); this.showRejectHoldDialog.set(false); this.loadOrder(); this.actionLoading.set(false); },
+      error: err => {
+        this.toast.error(this.getErrorMessage(err, 'Failed to reject hold'));
+        this.actionLoading.set(false);
+      }
+    });
+  }
+
+  private getErrorMessage(err: unknown, fallback: string): string {
+    const candidate = err as { error?: { message?: string; title?: string } };
+    return candidate?.error?.message ?? candidate?.error?.title ?? fallback;
+  }
+}

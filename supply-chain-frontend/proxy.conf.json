@@ -1,0 +1,38 @@
+{
+  "/identity": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  },
+  "/catalog": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  },
+  "/orders/api": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  },
+  "/logistics": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  },
+  "/payments": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  },
+  "/notifications/api": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  }
+}
