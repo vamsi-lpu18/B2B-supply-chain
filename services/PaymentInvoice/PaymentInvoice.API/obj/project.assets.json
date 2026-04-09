@@ -4927,6 +4927,7 @@
       "PaymentInvoice.Application >= 1.0.0",
       "PaymentInvoice.Infrastructure >= 1.0.0",
       "Serilog.AspNetCore >= 10.0.0",
+      "Serilog.Sinks.File >= 7.0.0",
       "SharedKernel >= 1.0.0",
       "Swashbuckle.AspNetCore >= 10.1.7"
     ]
@@ -4965,8 +4966,8 @@
             "C:\\Users\\Hey\\Desktop\\demo\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
               "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\BuildingBlocks\\BuildingBlocks.csproj"
             },
-            "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
-              "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
+            "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
+              "projectPath": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
             }
           }
         }
@@ -5012,6 +5013,10 @@
           "Serilog.AspNetCore": {
             "target": "Package",
             "version": "[10.0.0, )"
+          },
+          "Serilog.Sinks.File": {
+            "target": "Package",
+            "version": "[7.0.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

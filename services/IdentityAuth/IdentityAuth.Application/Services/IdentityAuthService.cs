@@ -1,6 +1,7 @@
 using FluentValidation;
 using IdentityAuth.Application.Abstractions;
 using IdentityAuth.Application.DTOs;
+using IdentityAuth.Application.Exceptions;
 using IdentityAuth.Domain.Entities;
 using IdentityAuth.Domain.Enums;
 
@@ -27,12 +28,12 @@ public sealed class IdentityAuthService(
 
         if (await userRepository.EmailExistsAsync(request.Email, cancellationToken))
         {
-            throw new InvalidOperationException("Email is already registered.");
+            throw new DomainValidationException("Email is already registered.");
         }
 
         if (await userRepository.GstExistsAsync(request.GstNumber, cancellationToken))
         {
-            throw new InvalidOperationException("GST number is already registered.");
+            throw new DomainValidationException("GST number is already registered.");
         }
 
         var passwordHash = passwordService.HashPassword(request.Password);
@@ -80,7 +81,7 @@ public sealed class IdentityAuthService(
 
         if (user.Status != UserStatus.Active)
         {
-            throw new InvalidOperationException($"User status is '{user.Status}'. Login is not allowed.");
+            throw new DomainValidationException($"User status is '{user.Status}'. Login is not allowed.");
         }
 
         var accessToken = tokenService.GenerateAccessToken(user);

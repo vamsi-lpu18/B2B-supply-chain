@@ -17,7 +17,11 @@ var builder = WebApplication.CreateBuilder(args);
 var jwtSecret = builder.Configuration["Jwt:SecretKey"]
     ?? "ThisIsADevelopmentOnlySecretKey_ChangeForProduction_2026";
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "SupplyChainPlatform";
-var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "SupplyChainPlatform.Client";
+var jwtAudiences = builder.Configuration.GetSection("Jwt:Audiences").Get<string[]>();
+if (jwtAudiences is null || jwtAudiences.Length == 0)
+{
+    jwtAudiences = new[] { builder.Configuration["Jwt:Audience"] ?? "SupplyChainPlatform.Client" };
+}
 var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret));
 
 builder.Host.UseSerilog((context, loggerConfiguration) =>
@@ -50,7 +54,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuer = true,
             ValidIssuer = jwtIssuer,
             ValidateAudience = true,
-            ValidAudience = jwtAudience,
+            ValidAudiences = jwtAudiences,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = signingKey,
             ValidateLifetime = true,

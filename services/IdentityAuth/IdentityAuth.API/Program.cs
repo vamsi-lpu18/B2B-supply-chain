@@ -3,6 +3,7 @@ using Hangfire.SqlServer;
 using IdentityAuth.API.Jobs;
 using IdentityAuth.Application;
 using IdentityAuth.Application.Abstractions;
+using IdentityAuth.Application.Exceptions;
 using IdentityAuth.Domain.Entities;
 using IdentityAuth.Domain.Enums;
 using IdentityAuth.Infrastructure;
@@ -21,7 +22,11 @@ var builder = WebApplication.CreateBuilder(args);
 var jwtSecret = builder.Configuration["Jwt:SecretKey"]
     ?? throw new InvalidOperationException("Jwt:SecretKey is missing.");
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "SupplyChainPlatform";
-var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "SupplyChainPlatform.Client";
+var jwtAudiences = builder.Configuration.GetSection("Jwt:Audiences").Get<string[]>();
+if (jwtAudiences is null || jwtAudiences.Length == 0)
+{
+    jwtAudiences = new[] { builder.Configuration["Jwt:Audience"] ?? "SupplyChainPlatform.Client" };
+}
 var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret));
 
 builder.Host.UseSerilog((context, loggerConfiguration) =>
@@ -54,7 +59,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuer = true,
             ValidIssuer = jwtIssuer,
             ValidateAudience = true,
-            ValidAudience = jwtAudience,
+            ValidAudiences = jwtAudiences,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = signingKey,
             ValidateLifetime = true,
@@ -144,6 +149,11 @@ app.Use(async (context, next) =>
     catch (UnauthorizedAccessException ex)
     {
         context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+        await context.Response.WriteAsJsonAsync(new { message = ex.Message });
+    }
+    catch (DomainValidationException ex)
+    {
+        context.Response.StatusCode = StatusCodes.Status400BadRequest;
         await context.Response.WriteAsJsonAsync(new { message = ex.Message });
     }
     catch (InvalidOperationException ex)

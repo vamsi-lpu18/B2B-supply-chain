@@ -14,6 +14,7 @@
           "Ocelot": "24.1.0",
           "Ocelot.Provider.Polly": "24.1.0",
           "Serilog.AspNetCore": "10.0.0",
+          "Serilog.Sinks.File": "7.0.0",
           "SharedKernel": "1.0.0",
           "Swashbuckle.AspNetCore": "10.1.7"
         },

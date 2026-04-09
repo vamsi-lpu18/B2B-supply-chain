@@ -32,8 +32,8 @@
               "C:\\Users\\Hey\\Desktop\\demo\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
                 "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\BuildingBlocks\\BuildingBlocks.csproj"
               },
-              "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
-                "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
+              "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
+                "projectPath": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
               }
             }
           }
@@ -379,8 +379,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
-                "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
+              "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
+                "projectPath": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
               }
             }
           }
@@ -725,8 +725,8 @@
               "C:\\Users\\Hey\\Desktop\\demo\\src\\BuildingBlocks\\BuildingBlocks.csproj": {
                 "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\BuildingBlocks\\BuildingBlocks.csproj"
               },
-              "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
-                "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
+              "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
+                "projectPath": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
               }
             }
           }
@@ -1102,8 +1102,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
-                "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
+              "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
+                "projectPath": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
               }
             }
           }
@@ -1455,14 +1455,14 @@
         }
       }
     },
-    "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
+    "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj",
+        "projectUniqueName": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj",
         "projectName": "SharedKernel",
-        "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj",
+        "projectPath": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj",
         "packagesPath": "C:\\Users\\Hey\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\obj\\",
+        "outputPath": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hey\\AppData\\Roaming\\NuGet\\NuGet.Config"

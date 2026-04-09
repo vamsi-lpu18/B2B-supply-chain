@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Polly;
 using Serilog;
 using System.Text;
 
@@ -19,7 +20,11 @@ builder.Host.UseSerilog((context, loggerConfiguration) =>
 var jwtSecret = builder.Configuration["Jwt:SecretKey"]
     ?? "ThisIsADevelopmentOnlySecretKey_ChangeForProduction_2026";
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "SupplyChainPlatform";
-var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "SupplyChainPlatform.Client";
+var jwtAudiences = builder.Configuration.GetSection("Jwt:Audiences").Get<string[]>();
+if (jwtAudiences is null || jwtAudiences.Length == 0)
+{
+    jwtAudiences = new[] { builder.Configuration["Jwt:Audience"] ?? "SupplyChainPlatform.Client" };
+}
 var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret));
 
 builder.Services.AddCors(options =>
@@ -41,7 +46,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuer = true,
             ValidIssuer = jwtIssuer,
             ValidateAudience = true,
-            ValidAudience = jwtAudience,
+            ValidAudiences = jwtAudiences,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = signingKey,
             ValidateLifetime = true,
@@ -53,7 +58,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
-builder.Services.AddOcelot(builder.Configuration);
+builder.Services.AddOcelot(builder.Configuration).AddPolly();
 
 var app = builder.Build();
 
