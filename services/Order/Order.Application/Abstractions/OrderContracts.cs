@@ -11,6 +11,7 @@ public interface IOrderService
     Task<PagedResult<OrderListItemDto>> GetDealerOrdersAsync(Guid dealerId, int page, int pageSize, CancellationToken cancellationToken);
     Task<PagedResult<OrderListItemDto>> GetAllOrdersAsync(int page, int pageSize, int? status, CancellationToken cancellationToken);
     Task<bool> UpdateOrderStatusAsync(Guid orderId, OrderStatus newStatus, Guid changedByUserId, string changedByRole, CancellationToken cancellationToken);
+    Task<BulkUpdateOrderStatusResultDto> BulkUpdateOrderStatusAsync(BulkUpdateOrderStatusRequest request, Guid changedByUserId, string changedByRole, CancellationToken cancellationToken);
     Task<bool> CancelOrderAsync(Guid orderId, string reason, Guid changedByUserId, string changedByRole, CancellationToken cancellationToken);
     Task<bool> ApproveOnHoldAsync(Guid orderId, Guid adminUserId, CancellationToken cancellationToken);
     Task<bool> RejectOnHoldAsync(Guid orderId, string reason, Guid adminUserId, CancellationToken cancellationToken);
@@ -21,6 +22,7 @@ public interface IOrderRepository
 {
     Task AddOrderAsync(OrderAggregate order, CancellationToken cancellationToken);
     Task<OrderAggregate?> GetOrderByIdAsync(Guid orderId, CancellationToken cancellationToken);
+    Task<IReadOnlyList<OrderAggregate>> GetOrdersByIdsAsync(IReadOnlyCollection<Guid> orderIds, CancellationToken cancellationToken);
     Task<(IReadOnlyList<OrderAggregate> Items, int TotalCount)> GetDealerOrdersAsync(Guid dealerId, int page, int pageSize, CancellationToken cancellationToken);
     Task<(IReadOnlyList<OrderAggregate> Items, int TotalCount)> GetAllOrdersAsync(int page, int pageSize, int? status, CancellationToken cancellationToken);
     Task AddOutboxMessageAsync(string eventType, object payload, CancellationToken cancellationToken);
@@ -30,4 +32,15 @@ public interface IOrderRepository
 public interface ICreditCheckGateway
 {
     Task<CreditCheckResult> CheckCreditAsync(Guid dealerId, decimal amount, CancellationToken cancellationToken);
+}
+
+public interface IOrderSagaCoordinator
+{
+    Task StartAsync(Guid orderId, string orderNumber, Guid dealerId, CancellationToken cancellationToken = default);
+    Task MarkCreditCheckInProgressAsync(Guid orderId, CancellationToken cancellationToken = default);
+    Task MarkAwaitingManualApprovalAsync(Guid orderId, string? message, CancellationToken cancellationToken = default);
+    Task MarkCompletedApprovedAsync(Guid orderId, string? message, CancellationToken cancellationToken = default);
+    Task MarkCompletedRejectedAsync(Guid orderId, string? message, CancellationToken cancellationToken = default);
+    Task MarkCompletedCancelledAsync(Guid orderId, string? message, CancellationToken cancellationToken = default);
+    Task<OrderSagaDto?> GetAsync(Guid orderId, CancellationToken cancellationToken = default);
 }

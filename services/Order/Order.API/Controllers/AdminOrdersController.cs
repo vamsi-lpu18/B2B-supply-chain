@@ -20,6 +20,20 @@ public sealed class AdminOrdersController(IOrderService orderService) : Controll
         return Ok(result);
     }
 
+    [HttpPost("bulk-status")]
+    [ProducesResponseType(typeof(BulkUpdateOrderStatusResultDto), StatusCodes.Status200OK)]
+    public async Task<IActionResult> BulkUpdateStatus([FromBody] BulkUpdateOrderStatusRequest request, CancellationToken cancellationToken)
+    {
+        if (!TryGetUserId(out var userId))
+        {
+            return Unauthorized(new { message = "Invalid token." });
+        }
+
+        var role = User.FindFirst(ClaimTypes.Role)?.Value ?? "System";
+        var result = await orderService.BulkUpdateOrderStatusAsync(request, userId, role, cancellationToken);
+        return Ok(result);
+    }
+
     [HttpPut("{id:guid}/approve-hold")]
     public async Task<IActionResult> ApproveHold(Guid id, CancellationToken cancellationToken)
     {

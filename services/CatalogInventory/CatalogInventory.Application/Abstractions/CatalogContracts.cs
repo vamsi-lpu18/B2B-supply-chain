@@ -10,9 +10,9 @@ public interface ICatalogInventoryService
     Task<ProductDto?> UpdateProductAsync(Guid productId, UpdateProductRequest request, CancellationToken cancellationToken);
     Task<bool> DeactivateProductAsync(Guid productId, CancellationToken cancellationToken);
     Task<bool> RestockProductAsync(Guid productId, RestockProductRequest request, CancellationToken cancellationToken);
-    Task<PagedResult<ProductListItemDto>> GetProductListAsync(int page, int size, CancellationToken cancellationToken);
+    Task<PagedResult<ProductListItemDto>> GetProductListAsync(int page, int size, bool includeInactive, CancellationToken cancellationToken);
     Task<ProductDto?> GetProductDetailAsync(Guid productId, CancellationToken cancellationToken);
-    Task<IReadOnlyList<ProductListItemDto>> SearchProductsAsync(string query, CancellationToken cancellationToken);
+    Task<IReadOnlyList<ProductListItemDto>> SearchProductsAsync(string query, bool includeInactive, CancellationToken cancellationToken);
     Task<StockLevelDto?> GetStockLevelAsync(Guid productId, CancellationToken cancellationToken);
     Task<bool> SoftLockStockAsync(SoftLockStockRequest request, CancellationToken cancellationToken);
     Task<bool> HardDeductStockAsync(HardDeductStockRequest request, CancellationToken cancellationToken);
@@ -28,8 +28,8 @@ public interface IProductRepository
     Task<bool> CategoryExistsAsync(Guid categoryId, CancellationToken cancellationToken);
     Task<Product?> GetProductByIdAsync(Guid productId, CancellationToken cancellationToken);
     Task<Product?> GetProductBySkuAsync(string sku, CancellationToken cancellationToken);
-    Task<(IReadOnlyList<Product> Items, int TotalCount)> GetProductPageAsync(int page, int size, CancellationToken cancellationToken);
-    Task<IReadOnlyList<Product>> SearchProductsAsync(string query, CancellationToken cancellationToken);
+    Task<(IReadOnlyList<Product> Items, int TotalCount)> GetProductPageAsync(int page, int size, bool includeInactive, CancellationToken cancellationToken);
+    Task<IReadOnlyList<Product>> SearchProductsAsync(string query, bool includeInactive, CancellationToken cancellationToken);
     Task AddStockTransactionAsync(StockTransaction transaction, CancellationToken cancellationToken);
     Task<bool> StockSubscriptionExistsAsync(Guid dealerId, Guid productId, CancellationToken cancellationToken);
     Task AddStockSubscriptionAsync(StockSubscription subscription, CancellationToken cancellationToken);

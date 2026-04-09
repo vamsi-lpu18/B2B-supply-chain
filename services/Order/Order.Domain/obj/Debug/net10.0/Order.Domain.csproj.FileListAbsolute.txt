@@ -13,3 +13,4 @@ C:\Users\Hey\Desktop\demo\services\Order\Order.Domain\obj\Debug\net10.0\Order.Do
 C:\Users\Hey\Desktop\demo\services\Order\Order.Domain\obj\Debug\net10.0\refint\Order.Domain.dll
 C:\Users\Hey\Desktop\demo\services\Order\Order.Domain\obj\Debug\net10.0\Order.Domain.pdb
 C:\Users\Hey\Desktop\demo\services\Order\Order.Domain\obj\Debug\net10.0\ref\Order.Domain.dll
+C:\Users\Hey\Desktop\demo\services\Order\Order.Domain\obj\Debug\net10.0\Order.Domain.sourcelink.json

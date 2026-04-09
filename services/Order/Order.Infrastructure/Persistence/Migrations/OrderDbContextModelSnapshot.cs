@@ -218,6 +218,43 @@ namespace Order.Infrastructure.Persistence.Migrations
                     b.ToTable("ReturnRequests", (string)null);
                 });
 
+            modelBuilder.Entity("Order.Infrastructure.Persistence.OrderSagaStateEntity", b =>
+                {
+                    b.Property<Guid>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CompletedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CurrentState")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<Guid>("DealerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LastMessage")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("OrderNumber")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("nvarchar(32)");
+
+                    b.Property<DateTime>("StartedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("OrderSagaStates", (string)null);
+                });
+
             modelBuilder.Entity("Order.Domain.Entities.OrderLine", b =>
                 {
                     b.HasOne("Order.Domain.Entities.OrderAggregate", null)

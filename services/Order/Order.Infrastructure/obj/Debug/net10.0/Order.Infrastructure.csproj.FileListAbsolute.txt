@@ -21,3 +21,4 @@ C:\Users\Hey\Desktop\demo\services\Order\Order.Infrastructure\obj\Debug\net10.0\
 C:\Users\Hey\Desktop\demo\services\Order\Order.Infrastructure\obj\Debug\net10.0\Order.Infrastructure.pdb
 C:\Users\Hey\Desktop\demo\services\Order\Order.Infrastructure\obj\Debug\net10.0\Order.Infrastructure.genruntimeconfig.cache
 C:\Users\Hey\Desktop\demo\services\Order\Order.Infrastructure\obj\Debug\net10.0\ref\Order.Infrastructure.dll
+C:\Users\Hey\Desktop\demo\services\Order\Order.Infrastructure\obj\Debug\net10.0\Order.Infrastructure.sourcelink.json

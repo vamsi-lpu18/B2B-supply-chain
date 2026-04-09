@@ -16,6 +16,11 @@ public interface IPaymentInvoiceService
     Task<string?> GetInvoicePdfPathAsync(Guid invoiceId, CancellationToken cancellationToken);
     Task<GatewayOrderDto> CreateGatewayOrderAsync(Guid dealerId, CreateGatewayOrderRequest request, CancellationToken cancellationToken);
     Task<GatewayPaymentVerificationDto> VerifyGatewayPaymentAsync(Guid dealerId, VerifyGatewayPaymentRequest request, CancellationToken cancellationToken);
+    Task<InvoiceWorkflowStateDto?> GetInvoiceWorkflowAsync(Guid invoiceId, CancellationToken cancellationToken);
+    Task<IReadOnlyList<InvoiceWorkflowStateDto>> GetDealerInvoiceWorkflowsAsync(Guid dealerId, CancellationToken cancellationToken);
+    Task<InvoiceWorkflowStateDto?> UpsertInvoiceWorkflowAsync(Guid invoiceId, UpsertInvoiceWorkflowRequest request, CancellationToken cancellationToken);
+    Task<IReadOnlyList<InvoiceWorkflowActivityDto>> GetInvoiceWorkflowActivitiesAsync(Guid invoiceId, CancellationToken cancellationToken);
+    Task<InvoiceWorkflowActivityDto?> AddInvoiceWorkflowActivityAsync(Guid invoiceId, AddInvoiceWorkflowActivityRequest request, CancellationToken cancellationToken);
 }
 
 public interface IPaymentRepository
@@ -25,6 +30,11 @@ public interface IPaymentRepository
     Task<Invoice?> GetInvoiceByIdAsync(Guid invoiceId, CancellationToken cancellationToken);
     Task<Invoice?> GetInvoiceByIdempotencyKeyAsync(string idempotencyKey, CancellationToken cancellationToken);
     Task<IReadOnlyList<Invoice>> GetDealerInvoicesAsync(Guid dealerId, CancellationToken cancellationToken);
+    Task<InvoiceWorkflowState?> GetInvoiceWorkflowAsync(Guid invoiceId, CancellationToken cancellationToken);
+    Task<IReadOnlyList<InvoiceWorkflowState>> GetDealerInvoiceWorkflowsAsync(Guid dealerId, CancellationToken cancellationToken);
+    Task UpsertInvoiceWorkflowAsync(InvoiceWorkflowState workflowState, CancellationToken cancellationToken);
+    Task<IReadOnlyList<InvoiceWorkflowActivity>> GetInvoiceWorkflowActivitiesAsync(Guid invoiceId, CancellationToken cancellationToken);
+    Task AddInvoiceWorkflowActivityAsync(InvoiceWorkflowActivity activity, CancellationToken cancellationToken);
     Task AddInvoiceAsync(Invoice invoice, CancellationToken cancellationToken);
     Task AddPaymentRecordAsync(PaymentRecord record, CancellationToken cancellationToken);
     Task AddOutboxMessageAsync(string eventType, object payload, CancellationToken cancellationToken);

@@ -209,3 +209,7 @@ C:\Users\Hey\Desktop\demo\services\Notification\Notification.API\obj\Debug\net10
 C:\Users\Hey\Desktop\demo\services\Notification\Notification.API\obj\Debug\net10.0\Notification.API.pdb
 C:\Users\Hey\Desktop\demo\services\Notification\Notification.API\obj\Debug\net10.0\Notification.API.genruntimeconfig.cache
 C:\Users\Hey\Desktop\demo\services\Notification\Notification.API\obj\Debug\net10.0\ref\Notification.API.dll
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.API\obj\Debug\net10.0\Notification.API.sourcelink.json
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.API\bin\Debug\net10.0\Hangfire.AspNetCore.dll
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.API\bin\Debug\net10.0\Hangfire.NetCore.dll
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.API\bin\Debug\net10.0\Hangfire.SqlServer.dll

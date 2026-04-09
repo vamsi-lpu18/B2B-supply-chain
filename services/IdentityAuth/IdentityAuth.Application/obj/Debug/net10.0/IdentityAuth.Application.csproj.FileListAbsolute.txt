@@ -17,3 +17,4 @@ C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Application\obj\Deb
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Application\obj\Debug\net10.0\refint\IdentityAuth.Application.dll
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Application\obj\Debug\net10.0\IdentityAuth.Application.pdb
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Application\obj\Debug\net10.0\ref\IdentityAuth.Application.dll
+C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Application\obj\Debug\net10.0\IdentityAuth.Application.sourcelink.json

@@ -56,6 +56,28 @@ public sealed class OrdersController(IOrderService orderService) : ControllerBas
         return order is null ? NotFound() : Ok(order);
     }
 
+    [HttpGet("{id:guid}/saga")]
+    [ProducesResponseType(typeof(OrderSagaDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetSagaByOrderId(Guid id, CancellationToken cancellationToken)
+    {
+        if (!TryGetUserId(out var userId))
+        {
+            return Unauthorized(new { message = "Invalid token." });
+        }
+
+        var role = User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? string.Empty;
+        var order = await orderService.GetOrderAsync(id, userId, role, cancellationToken);
+        if (order is null)
+        {
+            return NotFound();
+        }
+
+        return order.Saga is null
+            ? NotFound(new { message = "Saga state not found for this order." })
+            : Ok(order.Saga);
+    }
+
     [HttpPut("{id:guid}/status")]
     [Authorize(Roles = "Admin,Warehouse,Logistics")]
     public async Task<IActionResult> UpdateStatus(Guid id, [FromBody] UpdateOrderStatusRequest request, CancellationToken cancellationToken)

@@ -75,11 +75,36 @@ import { buildProductPlaceholderDataUrl, enterpriseProductFallbackImageUrl, reso
             <p class="text-xs text-secondary mb-4">Updated {{ relativeTime(product()!.updatedAtUtc) }}</p>
 
             @if (isDealer()) {
-              <div class="add-to-cart d-flex gap-3 align-center">
-                <input type="number" class="form-control" style="width:100px"
-                       [(ngModel)]="qty" [min]="product()!.minOrderQty" [max]="product()!.availableStock">
+              <div class="add-to-cart">
+                <div class="text-sm text-secondary mb-2">Order Quantity</div>
+                <div class="d-flex gap-3 align-center flex-wrap">
+                  <div class="qty-control">
+                    <button type="button" class="qty-btn" (click)="stepQty(-1)" [disabled]="!canPurchase()">-</button>
+                    <input type="number"
+                           class="form-control qty-input"
+                           [ngModel]="qty"
+                           (ngModelChange)="onQtyInput($event)"
+                           (blur)="onQtyBlur()"
+                           [min]="product()!.minOrderQty"
+                           [max]="maxPurchasable()"
+                           [step]="product()!.minOrderQty">
+                    <button type="button" class="qty-btn" (click)="stepQty(1)" [disabled]="!canPurchase()">+</button>
+                  </div>
+
+                  <button type="button" class="btn btn-secondary btn-sm" (click)="setQtyToMin()" [disabled]="!canPurchase()">
+                    Min {{ product()!.minOrderQty }}
+                  </button>
+                  <button type="button" class="btn btn-secondary btn-sm" (click)="setQtyToMax()" [disabled]="!canPurchase() || maxPurchasable() === 0">
+                    Max {{ maxPurchasable() }}
+                  </button>
+                </div>
+
+                <div class="text-xs text-secondary mt-2">
+                  Step {{ product()!.minOrderQty }} · Available {{ product()!.availableStock }}
+                </div>
+
                 <button class="btn btn-primary btn-lg"
-                        [disabled]="!product()!.isActive || product()!.availableStock === 0"
+                        [disabled]="!canPurchase()"
                         (click)="addToCart()">
                   🛒 Add to Cart
                 </button>
@@ -133,6 +158,41 @@ import { buildProductPlaceholderDataUrl, enterpriseProductFallbackImageUrl, reso
     .stock-item { background: #f5f7fa; border-radius: 8px; padding: 12px; text-align: center; }
     .stock-label { display: block; font-size: 11px; color: #616161; text-transform: uppercase; margin-bottom: 4px; }
     .stock-value { font-size: 20px; font-weight: 700; }
+    .qty-control {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .qty-btn {
+      width: 36px;
+      height: 38px;
+      border: none;
+      background: #f8fafc;
+      color: #0f172a;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .qty-btn:disabled {
+      cursor: not-allowed;
+      opacity: .45;
+    }
+    .qty-input {
+      width: 110px;
+      border: none;
+      border-left: 1px solid #e2e8f0;
+      border-right: 1px solid #e2e8f0;
+      border-radius: 0;
+      text-align: center;
+      font-weight: 600;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    .qty-input:focus {
+      box-shadow: none;
+    }
     .ml-2 { margin-left: 8px; }
     @media (max-width: 768px) { .product-detail-layout { grid-template-columns: 1fr; } .stock-grid { grid-template-columns: repeat(2, 1fr); } }
   `]
@@ -160,16 +220,94 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.catalogApi.getProductById(this.id()).subscribe({
-      next: p => { this.product.set(p); this.qty = p.minOrderQty; this.loading.set(false); },
+      next: p => { this.product.set(p); this.qty = this.normalizeQty(p.minOrderQty); this.loading.set(false); },
       error: () => { this.product.set(null); this.loading.set(false); }
     });
   }
 
+  canPurchase(): boolean {
+    const p = this.product();
+    if (!p) {
+      return false;
+    }
+
+    if (!p.isActive || p.availableStock <= 0) {
+      return false;
+    }
+
+    return this.maxPurchasable() > 0;
+  }
+
+  maxPurchasable(): number {
+    const p = this.product();
+    if (!p) {
+      return 0;
+    }
+
+    if (p.availableStock < p.minOrderQty) {
+      return 0;
+    }
+
+    return Math.floor(p.availableStock / p.minOrderQty) * p.minOrderQty;
+  }
+
+  onQtyInput(value: string | number): void {
+    const parsed = Number(value);
+    if (!Number.isFinite(parsed)) {
+      return;
+    }
+
+    this.qty = Math.max(0, Math.trunc(parsed));
+  }
+
+  onQtyBlur(): void {
+    this.qty = this.normalizeQty(this.qty);
+  }
+
+  stepQty(direction: -1 | 1): void {
+    const p = this.product();
+    if (!p) {
+      return;
+    }
+
+    const step = Math.max(1, p.minOrderQty);
+    const next = direction > 0 ? this.qty + step : this.qty - step;
+    this.qty = this.normalizeQty(next);
+  }
+
+  setQtyToMin(): void {
+    const p = this.product();
+    if (!p) {
+      return;
+    }
+
+    this.qty = this.normalizeQty(p.minOrderQty);
+  }
+
+  setQtyToMax(): void {
+    this.qty = this.maxPurchasable();
+  }
+
   addToCart(): void {
     const p = this.product()!;
-    if (this.qty < p.minOrderQty) { this.toast.warning(`Minimum order quantity is ${p.minOrderQty}`); return; }
-    if (this.qty > p.availableStock) { this.toast.warning(`Only ${p.availableStock} units available`); return; }
-    this.cartStore.addItem({ productId: p.productId, productName: p.name, sku: p.sku, quantity: this.qty, unitPrice: p.unitPrice, minOrderQty: p.minOrderQty, availableStock: p.availableStock });
+    if (!this.canPurchase()) {
+      this.toast.warning('This product is currently unavailable for purchase');
+      return;
+    }
+
+    const normalizedQty = this.normalizeQty(this.qty);
+    if (normalizedQty < p.minOrderQty) {
+      this.toast.warning(`Minimum order quantity is ${p.minOrderQty}`);
+      return;
+    }
+
+    if (normalizedQty > p.availableStock) {
+      this.toast.warning(`Only ${p.availableStock} units available`);
+      return;
+    }
+
+    this.qty = normalizedQty;
+    this.cartStore.addItem({ productId: p.productId, productName: p.name, sku: p.sku, quantity: normalizedQty, unitPrice: p.unitPrice, minOrderQty: p.minOrderQty, availableStock: p.availableStock });
     this.toast.success(`${p.name} added to cart`);
   }
 
@@ -185,10 +323,38 @@ export class ProductDetailComponent implements OnInit {
       next: () => {
         this.toast.success('Product restocked');
         this.showRestockDialog.set(false);
-        this.catalogApi.getProductById(this.id()).subscribe(p => this.product.set(p));
+        this.catalogApi.getProductById(this.id()).subscribe(p => {
+          this.product.set(p);
+          this.qty = this.normalizeQty(this.qty);
+        });
       },
       error: () => {}
     });
+  }
+
+  private normalizeQty(value: number): number {
+    const p = this.product();
+    if (!p) {
+      return Math.max(1, Math.trunc(value));
+    }
+
+    if (!this.canPurchase()) {
+      return 0;
+    }
+
+    const max = this.maxPurchasable();
+    let next = Number.isFinite(value) ? Math.max(0, Math.trunc(value)) : p.minOrderQty;
+
+    if (next < p.minOrderQty) {
+      next = p.minOrderQty;
+    }
+
+    if (next > max) {
+      next = max;
+    }
+
+    next = Math.floor(next / p.minOrderQty) * p.minOrderQty;
+    return Math.max(p.minOrderQty, Math.min(max, next));
   }
 
   getProductImageUrl(product: ProductDto): string {

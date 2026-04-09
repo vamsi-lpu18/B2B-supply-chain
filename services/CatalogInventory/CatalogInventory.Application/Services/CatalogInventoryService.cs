@@ -195,19 +195,19 @@ public sealed class CatalogInventoryService(
         return true;
     }
 
-    public async Task<PagedResult<ProductListItemDto>> GetProductListAsync(int page, int size, CancellationToken cancellationToken)
+    public async Task<PagedResult<ProductListItemDto>> GetProductListAsync(int page, int size, bool includeInactive, CancellationToken cancellationToken)
     {
         page = page <= 0 ? 1 : page;
         size = size <= 0 ? 20 : Math.Min(size, 100);
 
-        var cacheKey = GetProductPageKey(page, size);
+        var cacheKey = GetProductPageKey(page, size, includeInactive);
         var cached = await cacheStore.GetAsync<PagedResult<ProductListItemDto>>(cacheKey, cancellationToken);
         if (cached is not null)
         {
             return cached;
         }
 
-        var (items, totalCount) = await productRepository.GetProductPageAsync(page, size, cancellationToken);
+        var (items, totalCount) = await productRepository.GetProductPageAsync(page, size, includeInactive, cancellationToken);
         var mapped = items.Select(ToProductListItemDto).ToList();
 
         var result = new PagedResult<ProductListItemDto>(mapped, totalCount, page, size);
@@ -239,7 +239,7 @@ public sealed class CatalogInventoryService(
         return dto;
     }
 
-    public async Task<IReadOnlyList<ProductListItemDto>> SearchProductsAsync(string query, CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<ProductListItemDto>> SearchProductsAsync(string query, bool includeInactive, CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(query))
         {
@@ -247,7 +247,7 @@ public sealed class CatalogInventoryService(
         }
 
         var queryHash = ComputeHash(query.Trim().ToLowerInvariant());
-        var cacheKey = GetSearchKey(queryHash);
+        var cacheKey = GetSearchKey(queryHash, includeInactive);
 
         var cached = await cacheStore.GetAsync<IReadOnlyList<ProductListItemDto>>(cacheKey, cancellationToken);
         if (cached is not null)
@@ -255,7 +255,7 @@ public sealed class CatalogInventoryService(
             return cached;
         }
 
-        var results = await productRepository.SearchProductsAsync(query, cancellationToken);
+        var results = await productRepository.SearchProductsAsync(query, includeInactive, cancellationToken);
         var mapped = results.Select(ToProductListItemDto).ToList();
 
         await cacheStore.SetAsync(cacheKey, mapped, SearchTtl, cancellationToken);
@@ -432,9 +432,11 @@ public sealed class CatalogInventoryService(
             product.ImageUrl);
     }
 
-    private static string GetProductPageKey(int page, int size) => $"catalog:products:page:{page}:size:{size}";
+    private static string GetProductPageKey(int page, int size, bool includeInactive) =>
+        $"catalog:products:page:{page}:size:{size}:includeInactive:{(includeInactive ? 1 : 0)}";
     private static string GetProductDetailKey(Guid productId) => $"catalog:product:{productId}";
-    private static string GetSearchKey(string queryHash) => $"catalog:search:{queryHash}";
+    private static string GetSearchKey(string queryHash, bool includeInactive) =>
+        $"catalog:search:{queryHash}:includeInactive:{(includeInactive ? 1 : 0)}";
     private static string GetSoftLockKey(Guid productId, Guid orderId) => $"inventory:softlock:{productId}:{orderId}";
     private static string GetAvailableStockKey(Guid productId) => $"inventory:available:{productId}";
 

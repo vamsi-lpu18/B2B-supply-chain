@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --watch=false",
     "images:ai": "node scripts/download-ai-product-images.mjs",
     "serve:ssr:supply-chain-frontend": "node dist/supply-chain-frontend/server/server.mjs"
   },
@@ -31,7 +31,10 @@
     "@angular/compiler-cli": "^21.2.0",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
+    "@vitest/browser-preview": "^4.1.2",
+    "jsdom": "^29.0.1",
     "prettier": "^3.8.1",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.2",
+    "vitest": "^4.1.2"
   }
 }

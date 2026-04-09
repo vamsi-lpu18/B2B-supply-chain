@@ -13,3 +13,15 @@ C:\Users\Hey\Desktop\demo\src\BuildingBlocks\obj\Debug\net10.0\BuildingBlocks.dl
 C:\Users\Hey\Desktop\demo\src\BuildingBlocks\obj\Debug\net10.0\refint\BuildingBlocks.dll
 C:\Users\Hey\Desktop\demo\src\BuildingBlocks\obj\Debug\net10.0\BuildingBlocks.pdb
 C:\Users\Hey\Desktop\demo\src\BuildingBlocks\obj\Debug\net10.0\ref\BuildingBlocks.dll
+C:\Users\Hey\Desktop\demo\src\BuildingBlocks\obj\Debug\net10.0\BuildingBlocks.sourcelink.json
+C:\Users\Hey\Desktop\demo\src\BuildingBlocks\bin\Debug\build-verify\BuildingBlocks.deps.json
+C:\Users\Hey\Desktop\demo\src\BuildingBlocks\bin\Debug\build-verify\BuildingBlocks.dll
+C:\Users\Hey\Desktop\demo\src\BuildingBlocks\bin\Debug\build-verify\BuildingBlocks.pdb
+C:\Users\Hey\Desktop\demo\src\BuildingBlocks\bin\Debug\build-verify\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\src\BuildingBlocks\bin\Debug\build-verify\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\BuildingBlocks.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\BuildingBlocks.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\BuildingBlocks.pdb
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\BuildingBlocks.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\BuildingBlocks.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\BuildingBlocks.pdb

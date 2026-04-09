@@ -6,9 +6,13 @@ import { CartStore } from '../../../core/stores/cart.store';
 import { AuthStore } from '../../../core/stores/auth.store';
 import { OrderApiService } from '../../../core/api/order-api.service';
 import { PaymentApiService } from '../../../core/api/payment-api.service';
+import { CatalogApiService } from '../../../core/api/catalog-api.service';
 import { ToastService } from '../../../core/services/toast.service';
 import { PaymentMode } from '../../../core/models/enums';
 import { CreditCheckResponse, GatewayOrderDto } from '../../../core/models/payment.models';
+import { catchError, forkJoin, map, of } from 'rxjs';
+
+const CHECKOUT_DRAFT_KEY = 'sc_checkout_draft';
 
 declare global {
   interface Window {
@@ -40,6 +44,9 @@ declare global {
                 <div>
                   <div class="fw-600 text-sm">{{ item.productName }}</div>
                   <div class="text-xs text-secondary">{{ item.sku }} × {{ item.quantity }}</div>
+                  @if (item.note) {
+                    <div class="text-xs text-secondary">Note: {{ item.note }}</div>
+                  }
                 </div>
                 <div class="fw-600">{{ item.lineTotal | currency:'INR':'symbol':'1.2-2' }}</div>
               </div>
@@ -121,6 +128,7 @@ export class CheckoutComponent implements OnInit {
   private readonly authStore   = inject(AuthStore);
   private readonly orderApi    = inject(OrderApiService);
   private readonly paymentApi  = inject(PaymentApiService);
+  private readonly catalogApi  = inject(CatalogApiService);
   private readonly toast       = inject(ToastService);
   private readonly router      = inject(Router);
 
@@ -131,10 +139,20 @@ export class CheckoutComponent implements OnInit {
   readonly creditCheck = signal<CreditCheckResponse | null>(null);
 
   ngOnInit(): void {
-    if (this.cartStore.items().length === 0) this.router.navigate(['/cart']);
+    if (this.cartStore.items().length === 0) {
+      this.router.navigate(['/cart']);
+      return;
+    }
+
+    this.restoreDraft();
+    if (this.paymentMode === PaymentMode.PrePaid) {
+      this.onPaymentChange();
+    }
   }
 
   onPaymentChange(): void {
+    this.persistDraft();
+
     if (this.paymentMode === PaymentMode.PrePaid) {
       const userId = this.authStore.user()?.userId;
       if (userId) {
@@ -151,12 +169,29 @@ export class CheckoutComponent implements OnInit {
   placeOrder(): void {
     if (this.cartStore.items().length === 0) return;
 
-    if (this.paymentMode === PaymentMode.PrePaid) {
-      this.startGatewayPaymentFlow();
-      return;
-    }
+    this.loading.set(true);
+    this.errorMsg.set('');
 
-    this.submitOrder();
+    this.validateCartAgainstCurrentStock().subscribe({
+      next: validation => {
+        if (!validation.valid) {
+          this.loading.set(false);
+          this.errorMsg.set(validation.message);
+          return;
+        }
+
+        if (this.paymentMode === PaymentMode.PrePaid) {
+          this.startGatewayPaymentFlow();
+          return;
+        }
+
+        this.submitOrder();
+      },
+      error: () => {
+        this.loading.set(false);
+        this.errorMsg.set('Unable to validate stock right now. Please try again.');
+      }
+    });
   }
 
   private submitOrder(): void {
@@ -175,6 +210,7 @@ export class CheckoutComponent implements OnInit {
       next: order => {
         this.loading.set(false);
         this.cartStore.clear();
+        this.clearDraft();
         this.toast.success(`Order ${order.orderNumber} placed successfully!`);
         this.router.navigate(['/orders', order.orderId]);
       },
@@ -300,5 +336,126 @@ export class CheckoutComponent implements OnInit {
       script.onerror = () => reject(new Error('script-load-failed'));
       document.body.appendChild(script);
     });
+  }
+
+  private validateCartAgainstCurrentStock() {
+    const snapshot = [...this.cartStore.items()];
+    if (snapshot.length === 0) {
+      return of({ valid: false, message: 'Your cart is empty.' });
+    }
+
+    return forkJoin(
+      snapshot.map(item =>
+        this.catalogApi.getProductById(item.productId).pipe(
+          map(product => ({ item, product })),
+          catchError(() => of({ item, product: null }))
+        )
+      )
+    ).pipe(
+      map(rows => {
+        let removedCount = 0;
+        let adjustedCount = 0;
+
+        for (const row of rows) {
+          const product = row.product;
+          if (!product || !product.isActive || product.availableStock <= 0) {
+            this.cartStore.removeItem(row.item.productId);
+            removedCount += 1;
+            continue;
+          }
+
+          const normalizedQty = this.cartStore.normalizeQuantity(
+            row.item.quantity,
+            product.minOrderQty,
+            product.availableStock
+          );
+
+          if (normalizedQty <= 0) {
+            this.cartStore.removeItem(row.item.productId);
+            removedCount += 1;
+            continue;
+          }
+
+          const changed =
+            normalizedQty !== row.item.quantity ||
+            row.item.unitPrice !== product.unitPrice ||
+            row.item.minOrderQty !== product.minOrderQty ||
+            row.item.availableStock !== product.availableStock ||
+            row.item.productName !== product.name ||
+            row.item.sku !== product.sku;
+
+          if (!changed) {
+            continue;
+          }
+
+          this.cartStore.removeItem(row.item.productId);
+          this.cartStore.addItem({
+            productId: product.productId,
+            productName: product.name,
+            sku: product.sku,
+            quantity: normalizedQty,
+            unitPrice: product.unitPrice,
+            minOrderQty: product.minOrderQty,
+            availableStock: product.availableStock
+          });
+
+          adjustedCount += 1;
+        }
+
+        if (this.cartStore.items().length === 0) {
+          this.router.navigate(['/cart']);
+          return {
+            valid: false,
+            message: 'All cart items are unavailable now. Please add products again.'
+          };
+        }
+
+        if (removedCount > 0 || adjustedCount > 0) {
+          if (this.paymentMode === PaymentMode.PrePaid) {
+            this.onPaymentChange();
+          }
+
+          this.toast.warning('Cart updated with latest stock and pricing. Please review and place order again.');
+          return {
+            valid: false,
+            message: 'Cart updated due to stock changes. Review and place order again.'
+          };
+        }
+
+        return { valid: true, message: '' };
+      })
+    );
+  }
+
+  private persistDraft(): void {
+    try {
+      localStorage.setItem(CHECKOUT_DRAFT_KEY, JSON.stringify({ paymentMode: this.paymentMode }));
+    } catch {
+      // Ignore localStorage failures.
+    }
+  }
+
+  private restoreDraft(): void {
+    try {
+      const raw = localStorage.getItem(CHECKOUT_DRAFT_KEY);
+      if (!raw) {
+        return;
+      }
+
+      const parsed = JSON.parse(raw) as { paymentMode?: number };
+      if (parsed.paymentMode === PaymentMode.COD || parsed.paymentMode === PaymentMode.PrePaid) {
+        this.paymentMode = parsed.paymentMode;
+      }
+    } catch {
+      // Ignore malformed draft data.
+    }
+  }
+
+  private clearDraft(): void {
+    try {
+      localStorage.removeItem(CHECKOUT_DRAFT_KEY);
+    } catch {
+      // Ignore localStorage failures.
+    }
   }
 }

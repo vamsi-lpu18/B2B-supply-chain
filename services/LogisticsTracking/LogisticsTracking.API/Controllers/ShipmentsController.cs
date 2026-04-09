@@ -81,6 +81,57 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
         return updated ? Ok(new { message = "Shipment status updated." }) : NotFound();
     }
 
+    [HttpGet("{shipmentId:guid}/ops-state")]
+    [Authorize(Roles = "Admin,Warehouse,Logistics,Agent,Dealer")]
+    [ProducesResponseType(typeof(ShipmentOpsStateDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetOpsState([FromRoute] Guid shipmentId, CancellationToken cancellationToken)
+    {
+        var state = await logisticsService.GetShipmentOpsStateAsync(shipmentId, cancellationToken);
+        return state is null ? NotFound() : Ok(state);
+    }
+
+    [HttpPost("ops-states/batch")]
+    [Authorize(Roles = "Admin,Warehouse,Logistics,Agent,Dealer")]
+    [ProducesResponseType(typeof(IReadOnlyList<ShipmentOpsStateDto>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetOpsStatesBatch([FromBody] GetShipmentOpsStatesRequest request, CancellationToken cancellationToken)
+    {
+        var states = await logisticsService.GetShipmentOpsStatesAsync(request, cancellationToken);
+        return Ok(states);
+    }
+
+    [HttpPut("{shipmentId:guid}/ops-state")]
+    [Authorize(Roles = "Admin,Logistics")]
+    [ProducesResponseType(typeof(ShipmentOpsStateDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> UpsertOpsState([FromRoute] Guid shipmentId, [FromBody] UpsertShipmentOpsStateRequest request, CancellationToken cancellationToken)
+    {
+        var state = await logisticsService.UpsertShipmentOpsStateAsync(shipmentId, request, cancellationToken);
+        return state is null ? NotFound() : Ok(state);
+    }
+
+    [HttpPost("{shipmentId:guid}/ai-recommendation")]
+    [Authorize(Roles = "Admin,Warehouse,Logistics")]
+    [ProducesResponseType(typeof(ShipmentAiRecommendationDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GenerateAiRecommendation([FromRoute] Guid shipmentId, CancellationToken cancellationToken)
+    {
+        var (userId, role) = GetActor();
+        var recommendation = await logisticsService.GenerateAiRecommendationAsync(shipmentId, userId, role, cancellationToken);
+        return recommendation is null ? NotFound() : Ok(recommendation);
+    }
+
+    [HttpPost("ai-recommendations/{recommendationId:guid}/approve")]
+    [Authorize(Roles = "Admin,Logistics")]
+    [ProducesResponseType(typeof(ApproveAiRecommendationResultDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> ApproveAiRecommendation([FromRoute] Guid recommendationId, CancellationToken cancellationToken)
+    {
+        var (userId, role) = GetActor();
+        var result = await logisticsService.ApproveAiRecommendationAsync(recommendationId, userId, role, cancellationToken);
+        return result is null ? NotFound() : Ok(result);
+    }
+
     private (Guid UserId, string Role) GetActor()
     {
         var role = User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? "System";

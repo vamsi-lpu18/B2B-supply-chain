@@ -17,3 +17,7 @@ C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application
 C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\obj\Debug\net10.0\refint\CatalogInventory.Application.dll
 C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\obj\Debug\net10.0\CatalogInventory.Application.pdb
 C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\obj\Debug\net10.0\ref\CatalogInventory.Application.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\obj\Debug\net10.0\CatalogInventory.Application.sourcelink.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Application.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Application.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Application.pdb

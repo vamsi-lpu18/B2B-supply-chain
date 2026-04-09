@@ -44,6 +44,57 @@ internal sealed class ShipmentRepository(LogisticsTrackingDbContext dbContext) :
         return shipments;
     }
 
+    public async Task<IReadOnlyList<Shipment>> GetShipmentsByIdsAsync(IReadOnlyCollection<Guid> shipmentIds, CancellationToken cancellationToken)
+    {
+        if (shipmentIds.Count == 0)
+        {
+            return [];
+        }
+
+        var shipments = await dbContext.Shipments
+            .AsNoTracking()
+            .Where(x => shipmentIds.Contains(x.ShipmentId))
+            .ToListAsync(cancellationToken);
+
+        return shipments;
+    }
+
+    public Task<ShipmentOpsState?> GetShipmentOpsStateAsync(Guid shipmentId, CancellationToken cancellationToken)
+    {
+        return dbContext.ShipmentOpsStates
+            .FirstOrDefaultAsync(x => x.ShipmentId == shipmentId, cancellationToken);
+    }
+
+    public async Task<IReadOnlyList<ShipmentOpsState>> GetShipmentOpsStatesAsync(IReadOnlyCollection<Guid> shipmentIds, CancellationToken cancellationToken)
+    {
+        if (shipmentIds.Count == 0)
+        {
+            return [];
+        }
+
+        var states = await dbContext.ShipmentOpsStates
+            .AsNoTracking()
+            .Where(x => shipmentIds.Contains(x.ShipmentId))
+            .ToListAsync(cancellationToken);
+
+        return states;
+    }
+
+    public async Task UpsertShipmentOpsStateAsync(ShipmentOpsState state, CancellationToken cancellationToken)
+    {
+        var existing = await dbContext.ShipmentOpsStates
+            .FirstOrDefaultAsync(x => x.ShipmentId == state.ShipmentId, cancellationToken);
+
+        if (existing is null)
+        {
+            await dbContext.ShipmentOpsStates.AddAsync(state, cancellationToken);
+        }
+        else if (!ReferenceEquals(existing, state))
+        {
+            dbContext.Entry(existing).CurrentValues.SetValues(state);
+        }
+    }
+
     public async Task AddOutboxMessageAsync(string eventType, object payload, CancellationToken cancellationToken)
     {
         var outbox = new OutboxMessage

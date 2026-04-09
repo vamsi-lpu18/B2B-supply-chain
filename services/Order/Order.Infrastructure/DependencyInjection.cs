@@ -7,6 +7,7 @@ using Order.Infrastructure.Background;
 using Order.Infrastructure.Integrations;
 using Order.Infrastructure.Persistence;
 using Order.Infrastructure.Repositories;
+using Order.Infrastructure.Saga;
 
 namespace Order.Infrastructure;
 
@@ -22,6 +23,7 @@ public static class DependencyInjection
         services.AddDbContext<OrderDbContext>(options => options.UseSqlServer(sqlConnection));
         services.AddPlatformRedis(redisConnection);
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IOrderSagaCoordinator, OrderSagaCoordinator>();
         services.AddHttpClient<ICreditCheckGateway, PaymentCreditCheckGateway>();
         services.AddHostedService<OrderOutboxDispatcher>();
 

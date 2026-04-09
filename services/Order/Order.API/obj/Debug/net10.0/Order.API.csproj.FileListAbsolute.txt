@@ -205,3 +205,7 @@ C:\Users\Hey\Desktop\demo\services\Order\Order.API\obj\Debug\net10.0\refint\Orde
 C:\Users\Hey\Desktop\demo\services\Order\Order.API\obj\Debug\net10.0\Order.API.pdb
 C:\Users\Hey\Desktop\demo\services\Order\Order.API\obj\Debug\net10.0\Order.API.genruntimeconfig.cache
 C:\Users\Hey\Desktop\demo\services\Order\Order.API\obj\Debug\net10.0\ref\Order.API.dll
+C:\Users\Hey\Desktop\demo\services\Order\Order.API\obj\Debug\net10.0\Order.API.sourcelink.json
+C:\Users\Hey\Desktop\demo\services\Order\Order.API\bin\Debug\net10.0\Hangfire.AspNetCore.dll
+C:\Users\Hey\Desktop\demo\services\Order\Order.API\bin\Debug\net10.0\Hangfire.NetCore.dll
+C:\Users\Hey\Desktop\demo\services\Order\Order.API\bin\Debug\net10.0\Hangfire.SqlServer.dll

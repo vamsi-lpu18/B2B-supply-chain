@@ -160,11 +160,58 @@ namespace LogisticsTracking.Infrastructure.Persistence.Migrations
                     b.ToTable("ShipmentEvents", (string)null);
                 });
 
+            modelBuilder.Entity("LogisticsTracking.Domain.Entities.ShipmentOpsState", b =>
+                {
+                    b.Property<Guid>("ShipmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("HandoverExceptionReason")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("HandoverState")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<DateTime?>("LastRetryScheduledAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("NextRetryAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("RetryCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RetryReason")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<bool>("RetryRequired")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ShipmentId");
+
+                    b.ToTable("ShipmentOpsStates", (string)null);
+                });
+
             modelBuilder.Entity("LogisticsTracking.Domain.Entities.ShipmentEvent", b =>
                 {
                     b.HasOne("LogisticsTracking.Domain.Entities.Shipment", null)
                         .WithMany("Events")
                         .HasForeignKey("ShipmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LogisticsTracking.Domain.Entities.ShipmentOpsState", b =>
+                {
+                    b.HasOne("LogisticsTracking.Domain.Entities.Shipment", null)
+                        .WithOne()
+                        .HasForeignKey("LogisticsTracking.Domain.Entities.ShipmentOpsState", "ShipmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -205,3 +205,15 @@ C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.API\obj\Deb
 C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.API\obj\Debug\net10.0\CatalogInventory.API.pdb
 C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.API\obj\Debug\net10.0\CatalogInventory.API.genruntimeconfig.cache
 C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.API\obj\Debug\net10.0\ref\CatalogInventory.API.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.API\obj\Debug\net10.0\CatalogInventory.API.sourcelink.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\appsettings.Development.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\appsettings.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.API.staticwebassets.endpoints.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.API.exe
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.API.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.API.runtimeconfig.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.API.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.API.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.API\bin\Debug\net10.0\Hangfire.AspNetCore.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.API\bin\Debug\net10.0\Hangfire.NetCore.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.API\bin\Debug\net10.0\Hangfire.SqlServer.dll

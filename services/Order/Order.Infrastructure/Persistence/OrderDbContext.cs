@@ -10,6 +10,7 @@ public sealed class OrderDbContext(DbContextOptions<OrderDbContext> options) : D
     public DbSet<OrderLine> OrderLines => Set<OrderLine>();
     public DbSet<OrderStatusHistory> OrderStatusHistories => Set<OrderStatusHistory>();
     public DbSet<ReturnRequest> ReturnRequests => Set<ReturnRequest>();
+    public DbSet<OrderSagaStateEntity> OrderSagaStates => Set<OrderSagaStateEntity>();
     public DbSet<OutboxMessage> OutboxMessages => Set<OutboxMessage>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -73,6 +74,15 @@ public sealed class OrderDbContext(DbContextOptions<OrderDbContext> options) : D
             builder.ToTable("ReturnRequests");
             builder.HasKey(x => x.ReturnRequestId);
             builder.Property(x => x.Reason).HasMaxLength(500).IsRequired();
+        });
+
+        modelBuilder.Entity<OrderSagaStateEntity>(builder =>
+        {
+            builder.ToTable("OrderSagaStates");
+            builder.HasKey(x => x.OrderId);
+            builder.Property(x => x.OrderNumber).HasMaxLength(32).IsRequired();
+            builder.Property(x => x.CurrentState).HasConversion<string>().HasMaxLength(64).IsRequired();
+            builder.Property(x => x.LastMessage).HasMaxLength(500);
         });
 
         base.OnModelCreating(modelBuilder);

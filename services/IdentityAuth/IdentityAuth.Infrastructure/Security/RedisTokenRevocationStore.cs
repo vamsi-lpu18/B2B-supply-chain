@@ -13,11 +13,25 @@ internal sealed class RedisTokenRevocationStore(IConnectionMultiplexer redis) : 
             ? TimeSpan.FromMinutes(5)
             : expiresAtUtc - DateTime.UtcNow;
 
-        return _database.StringSetAsync($"revoked:tokens:{jti}", "1", ttl);
+        try
+        {
+            return _database.StringSetAsync($"revoked:tokens:{jti}", "1", ttl);
+        }
+        catch (RedisException)
+        {
+            return Task.CompletedTask;
+        }
     }
 
     public async Task<bool> IsRevokedAsync(string jti, CancellationToken cancellationToken)
     {
-        return await _database.KeyExistsAsync($"revoked:tokens:{jti}");
+        try
+        {
+            return await _database.KeyExistsAsync($"revoked:tokens:{jti}");
+        }
+        catch (RedisException)
+        {
+            return false;
+        }
     }
 }

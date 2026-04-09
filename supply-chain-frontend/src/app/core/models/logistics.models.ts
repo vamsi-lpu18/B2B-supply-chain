@@ -47,3 +47,63 @@ export interface ShipmentDto {
   deliveredAtUtc?: string;
   events: ShipmentEventDto[];
 }
+
+export type HandoverState = 'pending' | 'ready' | 'exception' | 'completed';
+
+export interface ShipmentOpsStateDto {
+  shipmentId: string;
+  handoverState: HandoverState;
+  handoverExceptionReason?: string;
+  retryRequired: boolean;
+  retryCount: number;
+  retryReason?: string;
+  nextRetryAtUtc?: string;
+  lastRetryScheduledAtUtc?: string;
+  updatedAtUtc: string;
+}
+
+export interface GetShipmentOpsStatesRequest {
+  shipmentIds: string[];
+}
+
+export interface UpsertShipmentOpsStateRequest {
+  handoverState?: HandoverState;
+  handoverExceptionReason?: string | null;
+  retryRequired?: boolean;
+  retryCount?: number;
+  retryReason?: string | null;
+  nextRetryAtUtc?: string | null;
+  lastRetryScheduledAtUtc?: string | null;
+}
+
+export interface ShipmentAiActionDto {
+  actionType: string;
+  description: string;
+  proposedValue: string;
+}
+
+export interface ShipmentAiRecommendationDto {
+  recommendationId: string;
+  shipmentId: string;
+  playbookType: string;
+  confidenceScore: number;
+  explanationText: string;
+  requiresHumanApproval: boolean;
+  createdAtUtc: string;
+  suggestedActions: ShipmentAiActionDto[];
+}
+
+export interface AiRecommendationExecutionStepDto {
+  actionType: string;
+  result: string;
+  message: string;
+}
+
+export interface ApproveAiRecommendationResultDto {
+  recommendationId: string;
+  shipmentId: string;
+  executed: boolean;
+  approvedAtUtc: string;
+  steps: AiRecommendationExecutionStepDto[];
+  shipment: ShipmentDto;
+}

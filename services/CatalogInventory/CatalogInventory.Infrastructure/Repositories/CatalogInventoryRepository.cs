@@ -38,12 +38,17 @@ internal sealed class CatalogInventoryRepository(CatalogInventoryDbContext dbCon
         return dbContext.Products.FirstOrDefaultAsync(p => p.Sku == normalizedSku, cancellationToken);
     }
 
-    public async Task<(IReadOnlyList<Product> Items, int TotalCount)> GetProductPageAsync(int page, int size, CancellationToken cancellationToken)
+    public async Task<(IReadOnlyList<Product> Items, int TotalCount)> GetProductPageAsync(int page, int size, bool includeInactive, CancellationToken cancellationToken)
     {
         var query = dbContext.Products
-            .AsNoTracking()
-            .Where(p => p.IsActive)
-            .OrderBy(p => p.Name);
+            .AsNoTracking();
+
+        if (!includeInactive)
+        {
+            query = query.Where(p => p.IsActive);
+        }
+
+        query = query.OrderBy(p => p.Name);
 
         var totalCount = await query.CountAsync(cancellationToken);
         var items = await query
@@ -54,13 +59,20 @@ internal sealed class CatalogInventoryRepository(CatalogInventoryDbContext dbCon
         return (items, totalCount);
     }
 
-    public async Task<IReadOnlyList<Product>> SearchProductsAsync(string query, CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<Product>> SearchProductsAsync(string query, bool includeInactive, CancellationToken cancellationToken)
     {
         var normalized = query.Trim();
 
-        var items = await dbContext.Products
-            .AsNoTracking()
-            .Where(p => p.IsActive && (p.Name.Contains(normalized) || p.Sku.Contains(normalized)))
+        var products = dbContext.Products
+            .AsNoTracking();
+
+        if (!includeInactive)
+        {
+            products = products.Where(p => p.IsActive);
+        }
+
+        var items = await products
+            .Where(p => p.Name.Contains(normalized) || p.Sku.Contains(normalized))
             .OrderBy(p => p.Name)
             .Take(100)
             .ToListAsync(cancellationToken);

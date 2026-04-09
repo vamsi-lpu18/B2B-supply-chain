@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ls2BI72C6Bc=",
+  "dgSpecHash": "V20iSQurHYg=",
   "success": true,
   "projectFilePath": "C:\\Users\\Hey\\Desktop\\demo\\services\\PaymentInvoice\\PaymentInvoice.API\\PaymentInvoice.API.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,10 @@
     "C:\\Users\\Hey\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
+    "C:\\Users\\Hey\\.nuget\\packages\\hangfire.aspnetcore\\1.8.23\\hangfire.aspnetcore.1.8.23.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\hangfire.core\\1.8.23\\hangfire.core.1.8.23.nupkg.sha512",
+    "C:\\Users\\Hey\\.nuget\\packages\\hangfire.netcore\\1.8.23\\hangfire.netcore.1.8.23.nupkg.sha512",
+    "C:\\Users\\Hey\\.nuget\\packages\\hangfire.sqlserver\\1.8.23\\hangfire.sqlserver.1.8.23.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\mediatr\\14.1.0\\mediatr.14.1.0.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",

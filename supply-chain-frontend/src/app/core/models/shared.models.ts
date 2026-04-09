@@ -17,6 +17,7 @@ export interface CartItem {
   productName: string;
   sku: string;
   quantity: number;
+  note?: string;
   unitPrice: number;
   minOrderQty: number;
   availableStock: number;

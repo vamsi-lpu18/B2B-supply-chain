@@ -108,3 +108,57 @@ export interface GatewayPaymentVerificationDto {
   gatewayPaymentId: string;
   failureReason?: string | null;
 }
+
+export type InvoiceWorkflowStatus =
+  | 'pending'
+  | 'reminder-sent'
+  | 'promise-to-pay'
+  | 'paid'
+  | 'disputed'
+  | 'escalated';
+
+export interface InvoiceWorkflowStateDto {
+  invoiceId: string;
+  status: InvoiceWorkflowStatus;
+  dueAtUtc: string;
+  promiseToPayAtUtc?: string;
+  nextFollowUpAtUtc?: string;
+  internalNote: string;
+  reminderCount: number;
+  lastReminderAtUtc?: string;
+  updatedAtUtc: string;
+}
+
+export interface UpsertInvoiceWorkflowRequest {
+  status: InvoiceWorkflowStatus;
+  dueAtUtc: string;
+  promiseToPayAtUtc?: string | null;
+  nextFollowUpAtUtc?: string | null;
+  internalNote?: string;
+  reminderCount: number;
+  lastReminderAtUtc?: string | null;
+}
+
+export type InvoiceWorkflowActivityType =
+  | 'workflow-saved'
+  | 'reminder-sent'
+  | 'promise-to-pay'
+  | 'marked-paid'
+  | 'marked-disputed'
+  | 'escalated'
+  | 'auto-follow-up';
+
+export interface InvoiceWorkflowActivityDto {
+  activityId: string;
+  invoiceId: string;
+  type: InvoiceWorkflowActivityType;
+  message: string;
+  createdByRole: string;
+  createdAtUtc: string;
+}
+
+export interface AddInvoiceWorkflowActivityRequest {
+  type: InvoiceWorkflowActivityType;
+  message: string;
+  createdByRole?: string;
+}

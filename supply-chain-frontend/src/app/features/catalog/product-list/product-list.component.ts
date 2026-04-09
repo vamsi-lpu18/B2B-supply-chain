@@ -35,12 +35,27 @@ import { buildProductPlaceholderDataUrl, enterpriseProductFallbackImageUrl, reso
       <!-- Search & filters -->
       <div class="toolbar mb-6">
         <div class="search-wrap">
-          <span class="search-icon">�</span>
+          <span class="search-icon">🔍</span>
           <input type="search" class="search-input" placeholder="Search products by name or SKU..."
                  [(ngModel)]="searchQuery" (ngModelChange)="onSearch($event)">
         </div>
         <div class="toolbar-right">
-          <span class="result-count">{{ totalCount() }} products</span>
+          <select class="form-control toolbar-select" [(ngModel)]="stockFilter" (ngModelChange)="onStockFilterChange()">
+            <option value="all">All Stock</option>
+            <option value="in-stock">In Stock</option>
+            <option value="low-stock">Low Stock</option>
+            <option value="out-of-stock">Out of Stock</option>
+            <option value="inactive">Inactive</option>
+          </select>
+          <select class="form-control toolbar-select" [(ngModel)]="sortBy" (ngModelChange)="onSortChange()">
+            <option value="relevance">Relevance</option>
+            <option value="name-asc">Name A-Z</option>
+            <option value="name-desc">Name Z-A</option>
+            <option value="price-asc">Price Low-High</option>
+            <option value="price-desc">Price High-Low</option>
+            <option value="stock-desc">Highest Stock</option>
+          </select>
+          <span class="result-count">{{ resultCountLabel() }}</span>
         </div>
       </div>
 
@@ -86,7 +101,7 @@ import { buildProductPlaceholderDataUrl, enterpriseProductFallbackImageUrl, reso
           }
         </div>
 
-        @if (!isSearching()) {
+        @if (showPagination()) {
           <app-pagination [currentPage]="page()" [totalCount]="totalCount()" [pageSize]="20"
                           (pageChange)="loadPage($event)" />
         }
@@ -133,6 +148,13 @@ import { buildProductPlaceholderDataUrl, enterpriseProductFallbackImageUrl, reso
     }
     .toolbar-right { display: flex; align-items: center; gap: 12px; }
     .result-count { font-size: .8125rem; color: var(--text-secondary); font-weight: 600; }
+    .toolbar-select {
+      width: 170px;
+      min-width: 170px;
+      font-size: .8125rem;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
 
     /* Product card enhancements */
     .product-card {
@@ -212,14 +234,19 @@ export class ProductListComponent implements OnInit {
   readonly enterpriseCatalogFallbackImageUrl = enterpriseProductFallbackImageUrl;
 
   readonly loading     = signal(true);
+  readonly allProducts = signal<ProductListItemDto[]>([]);
   readonly products    = signal<ProductListItemDto[]>([]);
   readonly page        = signal(1);
+  readonly serverTotalCount = signal(0);
   readonly totalCount  = signal(0);
   readonly isSearching = signal(false);
   searchQuery = '';
+  stockFilter: 'all' | 'in-stock' | 'low-stock' | 'out-of-stock' | 'inactive' = 'all';
+  sortBy: 'relevance' | 'name-asc' | 'name-desc' | 'price-asc' | 'price-desc' | 'stock-desc' = 'relevance';
 
   readonly isAdmin  = () => this.authStore.hasRole(UserRole.Admin);
   readonly isDealer = () => this.authStore.hasRole(UserRole.Dealer);
+  readonly canViewInactive = () => this.isAdmin();
 
   stockClass(p: ProductListItemDto): string {
     if (!p.isActive) return 'stock-inactive';
@@ -263,19 +290,21 @@ export class ProductListComponent implements OnInit {
         this.loading.set(true);
         if (!q.trim()) {
           this.isSearching.set(false);
-          return this.catalogApi.getProducts(1, 20);
+          return this.catalogApi.getProducts(1, 20, this.canViewInactive());
         }
         this.isSearching.set(true);
-        return this.catalogApi.searchProducts(q);
+        return this.catalogApi.searchProducts(q, this.canViewInactive());
       })
     ).subscribe({
       next: res => {
         if (Array.isArray(res)) {
-          this.products.set(res);
-          this.totalCount.set(res.length);
+          this.allProducts.set(res);
+          this.serverTotalCount.set(res.length);
+          this.applyView();
         } else {
-          this.products.set(res.items);
-          this.totalCount.set(res.totalCount);
+          this.allProducts.set(res.items);
+          this.serverTotalCount.set(res.totalCount);
+          this.applyView();
         }
         this.loading.set(false);
       },
@@ -286,18 +315,75 @@ export class ProductListComponent implements OnInit {
   loadPage(p: number): void {
     this.page.set(p);
     this.loading.set(true);
-    this.catalogApi.getProducts(p, 20).subscribe({
-      next: res => { this.products.set(res.items); this.totalCount.set(res.totalCount); this.loading.set(false); },
+    this.catalogApi.getProducts(p, 20, this.canViewInactive()).subscribe({
+      next: res => {
+        this.allProducts.set(res.items);
+        this.serverTotalCount.set(res.totalCount);
+        this.applyView();
+        this.loading.set(false);
+      },
       error: () => this.loading.set(false)
     });
   }
 
   onSearch(q: string): void { this.search$.next(q); }
 
+  onStockFilterChange(): void {
+    this.applyView();
+  }
+
+  onSortChange(): void {
+    this.applyView();
+  }
+
+  showPagination(): boolean {
+    return !this.isSearching() && this.stockFilter === 'all' && this.sortBy === 'relevance';
+  }
+
+  resultCountLabel(): string {
+    const visible = this.products().length;
+    const total = this.totalCount();
+    return total > visible ? `${visible} shown of ${total}` : `${visible} shown`;
+  }
+
   quickAdd(event: Event, p: ProductListItemDto): void {
     event.preventDefault();
     event.stopPropagation();
     this.cartStore.addItem({ productId: p.productId, productName: p.name, sku: p.sku, quantity: 1, unitPrice: p.unitPrice, minOrderQty: 1, availableStock: p.availableStock });
     this.toast.success(`${p.name} added to cart`);
+  }
+
+  private applyView(): void {
+    let view = [...this.allProducts()];
+
+    if (this.stockFilter === 'in-stock') {
+      view = view.filter(p => p.isActive && p.availableStock >= 10);
+    } else if (this.stockFilter === 'low-stock') {
+      view = view.filter(p => p.isActive && p.availableStock > 0 && p.availableStock < 10);
+    } else if (this.stockFilter === 'out-of-stock') {
+      view = view.filter(p => p.isActive && p.availableStock === 0);
+    } else if (this.stockFilter === 'inactive') {
+      view = view.filter(p => !p.isActive);
+    }
+
+    if (this.sortBy === 'name-asc') {
+      view.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (this.sortBy === 'name-desc') {
+      view.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (this.sortBy === 'price-asc') {
+      view.sort((a, b) => a.unitPrice - b.unitPrice);
+    } else if (this.sortBy === 'price-desc') {
+      view.sort((a, b) => b.unitPrice - a.unitPrice);
+    } else if (this.sortBy === 'stock-desc') {
+      view.sort((a, b) => b.availableStock - a.availableStock);
+    }
+
+    this.products.set(view);
+
+    if (this.showPagination()) {
+      this.totalCount.set(this.serverTotalCount());
+    } else {
+      this.totalCount.set(view.length);
+    }
   }
 }

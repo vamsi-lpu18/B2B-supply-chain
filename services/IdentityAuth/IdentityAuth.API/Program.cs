@@ -1,3 +1,6 @@
+using Hangfire;
+using Hangfire.SqlServer;
+using IdentityAuth.API.Jobs;
 using IdentityAuth.Application;
 using IdentityAuth.Application.Abstractions;
 using IdentityAuth.Domain.Entities;
@@ -30,6 +33,18 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var hangfireConnection = builder.Configuration.GetConnectionString("IdentityDb")
+    ?? throw new InvalidOperationException("Connection string 'IdentityDb' is missing for Hangfire.");
+
+builder.Services.AddHangfire(configuration => configuration
+    .UseSimpleAssemblyNameTypeSerializer()
+    .UseRecommendedSerializerSettings()
+    .UseSqlServerStorage(hangfireConnection, new SqlServerStorageOptions
+    {
+        PrepareSchemaIfNecessary = true
+    }));
+builder.Services.AddHangfireServer();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -107,6 +122,8 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "IdentityAuth API v1");
         options.RoutePrefix = "swagger";
     });
+
+    app.MapHangfireDashboard("/hangfire");
 }
 
 app.Use(async (context, next) =>
@@ -143,6 +160,11 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapGet("/health", () => Results.Ok(new { service = "IdentityAuth", status = "Healthy", utc = DateTime.UtcNow }));
+
+RecurringJob.AddOrUpdate<HangfireHeartbeatJob>(
+    "identityauth-heartbeat",
+    job => job.RunAsync(),
+    Cron.Minutely);
 
 app.Run();
 

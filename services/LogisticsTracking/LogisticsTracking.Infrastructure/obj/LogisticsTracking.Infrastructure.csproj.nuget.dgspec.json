@@ -773,6 +773,10 @@
               "target": "Package",
               "version": "[10.0.5, )"
             },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[10.0.5, )"
+            },
             "RabbitMQ.Client": {
               "target": "Package",
               "version": "[7.2.1, )"

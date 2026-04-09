@@ -47,9 +47,10 @@ public sealed class ProductsController(ICatalogInventoryService catalogService) 
     [HttpGet]
     [AllowAnonymous]
     [ProducesResponseType(typeof(PagedResult<ProductListItemDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetPage([FromQuery] int page = 1, [FromQuery] int size = 20, CancellationToken cancellationToken = default)
+    public async Task<IActionResult> GetPage([FromQuery] int page = 1, [FromQuery] int size = 20, [FromQuery] bool includeInactive = false, CancellationToken cancellationToken = default)
     {
-        var result = await catalogService.GetProductListAsync(page, size, cancellationToken);
+        var allowInactive = includeInactive && (User.IsInRole("Admin") || User.IsInRole("Warehouse"));
+        var result = await catalogService.GetProductListAsync(page, size, allowInactive, cancellationToken);
         return Ok(result);
     }
 
@@ -75,9 +76,10 @@ public sealed class ProductsController(ICatalogInventoryService catalogService) 
     [HttpGet("search")]
     [AllowAnonymous]
     [ProducesResponseType(typeof(IReadOnlyList<ProductListItemDto>), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Search([FromQuery] string q, CancellationToken cancellationToken)
+    public async Task<IActionResult> Search([FromQuery] string q, [FromQuery] bool includeInactive = false, CancellationToken cancellationToken = default)
     {
-        var results = await catalogService.SearchProductsAsync(q, cancellationToken);
+        var allowInactive = includeInactive && (User.IsInRole("Admin") || User.IsInRole("Warehouse"));
+        var results = await catalogService.SearchProductsAsync(q, allowInactive, cancellationToken);
         return Ok(results);
     }
 

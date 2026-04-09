@@ -1,5 +1,6 @@
 using BuildingBlocks.Extensions;
 using LogisticsTracking.Application.Abstractions;
+using LogisticsTracking.Infrastructure.Ai;
 using LogisticsTracking.Infrastructure.Background;
 using LogisticsTracking.Infrastructure.Persistence;
 using LogisticsTracking.Infrastructure.Repositories;
@@ -21,6 +22,9 @@ public static class DependencyInjection
         services.AddDbContext<LogisticsTrackingDbContext>(options => options.UseSqlServer(sqlConnection));
         services.AddPlatformRedis(redisConnection);
         services.AddScoped<IShipmentRepository, ShipmentRepository>();
+        services.Configure<ShipmentAiProviderOptions>(configuration.GetSection("Ai"));
+        services.AddHttpClient("GeminiShipmentAi");
+        services.AddSingleton<IShipmentAiRecommendationProvider, GeminiShipmentAiRecommendationProvider>();
         services.AddHostedService<LogisticsOutboxDispatcher>();
 
         return services;

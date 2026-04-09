@@ -122,6 +122,54 @@ public sealed class PaymentController(IPaymentInvoiceService paymentInvoiceServi
         return Ok(invoices);
     }
 
+    [HttpGet("invoices/{invoiceId:guid}/workflow")]
+    [Authorize(Roles = "Admin,Dealer")]
+    [ProducesResponseType(typeof(InvoiceWorkflowStateDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetInvoiceWorkflow(Guid invoiceId, CancellationToken cancellationToken)
+    {
+        var workflow = await paymentInvoiceService.GetInvoiceWorkflowAsync(invoiceId, cancellationToken);
+        return workflow is null ? NotFound() : Ok(workflow);
+    }
+
+    [HttpGet("dealers/{dealerId:guid}/invoice-workflows")]
+    [Authorize(Roles = "Admin,Dealer")]
+    [ProducesResponseType(typeof(IReadOnlyList<InvoiceWorkflowStateDto>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetDealerInvoiceWorkflows(Guid dealerId, CancellationToken cancellationToken)
+    {
+        var workflows = await paymentInvoiceService.GetDealerInvoiceWorkflowsAsync(dealerId, cancellationToken);
+        return Ok(workflows);
+    }
+
+    [HttpPut("invoices/{invoiceId:guid}/workflow")]
+    [Authorize(Roles = "Admin,Dealer")]
+    [ProducesResponseType(typeof(InvoiceWorkflowStateDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> UpsertInvoiceWorkflow(Guid invoiceId, [FromBody] UpsertInvoiceWorkflowRequest request, CancellationToken cancellationToken)
+    {
+        var workflow = await paymentInvoiceService.UpsertInvoiceWorkflowAsync(invoiceId, request, cancellationToken);
+        return workflow is null ? NotFound() : Ok(workflow);
+    }
+
+    [HttpGet("invoices/{invoiceId:guid}/workflow-activities")]
+    [Authorize(Roles = "Admin,Dealer")]
+    [ProducesResponseType(typeof(IReadOnlyList<InvoiceWorkflowActivityDto>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetInvoiceWorkflowActivities(Guid invoiceId, CancellationToken cancellationToken)
+    {
+        var activities = await paymentInvoiceService.GetInvoiceWorkflowActivitiesAsync(invoiceId, cancellationToken);
+        return Ok(activities);
+    }
+
+    [HttpPost("invoices/{invoiceId:guid}/workflow-activities")]
+    [Authorize(Roles = "Admin,Dealer")]
+    [ProducesResponseType(typeof(InvoiceWorkflowActivityDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> AddInvoiceWorkflowActivity(Guid invoiceId, [FromBody] AddInvoiceWorkflowActivityRequest request, CancellationToken cancellationToken)
+    {
+        var activity = await paymentInvoiceService.AddInvoiceWorkflowActivityAsync(invoiceId, request, cancellationToken);
+        return activity is null ? NotFound() : Ok(activity);
+    }
+
     [HttpGet("invoices/{invoiceId:guid}/download")]
     [Authorize(Roles = "Admin,Dealer")]
     public async Task<IActionResult> DownloadInvoice(Guid invoiceId, CancellationToken cancellationToken)

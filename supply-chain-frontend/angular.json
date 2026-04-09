@@ -67,7 +67,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "8kB",
+                  "maximumWarning": "10kB",
                   "maximumError": "14kB"
                 }
               ],
@@ -95,6 +95,12 @@
             "proxyConfig": "proxy.conf.json"
           },
           "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "tsconfig.spec.json"
+          }
         }
       }
     }

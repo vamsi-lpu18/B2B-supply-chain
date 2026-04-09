@@ -17,6 +17,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.5",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "10.0.5",
           "Microsoft.Extensions.Hosting": "10.0.5",
+          "Microsoft.Extensions.Http": "10.0.5",
           "RabbitMQ.Client": "7.2.1",
           "SharedKernel": "1.0.0",
           "StackExchange.Redis": "2.12.8"
@@ -896,6 +897,22 @@
           }
         }
       },
+      "Microsoft.Extensions.Http/10.0.5": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "10.0.5",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.5",
+          "Microsoft.Extensions.Diagnostics": "10.0.5",
+          "Microsoft.Extensions.Logging": "10.0.5",
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.5",
+          "Microsoft.Extensions.Options": "10.0.5"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Http.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.526.15411"
+          }
+        }
+      },
       "Microsoft.Extensions.Logging/10.0.5": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "10.0.5",
@@ -1748,6 +1765,13 @@
       "sha512": "sha512-+Wb7KAMVZTomwJkQrjuPTe5KBzGod7N8XeG+ScxRlkPOB4sZLG4ccVwjV4Phk5BCJt7uIMnGHVoN6ZMVploX+g==",
       "path": "microsoft.extensions.hosting.abstractions/10.0.5",
       "hashPath": "microsoft.extensions.hosting.abstractions.10.0.5.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Http/10.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AiFvHYM8nP0wPC7bGPI3NHQlSYSLqjjT7DMJUuuxhd+7pz3O89iu2gdQfgACy5DxsXENiok5i1bMacJL7KR8jA==",
+      "path": "microsoft.extensions.http/10.0.5",
+      "hashPath": "microsoft.extensions.http.10.0.5.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/10.0.5": {
       "type": "package",

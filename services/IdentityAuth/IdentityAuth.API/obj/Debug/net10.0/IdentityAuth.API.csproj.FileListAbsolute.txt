@@ -205,3 +205,7 @@ C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\obj\Debug\net10
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\obj\Debug\net10.0\IdentityAuth.API.pdb
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\obj\Debug\net10.0\IdentityAuth.API.genruntimeconfig.cache
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\obj\Debug\net10.0\ref\IdentityAuth.API.dll
+C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\obj\Debug\net10.0\IdentityAuth.API.sourcelink.json
+C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\bin\Debug\net10.0\Hangfire.AspNetCore.dll
+C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\bin\Debug\net10.0\Hangfire.NetCore.dll
+C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\bin\Debug\net10.0\Hangfire.SqlServer.dll

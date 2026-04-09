@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lrnCvp1z034=",
+  "dgSpecHash": "8zc0JPRHbQg=",
   "success": true,
   "projectFilePath": "C:\\Users\\Hey\\Desktop\\demo\\services\\LogisticsTracking\\LogisticsTracking.Infrastructure\\LogisticsTracking.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -50,6 +50,7 @@
     "C:\\Users\\Hey\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\10.0.5\\microsoft.extensions.filesystemglobbing.10.0.5.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\microsoft.extensions.hosting\\10.0.5\\microsoft.extensions.hosting.10.0.5.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\10.0.5\\microsoft.extensions.hosting.abstractions.10.0.5.nupkg.sha512",
+    "C:\\Users\\Hey\\.nuget\\packages\\microsoft.extensions.http\\10.0.5\\microsoft.extensions.http.10.0.5.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\microsoft.extensions.logging\\10.0.5\\microsoft.extensions.logging.10.0.5.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.5\\microsoft.extensions.logging.abstractions.10.0.5.nupkg.sha512",
     "C:\\Users\\Hey\\.nuget\\packages\\microsoft.extensions.logging.configuration\\10.0.5\\microsoft.extensions.logging.configuration.10.0.5.nupkg.sha512",

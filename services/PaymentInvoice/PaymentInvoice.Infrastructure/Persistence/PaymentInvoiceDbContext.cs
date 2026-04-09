@@ -9,6 +9,8 @@ public sealed class PaymentInvoiceDbContext(DbContextOptions<PaymentInvoiceDbCon
     public DbSet<DealerCreditAccount> DealerCreditAccounts => Set<DealerCreditAccount>();
     public DbSet<Invoice> Invoices => Set<Invoice>();
     public DbSet<InvoiceLine> InvoiceLines => Set<InvoiceLine>();
+    public DbSet<InvoiceWorkflowState> InvoiceWorkflowStates => Set<InvoiceWorkflowState>();
+    public DbSet<InvoiceWorkflowActivity> InvoiceWorkflowActivities => Set<InvoiceWorkflowActivity>();
     public DbSet<PaymentRecord> PaymentRecords => Set<PaymentRecord>();
     public DbSet<OutboxMessage> OutboxMessages => Set<OutboxMessage>();
 
@@ -53,6 +55,36 @@ public sealed class PaymentInvoiceDbContext(DbContextOptions<PaymentInvoiceDbCon
             builder.Property(x => x.HsnCode).HasMaxLength(20).IsRequired();
             builder.Property(x => x.UnitPrice).HasPrecision(18, 2);
             builder.Ignore(x => x.LineTotal);
+        });
+
+        modelBuilder.Entity<InvoiceWorkflowState>(builder =>
+        {
+            builder.ToTable("InvoiceWorkflowStates");
+            builder.HasKey(x => x.InvoiceId);
+            builder.Property(x => x.Status).HasConversion<string>().HasMaxLength(32).IsRequired();
+            builder.Property(x => x.DueAtUtc).IsRequired();
+            builder.Property(x => x.InternalNote).HasMaxLength(500).IsRequired();
+            builder.Property(x => x.ReminderCount).IsRequired();
+            builder.Property(x => x.UpdatedAtUtc).IsRequired();
+            builder.HasOne<Invoice>()
+                .WithOne()
+                .HasForeignKey<InvoiceWorkflowState>(x => x.InvoiceId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<InvoiceWorkflowActivity>(builder =>
+        {
+            builder.ToTable("InvoiceWorkflowActivities");
+            builder.HasKey(x => x.ActivityId);
+            builder.Property(x => x.Type).HasConversion<string>().HasMaxLength(32).IsRequired();
+            builder.Property(x => x.Message).HasMaxLength(300).IsRequired();
+            builder.Property(x => x.CreatedByRole).HasMaxLength(40).IsRequired();
+            builder.Property(x => x.CreatedAtUtc).IsRequired();
+            builder.HasIndex(x => new { x.InvoiceId, x.CreatedAtUtc });
+            builder.HasOne<Invoice>()
+                .WithMany()
+                .HasForeignKey(x => x.InvoiceId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<PaymentRecord>(builder =>

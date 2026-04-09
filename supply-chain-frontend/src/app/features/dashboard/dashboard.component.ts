@@ -14,6 +14,7 @@ import { OrderListItemDto } from '../../core/models/order.models';
 import { ShipmentDto } from '../../core/models/logistics.models';
 import { ProductListItemDto } from '../../core/models/catalog.models';
 import { buildProductPlaceholderDataUrl, enterpriseProductFallbackImageUrl, resolveEnterpriseProductImageUrl } from '../../core/services/product-image.service';
+import { InventoryAlertRulesService } from '../../core/services/inventory-alert-rules.service';
 
 interface PieSlice { label: string; value: number; color: string; pct: number; dashArray: string; dashOffset: number; }
 interface StatCard  { label: string; value: string; sub: string; icon: string; color: string; bg: string; }
@@ -251,6 +252,66 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
           </div>
         </div>
       </div>
+
+      @if (showInventoryAlerts()) {
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="panel-icon">📦</span>Inventory Alerts</div>
+            <a routerLink="/products" class="view-all">Manage →</a>
+          </div>
+
+          <div class="inventory-alerts">
+            <div class="inventory-rule-row">
+              <label class="inventory-rule-label" for="low-stock-threshold">Low stock threshold</label>
+              <div class="inventory-rule-controls">
+                <input id="low-stock-threshold"
+                       type="number"
+                       min="1"
+                       max="999"
+                       class="form-control inventory-threshold-input"
+                       [value]="thresholdDraft()"
+                       (input)="onThresholdDraftInput($any($event.target).value)"
+                       (blur)="saveLowStockThreshold()">
+                <button class="btn btn-secondary btn-sm" (click)="saveLowStockThreshold()">Save</button>
+              </div>
+              <label class="inventory-toggle">
+                <input type="checkbox" [checked]="includeOutOfStock()" (change)="toggleIncludeOutOfStock($any($event.target).checked)">
+                Include out-of-stock products
+              </label>
+            </div>
+
+            <div class="inventory-summary-grid">
+              <div class="inventory-summary-card">
+                <div class="inventory-summary-label">Low Stock</div>
+                <div class="inventory-summary-value">{{ lowStockItems().length }}</div>
+              </div>
+              <div class="inventory-summary-card">
+                <div class="inventory-summary-label">Out of Stock</div>
+                <div class="inventory-summary-value">{{ outOfStockItems().length }}</div>
+              </div>
+              <div class="inventory-summary-card">
+                <div class="inventory-summary-label">Critical</div>
+                <div class="inventory-summary-value">{{ criticalLowStockCount() }}</div>
+              </div>
+            </div>
+
+            @if (activeAlerts().length === 0) {
+              <div class="legend-empty">No inventory alerts for current rules.</div>
+            } @else {
+              <div class="inventory-alert-list">
+                @for (item of activeAlerts(); track item.productId) {
+                  <a [routerLink]="['/products', item.productId]" class="inventory-alert-row">
+                    <div class="inventory-alert-name">{{ item.name }}</div>
+                    <div class="inventory-alert-meta">
+                      <span class="chip" [class]="stockChip(item)">{{ stockLabel(item) }}</span>
+                    </div>
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      }
 
       <!-- Quick actions -->
       <div class="panel">
@@ -605,6 +666,102 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
       background: #f4f9ff;
     }
 
+    /* ── Inventory alerts ── */
+    .inventory-alerts {
+      padding: 16px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .inventory-rule-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .inventory-rule-label {
+      font-size: .75rem;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .inventory-rule-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .inventory-threshold-input {
+      width: 120px;
+      min-width: 120px;
+    }
+    .inventory-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .8125rem;
+      color: #334155;
+      font-weight: 600;
+    }
+    .inventory-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .inventory-summary-card {
+      border: 1px solid #d7e3f1;
+      border-radius: 10px;
+      background: #f7fbff;
+      padding: 10px;
+      text-align: center;
+    }
+    .inventory-summary-label {
+      font-size: .6875rem;
+      color: #64748b;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 3px;
+    }
+    .inventory-summary-value {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -.02em;
+    }
+    .inventory-alert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .inventory-alert-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      text-decoration: none;
+      padding: 8px 10px;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: #ffffff;
+      transition: background 120ms var(--ease), border-color 120ms var(--ease), transform 120ms var(--ease);
+    }
+    .inventory-alert-row:hover {
+      background: #f8fbff;
+      border-color: #bfdbfe;
+      transform: translateY(-1px);
+    }
+    .inventory-alert-name {
+      color: #0f172a;
+      font-size: .8125rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .inventory-alert-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     /* ── Quick actions ── */
     .qa-list { display: flex; flex-direction: column; padding: 6px; }
     .qa-row {
@@ -669,6 +826,7 @@ export class DashboardComponent implements OnInit {
   private readonly catalogApi    = inject(CatalogApiService);
   private readonly notifApi      = inject(NotificationApiService);
   private readonly paymentApi    = inject(PaymentApiService);
+  private readonly inventoryAlertRules = inject(InventoryAlertRulesService);
 
   readonly UserRole = UserRole;
 
@@ -680,10 +838,14 @@ export class DashboardComponent implements OnInit {
   // Data
   readonly recentOrders    = signal<OrderListItemDto[]>([]);
   readonly recentProducts  = signal<ProductListItemDto[]>([]);
+  readonly inventoryProducts = signal<ProductListItemDto[]>([]);
   readonly recentShipments = signal<ShipmentDto[]>([]);
   readonly totalOrders     = signal(0);
   readonly creditAvail     = signal(0);
   readonly creditLimit     = signal(0);
+  readonly lowStockThreshold = signal(10);
+  readonly includeOutOfStock = signal(true);
+  readonly thresholdDraft = signal('10');
   readonly dashboardProductFallbackImageUrl = enterpriseProductFallbackImageUrl;
 
   private readonly pieRadius = 86;
@@ -720,6 +882,33 @@ export class DashboardComponent implements OnInit {
     });
   });
 
+  readonly lowStockItems = computed(() => {
+    const threshold = this.lowStockThreshold();
+    return this.inventoryProducts()
+      .filter(product => product.isActive && product.availableStock > 0 && product.availableStock <= threshold)
+      .sort((left, right) => left.availableStock - right.availableStock);
+  });
+
+  readonly outOfStockItems = computed(() =>
+    this.inventoryProducts()
+      .filter(product => product.isActive && product.availableStock === 0)
+      .sort((left, right) => left.name.localeCompare(right.name))
+  );
+
+  readonly criticalLowStockCount = computed(() => {
+    const criticalThreshold = Math.max(1, Math.floor(this.lowStockThreshold() / 2));
+    return this.lowStockItems().filter(product => product.availableStock <= criticalThreshold).length;
+  });
+
+  readonly activeAlerts = computed(() => {
+    const low = this.lowStockItems();
+    if (!this.includeOutOfStock()) {
+      return low.slice(0, 6);
+    }
+
+    return [...this.outOfStockItems(), ...low].slice(0, 6);
+  });
+
   readonly stats = computed<StatCard[]>(() => {
     const role = this.authStore.role();
     if (role === UserRole.Dealer) return [
@@ -745,6 +934,7 @@ export class DashboardComponent implements OnInit {
   readonly isWarehouse = () => this.authStore.hasRole(UserRole.Warehouse);
   readonly isLogistics = () => this.authStore.hasRole(UserRole.Logistics);
   readonly isAgent     = () => this.authStore.hasRole(UserRole.Agent);
+  readonly showInventoryAlerts = () => this.isAdmin() || this.isWarehouse();
 
   greeting(): string { const h = new Date().getHours(); return h < 12 ? 'morning' : h < 17 ? 'afternoon' : 'evening'; }
   firstName(): string { const n = this.authStore.user()?.fullName ?? ''; return n.split(' ')[0] ?? n; }
@@ -787,8 +977,30 @@ export class DashboardComponent implements OnInit {
     imageElement.src = buildProductPlaceholderDataUrl(productName, undefined, 220, 220);
   }
 
+  onThresholdDraftInput(value: string): void {
+    this.thresholdDraft.set(value);
+  }
+
+  saveLowStockThreshold(): void {
+    const parsed = Number(this.thresholdDraft());
+    const safeValue = Number.isFinite(parsed) ? Math.max(1, Math.min(999, Math.trunc(parsed))) : this.lowStockThreshold();
+    this.lowStockThreshold.set(safeValue);
+    this.thresholdDraft.set(String(safeValue));
+    this.inventoryAlertRules.updateLowStockThreshold(safeValue);
+  }
+
+  toggleIncludeOutOfStock(include: boolean): void {
+    this.includeOutOfStock.set(include);
+    this.inventoryAlertRules.updateIncludeOutOfStock(include);
+  }
+
   ngOnInit(): void {
     const role = this.authStore.role();
+    const rules = this.inventoryAlertRules.rules();
+
+    this.lowStockThreshold.set(rules.lowStockThreshold);
+    this.thresholdDraft.set(String(rules.lowStockThreshold));
+    this.includeOutOfStock.set(rules.includeOutOfStock);
 
     // Orders
     if (role === UserRole.Dealer) {
@@ -812,8 +1024,12 @@ export class DashboardComponent implements OnInit {
     }
 
     // Products
-    this.catalogApi.getProducts(1, 8).subscribe({
-      next: r => { this.recentProducts.set(r.items); this.productsLoading.set(false); },
+    this.catalogApi.getProducts(1, 100).subscribe({
+      next: r => {
+        this.inventoryProducts.set(r.items);
+        this.recentProducts.set(r.items.slice(0, 8));
+        this.productsLoading.set(false);
+      },
       error: () => this.productsLoading.set(false)
     });
 

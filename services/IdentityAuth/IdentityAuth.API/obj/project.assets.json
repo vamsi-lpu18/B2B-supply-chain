@@ -67,6 +67,25 @@
           }
         }
       },
+      "Hangfire.AspNetCore/1.8.23": {
+        "type": "package",
+        "dependencies": {
+          "Hangfire.NetCore": "[1.8.23]"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Hangfire.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Hangfire.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Hangfire.Core/1.8.23": {
         "type": "package",
         "dependencies": {
@@ -124,6 +143,38 @@
           },
           "lib/netstandard2.0/zh/Hangfire.Core.resources.dll": {
             "locale": "zh"
+          }
+        }
+      },
+      "Hangfire.NetCore/1.8.23": {
+        "type": "package",
+        "dependencies": {
+          "Hangfire.Core": "[1.8.23]"
+        },
+        "compile": {
+          "lib/netstandard2.1/Hangfire.NetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Hangfire.NetCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Hangfire.SqlServer/1.8.23": {
+        "type": "package",
+        "dependencies": {
+          "Hangfire.Core": "[1.8.23]"
+        },
+        "compile": {
+          "lib/netstandard2.0/Hangfire.SqlServer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Hangfire.SqlServer.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -1690,6 +1741,34 @@
         "lib/net8.0/FluentValidation.DependencyInjectionExtensions.xml"
       ]
     },
+    "Hangfire.AspNetCore/1.8.23": {
+      "sha512": "TXpOl7kX4xXq5bLEqqWCpt9zh3TaouDwtb3GDtzGHX5uSC2RaAqZzn2swevivx3Uki16slXIigiPtgr4TPKpsg==",
+      "type": "package",
+      "path": "hangfire.aspnetcore/1.8.23",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "COPYING",
+        "COPYING.LESSER",
+        "LICENSE.md",
+        "LICENSE_ROYALTYFREE",
+        "LICENSE_STANDARD",
+        "NOTICES",
+        "hangfire.aspnetcore.1.8.23.nupkg.sha512",
+        "hangfire.aspnetcore.nuspec",
+        "icon.png",
+        "lib/net451/Hangfire.AspNetCore.dll",
+        "lib/net451/Hangfire.AspNetCore.xml",
+        "lib/net461/Hangfire.AspNetCore.dll",
+        "lib/net461/Hangfire.AspNetCore.xml",
+        "lib/netcoreapp3.0/Hangfire.AspNetCore.dll",
+        "lib/netcoreapp3.0/Hangfire.AspNetCore.xml",
+        "lib/netstandard1.3/Hangfire.AspNetCore.dll",
+        "lib/netstandard1.3/Hangfire.AspNetCore.xml",
+        "lib/netstandard2.0/Hangfire.AspNetCore.dll",
+        "lib/netstandard2.0/Hangfire.AspNetCore.xml"
+      ]
+    },
     "Hangfire.Core/1.8.23": {
       "sha512": "YCOTtF3NNOQI83PlfjeNDDBkofJDfdET2CwhfQsiVBwmsU6lP19QW9NVTIH9epl+MnOsyFC2G1RnlPSGV8F1FQ==",
       "type": "package",
@@ -1771,6 +1850,60 @@
         "lib/netstandard2.0/tr-TR/Hangfire.Core.resources.dll",
         "lib/netstandard2.0/zh-TW/Hangfire.Core.resources.dll",
         "lib/netstandard2.0/zh/Hangfire.Core.resources.dll"
+      ]
+    },
+    "Hangfire.NetCore/1.8.23": {
+      "sha512": "SmvUJF/u5MCP666R5Y1V+GntqBc4RCWJqn5ztMMN67d53Cx5cuaWR0YNLMrabjylwLarFYJ7EdR9RnGEZzp/dg==",
+      "type": "package",
+      "path": "hangfire.netcore/1.8.23",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "COPYING",
+        "COPYING.LESSER",
+        "LICENSE.md",
+        "LICENSE_ROYALTYFREE",
+        "LICENSE_STANDARD",
+        "NOTICES",
+        "hangfire.netcore.1.8.23.nupkg.sha512",
+        "hangfire.netcore.nuspec",
+        "icon.png",
+        "lib/net451/Hangfire.NetCore.dll",
+        "lib/net451/Hangfire.NetCore.xml",
+        "lib/net461/Hangfire.NetCore.dll",
+        "lib/net461/Hangfire.NetCore.xml",
+        "lib/netstandard1.3/Hangfire.NetCore.dll",
+        "lib/netstandard1.3/Hangfire.NetCore.xml",
+        "lib/netstandard2.0/Hangfire.NetCore.dll",
+        "lib/netstandard2.0/Hangfire.NetCore.xml",
+        "lib/netstandard2.1/Hangfire.NetCore.dll",
+        "lib/netstandard2.1/Hangfire.NetCore.xml"
+      ]
+    },
+    "Hangfire.SqlServer/1.8.23": {
+      "sha512": "HiRUbwveK0+wop8iY98Z5DrtfjP+1QCly6IO+21Bnolb5kTO5eCrtKbGErHfhSN0BzKk9ehmTLk9uDHQdAtfcQ==",
+      "type": "package",
+      "path": "hangfire.sqlserver/1.8.23",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "COPYING",
+        "COPYING.LESSER",
+        "LICENSE.md",
+        "LICENSE_ROYALTYFREE",
+        "LICENSE_STANDARD",
+        "NOTICES",
+        "hangfire.sqlserver.1.8.23.nupkg.sha512",
+        "hangfire.sqlserver.nuspec",
+        "icon.png",
+        "lib/net451/Hangfire.SqlServer.dll",
+        "lib/net451/Hangfire.SqlServer.xml",
+        "lib/netstandard1.3/Hangfire.SqlServer.dll",
+        "lib/netstandard1.3/Hangfire.SqlServer.xml",
+        "lib/netstandard2.0/Hangfire.SqlServer.dll",
+        "lib/netstandard2.0/Hangfire.SqlServer.xml",
+        "tools/install.sql"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -4605,6 +4738,8 @@
   "projectFileDependencyGroups": {
     "net10.0": [
       "BuildingBlocks >= 1.0.0",
+      "Hangfire.AspNetCore >= 1.8.23",
+      "Hangfire.SqlServer >= 1.8.23",
       "IdentityAuth.Application >= 1.0.0",
       "IdentityAuth.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 10.0.5",
@@ -4671,6 +4806,14 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "Hangfire.AspNetCore": {
+            "target": "Package",
+            "version": "[1.8.23, )"
+          },
+          "Hangfire.SqlServer": {
+            "target": "Package",
+            "version": "[1.8.23, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[10.0.5, )"

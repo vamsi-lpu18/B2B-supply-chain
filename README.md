@@ -37,27 +37,40 @@ dotnet run --project services/Notification/Notification.API
 dotnet run --project gateway/OcelotGateway
 ```
 
-Gateway health endpoint:
+## Logistics AI (simple real provider)
 
-- `GET http://localhost:5000/gateway/health`
+The LogisticsTracking service supports a minimal real AI integration with Gemini.
 
-Gateway route inventory endpoint:
+1. Create a Gemini API key from Google AI Studio.
+2. Set the key in your shell before starting LogisticsTracking:
 
-- `GET http://localhost:5000/gateway/routes`
+```powershell
+$env:AI_PROVIDER_API_KEY = "your-gemini-api-key"
+```
 
-Gateway latency metrics endpoint:
+3. Enable AI for LogisticsTracking in `services/LogisticsTracking/LogisticsTracking.API/appsettings.Development.json`:
 
-- `GET http://localhost:5000/gateway/metrics`
+```json
+"Ai": {
+	"Provider": "gemini",
+	"Enabled": true
+}
+```
+
+4. Start the LogisticsTracking API.
+
+When enabled, `POST /api/logistics/shipments/{shipmentId}/ai-recommendation` first tries Gemini and automatically falls back to the built-in deterministic recommendation logic if the AI call fails.
 
 Gateway notes:
 
 - All proxied service routes use Ocelot rate limiting.
 - Send a client identity header for proxied calls: `Oc-Client: your-client-id`
-- Gateway emits structured request/response audit logs with route key, status, and duration.
+- Send a correlation id header for tracing: `X-Correlation-Id: <guid>`
+- Gateway is currently configured as a lean proxy/auth entry point and does not expose custom `/gateway/*` operational endpoints.
 - Example passthrough request:
 
 ```powershell
-Invoke-RestMethod -Headers @{ "Oc-Client" = "student-local" } "http://localhost:5000/payments/api/payment/dealers/<dealer-id>/credit-check?amount=1000"
+Invoke-RestMethod -Headers @{ "Oc-Client" = "student-local"; "X-Correlation-Id" = [Guid]::NewGuid().ToString("N") } "http://localhost:5000/payments/api/payment/dealers/<dealer-id>/credit-check?amount=1000"
 ```
 
 ## Database migrations

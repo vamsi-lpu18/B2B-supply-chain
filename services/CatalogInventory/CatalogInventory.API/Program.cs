@@ -1,3 +1,5 @@
+using Hangfire;
+using Hangfire.SqlServer;
 using CatalogInventory.Application;
 using CatalogInventory.Domain.Entities;
 using CatalogInventory.Infrastructure;
@@ -27,6 +29,18 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var hangfireConnection = builder.Configuration.GetConnectionString("InventoryDb")
+    ?? throw new InvalidOperationException("Connection string 'InventoryDb' is missing for Hangfire.");
+
+builder.Services.AddHangfire(configuration => configuration
+    .UseSimpleAssemblyNameTypeSerializer()
+    .UseRecommendedSerializerSettings()
+    .UseSqlServerStorage(hangfireConnection, new SqlServerStorageOptions
+    {
+        PrepareSchemaIfNecessary = true
+    }));
+builder.Services.AddHangfireServer();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -98,6 +112,8 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "CatalogInventory API v1");
         options.RoutePrefix = "swagger";
     });
+
+    app.MapHangfireDashboard("/hangfire");
 }
 
 app.Use(async (context, next) =>
@@ -129,6 +145,11 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapGet("/health", () => Results.Ok(new { service = "CatalogInventory", status = "Healthy", utc = DateTime.UtcNow }));
+
+RecurringJob.AddOrUpdate<HangfireHeartbeatJob>(
+    "cataloginventory-heartbeat",
+    job => job.RunAsync(),
+    Cron.Minutely);
 
 app.Run();
 
@@ -231,3 +252,12 @@ internal sealed record SeedCatalogProduct(
     int MinOrderQty,
     int OpeningStock,
     string ImageUrl);
+
+internal sealed class HangfireHeartbeatJob(ILogger<HangfireHeartbeatJob> logger)
+{
+    public Task RunAsync()
+    {
+        logger.LogInformation("Hangfire heartbeat job executed at {UtcNow}", DateTime.UtcNow);
+        return Task.CompletedTask;
+    }
+}

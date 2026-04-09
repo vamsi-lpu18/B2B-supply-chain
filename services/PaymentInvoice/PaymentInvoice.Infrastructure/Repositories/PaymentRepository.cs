@@ -45,6 +45,58 @@ internal sealed class PaymentRepository(PaymentInvoiceDbContext dbContext) : IPa
         return invoices;
     }
 
+    public Task<InvoiceWorkflowState?> GetInvoiceWorkflowAsync(Guid invoiceId, CancellationToken cancellationToken)
+    {
+        return dbContext.InvoiceWorkflowStates
+            .FirstOrDefaultAsync(x => x.InvoiceId == invoiceId, cancellationToken);
+    }
+
+    public async Task<IReadOnlyList<InvoiceWorkflowState>> GetDealerInvoiceWorkflowsAsync(Guid dealerId, CancellationToken cancellationToken)
+    {
+        var workflows = await dbContext.InvoiceWorkflowStates
+            .AsNoTracking()
+            .Join(
+                dbContext.Invoices.AsNoTracking(),
+                workflow => workflow.InvoiceId,
+                invoice => invoice.InvoiceId,
+                (workflow, invoice) => new { workflow, invoice.DealerId })
+            .Where(x => x.DealerId == dealerId)
+            .Select(x => x.workflow)
+            .ToListAsync(cancellationToken);
+
+        return workflows;
+    }
+
+    public async Task UpsertInvoiceWorkflowAsync(InvoiceWorkflowState workflowState, CancellationToken cancellationToken)
+    {
+        var existing = await dbContext.InvoiceWorkflowStates
+            .FirstOrDefaultAsync(x => x.InvoiceId == workflowState.InvoiceId, cancellationToken);
+
+        if (existing is null)
+        {
+            await dbContext.InvoiceWorkflowStates.AddAsync(workflowState, cancellationToken);
+            return;
+        }
+
+        dbContext.Entry(existing).CurrentValues.SetValues(workflowState);
+    }
+
+    public async Task<IReadOnlyList<InvoiceWorkflowActivity>> GetInvoiceWorkflowActivitiesAsync(Guid invoiceId, CancellationToken cancellationToken)
+    {
+        var activities = await dbContext.InvoiceWorkflowActivities
+            .AsNoTracking()
+            .Where(x => x.InvoiceId == invoiceId)
+            .OrderByDescending(x => x.CreatedAtUtc)
+            .ToListAsync(cancellationToken);
+
+        return activities;
+    }
+
+    public async Task AddInvoiceWorkflowActivityAsync(InvoiceWorkflowActivity activity, CancellationToken cancellationToken)
+    {
+        await dbContext.InvoiceWorkflowActivities.AddAsync(activity, cancellationToken);
+    }
+
     public async Task AddInvoiceAsync(Invoice invoice, CancellationToken cancellationToken)
     {
         await dbContext.Invoices.AddAsync(invoice, cancellationToken);

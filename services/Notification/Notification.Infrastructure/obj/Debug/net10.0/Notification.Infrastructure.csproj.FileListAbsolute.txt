@@ -21,3 +21,4 @@ C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\obj\
 C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\obj\Debug\net10.0\Notification.Infrastructure.pdb
 C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\obj\Debug\net10.0\Notification.Infrastructure.genruntimeconfig.cache
 C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\obj\Debug\net10.0\ref\Notification.Infrastructure.dll
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\obj\Debug\net10.0\Notification.Infrastructure.sourcelink.json

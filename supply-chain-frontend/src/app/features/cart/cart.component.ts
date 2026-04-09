@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -34,14 +34,42 @@ import { ToastService } from '../../core/services/toast.service';
                   <div class="cart-item-name">{{ item.productName }}</div>
                   <div class="text-xs text-secondary">SKU: {{ item.sku }}</div>
                   <div class="text-sm text-primary fw-600">{{ item.unitPrice | currency:'INR':'symbol':'1.2-2' }} each</div>
+                  @if (item.note) {
+                    <div class="text-xs text-secondary mt-1">Note: {{ item.note }}</div>
+                  }
                 </div>
-                <div class="cart-item-qty">
-                  <button class="btn btn-ghost btn-sm" (click)="decrement(item.productId, item.quantity, item.minOrderQty)">−</button>
-                  <span class="qty-display">{{ item.quantity }}</span>
-                  <button class="btn btn-ghost btn-sm" (click)="increment(item.productId, item.quantity, item.availableStock)">+</button>
+                <div class="cart-item-qty-wrap">
+                  <div class="cart-item-qty">
+                    <button class="btn btn-ghost btn-sm" (click)="decrement(item.productId, item.quantity, item.minOrderQty, item.availableStock)">−</button>
+                    <input type="number"
+                           class="qty-input"
+                           [value]="qtyValue(item.productId, item.quantity)"
+                           (input)="onQtyInput(item.productId, $any($event.target).value)"
+                           (blur)="applyQty(item.productId, item.minOrderQty, item.availableStock)"
+                           (keydown.enter)="applyQty(item.productId, item.minOrderQty, item.availableStock)">
+                    <button class="btn btn-ghost btn-sm" (click)="increment(item.productId, item.quantity, item.minOrderQty, item.availableStock)">+</button>
+                  </div>
+                  <div class="qty-meta">Min {{ item.minOrderQty }} · Max {{ maxPurchasable(item.minOrderQty, item.availableStock) }}</div>
+                  <div class="d-flex gap-1 flex-wrap justify-center">
+                    <button class="btn btn-ghost btn-sm" (click)="applyQuickQty(item.productId, item.minOrderQty, item.availableStock, 1)">Min</button>
+                    <button class="btn btn-ghost btn-sm" (click)="applyQuickQty(item.productId, item.minOrderQty, item.availableStock, 2)">Min x2</button>
+                    <button class="btn btn-ghost btn-sm" (click)="applyQuickQty(item.productId, item.minOrderQty, item.availableStock, 5)">Min x5</button>
+                    <button class="btn btn-ghost btn-sm" (click)="applyMaxQty(item.productId, item.minOrderQty, item.availableStock)">Max</button>
+                  </div>
                 </div>
                 <div class="cart-item-total fw-600">{{ item.lineTotal | currency:'INR':'symbol':'1.2-2' }}</div>
                 <button class="btn btn-ghost btn-icon" (click)="cartStore.removeItem(item.productId)">🗑️</button>
+                <div class="cart-note-wrap">
+                  <label class="text-xs text-secondary">Line Note</label>
+                  <input type="text"
+                         class="form-control"
+                         style="min-width:220px"
+                         maxlength="160"
+                         placeholder="Add handling or delivery note"
+                         [value]="noteValue(item.productId, item.note || '')"
+                         (input)="onNoteInput(item.productId, $any($event.target).value)"
+                         (blur)="applyNote(item.productId)">
+                </div>
               </div>
             }
           </div>
@@ -98,6 +126,27 @@ import { ToastService } from '../../core/services/toast.service';
       padding: 4px 8px;
       border-radius: var(--r-lg);
     }
+    .cart-item-qty-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .qty-input {
+      width: 72px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 8px;
+      text-align: center;
+      font-weight: 700;
+      background: #fff;
+    }
+    .qty-meta {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
     .qty-display { 
       min-width: 36px; 
       text-align: center; 
@@ -110,6 +159,13 @@ import { ToastService } from '../../core/services/toast.service';
       text-align: right; 
       font-size: 1.0625rem;
       color: var(--brand-700);
+    }
+    .cart-note-wrap {
+      flex-basis: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 8px;
     }
     .cart-summary {
       position: sticky;
@@ -143,16 +199,134 @@ import { ToastService } from '../../core/services/toast.service';
 export class CartComponent {
   readonly cartStore = inject(CartStore);
   private readonly toast = inject(ToastService);
+  private readonly qtyDraft = signal<Record<string, string>>({});
+  private readonly noteDraft = signal<Record<string, string>>({});
 
-  increment(productId: string, qty: number, max: number): void {
-    if (qty < max) this.cartStore.updateQuantity(productId, qty + 1);
-    else this.toast.warning('Cannot exceed available stock');
+  qtyValue(productId: string, quantity: number): string {
+    const draft = this.qtyDraft()[productId];
+    return draft ?? String(quantity);
   }
 
-  decrement(productId: string, qty: number, min: number): void {
-    if (qty > min) this.cartStore.updateQuantity(productId, qty - 1);
-    else this.toast.warning(`Minimum order quantity is ${min}`);
+  maxPurchasable(minOrderQty: number, availableStock: number): number {
+    const min = Math.max(1, Math.trunc(minOrderQty));
+    const available = Math.max(0, Math.trunc(availableStock));
+    if (available < min) {
+      return 0;
+    }
+
+    return Math.floor(available / min) * min;
   }
 
-  clearCart(): void { this.cartStore.clear(); }
+  onQtyInput(productId: string, value: string): void {
+    this.qtyDraft.update(current => ({ ...current, [productId]: value }));
+  }
+
+  noteValue(productId: string, note: string): string {
+    const draft = this.noteDraft()[productId];
+    return draft ?? note;
+  }
+
+  onNoteInput(productId: string, value: string): void {
+    this.noteDraft.update(current => ({ ...current, [productId]: value }));
+  }
+
+  applyNote(productId: string): void {
+    const draft = this.noteDraft()[productId];
+    if (draft === undefined) {
+      return;
+    }
+
+    this.cartStore.updateNote(productId, draft);
+    this.noteDraft.update(current => {
+      const next = { ...current };
+      delete next[productId];
+      return next;
+    });
+  }
+
+  applyQty(productId: string, minOrderQty: number, availableStock: number): void {
+    const draft = this.qtyDraft()[productId];
+    if (draft === undefined) {
+      return;
+    }
+
+    const parsed = Number(draft);
+    if (!Number.isFinite(parsed)) {
+      this.clearDraft(productId);
+      return;
+    }
+
+    const normalized = this.cartStore.normalizeQuantity(parsed, minOrderQty, availableStock);
+    if (normalized <= 0) {
+      this.cartStore.removeItem(productId);
+      this.toast.warning('Item is no longer available in stock');
+      this.clearDraft(productId);
+      return;
+    }
+
+    this.cartStore.updateQuantity(productId, normalized);
+    this.clearDraft(productId);
+  }
+
+  increment(productId: string, qty: number, minOrderQty: number, availableStock: number): void {
+    const step = Math.max(1, Math.trunc(minOrderQty));
+    const normalized = this.cartStore.normalizeQuantity(qty + step, minOrderQty, availableStock);
+    if (normalized === qty) {
+      this.toast.warning('Cannot exceed available stock');
+      return;
+    }
+
+    this.cartStore.updateQuantity(productId, normalized);
+    this.clearDraft(productId);
+  }
+
+  applyQuickQty(productId: string, minOrderQty: number, availableStock: number, multiplier: number): void {
+    const base = Math.max(1, Math.trunc(minOrderQty));
+    const target = base * Math.max(1, Math.trunc(multiplier));
+    const normalized = this.cartStore.normalizeQuantity(target, minOrderQty, availableStock);
+    if (normalized <= 0) {
+      this.toast.warning('Item is no longer available in stock');
+      return;
+    }
+
+    this.cartStore.updateQuantity(productId, normalized);
+    this.clearDraft(productId);
+  }
+
+  applyMaxQty(productId: string, minOrderQty: number, availableStock: number): void {
+    const max = this.maxPurchasable(minOrderQty, availableStock);
+    if (max <= 0) {
+      this.toast.warning('Item is no longer available in stock');
+      return;
+    }
+
+    this.cartStore.updateQuantity(productId, max);
+    this.clearDraft(productId);
+  }
+
+  decrement(productId: string, qty: number, minOrderQty: number, availableStock: number): void {
+    const step = Math.max(1, Math.trunc(minOrderQty));
+    const normalized = this.cartStore.normalizeQuantity(qty - step, minOrderQty, availableStock);
+    if (normalized === qty) {
+      this.toast.warning(`Minimum order quantity is ${minOrderQty}`);
+      return;
+    }
+
+    this.cartStore.updateQuantity(productId, normalized);
+    this.clearDraft(productId);
+  }
+
+  clearCart(): void {
+    this.qtyDraft.set({});
+    this.noteDraft.set({});
+    this.cartStore.clear();
+  }
+
+  private clearDraft(productId: string): void {
+    this.qtyDraft.update(current => {
+      const next = { ...current };
+      delete next[productId];
+      return next;
+    });
+  }
 }

@@ -13,3 +13,4 @@ C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Debug\ne
 C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Debug\net10.0\refint\Notification.Domain.dll
 C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Debug\net10.0\Notification.Domain.pdb
 C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Debug\net10.0\ref\Notification.Domain.dll
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Debug\net10.0\Notification.Domain.sourcelink.json

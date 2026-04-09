@@ -23,6 +23,19 @@ internal sealed class OrderRepository(OrderDbContext dbContext) : IOrderReposito
             .FirstOrDefaultAsync(x => x.OrderId == orderId, cancellationToken);
     }
 
+    public async Task<IReadOnlyList<OrderAggregate>> GetOrdersByIdsAsync(IReadOnlyCollection<Guid> orderIds, CancellationToken cancellationToken)
+    {
+        if (orderIds.Count == 0)
+        {
+            return [];
+        }
+
+        return await dbContext.Orders
+            .Include(x => x.StatusHistory)
+            .Where(x => orderIds.Contains(x.OrderId))
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<(IReadOnlyList<OrderAggregate> Items, int TotalCount)> GetDealerOrdersAsync(
         Guid dealerId,
         int page,

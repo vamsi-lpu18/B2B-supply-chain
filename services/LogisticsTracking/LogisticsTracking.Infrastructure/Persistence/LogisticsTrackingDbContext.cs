@@ -8,6 +8,7 @@ public sealed class LogisticsTrackingDbContext(DbContextOptions<LogisticsTrackin
 {
     public DbSet<Shipment> Shipments => Set<Shipment>();
     public DbSet<ShipmentEvent> ShipmentEvents => Set<ShipmentEvent>();
+    public DbSet<ShipmentOpsState> ShipmentOpsStates => Set<ShipmentOpsState>();
     public DbSet<OutboxMessage> OutboxMessages => Set<OutboxMessage>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -37,6 +38,22 @@ public sealed class LogisticsTrackingDbContext(DbContextOptions<LogisticsTrackin
             builder.Property(x => x.Status).HasConversion<string>().HasMaxLength(32).IsRequired();
             builder.Property(x => x.Note).HasMaxLength(500).IsRequired();
             builder.Property(x => x.UpdatedByRole).HasMaxLength(40).IsRequired();
+        });
+
+        modelBuilder.Entity<ShipmentOpsState>(builder =>
+        {
+            builder.ToTable("ShipmentOpsStates");
+            builder.HasKey(x => x.ShipmentId);
+            builder.Property(x => x.HandoverState).HasConversion<string>().HasMaxLength(20).IsRequired();
+            builder.Property(x => x.HandoverExceptionReason).HasMaxLength(300);
+            builder.Property(x => x.RetryRequired).IsRequired();
+            builder.Property(x => x.RetryCount).IsRequired();
+            builder.Property(x => x.RetryReason).HasMaxLength(300);
+            builder.Property(x => x.UpdatedAtUtc).IsRequired();
+            builder.HasOne<Shipment>()
+                .WithOne()
+                .HasForeignKey<ShipmentOpsState>(x => x.ShipmentId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<OutboxMessage>(builder =>

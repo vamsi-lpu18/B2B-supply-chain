@@ -21,3 +21,4 @@ C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Infrastructure\obj\
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Infrastructure\obj\Debug\net10.0\IdentityAuth.Infrastructure.pdb
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Infrastructure\obj\Debug\net10.0\IdentityAuth.Infrastructure.genruntimeconfig.cache
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Infrastructure\obj\Debug\net10.0\ref\IdentityAuth.Infrastructure.dll
+C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Infrastructure\obj\Debug\net10.0\IdentityAuth.Infrastructure.sourcelink.json

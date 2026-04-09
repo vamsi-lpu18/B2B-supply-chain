@@ -15,8 +15,11 @@ export class CatalogApiService {
   private readonly inventory = '/catalog/api/inventory';
 
   // Products
-  getProducts(page = 1, size = 20): Observable<PagedResult<ProductListItemDto>> {
-    const params = new HttpParams().set('page', page).set('size', size);
+  getProducts(page = 1, size = 20, includeInactive = false): Observable<PagedResult<ProductListItemDto>> {
+    const params = new HttpParams()
+      .set('page', page)
+      .set('size', size)
+      .set('includeInactive', String(includeInactive));
     return this.http.get<PagedResult<ProductListItemDto>>(this.products, { params });
   }
 
@@ -28,8 +31,10 @@ export class CatalogApiService {
     return this.http.get<CategoryDto[]>(`${this.products}/categories`);
   }
 
-  searchProducts(q: string): Observable<ProductListItemDto[]> {
-    const params = new HttpParams().set('q', q);
+  searchProducts(q: string, includeInactive = false): Observable<ProductListItemDto[]> {
+    const params = new HttpParams()
+      .set('q', q)
+      .set('includeInactive', String(includeInactive));
     return this.http.get<ProductListItemDto[]>(`${this.products}/search`, { params });
   }
 

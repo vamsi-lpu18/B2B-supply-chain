@@ -94,9 +94,14 @@ public sealed class OrderAggregate
         TransitionTo(OrderStatus.Cancelled, changedByUserId, changedByRole);
     }
 
+    public bool CanTransitionTo(OrderStatus newStatus)
+    {
+        return AllowedTransitions.TryGetValue(Status, out var allowed) && allowed.Contains(newStatus);
+    }
+
     public void TransitionTo(OrderStatus newStatus, Guid changedByUserId, string changedByRole)
     {
-        if (!AllowedTransitions.TryGetValue(Status, out var allowed) || !allowed.Contains(newStatus))
+        if (!CanTransitionTo(newStatus))
         {
             throw new InvalidOperationException($"Cannot transition order from '{Status}' to '{newStatus}'.");
         }

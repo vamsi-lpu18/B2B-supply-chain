@@ -19,11 +19,51 @@ public sealed record CancelOrderRequest(string Reason);
 
 public sealed record UpdateOrderStatusRequest(OrderStatus NewStatus);
 
+public sealed record BulkUpdateOrderStatusRequest(
+    OrderStatus NewStatus,
+    IReadOnlyList<Guid> OrderIds,
+    bool ValidateOnly = false);
+
+public sealed record BulkOrderStatusItemResultDto(
+    Guid OrderId,
+    string? OrderNumber,
+    OrderStatus? CurrentStatus,
+    bool CanTransition,
+    bool Applied,
+    string? Message);
+
+public sealed record BulkUpdateOrderStatusResultDto(
+    int RequestedCount,
+    int ValidCount,
+    int InvalidCount,
+    int AppliedCount,
+    IReadOnlyList<BulkOrderStatusItemResultDto> Results);
+
 public sealed record ReturnRequestDto(string Reason);
 
 public sealed record AdminDecisionRequest(string? Reason);
 
 public sealed record CreditCheckResult(bool Approved, decimal AvailableCredit, decimal CreditLimit, decimal CurrentOutstanding);
+
+public enum OrderSagaState
+{
+    Started = 0,
+    CreditCheckInProgress = 1,
+    AwaitingManualApproval = 2,
+    CompletedApproved = 3,
+    CompletedRejected = 4,
+    CompletedCancelled = 5
+}
+
+public sealed record OrderSagaDto(
+    Guid OrderId,
+    string OrderNumber,
+    Guid DealerId,
+    OrderSagaState CurrentState,
+    DateTime StartedAtUtc,
+    DateTime UpdatedAtUtc,
+    DateTime? CompletedAtUtc,
+    string? LastMessage);
 
 public sealed record OrderLineDto(
     Guid OrderLineId,
@@ -62,7 +102,8 @@ public sealed record OrderDto(
     string? CancellationReason,
     IReadOnlyList<OrderLineDto> Lines,
     IReadOnlyList<OrderStatusHistoryDto> StatusHistory,
-    ReturnInfoDto? ReturnRequest);
+    ReturnInfoDto? ReturnRequest,
+    OrderSagaDto? Saga);
 
 public sealed record OrderListItemDto(
     Guid OrderId,

@@ -4,7 +4,8 @@ import { Observable, catchError, map, of, throwError } from 'rxjs';
 import {
   CreditCheckResponse, PaymentUpdateCreditLimitRequest, SeedDealerAccountRequest,
   SettleOutstandingRequest, GenerateInvoiceRequest, InvoiceDto, DealerCreditAccountDto,
-  CreateGatewayOrderRequest, GatewayOrderDto, VerifyGatewayPaymentRequest, GatewayPaymentVerificationDto
+  CreateGatewayOrderRequest, GatewayOrderDto, VerifyGatewayPaymentRequest, GatewayPaymentVerificationDto,
+  InvoiceWorkflowStateDto, UpsertInvoiceWorkflowRequest, InvoiceWorkflowActivityDto, AddInvoiceWorkflowActivityRequest
 } from '../models/payment.models';
 import { findMockInvoiceById, mockInvoicesForDealer } from '../mocks/payment-invoice.mocks';
 
@@ -62,5 +63,25 @@ export class PaymentApiService {
 
   downloadInvoice(invoiceId: string): Observable<Blob> {
     return this.http.get(`${this.base}/invoices/${invoiceId}/download`, { responseType: 'blob' });
+  }
+
+  getInvoiceWorkflow(invoiceId: string): Observable<InvoiceWorkflowStateDto> {
+    return this.http.get<InvoiceWorkflowStateDto>(`${this.base}/invoices/${invoiceId}/workflow`);
+  }
+
+  getDealerInvoiceWorkflows(dealerId: string): Observable<InvoiceWorkflowStateDto[]> {
+    return this.http.get<InvoiceWorkflowStateDto[]>(`${this.base}/dealers/${dealerId}/invoice-workflows`);
+  }
+
+  upsertInvoiceWorkflow(invoiceId: string, req: UpsertInvoiceWorkflowRequest): Observable<InvoiceWorkflowStateDto> {
+    return this.http.put<InvoiceWorkflowStateDto>(`${this.base}/invoices/${invoiceId}/workflow`, req);
+  }
+
+  getInvoiceWorkflowActivities(invoiceId: string): Observable<InvoiceWorkflowActivityDto[]> {
+    return this.http.get<InvoiceWorkflowActivityDto[]>(`${this.base}/invoices/${invoiceId}/workflow-activities`);
+  }
+
+  addInvoiceWorkflowActivity(invoiceId: string, req: AddInvoiceWorkflowActivityRequest): Observable<InvoiceWorkflowActivityDto> {
+    return this.http.post<InvoiceWorkflowActivityDto>(`${this.base}/invoices/${invoiceId}/workflow-activities`, req);
   }
 }

@@ -9,3 +9,13 @@ C:\Users\Hey\Desktop\demo\src\SharedKernel\obj\Debug\net10.0\SharedKernel.dll
 C:\Users\Hey\Desktop\demo\src\SharedKernel\obj\Debug\net10.0\refint\SharedKernel.dll
 C:\Users\Hey\Desktop\demo\src\SharedKernel\obj\Debug\net10.0\SharedKernel.pdb
 C:\Users\Hey\Desktop\demo\src\SharedKernel\obj\Debug\net10.0\ref\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\src\SharedKernel\obj\Debug\net10.0\SharedKernel.sourcelink.json
+C:\Users\Hey\Desktop\demo\src\SharedKernel\bin\Debug\build-verify\SharedKernel.deps.json
+C:\Users\Hey\Desktop\demo\src\SharedKernel\bin\Debug\build-verify\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\src\SharedKernel\bin\Debug\build-verify\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\SharedKernel.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\SharedKernel.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\SharedKernel.pdb

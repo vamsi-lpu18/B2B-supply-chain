@@ -2,9 +2,13 @@ import { Component, inject, signal, OnInit, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { catchError, forkJoin, map, of } from 'rxjs';
 import { OrderApiService, AdminOrderApiService } from '../../../core/api/order-api.service';
+import { CatalogApiService } from '../../../core/api/catalog-api.service';
 import { AuthStore } from '../../../core/stores/auth.store';
+import { CartStore } from '../../../core/stores/cart.store';
 import { ToastService } from '../../../core/services/toast.service';
+import { OrderOpsNote, OrderOpsNotesService } from '../../../core/services/order-ops-notes.service';
 import { OrderDto } from '../../../core/models/order.models';
 import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRANSITIONS, UserRole, PaymentMode, CreditHoldStatus } from '../../../core/models/enums';
 
@@ -28,6 +32,9 @@ import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRAN
           }
           @if (canReturn()) {
             <button class="btn btn-secondary" (click)="showReturnDialog.set(true)">Request Return</button>
+          }
+          @if (canReorder()) {
+            <button class="btn btn-secondary" (click)="reorderItems()" [disabled]="actionLoading()">Reorder Items</button>
           }
           @if (canApproveHold()) {
             <button class="btn btn-primary" (click)="approveHold()">Approve Hold</button>
@@ -87,6 +94,44 @@ import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRAN
             }
           </div>
         </div>
+
+        @if (isStaff()) {
+          <div class="card mb-4">
+            <h2 class="mb-4">Operations Notes & Tags</h2>
+            <div class="form-group">
+              <label>Internal Note</label>
+              <textarea class="form-control" [(ngModel)]="opsNoteText" rows="3" maxlength="500" placeholder="Add operational context, escalation details, or handling notes..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Tags (comma separated)</label>
+              <input class="form-control" [(ngModel)]="opsNoteTags" maxlength="200" placeholder="priority, fragile, vip">
+            </div>
+            <div class="d-flex gap-2 mb-3">
+              <button class="btn btn-primary btn-sm" (click)="addOpsNote()" [disabled]="!opsNoteText.trim()">Add Note</button>
+            </div>
+
+            @if (opsNotes().length === 0) {
+              <p class="text-sm text-secondary">No internal notes yet.</p>
+            } @else {
+              <div class="ops-note-list">
+                @for (n of opsNotes(); track n.noteId) {
+                  <div class="ops-note-item">
+                    <div class="d-flex gap-2 align-center flex-wrap mb-1">
+                      <span class="text-xs text-secondary">{{ n.createdAtUtc | date:'dd MMM yyyy, HH:mm' }} · {{ n.createdByRole }}</span>
+                      @for (tag of n.tags; track tag) {
+                        <span class="badge badge-info text-xs">{{ tag }}</span>
+                      }
+                    </div>
+                    <div class="text-sm">{{ n.text }}</div>
+                    <div class="mt-2">
+                      <button class="btn btn-ghost btn-sm" (click)="removeOpsNote(n.noteId)">Remove</button>
+                    </div>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        }
 
         <!-- Return Request -->
         @if (order()!.returnRequest) {
@@ -199,12 +244,16 @@ export class OrderDetailComponent implements OnInit {
 
   private readonly orderApi      = inject(OrderApiService);
   private readonly adminOrderApi = inject(AdminOrderApiService);
+  private readonly catalogApi    = inject(CatalogApiService);
+  private readonly cartStore     = inject(CartStore);
   private readonly authStore     = inject(AuthStore);
   private readonly toast         = inject(ToastService);
+  private readonly orderOpsNotes = inject(OrderOpsNotesService);
 
   readonly loading             = signal(true);
   readonly actionLoading       = signal(false);
   readonly order               = signal<OrderDto | null>(null);
+  readonly opsNotes            = signal<OrderOpsNote[]>([]);
   readonly showCancelDialog    = signal(false);
   readonly showReturnDialog    = signal(false);
   readonly showStatusDialog    = signal(false);
@@ -213,6 +262,8 @@ export class OrderDetailComponent implements OnInit {
   cancelReason    = '';
   returnReason    = '';
   rejectHoldReason = '';
+  opsNoteText = '';
+  opsNoteTags = '';
   newStatus: OrderStatus = OrderStatus.Processing;
 
   statusLabel(s: OrderStatus): string { return ORDER_STATUS_LABELS[s] ?? String(s); }
@@ -233,6 +284,10 @@ export class OrderDetailComponent implements OnInit {
     return false;
   }
   canReturn(): boolean { return this.isDealer() && this.order()?.status === OrderStatus.Delivered; }
+  canReorder(): boolean {
+    const o = this.order();
+    return this.isDealer() && !!o && o.lines.length > 0;
+  }
   canUpdateStatus(): boolean {
     return this.isStaff() && this.nextStatuses().length > 0;
   }
@@ -252,10 +307,35 @@ export class OrderDetailComponent implements OnInit {
         this.order.set(o);
         const nexts = ORDER_STATUS_TRANSITIONS[o.status] ?? [];
         if (nexts.length > 0) this.newStatus = nexts[0];
+        this.loadOpsNotes();
         this.loading.set(false);
       },
       error: () => { this.order.set(null); this.loading.set(false); }
     });
+  }
+
+  addOpsNote(): void {
+    const text = this.opsNoteText.trim();
+    if (!text) {
+      return;
+    }
+
+    const tags = this.opsNoteTags
+      .split(',')
+      .map(tag => tag.trim())
+      .filter(Boolean);
+
+    this.orderOpsNotes.add(this.id(), text, tags, this.currentRoleLabel());
+    this.opsNoteText = '';
+    this.opsNoteTags = '';
+    this.loadOpsNotes();
+    this.toast.success('Internal note added');
+  }
+
+  removeOpsNote(noteId: string): void {
+    this.orderOpsNotes.remove(this.id(), noteId);
+    this.loadOpsNotes();
+    this.toast.info('Internal note removed');
   }
 
   cancelOrder(): void {
@@ -300,6 +380,68 @@ export class OrderDetailComponent implements OnInit {
     });
   }
 
+  reorderItems(): void {
+    const currentOrder = this.order();
+    if (!currentOrder || currentOrder.lines.length === 0) {
+      return;
+    }
+
+    this.actionLoading.set(true);
+
+    forkJoin(
+      currentOrder.lines.map(line =>
+        this.catalogApi.getProductById(line.productId).pipe(
+          map(product => ({ line, product })),
+          catchError(() => of({ line, product: null }))
+        )
+      )
+    ).subscribe({
+      next: rows => {
+        let added = 0;
+        let skipped = 0;
+
+        for (const row of rows) {
+          const product = row.product;
+          if (!product || !product.isActive || product.availableStock <= 0) {
+            skipped += 1;
+            continue;
+          }
+
+          const normalizedQty = this.cartStore.normalizeQuantity(row.line.quantity, product.minOrderQty, product.availableStock);
+          if (normalizedQty <= 0) {
+            skipped += 1;
+            continue;
+          }
+
+          this.cartStore.addItem({
+            productId: product.productId,
+            productName: product.name,
+            sku: product.sku,
+            quantity: normalizedQty,
+            unitPrice: product.unitPrice,
+            minOrderQty: product.minOrderQty,
+            availableStock: product.availableStock
+          });
+          added += 1;
+        }
+
+        this.actionLoading.set(false);
+
+        if (added > 0) {
+          this.toast.success(`${added} item${added === 1 ? '' : 's'} added to cart`);
+        }
+
+        if (skipped > 0) {
+          this.toast.warning(`${skipped} item${skipped === 1 ? '' : 's'} skipped due to stock or inactive status`);
+        }
+      },
+      error: () => {
+        this.actionLoading.set(false);
+        this.toast.error('Failed to reorder items');
+      }
+    });
+  }
+
   approveHold(): void {
     this.actionLoading.set(true);
     this.adminOrderApi.approveHold(this.id()).subscribe({
@@ -325,5 +467,14 @@ export class OrderDetailComponent implements OnInit {
   private getErrorMessage(err: unknown, fallback: string): string {
     const candidate = err as { error?: { message?: string; title?: string } };
     return candidate?.error?.message ?? candidate?.error?.title ?? fallback;
+  }
+
+  private loadOpsNotes(): void {
+    this.opsNotes.set(this.orderOpsNotes.list(this.id()));
+  }
+
+  private currentRoleLabel(): string {
+    const role = this.authStore.role();
+    return role ?? 'System';
   }
 }

@@ -3,7 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {
   CreateOrderRequest, CancelOrderRequest, UpdateOrderStatusRequest,
-  ReturnRequestDto, AdminDecisionRequest, OrderDto, OrderListItemDto
+  ReturnRequestDto, AdminDecisionRequest, OrderDto, OrderListItemDto,
+  BulkUpdateOrderStatusRequest, BulkUpdateOrderStatusResultDto
 } from '../models/order.models';
 import { PagedResult } from '../models/shared.models';
 import { OrderStatus } from '../models/enums';
@@ -57,5 +58,9 @@ export class AdminOrderApiService {
 
   rejectHold(id: string, req: AdminDecisionRequest): Observable<unknown> {
     return this.http.put(`${this.base}/${id}/reject-hold`, req);
+  }
+
+  bulkUpdateStatus(req: BulkUpdateOrderStatusRequest): Observable<BulkUpdateOrderStatusResultDto> {
+    return this.http.post<BulkUpdateOrderStatusResultDto>(`${this.base}/bulk-status`, req);
   }
 }

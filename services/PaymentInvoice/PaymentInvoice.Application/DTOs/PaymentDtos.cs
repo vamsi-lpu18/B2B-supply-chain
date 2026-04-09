@@ -89,3 +89,36 @@ public sealed record GatewayPaymentVerificationDto(
     string GatewayOrderId,
     string GatewayPaymentId,
     string? FailureReason);
+
+public sealed record UpsertInvoiceWorkflowRequest(
+    string Status,
+    DateTime DueAtUtc,
+    DateTime? PromiseToPayAtUtc,
+    DateTime? NextFollowUpAtUtc,
+    string InternalNote,
+    int ReminderCount,
+    DateTime? LastReminderAtUtc);
+
+public sealed record InvoiceWorkflowStateDto(
+    Guid InvoiceId,
+    string Status,
+    DateTime DueAtUtc,
+    DateTime? PromiseToPayAtUtc,
+    DateTime? NextFollowUpAtUtc,
+    string InternalNote,
+    int ReminderCount,
+    DateTime? LastReminderAtUtc,
+    DateTime UpdatedAtUtc);
+
+public sealed record AddInvoiceWorkflowActivityRequest(
+    string Type,
+    string Message,
+    string CreatedByRole);
+
+public sealed record InvoiceWorkflowActivityDto(
+    Guid ActivityId,
+    Guid InvoiceId,
+    string Type,
+    string Message,
+    string CreatedByRole,
+    DateTime CreatedAtUtc);

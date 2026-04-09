@@ -24,7 +24,13 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection AddPlatformRedis(this IServiceCollection services, string redisConnection)
     {
-        services.AddSingleton<IConnectionMultiplexer>(_ => ConnectionMultiplexer.Connect(redisConnection));
+        services.AddSingleton<IConnectionMultiplexer>(_ =>
+        {
+            var options = ConfigurationOptions.Parse(redisConnection);
+            options.AbortOnConnectFail = false;
+
+            return ConnectionMultiplexer.Connect(options);
+        });
         services.AddSingleton<ICacheService, RedisCacheService>();
         services.AddSingleton<IIdempotencyStore, RedisIdempotencyStore>();
 

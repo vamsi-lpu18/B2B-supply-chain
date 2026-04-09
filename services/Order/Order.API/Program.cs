@@ -1,3 +1,5 @@
+using Hangfire;
+using Hangfire.SqlServer;
 using Order.Application;
 using Order.Infrastructure;
 using Order.Infrastructure.Persistence;
@@ -26,6 +28,18 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var hangfireConnection = builder.Configuration.GetConnectionString("OrderDb")
+    ?? throw new InvalidOperationException("Connection string 'OrderDb' is missing for Hangfire.");
+
+builder.Services.AddHangfire(configuration => configuration
+    .UseSimpleAssemblyNameTypeSerializer()
+    .UseRecommendedSerializerSettings()
+    .UseSqlServerStorage(hangfireConnection, new SqlServerStorageOptions
+    {
+        PrepareSchemaIfNecessary = true
+    }));
+builder.Services.AddHangfireServer();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -91,6 +105,8 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "Order API v1");
         options.RoutePrefix = "swagger";
     });
+
+    app.MapHangfireDashboard("/hangfire");
 }
 
 app.Use(async (context, next) =>
@@ -123,4 +139,18 @@ app.MapControllers();
 
 app.MapGet("/health", () => Results.Ok(new { service = "Order", status = "Healthy", utc = DateTime.UtcNow }));
 
+RecurringJob.AddOrUpdate<HangfireHeartbeatJob>(
+    "order-heartbeat",
+    job => job.RunAsync(),
+    Cron.Minutely);
+
 app.Run();
+
+internal sealed class HangfireHeartbeatJob(ILogger<HangfireHeartbeatJob> logger)
+{
+    public Task RunAsync()
+    {
+        logger.LogInformation("Hangfire heartbeat job executed at {UtcNow}", DateTime.UtcNow);
+        return Task.CompletedTask;
+    }
+}

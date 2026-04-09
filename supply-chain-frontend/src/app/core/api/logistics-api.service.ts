@@ -2,7 +2,16 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {
-  CreateShipmentRequest, AssignAgentRequest, AssignVehicleRequest, UpdateShipmentStatusRequest, ShipmentDto
+  CreateShipmentRequest,
+  AssignAgentRequest,
+  AssignVehicleRequest,
+  UpdateShipmentStatusRequest,
+  ShipmentDto,
+  ShipmentOpsStateDto,
+  GetShipmentOpsStatesRequest,
+  UpsertShipmentOpsStateRequest,
+  ShipmentAiRecommendationDto,
+  ApproveAiRecommendationResultDto
 } from '../models/logistics.models';
 
 @Injectable({ providedIn: 'root' })
@@ -36,5 +45,25 @@ export class LogisticsApiService {
 
   updateStatus(shipmentId: string, req: UpdateShipmentStatusRequest): Observable<unknown> {
     return this.http.put(`${this.base}/${shipmentId}/status`, req);
+  }
+
+  getShipmentOpsState(shipmentId: string): Observable<ShipmentOpsStateDto> {
+    return this.http.get<ShipmentOpsStateDto>(`${this.base}/${shipmentId}/ops-state`);
+  }
+
+  getShipmentOpsStatesBatch(req: GetShipmentOpsStatesRequest): Observable<ShipmentOpsStateDto[]> {
+    return this.http.post<ShipmentOpsStateDto[]>(`${this.base}/ops-states/batch`, req);
+  }
+
+  upsertShipmentOpsState(shipmentId: string, req: UpsertShipmentOpsStateRequest): Observable<ShipmentOpsStateDto> {
+    return this.http.put<ShipmentOpsStateDto>(`${this.base}/${shipmentId}/ops-state`, req);
+  }
+
+  generateAiRecommendation(shipmentId: string): Observable<ShipmentAiRecommendationDto> {
+    return this.http.post<ShipmentAiRecommendationDto>(`${this.base}/${shipmentId}/ai-recommendation`, {});
+  }
+
+  approveAiRecommendation(recommendationId: string): Observable<ApproveAiRecommendationResultDto> {
+    return this.http.post<ApproveAiRecommendationResultDto>(`${this.base}/ai-recommendations/${recommendationId}/approve`, {});
   }
 }

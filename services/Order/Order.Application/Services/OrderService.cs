@@ -9,8 +9,10 @@ namespace Order.Application.Services;
 public sealed class OrderService(
     IOrderRepository orderRepository,
     ICreditCheckGateway creditCheckGateway,
+    IOrderSagaCoordinator sagaCoordinator,
     IValidator<CreateOrderRequest> createValidator,
     IValidator<CancelOrderRequest> cancelValidator,
+    IValidator<BulkUpdateOrderStatusRequest> bulkStatusValidator,
     IValidator<ReturnRequestDto> returnValidator)
     : IOrderService
 {
@@ -47,6 +49,7 @@ public sealed class OrderService(
                 creditResult.AvailableCredit,
                 occurredAtUtc = DateTime.UtcNow
             }, cancellationToken);
+
         }
         else
         {
@@ -61,12 +64,32 @@ public sealed class OrderService(
                 order.TotalAmount,
                 occurredAtUtc = DateTime.UtcNow
             }, cancellationToken);
+
         }
 
         await orderRepository.AddOrderAsync(order, cancellationToken);
         await orderRepository.SaveChangesAsync(cancellationToken);
 
-        return MapOrder(order);
+        await sagaCoordinator.StartAsync(order.OrderId, order.OrderNumber, order.DealerId, cancellationToken);
+        await sagaCoordinator.MarkCreditCheckInProgressAsync(order.OrderId, cancellationToken);
+
+        if (!creditResult.Approved)
+        {
+            await sagaCoordinator.MarkAwaitingManualApprovalAsync(
+                order.OrderId,
+                $"Credit check failed. Available credit: {creditResult.AvailableCredit}.",
+                cancellationToken);
+        }
+        else
+        {
+            await sagaCoordinator.MarkCompletedApprovedAsync(
+                order.OrderId,
+                "Credit approved and order moved to Processing.",
+                cancellationToken);
+        }
+
+        var saga = await sagaCoordinator.GetAsync(order.OrderId, cancellationToken);
+        return MapOrder(order, saga);
     }
 
     public async Task<OrderDto?> GetOrderAsync(Guid orderId, Guid requesterUserId, string requesterRole, CancellationToken cancellationToken)
@@ -86,7 +109,8 @@ public sealed class OrderService(
             return null;
         }
 
-        return MapOrder(order);
+        var saga = await sagaCoordinator.GetAsync(order.OrderId, cancellationToken);
+        return MapOrder(order, saga);
     }
 
     public async Task<PagedResult<OrderListItemDto>> GetDealerOrdersAsync(Guid dealerId, int page, int pageSize, CancellationToken cancellationToken)
@@ -138,12 +162,113 @@ public sealed class OrderService(
         try
         {
             await orderRepository.SaveChangesAsync(cancellationToken);
+            await SyncSagaForOrderStatusAsync(order.OrderId, newStatus, cancellationToken);
             return true;
         }
         catch (Exception ex) when (IsDbUpdateConcurrencyException(ex))
         {
             return false;
         }
+    }
+
+    public async Task<BulkUpdateOrderStatusResultDto> BulkUpdateOrderStatusAsync(
+        BulkUpdateOrderStatusRequest request,
+        Guid changedByUserId,
+        string changedByRole,
+        CancellationToken cancellationToken)
+    {
+        await bulkStatusValidator.ValidateAndThrowAsync(request, cancellationToken);
+
+        var orderIds = request.OrderIds.Distinct().ToList();
+        var requestedCount = orderIds.Count;
+        if (requestedCount == 0)
+        {
+            return new BulkUpdateOrderStatusResultDto(0, 0, 0, 0, []);
+        }
+
+        var orders = await orderRepository.GetOrdersByIdsAsync(orderIds, cancellationToken);
+        var orderMap = orders.ToDictionary(order => order.OrderId);
+        var results = new List<BulkOrderStatusItemResultDto>(requestedCount);
+
+        foreach (var orderId in orderIds)
+        {
+            if (!orderMap.TryGetValue(orderId, out var order))
+            {
+                results.Add(new BulkOrderStatusItemResultDto(
+                    orderId,
+                    null,
+                    null,
+                    false,
+                    false,
+                    "Order not found."));
+                continue;
+            }
+
+            if (!order.CanTransitionTo(request.NewStatus))
+            {
+                results.Add(new BulkOrderStatusItemResultDto(
+                    orderId,
+                    order.OrderNumber,
+                    order.Status,
+                    false,
+                    false,
+                    $"Cannot transition from '{order.Status}' to '{request.NewStatus}'."));
+                continue;
+            }
+
+            results.Add(new BulkOrderStatusItemResultDto(
+                orderId,
+                order.OrderNumber,
+                order.Status,
+                true,
+                false,
+                null));
+
+            if (request.ValidateOnly)
+            {
+                continue;
+            }
+
+            order.TransitionTo(request.NewStatus, changedByUserId, changedByRole);
+
+            await orderRepository.AddOutboxMessageAsync($"Order{request.NewStatus}", new
+            {
+                order.OrderId,
+                order.OrderNumber,
+                order.DealerId,
+                order.Status,
+                occurredAtUtc = DateTime.UtcNow
+            }, cancellationToken);
+        }
+
+        if (!request.ValidateOnly && results.Any(result => result.CanTransition))
+        {
+            try
+            {
+                await orderRepository.SaveChangesAsync(cancellationToken);
+            }
+            catch (Exception ex) when (IsDbUpdateConcurrencyException(ex))
+            {
+                var failedResults = results
+                    .Select(result => result.CanTransition
+                        ? result with { Message = "Could not update due to concurrent changes." }
+                        : result)
+                    .ToList();
+
+                return BuildBulkResult(requestedCount, failedResults);
+            }
+
+            results = results
+                .Select(result => result.CanTransition ? result with { Applied = true } : result)
+                .ToList();
+
+            foreach (var result in results.Where(result => result.Applied))
+            {
+                await SyncSagaForOrderStatusAsync(result.OrderId, request.NewStatus, cancellationToken);
+            }
+        }
+
+        return BuildBulkResult(requestedCount, results);
     }
 
     public async Task<bool> CancelOrderAsync(
@@ -175,6 +300,7 @@ public sealed class OrderService(
         try
         {
             await orderRepository.SaveChangesAsync(cancellationToken);
+            await sagaCoordinator.MarkCompletedCancelledAsync(order.OrderId, reason, cancellationToken);
             return true;
         }
         catch (Exception ex) when (IsDbUpdateConcurrencyException(ex))
@@ -183,9 +309,53 @@ public sealed class OrderService(
         }
     }
 
+    private async Task SyncSagaForOrderStatusAsync(Guid orderId, OrderStatus status, CancellationToken cancellationToken)
+    {
+        switch (status)
+        {
+            case OrderStatus.OnHold:
+                await sagaCoordinator.MarkAwaitingManualApprovalAsync(orderId, "Order moved to OnHold.", cancellationToken);
+                break;
+            case OrderStatus.Processing:
+            case OrderStatus.ReadyForDispatch:
+            case OrderStatus.InTransit:
+            case OrderStatus.Delivered:
+            case OrderStatus.Closed:
+            case OrderStatus.ReturnRequested:
+            case OrderStatus.ReturnApproved:
+            case OrderStatus.ReturnRejected:
+                await sagaCoordinator.MarkCompletedApprovedAsync(orderId, $"Order moved to {status}.", cancellationToken);
+                break;
+            case OrderStatus.Cancelled:
+                await sagaCoordinator.MarkCompletedCancelledAsync(orderId, "Order moved to Cancelled.", cancellationToken);
+                break;
+            case OrderStatus.Exception:
+                await sagaCoordinator.MarkAwaitingManualApprovalAsync(orderId, "Order moved to Exception state.", cancellationToken);
+                break;
+            default:
+                break;
+        }
+    }
+
     private static bool IsDbUpdateConcurrencyException(Exception ex)
     {
         return string.Equals(ex.GetType().Name, "DbUpdateConcurrencyException", StringComparison.Ordinal);
+    }
+
+    private static BulkUpdateOrderStatusResultDto BuildBulkResult(
+        int requestedCount,
+        IReadOnlyList<BulkOrderStatusItemResultDto> results)
+    {
+        var validCount = results.Count(result => result.CanTransition);
+        var appliedCount = results.Count(result => result.Applied);
+        var invalidCount = results.Count - validCount;
+
+        return new BulkUpdateOrderStatusResultDto(
+            requestedCount,
+            validCount,
+            invalidCount,
+            appliedCount,
+            results);
     }
 
     public async Task<bool> ApproveOnHoldAsync(Guid orderId, Guid adminUserId, CancellationToken cancellationToken)
@@ -208,6 +378,7 @@ public sealed class OrderService(
         }, cancellationToken);
 
         await orderRepository.SaveChangesAsync(cancellationToken);
+        await sagaCoordinator.MarkCompletedApprovedAsync(order.OrderId, "On-hold order approved by admin.", cancellationToken);
         return true;
     }
 
@@ -231,6 +402,7 @@ public sealed class OrderService(
         }, cancellationToken);
 
         await orderRepository.SaveChangesAsync(cancellationToken);
+        await sagaCoordinator.MarkCompletedRejectedAsync(order.OrderId, reason, cancellationToken);
         return true;
     }
 
@@ -277,7 +449,7 @@ public sealed class OrderService(
             order.PlacedAtUtc);
     }
 
-    private static OrderDto MapOrder(OrderAggregate order)
+    private static OrderDto MapOrder(OrderAggregate order, OrderSagaDto? saga)
     {
         var lines = order.Lines
             .Select(line => new OrderLineDto(
@@ -325,6 +497,7 @@ public sealed class OrderService(
             order.CancellationReason,
             lines,
             history,
-            returnRequest);
+            returnRequest,
+            saga);
     }
 }

@@ -188,6 +188,78 @@ namespace PaymentInvoice.Infrastructure.Persistence.Migrations
                     b.ToTable("InvoiceLines", (string)null);
                 });
 
+            modelBuilder.Entity("PaymentInvoice.Domain.Entities.InvoiceWorkflowActivity", b =>
+                {
+                    b.Property<Guid>("ActivityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedByRole")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<Guid>("InvoiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("nvarchar(32)");
+
+                    b.HasKey("ActivityId");
+
+                    b.HasIndex("InvoiceId", "CreatedAtUtc");
+
+                    b.ToTable("InvoiceWorkflowActivities", (string)null);
+                });
+
+            modelBuilder.Entity("PaymentInvoice.Domain.Entities.InvoiceWorkflowState", b =>
+                {
+                    b.Property<Guid>("InvoiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DueAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("InternalNote")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime?>("LastReminderAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("NextFollowUpAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("PromiseToPayAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ReminderCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("nvarchar(32)");
+
+                    b.Property<DateTime>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("InvoiceId");
+
+                    b.ToTable("InvoiceWorkflowStates", (string)null);
+                });
+
             modelBuilder.Entity("PaymentInvoice.Domain.Entities.PaymentRecord", b =>
                 {
                     b.Property<Guid>("PaymentRecordId")
@@ -226,6 +298,24 @@ namespace PaymentInvoice.Infrastructure.Persistence.Migrations
                     b.HasOne("PaymentInvoice.Domain.Entities.Invoice", null)
                         .WithMany("Lines")
                         .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PaymentInvoice.Domain.Entities.InvoiceWorkflowActivity", b =>
+                {
+                    b.HasOne("PaymentInvoice.Domain.Entities.Invoice", null)
+                        .WithMany()
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PaymentInvoice.Domain.Entities.InvoiceWorkflowState", b =>
+                {
+                    b.HasOne("PaymentInvoice.Domain.Entities.Invoice", null)
+                        .WithOne()
+                        .HasForeignKey("PaymentInvoice.Domain.Entities.InvoiceWorkflowState", "InvoiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

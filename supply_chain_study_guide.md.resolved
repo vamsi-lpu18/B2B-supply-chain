@@ -1,0 +1,86 @@
+# Supply Chain Microservices - Interview & Study Guide
+
+## 1. System Overview
+
+This project is a **.NET 10 Microservices** backend designed for a supply chain platform. It acts as a perfect demonstrator for enterprise-grade architectural patterns.
+
+### The Services
+The system is divided into 6 distinct microservices, communicating mostly asynchronously and fronted by an API Gateway:
+1. **IdentityAuth**: User management, Dealer approvals, JWT Token generation.
+2. **CatalogInventory**: Product catalog, stock levels, and pricing.
+3. **Order**: The core engine. It manages the lifecycle of an order (Placed, Paid, Shipped, Delivered) using a Saga/Orchestrator pattern.
+4. **LogisticsTracking**: Deal with shipping partners and tracking status.
+5. **PaymentInvoice**: Simulated payment processing and invoice generation.
+6. **Notification**: Sending Emails/SMS.
+7. **OcelotGateway (Port 5000)**: The single entry point for all frontend applications.
+
+### Infrastructure
+- **SQL Server**: Relational database (each microservice has its own isolated database scheme).
+- **RabbitMQ**: The message broker used for Event-Driven Architecture (e.g., when `Payment` succeeds, it publishes an event that the `Order` service listens to).
+- **Redis**: Used for distributed caching and rate-limiting.
+
+---
+
+## 2. Architectural Patterns Used (Interview Goldmine)
+
+### Clean Architecture (The Dependency Rule)
+Every microservice is split into 4 projects. You must memorize this flow:
+- **Domain (`.Domain`)**: Contains the business logic (Entities, Interfaces). **Dependencies: None.**
+- **Application (`.Application`)**: Contains Use Cases (CQRS, MediatR, Services). **Dependencies: Domain.**
+- **Infrastructure (`.Infrastructure`)**: Contains database access logic (EF Core DbContext, HTTP clients). **Dependencies: Application, Domain.**
+- **API (`.API`)**: The entry point (Controllers). **Dependencies: Application, Infrastructure.**
+
+*Interview Answer*: "Clean architecture isolates the core business rules from external frameworks like databases or Web APIs. This means I can swap SQL Server for PostgreSQL without ever touching my Domain logic."
+
+### Domain-Driven Design (DDD): Rich vs. Anemic Domains
+We use **Rich Domain Models**. Look at `User.cs` in the IdentityAuth service.
+
+```csharp
+public sealed class User 
+{
+    // Private Setters! 
+    public UserStatus Status { get; private set; } 
+    
+    // Explicit behavioral methods
+    public void ApproveDealer() {
+        Status = UserStatus.Active;
+        UpdatedAtUtc = DateTime.UtcNow;
+    }
+}
+```
+
+*Interview Answer*: "By making setters private, we enforce data validity. You cannot randomly change a user's status; you must call `ApproveDealer()`, which acts as a clear, domain-specific behavior that guarantees the state transition is valid."
+
+### The Transactional Outbox Pattern
+When the system needs to save data to the database AND publish an event to RabbitMQ, a failure mid-way can cause inconsistencies. 
+- The **Outbox Pattern** solves this. The system saves the Order to the database AND saves the RabbitMQ event to an `OutboxMessages` table in the *same local database transaction*. A separate background worker then reads the `OutboxMessages` table and safely sends them to RabbitMQ.
+
+---
+
+## 3. Microservice Deep Dives
+
+### Service 1: IdentityAuth
+- **Responsibility**: Auth and Dealer onboarding.
+- **Key Concepts**: 
+  - `DealerProfile` is created in a `Pending` state.
+  - JWT Tokens are issued carrying Claims (like `UserRole`).
+  - Refresh Tokens are tracked in the database to allow revoking access.
+
+### Service 2: CatalogInventory (The Data Heavy Service)
+- **Responsibility**: Storing products and managing how much stock we have left.
+- **Key Concepts**: 
+  - *Concurrency Control*: When 50 users try to buy the last 5 iPhones at the exact same millisecond, how do you prevent overselling? (Answer: Optimistic Concurrency using RowVersions in EF Core, or Distributed Locks with Redis).
+
+### Service 3: Order (The Orchestrator)
+- **Responsibility**: Managing the lifecycle of purchases.
+- **Key Concepts**: 
+  - *Sagas / Process Managers*: An Order spans multiple services (Inventory -> Payment -> Logistics). The Order service acts as the orchestrator. If the Payment fails, the Order service must listen for that failure and instantly tell the Inventory service to "Release the reserved stock" (Compensating Transaction).
+
+---
+
+## 4. How to study this project
+
+1. **Start with the Domain**: Open `services/IdentityAuth/IdentityAuth.Domain/Entities/User.cs`. Read how it strictly manages its own state.
+2. **Move to the Application Service**: Open `services/IdentityAuth/IdentityAuth.Application/Services/IdentityAuthService.cs`. See how it uses Entity Framework (`_dbContext`) to fetch the User, call the domain method, and save it back.
+3. **Review the API**: Look at the `Controllers` to see how thin they are.
+4. **Boot up Docker**: Run `docker compose up -d` to see RabbitMQ and Redis spin up, acknowledging how easy Docker makes local development.

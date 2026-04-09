@@ -23,6 +23,29 @@ export interface UpdateOrderStatusRequest {
   newStatus: OrderStatus;
 }
 
+export interface BulkUpdateOrderStatusRequest {
+  newStatus: OrderStatus;
+  orderIds: string[];
+  validateOnly?: boolean;
+}
+
+export interface BulkOrderStatusItemResultDto {
+  orderId: string;
+  orderNumber?: string;
+  currentStatus?: OrderStatus;
+  canTransition: boolean;
+  applied: boolean;
+  message?: string;
+}
+
+export interface BulkUpdateOrderStatusResultDto {
+  requestedCount: number;
+  validCount: number;
+  invalidCount: number;
+  appliedCount: number;
+  results: BulkOrderStatusItemResultDto[];
+}
+
 export interface ReturnRequestDto {
   reason: string;
 }

@@ -17,3 +17,4 @@ C:\Users\Hey\Desktop\demo\services\Order\Order.Application\obj\Debug\net10.0\Ord
 C:\Users\Hey\Desktop\demo\services\Order\Order.Application\obj\Debug\net10.0\refint\Order.Application.dll
 C:\Users\Hey\Desktop\demo\services\Order\Order.Application\obj\Debug\net10.0\Order.Application.pdb
 C:\Users\Hey\Desktop\demo\services\Order\Order.Application\obj\Debug\net10.0\ref\Order.Application.dll
+C:\Users\Hey\Desktop\demo\services\Order\Order.Application\obj\Debug\net10.0\Order.Application.sourcelink.json

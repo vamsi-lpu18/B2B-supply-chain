@@ -38,6 +38,24 @@ public sealed class UpdateOrderStatusRequestValidator : AbstractValidator<Update
     }
 }
 
+public sealed class BulkUpdateOrderStatusRequestValidator : AbstractValidator<BulkUpdateOrderStatusRequest>
+{
+    public BulkUpdateOrderStatusRequestValidator()
+    {
+        RuleFor(x => x.NewStatus).IsInEnum();
+
+        RuleFor(x => x.OrderIds)
+            .NotNull()
+            .NotEmpty()
+            .Must(ids => ids.Count <= 200)
+            .WithMessage("A maximum of 200 orders can be updated in one request.")
+            .Must(ids => ids.Distinct().Count() == ids.Count)
+            .WithMessage("OrderIds cannot contain duplicates.");
+
+        RuleForEach(x => x.OrderIds).NotEmpty();
+    }
+}
+
 public sealed class ReturnRequestValidator : AbstractValidator<ReturnRequestDto>
 {
     public ReturnRequestValidator()
