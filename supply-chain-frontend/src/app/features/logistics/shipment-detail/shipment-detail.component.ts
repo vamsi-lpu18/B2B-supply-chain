@@ -23,13 +23,19 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule],
   template: `
-    <div class="page-content">
+    <div class="page-content feature-logistics">
       <div class="page-header">
         <div>
           <a routerLink="/shipments" class="btn btn-ghost mb-2">← Shipments</a>
           <h1>{{ shipment()?.shipmentNumber ?? 'Shipment Detail' }}</h1>
         </div>
         <div class="d-flex gap-2">
+          @if (canMarkOutForDeliveryQuick()) {
+            <button class="btn btn-secondary" (click)="markOutForDeliveryQuick()" [disabled]="actionLoading()">Mark Out For Delivery</button>
+          }
+          @if (canApproveDeliveryQuick()) {
+            <button class="btn btn-primary" (click)="approveDeliveryQuick()" [disabled]="actionLoading()">Approve Delivery</button>
+          }
           @if (canEscalateDelay()) {
             <button class="btn btn-danger" (click)="escalateDelay()" [disabled]="actionLoading()">Escalate Delay</button>
           }
@@ -52,7 +58,7 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
             <button class="btn btn-secondary" (click)="openVehicleDialog()">Assign Vehicle</button>
           }
           @if (canUpdateStatus()) {
-            <button class="btn btn-primary" (click)="showStatusDialog.set(true)">Update Status</button>
+            <button class="btn btn-primary" (click)="openStatusDialog()">Update Status</button>
           }
         </div>
       </div>
@@ -64,7 +70,14 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
         <div class="card mb-4">
           <div class="shipment-header-grid">
             <div><span class="field-label">Status</span><span class="badge" [class]="statusBadge(shipment()!.status)">{{ statusLabel(shipment()!.status) }}</span></div>
-            <div><span class="field-label">Order</span><a [routerLink]="['/orders', shipment()!.orderId]" class="text-primary">View Order →</a></div>
+            <div>
+              <span class="field-label">Order</span>
+              @if (isAgent()) {
+                <a [routerLink]="['/orders', shipment()!.orderId, 'tracking']" class="text-primary">Track Order →</a>
+              } @else {
+                <a [routerLink]="['/orders', shipment()!.orderId]" class="text-primary">View Order →</a>
+              }
+            </div>
             <div><span class="field-label">Agent</span><span>{{ shipment()!.assignedAgentId ? (shipment()!.assignedAgentId | slice:0:8) + '...' : 'Unassigned' }}</span></div>
             <div><span class="field-label">Vehicle</span><span>{{ shipment()!.vehicleNumber || 'Unassigned' }}</span></div>
             <div><span class="field-label">Created</span><span>{{ shipment()!.createdAtUtc | date:'dd MMM yyyy, HH:mm' }}</span></div>
@@ -284,7 +297,7 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
               <div class="form-group">
                 <label>New Status</label>
                 <select class="form-control" [(ngModel)]="newStatus">
-                  @for (s of statusOptions; track s.value) {
+                  @for (s of availableStatusOptions(); track s.value) {
                     <option [ngValue]="s.value">{{ s.label }}</option>
                   }
                 </select>
@@ -440,6 +453,19 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
   statusLabel(s: ShipmentStatus): string { return SHIPMENT_STATUS_LABELS[s] ?? String(s); }
   statusBadge(s: ShipmentStatus): string { return `badge ${SHIPMENT_STATUS_BADGE[s] ?? 'badge-neutral'}`; }
 
+  availableStatusOptions(): { value: ShipmentStatus; label: string }[] {
+    if (!this.isAgent()) {
+      return this.statusOptions;
+    }
+
+    return this.statusOptions.filter(option =>
+      option.value === ShipmentStatus.InTransit
+      || option.value === ShipmentStatus.OutForDelivery
+      || option.value === ShipmentStatus.Delivered
+      || option.value === ShipmentStatus.DeliveryFailed
+    );
+  }
+
   etaDateLabel(shipment: ShipmentDto): string {
     const eta = this.etaService.getEtaInfo(shipment);
     return new Date(eta.expectedDeliveryAtUtc).toLocaleString('en-IN', {
@@ -470,6 +496,7 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
 
   readonly canAssignAgent  = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics) && !this.shipment()?.assignedAgentId;
   readonly canAssignVehicle = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics);
+  readonly isAgent = () => this.authStore.hasRole(UserRole.Agent);
   readonly canUpdateStatus = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics, UserRole.Agent);
   readonly canLogAttempt = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics, UserRole.Agent);
   readonly canManageOps = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics);
@@ -506,6 +533,24 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
       || this.latestAttemptRequiresRetry();
   };
   readonly canMarkHandoverCompleted = () => this.canManageOps() && this.opsState().handoverState !== 'completed';
+  readonly canMarkOutForDeliveryQuick = () => {
+    const shipment = this.shipment();
+    if (!shipment || !this.isAgent()) {
+      return false;
+    }
+
+    return shipment.status === ShipmentStatus.Assigned
+      || shipment.status === ShipmentStatus.PickedUp
+      || shipment.status === ShipmentStatus.InTransit;
+  };
+  readonly canApproveDeliveryQuick = () => {
+    const shipment = this.shipment();
+    if (!shipment || !this.isAgent()) {
+      return false;
+    }
+
+    return shipment.status === ShipmentStatus.OutForDelivery || shipment.status === ShipmentStatus.InTransit;
+  };
   readonly isValidUuid = (value: string) => /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value.trim());
 
   handoverStateLabel(): string {
@@ -905,6 +950,35 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
     });
   }
 
+  openStatusDialog(): void {
+    const available = this.availableStatusOptions();
+    if (!available.some(option => option.value === this.newStatus)) {
+      this.newStatus = available[0]?.value ?? this.newStatus;
+    }
+
+    this.showStatusDialog.set(true);
+  }
+
+  markOutForDeliveryQuick(): void {
+    if (!this.canMarkOutForDeliveryQuick()) {
+      return;
+    }
+
+    this.newStatus = ShipmentStatus.OutForDelivery;
+    this.statusNote = 'Shipment moved to out-for-delivery by assigned agent.';
+    this.updateStatus();
+  }
+
+  approveDeliveryQuick(): void {
+    if (!this.canApproveDeliveryQuick()) {
+      return;
+    }
+
+    this.newStatus = ShipmentStatus.Delivered;
+    this.statusNote = 'Delivery approved by assigned delivery agent.';
+    this.updateStatus();
+  }
+
   updateStatus(): void {
     const note = this.statusNote.trim();
     if (!note) {
@@ -912,8 +986,14 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
       return;
     }
 
+    const nextStatus = Number(this.newStatus) as ShipmentStatus;
+    if (!this.availableStatusOptions().some(option => option.value === nextStatus)) {
+      this.toast.error('You are not allowed to set this shipment status');
+      return;
+    }
+
     this.actionLoading.set(true);
-    this.logisticsApi.updateStatus(this.id(), { status: Number(this.newStatus) as ShipmentStatus, note }).subscribe({
+    this.logisticsApi.updateStatus(this.id(), { status: nextStatus, note }).subscribe({
       next: () => {
         const shipment = this.shipment();
         if (shipment && this.newStatus === ShipmentStatus.Delivered) {

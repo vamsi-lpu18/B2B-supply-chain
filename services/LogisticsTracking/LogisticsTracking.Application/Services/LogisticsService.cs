@@ -90,6 +90,12 @@ public sealed class LogisticsService(
         return shipments.Select(MapShipment).ToList();
     }
 
+    public async Task<IReadOnlyList<ShipmentDto>> GetAgentShipmentsAsync(Guid agentId, CancellationToken cancellationToken)
+    {
+        var shipments = await shipmentRepository.GetAgentShipmentsAsync(agentId, cancellationToken);
+        return shipments.Select(MapShipment).ToList();
+    }
+
     public async Task<IReadOnlyList<ShipmentDto>> GetAllShipmentsAsync(CancellationToken cancellationToken)
     {
         var shipments = await shipmentRepository.GetAllShipmentsAsync(cancellationToken);

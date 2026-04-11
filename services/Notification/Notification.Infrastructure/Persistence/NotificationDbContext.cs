@@ -24,6 +24,7 @@ public sealed class NotificationDbContext(DbContextOptions<NotificationDbContext
             builder.Property(x => x.FailureReason).HasMaxLength(1000);
             builder.HasIndex(x => x.RecipientUserId);
             builder.HasIndex(x => x.CreatedAtUtc);
+            builder.HasIndex(x => new { x.RecipientUserId, x.CreatedAtUtc });
         });
 
         modelBuilder.Entity<OutboxMessage>(builder =>

@@ -1,6 +1,8 @@
-import { Component, inject, signal, computed } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { Component, inject, computed, signal, HostListener, DestroyRef } from '@angular/core';
+import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filter } from 'rxjs/operators';
 import { AuthStore } from '../../../core/stores/auth.store';
 import { CartStore } from '../../../core/stores/cart.store';
 import { LoadingStore } from '../../../core/stores/loading.store';
@@ -16,100 +18,33 @@ interface NavItem  { label: string; icon: string; route: string; roles?: UserRol
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, CommonModule, ToastContainerComponent],
   template: `
-    <div class="shell" [class.collapsed]="collapsed()" [class.mobile-open]="mobileOpen()">
+    <div class="shell">
       @if (loading.isLoading()) { <div class="loading-bar"></div> }
-
-      <!-- ── Sidebar ── -->
-      <aside class="sidebar">
-
-        <div class="sb-brand">
-          <div class="sb-logo">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#2563eb"/>
-              <path d="M2 17l10 5 10-5" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" opacity=".45"/>
-              <path d="M2 12l10 5 10-5" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
-            </svg>
-          </div>
-          @if (!collapsed()) {
-            <div class="sb-brand-text">
-              <span class="sb-name">SupplyChain</span>
-              <span class="sb-tag">Enterprise</span>
-            </div>
-          }
-          <button class="sb-toggle" (click)="collapsed.update(v=>!v)"
-                  [title]="collapsed() ? 'Expand' : 'Collapse'">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              @if (collapsed()) { <polyline points="9 18 15 12 9 6"/> }
-              @else              { <polyline points="15 18 9 12 15 6"/> }
-            </svg>
-          </button>
-        </div>
-
-        <nav class="sb-nav">
-          @for (g of visibleGroups(); track g.label) {
-            @if (!collapsed()) {
-              <p class="sb-group-label">{{ g.label }}</p>
-            }
-            @for (item of g.items; track item.route) {
-              <a [routerLink]="item.route" routerLinkActive="active"
-                 class="sb-item" [title]="collapsed() ? item.label : ''">
-                <span class="sb-icon" [innerHTML]="item.icon"></span>
-                @if (!collapsed()) {
-                  <span class="sb-item-label">{{ item.label }}</span>
-                  @if (item.badge && item.badge() > 0) {
-                    <span class="sb-badge">{{ item.badge() }}</span>
-                  }
-                } @else if (item.badge && item.badge() > 0) {
-                  <span class="sb-dot"></span>
-                }
-              </a>
-            }
-          }
-        </nav>
-
-        <div class="sb-footer">
-          @if (!collapsed()) {
-            <div class="sb-user">
-              <div class="sb-ava">{{ userInitial() }}</div>
-              <div class="sb-user-info">
-                <span class="sb-user-name">{{ authStore.user()?.fullName }}</span>
-                <span class="sb-user-role">{{ authStore.role() }}</span>
-              </div>
-            </div>
-            <button class="sb-signout" (click)="logout()">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-                <polyline points="16 17 21 12 16 7"/>
-                <line x1="21" y1="12" x2="9" y2="12"/>
-              </svg>
-              Sign out
-            </button>
-          } @else {
-            <button class="sb-signout-icon" (click)="logout()" title="Sign out">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-                <polyline points="16 17 21 12 16 7"/>
-                <line x1="21" y1="12" x2="9" y2="12"/>
-              </svg>
-            </button>
-          }
-        </div>
-      </aside>
 
       <!-- ── Main ── -->
       <div class="main-wrap">
         <header class="topbar">
           <div class="tb-left">
-            <button class="tb-menu" (click)="toggleSidebar()" title="Toggle sidebar">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="3" y1="6" x2="21" y2="6"/>
-                <line x1="3" y1="12" x2="21" y2="12"/>
-                <line x1="3" y1="18" x2="21" y2="18"/>
-              </svg>
-            </button>
-            <span class="tb-app-name">SupplyChain</span>
+            <div class="tb-route">
+              <span class="tb-kicker">{{ currentSectionLabel() }}</span>
+              <span class="tb-app-name" [class.typing-a]="typingFlip()" [class.typing-b]="!typingFlip()">{{ currentRouteLabel() }}</span>
+            </div>
+
+            <nav class="tb-nav" aria-label="Primary navigation">
+              @for (item of visibleNavItems(); track item.route) {
+                <a [routerLink]="item.route" routerLinkActive="active" class="tb-nav-item" [title]="item.label">
+                  <span class="tb-nav-icon" [innerHTML]="item.icon"></span>
+                  <span class="tb-nav-label">{{ item.label }}</span>
+                  @if (item.badge && item.badge() > 0) {
+                    <span class="tb-nav-badge">{{ item.badge() }}</span>
+                  }
+                </a>
+              }
+            </nav>
           </div>
           <div class="tb-right">
+            <span class="tb-chip">{{ todayLabel() }}</span>
+            <span class="tb-chip tb-chip-role">{{ authStore.role() }}</span>
             @if (authStore.hasRole(UserRole.Dealer)) {
               <a routerLink="/cart" class="tb-icon-btn" title="Cart">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -128,24 +63,34 @@ interface NavItem  { label: string; icon: string; route: string; roles?: UserRol
               </svg>
             </a>
             <div class="tb-sep"></div>
-            <a routerLink="/profile" class="tb-profile">
-              <div class="tb-ava">{{ userInitial() }}</div>
-              <div class="tb-profile-text">
-                <span class="tb-profile-name">{{ firstName() }}</span>
-                <span class="tb-profile-role">{{ authStore.role() }}</span>
-              </div>
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </a>
+            <div class="tb-profile-wrap" (click)="$event.stopPropagation()">
+              <button
+                type="button"
+                class="tb-profile"
+                aria-haspopup="menu"
+                [attr.aria-expanded]="profileMenuOpen()"
+                (click)="toggleProfileMenu()">
+                <div class="tb-ava">{{ userInitial() }}</div>
+                <div class="tb-profile-text">
+                  <span class="tb-profile-name">{{ firstName() }}</span>
+                  <span class="tb-profile-role">{{ authStore.role() }}</span>
+                </div>
+                <svg class="tb-profile-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.5">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+
+              @if (profileMenuOpen()) {
+                <div class="tb-profile-menu" role="menu" aria-label="Profile menu">
+                  <a routerLink="/profile" class="tb-menu-item" role="menuitem" (click)="closeProfileMenu()">View profile</a>
+                  <button type="button" class="tb-menu-item tb-menu-danger" role="menuitem" (click)="onLogoutFromMenu()">Logout</button>
+                </div>
+              }
+            </div>
           </div>
         </header>
         <main class="main-content"><router-outlet /></main>
       </div>
-
-      @if (mobileOpen()) {
-        <div class="mobile-overlay" (click)="mobileOpen.set(false)"></div>
-      }
     </div>
     <app-toast-container />
   `,
@@ -157,286 +102,242 @@ interface NavItem  { label: string; icon: string; route: string; roles?: UserRol
       display: flex;
       min-height: 100vh;
       background:
-        radial-gradient(900px 520px at 105% -8%, rgba(37, 99, 235, 0.14), transparent 62%),
-        radial-gradient(720px 400px at -8% 30%, rgba(14, 165, 233, 0.10), transparent 58%),
-        #f4f8fc;
+        radial-gradient(980px 620px at 106% -8%, rgba(34, 56, 80, 0.42), transparent 62%),
+        radial-gradient(860px 520px at -10% 36%, rgba(57, 84, 113, 0.30), transparent 60%),
+        linear-gradient(160deg, #d6e2ee 0%, #c9d8e8 48%, #bfcfdf 100%);
       font-family: var(--font-sans);
-    }
-
-    /* ─── SIDEBAR — pure light, zero conflicts ──────────────────────── */
-    .sidebar {
-      width: 256px;
-      background: linear-gradient(180deg, rgba(255,255,255,.97) 0%, rgba(250,253,255,.92) 100%);
-      border-right: 1px solid #d8e2ef;
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      top: 0; left: 0; bottom: 0;
-      z-index: 300;
-      transition: width 220ms cubic-bezier(.4,0,.2,1);
-      overflow: hidden;
-      box-shadow: 12px 0 34px rgba(15, 23, 42, 0.07);
-      backdrop-filter: blur(12px);
-    }
-    .shell.collapsed .sidebar { width: 68px; }
-
-    /* Brand row */
-    .sb-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0 14px;
-      height: 68px;
-      border-bottom: 1px solid #e7eef7;
-      flex-shrink: 0;
-    }
-    .sb-logo {
-      width: 34px; height: 34px;
-      background: linear-gradient(140deg, #eff6ff 0%, #dbeafe 100%);
-      border: 1px solid #bfdbfe;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.15);
-    }
-    .sb-brand-text { flex: 1; min-width: 0; }
-    .sb-name {
-      display: block;
-      font-size: 1rem;
-      font-weight: 800;
-      color: #0f172a;          /* dark text on white — no conflict */
-      letter-spacing: -.02em;
-      line-height: 1.2;
-    }
-    .sb-tag {
-      display: block;
-      font-size: .625rem;
-      font-weight: 700;
-      color: #64748b;          /* medium gray on white — readable */
-      text-transform: uppercase;
-      letter-spacing: .11em;
-      margin-top: 1px;
-    }
-    .sb-toggle {
-      width: 30px; height: 30px;
-      background: linear-gradient(180deg, #ffffff 0%, #f3f8ff 100%);
-      border: 1px solid #cfe0f5;
-      border-radius: 9px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      color: #94a3b8;          /* gray icon on white — readable */
-      flex-shrink: 0;
-      margin-left: auto;
-      transition: transform 140ms, background 140ms, border-color 140ms, color 140ms, box-shadow 140ms;
-      &:hover {
-        transform: translateY(-1px);
-        background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
-        border-color: #93c5fd;
-        color: #2563eb;        /* blue icon on light-blue bg — readable */
-        box-shadow: 0 10px 18px rgba(37, 99, 235, 0.18);
-      }
-    }
-
-    /* Nav */
-    .sb-nav {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding: 10px 10px 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .sb-group-label {
-      font-size: .625rem;
-      font-weight: 700;
-      color: #8aa0b8;          /* light gray on white — decorative, not critical */
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      padding: 16px 10px 6px;
-      margin: 0;
-      white-space: nowrap;
-    }
-    .sb-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 11px;
-      color: #4b5563;          /* dark gray on white — readable */
-      text-decoration: none;
-      font-size: .875rem;
-      font-weight: 600;
-      transition: transform 120ms, background 120ms, color 120ms, box-shadow 120ms;
       position: relative;
-      white-space: nowrap;
-      cursor: pointer;
-      line-height: 1.4;
+      isolation: isolate;
 
-      &:hover {
-        transform: translateX(2px);
-        background: #edf3fb;
-        color: #111827;        /* near-black on light gray — readable */
-        box-shadow: inset 0 0 0 1px #d9e7f7;
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(100, 124, 149, 0.10) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(100, 124, 149, 0.10) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: radial-gradient(circle at 50% 12%, #000 32%, transparent 88%);
+        z-index: 0;
       }
-      &.active {
-        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-        color: #1d4ed8;        /* dark blue on light blue — readable */
-        font-weight: 700;
-        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.16);
-        &::before {
-          content: '';
-          position: absolute;
-          left: 0; top: 8px; bottom: 8px;
-          width: 3px;
-          background: #2563eb;
-          border-radius: 0 3px 3px 0;
-        }
-      }
-    }
-    .sb-icon {
-      width: 18px; height: 18px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      opacity: .9;
-      svg { width: 15px; height: 15px; }
-    }
-    .sb-item.active .sb-icon { opacity: 1; }
-    .sb-item-label { flex: 1; }
-    .sb-badge {
-      background: #2563eb;
-      color: #ffffff;          /* white on blue — readable */
-      border-radius: 9999px;
-      font-size: .625rem;
-      padding: 2px 7px;
-      font-weight: 700;
-      margin-left: auto;
-    }
-    .sb-dot {
-      position: absolute;
-      top: 7px; right: 7px;
-      width: 6px; height: 6px;
-      background: #2563eb;
-      border-radius: 50%;
-      border: 2px solid #ffffff;
-    }
-
-    /* Footer */
-    .sb-footer {
-      padding: 12px 10px 14px;
-      border-top: 1px solid #e7eef7;
-      flex-shrink: 0;
-    }
-    .sb-user {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 10px;
-      border-radius: 8px;
-      margin-bottom: 4px;
-      transition: background 120ms;
-      &:hover { background: #eef4fb; }
-    }
-    .sb-ava {
-      width: 30px; height: 30px;
-      background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: .75rem;
-      color: #ffffff;          /* white on gradient — readable */
-      flex-shrink: 0;
-      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.28);
-    }
-    .sb-user-info { min-width: 0; }
-    .sb-user-name {
-      display: block;
-      font-size: .8125rem;
-      font-weight: 600;
-      color: #0f172a;          /* dark on white — readable */
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: 1.3;
-    }
-    .sb-user-role {
-      display: block;
-      font-size: .6875rem;
-      color: #64748b;          /* gray on white — readable */
-      font-weight: 500;
-      margin-top: 1px;
-    }
-    .sb-signout {
-      display: flex; align-items: center; gap: 8px;
-      width: 100%; padding: 7px 10px;
-      background: none; border: none; border-radius: 7px;
-      font-size: .8125rem; font-weight: 500;
-      color: #64748b;          /* gray on white — readable */
-      cursor: pointer; transition: all 120ms; font-family: inherit;
-      &:hover {
-        background: #fee2e2;
-        color: #991b1b;        /* dark red on light red — readable */
-      }
-    }
-    .sb-signout-icon {
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; padding: 8px;
-      background: none; border: none; border-radius: 7px;
-      color: #64748b; cursor: pointer; transition: all 120ms;
-      &:hover { background: #fee2e2; color: #991b1b; }
     }
 
     /* ─── Main area ─────────────────────────────────────────────────── */
     .main-wrap {
       flex: 1;
-      margin-left: 256px;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      transition: margin-left 220ms cubic-bezier(.4,0,.2,1);
+      transition: filter 180ms ease;
+      position: relative;
+      z-index: 1;
     }
-    .shell.collapsed .main-wrap { margin-left: 68px; }
 
     /* ─── Topbar ─────────────────────────────────────────────────────── */
     .topbar {
-      height: 68px;
-      background: rgba(255, 255, 255, 0.85);
-      border-bottom: 1px solid #d8e2ef;
+      min-height: 72px;
+      background: linear-gradient(180deg, rgba(221, 233, 245, .58) 0%, rgba(204, 219, 234, .44) 100%);
+      border: 1px solid rgba(143, 167, 190, .60);
+      border-radius: 0;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 28px;
+      justify-content: flex-start;
+      padding: 10px 18px;
+      gap: 10px;
       position: sticky;
       top: 0;
-      z-index: 200;
-      backdrop-filter: blur(10px);
+      z-index: 600;
+      backdrop-filter: blur(16px) saturate(1.18);
+      -webkit-backdrop-filter: blur(16px) saturate(1.18);
+      margin: 0;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      box-shadow: 0 14px 30px rgba(14, 28, 43, 0.18);
+      overflow: visible;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(115deg, transparent 30%, rgba(60, 89, 118, .14) 50%, transparent 70%);
+        transform: translateX(-120%);
+        animation: topbarSweep 12s linear infinite;
+      }
+
+      > * {
+        position: relative;
+        z-index: 1;
+      }
     }
-    .tb-left { display: flex; align-items: center; gap: 14px; }
-    .tb-menu {
-      width: 38px; height: 38px;
-      background: none; border: none; border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      color: #64748b;          /* gray on white — readable */
-      transition: all 120ms;
-      &:hover { background: #edf3fb; color: #0f172a; transform: translateY(-1px); }
+    .tb-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 1 1 auto;
     }
-    .tb-app-name {
-      font-size: 1rem;
-      font-weight: 800;
-      color: #0f172a;          /* dark on white — readable */
-      letter-spacing: -.02em;
+    .tb-route {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      line-height: 1.1;
+      inline-size: 156px;
+      flex: 0 0 156px;
     }
 
-    .tb-right { display: flex; align-items: center; gap: 2px; }
+    .tb-kicker {
+      font-size: .64rem;
+      font-weight: 700;
+      letter-spacing: .11em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tb-app-name {
+      font-size: 1.03rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -.02em;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      border-right: 2px solid transparent;
+    }
+    .tb-app-name.typing-a {
+      animation:
+        routeTyping 2.8s steps(30, end) .08s both,
+        caretBlink .8s step-end 9;
+    }
+    .tb-app-name.typing-b {
+      animation:
+        routeTypingAlt 2.8s steps(30, end) .08s both,
+        caretBlink .8s step-end 9;
+    }
+
+    .tb-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+      flex: 1 1 auto;
+      width: 100%;
+      overflow-x: auto;
+      padding: 5px;
+      scrollbar-width: none;
+      border-radius: 15px;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+    }
+    .tb-nav::-webkit-scrollbar { display: none; }
+
+    .tb-nav-item {
+      height: 36px;
+      border-radius: 11px;
+      border: none;
+      padding: 0 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: .79rem;
+      font-weight: 700;
+      letter-spacing: .01em;
+      white-space: nowrap;
+      transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease);
+
+      &:hover {
+        background: linear-gradient(180deg, rgba(233,242,250,.62) 0%, rgba(214,227,240,.48) 100%);
+        color: var(--text-primary);
+        box-shadow: 0 8px 16px rgba(41, 63, 87, 0.24);
+      }
+
+      &.active {
+        background: linear-gradient(145deg, rgba(236,245,252,.70) 0%, rgba(214,227,240,.58) 68%, rgba(196,213,229,.54) 100%);
+        color: var(--brand-700);
+        box-shadow: 0 10px 18px rgba(34, 54, 77, 0.30);
+      }
+    }
+
+    .tb-nav-icon {
+      width: 14px;
+      height: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    .tb-nav-label { line-height: 1; }
+    .tb-nav-badge {
+      min-width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: var(--brand-700);
+      color: #ffffff;
+      font-size: .6rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+    }
+
+    .tb-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex: 0 0 auto;
+      margin-left: 12px;
+    }
+    .tb-chip {
+      height: 29px;
+      padding: 0 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(143, 167, 190, .66);
+      background: linear-gradient(180deg, rgba(235,244,252,.64) 0%, rgba(214,228,241,.50) 100%);
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 6px 12px rgba(14, 28, 43, 0.18);
+    }
+    .tb-chip-role {
+      border-color: rgba(135, 161, 186, .70);
+      color: #2f506f;
+      background: linear-gradient(180deg, rgba(226,238,249,.66) 0%, rgba(204,220,236,.52) 100%);
+    }
     .tb-icon-btn {
       position: relative;
       width: 38px; height: 38px;
       display: flex; align-items: center; justify-content: center;
       border-radius: 10px;
-      color: #64748b;          /* gray on white — readable */
+      color: var(--text-secondary);
       text-decoration: none;
-      transition: all 120ms;
-      &:hover { background: #edf3fb; color: #0f172a; transform: translateY(-1px); }
+      transition: color 140ms, background 140ms, box-shadow 140ms, border-color 140ms;
+      border: 1px solid transparent;
+      &:hover {
+        background: linear-gradient(180deg, rgba(232,242,251,.64) 0%, rgba(212,226,240,.50) 100%);
+        border-color: rgba(135, 161, 186, .70);
+        color: var(--text-primary);
+        box-shadow: 0 10px 18px rgba(14, 28, 43, 0.20);
+      }
     }
     .tb-badge {
       position: absolute; top: 5px; right: 5px;
@@ -446,53 +347,179 @@ interface NavItem  { label: string; icon: string; route: string; roles?: UserRol
       font-size: .5625rem; display: flex; align-items: center; justify-content: center;
       font-weight: 700; border: 2px solid #ffffff;
     }
-    .tb-sep { width: 1px; height: 20px; background: #e2e8f0; margin: 0 10px; }
+    .tb-sep {
+      width: 1px;
+      height: 22px;
+      background: linear-gradient(180deg, rgba(109, 131, 153, 0) 0%, #a4bbd0 50%, rgba(109, 131, 153, 0) 100%);
+      margin: 0 8px;
+    }
     .tb-profile {
       display: flex; align-items: center; gap: 9px;
       padding: 6px 10px 6px 6px;
       border-radius: 12px; text-decoration: none;
-      border: 1px solid #d8e2ef;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-      transition: all 120ms;
-      &:hover { background: #ffffff; border-color: #bfdbfe; transform: translateY(-1px); box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08); }
+      border: 1px solid rgba(137, 163, 189, .62);
+      background: linear-gradient(180deg, rgba(235,244,252,.58) 0%, rgba(213,227,241,.44) 100%);
+      font-family: inherit;
+      cursor: pointer;
+      transition: border-color 140ms, box-shadow 140ms, background 140ms;
+      backdrop-filter: blur(10px) saturate(1.12);
+      -webkit-backdrop-filter: blur(10px) saturate(1.12);
+      &:hover {
+        background: linear-gradient(180deg, rgba(239,247,253,.64) 0%, rgba(219,232,244,.52) 100%);
+        border-color: rgba(129, 154, 180, .68);
+        box-shadow: 0 10px 18px rgba(14, 28, 43, 0.20);
+      }
+
+      &[aria-expanded='true'] .tb-profile-caret {
+        transform: rotate(180deg);
+      }
+    }
+    .tb-profile-wrap {
+      position: relative;
+    }
+    .tb-profile-caret {
+      transition: transform var(--t-base) var(--ease);
+    }
+    .tb-profile-menu {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 8px);
+      min-width: 170px;
+      background: linear-gradient(180deg, rgba(231,241,250,.66) 0%, rgba(209,224,238,.56) 100%);
+      border: 1px solid rgba(137, 163, 189, .62);
+      border-radius: 12px;
+      padding: 6px;
+      box-shadow: 0 16px 28px rgba(14, 28, 43, 0.26);
+      backdrop-filter: blur(12px) saturate(1.14);
+      -webkit-backdrop-filter: blur(12px) saturate(1.14);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      animation: shellContentReveal .2s var(--ease-out);
+      z-index: 900;
+    }
+    .tb-menu-item {
+      border: none;
+      background: transparent;
+      text-align: left;
+      width: 100%;
+      border-radius: 8px;
+      padding: 9px 10px;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--t-base) var(--ease), color var(--t-base) var(--ease);
+
+      &:hover {
+        background: rgba(196, 214, 231, .54);
+        color: var(--text-primary);
+      }
+    }
+    .tb-menu-danger {
+      color: #b91c1c;
+
+      &:hover {
+        background: #faeef0;
+        color: #991b1b;
+      }
     }
     .tb-ava {
       width: 28px; height: 28px;
-      background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+      background: linear-gradient(135deg, var(--brand-700) 0%, #4f86b7 100%);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-weight: 700; font-size: .75rem;
       color: #ffffff;          /* white on gradient — readable */
-      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+      box-shadow: 0 8px 16px rgba(49, 91, 129, 0.2);
     }
     .tb-profile-text { display: flex; flex-direction: column; }
     .tb-profile-name {
       font-size: .8125rem; font-weight: 600;
-      color: #0f172a;          /* dark on white — readable */
+      color: var(--text-primary);
       line-height: 1.2;
     }
     .tb-profile-role {
       font-size: .6875rem;
-      color: #64748b;          /* gray on white — readable */
+      color: var(--text-secondary);
     }
 
-    .main-content { flex: 1; }
+    .main-content {
+      flex: 1;
+      animation: shellContentReveal .45s var(--ease-out);
+    }
 
-    .mobile-overlay {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(15,23,42,.35);
-      z-index: 299;
+    @media (max-width: 1180px) {
+      .tb-route { display: none; }
+      .tb-chip { display: none; }
+      .tb-nav { gap: 4px; }
+      .tb-nav-item { padding: 0 9px; }
     }
 
     /* ─── Mobile ─────────────────────────────────────────────────────── */
     @media (max-width: 768px) {
-      .sidebar { transform: translateX(-100%); width: 256px !important; }
-      .shell.mobile-open .sidebar { transform: translateX(0); }
-      .main-wrap { margin-left: 0 !important; }
-      .mobile-overlay { display: block; }
-      .tb-app-name { display: none; }
+      .topbar {
+        padding: 8px 10px;
+        margin: 0;
+      }
+      .tb-nav { display: flex; }
+      .tb-route { display: none; }
+      .tb-kicker { display: none; }
+      .tb-chip { display: none; }
       .tb-profile-text { display: none; }
+      .tb-sep { margin: 0 4px; }
+    }
+
+    @keyframes topbarSweep {
+      0% { transform: translateX(-120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    @keyframes routeTyping {
+      from {
+        clip-path: inset(0 100% 0 0);
+      }
+      to {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+
+    @keyframes routeTypingAlt {
+      from {
+        clip-path: inset(0 100% 0 0);
+      }
+      to {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+
+    @keyframes caretBlink {
+      0%, 49% {
+        border-right-color: #60a5fa;
+      }
+      50%, 100% {
+        border-right-color: transparent;
+      }
+    }
+
+    @keyframes shellContentReveal {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .topbar::before,
+      .main-content,
+      .tb-app-name {
+        animation: none !important;
+      }
+      .tb-nav-item,
+      .tb-icon-btn,
+      .tb-profile,
+      .tb-chip {
+        transition: none !important;
+      }
     }
   `]
 })
@@ -502,10 +529,22 @@ export class AppShellComponent {
   readonly loading    = inject(LoadingStore);
   private readonly authApi = inject(AuthApiService);
   private readonly router  = inject(Router);
+  private readonly destroyRef = inject(DestroyRef);
 
   readonly UserRole   = UserRole;
-  readonly collapsed  = signal(false);
-  readonly mobileOpen = signal(false);
+  readonly profileMenuOpen = signal(false);
+  readonly typingFlip = signal(true);
+
+  constructor() {
+    this.router.events
+      .pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe(() => {
+        this.typingFlip.update(v => !v);
+      });
+  }
 
   readonly userInitial = computed(() => (this.authStore.user()?.fullName ?? '?').charAt(0).toUpperCase());
 
@@ -514,12 +553,24 @@ export class AppShellComponent {
     return n.split(' ')[0] ?? n;
   }
 
-  toggleSidebar(): void {
-    if (window.innerWidth <= 768) {
-      this.mobileOpen.update(v => !v);
-    } else {
-      this.collapsed.update(v => !v);
+  @HostListener('document:click')
+  onDocumentClick(): void {
+    if (this.profileMenuOpen()) {
+      this.profileMenuOpen.set(false);
     }
+  }
+
+  toggleProfileMenu(): void {
+    this.profileMenuOpen.update(v => !v);
+  }
+
+  closeProfileMenu(): void {
+    this.profileMenuOpen.set(false);
+  }
+
+  onLogoutFromMenu(): void {
+    this.profileMenuOpen.set(false);
+    this.logout();
   }
 
   private readonly icons: Record<string, string> = {
@@ -544,7 +595,7 @@ export class AppShellComponent {
     { label: 'Operations', items: [
       { label: 'My Orders',  icon: this.icons['orders'],    route: '/orders',    roles: [UserRole.Dealer] },
       { label: 'All Orders', icon: this.icons['orders'],    route: '/orders',    roles: [UserRole.Admin, UserRole.Warehouse, UserRole.Logistics] },
-      { label: 'Shipments',  icon: this.icons['shipments'], route: '/shipments' },
+      { label: 'Shipments',  icon: this.icons['shipments'], route: '/shipments', roles: [UserRole.Admin, UserRole.Warehouse, UserRole.Logistics, UserRole.Agent, UserRole.Dealer] },
     ]},
     { label: 'Finance', items: [
       { label: 'Invoices', icon: this.icons['invoices'], route: '/invoices', roles: [UserRole.Admin, UserRole.Dealer] },
@@ -555,12 +606,45 @@ export class AppShellComponent {
     ]},
   ];
 
-  readonly visibleGroups = computed(() => {
+  readonly visibleNavItems = computed(() => {
     const role = this.authStore.role();
     return this.allGroups
-      .map(g => ({ ...g, items: g.items.filter(i => !i.roles || (role && i.roles.includes(role))) }))
-      .filter(g => g.items.length > 0);
+      .flatMap(g => g.items)
+      .filter(i => this.isRoleAllowed(i, role));
   });
+
+  currentSectionLabel(): string {
+    const role = this.authStore.role();
+    const url = this.router.url || '';
+    const group = this.allGroups.find(g => g.items.some(i => this.isRoleAllowed(i, role) && this.routeMatches(url, i.route)));
+    return group?.label ?? 'Workspace';
+  }
+
+  currentRouteLabel(): string {
+    const role = this.authStore.role();
+    const url = this.router.url || '';
+    const matches = this.allGroups
+      .flatMap(g => g.items)
+      .filter(i => this.isRoleAllowed(i, role) && this.routeMatches(url, i.route))
+      .sort((a, b) => b.route.length - a.route.length);
+    return matches[0]?.label ?? 'SupplyChain';
+  }
+
+  todayLabel(): string {
+    return new Intl.DateTimeFormat('en-US', {
+      weekday: 'short',
+      day: '2-digit',
+      month: 'short'
+    }).format(new Date());
+  }
+
+  private isRoleAllowed(item: NavItem, role: UserRole | null | undefined): boolean {
+    return !item.roles || (!!role && item.roles.includes(role));
+  }
+
+  private routeMatches(currentUrl: string, route: string): boolean {
+    return currentUrl === route || currentUrl.startsWith(`${route}/`) || currentUrl.startsWith(`${route}?`);
+  }
 
   logout(): void {
     this.authApi.logout().subscribe({

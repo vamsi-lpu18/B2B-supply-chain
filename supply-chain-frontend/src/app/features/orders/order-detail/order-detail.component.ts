@@ -17,13 +17,14 @@ import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRAN
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule],
   template: `
-    <div class="page-content">
+    <div class="page-content feature-orders">
       <div class="page-header">
         <div>
           <a routerLink="/orders" class="btn btn-ghost mb-2">← Orders</a>
           <h1>{{ order()?.orderNumber ?? 'Order Detail' }}</h1>
         </div>
         <div class="d-flex gap-2 flex-wrap">
+          <a [routerLink]="['/orders', id(), 'tracking']" class="btn btn-secondary">Track Delivery</a>
           @if (canUpdateStatus()) {
             <button class="btn btn-secondary" (click)="showStatusDialog.set(true)">Update Status</button>
           }
@@ -141,6 +142,12 @@ import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRAN
             <p><strong>Requested:</strong> {{ order()!.returnRequest!.requestedAtUtc | date:'dd MMM yyyy' }}</p>
             @if (order()!.returnRequest!.isApproved) { <span class="badge badge-success">Approved</span> }
             @if (order()!.returnRequest!.isRejected) { <span class="badge badge-error">Rejected</span> }
+            @if (canReviewReturn()) {
+              <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-primary" (click)="approveReturn()" [disabled]="actionLoading()">Approve Return</button>
+                <button class="btn btn-danger" (click)="showRejectReturnDialog.set(true)" [disabled]="actionLoading()">Reject Return</button>
+              </div>
+            }
           </div>
         }
       } @else {
@@ -230,6 +237,24 @@ import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRAN
           </div>
         </div>
       }
+
+      @if (showRejectReturnDialog()) {
+        <div class="modal-backdrop" (click)="showRejectReturnDialog.set(false)">
+          <div class="modal" (click)="$event.stopPropagation()">
+            <div class="modal-header"><h2>Reject Return</h2><button class="btn btn-ghost btn-icon" (click)="showRejectReturnDialog.set(false)">✕</button></div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Reason</label>
+                <textarea class="form-control" [(ngModel)]="rejectReturnReason" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" (click)="showRejectReturnDialog.set(false)">Cancel</button>
+              <button class="btn btn-danger" (click)="rejectReturn()" [disabled]="actionLoading()">Reject Return</button>
+            </div>
+          </div>
+        </div>
+      }
     </div>
   `,
   styles: [`
@@ -258,10 +283,12 @@ export class OrderDetailComponent implements OnInit {
   readonly showReturnDialog    = signal(false);
   readonly showStatusDialog    = signal(false);
   readonly showRejectHoldDialog = signal(false);
+  readonly showRejectReturnDialog = signal(false);
 
   cancelReason    = '';
   returnReason    = '';
   rejectHoldReason = '';
+  rejectReturnReason = '';
   opsNoteText = '';
   opsNoteTags = '';
   newStatus: OrderStatus = OrderStatus.Processing;
@@ -292,6 +319,16 @@ export class OrderDetailComponent implements OnInit {
     return this.isStaff() && this.nextStatuses().length > 0;
   }
   canApproveHold(): boolean { return this.isAdmin() && this.order()?.status === OrderStatus.OnHold; }
+  canReviewReturn(): boolean {
+    const currentOrder = this.order();
+    if (!this.isAdmin() || !currentOrder?.returnRequest) {
+      return false;
+    }
+
+    return currentOrder.status === OrderStatus.ReturnRequested
+      && !currentOrder.returnRequest.isApproved
+      && !currentOrder.returnRequest.isRejected;
+  }
 
   nextStatuses(): OrderStatus[] {
     const cur = this.order()?.status;
@@ -459,6 +496,37 @@ export class OrderDetailComponent implements OnInit {
       next: () => { this.toast.success('Hold rejected'); this.showRejectHoldDialog.set(false); this.loadOrder(); this.actionLoading.set(false); },
       error: err => {
         this.toast.error(this.getErrorMessage(err, 'Failed to reject hold'));
+        this.actionLoading.set(false);
+      }
+    });
+  }
+
+  approveReturn(): void {
+    this.actionLoading.set(true);
+    this.adminOrderApi.approveReturn(this.id()).subscribe({
+      next: () => {
+        this.toast.success('Return approved');
+        this.loadOrder();
+        this.actionLoading.set(false);
+      },
+      error: err => {
+        this.toast.error(this.getErrorMessage(err, 'Failed to approve return'));
+        this.actionLoading.set(false);
+      }
+    });
+  }
+
+  rejectReturn(): void {
+    this.actionLoading.set(true);
+    this.adminOrderApi.rejectReturn(this.id(), { reason: this.rejectReturnReason }).subscribe({
+      next: () => {
+        this.toast.success('Return rejected');
+        this.showRejectReturnDialog.set(false);
+        this.loadOrder();
+        this.actionLoading.set(false);
+      },
+      error: err => {
+        this.toast.error(this.getErrorMessage(err, 'Failed to reject return'));
         this.actionLoading.set(false);
       }
     });

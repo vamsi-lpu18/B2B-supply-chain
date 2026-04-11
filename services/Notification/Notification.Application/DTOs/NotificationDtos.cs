@@ -27,4 +27,6 @@ public sealed record NotificationDto(
     NotificationStatus Status,
     DateTime CreatedAtUtc,
     DateTime? SentAtUtc,
-    string? FailureReason);
+    string? FailureReason,
+    bool IsRead,
+    DateTime? ReadAtUtc);

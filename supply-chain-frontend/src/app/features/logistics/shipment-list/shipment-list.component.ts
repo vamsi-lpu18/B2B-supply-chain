@@ -16,7 +16,7 @@ type ShipmentOpsFilter = 'all' | 'handover-pending' | 'exception-queue' | 'retry
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule],
   template: `
-    <div class="page-content">
+    <div class="page-content feature-logistics">
       <div class="page-header">
         <h1>Shipments</h1>
       </div>
@@ -138,6 +138,7 @@ export class ShipmentListComponent implements OnInit {
   opsFilter: ShipmentOpsFilter = 'all';
 
   readonly isDealer = () => this.authStore.hasRole(UserRole.Dealer);
+  readonly isAgent = () => this.authStore.hasRole(UserRole.Agent);
   readonly statusOptions = Object.entries(SHIPMENT_STATUS_LABELS).map(([v, l]) => ({ value: Number(v) as ShipmentStatus, label: l }));
 
   statusLabel(s: ShipmentStatus): string { return SHIPMENT_STATUS_LABELS[s] ?? String(s); }
@@ -166,7 +167,11 @@ export class ShipmentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const obs = this.isDealer() ? this.logisticsApi.getMyShipments() : this.logisticsApi.getAllShipments();
+    const obs = this.isDealer()
+      ? this.logisticsApi.getMyShipments()
+      : this.isAgent()
+        ? this.logisticsApi.getAssignedShipments()
+        : this.logisticsApi.getAllShipments();
     obs.subscribe({
       next: r => {
         const sorted = [...r].sort((a, b) => new Date(b.createdAtUtc).getTime() - new Date(a.createdAtUtc).getTime());

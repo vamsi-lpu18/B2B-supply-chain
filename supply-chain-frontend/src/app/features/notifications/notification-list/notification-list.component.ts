@@ -8,18 +8,14 @@ import { NotificationPreferences, NotificationPreferencesService } from '../../.
 import { NotificationDto, CreateManualNotificationRequest } from '../../../core/models/notification.models';
 import { NotificationChannel, NotificationStatus, UserRole } from '../../../core/models/enums';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PageBannerComponent } from '../../../shared/components/page-banner/page-banner.component';
 
-const NOTIFICATION_READ_STATE_KEY_PREFIX = 'scp.notifications.read';
 type NotificationPriorityLevel = 'high' | 'normal' | 'low';
 
 @Component({
   selector: 'app-notification-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, PageBannerComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   template: `
-    <app-page-banner banner="notifications" alt="Notifications"></app-page-banner>
-    
     <div class="page-content">
       <div class="page-header">
         <h1>Notifications</h1>
@@ -314,7 +310,7 @@ export class NotificationListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.readMap.set(this.loadReadMap());
+    this.readMap.set({});
     this.preferences.set(this.preferencesService.loadForUser(this.currentUserId()));
     this.load();
     this.refreshTimer = setInterval(() => this.load(), 60000);
@@ -327,6 +323,7 @@ export class NotificationListComponent implements OnInit, OnDestroy {
     obs.subscribe({
       next: r => {
         const sorted = [...r].sort((a, b) => new Date(b.createdAtUtc).getTime() - new Date(a.createdAtUtc).getTime());
+        this.readMap.set(this.buildReadMap(sorted));
         this.all.set(sorted);
         this.availableEventTypes.set(this.extractEventTypes(sorted));
         this.availableSources.set(this.extractSources(sorted));
@@ -387,37 +384,76 @@ export class NotificationListComponent implements OnInit, OnDestroy {
   }
 
   toggleRead(notificationId: string, markRead: boolean): void {
-    this.readMap.update(current => {
-      const next = { ...current };
-      if (markRead) {
-        next[notificationId] = true;
-      } else {
-        delete next[notificationId];
+    this.actionLoading.set(true);
+    const request = markRead ? this.notifApi.markRead(notificationId) : this.notifApi.markUnread(notificationId);
+
+    request.subscribe({
+      next: () => {
+        this.readMap.update(current => {
+          const next = { ...current };
+          if (markRead) {
+            next[notificationId] = true;
+          } else {
+            delete next[notificationId];
+          }
+
+          return next;
+        });
+
+        this.applyFilter();
+        this.actionLoading.set(false);
+      },
+      error: () => {
+        this.toast.error(markRead ? 'Failed to mark notification as read' : 'Failed to mark notification as unread');
+        this.actionLoading.set(false);
       }
-
-      this.persistReadMap(next);
-      return next;
     });
-
-    this.applyFilter();
   }
 
   markAllRead(): void {
-    if (this.filtered().length === 0) {
+    if (this.filtered().length === 0 || this.unreadCount() === 0) {
       return;
     }
 
-    this.readMap.update(current => {
-      const next = { ...current };
-      this.filtered().forEach(item => {
-        next[item.notificationId] = true;
+    const ids = this.filtered()
+      .filter(item => !this.isRead(item.notificationId))
+      .map(item => item.notificationId);
+
+    if (ids.length === 0) {
+      return;
+    }
+
+    this.actionLoading.set(true);
+    let remaining = ids.length;
+    let hasError = false;
+
+    for (const id of ids) {
+      this.notifApi.markRead(id).subscribe({
+        next: () => {
+          this.readMap.update(current => ({ ...current, [id]: true }));
+          remaining -= 1;
+          if (remaining === 0)
+          {
+            if (hasError) {
+              this.toast.warning('Some notifications could not be marked as read');
+            }
+
+            this.applyFilter();
+            this.actionLoading.set(false);
+          }
+        },
+        error: () => {
+          hasError = true;
+          remaining -= 1;
+          if (remaining === 0)
+          {
+            this.toast.warning('Some notifications could not be marked as read');
+            this.applyFilter();
+            this.actionLoading.set(false);
+          }
+        }
       });
-
-      this.persistReadMap(next);
-      return next;
-    });
-
-    this.applyFilter();
+    }
   }
 
   openPreferences(): void {
@@ -519,11 +555,6 @@ export class NotificationListComponent implements OnInit, OnDestroy {
     });
   }
 
-  private readStorageKey(): string {
-    const userId = this.currentUserId();
-    return `${NOTIFICATION_READ_STATE_KEY_PREFIX}.${userId}`;
-  }
-
   private currentUserId(): string {
     return this.authStore.user()?.userId ?? 'anonymous';
   }
@@ -540,33 +571,14 @@ export class NotificationListComponent implements OnInit, OnDestroy {
     return source.trim().toLowerCase();
   }
 
-  private loadReadMap(): Record<string, true> {
-    if (typeof window === 'undefined') {
-      return {};
-    }
-
-    try {
-      const raw = window.localStorage.getItem(this.readStorageKey());
-      if (!raw) {
-        return {};
+  private buildReadMap(items: NotificationDto[]): Record<string, true> {
+    const map: Record<string, true> = {};
+    for (const item of items) {
+      if (item.isRead) {
+        map[item.notificationId] = true;
       }
-
-      const parsed = JSON.parse(raw) as Record<string, true>;
-      return parsed && typeof parsed === 'object' ? parsed : {};
-    } catch {
-      return {};
-    }
-  }
-
-  private persistReadMap(map: Record<string, true>): void {
-    if (typeof window === 'undefined') {
-      return;
     }
 
-    try {
-      window.localStorage.setItem(this.readStorageKey(), JSON.stringify(map));
-    } catch {
-      // Ignore localStorage failures.
-    }
+    return map;
   }
 }

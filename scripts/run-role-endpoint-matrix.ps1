@@ -262,11 +262,39 @@ if ($null -ne $firstProduct) {
 }
 
 if ([string]::IsNullOrWhiteSpace($productId)) {
+    $categoryList = Add-Test -Name 'Catalog categories admin for seed' -Role 'Admin' -Method 'GET' -Path '/catalog/api/products/categories' -Token $adminToken -Expected @(200)
+    $categoryItems = $categoryList.Json
+    $firstCategory = $null
+    $firstLeafCategory = $null
+
+    if ($categoryItems -is [System.Array]) {
+        if ($categoryItems.Length -gt 0) {
+            $firstCategory = $categoryItems[0]
+        }
+
+        foreach ($categoryItem in $categoryItems) {
+            $parentCategoryId = [string](Get-JsonValue -Json $categoryItem -Name 'parentCategoryId')
+            if (-not [string]::IsNullOrWhiteSpace($parentCategoryId)) {
+                $firstLeafCategory = $categoryItem
+                break
+            }
+        }
+    }
+    elseif ($null -ne $categoryItems) {
+        $firstCategory = $categoryItems
+    }
+
+    $seedCategory = if ($null -ne $firstLeafCategory) { $firstLeafCategory } else { $firstCategory }
+    $seedCategoryId = [string](Get-JsonValue -Json $seedCategory -Name 'categoryId')
+    if (-not [string]::IsNullOrWhiteSpace($seedCategoryId)) {
+        $productCategoryId = $seedCategoryId
+    }
+
     $productCreate = Add-Test -Name 'Catalog create product' -Role 'Admin' -Method 'POST' -Path '/catalog/api/products' -Token $adminToken -Body @{
         sku = $productSku
         name = $productName
         description = 'Generated test product'
-        categoryId = [Guid]::NewGuid().ToString()
+        categoryId = $productCategoryId
         unitPrice = $productUnitPrice
         minOrderQty = 1
         openingStock = 150
@@ -398,7 +426,8 @@ Add-Test -Name 'Admin reject hold' -Role 'Admin' -Method 'PUT' -Path "/orders/ap
 Add-Test -Name 'Logistics create shipment dealer denied' -Role 'Dealer' -Method 'POST' -Path '/logistics/api/logistics/shipments' -Token $dealerToken -Body @{ orderId = $orderId; dealerId = $dealerId; deliveryAddress = 'deny'; city = 'x'; state = 'x'; postalCode = '000000' } -Expected @(403) | Out-Null
 Add-Test -Name 'Logistics get shipment dealer' -Role 'Dealer' -Method 'GET' -Path "/logistics/api/logistics/shipments/$shipmentId" -Token $dealerToken -Expected @(200, 404) | Out-Null
 Add-Test -Name 'Logistics get my dealer shipments' -Role 'Dealer' -Method 'GET' -Path '/logistics/api/logistics/shipments/my' -Token $dealerToken -Expected @(200) | Out-Null
-Add-Test -Name 'Logistics get all agent' -Role 'Agent' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $agentToken -Expected @(200) | Out-Null
+Add-Test -Name 'Logistics get all agent denied' -Role 'Agent' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $agentToken -Expected @(403) | Out-Null
+Add-Test -Name 'Logistics get assigned agent shipments' -Role 'Agent' -Method 'GET' -Path '/logistics/api/logistics/shipments/assigned' -Token $agentToken -Expected @(200) | Out-Null
 Add-Test -Name 'Logistics assign agent logistics' -Role 'Logistics' -Method 'PUT' -Path "/logistics/api/logistics/shipments/$shipmentId/assign-agent" -Token $logisticsToken -Body @{ agentId = $agentId } -Expected @(200, 404, 400) | Out-Null
 Add-Test -Name 'Logistics update status agent' -Role 'Agent' -Method 'PUT' -Path "/logistics/api/logistics/shipments/$shipmentId/status" -Token $agentToken -Body @{ status = 3; note = 'Mock in-transit update' } -Expected @(200, 404, 400) | Out-Null
 Add-Test -Name 'Logistics update status dealer denied' -Role 'Dealer' -Method 'PUT' -Path "/logistics/api/logistics/shipments/$shipmentId/status" -Token $dealerToken -Body @{ status = 3; note = 'deny' } -Expected @(403) | Out-Null

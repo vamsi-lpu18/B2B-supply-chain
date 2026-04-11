@@ -34,6 +34,7 @@ public sealed class PaymentInvoiceDbContext(DbContextOptions<PaymentInvoiceDbCon
             builder.HasIndex(x => x.InvoiceNumber).IsUnique();
             builder.Property(x => x.IdempotencyKey).HasMaxLength(64).IsRequired();
             builder.HasIndex(x => x.IdempotencyKey).IsUnique();
+            builder.HasIndex(x => new { x.DealerId, x.CreatedAtUtc });
             builder.Property(x => x.GstType).HasConversion<string>().HasMaxLength(20).IsRequired();
             builder.Property(x => x.GstRate).HasPrecision(6, 2);
             builder.Property(x => x.Subtotal).HasPrecision(18, 2);

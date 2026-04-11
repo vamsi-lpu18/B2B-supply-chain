@@ -8,6 +8,7 @@ using Order.Infrastructure.Integrations;
 using Order.Infrastructure.Persistence;
 using Order.Infrastructure.Repositories;
 using Order.Infrastructure.Saga;
+using BuildingBlocks.Persistence;
 
 namespace Order.Infrastructure;
 
@@ -21,6 +22,7 @@ public static class DependencyInjection
             ?? throw new InvalidOperationException("Connection string 'Redis' is missing.");
 
         services.AddDbContext<OrderDbContext>(options => options.UseSqlServer(sqlConnection));
+        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<OrderDbContext>());
         services.AddPlatformRedis(redisConnection);
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IOrderSagaCoordinator, OrderSagaCoordinator>();

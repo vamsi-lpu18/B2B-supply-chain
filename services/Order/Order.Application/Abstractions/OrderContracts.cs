@@ -16,6 +16,8 @@ public interface IOrderService
     Task<bool> ApproveOnHoldAsync(Guid orderId, Guid adminUserId, CancellationToken cancellationToken);
     Task<bool> RejectOnHoldAsync(Guid orderId, string reason, Guid adminUserId, CancellationToken cancellationToken);
     Task<bool> RequestReturnAsync(Guid orderId, Guid dealerId, string reason, CancellationToken cancellationToken);
+    Task<bool> ApproveReturnAsync(Guid orderId, Guid adminUserId, CancellationToken cancellationToken);
+    Task<bool> RejectReturnAsync(Guid orderId, string reason, Guid adminUserId, CancellationToken cancellationToken);
 }
 
 public interface IOrderRepository

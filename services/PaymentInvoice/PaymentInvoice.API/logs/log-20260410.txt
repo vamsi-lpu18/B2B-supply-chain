@@ -1,0 +1,1134 @@
+2026-04-10 02:04:05.977 +05:30 [INF] PaymentInvoice migrations applied count: 2
+2026-04-10 02:04:06.909 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-10 02:04:08.475 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-10 02:04:10.038 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@PaymentInvoiceMigrationsDB'
+2026-04-10 02:04:10.053 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-10 02:04:10.056 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-10 02:04:10.352 +05:30 [INF] Server desktop-nfnd817:24020:1c1e3e17 successfully announced in 232.4201 ms
+2026-04-10 02:04:10.371 +05:30 [INF] Server desktop-nfnd817:24020:1c1e3e17 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-10 02:04:10.548 +05:30 [INF] Server desktop-nfnd817:24020:1c1e3e17 all the dispatchers started
+2026-04-10 02:04:10.653 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-10 02:04:12.818 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:34:12.8166775Z"
+2026-04-10 02:05:12.683 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:35:12.6826981Z"
+2026-04-10 02:06:12.936 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:36:12.9359595Z"
+2026-04-10 02:07:13.107 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:37:13.1073423Z"
+2026-04-10 02:08:13.259 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:38:13.2595317Z"
+2026-04-10 02:09:13.455 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:39:13.4557483Z"
+2026-04-10 02:10:13.798 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:40:13.7984289Z"
+2026-04-10 02:11:13.962 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:41:13.9624098Z"
+2026-04-10 02:12:14.300 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:42:14.3007906Z"
+2026-04-10 02:13:01.310 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:43:01.3108468Z"
+2026-04-10 02:14:00.919 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:44:00.9198020Z"
+2026-04-10 02:15:00.984 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:45:00.9849367Z"
+2026-04-10 02:15:45.559 +05:30 [INF] PaymentInvoice migrations applied count: 2
+2026-04-10 02:15:45.854 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-10 02:15:47.185 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-10 02:15:48.451 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@PaymentInvoiceMigrationsDB'
+2026-04-10 02:15:48.535 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-10 02:15:48.552 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-10 02:15:48.724 +05:30 [INF] Server desktop-nfnd817:12728:2e4c961c successfully announced in 70.6711 ms
+2026-04-10 02:15:48.743 +05:30 [INF] Server desktop-nfnd817:12728:2e4c961c is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-10 02:15:48.939 +05:30 [INF] Server desktop-nfnd817:12728:2e4c961c all the dispatchers started
+2026-04-10 02:16:04.562 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:46:04.5616147Z"
+2026-04-10 02:17:04.652 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:47:04.6527325Z"
+2026-04-10 02:18:04.785 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:48:04.7854831Z"
+2026-04-10 02:19:04.943 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:49:04.9439065Z"
+2026-04-10 02:20:05.117 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:50:05.1170441Z"
+2026-04-10 02:20:48.799 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-10 02:21:05.414 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:51:05.4145565Z"
+2026-04-10 02:22:05.561 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:52:05.5612061Z"
+2026-04-10 02:23:05.749 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:53:05.7495450Z"
+2026-04-10 02:24:05.848 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:54:05.8480700Z"
+2026-04-10 02:25:05.967 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:55:05.9673025Z"
+2026-04-10 02:26:06.059 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:56:06.0595125Z"
+2026-04-10 02:27:06.172 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:57:06.1728775Z"
+2026-04-10 02:28:06.292 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:58:06.2923389Z"
+2026-04-10 02:29:06.419 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T20:59:06.4189577Z"
+2026-04-10 02:30:06.772 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:00:06.7723324Z"
+2026-04-10 02:31:06.809 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:01:06.8099503Z"
+2026-04-10 02:32:06.911 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:02:06.9118783Z"
+2026-04-10 02:33:06.965 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:03:06.9656871Z"
+2026-04-10 02:33:52.163 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-10 02:33:52.525 +05:30 [INF] Handling CheckCreditQuery at "2026-04-09T21:03:52.5248477Z"
+2026-04-10 02:33:52.525 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-09T21:03:52.5248361Z"
+2026-04-10 02:33:52.750 +05:30 [INF] Handled GetDealerInvoicesQuery in 225.2681ms
+2026-04-10 02:33:52.811 +05:30 [INF] HTTP GET /api/payment/dealers/c02a70da-561e-4e30-b045-c90700b24d2c/invoices responded 200 in 703.3506 ms
+2026-04-10 02:33:52.835 +05:30 [INF] Handled CheckCreditQuery in 310.9492ms
+2026-04-10 02:33:52.841 +05:30 [INF] HTTP GET /api/payment/dealers/c02a70da-561e-4e30-b045-c90700b24d2c/credit-check responded 200 in 736.1826 ms
+2026-04-10 02:34:01.554 +05:30 [INF] Handling CheckCreditQuery at "2026-04-09T21:04:01.5549171Z"
+2026-04-10 02:34:01.569 +05:30 [INF] Handled CheckCreditQuery in 14.8694ms
+2026-04-10 02:34:01.573 +05:30 [INF] HTTP GET /api/payment/dealers/c02a70da-561e-4e30-b045-c90700b24d2c/credit-check responded 200 in 32.4671 ms
+2026-04-10 02:34:01.787 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-09T21:04:01.7874307Z"
+2026-04-10 02:34:01.804 +05:30 [INF] Handled GetDealerInvoicesQuery in 16.9614ms
+2026-04-10 02:34:01.806 +05:30 [INF] HTTP GET /api/payment/dealers/c02a70da-561e-4e30-b045-c90700b24d2c/invoices responded 200 in 22.1148 ms
+2026-04-10 02:34:07.016 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:04:07.0159965Z"
+2026-04-10 02:34:11.152 +05:30 [INF] Handling CheckCreditQuery at "2026-04-09T21:04:11.1527280Z"
+2026-04-10 02:34:11.169 +05:30 [INF] Handled CheckCreditQuery in 16.2866ms
+2026-04-10 02:34:11.171 +05:30 [INF] HTTP GET /api/payment/dealers/c02a70da-561e-4e30-b045-c90700b24d2c/credit-check responded 200 in 24.0302 ms
+2026-04-10 02:34:11.199 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-09T21:04:11.1997015Z"
+2026-04-10 02:34:11.206 +05:30 [INF] Handled GetDealerInvoicesQuery in 7.0365ms
+2026-04-10 02:34:11.208 +05:30 [INF] HTTP GET /api/payment/dealers/c02a70da-561e-4e30-b045-c90700b24d2c/invoices responded 200 in 12.9033 ms
+2026-04-10 02:35:07.108 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:05:07.1080617Z"
+2026-04-10 02:36:07.209 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:06:07.2096303Z"
+2026-04-10 02:37:07.320 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:07:07.3206952Z"
+2026-04-10 02:38:07.416 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:08:07.4161749Z"
+2026-04-10 02:39:07.583 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:09:07.5829914Z"
+2026-04-10 02:40:07.881 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:10:07.8818720Z"
+2026-04-10 02:41:07.986 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:11:07.9860590Z"
+2026-04-10 02:42:08.163 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:12:08.1637866Z"
+2026-04-10 02:43:08.298 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:13:08.2981791Z"
+2026-04-10 02:44:08.459 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:14:08.4590329Z"
+2026-04-10 02:45:08.545 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:15:08.5459627Z"
+2026-04-10 02:46:08.763 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:16:08.7637621Z"
+2026-04-10 02:47:08.893 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:17:08.8933561Z"
+2026-04-10 02:48:09.038 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:18:09.0380432Z"
+2026-04-10 02:49:09.457 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:19:09.4570761Z"
+2026-04-10 02:50:09.610 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:20:09.6105568Z"
+2026-04-10 02:51:09.808 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:21:09.8079807Z"
+2026-04-10 02:52:09.963 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:22:09.9637219Z"
+2026-04-10 02:53:10.062 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:23:10.0624150Z"
+2026-04-10 02:54:10.302 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:24:10.3020622Z"
+2026-04-10 02:55:10.400 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:25:10.4008822Z"
+2026-04-10 02:56:10.473 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:26:10.4733833Z"
+2026-04-10 02:57:10.647 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:27:10.6472304Z"
+2026-04-10 02:58:10.778 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:28:10.7780915Z"
+2026-04-10 02:59:10.908 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:29:10.9089008Z"
+2026-04-10 03:00:10.984 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:30:10.9841101Z"
+2026-04-10 03:01:11.143 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:31:11.1438346Z"
+2026-04-10 03:02:11.197 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:32:11.1969815Z"
+2026-04-10 03:03:11.444 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:33:11.4444716Z"
+2026-04-10 03:04:11.589 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:34:11.5889461Z"
+2026-04-10 03:05:11.782 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:35:11.7823098Z"
+2026-04-10 03:06:11.740 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:36:11.7405691Z"
+2026-04-10 03:07:11.992 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:37:11.9924994Z"
+2026-04-10 03:08:12.092 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:38:12.0925894Z"
+2026-04-10 03:09:12.196 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:39:12.1961041Z"
+2026-04-10 03:10:12.265 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:40:12.2656643Z"
+2026-04-10 03:11:12.349 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:41:12.3493652Z"
+2026-04-10 03:12:12.416 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:42:12.4162804Z"
+2026-04-10 03:13:12.614 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:43:12.6149077Z"
+2026-04-10 03:14:12.554 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:44:12.5542564Z"
+2026-04-10 03:15:12.597 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:45:12.5971006Z"
+2026-04-10 03:16:12.656 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:46:12.6567941Z"
+2026-04-10 03:17:12.766 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:47:12.7667499Z"
+2026-04-10 03:18:12.829 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:48:12.8291420Z"
+2026-04-10 03:19:13.086 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:49:13.0863636Z"
+2026-04-10 03:20:13.161 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:50:13.1615024Z"
+2026-04-10 03:21:13.250 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:51:13.2504327Z"
+2026-04-10 03:22:13.347 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:52:13.3472013Z"
+2026-04-10 03:23:13.400 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-09T21:53:13.4002318Z"
+2026-04-10 09:35:11.200 +05:30 [ERR] Failed executing DbCommand (1,053ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@p) [o].[MessageId], [o].[CreatedAtUtc], [o].[Error], [o].[EventType], [o].[Payload], [o].[PublishedAtUtc], [o].[RetryCount], [o].[Status]
+FROM [OutboxMessages] AS [o]
+WHERE [o].[Status] = N'Pending'
+ORDER BY [o].[CreatedAtUtc]
+2026-04-10 09:35:11.713 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'PaymentInvoice.Infrastructure.Persistence.PaymentInvoiceDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:944d279d-07ca-46a1-9bbf-581504d1ee1e
+Error Number:10053,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:944d279d-07ca-46a1-9bbf-581504d1ee1e
+Error Number:10053,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-04-10 09:35:13.025 +05:30 [ERR] Unexpected payment outbox dispatcher error.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:944d279d-07ca-46a1-9bbf-581504d1ee1e
+Error Number:10053,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at PaymentInvoice.Infrastructure.Background.PaymentOutboxDispatcher.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Infrastructure\Background\PaymentOutboxDispatcher.cs:line 32
+2026-04-10 09:35:14.953 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:05:14.9533292Z"
+2026-04-10 09:35:15.017 +05:30 [INF] Execution Worker recovered from the Faulted state after 00:00:11.5992623 and is in the Running state now
+2026-04-10 09:35:28.033 +05:30 [INF] Execution RecurringJobScheduler recovered from the Faulted state after 00:00:17.0452122 and is in the Running state now
+2026-04-10 09:36:13.137 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:06:13.1373648Z"
+2026-04-10 09:37:13.259 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:07:13.2592057Z"
+2026-04-10 09:38:13.376 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:08:13.3761178Z"
+2026-04-10 09:39:13.490 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:09:13.4905835Z"
+2026-04-10 09:40:13.602 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:10:13.6023419Z"
+2026-04-10 09:41:13.719 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:11:13.7198462Z"
+2026-04-10 09:42:05.240 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:12:05.2406934Z"
+2026-04-10 09:43:05.386 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:13:05.3869502Z"
+2026-04-10 09:44:05.484 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:14:05.4847770Z"
+2026-04-10 09:45:05.642 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:15:05.6421016Z"
+2026-04-10 09:46:05.818 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:16:05.8184242Z"
+2026-04-10 09:47:06.000 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:17:06.0005012Z"
+2026-04-10 09:48:06.168 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:18:06.1689301Z"
+2026-04-10 09:49:06.384 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:19:06.3847324Z"
+2026-04-10 09:50:06.640 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:20:06.6406880Z"
+2026-04-10 09:51:06.829 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:21:06.8295238Z"
+2026-04-10 09:52:07.038 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:22:07.0385325Z"
+2026-04-10 09:53:07.239 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:23:07.2393110Z"
+2026-04-10 09:54:07.412 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:24:07.4121157Z"
+2026-04-10 09:55:07.546 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:25:07.5463520Z"
+2026-04-10 09:56:07.855 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:26:07.8558835Z"
+2026-04-10 09:57:08.050 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:27:08.0509367Z"
+2026-04-10 09:58:08.196 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:28:08.1962040Z"
+2026-04-10 09:59:08.380 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:29:08.3806827Z"
+2026-04-10 10:00:08.570 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:30:08.5700571Z"
+2026-04-10 10:01:08.722 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:31:08.7223167Z"
+2026-04-10 10:02:08.931 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:32:08.9317557Z"
+2026-04-10 10:03:09.088 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:33:09.0885014Z"
+2026-04-10 10:04:09.443 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:34:09.4429588Z"
+2026-04-10 10:05:09.703 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:35:09.7038018Z"
+2026-04-10 10:06:09.895 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:36:09.8952083Z"
+2026-04-10 10:07:10.276 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:37:10.2767297Z"
+2026-04-10 10:08:10.423 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:38:10.4236770Z"
+2026-04-10 10:09:10.768 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:39:10.7681344Z"
+2026-04-10 10:10:11.244 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:40:11.2440745Z"
+2026-04-10 10:11:11.487 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:41:11.4874758Z"
+2026-04-10 10:12:11.671 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:42:11.6712531Z"
+2026-04-10 10:13:12.046 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:43:12.0469114Z"
+2026-04-10 10:14:12.222 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:44:12.2229175Z"
+2026-04-10 10:15:12.409 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:45:12.4099455Z"
+2026-04-10 10:16:12.687 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:46:12.6870553Z"
+2026-04-10 10:17:12.900 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:47:12.9004217Z"
+2026-04-10 10:18:13.268 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:48:13.2681913Z"
+2026-04-10 10:19:13.460 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:49:13.4603304Z"
+2026-04-10 10:20:13.725 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:50:13.7254474Z"
+2026-04-10 10:21:13.883 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:51:13.8833645Z"
+2026-04-10 10:22:14.099 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:52:14.0998961Z"
+2026-04-10 10:23:14.272 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:53:14.2728339Z"
+2026-04-10 10:24:14.653 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:54:14.6539535Z"
+2026-04-10 10:25:14.871 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:55:14.8717553Z"
+2026-04-10 10:26:15.213 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:56:15.2137890Z"
+2026-04-10 10:27:00.421 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:57:00.4216889Z"
+2026-04-10 10:28:00.565 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:58:00.5650638Z"
+2026-04-10 10:29:00.792 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T04:59:00.7925669Z"
+2026-04-10 10:30:00.934 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:00:00.9340676Z"
+2026-04-10 10:31:01.070 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:01:01.0701705Z"
+2026-04-10 10:32:01.211 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:02:01.2113357Z"
+2026-04-10 10:33:01.418 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:03:01.4185613Z"
+2026-04-10 10:34:01.700 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:04:01.7008741Z"
+2026-04-10 10:35:01.803 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:05:01.8033515Z"
+2026-04-10 10:36:02.150 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:06:02.1501484Z"
+2026-04-10 10:37:02.304 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:07:02.3044538Z"
+2026-04-10 10:38:02.441 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:08:02.4416630Z"
+2026-04-10 10:39:02.598 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:09:02.5981179Z"
+2026-04-10 10:40:02.755 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:10:02.7556119Z"
+2026-04-10 10:41:02.870 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:11:02.8700950Z"
+2026-04-10 10:42:03.086 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:12:03.0863459Z"
+2026-04-10 10:43:03.237 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:13:03.2373499Z"
+2026-04-10 10:44:03.403 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:14:03.4034549Z"
+2026-04-10 10:45:03.542 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:15:03.5425858Z"
+2026-04-10 10:46:03.764 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:16:03.7645360Z"
+2026-04-10 10:47:03.901 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:17:03.9011194Z"
+2026-04-10 10:48:04.071 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:18:04.0717296Z"
+2026-04-10 10:49:04.245 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:19:04.2458016Z"
+2026-04-10 10:50:04.391 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:20:04.3911895Z"
+2026-04-10 10:51:04.520 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:21:04.5203069Z"
+2026-04-10 10:52:04.719 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:22:04.7197717Z"
+2026-04-10 10:53:04.980 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:23:04.9803048Z"
+2026-04-10 10:54:05.207 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:24:05.2079133Z"
+2026-04-10 10:55:05.460 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:25:05.4603592Z"
+2026-04-10 10:56:05.603 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:26:05.6036159Z"
+2026-04-10 10:57:05.756 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:27:05.7561512Z"
+2026-04-10 10:58:06.193 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:28:06.1938078Z"
+2026-04-10 10:59:06.361 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:29:06.3610772Z"
+2026-04-10 11:00:06.528 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:30:06.5288792Z"
+2026-04-10 11:01:06.752 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:31:06.7523353Z"
+2026-04-10 11:02:06.838 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:32:06.8382883Z"
+2026-04-10 11:03:06.951 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:33:06.9515705Z"
+2026-04-10 11:04:07.061 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:34:07.0614597Z"
+2026-04-10 11:05:07.185 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:35:07.1851186Z"
+2026-04-10 11:06:07.323 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:36:07.3230096Z"
+2026-04-10 11:07:07.498 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:37:07.4987047Z"
+2026-04-10 11:08:07.689 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:38:07.6890437Z"
+2026-04-10 11:09:07.898 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:39:07.8982194Z"
+2026-04-10 11:10:08.191 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:40:08.1916902Z"
+2026-04-10 11:11:08.368 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:41:08.3683647Z"
+2026-04-10 11:12:08.493 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:42:08.4939815Z"
+2026-04-10 11:13:08.629 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:43:08.6293522Z"
+2026-04-10 11:14:09.036 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:44:09.0362772Z"
+2026-04-10 11:15:09.316 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:45:09.3169309Z"
+2026-04-10 11:16:09.551 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:46:09.5518470Z"
+2026-04-10 11:17:09.711 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:47:09.7112565Z"
+2026-04-10 11:18:10.045 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:48:10.0453003Z"
+2026-04-10 11:19:10.247 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:49:10.2472527Z"
+2026-04-10 11:20:10.436 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:50:10.4361909Z"
+2026-04-10 11:21:10.585 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:51:10.5854369Z"
+2026-04-10 11:22:10.719 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:52:10.7197538Z"
+2026-04-10 11:23:10.817 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:53:10.8178733Z"
+2026-04-10 11:24:10.956 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:54:10.9562440Z"
+2026-04-10 11:25:11.124 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:55:11.1243969Z"
+2026-04-10 11:26:11.201 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:56:11.2012333Z"
+2026-04-10 11:27:11.315 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:57:11.3157033Z"
+2026-04-10 11:28:11.501 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:58:11.5013339Z"
+2026-04-10 11:29:11.535 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T05:59:11.5355702Z"
+2026-04-10 11:30:11.654 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:00:11.6544285Z"
+2026-04-10 11:31:12.231 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:01:12.2310550Z"
+2026-04-10 11:32:12.377 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:02:12.3769996Z"
+2026-04-10 11:33:12.528 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:03:12.5281033Z"
+2026-04-10 11:34:12.693 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:04:12.6938852Z"
+2026-04-10 11:35:13.033 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:05:13.0334058Z"
+2026-04-10 11:36:13.414 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:06:13.4141874Z"
+2026-04-10 11:37:13.502 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:07:13.5026567Z"
+2026-04-10 11:38:13.664 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:08:13.6646172Z"
+2026-04-10 11:39:13.831 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:09:13.8316783Z"
+2026-04-10 11:40:13.958 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:10:13.9586622Z"
+2026-04-10 11:41:14.188 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:11:14.1884337Z"
+2026-04-10 11:42:14.476 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:12:14.4760525Z"
+2026-04-10 11:43:14.596 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:13:14.5967265Z"
+2026-04-10 11:44:14.733 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:14:14.7339309Z"
+2026-04-10 11:45:15.026 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:15:15.0260751Z"
+2026-04-10 11:46:00.169 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:16:00.1697254Z"
+2026-04-10 11:47:00.450 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:17:00.4503485Z"
+2026-04-10 11:48:00.610 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:18:00.6101773Z"
+2026-04-10 11:49:00.717 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:19:00.7177053Z"
+2026-04-10 11:50:00.850 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:20:00.8505751Z"
+2026-04-10 11:51:01.147 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:21:01.1472126Z"
+2026-04-10 11:52:01.377 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:22:01.3779169Z"
+2026-04-10 11:53:01.461 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:23:01.4610525Z"
+2026-04-10 11:54:01.574 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:24:01.5748612Z"
+2026-04-10 11:55:01.686 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:25:01.6863767Z"
+2026-04-10 11:56:01.894 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:26:01.8941165Z"
+2026-04-10 11:57:02.007 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:27:02.0076758Z"
+2026-04-10 11:58:02.101 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:28:02.1018819Z"
+2026-04-10 11:59:02.217 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:29:02.2175248Z"
+2026-04-10 12:00:02.458 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:30:02.4587022Z"
+2026-04-10 12:01:02.450 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:31:02.4504117Z"
+2026-04-10 12:02:02.541 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:32:02.5410599Z"
+2026-04-10 12:03:02.827 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:33:02.8273557Z"
+2026-04-10 12:04:02.940 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:34:02.9407722Z"
+2026-04-10 12:05:03.045 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:35:03.0453088Z"
+2026-04-10 12:06:03.136 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:36:03.1362398Z"
+2026-04-10 12:07:03.274 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:37:03.2741283Z"
+2026-04-10 12:08:03.370 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:38:03.3708658Z"
+2026-04-10 12:09:03.470 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:39:03.4707990Z"
+2026-04-10 12:10:03.730 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:40:03.7300156Z"
+2026-04-10 12:11:03.859 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:41:03.8596156Z"
+2026-04-10 12:12:03.998 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:42:03.9987855Z"
+2026-04-10 12:13:04.220 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:43:04.2207949Z"
+2026-04-10 12:14:04.367 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:44:04.3675400Z"
+2026-04-10 12:15:04.418 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:45:04.4186094Z"
+2026-04-10 12:16:04.553 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:46:04.5537524Z"
+2026-04-10 12:17:04.644 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:47:04.6444739Z"
+2026-04-10 12:18:05.032 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:48:05.0319976Z"
+2026-04-10 12:19:05.127 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:49:05.1277880Z"
+2026-04-10 12:20:05.290 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:50:05.2909437Z"
+2026-04-10 12:21:05.355 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:51:05.3557974Z"
+2026-04-10 12:22:05.522 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:52:05.5228901Z"
+2026-04-10 12:23:06.642 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:53:06.6426149Z"
+2026-04-10 12:24:06.722 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:54:06.7222568Z"
+2026-04-10 12:25:06.897 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:55:06.8977123Z"
+2026-04-10 12:26:07.185 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:56:07.1852312Z"
+2026-04-10 12:27:07.303 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:57:07.3036833Z"
+2026-04-10 12:28:07.789 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:58:07.7894103Z"
+2026-04-10 12:29:07.965 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T06:59:07.9650121Z"
+2026-04-10 12:30:08.144 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:00:08.1443982Z"
+2026-04-10 12:31:08.351 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:01:08.3514495Z"
+2026-04-10 12:32:10.631 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:02:10.6315817Z"
+2026-04-10 12:33:09.599 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:03:09.5997693Z"
+2026-04-10 12:34:09.728 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:04:09.7280049Z"
+2026-04-10 12:35:10.130 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:05:10.1304222Z"
+2026-04-10 12:36:10.463 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:06:10.4630570Z"
+2026-04-10 12:37:10.597 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:07:10.5977973Z"
+2026-04-10 12:38:10.798 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:08:10.7986389Z"
+2026-04-10 12:39:10.922 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:09:10.9224578Z"
+2026-04-10 12:40:11.087 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:10:11.0879752Z"
+2026-04-10 12:41:11.256 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:11:11.2566655Z"
+2026-04-10 12:42:11.667 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:12:11.6670863Z"
+2026-04-10 12:43:11.850 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:13:11.8509498Z"
+2026-04-10 12:44:12.026 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:14:12.0262603Z"
+2026-04-10 12:45:12.113 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:15:12.1132621Z"
+2026-04-10 12:46:12.366 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:16:12.3665998Z"
+2026-04-10 12:47:12.472 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:17:12.4720388Z"
+2026-04-10 12:48:12.574 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:18:12.5749254Z"
+2026-04-10 12:49:12.763 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:19:12.7632720Z"
+2026-04-10 12:50:13.190 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:20:13.1907681Z"
+2026-04-10 12:51:13.529 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:21:13.5299478Z"
+2026-04-10 12:52:14.225 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:22:14.2252420Z"
+2026-04-10 12:53:14.446 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:23:14.4468746Z"
+2026-04-10 12:54:14.652 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:24:14.6521895Z"
+2026-04-10 12:55:16.423 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:25:16.4238374Z"
+2026-04-10 12:56:01.032 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:26:01.0320979Z"
+2026-04-10 12:57:01.161 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:27:01.1613799Z"
+2026-04-10 12:58:01.340 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:28:01.3401723Z"
+2026-04-10 12:59:01.473 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:29:01.4732542Z"
+2026-04-10 13:00:01.545 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:30:01.5456805Z"
+2026-04-10 13:01:01.812 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:31:01.8122402Z"
+2026-04-10 13:02:01.937 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:32:01.9371540Z"
+2026-04-10 13:03:01.974 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:33:01.9745501Z"
+2026-04-10 13:04:02.110 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T07:34:02.1105879Z"
+2026-04-10 14:26:07.080 +05:30 [ERR] Failed executing DbCommand (2,738,263ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@p) [o].[MessageId], [o].[CreatedAtUtc], [o].[Error], [o].[EventType], [o].[Payload], [o].[PublishedAtUtc], [o].[RetryCount], [o].[Status]
+FROM [OutboxMessages] AS [o]
+WHERE [o].[Status] = N'Pending'
+ORDER BY [o].[CreatedAtUtc]
+2026-04-10 14:26:07.675 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'PaymentInvoice.Infrastructure.Persistence.PaymentInvoiceDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:9dc4f3b4-154a-44a2-b56c-0c86d12bd916
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:9dc4f3b4-154a-44a2-b56c-0c86d12bd916
+Error Number:-2,State:0,Class:11
+2026-04-10 14:26:08.038 +05:30 [ERR] Unexpected payment outbox dispatcher error.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at PaymentInvoice.Infrastructure.Background.PaymentOutboxDispatcher.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Infrastructure\Background\PaymentOutboxDispatcher.cs:line 32
+ClientConnectionId:9dc4f3b4-154a-44a2-b56c-0c86d12bd916
+Error Number:-2,State:0,Class:11
+2026-04-10 14:26:14.303 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T08:56:14.3029866Z"
+2026-04-10 14:27:14.467 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T08:57:14.4676238Z"
+2026-04-10 14:28:14.722 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T08:58:14.7227809Z"
+2026-04-10 14:29:14.882 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T08:59:14.8822371Z"
+2026-04-10 14:30:15.257 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:00:15.2574463Z"
+2026-04-10 14:31:00.402 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:01:00.4020661Z"
+2026-04-10 14:32:00.678 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:02:00.6781215Z"
+2026-04-10 14:33:00.886 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:03:00.8862792Z"
+2026-04-10 14:34:01.119 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:04:01.1198105Z"
+2026-04-10 14:35:01.367 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:05:01.3672700Z"
+2026-04-10 14:36:01.612 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:06:01.6124983Z"
+2026-04-10 14:37:01.804 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:07:01.8044166Z"
+2026-04-10 14:38:02.084 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:08:02.0845315Z"
+2026-04-10 14:39:02.266 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:09:02.2662911Z"
+2026-04-10 14:40:02.457 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:10:02.4572198Z"
+2026-04-10 14:41:02.791 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:11:02.7911079Z"
+2026-04-10 14:42:03.045 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:12:03.0454541Z"
+2026-04-10 14:43:03.301 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:13:03.3010646Z"
+2026-04-10 14:44:03.486 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:14:03.4869239Z"
+2026-04-10 14:45:03.870 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:15:03.8708993Z"
+2026-04-10 14:46:05.973 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:16:05.9735530Z"
+2026-04-10 14:47:04.924 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:17:04.9244506Z"
+2026-04-10 14:58:21.328 +05:30 [INF] PaymentInvoice migrations applied count: 2
+2026-04-10 14:58:21.799 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-10 14:58:24.540 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-10 14:58:26.148 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@PaymentInvoiceMigrationsDB'
+2026-04-10 14:58:26.175 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-10 14:58:26.227 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-10 14:58:26.515 +05:30 [INF] Server desktop-nfnd817:22824:66a771b0 successfully announced in 120.0857 ms
+2026-04-10 14:58:26.539 +05:30 [INF] Server desktop-nfnd817:22824:66a771b0 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-10 14:58:26.674 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-10 14:58:26.744 +05:30 [INF] Server desktop-nfnd817:22824:66a771b0 all the dispatchers started
+2026-04-10 14:58:28.288 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:28:28.2868481Z"
+2026-04-10 14:59:13.127 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:29:13.1268366Z"
+2026-04-10 14:59:18.878 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-10 14:59:19.278 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T09:29:19.2780180Z"
+2026-04-10 14:59:20.000 +05:30 [INF] Handled CheckCreditQuery in 722.8102ms
+2026-04-10 14:59:20.086 +05:30 [INF] HTTP GET /api/payment/dealers/fa56fada-cec4-49c1-8614-cbcf163002c9/credit-check responded 200 in 1364.7262 ms
+2026-04-10 14:59:24.338 +05:30 [INF] Handling EnsureDealerAccountCommand at "2026-04-10T09:29:24.3376068Z"
+2026-04-10 14:59:24.381 +05:30 [INF] Handled EnsureDealerAccountCommand in 44.3066ms
+2026-04-10 14:59:24.409 +05:30 [INF] HTTP POST /api/payment/dealers/fa56fada-cec4-49c1-8614-cbcf163002c9/account responded 200 in 363.7526 ms
+2026-04-10 14:59:24.600 +05:30 [INF] Handling GenerateInvoiceCommand at "2026-04-10T09:29:24.6002660Z"
+2026-04-10 14:59:27.013 +05:30 [INF] Handled GenerateInvoiceCommand in 2413.5725ms
+2026-04-10 14:59:27.079 +05:30 [INF] HTTP POST /api/payment/invoices responded 201 in 2635.8076 ms
+2026-04-10 14:59:33.876 +05:30 [INF] HTTP POST /api/payment/dealers/fa56fada-cec4-49c1-8614-cbcf163002c9/account responded 403 in 11.1306 ms
+2026-04-10 14:59:33.929 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T09:29:33.9299135Z"
+2026-04-10 14:59:33.953 +05:30 [INF] Handled CheckCreditQuery in 23.1426ms
+2026-04-10 14:59:33.959 +05:30 [INF] HTTP GET /api/payment/dealers/fa56fada-cec4-49c1-8614-cbcf163002c9/credit-check responded 200 in 33.6054 ms
+2026-04-10 14:59:34.083 +05:30 [INF] Handling UpdateCreditLimitCommand at "2026-04-10T09:29:34.0826616Z"
+2026-04-10 14:59:34.149 +05:30 [INF] Handled UpdateCreditLimitCommand in 67.224ms
+2026-04-10 14:59:34.154 +05:30 [INF] HTTP PUT /api/payment/dealers/fa56fada-cec4-49c1-8614-cbcf163002c9/credit-limit responded 200 in 119.1750 ms
+2026-04-10 14:59:34.251 +05:30 [INF] Handling SettleOutstandingCommand at "2026-04-10T09:29:34.2510945Z"
+2026-04-10 14:59:34.305 +05:30 [INF] Handled SettleOutstandingCommand in 54.2458ms
+2026-04-10 14:59:34.309 +05:30 [INF] HTTP POST /api/payment/dealers/fa56fada-cec4-49c1-8614-cbcf163002c9/settlements responded 200 in 100.4431 ms
+2026-04-10 14:59:34.400 +05:30 [INF] Handling GetInvoiceQuery at "2026-04-10T09:29:34.4000049Z"
+2026-04-10 14:59:34.534 +05:30 [INF] Handled GetInvoiceQuery in 134.2855ms
+2026-04-10 14:59:34.541 +05:30 [INF] HTTP GET /api/payment/invoices/717015ff-c4b2-47cf-a96b-4fd96807b1f2 responded 200 in 162.6608 ms
+2026-04-10 14:59:34.636 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T09:29:34.6361663Z"
+2026-04-10 14:59:34.759 +05:30 [INF] Handled GetDealerInvoicesQuery in 123.7526ms
+2026-04-10 14:59:34.767 +05:30 [INF] HTTP GET /api/payment/dealers/fa56fada-cec4-49c1-8614-cbcf163002c9/invoices responded 200 in 162.3822 ms
+2026-04-10 14:59:34.871 +05:30 [INF] Handling GetInvoicePdfPathQuery at "2026-04-10T09:29:34.8712051Z"
+2026-04-10 14:59:34.902 +05:30 [INF] Handled GetInvoicePdfPathQuery in 31.4245ms
+2026-04-10 14:59:34.941 +05:30 [INF] HTTP GET /api/payment/invoices/717015ff-c4b2-47cf-a96b-4fd96807b1f2/download responded 200 in 97.5355 ms
+2026-04-10 15:00:13.346 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:30:13.3462822Z"
+2026-04-10 15:01:13.571 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:31:13.5717649Z"
+2026-04-10 15:02:07.630 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T09:32:07.6303756Z"
+2026-04-10 15:02:07.738 +05:30 [INF] Handled CheckCreditQuery in 107.7585ms
+2026-04-10 15:02:07.751 +05:30 [INF] HTTP GET /api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/credit-check responded 200 in 236.4169 ms
+2026-04-10 15:02:08.956 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T09:32:08.9559866Z"
+2026-04-10 15:02:08.986 +05:30 [INF] Handled GetDealerInvoicesQuery in 30.8312ms
+2026-04-10 15:02:08.991 +05:30 [INF] HTTP GET /api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices responded 200 in 39.8709 ms
+2026-04-10 15:02:09.056 +05:30 [INF] HTTP GET /api/payment/dealers/9536f35a-9fd6-4c33-8b9d-2aa8e3a7eb62/invoices responded 403 in 7.3746 ms
+2026-04-10 15:02:13.792 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:32:13.7919546Z"
+2026-04-10 15:03:13.953 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:33:13.9533856Z"
+2026-04-10 15:04:14.130 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:34:14.1303430Z"
+2026-04-10 15:05:14.406 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:35:14.4057508Z"
+2026-04-10 15:06:14.573 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:36:14.5734826Z"
+2026-04-10 15:07:14.676 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:37:14.6760208Z"
+2026-04-10 15:08:14.778 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:38:14.7779924Z"
+2026-04-10 15:09:14.873 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:39:14.8733104Z"
+2026-04-10 15:10:15.009 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:40:15.0097924Z"
+2026-04-10 15:11:00.214 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:41:00.2142060Z"
+2026-04-10 15:12:00.499 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:42:00.4991375Z"
+2026-04-10 15:13:00.759 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:43:00.7594380Z"
+2026-04-10 15:14:01.142 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:44:01.1420395Z"
+2026-04-10 15:15:01.568 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:45:01.5680150Z"
+2026-04-10 15:16:01.784 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:46:01.7847207Z"
+2026-04-10 15:17:02.328 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:47:02.3285590Z"
+2026-04-10 15:18:02.423 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:48:02.4223798Z"
+2026-04-10 15:19:02.610 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:49:02.6104612Z"
+2026-04-10 15:20:02.983 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:50:02.9832614Z"
+2026-04-10 15:21:03.146 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:51:03.1454019Z"
+2026-04-10 15:22:03.382 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:52:03.3826943Z"
+2026-04-10 15:23:03.582 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:53:03.5820107Z"
+2026-04-10 15:24:03.860 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:54:03.8607730Z"
+2026-04-10 15:25:04.136 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:55:04.1369051Z"
+2026-04-10 15:26:04.349 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:56:04.3490324Z"
+2026-04-10 15:27:04.849 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:57:04.8495784Z"
+2026-04-10 15:28:05.073 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:58:05.0734794Z"
+2026-04-10 15:29:05.590 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T09:59:05.5905410Z"
+2026-04-10 15:30:06.012 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:00:06.0120887Z"
+2026-04-10 15:31:06.310 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:01:06.3102671Z"
+2026-04-10 15:32:06.890 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:02:06.8904178Z"
+2026-04-10 15:33:07.851 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:03:07.8512309Z"
+2026-04-10 15:34:08.184 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:04:08.1833912Z"
+2026-04-10 15:35:08.446 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:05:08.4461905Z"
+2026-04-10 15:35:33.724 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T10:05:33.7238092Z"
+2026-04-10 15:35:33.815 +05:30 [INF] Handled CheckCreditQuery in 91.287ms
+2026-04-10 15:35:33.841 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T10:05:33.8417957Z"
+2026-04-10 15:35:33.844 +05:30 [INF] HTTP GET /api/payment/dealers/c02a70da-561e-4e30-b045-c90700b24d2c/credit-check responded 200 in 150.2151 ms
+2026-04-10 15:35:33.886 +05:30 [INF] Handled GetDealerInvoicesQuery in 44.6981ms
+2026-04-10 15:35:33.892 +05:30 [INF] HTTP GET /api/payment/dealers/c02a70da-561e-4e30-b045-c90700b24d2c/invoices responded 200 in 88.4091 ms
+2026-04-10 15:36:08.621 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:06:08.6212028Z"
+2026-04-10 15:37:08.835 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:07:08.8356351Z"
+2026-04-10 15:38:09.008 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:08:09.0079945Z"
+2026-04-10 15:39:09.261 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:09:09.2615164Z"
+2026-04-10 15:40:09.376 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:10:09.3761694Z"
+2026-04-10 15:41:09.620 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:11:09.6206107Z"
+2026-04-10 15:42:09.911 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:12:09.9117562Z"
+2026-04-10 15:43:10.216 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:13:10.2169571Z"
+2026-04-10 15:44:10.353 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:14:10.3532648Z"
+2026-04-10 15:45:10.484 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:15:10.4840055Z"
+2026-04-10 15:46:10.723 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:16:10.7239183Z"
+2026-04-10 15:47:10.834 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:17:10.8349215Z"
+2026-04-10 15:48:10.954 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:18:10.9545453Z"
+2026-04-10 15:49:11.231 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:19:11.2317289Z"
+2026-04-10 15:50:11.349 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:20:11.3493391Z"
+2026-04-10 15:51:11.509 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:21:11.5098374Z"
+2026-04-10 15:52:11.719 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:22:11.7195490Z"
+2026-04-10 15:53:12.156 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:23:12.1565228Z"
+2026-04-10 15:54:12.589 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:24:12.5896221Z"
+2026-04-10 15:55:12.898 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:25:12.8985674Z"
+2026-04-10 15:56:16.026 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:26:16.0261853Z"
+2026-04-10 15:57:01.663 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:27:01.6635485Z"
+2026-04-10 15:58:01.890 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:28:01.8909217Z"
+2026-04-10 15:59:02.126 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:29:02.1267573Z"
+2026-04-10 16:00:02.262 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:30:02.2622169Z"
+2026-04-10 16:01:02.405 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:31:02.4053599Z"
+2026-04-10 16:02:02.551 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:32:02.5515974Z"
+2026-04-10 16:03:02.714 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:33:02.7143215Z"
+2026-04-10 16:04:02.808 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T10:34:02.8082414Z"
+2026-04-10 17:38:08.348 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T12:08:08.3484003Z"
+2026-04-10 19:27:28.284 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T13:57:28.2847400Z"
+2026-04-10 19:27:28.306 +05:30 [INF] Execution Worker recovered from the Faulted state after 00:00:11.1409327 and is in the Running state now
+2026-04-10 19:28:13.874 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T13:58:13.8744193Z"
+2026-04-10 19:28:46.212 +05:30 [INF] HTTP GET /health responded 200 in 271.2017 ms
+2026-04-10 19:29:10.983 +05:30 [INF] PaymentInvoice migrations applied count: 2
+2026-04-10 19:29:11.350 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-10 19:29:13.417 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T13:59:13.4174451Z"
+2026-04-10 19:29:14.122 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-10 19:29:15.754 +05:30 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:8005: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-04-10 19:30:13.453 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:00:13.4535721Z"
+2026-04-10 19:30:13.483 +05:30 [INF] Execution Worker recovered from the Faulted state after 00:00:52.9953648 and is in the Running state now
+2026-04-10 19:31:13.561 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:01:13.5610009Z"
+2026-04-10 19:32:13.659 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:02:13.6590647Z"
+2026-04-10 19:33:13.804 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:03:13.8039979Z"
+2026-04-10 19:34:13.992 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:04:13.9924881Z"
+2026-04-10 19:35:14.106 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:05:14.1066386Z"
+2026-04-10 19:36:14.290 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:06:14.2904001Z"
+2026-04-10 19:37:14.431 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:07:14.4312842Z"
+2026-04-10 19:38:14.727 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:08:14.7277234Z"
+2026-04-10 19:39:15.106 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:09:15.1062053Z"
+2026-04-10 19:40:00.172 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:10:00.1724102Z"
+2026-04-10 19:41:00.456 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:11:00.4561009Z"
+2026-04-10 19:42:00.604 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:12:00.6047133Z"
+2026-04-10 19:43:00.730 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:13:00.7300373Z"
+2026-04-10 19:44:00.828 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:14:00.8283056Z"
+2026-04-10 19:45:00.957 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:15:00.9576589Z"
+2026-04-10 19:46:01.051 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:16:01.0513218Z"
+2026-04-10 19:47:01.146 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:17:01.1461950Z"
+2026-04-10 19:48:01.205 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:18:01.2058276Z"
+2026-04-10 19:49:01.333 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:19:01.3334363Z"
+2026-04-10 19:49:49.107 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T14:19:49.1068531Z"
+2026-04-10 19:49:49.189 +05:30 [INF] Handled CheckCreditQuery in 82.5538ms
+2026-04-10 19:49:49.196 +05:30 [INF] HTTP GET /api/payment/dealers/b4acadb1-901d-45bd-acec-f789fbd7a708/credit-check responded 200 in 116.4091 ms
+2026-04-10 19:49:49.590 +05:30 [INF] Handling EnsureDealerAccountCommand at "2026-04-10T14:19:49.5901816Z"
+2026-04-10 19:49:49.596 +05:30 [INF] Handled EnsureDealerAccountCommand in 6.4464ms
+2026-04-10 19:49:49.598 +05:30 [INF] HTTP POST /api/payment/dealers/b4acadb1-901d-45bd-acec-f789fbd7a708/account responded 200 in 32.8425 ms
+2026-04-10 19:49:49.621 +05:30 [INF] Handling GenerateInvoiceCommand at "2026-04-10T14:19:49.6218198Z"
+2026-04-10 19:49:49.795 +05:30 [INF] Handled GenerateInvoiceCommand in 173.5979ms
+2026-04-10 19:49:49.814 +05:30 [INF] HTTP POST /api/payment/invoices responded 201 in 198.4398 ms
+2026-04-10 19:49:50.405 +05:30 [INF] Handling UpdateCreditLimitCommand at "2026-04-10T14:19:50.4052790Z"
+2026-04-10 19:49:50.417 +05:30 [INF] Handled UpdateCreditLimitCommand in 11.8311ms
+2026-04-10 19:49:50.418 +05:30 [INF] HTTP PUT /api/payment/internal/dealers/b4acadb1-901d-45bd-acec-f789fbd7a708/credit-limit responded 200 in 41.5749 ms
+2026-04-10 19:49:51.811 +05:30 [INF] HTTP POST /api/payment/dealers/b4acadb1-901d-45bd-acec-f789fbd7a708/account responded 403 in 0.7955 ms
+2026-04-10 19:49:51.825 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T14:19:51.8250901Z"
+2026-04-10 19:49:51.832 +05:30 [INF] Handled CheckCreditQuery in 7.8044ms
+2026-04-10 19:49:51.834 +05:30 [INF] HTTP GET /api/payment/dealers/b4acadb1-901d-45bd-acec-f789fbd7a708/credit-check responded 200 in 10.2547 ms
+2026-04-10 19:49:51.864 +05:30 [INF] Handling UpdateCreditLimitCommand at "2026-04-10T14:19:51.8645823Z"
+2026-04-10 19:49:51.883 +05:30 [INF] Handled UpdateCreditLimitCommand in 18.6646ms
+2026-04-10 19:49:51.884 +05:30 [INF] HTTP PUT /api/payment/dealers/b4acadb1-901d-45bd-acec-f789fbd7a708/credit-limit responded 200 in 26.6383 ms
+2026-04-10 19:49:51.906 +05:30 [INF] Handling SettleOutstandingCommand at "2026-04-10T14:19:51.9064434Z"
+2026-04-10 19:49:51.917 +05:30 [INF] Handled SettleOutstandingCommand in 11.0801ms
+2026-04-10 19:49:51.919 +05:30 [INF] HTTP POST /api/payment/dealers/b4acadb1-901d-45bd-acec-f789fbd7a708/settlements responded 200 in 14.7457 ms
+2026-04-10 19:49:51.942 +05:30 [INF] Handling GetInvoiceQuery at "2026-04-10T14:19:51.9424033Z"
+2026-04-10 19:49:51.952 +05:30 [INF] Handled GetInvoiceQuery in 10.2525ms
+2026-04-10 19:49:51.954 +05:30 [INF] HTTP GET /api/payment/invoices/f8f276c8-5f41-47ff-bb15-83e799545304 responded 200 in 13.6693 ms
+2026-04-10 19:49:51.977 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T14:19:51.9769986Z"
+2026-04-10 19:49:51.990 +05:30 [INF] Handled GetDealerInvoicesQuery in 13.2401ms
+2026-04-10 19:49:51.992 +05:30 [INF] HTTP GET /api/payment/dealers/b4acadb1-901d-45bd-acec-f789fbd7a708/invoices responded 200 in 16.1626 ms
+2026-04-10 19:49:52.019 +05:30 [INF] Handling GetInvoicePdfPathQuery at "2026-04-10T14:19:52.0195133Z"
+2026-04-10 19:49:52.029 +05:30 [INF] Handled GetInvoicePdfPathQuery in 9.6319ms
+2026-04-10 19:49:52.036 +05:30 [INF] HTTP GET /api/payment/invoices/f8f276c8-5f41-47ff-bb15-83e799545304/download responded 200 in 18.2344 ms
+2026-04-10 19:50:01.434 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:20:01.4348683Z"
+2026-04-10 19:51:01.684 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:21:01.6843598Z"
+2026-04-10 19:52:01.587 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:22:01.5872851Z"
+2026-04-10 19:53:01.821 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:23:01.8215594Z"
+2026-04-10 19:54:01.947 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:24:01.9479192Z"
+2026-04-10 19:55:02.000 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:25:02.0001064Z"
+2026-04-10 19:56:02.085 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:26:02.0856576Z"
+2026-04-10 19:57:02.215 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:27:02.2156824Z"
+2026-04-10 19:58:02.302 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:28:02.3025526Z"
+2026-04-10 19:59:02.475 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:29:02.4756992Z"
+2026-04-10 20:00:02.765 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:30:02.7653494Z"
+2026-04-10 20:01:02.924 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:31:02.9243060Z"
+2026-04-10 20:02:05.491 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:32:05.4910699Z"
+2026-04-10 20:02:32.699 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T14:32:32.6989186Z"
+2026-04-10 20:02:32.727 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T14:32:32.7274167Z"
+2026-04-10 20:02:32.771 +05:30 [INF] Handled CheckCreditQuery in 72.1418ms
+2026-04-10 20:02:32.787 +05:30 [INF] HTTP GET /api/payment/dealers/b4acadb1-901d-45bd-acec-f789fbd7a708/credit-check responded 200 in 155.2214 ms
+2026-04-10 20:02:32.815 +05:30 [INF] Handled GetDealerInvoicesQuery in 87.7445ms
+2026-04-10 20:02:32.823 +05:30 [INF] HTTP GET /api/payment/dealers/b4acadb1-901d-45bd-acec-f789fbd7a708/invoices responded 200 in 145.1323 ms
+2026-04-10 20:03:05.280 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:33:05.2806411Z"
+2026-04-10 20:04:05.360 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:34:05.3604862Z"
+2026-04-10 20:05:05.445 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:35:05.4456712Z"
+2026-04-10 20:06:05.547 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:36:05.5477741Z"
+2026-04-10 20:07:06.989 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:37:06.9890429Z"
+2026-04-10 20:08:07.961 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:38:07.9614913Z"
+2026-04-10 20:08:21.167 +05:30 [INF] PaymentInvoice migrations applied count: 2
+2026-04-10 20:08:22.340 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-10 20:08:25.313 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-10 20:08:26.672 +05:30 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:8005: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-04-10 20:09:08.049 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:39:08.0499820Z"
+2026-04-10 20:10:08.120 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:40:08.1208494Z"
+2026-04-10 20:11:08.206 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:41:08.2069304Z"
+2026-04-10 20:12:08.316 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:42:08.3168066Z"
+2026-04-10 20:13:08.404 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:43:08.4040792Z"
+2026-04-10 20:14:08.688 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:44:08.6885275Z"
+2026-04-10 20:15:08.782 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:45:08.7824193Z"
+2026-04-10 20:16:08.896 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:46:08.8969518Z"
+2026-04-10 20:17:08.972 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:47:08.9728135Z"
+2026-04-10 20:18:09.090 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:48:09.0907003Z"
+2026-04-10 20:19:09.192 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:49:09.1924484Z"
+2026-04-10 20:20:09.286 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:50:09.2867446Z"
+2026-04-10 20:21:09.360 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:51:09.3604906Z"
+2026-04-10 20:22:09.424 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:52:09.4246572Z"
+2026-04-10 20:23:09.503 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:53:09.5032158Z"
+2026-04-10 20:24:09.600 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:54:09.6005554Z"
+2026-04-10 20:25:09.706 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:55:09.7067031Z"
+2026-04-10 20:26:09.811 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:56:09.8111775Z"
+2026-04-10 20:27:09.874 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:57:09.8742000Z"
+2026-04-10 20:28:09.920 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:58:09.9207505Z"
+2026-04-10 20:29:10.057 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T14:59:10.0573806Z"
+2026-04-10 20:30:10.335 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:00:10.3356164Z"
+2026-04-10 20:31:10.404 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:01:10.4046418Z"
+2026-04-10 20:32:10.504 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:02:10.5044262Z"
+2026-04-10 20:33:10.601 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:03:10.6017867Z"
+2026-04-10 20:34:10.660 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:04:10.6606163Z"
+2026-04-10 20:35:10.716 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:05:10.7165222Z"
+2026-04-10 20:36:10.929 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:06:10.9297866Z"
+2026-04-10 20:37:11.028 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:07:11.0285705Z"
+2026-04-10 20:38:11.115 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:08:11.1152014Z"
+2026-04-10 20:39:11.393 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:09:11.3930440Z"
+2026-04-10 20:40:11.459 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:10:11.4593601Z"
+2026-04-10 20:41:11.633 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:11:11.6337059Z"
+2026-04-10 20:42:11.782 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:12:11.7822840Z"
+2026-04-10 20:43:11.806 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:13:11.8061239Z"
+2026-04-10 20:44:12.065 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:14:12.0658140Z"
+2026-04-10 20:45:12.181 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:15:12.1816079Z"
+2026-04-10 20:46:12.251 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:16:12.2514989Z"
+2026-04-10 20:47:12.328 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:17:12.3279853Z"
+2026-04-10 20:48:12.466 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:18:12.4667302Z"
+2026-04-10 20:49:12.546 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:19:12.5465178Z"
+2026-04-10 20:50:12.630 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:20:12.6308110Z"
+2026-04-10 20:51:12.722 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:21:12.7228732Z"
+2026-04-10 20:51:23.924 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T15:21:23.9238559Z"
+2026-04-10 20:51:24.007 +05:30 [INF] Handled CheckCreditQuery in 83.9766ms
+2026-04-10 20:51:24.018 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-check responded 200 in 123.1924 ms
+2026-04-10 20:51:24.441 +05:30 [INF] Handling EnsureDealerAccountCommand at "2026-04-10T15:21:24.4418013Z"
+2026-04-10 20:51:24.448 +05:30 [INF] Handled EnsureDealerAccountCommand in 6.3405ms
+2026-04-10 20:51:24.451 +05:30 [INF] HTTP POST /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/account responded 200 in 45.3845 ms
+2026-04-10 20:51:24.485 +05:30 [INF] Handling GenerateInvoiceCommand at "2026-04-10T15:21:24.4850723Z"
+2026-04-10 20:51:24.700 +05:30 [INF] Handled GenerateInvoiceCommand in 215.5913ms
+2026-04-10 20:51:24.707 +05:30 [INF] HTTP POST /api/payment/invoices responded 201 in 238.0426 ms
+2026-04-10 20:51:25.133 +05:30 [INF] Handling UpdateCreditLimitCommand at "2026-04-10T15:21:25.1333751Z"
+2026-04-10 20:51:25.143 +05:30 [INF] Handled UpdateCreditLimitCommand in 9.6462ms
+2026-04-10 20:51:25.144 +05:30 [INF] HTTP PUT /api/payment/internal/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-limit responded 200 in 15.3395 ms
+2026-04-10 20:51:26.420 +05:30 [INF] HTTP POST /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/account responded 403 in 1.4868 ms
+2026-04-10 20:51:26.443 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T15:21:26.4436740Z"
+2026-04-10 20:51:26.448 +05:30 [INF] Handled CheckCreditQuery in 4.384ms
+2026-04-10 20:51:26.450 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-check responded 200 in 8.5554 ms
+2026-04-10 20:51:26.485 +05:30 [INF] Handling UpdateCreditLimitCommand at "2026-04-10T15:21:26.4859357Z"
+2026-04-10 20:51:26.501 +05:30 [INF] Handled UpdateCreditLimitCommand in 15.4512ms
+2026-04-10 20:51:26.505 +05:30 [INF] HTTP PUT /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-limit responded 200 in 20.2619 ms
+2026-04-10 20:51:26.560 +05:30 [INF] Handling SettleOutstandingCommand at "2026-04-10T15:21:26.5601956Z"
+2026-04-10 20:51:26.573 +05:30 [INF] Handled SettleOutstandingCommand in 13.6075ms
+2026-04-10 20:51:26.577 +05:30 [INF] HTTP POST /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/settlements responded 200 in 23.5295 ms
+2026-04-10 20:51:26.614 +05:30 [INF] Handling GetInvoiceQuery at "2026-04-10T15:21:26.6148728Z"
+2026-04-10 20:51:26.626 +05:30 [INF] Handled GetInvoiceQuery in 11.3843ms
+2026-04-10 20:51:26.628 +05:30 [INF] HTTP GET /api/payment/invoices/5d4ae599-e84a-46c6-b3a6-575337332a16 responded 200 in 21.9761 ms
+2026-04-10 20:51:26.656 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T15:21:26.6565690Z"
+2026-04-10 20:51:26.678 +05:30 [INF] Handled GetDealerInvoicesQuery in 22.0997ms
+2026-04-10 20:51:26.680 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/invoices responded 200 in 25.5855 ms
+2026-04-10 20:51:26.717 +05:30 [INF] Handling GetInvoicePdfPathQuery at "2026-04-10T15:21:26.7176192Z"
+2026-04-10 20:51:26.720 +05:30 [INF] Handled GetInvoicePdfPathQuery in 3.3593ms
+2026-04-10 20:51:26.727 +05:30 [INF] HTTP GET /api/payment/invoices/5d4ae599-e84a-46c6-b3a6-575337332a16/download responded 200 in 15.0220 ms
+2026-04-10 20:52:12.943 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:22:12.9435930Z"
+2026-04-10 20:53:13.069 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:23:13.0696728Z"
+2026-04-10 20:54:13.198 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:24:13.1987277Z"
+2026-04-10 20:55:13.437 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:25:13.4378920Z"
+2026-04-10 20:56:13.841 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:26:13.8419733Z"
+2026-04-10 20:57:13.932 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:27:13.9322182Z"
+2026-04-10 20:58:14.225 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:28:14.2259185Z"
+2026-04-10 20:59:14.379 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:29:14.3796329Z"
+2026-04-10 21:00:14.578 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:30:14.5789022Z"
+2026-04-10 21:01:14.975 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:31:14.9758384Z"
+2026-04-10 21:01:46.438 +05:30 [WRN] Server desktop-nfnd817:22824:66a771b0 encountered an exception while sending heartbeat
+Microsoft.Data.SqlClient.SqlException (0x80131904): A connection was successfully established with the server, but then an error occurred during the login process. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 406
+   at Hangfire.Server.ServerHeartbeatProcess.Execute(BackgroundProcessContext context) in C:\projects\hangfire-525\src\Hangfire.Core\Server\ServerHeartbeatProcess.cs:line 42
+ClientConnectionId:2249b091-b7f4-4497-bd4d-7acf1f846ffc
+Error Number:10053,State:0,Class:20
+2026-04-10 21:02:06.502 +05:30 [INF] Execution DelayedJobScheduler recovered from the Faulted state after 00:00:20.0823828 and is in the Running state now
+2026-04-10 21:02:06.502 +05:30 [INF] Execution RecurringJobScheduler recovered from the Faulted state after 00:00:20.0811076 and is in the Running state now
+2026-04-10 21:02:06.626 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:32:06.6261727Z"
+2026-04-10 21:02:06.669 +05:30 [INF] Execution Worker recovered from the Faulted state after 00:00:20.2693137 and is in the Running state now
+2026-04-10 21:02:16.688 +05:30 [INF] Server desktop-nfnd817:22824:66a771b0 is now able to continue sending heartbeats
+2026-04-10 21:03:06.672 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:33:06.6728354Z"
+2026-04-10 21:04:06.732 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:34:06.7322727Z"
+2026-04-10 21:05:06.889 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:35:06.8891169Z"
+2026-04-10 21:06:07.113 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:36:07.1131884Z"
+2026-04-10 21:07:07.264 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:37:07.2641390Z"
+2026-04-10 21:08:07.434 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:38:07.4347714Z"
+2026-04-10 21:09:08.394 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:39:08.3948944Z"
+2026-04-10 21:10:08.453 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:40:08.4530679Z"
+2026-04-10 21:11:08.541 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:41:08.5418275Z"
+2026-04-10 21:12:08.638 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:42:08.6382398Z"
+2026-04-10 21:13:09.120 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:43:09.1209499Z"
+2026-04-10 21:14:09.585 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:44:09.5859256Z"
+2026-04-10 21:15:09.681 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:45:09.6811824Z"
+2026-04-10 21:16:10.029 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:46:10.0296241Z"
+2026-04-10 21:17:10.259 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:47:10.2591311Z"
+2026-04-10 21:18:10.350 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:48:10.3503439Z"
+2026-04-10 21:19:10.521 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:49:10.5212477Z"
+2026-04-10 21:20:10.657 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:50:10.6578453Z"
+2026-04-10 21:21:10.853 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:51:10.8537665Z"
+2026-04-10 21:22:11.085 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:52:11.0855190Z"
+2026-04-10 21:23:11.280 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:53:11.2807172Z"
+2026-04-10 21:24:11.349 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:54:11.3498664Z"
+2026-04-10 21:25:11.456 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:55:11.4563261Z"
+2026-04-10 21:26:11.585 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:56:11.5854878Z"
+2026-04-10 21:27:11.760 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:57:11.7607181Z"
+2026-04-10 21:28:12.123 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:58:12.1238961Z"
+2026-04-10 21:29:12.190 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T15:59:12.1905725Z"
+2026-04-10 21:30:12.280 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:00:12.2803896Z"
+2026-04-10 21:31:12.568 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:01:12.5683881Z"
+2026-04-10 21:32:13.019 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:02:13.0199775Z"
+2026-04-10 21:33:13.078 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:03:13.0782704Z"
+2026-04-10 21:34:13.165 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:04:13.1653462Z"
+2026-04-10 21:35:13.348 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:05:13.3489495Z"
+2026-04-10 21:36:13.433 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:06:13.4336352Z"
+2026-04-10 21:37:13.527 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:07:13.5278787Z"
+2026-04-10 21:38:13.787 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:08:13.7879276Z"
+2026-04-10 21:39:13.780 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:09:13.7806170Z"
+2026-04-10 21:40:13.872 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:10:13.8725786Z"
+2026-04-10 21:41:13.996 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:11:13.9967658Z"
+2026-04-10 21:41:45.544 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T16:11:45.5437181Z"
+2026-04-10 21:41:45.544 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T16:11:45.5437175Z"
+2026-04-10 21:41:45.608 +05:30 [INF] Handled CheckCreditQuery in 64.3176ms
+2026-04-10 21:41:45.648 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-check responded 200 in 143.7726 ms
+2026-04-10 21:41:45.655 +05:30 [INF] Handled GetDealerInvoicesQuery in 111.9523ms
+2026-04-10 21:41:45.665 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/invoices responded 200 in 161.0568 ms
+2026-04-10 21:42:14.092 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:12:14.0919859Z"
+2026-04-10 21:43:14.206 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:13:14.2064961Z"
+2026-04-10 21:43:22.607 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T16:13:22.6073217Z"
+2026-04-10 21:43:22.618 +05:30 [INF] Handled CheckCreditQuery in 11.1125ms
+2026-04-10 21:43:22.628 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-check responded 200 in 21.5253 ms
+2026-04-10 21:43:22.696 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T16:13:22.6963088Z"
+2026-04-10 21:43:22.712 +05:30 [INF] Handled GetDealerInvoicesQuery in 16.3919ms
+2026-04-10 21:43:22.716 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/invoices responded 200 in 27.3823 ms
+2026-04-10 21:43:36.218 +05:30 [INF] Handling UpdateCreditLimitCommand at "2026-04-10T16:13:36.2189592Z"
+2026-04-10 21:43:36.329 +05:30 [INF] Handled UpdateCreditLimitCommand in 110.9784ms
+2026-04-10 21:43:36.335 +05:30 [INF] HTTP PUT /api/payment/internal/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-limit responded 200 in 143.8399 ms
+2026-04-10 21:43:36.405 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T16:13:36.4055887Z"
+2026-04-10 21:43:36.409 +05:30 [INF] Handled CheckCreditQuery in 3.7713ms
+2026-04-10 21:43:36.412 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-check responded 200 in 7.0405 ms
+2026-04-10 21:43:36.480 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T16:13:36.4800852Z"
+2026-04-10 21:43:36.493 +05:30 [INF] Handled GetDealerInvoicesQuery in 13.8421ms
+2026-04-10 21:43:36.496 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/invoices responded 200 in 17.9756 ms
+2026-04-10 21:43:45.669 +05:30 [INF] Handling UpdateCreditLimitCommand at "2026-04-10T16:13:45.6697445Z"
+2026-04-10 21:43:45.714 +05:30 [INF] Handled UpdateCreditLimitCommand in 45.2384ms
+2026-04-10 21:43:45.716 +05:30 [INF] HTTP PUT /api/payment/internal/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-limit responded 200 in 48.3797 ms
+2026-04-10 21:43:45.816 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T16:13:45.8160468Z"
+2026-04-10 21:43:45.865 +05:30 [INF] Handled CheckCreditQuery in 49.0602ms
+2026-04-10 21:43:45.879 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-check responded 200 in 64.2740 ms
+2026-04-10 21:43:45.991 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T16:13:45.9911919Z"
+2026-04-10 21:43:46.026 +05:30 [INF] Handled GetDealerInvoicesQuery in 35.3998ms
+2026-04-10 21:43:46.055 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/invoices responded 200 in 67.5406 ms
+2026-04-10 21:43:48.788 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T16:13:48.7889338Z"
+2026-04-10 21:43:48.845 +05:30 [INF] Handled CheckCreditQuery in 56.5109ms
+2026-04-10 21:43:49.027 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-check responded 200 in 241.4586 ms
+2026-04-10 21:43:49.909 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T16:13:49.9095752Z"
+2026-04-10 21:43:49.958 +05:30 [INF] Handled GetDealerInvoicesQuery in 48.464ms
+2026-04-10 21:43:49.969 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/invoices responded 200 in 69.7221 ms
+2026-04-10 21:44:00.229 +05:30 [INF] Handling SettleOutstandingCommand at "2026-04-10T16:14:00.2291253Z"
+2026-04-10 21:44:00.270 +05:30 [INF] Handled SettleOutstandingCommand in 41.5912ms
+2026-04-10 21:44:00.288 +05:30 [INF] HTTP POST /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/settlements responded 200 in 67.4834 ms
+2026-04-10 21:44:00.393 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T16:14:00.3937627Z"
+2026-04-10 21:44:00.413 +05:30 [INF] Handled GetDealerInvoicesQuery in 20.1299ms
+2026-04-10 21:44:00.417 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/invoices responded 200 in 24.8374 ms
+2026-04-10 21:44:14.445 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:14:14.4451381Z"
+2026-04-10 21:45:14.486 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:15:14.4869499Z"
+2026-04-10 21:46:14.606 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:16:14.6061659Z"
+2026-04-10 21:47:14.746 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:17:14.7468935Z"
+2026-04-10 21:48:14.835 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:18:14.8354214Z"
+2026-04-10 21:49:14.934 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:19:14.9340259Z"
+2026-04-10 21:50:15.067 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:20:15.0672605Z"
+2026-04-10 21:51:00.346 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:21:00.3463308Z"
+2026-04-10 21:52:00.361 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:22:00.3612472Z"
+2026-04-10 21:53:00.414 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:23:00.4145784Z"
+2026-04-10 21:54:00.528 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:24:00.5286731Z"
+2026-04-10 21:55:00.590 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:25:00.5909691Z"
+2026-04-10 21:56:00.671 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:26:00.6715882Z"
+2026-04-10 21:57:00.906 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:27:00.9061984Z"
+2026-04-10 21:58:00.983 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:28:00.9835777Z"
+2026-04-10 21:59:01.077 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:29:01.0776573Z"
+2026-04-10 22:00:01.147 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:30:01.1470658Z"
+2026-04-10 22:01:01.243 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:31:01.2430718Z"
+2026-04-10 22:02:01.350 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:32:01.3508250Z"
+2026-04-10 22:03:01.528 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:33:01.5281961Z"
+2026-04-10 22:04:01.615 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:34:01.6159302Z"
+2026-04-10 22:05:01.697 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:35:01.6970191Z"
+2026-04-10 22:06:01.949 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:36:01.9499157Z"
+2026-04-10 22:07:02.054 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:37:02.0549154Z"
+2026-04-10 22:08:02.105 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:38:02.1056801Z"
+2026-04-10 22:09:02.356 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:39:02.3565074Z"
+2026-04-10 22:10:02.573 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:40:02.5732450Z"
+2026-04-10 22:11:02.508 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:41:02.5089433Z"
+2026-04-10 22:12:02.626 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:42:02.6261494Z"
+2026-04-10 22:13:02.719 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:43:02.7198745Z"
+2026-04-10 22:14:02.826 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:44:02.8267198Z"
+2026-04-10 22:15:03.066 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:45:03.0668851Z"
+2026-04-10 22:16:03.146 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:46:03.1469438Z"
+2026-04-10 22:17:03.240 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:47:03.2407788Z"
+2026-04-10 22:18:03.489 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:48:03.4897273Z"
+2026-04-10 22:19:03.549 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:49:03.5493379Z"
+2026-04-10 22:20:03.802 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:50:03.8028935Z"
+2026-04-10 22:21:03.876 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:51:03.8762907Z"
+2026-04-10 22:22:03.950 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:52:03.9503435Z"
+2026-04-10 22:23:04.013 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:53:04.0137142Z"
+2026-04-10 22:24:04.091 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:54:04.0913454Z"
+2026-04-10 22:25:04.197 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:55:04.1973278Z"
+2026-04-10 22:26:05.123 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:56:05.1233707Z"
+2026-04-10 22:27:05.401 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:57:05.4011668Z"
+2026-04-10 22:28:05.574 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:58:05.5741173Z"
+2026-04-10 22:28:57.703 +05:30 [ERR] Failed executing DbCommand (1,043ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@p) [o].[MessageId], [o].[CreatedAtUtc], [o].[Error], [o].[EventType], [o].[Payload], [o].[PublishedAtUtc], [o].[RetryCount], [o].[Status]
+FROM [OutboxMessages] AS [o]
+WHERE [o].[Status] = N'Pending'
+ORDER BY [o].[CreatedAtUtc]
+2026-04-10 22:28:57.831 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'PaymentInvoice.Infrastructure.Persistence.PaymentInvoiceDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:cdbf9cee-afb5-46e0-8702-24d95e10e4cc
+Error Number:10053,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:cdbf9cee-afb5-46e0-8702-24d95e10e4cc
+Error Number:10053,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-04-10 22:28:57.842 +05:30 [ERR] Unexpected payment outbox dispatcher error.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:cdbf9cee-afb5-46e0-8702-24d95e10e4cc
+Error Number:10053,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at PaymentInvoice.Infrastructure.Background.PaymentOutboxDispatcher.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hey\Desktop\demo\services\PaymentInvoice\PaymentInvoice.Infrastructure\Background\PaymentOutboxDispatcher.cs:line 32
+2026-04-10 22:29:05.736 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T16:59:05.7364566Z"
+2026-04-10 22:29:05.776 +05:30 [INF] Execution Worker recovered from the Faulted state after 00:00:08.3815293 and is in the Running state now
+2026-04-10 22:30:05.812 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:00:05.8120313Z"
+2026-04-10 22:31:05.895 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:01:05.8951342Z"
+2026-04-10 22:32:05.995 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:02:05.9952442Z"
+2026-04-10 22:33:06.071 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:03:06.0713985Z"
+2026-04-10 22:34:06.163 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:04:06.1631932Z"
+2026-04-10 22:35:06.232 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:05:06.2326777Z"
+2026-04-10 22:36:06.335 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:06:06.3359687Z"
+2026-04-10 22:37:06.386 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:07:06.3863822Z"
+2026-04-10 22:38:06.502 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:08:06.5026334Z"
+2026-04-10 22:39:06.570 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:09:06.5707886Z"
+2026-04-10 22:40:06.698 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:10:06.6989338Z"
+2026-04-10 22:41:06.786 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:11:06.7867304Z"
+2026-04-10 22:42:06.910 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:12:06.9104316Z"
+2026-04-10 22:43:07.107 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:13:07.1078855Z"
+2026-04-10 22:44:07.174 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:14:07.1745034Z"
+2026-04-10 22:45:07.322 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:15:07.3220483Z"
+2026-04-10 22:46:07.397 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:16:07.3971952Z"
+2026-04-10 22:47:07.650 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:17:07.6508103Z"
+2026-04-10 22:48:07.774 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:18:07.7744755Z"
+2026-04-10 22:49:07.878 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:19:07.8789471Z"
+2026-04-10 22:50:08.140 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:20:08.1403547Z"
+2026-04-10 22:51:08.244 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:21:08.2445377Z"
+2026-04-10 22:52:08.317 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:22:08.3178649Z"
+2026-04-10 22:53:08.445 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:23:08.4459379Z"
+2026-04-10 22:54:08.594 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:24:08.5948642Z"
+2026-04-10 22:55:08.722 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:25:08.7227146Z"
+2026-04-10 22:56:08.862 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:26:08.8625635Z"
+2026-04-10 22:57:08.985 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:27:08.9859351Z"
+2026-04-10 22:58:09.122 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:28:09.1221459Z"
+2026-04-10 22:59:09.350 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:29:09.3508902Z"
+2026-04-10 23:00:09.520 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:30:09.5208403Z"
+2026-04-10 23:01:09.676 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:31:09.6768361Z"
+2026-04-10 23:02:09.988 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:32:09.9879974Z"
+2026-04-10 23:03:10.211 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:33:10.2111927Z"
+2026-04-10 23:04:10.337 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:34:10.3378976Z"
+2026-04-10 23:05:10.499 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:35:10.4997677Z"
+2026-04-10 23:06:10.592 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:36:10.5922615Z"
+2026-04-10 23:07:10.725 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:37:10.7255690Z"
+2026-04-10 23:08:10.809 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:38:10.8099367Z"
+2026-04-10 23:09:10.931 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:39:10.9319106Z"
+2026-04-10 23:10:11.205 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:40:11.2056073Z"
+2026-04-10 23:11:11.315 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:41:11.3155754Z"
+2026-04-10 23:12:11.437 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:42:11.4374411Z"
+2026-04-10 23:13:11.565 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:43:11.5656704Z"
+2026-04-10 23:14:11.698 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:44:11.6989397Z"
+2026-04-10 23:15:11.831 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:45:11.8318364Z"
+2026-04-10 23:16:12.120 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:46:12.1204442Z"
+2026-04-10 23:17:12.243 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:47:12.2439486Z"
+2026-04-10 23:18:12.523 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:48:12.5232685Z"
+2026-04-10 23:19:12.682 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:49:12.6827129Z"
+2026-04-10 23:20:13.167 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:50:13.1669548Z"
+2026-04-10 23:21:13.301 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:51:13.3016654Z"
+2026-04-10 23:22:13.497 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:52:13.4977610Z"
+2026-04-10 23:23:13.646 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:53:13.6461717Z"
+2026-04-10 23:24:13.851 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:54:13.8519408Z"
+2026-04-10 23:25:14.003 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:55:14.0038255Z"
+2026-04-10 23:26:14.139 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:56:14.1396385Z"
+2026-04-10 23:27:16.002 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:57:16.0022662Z"
+2026-04-10 23:27:49.466 +05:30 [INF] Handling CheckCreditQuery at "2026-04-10T17:57:49.4661810Z"
+2026-04-10 23:27:49.524 +05:30 [INF] Handling GetDealerInvoicesQuery at "2026-04-10T17:57:49.5242578Z"
+2026-04-10 23:27:49.558 +05:30 [INF] Handled CheckCreditQuery in 92.2406ms
+2026-04-10 23:27:49.584 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/credit-check responded 200 in 175.9956 ms
+2026-04-10 23:27:49.629 +05:30 [INF] Handled GetDealerInvoicesQuery in 105.4308ms
+2026-04-10 23:27:49.650 +05:30 [INF] HTTP GET /api/payment/dealers/a0fa5815-9062-430b-83c2-ba6c4f5b2709/invoices responded 200 in 162.6161 ms
+2026-04-10 23:28:01.525 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:58:01.5254899Z"
+2026-04-10 23:29:01.584 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T17:59:01.5841146Z"
+2026-04-10 23:30:01.751 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:00:01.7516314Z"
+2026-04-10 23:31:01.991 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:01:01.9913106Z"
+2026-04-10 23:32:02.099 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:02:02.0990766Z"
+2026-04-10 23:33:02.220 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:03:02.2204740Z"
+2026-04-10 23:34:02.583 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:04:02.5839115Z"
+2026-04-10 23:35:02.738 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:05:02.7386239Z"
+2026-04-10 23:36:02.892 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:06:02.8920594Z"
+2026-04-10 23:37:03.098 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:07:03.0986939Z"
+2026-04-10 23:38:03.267 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:08:03.2671224Z"
+2026-04-10 23:39:03.454 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:09:03.4547223Z"
+2026-04-10 23:40:03.776 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:10:03.7761127Z"
+2026-04-10 23:41:03.971 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:11:03.9717567Z"
+2026-04-10 23:42:04.138 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:12:04.1384321Z"
+2026-04-10 23:43:04.372 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:13:04.3719837Z"
+2026-04-10 23:44:04.504 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:14:04.5040366Z"
+2026-04-10 23:45:04.700 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:15:04.7009633Z"
+2026-04-10 23:46:04.876 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:16:04.8763145Z"
+2026-04-10 23:47:05.101 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:17:05.1010078Z"
+2026-04-10 23:48:05.410 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:18:05.4100455Z"
+2026-04-10 23:49:05.524 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:19:05.5240508Z"
+2026-04-10 23:50:05.598 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:20:05.5980826Z"
+2026-04-10 23:51:05.717 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:21:05.7175702Z"
+2026-04-10 23:52:05.867 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:22:05.8677776Z"
+2026-04-10 23:53:06.014 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:23:06.0145578Z"
+2026-04-10 23:54:06.141 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:24:06.1412344Z"
+2026-04-10 23:55:06.334 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:25:06.3343956Z"
+2026-04-10 23:56:06.466 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:26:06.4661418Z"
+2026-04-10 23:57:06.791 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:27:06.7914539Z"
+2026-04-10 23:58:06.877 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:28:06.8775421Z"
+2026-04-10 23:59:07.011 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:29:07.0116189Z"

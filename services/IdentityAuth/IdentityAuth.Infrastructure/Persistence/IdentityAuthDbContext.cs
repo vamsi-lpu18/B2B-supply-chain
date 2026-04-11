@@ -31,6 +31,7 @@ public sealed class IdentityAuthDbContext(DbContextOptions<IdentityAuthDbContext
             builder.HasKey(x => x.UserId);
             builder.Property(x => x.Email).HasMaxLength(256).IsRequired();
             builder.HasIndex(x => x.Email).IsUnique();
+            builder.HasIndex(x => new { x.Role, x.Status, x.CreatedAtUtc });
             builder.Property(x => x.PasswordHash).HasMaxLength(1024).IsRequired();
             builder.Property(x => x.FullName).HasMaxLength(120).IsRequired();
             builder.Property(x => x.PhoneNumber).HasMaxLength(20).IsRequired();

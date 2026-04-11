@@ -18,7 +18,7 @@ type InvoiceWorkflowComputedStatus = InvoiceWorkflowStatus | 'overdue';
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule],
   template: `
-    <div class="page-content">
+    <div class="page-content feature-payments">
       <div class="page-header">
         <div>
           <a routerLink="/invoices" class="btn btn-ghost mb-2">← Invoices</a>

@@ -28,7 +28,7 @@ declare global {
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule],
   template: `
-    <div class="page-content">
+    <div class="page-content feature-payments">
       <div class="page-header">
         <h1>Checkout</h1>
         <a routerLink="/cart" class="btn btn-secondary">← Back to Cart</a>

@@ -1,5 +1,6 @@
-using LogisticsTracking.Application.Abstractions;
 using LogisticsTracking.Application.DTOs;
+using LogisticsTracking.Application.Features.Shipments;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -10,7 +11,7 @@ namespace LogisticsTracking.API.Controllers;
 [ApiController]
 [Route("api/logistics/shipments")]
 [Authorize]
-public sealed class ShipmentsController(ILogisticsService logisticsService) : ControllerBase
+public sealed class ShipmentsController(ISender sender) : ControllerBase
 {
     [HttpPost]
     [Authorize(Roles = "Admin,Warehouse,Logistics")]
@@ -18,7 +19,7 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
     public async Task<IActionResult> Create([FromBody] CreateShipmentRequest request, CancellationToken cancellationToken)
     {
         var (userId, role) = GetActor();
-        var shipment = await logisticsService.CreateShipmentAsync(request, userId, role, cancellationToken);
+        var shipment = await sender.Send(new CreateShipmentCommand(request, userId, role), cancellationToken);
         return CreatedAtAction(nameof(GetById), new { shipmentId = shipment.ShipmentId }, shipment);
     }
 
@@ -27,8 +28,32 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetById([FromRoute] Guid shipmentId, CancellationToken cancellationToken)
     {
-        var shipment = await logisticsService.GetShipmentAsync(shipmentId, cancellationToken);
-        return shipment is null ? NotFound() : Ok(shipment);
+        var role = User.FindFirst(ClaimTypes.Role)?.Value ?? string.Empty;
+        var shipment = await sender.Send(new GetShipmentQuery(shipmentId), cancellationToken);
+        if (shipment is null)
+        {
+            return NotFound();
+        }
+
+        if (string.Equals(role, "Dealer", StringComparison.Ordinal) || string.Equals(role, "Agent", StringComparison.Ordinal))
+        {
+            if (!TryGetUserId(out var userId))
+            {
+                return Unauthorized(new { message = "Invalid token." });
+            }
+
+            if (string.Equals(role, "Dealer", StringComparison.Ordinal) && shipment.DealerId != userId)
+            {
+                return NotFound();
+            }
+
+            if (string.Equals(role, "Agent", StringComparison.Ordinal) && shipment.AssignedAgentId != userId)
+            {
+                return NotFound();
+            }
+        }
+
+        return Ok(shipment);
     }
 
     [HttpGet("my")]
@@ -41,16 +66,30 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
             return Unauthorized(new { message = "Invalid token." });
         }
 
-        var shipments = await logisticsService.GetDealerShipmentsAsync(dealerId, cancellationToken);
+        var shipments = await sender.Send(new GetDealerShipmentsQuery(dealerId), cancellationToken);
         return Ok(shipments);
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin,Warehouse,Logistics,Agent")]
+    [Authorize(Roles = "Admin,Warehouse,Logistics")]
     [ProducesResponseType(typeof(IReadOnlyList<ShipmentDto>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
-        var shipments = await logisticsService.GetAllShipmentsAsync(cancellationToken);
+        var shipments = await sender.Send(new GetAllShipmentsQuery(), cancellationToken);
+        return Ok(shipments);
+    }
+
+    [HttpGet("assigned")]
+    [Authorize(Roles = "Agent")]
+    [ProducesResponseType(typeof(IReadOnlyList<ShipmentDto>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetAssigned(CancellationToken cancellationToken)
+    {
+        if (!TryGetUserId(out var agentId))
+        {
+            return Unauthorized(new { message = "Invalid token." });
+        }
+
+        var shipments = await sender.Send(new GetAgentShipmentsQuery(agentId), cancellationToken);
         return Ok(shipments);
     }
 
@@ -59,7 +98,7 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
     public async Task<IActionResult> AssignAgent([FromRoute] Guid shipmentId, [FromBody] AssignAgentRequest request, CancellationToken cancellationToken)
     {
         var (userId, role) = GetActor();
-        var updated = await logisticsService.AssignAgentAsync(shipmentId, request.AgentId, userId, role, cancellationToken);
+        var updated = await sender.Send(new AssignAgentCommand(shipmentId, request.AgentId, userId, role), cancellationToken);
         return updated ? Ok(new { message = "Agent assigned." }) : NotFound();
     }
 
@@ -68,7 +107,7 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
     public async Task<IActionResult> AssignVehicle([FromRoute] Guid shipmentId, [FromBody] AssignVehicleRequest request, CancellationToken cancellationToken)
     {
         var (userId, role) = GetActor();
-        var updated = await logisticsService.AssignVehicleAsync(shipmentId, request.VehicleNumber, userId, role, cancellationToken);
+        var updated = await sender.Send(new AssignVehicleCommand(shipmentId, request.VehicleNumber, userId, role), cancellationToken);
         return updated ? Ok(new { message = "Vehicle assigned." }) : NotFound();
     }
 
@@ -77,7 +116,17 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
     public async Task<IActionResult> UpdateStatus([FromRoute] Guid shipmentId, [FromBody] UpdateShipmentStatusRequest request, CancellationToken cancellationToken)
     {
         var (userId, role) = GetActor();
-        var updated = await logisticsService.UpdateShipmentStatusAsync(shipmentId, request.Status, request.Note, userId, role, cancellationToken);
+
+        if (string.Equals(role, "Agent", StringComparison.Ordinal))
+        {
+            var shipment = await sender.Send(new GetShipmentQuery(shipmentId), cancellationToken);
+            if (shipment is null || shipment.AssignedAgentId != userId)
+            {
+                return NotFound();
+            }
+        }
+
+        var updated = await sender.Send(new UpdateShipmentStatusCommand(shipmentId, request.Status, request.Note, userId, role), cancellationToken);
         return updated ? Ok(new { message = "Shipment status updated." }) : NotFound();
     }
 
@@ -87,7 +136,32 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetOpsState([FromRoute] Guid shipmentId, CancellationToken cancellationToken)
     {
-        var state = await logisticsService.GetShipmentOpsStateAsync(shipmentId, cancellationToken);
+        var role = User.FindFirst(ClaimTypes.Role)?.Value ?? string.Empty;
+        if (string.Equals(role, "Dealer", StringComparison.Ordinal) || string.Equals(role, "Agent", StringComparison.Ordinal))
+        {
+            if (!TryGetUserId(out var userId))
+            {
+                return Unauthorized(new { message = "Invalid token." });
+            }
+
+            var shipment = await sender.Send(new GetShipmentQuery(shipmentId), cancellationToken);
+            if (shipment is null)
+            {
+                return NotFound();
+            }
+
+            if (string.Equals(role, "Dealer", StringComparison.Ordinal) && shipment.DealerId != userId)
+            {
+                return NotFound();
+            }
+
+            if (string.Equals(role, "Agent", StringComparison.Ordinal) && shipment.AssignedAgentId != userId)
+            {
+                return NotFound();
+            }
+        }
+
+        var state = await sender.Send(new GetShipmentOpsStateQuery(shipmentId), cancellationToken);
         return state is null ? NotFound() : Ok(state);
     }
 
@@ -96,7 +170,39 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
     [ProducesResponseType(typeof(IReadOnlyList<ShipmentOpsStateDto>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetOpsStatesBatch([FromBody] GetShipmentOpsStatesRequest request, CancellationToken cancellationToken)
     {
-        var states = await logisticsService.GetShipmentOpsStatesAsync(request, cancellationToken);
+        var role = User.FindFirst(ClaimTypes.Role)?.Value ?? string.Empty;
+        if ((string.Equals(role, "Dealer", StringComparison.Ordinal) || string.Equals(role, "Agent", StringComparison.Ordinal))
+            && request.ShipmentIds.Count > 0)
+        {
+            if (!TryGetUserId(out var userId))
+            {
+                return Unauthorized(new { message = "Invalid token." });
+            }
+
+            var allowedShipments = new List<Guid>(request.ShipmentIds.Count);
+            foreach (var shipmentId in request.ShipmentIds)
+            {
+                var shipment = await sender.Send(new GetShipmentQuery(shipmentId), cancellationToken);
+                if (shipment is null)
+                {
+                    continue;
+                }
+
+                if (string.Equals(role, "Dealer", StringComparison.Ordinal) && shipment.DealerId == userId)
+                {
+                    allowedShipments.Add(shipmentId);
+                }
+
+                if (string.Equals(role, "Agent", StringComparison.Ordinal) && shipment.AssignedAgentId == userId)
+                {
+                    allowedShipments.Add(shipmentId);
+                }
+            }
+
+            request = request with { ShipmentIds = allowedShipments };
+        }
+
+        var states = await sender.Send(new GetShipmentOpsStatesQuery(request), cancellationToken);
         return Ok(states);
     }
 
@@ -106,7 +212,7 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpsertOpsState([FromRoute] Guid shipmentId, [FromBody] UpsertShipmentOpsStateRequest request, CancellationToken cancellationToken)
     {
-        var state = await logisticsService.UpsertShipmentOpsStateAsync(shipmentId, request, cancellationToken);
+        var state = await sender.Send(new UpsertShipmentOpsStateCommand(shipmentId, request), cancellationToken);
         return state is null ? NotFound() : Ok(state);
     }
 
@@ -117,7 +223,7 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
     public async Task<IActionResult> GenerateAiRecommendation([FromRoute] Guid shipmentId, CancellationToken cancellationToken)
     {
         var (userId, role) = GetActor();
-        var recommendation = await logisticsService.GenerateAiRecommendationAsync(shipmentId, userId, role, cancellationToken);
+        var recommendation = await sender.Send(new GenerateAiRecommendationCommand(shipmentId, userId, role), cancellationToken);
         return recommendation is null ? NotFound() : Ok(recommendation);
     }
 
@@ -128,7 +234,7 @@ public sealed class ShipmentsController(ILogisticsService logisticsService) : Co
     public async Task<IActionResult> ApproveAiRecommendation([FromRoute] Guid recommendationId, CancellationToken cancellationToken)
     {
         var (userId, role) = GetActor();
-        var result = await logisticsService.ApproveAiRecommendationAsync(recommendationId, userId, role, cancellationToken);
+        var result = await sender.Send(new ApproveAiRecommendationCommand(recommendationId, userId, role), cancellationToken);
         return result is null ? NotFound() : Ok(result);
     }
 

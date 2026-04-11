@@ -24,13 +24,14 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
   standalone: true,
   imports: [CommonModule, RouterLink, CurrencyPipe, DatePipe],
   template: `
-<div class="dash">
+<div class="dash page-content">
 
   <!-- ── Header ── -->
-  <div class="dash-header">
+  <div class="dash-header page-header">
     <div>
-      <h1 class="dash-title">Good {{ greeting() }}, {{ firstName() }} 👋</h1>
-      <p class="dash-sub">{{ today() }} · {{ authStore.role() }} Portal</p>
+      <div class="dash-kicker">Supply Chain Control Tower</div>
+      <h1 class="dash-title">Welcome back, {{ firstName() }}.</h1>
+      <p class="dash-sub">{{ today() }} · {{ authStore.role() }} workspace · Live operations overview</p>
     </div>
     <div class="dash-actions">
       @if (isDealer()) { <a routerLink="/products" class="btn btn-primary btn-sm">Browse Products</a> }
@@ -210,11 +211,11 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
             <svg class="pie-svg" viewBox="0 0 240 240" aria-label="Order status distribution chart">
               <defs>
                 <filter id="centerShadow" x="-40%" y="-40%" width="180%" height="180%">
-                  <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.12"/>
+                  <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1f3550" flood-opacity="0.18"/>
                 </filter>
               </defs>
 
-              <circle cx="120" cy="120" r="86" fill="none" stroke="#e2e8f0" stroke-width="28"/>
+              <circle cx="120" cy="120" r="86" fill="none" stroke="#c8d8e8" stroke-width="28"/>
 
               @for (sl of pieSlices(); track sl.label) {
                 <circle cx="120" cy="120" r="86"
@@ -227,7 +228,7 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
                         transform="rotate(-90 120 120)"/>
               }
 
-              <circle cx="120" cy="120" r="58" fill="#ffffff" filter="url(#centerShadow)"/>
+              <circle cx="120" cy="120" r="58" fill="#f8fbff" filter="url(#centerShadow)"/>
               <text x="120" y="114" text-anchor="middle" class="pie-center-val">{{ totalOrders() }}</text>
               <text x="120" y="134" text-anchor="middle" class="pie-center-lbl">Total Orders</text>
             </svg>
@@ -409,8 +410,10 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
   styles: [`
     /* ── Layout ── */
     .dash {
-      padding: 30px 34px;
+      padding: 0;
       max-width: 1460px;
+      margin: 0 auto;
+      width: 100%;
       position: relative;
     }
     .dash::before {
@@ -418,38 +421,46 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(620px 300px at 94% 2%, rgba(37, 99, 235, 0.10), transparent 60%),
-        radial-gradient(560px 300px at -6% 24%, rgba(14, 165, 233, 0.08), transparent 58%);
+        radial-gradient(620px 300px at 94% 2%, rgba(79, 115, 149, 0.16), transparent 60%),
+        radial-gradient(560px 300px at -6% 24%, rgba(59, 89, 118, 0.14), transparent 58%);
       pointer-events: none;
     }
     .dash > * { position: relative; z-index: 1; }
-    @media (max-width: 768px) { .dash { padding: 16px; } }
 
     .dash-header {
       display: flex; align-items: flex-start; justify-content: space-between;
       flex-wrap: wrap; gap: 16px; margin-bottom: 26px;
     }
+    .dash-kicker {
+      display: inline-flex;
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #bcd0e3;
+      background: linear-gradient(180deg, rgba(243,249,255,.84) 0%, rgba(228,239,250,.72) 100%);
+      color: #4b6b8b;
+      font-size: .68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
     .dash-title {
-      font-size: clamp(1.7rem, 2vw, 2rem);
+      font-size: clamp(1.72rem, 2.2vw, 2.15rem);
       font-weight: 700;
-      color: #0f172a;
-      background: linear-gradient(120deg, #0f172a 0%, #1d4ed8 38%, #0f172a 72%);
+      color: var(--text-primary);
+      background: linear-gradient(120deg, #20364d 0%, #6082a4 44%, #314d68 80%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-size: 220% auto;
-      animation: titleSheen 11s linear infinite;
-      letter-spacing: -.03em;
-      line-height: 1.1;
+      letter-spacing: -.022em;
+      line-height: 1.12;
       font-family: var(--font-display);
       text-wrap: balance;
     }
     .dash-sub {
       font-size: .9rem;
-      color: #475569;
-      margin-top: 6px;
-      font-weight: 600;
-      letter-spacing: .01em;
+      color: #4d647b;
+      margin-top: 7px;
+      font-weight: 650;
     }
     .dash-actions { display: flex; gap: 8px; }
 
@@ -464,15 +475,15 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
     @media (max-width: 600px)  { .stat-row { grid-template-columns: 1fr; } }
 
     .sc {
-      background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(248,252,255,.94) 100%);
-      border: 1px solid #d8e2ef;
+      background: linear-gradient(180deg, rgba(246,250,255,.84) 0%, rgba(234,243,252,.74) 100%);
+      border: 1px solid #c3d4e5;
       border-radius: 16px;
       padding: 22px 24px;
       display: flex;
       align-items: flex-start;
       gap: 16px;
       transition: box-shadow 180ms var(--ease), transform 180ms var(--ease), border-color 180ms var(--ease);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 24px rgba(23, 39, 58, 0.14);
       position: relative;
       overflow: hidden;
       &::after {
@@ -483,9 +494,9 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
         pointer-events: none;
       }
       &:hover {
-        box-shadow: 0 16px 34px rgba(15, 23, 42, 0.11);
+        box-shadow: 0 16px 34px rgba(23, 39, 58, 0.18);
         transform: translateY(-4px);
-        border-color: #bfdbfe;
+        border-color: #9fb6cc;
       }
     }
     .sc-icon {
@@ -521,22 +532,22 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
 
     /* ── Panel ── */
     .panel {
-      background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(251, 253, 255, .95) 100%);
-      border: 1px solid #d9e3ef;
+      background: linear-gradient(180deg, rgba(246,250,255,.84) 0%, rgba(234,243,252,.74) 100%);
+      border: 1px solid #c3d4e5;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
+      box-shadow: 0 12px 28px rgba(23, 39, 58, 0.14);
       transition: box-shadow 180ms var(--ease), border-color 180ms var(--ease);
     }
     .panel:hover {
-      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.11);
-      border-color: #c6d8ee;
+      box-shadow: 0 16px 34px rgba(23, 39, 58, 0.18);
+      border-color: #9fb6cc;
     }
     .panel-head {
       display: flex; align-items: center; justify-content: space-between;
       padding: 16px 20px;
-      border-bottom: 1px solid #e6edf6;
-      background: linear-gradient(180deg, rgba(248, 251, 255, .75) 0%, rgba(255,255,255,.5) 100%);
+      border-bottom: 1px solid #d2e0ee;
+      background: linear-gradient(180deg, rgba(236,245,252,.82) 0%, rgba(246,250,255,.66) 100%);
     }
     .panel-title {
       display: flex; align-items: center; gap: 8px;
@@ -561,20 +572,20 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
     .tbl-wrap { overflow-x: auto; }
     .tbl {
       width: 100%; border-collapse: collapse; font-size: .875rem;
-      thead tr { background: #f7fbff; }
+      thead tr { background: #edf4fc; }
       thead th {
         padding: 12px 16px; text-align: left;
         font-size: .6875rem; font-weight: 700; color: var(--text-secondary);
         text-transform: uppercase; letter-spacing: .06em;
-        border-bottom: 1px solid #e0e9f4; white-space: nowrap;
+        border-bottom: 1px solid #d4e1ee; white-space: nowrap;
       }
       tbody tr {
-        border-bottom: 1px solid #ecf1f7;
+        border-bottom: 1px solid #d9e4ef;
         transition: background 120ms var(--ease), box-shadow 120ms var(--ease);
         &:last-child { border-bottom: none; }
         &:hover {
-          background: var(--brand-50);
-          box-shadow: inset 3px 0 0 #93c5fd;
+          background: rgba(221, 233, 245, .65);
+          box-shadow: inset 3px 0 0 #8eabc6;
           td { color: var(--text-primary); }
         }
       }
@@ -590,8 +601,8 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
       height: 36px;
       border-radius: 10px;
       object-fit: cover;
-      border: 1px solid #dbe5f0;
-      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.10);
+      border: 1px solid #c3d4e5;
+      box-shadow: 0 6px 14px rgba(23, 39, 58, 0.14);
       flex-shrink: 0;
     }
 
@@ -625,19 +636,19 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
       border-radius: 28px;
       display: grid;
       place-items: center;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0%, #eef4ff 44%, #deebfa 100%);
-      border: 1px solid #cfe0f3;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 20px 38px rgba(15, 23, 42, 0.14);
+      background: radial-gradient(circle at 30% 20%, rgba(251,254,255,.92) 0%, rgba(228,238,248,.84) 46%, rgba(208,224,239,.74) 100%);
+      border: 1px solid #bdd0e2;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 20px 38px rgba(23, 39, 58, 0.18);
     }
     .pie-svg { width: 246px; height: 246px; }
     .pie-center-val {
-      font-size: 36px; font-weight: 800; fill: #0f172a;
+      font-size: 36px; font-weight: 800; fill: var(--text-primary);
       font-family: var(--font-display);
       letter-spacing: -.04em;
     }
     .pie-center-lbl {
       font-size: 11px;
-      fill: #475569;
+      fill: #4a6178;
       font-weight: 700;
       font-family: var(--font-sans);
       text-transform: uppercase;
@@ -645,25 +656,25 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
     }
     .pie-legend { width: 100%; display: flex; flex-direction: column; gap: 10px; }
     .legend-card {
-      background: linear-gradient(180deg, #f9fcff 0%, #f3f8ff 100%);
-      border: 1px solid #d9e4f2;
+      background: linear-gradient(180deg, rgba(246,250,255,.82) 0%, rgba(233,242,251,.70) 100%);
+      border: 1px solid #c3d4e5;
       border-radius: 12px;
       padding: 9px 11px;
     }
     .legend-top { display: flex; align-items: center; gap: 8px; font-size: .8125rem; margin-bottom: 7px; }
-    .legend-bar { height: 6px; background: #e2e8f0; border-radius: 999px; overflow: hidden; }
+    .legend-bar { height: 6px; background: #ccd9e7; border-radius: 999px; overflow: hidden; }
     .legend-bar span { display: block; height: 100%; border-radius: inherit; }
     .legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
-    .legend-label { flex: 1; color: #334155; font-weight: 700; }
-    .legend-val { font-weight: 700; color: #0f172a; }
+    .legend-label { flex: 1; color: #3d5671; font-weight: 700; }
+    .legend-val { font-weight: 700; color: var(--text-primary); }
     .legend-empty {
       font-size: .8125rem;
-      color: #64748b;
+      color: #516980;
       text-align: center;
       padding: 12px 8px;
-      border: 1px dashed #b4c6db;
+      border: 1px dashed #9eb4c9;
       border-radius: 10px;
-      background: #f4f9ff;
+      background: rgba(235, 244, 252, .74);
     }
 
     /* ── Inventory alerts ── */
@@ -681,7 +692,7 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
     .inventory-rule-label {
       font-size: .75rem;
       font-weight: 700;
-      color: #475569;
+      color: var(--text-secondary);
       text-transform: uppercase;
       letter-spacing: .04em;
     }
@@ -699,7 +710,7 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
       align-items: center;
       gap: 8px;
       font-size: .8125rem;
-      color: #334155;
+      color: #3f5872;
       font-weight: 600;
     }
     .inventory-summary-grid {
@@ -708,15 +719,15 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
       gap: 10px;
     }
     .inventory-summary-card {
-      border: 1px solid #d7e3f1;
+      border: 1px solid #c3d4e5;
       border-radius: 10px;
-      background: #f7fbff;
+      background: linear-gradient(180deg, rgba(246,250,255,.82) 0%, rgba(234,243,252,.70) 100%);
       padding: 10px;
       text-align: center;
     }
     .inventory-summary-label {
       font-size: .6875rem;
-      color: #64748b;
+      color: var(--text-secondary);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .04em;
@@ -725,7 +736,7 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
     .inventory-summary-value {
       font-size: 1.1rem;
       font-weight: 800;
-      color: #0f172a;
+      color: var(--text-primary);
       letter-spacing: -.02em;
     }
     .inventory-alert-list {
@@ -740,18 +751,18 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
       gap: 10px;
       text-decoration: none;
       padding: 8px 10px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #c3d4e5;
       border-radius: 10px;
-      background: #ffffff;
+      background: linear-gradient(180deg, rgba(247,252,255,.82) 0%, rgba(234,243,252,.70) 100%);
       transition: background 120ms var(--ease), border-color 120ms var(--ease), transform 120ms var(--ease);
     }
     .inventory-alert-row:hover {
-      background: #f8fbff;
-      border-color: #bfdbfe;
+      background: linear-gradient(180deg, rgba(235,244,252,.82) 0%, rgba(223,236,249,.70) 100%);
+      border-color: #9fb6cc;
       transform: translateY(-1px);
     }
     .inventory-alert-name {
-      color: #0f172a;
+      color: var(--text-primary);
       font-size: .8125rem;
       font-weight: 700;
       line-height: 1.35;
@@ -768,26 +779,29 @@ interface StatCard  { label: string; value: string; sub: string; icon: string; c
       display: flex; align-items: center; gap: 12px;
       padding: 12px 14px;
       text-decoration: none;
-      border-bottom: 1px solid #ecf2f8;
+      border-bottom: 1px solid #dbe6f1;
       border-radius: 10px;
       transition: background 120ms var(--ease), transform 120ms var(--ease), box-shadow 120ms var(--ease);
       &:last-child { border-bottom: none; }
       &:hover {
-        background: linear-gradient(180deg, #f5f9ff 0%, #edf5ff 100%);
+        background: linear-gradient(180deg, rgba(236,245,252,.82) 0%, rgba(223,236,249,.70) 100%);
         transform: translateY(-1px);
-        box-shadow: 0 10px 22px rgba(37, 99, 235, 0.12);
+        box-shadow: 0 10px 22px rgba(31, 52, 75, 0.16);
       }
     }
     .qa-icon {
       width: 38px; height: 38px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
       font-size: 18px; flex-shrink: 0;
+      background: linear-gradient(180deg, rgba(232,241,250,.90) 0%, rgba(216,229,242,.78) 100%) !important;
+      color: #2f4f6f !important;
+      border: 1px solid #bfd1e3;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 6px 14px rgba(15, 23, 42, 0.08);
     }
     .qa-text { flex: 1; min-width: 0; }
     .qa-name { font-size: .88rem; font-weight: 800; color: var(--text-primary); letter-spacing: -.01em; }
     .qa-desc { font-size: .75rem; color: var(--text-secondary); margin-top: 1px; font-weight: 600; }
-    .qa-arrow { color: #7aa2d6; font-size: 14px; font-weight: 700; }
+    .qa-arrow { color: #5f7f9f; font-size: 14px; font-weight: 700; }
 
     .row-link {
       font-size: .8125rem; font-weight: 700; color: var(--brand-600);
@@ -912,20 +926,20 @@ export class DashboardComponent implements OnInit {
   readonly stats = computed<StatCard[]>(() => {
     const role = this.authStore.role();
     if (role === UserRole.Dealer) return [
-      { label: 'Available Credit', value: '₹' + this.creditAvail().toLocaleString('en-IN'), sub: 'of ₹' + this.creditLimit().toLocaleString('en-IN'), icon: this._icon('credit'), color: '#2563eb', bg: '#eff6ff' },
-      { label: 'My Orders',        value: String(this.totalOrders()), sub: 'All time', icon: this._icon('orders'), color: '#059669', bg: '#ecfdf5' },
-      { label: 'Cart Items',       value: String(this.cartStore.itemCount()), sub: '₹' + this.cartStore.total().toFixed(2) + ' total', icon: this._icon('cart'), color: '#d97706', bg: '#fffbeb' },
-      { label: 'Shipments',        value: String(this.recentShipments().length), sub: 'Active', icon: this._icon('ship'), color: '#0284c7', bg: '#f0f9ff' },
+      { label: 'Available Credit', value: '₹' + this.creditAvail().toLocaleString('en-IN'), sub: 'of ₹' + this.creditLimit().toLocaleString('en-IN'), icon: this._icon('credit'), color: '#3f6182', bg: '#e7f0fa' },
+      { label: 'My Orders',        value: String(this.totalOrders()), sub: 'All time', icon: this._icon('orders'), color: '#4c6e8f', bg: '#e9f2fa' },
+      { label: 'Cart Items',       value: String(this.cartStore.itemCount()), sub: '₹' + this.cartStore.total().toFixed(2) + ' total', icon: this._icon('cart'), color: '#597b9a', bg: '#ebf3fb' },
+      { label: 'Shipments',        value: String(this.recentShipments().length), sub: 'Active', icon: this._icon('ship'), color: '#6486a5', bg: '#edf4fb' },
     ];
     if (role === UserRole.Admin) return [
-      { label: 'Total Orders',    value: String(this.totalOrders()), sub: 'All time', icon: this._icon('orders'), color: '#2563eb', bg: '#eff6ff' },
-      { label: 'Active Shipments',value: String(this.recentShipments().filter(s => s.status < 5).length), sub: 'In transit', icon: this._icon('ship'), color: '#059669', bg: '#ecfdf5' },
-      { label: 'Products',        value: String(this.recentProducts().length), sub: 'In catalog', icon: this._icon('box'), color: '#d97706', bg: '#fffbeb' },
-      { label: 'Pending Dealers', value: String(this.recentOrders().length), sub: 'Awaiting approval', icon: this._icon('users'), color: '#7c3aed', bg: '#f5f3ff' },
+      { label: 'Total Orders',    value: String(this.totalOrders()), sub: 'All time', icon: this._icon('orders'), color: '#3f6182', bg: '#e7f0fa' },
+      { label: 'Active Shipments',value: String(this.recentShipments().filter(s => s.status < 5).length), sub: 'In transit', icon: this._icon('ship'), color: '#4f7294', bg: '#e9f2fa' },
+      { label: 'Products',        value: String(this.recentProducts().length), sub: 'In catalog', icon: this._icon('box'), color: '#5f819f', bg: '#ecf3fb' },
+      { label: 'Pending Dealers', value: String(this.recentOrders().length), sub: 'Awaiting approval', icon: this._icon('users'), color: '#6d8dad', bg: '#eef4fb' },
     ];
     return [
-      { label: 'Orders',    value: String(this.totalOrders()), sub: 'Total', icon: this._icon('orders'), color: '#2563eb', bg: '#eff6ff' },
-      { label: 'Shipments', value: String(this.recentShipments().length), sub: 'Active', icon: this._icon('ship'), color: '#059669', bg: '#ecfdf5' },
+      { label: 'Orders',    value: String(this.totalOrders()), sub: 'Total', icon: this._icon('orders'), color: '#3f6182', bg: '#e7f0fa' },
+      { label: 'Shipments', value: String(this.recentShipments().length), sub: 'Active', icon: this._icon('ship'), color: '#4f7294', bg: '#e9f2fa' },
     ];
   });
 

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="Animated supply chain flow from sourcing to delivery">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef5ff"/>
+      <stop offset="1" stop-color="#dde9fb"/>
+    </linearGradient>
+    <linearGradient id="route" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2f6ba5"/>
+      <stop offset="1" stop-color="#4290d8"/>
+    </linearGradient>
+    <linearGradient id="node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8f1fd"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="640" fill="url(#bg)"/>
+
+  <g opacity="0.16">
+    <path d="M0 500 C 200 420, 350 560, 560 470 C 760 390, 940 540, 1200 460" fill="none" stroke="#315b81" stroke-width="3"/>
+    <path d="M0 210 C 230 280, 410 150, 620 220 C 860 300, 960 130, 1200 200" fill="none" stroke="#315b81" stroke-width="3"/>
+  </g>
+
+  <path d="M120 420 C 300 300, 430 300, 610 360 S 930 450, 1080 300" fill="none" stroke="url(#route)" stroke-width="12" stroke-linecap="round" opacity="0.28"/>
+  <path d="M120 420 C 300 300, 430 300, 610 360 S 930 450, 1080 300" fill="none" stroke="#2f6ba5" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 10" opacity="0.55">
+    <animate attributeName="stroke-dashoffset" values="0;-220" dur="10s" repeatCount="indefinite"/>
+  </path>
+
+  <g filter="url(#softShadow)">
+    <g transform="translate(120 400)">
+      <rect x="-72" y="-54" width="168" height="112" rx="16" fill="url(#node)" stroke="#b9d1ea"/>
+      <rect x="-52" y="-78" width="44" height="24" rx="8" fill="#2f6ba5"/>
+      <text x="12" y="-61" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#ffffff" font-weight="700">SOURCE</text>
+      <text x="12" y="-10" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" fill="#1e3a5f">Factory</text>
+      <text x="12" y="22" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#4a6382">Procurement</text>
+    </g>
+
+    <g transform="translate(610 340)">
+      <rect x="-82" y="-58" width="184" height="122" rx="16" fill="url(#node)" stroke="#b9d1ea"/>
+      <rect x="-58" y="-84" width="64" height="24" rx="8" fill="#2f6ba5"/>
+      <text x="-26" y="-67" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#ffffff" font-weight="700">HUB</text>
+      <text x="10" y="-14" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" fill="#1e3a5f">Warehouse</text>
+      <text x="10" y="20" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#4a6382">Inventory + QC</text>
+    </g>
+
+    <g transform="translate(1078 282)">
+      <rect x="-78" y="-54" width="176" height="116" rx="16" fill="url(#node)" stroke="#b9d1ea"/>
+      <rect x="-56" y="-80" width="64" height="24" rx="8" fill="#2f6ba5"/>
+      <text x="-24" y="-63" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#ffffff" font-weight="700">DEST</text>
+      <text x="8" y="-12" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" fill="#1e3a5f">Dealer</text>
+      <text x="8" y="20" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#4a6382">Final delivery</text>
+    </g>
+  </g>
+
+  <g>
+    <rect x="-13" y="-11" width="26" height="22" rx="4" fill="#f59e0b" stroke="#c57a06" stroke-width="1.5"/>
+    <animateMotion dur="7s" repeatCount="indefinite" rotate="auto" path="M120 420 C 300 300, 430 300, 610 360 S 930 450, 1080 300"/>
+  </g>
+
+  <g>
+    <rect x="-13" y="-11" width="26" height="22" rx="4" fill="#f59e0b" stroke="#c57a06" stroke-width="1.5"/>
+    <animateMotion dur="7s" begin="2.4s" repeatCount="indefinite" rotate="auto" path="M120 420 C 300 300, 430 300, 610 360 S 930 450, 1080 300"/>
+  </g>
+
+  <g>
+    <rect x="-13" y="-11" width="26" height="22" rx="4" fill="#f59e0b" stroke="#c57a06" stroke-width="1.5"/>
+    <animateMotion dur="7s" begin="4.8s" repeatCount="indefinite" rotate="auto" path="M120 420 C 300 300, 430 300, 610 360 S 930 450, 1080 300"/>
+  </g>
+
+  <g transform="translate(480 118)">
+    <rect x="0" y="84" width="24" height="52" rx="8" fill="#9fb9d8">
+      <animate attributeName="height" values="52;78;52" dur="2.6s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="84;58;84" dur="2.6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="36" y="56" width="24" height="80" rx="8" fill="#5f89b4">
+      <animate attributeName="height" values="80;62;80" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="56;74;56" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="72" y="34" width="24" height="102" rx="8" fill="#2f6ba5">
+      <animate attributeName="height" values="102;120;102" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="34;16;34" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+    <text x="50" y="166" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#355675" font-weight="700">Live Throughput</text>
+  </g>
+</svg>

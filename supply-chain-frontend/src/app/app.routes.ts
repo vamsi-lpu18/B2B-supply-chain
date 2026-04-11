@@ -86,6 +86,12 @@ export const routes: Routes = [
         loadComponent: () => import('./features/orders/order-list/order-list.component').then(m => m.OrderListComponent)
       },
       {
+        path: 'orders/:id/tracking',
+        canActivate: [roleGuard],
+        data: { roles: [UserRole.Admin, UserRole.Dealer, UserRole.Warehouse, UserRole.Logistics, UserRole.Agent] },
+        loadComponent: () => import('./features/orders/order-tracking/order-tracking.component').then(m => m.OrderTrackingComponent)
+      },
+      {
         path: 'orders/:id',
         canActivate: [roleGuard],
         data: { roles: [UserRole.Admin, UserRole.Dealer, UserRole.Warehouse, UserRole.Logistics] },
@@ -95,20 +101,28 @@ export const routes: Routes = [
       // Shipments
       {
         path: 'shipments',
+        canActivate: [roleGuard],
+        data: { roles: [UserRole.Admin, UserRole.Warehouse, UserRole.Logistics, UserRole.Agent, UserRole.Dealer] },
         loadComponent: () => import('./features/logistics/shipment-list/shipment-list.component').then(m => m.ShipmentListComponent)
       },
       {
         path: 'shipments/:id',
+        canActivate: [roleGuard],
+        data: { roles: [UserRole.Admin, UserRole.Warehouse, UserRole.Logistics, UserRole.Agent, UserRole.Dealer] },
         loadComponent: () => import('./features/logistics/shipment-detail/shipment-detail.component').then(m => m.ShipmentDetailComponent)
       },
 
       // Invoices
       {
         path: 'invoices',
+        canActivate: [roleGuard],
+        data: { roles: [UserRole.Admin, UserRole.Dealer] },
         loadComponent: () => import('./features/payments/invoice-list/invoice-list.component').then(m => m.InvoiceListComponent)
       },
       {
         path: 'invoices/:id',
+        canActivate: [roleGuard],
+        data: { roles: [UserRole.Admin, UserRole.Dealer] },
         loadComponent: () => import('./features/payments/invoice-detail/invoice-detail.component').then(m => m.InvoiceDetailComponent)
       },
 

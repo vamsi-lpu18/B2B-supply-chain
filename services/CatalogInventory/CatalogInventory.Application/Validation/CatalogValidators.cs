@@ -102,3 +102,21 @@ public sealed class StockSubscriptionRequestValidator : AbstractValidator<StockS
         RuleFor(x => x.ProductId).NotEmpty();
     }
 }
+
+public sealed class CreateProductReviewRequestValidator : AbstractValidator<CreateProductReviewRequest>
+{
+    public CreateProductReviewRequestValidator()
+    {
+        RuleFor(x => x.Rating).InclusiveBetween(1, 5);
+        RuleFor(x => x.Title).NotEmpty().MaximumLength(120);
+        RuleFor(x => x.Comment).NotEmpty().MaximumLength(1500);
+    }
+}
+
+public sealed class ModerateProductReviewRequestValidator : AbstractValidator<ModerateProductReviewRequest>
+{
+    public ModerateProductReviewRequestValidator()
+    {
+        RuleFor(x => x.Note).MaximumLength(500).When(x => !string.IsNullOrWhiteSpace(x.Note));
+    }
+}

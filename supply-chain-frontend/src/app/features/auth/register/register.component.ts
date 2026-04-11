@@ -17,107 +17,114 @@ function passwordStrength(ctrl: AbstractControl) {
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, RouterLink],
   template: `
-    <div class="auth-page">
-      <div class="auth-card card">
-        <h1 class="auth-title">Create Dealer Account</h1>
-        <p class="auth-subtitle">Register your business to start ordering</p>
-
-        @if (success()) {
-          <div class="alert alert-success">
-            Registration submitted! Your account is pending approval. <a routerLink="/login">Sign in</a>
+    <div class="auth-page page-content">
+      <div class="auth-shell auth-shell-wide">
+        <div class="page-header auth-header">
+          <div class="page-title">
+            <h1>Create Dealer Account</h1>
+            <p>Register your business to start ordering</p>
           </div>
-        } @else {
-          <form [formGroup]="form" (ngSubmit)="submit()">
-            <div class="grid-2">
-              <div class="form-group">
-                <label>Full Name *</label>
-                <input type="text" class="form-control" formControlName="fullName" placeholder="John Doe">
-                @if (err('fullName')) { <span class="form-error">Full name is required</span> }
-              </div>
-              <div class="form-group">
-                <label>Email *</label>
-                <input type="email" class="form-control" formControlName="email" placeholder="you@example.com">
-                @if (err('email')) { <span class="form-error">Valid email is required</span> }
-              </div>
-              <div class="form-group">
-                <label>Password *</label>
-                <input type="password" class="form-control" formControlName="password">
-                @if (form.get('password')?.errors?.['weakPassword'] && form.get('password')?.touched) {
-                  <span class="form-error">Min 8 chars, uppercase, lowercase, number, special char</span>
-                }
-              </div>
-              <div class="form-group">
-                <label>Phone Number *</label>
-                <input type="tel" class="form-control" formControlName="phoneNumber" placeholder="10 digits">
-                @if (err('phoneNumber')) { <span class="form-error">Valid 10-digit Indian mobile number required (starts with 6-9)</span> }
-              </div>
-              <div class="form-group">
-                <label>Business Name *</label>
-                <input type="text" class="form-control" formControlName="businessName">
-                @if (err('businessName')) { <span class="form-error">Business name is required</span> }
-              </div>
-              <div class="form-group">
-                <label>GST Number *</label>
-                <input type="text" class="form-control" formControlName="gstNumber" placeholder="15 chars alphanumeric" maxlength="15">
-                @if (err('gstNumber')) { <span class="form-error">Valid GST required (example: 29ABCDE1234F1Z5)</span> }
-              </div>
-              <div class="form-group">
-                <label>Trade License No *</label>
-                <input type="text" class="form-control" formControlName="tradeLicenseNo">
-                @if (err('tradeLicenseNo')) { <span class="form-error">Required</span> }
-              </div>
-              <div class="form-group">
-                <label>PIN Code *</label>
-                <input type="text" class="form-control" formControlName="pinCode" placeholder="6 digits" maxlength="6">
-                @if (err('pinCode')) { <span class="form-error">6-digit PIN code required</span> }
-              </div>
+          <a routerLink="/login" class="btn btn-secondary btn-sm">Sign in</a>
+        </div>
+
+        <div class="auth-card card">
+
+          @if (success()) {
+            <div class="alert alert-success">
+              Registration submitted! Your account is pending approval. <a routerLink="/login">Sign in</a>
             </div>
-
-            <div class="form-group">
-              <label>Address *</label>
-              <input type="text" class="form-control" formControlName="address">
-              @if (err('address')) { <span class="form-error">Address is required</span> }
-            </div>
-
-            <div class="grid-3">
-              <div class="form-group">
-                <label>City *</label>
-                <input type="text" class="form-control" formControlName="city">
-                @if (err('city')) { <span class="form-error">Required</span> }
+          } @else {
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <div class="grid-2">
+                <div class="form-group">
+                  <label>Full Name *</label>
+                  <input type="text" class="form-control" formControlName="fullName" placeholder="John Doe">
+                  @if (err('fullName')) { <span class="form-error">Full name is required</span> }
+                </div>
+                <div class="form-group">
+                  <label>Email *</label>
+                  <input type="email" class="form-control" formControlName="email" placeholder="you@example.com">
+                  @if (err('email')) { <span class="form-error">Valid email is required</span> }
+                </div>
+                <div class="form-group">
+                  <label>Password *</label>
+                  <input type="password" class="form-control" formControlName="password">
+                  @if (form.get('password')?.errors?.['weakPassword'] && form.get('password')?.touched) {
+                    <span class="form-error">Min 8 chars, uppercase, lowercase, number, special char</span>
+                  }
+                </div>
+                <div class="form-group">
+                  <label>Phone Number *</label>
+                  <input type="tel" class="form-control" formControlName="phoneNumber" placeholder="10 digits">
+                  @if (err('phoneNumber')) { <span class="form-error">Valid 10-digit Indian mobile number required (starts with 6-9)</span> }
+                </div>
+                <div class="form-group">
+                  <label>Business Name *</label>
+                  <input type="text" class="form-control" formControlName="businessName">
+                  @if (err('businessName')) { <span class="form-error">Business name is required</span> }
+                </div>
+                <div class="form-group">
+                  <label>GST Number *</label>
+                  <input type="text" class="form-control" formControlName="gstNumber" placeholder="15 chars alphanumeric" maxlength="15">
+                  @if (err('gstNumber')) { <span class="form-error">Valid GST required (example: 29ABCDE1234F1Z5)</span> }
+                </div>
+                <div class="form-group">
+                  <label>Trade License No *</label>
+                  <input type="text" class="form-control" formControlName="tradeLicenseNo">
+                  @if (err('tradeLicenseNo')) { <span class="form-error">Required</span> }
+                </div>
+                <div class="form-group">
+                  <label>PIN Code *</label>
+                  <input type="text" class="form-control" formControlName="pinCode" placeholder="6 digits" maxlength="6">
+                  @if (err('pinCode')) { <span class="form-error">6-digit PIN code required</span> }
+                </div>
               </div>
+
               <div class="form-group">
-                <label>State *</label>
-                <input type="text" class="form-control" formControlName="state">
-                @if (err('state')) { <span class="form-error">Required</span> }
+                <label>Address *</label>
+                <input type="text" class="form-control" formControlName="address">
+                @if (err('address')) { <span class="form-error">Address is required</span> }
               </div>
-              <div class="form-group">
-                <label>Interstate?</label>
-                <select class="form-control" formControlName="isInterstate">
-                  <option [value]="false">No (Intrastate)</option>
-                  <option [value]="true">Yes (Interstate)</option>
-                </select>
+
+              <div class="grid-3">
+                <div class="form-group">
+                  <label>City *</label>
+                  <input type="text" class="form-control" formControlName="city">
+                  @if (err('city')) { <span class="form-error">Required</span> }
+                </div>
+                <div class="form-group">
+                  <label>State *</label>
+                  <input type="text" class="form-control" formControlName="state">
+                  @if (err('state')) { <span class="form-error">Required</span> }
+                </div>
+                <div class="form-group">
+                  <label>Interstate?</label>
+                  <select class="form-control" formControlName="isInterstate">
+                    <option [value]="false">No (Intrastate)</option>
+                    <option [value]="true">Yes (Interstate)</option>
+                  </select>
+                </div>
               </div>
-            </div>
 
-            @if (errorMsg()) {
-              <div class="alert alert-error">{{ errorMsg() }}</div>
-            }
+              @if (errorMsg()) {
+                <div class="alert alert-error">{{ errorMsg() }}</div>
+              }
 
-            <button type="submit" class="btn btn-primary w-full btn-lg" [disabled]="form.invalid || loading()">
-              @if (loading()) { <span class="spinner"></span> } Register
-            </button>
-          </form>
-        }
+              <button type="submit" class="btn btn-primary w-full btn-lg" [disabled]="form.invalid || loading()">
+                @if (loading()) { <span class="spinner"></span> } Register
+              </button>
+            </form>
+          }
 
-        <div class="auth-links">
-          Already have an account? <a routerLink="/login">Sign in</a>
+          <div class="auth-links">
+            Already have an account? <a routerLink="/login">Sign in</a>
+          </div>
         </div>
       </div>
     </div>
   `,
   styles: [`
-    .auth-page { align-items: flex-start; }
-    .auth-card { max-width: 760px; margin-top: 14px; }
+    .auth-card { margin-top: 0; }
     .w-full { width: 100%; justify-content: center; }
     .alert { margin-bottom: 16px; }
     .alert a { color: inherit; font-weight: 700; text-decoration: underline; }

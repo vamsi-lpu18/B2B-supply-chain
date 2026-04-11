@@ -3,6 +3,7 @@ using CatalogInventory.Application.DTOs;
 using CatalogInventory.Domain.Entities;
 using CatalogInventory.Domain.Enums;
 using FluentValidation;
+using System.Collections.Concurrent;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -16,9 +17,27 @@ public sealed class CatalogInventoryService(
     IValidator<RestockProductRequest> restockValidator,
     IValidator<SoftLockStockRequest> softLockValidator,
     IValidator<HardDeductStockRequest> hardDeductValidator,
-    IValidator<StockSubscriptionRequest> stockSubscriptionValidator)
+    IValidator<StockSubscriptionRequest> stockSubscriptionValidator,
+    IValidator<CreateProductReviewRequest> createReviewValidator,
+    IValidator<ModerateProductReviewRequest> moderateReviewValidator)
     : ICatalogInventoryService
 {
+    private sealed record ProductReviewState(
+        Guid ReviewId,
+        Guid ProductId,
+        Guid DealerId,
+        int Rating,
+        string Title,
+        string Comment,
+        bool IsApproved,
+        bool IsRejected,
+        string? ModerationNote,
+        DateTime CreatedAtUtc,
+        DateTime? ModeratedAtUtc,
+        Guid? ModeratedByUserId);
+
+    private static readonly ConcurrentDictionary<Guid, ProductReviewState> ReviewsById = new();
+
     private static readonly TimeSpan ProductListTtl = TimeSpan.FromMinutes(5);
     private static readonly TimeSpan ProductDetailTtl = TimeSpan.FromMinutes(5);
     private static readonly TimeSpan SearchTtl = TimeSpan.FromMinutes(2);
@@ -394,6 +413,98 @@ public sealed class CatalogInventoryService(
         return productRepository.RemoveStockSubscriptionAsync(request.DealerId, request.ProductId, cancellationToken);
     }
 
+    public async Task<ProductReviewDto?> AddProductReviewAsync(Guid productId, Guid dealerId, CreateProductReviewRequest request, CancellationToken cancellationToken)
+    {
+        await createReviewValidator.ValidateAndThrowAsync(request, cancellationToken);
+
+        var product = await productRepository.GetProductByIdAsync(productId, cancellationToken);
+        if (product is null)
+        {
+            return null;
+        }
+
+        var review = new ProductReviewState(
+            Guid.NewGuid(),
+            productId,
+            dealerId,
+            request.Rating,
+            request.Title.Trim(),
+            request.Comment.Trim(),
+            IsApproved: false,
+            IsRejected: false,
+            ModerationNote: null,
+            CreatedAtUtc: DateTime.UtcNow,
+            ModeratedAtUtc: null,
+            ModeratedByUserId: null);
+
+        ReviewsById[review.ReviewId] = review;
+        return MapReview(review);
+    }
+
+    public async Task<IReadOnlyList<ProductReviewDto>> GetProductReviewsAsync(Guid productId, bool includePending, CancellationToken cancellationToken)
+    {
+        var product = await productRepository.GetProductByIdAsync(productId, cancellationToken);
+        if (product is null)
+        {
+            return [];
+        }
+
+        var query = ReviewsById.Values.Where(review => review.ProductId == productId);
+        if (!includePending)
+        {
+            query = query.Where(review => review.IsApproved);
+        }
+
+        return query
+            .OrderByDescending(review => review.CreatedAtUtc)
+            .Select(MapReview)
+            .ToList();
+    }
+
+    public async Task<ProductReviewDto?> ApproveProductReviewAsync(Guid reviewId, Guid adminUserId, string? note, CancellationToken cancellationToken)
+    {
+        await moderateReviewValidator.ValidateAndThrowAsync(new ModerateProductReviewRequest(note), cancellationToken);
+
+        if (!ReviewsById.TryGetValue(reviewId, out var review))
+        {
+            return null;
+        }
+
+        var updated = review with
+        {
+            IsApproved = true,
+            IsRejected = false,
+            ModerationNote = string.IsNullOrWhiteSpace(note) ? null : note.Trim(),
+            ModeratedAtUtc = DateTime.UtcNow,
+            ModeratedByUserId = adminUserId
+        };
+
+        ReviewsById[reviewId] = updated;
+        return MapReview(updated);
+    }
+
+    public async Task<ProductReviewDto?> RejectProductReviewAsync(Guid reviewId, Guid adminUserId, string? note, CancellationToken cancellationToken)
+    {
+        await moderateReviewValidator.ValidateAndThrowAsync(new ModerateProductReviewRequest(note), cancellationToken);
+
+        if (!ReviewsById.TryGetValue(reviewId, out var review))
+        {
+            return null;
+        }
+
+        var updated = review with
+        {
+            IsApproved = false,
+            IsRejected = true,
+            ModerationNote = string.IsNullOrWhiteSpace(note) ? null : note.Trim(),
+            ModeratedAtUtc = DateTime.UtcNow,
+            ModeratedByUserId = adminUserId
+        };
+
+        ReviewsById[reviewId] = updated;
+        return MapReview(updated);
+    }
+
     private async Task InvalidateProductReadCachesAsync(Guid productId, CancellationToken cancellationToken)
     {
         await cacheStore.DeleteAsync(GetProductDetailKey(productId), cancellationToken);
@@ -426,10 +537,28 @@ public sealed class CatalogInventoryService(
             product.ProductId,
             product.Sku,
             product.Name,
+            product.CategoryId,
             product.UnitPrice,
             product.AvailableStock,
             product.IsActive,
             product.ImageUrl);
+    }
+
+    private static ProductReviewDto MapReview(ProductReviewState review)
+    {
+        return new ProductReviewDto(
+            review.ReviewId,
+            review.ProductId,
+            review.DealerId,
+            review.Rating,
+            review.Title,
+            review.Comment,
+            review.IsApproved,
+            review.IsRejected,
+            review.ModerationNote,
+            review.CreatedAtUtc,
+            review.ModeratedAtUtc,
+            review.ModeratedByUserId);
     }
 
     private static string GetProductPageKey(int page, int size, bool includeInactive) =>

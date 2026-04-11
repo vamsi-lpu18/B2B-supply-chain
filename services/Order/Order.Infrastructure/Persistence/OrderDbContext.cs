@@ -31,6 +31,8 @@ public sealed class OrderDbContext(DbContextOptions<OrderDbContext> options) : D
             builder.HasKey(x => x.OrderId);
             builder.Property(x => x.OrderNumber).HasMaxLength(32).IsRequired();
             builder.HasIndex(x => x.OrderNumber).IsUnique();
+            builder.HasIndex(x => new { x.DealerId, x.PlacedAtUtc });
+            builder.HasIndex(x => new { x.Status, x.PlacedAtUtc });
             builder.Property(x => x.Status).HasConversion<string>().HasMaxLength(40).IsRequired();
             builder.Property(x => x.CreditHoldStatus).HasConversion<string>().HasMaxLength(40).IsRequired();
             builder.Property(x => x.PaymentMode).HasConversion<string>().HasMaxLength(20).IsRequired();

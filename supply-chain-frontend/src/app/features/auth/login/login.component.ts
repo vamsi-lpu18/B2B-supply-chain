@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -11,6 +11,20 @@ import { AuthStore } from '../../../core/stores/auth.store';
   imports: [ReactiveFormsModule, CommonModule, RouterLink],
   template: `
     <div class="login-page">
+      <video
+        #loginBgVideo
+        class="login-page-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        (canplay)="ensureVideoPlaying()"
+        aria-label="Warehouse logistics workflow video">
+        <source src="/assets/login/supply-chain-real.mp4" type="video/mp4">
+      </video>
+      <div class="login-page-video-overlay"></div>
+
       <div class="login-left">
         <div class="login-brand">
           <div class="login-brand-icon">⛓</div>
@@ -22,6 +36,7 @@ import { AuthStore } from '../../../core/stores/auth.store';
         <div class="login-hero">
           <h1>Manage your supply chain with confidence</h1>
           <p>Real-time tracking, smart inventory, and seamless order management — all in one place.</p>
+
           <div class="login-features">
             <div class="login-feature"><span>✓</span> Role-based access control</div>
             <div class="login-feature"><span>✓</span> Real-time shipment tracking</div>
@@ -93,46 +108,46 @@ import { AuthStore } from '../../../core/stores/auth.store';
   styles: [`
     .login-page {
       min-height: 100vh;
+      position: relative;
+      overflow: hidden;
       display: grid;
       grid-template-columns: minmax(460px, 1.05fr) minmax(380px, .95fr);
       gap: 28px;
       padding: 28px;
+      background: #dce6f2;
+    }
+
+    .login-page-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: saturate(.9) contrast(.95) brightness(.9);
+    }
+
+    .login-page-video-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
       background:
-        radial-gradient(880px 540px at 98% -8%, rgba(37, 99, 235, 0.15), transparent 62%),
-        radial-gradient(760px 480px at -10% 102%, rgba(14, 165, 233, 0.12), transparent 58%),
-        linear-gradient(180deg, #f8fbff 0%, #f2f7fd 56%, #edf4fb 100%);
+        linear-gradient(165deg, rgba(10, 26, 46, .56) 0%, rgba(13, 33, 58, .48) 46%, rgba(9, 24, 43, .58) 100%);
     }
 
     /* Left panel */
     .login-left {
-      background: linear-gradient(160deg, rgba(255,255,255,.98) 0%, rgba(242,248,255,.94) 100%);
-      border: 1px solid #d6e2ef;
-      border-radius: 24px;
-      box-shadow: 0 20px 42px rgba(15, 23, 42, 0.11);
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
       padding: 44px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(8px);
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: -130px; right: -130px;
-        width: 420px; height: 420px;
-        background: radial-gradient(circle, rgba(37,99,235,.20) 0%, transparent 70%);
-        pointer-events: none;
-      }
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -100px; left: -120px;
-        width: 340px; height: 340px;
-        background: radial-gradient(circle, rgba(14,165,233,.18) 0%, transparent 72%);
-        pointer-events: none;
-      }
+      z-index: 2;
     }
 
     .login-brand {
@@ -140,7 +155,8 @@ import { AuthStore } from '../../../core/stores/auth.store';
       align-items: center;
       gap: 12px;
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      text-shadow: 0 2px 10px rgba(2, 6, 23, 0.42);
     }
     .login-brand-icon {
       width: 46px; height: 46px;
@@ -155,32 +171,34 @@ import { AuthStore } from '../../../core/stores/auth.store';
       font-size: 1.2rem;
       font-weight: 800;
       line-height: 1.2;
-      color: #0f172a;
+      color: #f8fbff;
       font-family: var(--font-display);
       letter-spacing: -.018em;
     }
-    .login-brand-sub  { font-size: .69rem; color: #475569; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
+    .login-brand-sub  { font-size: .69rem; color: #dbeafe; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
 
     .login-hero {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       h1 {
         font-size: clamp(1.9rem, 2.2vw, 2.4rem);
         font-weight: 700;
-        color: #0f172a;
+        color: #f8fbff;
         line-height: 1.14;
         letter-spacing: -.03em;
         margin-bottom: 16px;
         font-family: var(--font-display);
         text-wrap: balance;
+        text-shadow: 0 4px 18px rgba(2, 6, 23, 0.56);
       }
       p {
         font-size: 1rem;
-        color: #475569;
+        color: #e2ebf8;
         line-height: 1.6;
         margin-bottom: 28px;
         max-width: 430px;
-        font-weight: 600;
+        font-weight: 650;
+        text-shadow: 0 3px 12px rgba(2, 6, 23, 0.46);
       }
     }
 
@@ -190,24 +208,26 @@ import { AuthStore } from '../../../core/stores/auth.store';
       gap: 10px;
       max-width: 460px;
     }
+
     .login-feature {
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: .84rem;
-      color: #334155;
-      background: rgba(255,255,255,.7);
-      border: 1px solid #d9e5f2;
+      color: #e7f0fb;
+      background: rgba(8, 28, 52, .46);
+      border: 1px solid rgba(174, 206, 239, .44);
       border-radius: 10px;
       padding: 9px 10px;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28);
+      backdrop-filter: blur(2px);
       span {
         width: 20px; height: 20px;
-        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%);
         border-radius: 50%;
         display: flex; align-items: center; justify-content: center;
         font-size: .75rem;
-        color: #1d4ed8;
+        color: #1e3a8a;
         flex-shrink: 0;
       }
     }
@@ -219,24 +239,27 @@ import { AuthStore } from '../../../core/stores/auth.store';
       align-items: center;
       justify-content: center;
       padding: 8px;
+      position: relative;
+      z-index: 2;
     }
 
     .login-card {
       width: 100%;
       max-width: 430px;
-      background: linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(247,251,255,.95) 100%);
-      border: 1px solid #d6e3f0;
+      background: linear-gradient(180deg, rgba(244,249,255,.72) 0%, rgba(231,240,250,.58) 100%);
+      border: 1px solid rgba(186, 205, 224, .62);
       border-radius: 22px;
-      box-shadow: 0 22px 44px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 22px 44px rgba(13, 30, 49, 0.24);
       padding: 34px;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(10px);
 
       &::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: linear-gradient(115deg, transparent 32%, rgba(37, 99, 235, .10) 50%, transparent 68%);
+        background: linear-gradient(115deg, transparent 32%, rgba(85, 123, 161, .16) 50%, transparent 68%);
         transform: translateX(-120%);
         animation: cardSweep 10s linear infinite;
         pointer-events: none;
@@ -295,6 +318,17 @@ import { AuthStore } from '../../../core/stores/auth.store';
 
     .input-wrap { position: relative; }
     .input-wrap .form-control { padding-right: 44px; }
+
+    .login-card .form-control {
+      background: linear-gradient(180deg, rgba(248, 252, 255, .68) 0%, rgba(236, 245, 253, .56) 100%);
+      border-color: rgba(172, 194, 216, .78);
+    }
+
+    .login-card .form-control:focus {
+      background: rgba(251, 254, 255, .82);
+      border-color: #84a4c3;
+      box-shadow: 0 0 0 4px rgba(99, 132, 162, .17), 0 8px 18px rgba(35, 59, 84, .16);
+    }
     .pwd-toggle {
       position: absolute;
       right: 12px; top: 50%;
@@ -350,14 +384,27 @@ import { AuthStore } from '../../../core/stores/auth.store';
     @media (prefers-reduced-motion: reduce) {
       .login-card::before { animation: none !important; }
     }
+
+    @media (max-width: 768px) {
+      .submit-btn { height: 44px; }
+    }
   `]
 })
-export class LoginComponent {
+export class LoginComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('loginBgVideo') private readonly loginBgVideo?: ElementRef<HTMLVideoElement>;
+
   private readonly fb       = inject(FormBuilder);
   private readonly authApi  = inject(AuthApiService);
   private readonly usersApi = inject(UsersApiService);
   private readonly authStore = inject(AuthStore);
   private readonly router   = inject(Router);
+
+  private playRetryCount = 0;
+  private readonly onVisibilityChange = () => {
+    if (!document.hidden) {
+      this.ensureVideoPlaying();
+    }
+  };
 
   readonly loading  = signal(false);
   readonly errorMsg = signal('');
@@ -367,6 +414,42 @@ export class LoginComponent {
     email:    ['', [Validators.required, Validators.email]],
     password: ['', Validators.required]
   });
+
+  ngAfterViewInit(): void {
+    document.addEventListener('visibilitychange', this.onVisibilityChange);
+    this.ensureVideoPlaying();
+    window.setTimeout(() => this.ensureVideoPlaying(), 180);
+  }
+
+  ngOnDestroy(): void {
+    document.removeEventListener('visibilitychange', this.onVisibilityChange);
+  }
+
+  ensureVideoPlaying(): void {
+    const video = this.loginBgVideo?.nativeElement;
+    if (!video) return;
+
+    video.defaultMuted = true;
+    video.muted = true;
+    video.loop = true;
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+
+    if (!video.paused && !video.ended) return;
+
+    const playPromise = video.play();
+    if (!playPromise) return;
+
+    playPromise
+      .then(() => {
+        this.playRetryCount = 0;
+      })
+      .catch(() => {
+        if (this.playRetryCount >= 4) return;
+        this.playRetryCount += 1;
+        window.setTimeout(() => this.ensureVideoPlaying(), 260);
+      });
+  }
 
   submit(): void {
     if (this.form.invalid) { this.form.markAllAsTouched(); return; }

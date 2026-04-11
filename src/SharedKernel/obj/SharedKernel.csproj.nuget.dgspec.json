@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {}
+    "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
+    "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj",
+        "projectUniqueName": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj",
         "projectName": "SharedKernel",
-        "projectPath": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj",
+        "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj",
         "packagesPath": "C:\\Users\\Hey\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\obj\\",
+        "outputPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hey\\AppData\\Roaming\\NuGet\\NuGet.Config"

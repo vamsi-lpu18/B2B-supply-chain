@@ -62,10 +62,36 @@ export interface ProductDto {
   updatedAtUtc: string;
 }
 
+export interface CreateProductReviewRequest {
+  rating: number;
+  title: string;
+  comment: string;
+}
+
+export interface ModerateProductReviewRequest {
+  note?: string;
+}
+
+export interface ProductReviewDto {
+  reviewId: string;
+  productId: string;
+  dealerId: string;
+  rating: number;
+  title: string;
+  comment: string;
+  isApproved: boolean;
+  isRejected: boolean;
+  moderationNote?: string;
+  createdAtUtc: string;
+  moderatedAtUtc?: string;
+  moderatedByUserId?: string;
+}
+
 export interface ProductListItemDto {
   productId: string;
   sku: string;
   name: string;
+  categoryId: string;
   unitPrice: number;
   availableStock: number;
   isActive: boolean;

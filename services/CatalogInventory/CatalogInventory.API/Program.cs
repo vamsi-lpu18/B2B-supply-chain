@@ -159,17 +159,71 @@ app.Run();
 
 static async Task SeedCatalogAsync(CatalogInventoryDbContext dbContext)
 {
-    var categoryNames = new[] { "Electrical", "Safety" };
+    var categorySeeds = new[]
+    {
+        new SeedCatalogCategory("Electrical"),
+        new SeedCatalogCategory("Safety"),
+        new SeedCatalogCategory("Electronics"),
+        new SeedCatalogCategory("Spare Parts"),
+        new SeedCatalogCategory("Computer Parts"),
+        new SeedCatalogCategory("Networking"),
+        new SeedCatalogCategory("Automation"),
+        new SeedCatalogCategory("Tools"),
+        new SeedCatalogCategory("Packaging"),
+        new SeedCatalogCategory("Office Supplies"),
+        new SeedCatalogCategory("Logistics Equipment"),
+        new SeedCatalogCategory("Maintenance"),
+        new SeedCatalogCategory("Sensors", "Electronics"),
+        new SeedCatalogCategory("Displays", "Electronics"),
+        new SeedCatalogCategory("Mobile Devices", "Electronics"),
+        new SeedCatalogCategory("Processors", "Computer Parts"),
+        new SeedCatalogCategory("Memory Modules", "Computer Parts"),
+        new SeedCatalogCategory("Storage Drives", "Computer Parts"),
+        new SeedCatalogCategory("Motherboards", "Computer Parts"),
+        new SeedCatalogCategory("Graphics Cards", "Computer Parts"),
+        new SeedCatalogCategory("Peripherals", "Computer Parts"),
+        new SeedCatalogCategory("Mechanical Spares", "Spare Parts"),
+        new SeedCatalogCategory("Electrical Spares", "Spare Parts")
+    };
     var categoriesByName = await dbContext.Categories.ToDictionaryAsync(c => c.Name);
 
-    var missingCategories = categoryNames
-        .Where(name => !categoriesByName.ContainsKey(name))
-        .Select(name => Category.Create(name))
-        .ToList();
-
-    if (missingCategories.Count > 0)
+    var topLevelCategoriesAdded = false;
+    foreach (var seed in categorySeeds.Where(seed => seed.ParentCategoryName is null))
     {
-        await dbContext.Categories.AddRangeAsync(missingCategories);
+        if (categoriesByName.ContainsKey(seed.Name))
+        {
+            continue;
+        }
+
+        await dbContext.Categories.AddAsync(Category.Create(seed.Name));
+        topLevelCategoriesAdded = true;
+    }
+
+    if (topLevelCategoriesAdded)
+    {
+        await dbContext.SaveChangesAsync();
+        categoriesByName = await dbContext.Categories.ToDictionaryAsync(c => c.Name);
+    }
+
+    var childCategoriesAdded = false;
+    foreach (var seed in categorySeeds.Where(seed => !string.IsNullOrWhiteSpace(seed.ParentCategoryName)))
+    {
+        if (categoriesByName.ContainsKey(seed.Name))
+        {
+            continue;
+        }
+
+        if (!categoriesByName.TryGetValue(seed.ParentCategoryName!, out var parentCategory))
+        {
+            continue;
+        }
+
+        await dbContext.Categories.AddAsync(Category.Create(seed.Name, parentCategory.CategoryId));
+        childCategoriesAdded = true;
+    }
+
+    if (childCategoriesAdded)
+    {
         await dbContext.SaveChangesAsync();
         categoriesByName = await dbContext.Categories.ToDictionaryAsync(c => c.Name);
     }
@@ -202,7 +256,196 @@ static async Task SeedCatalogAsync(CatalogInventoryDbContext dbContext)
             699m,
             2,
             320,
-            "https://image.pollinations.ai/prompt/arc%20flash%20insulated%20safety%20gloves%20industrial%20product%20photo%20clean%20background?width=1024&height=768&nologo=true")
+            "https://image.pollinations.ai/prompt/arc%20flash%20insulated%20safety%20gloves%20industrial%20product%20photo%20clean%20background?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "ELE-101",
+            "Rugged Industrial Tablet 10-inch",
+            "Shock-resistant field tablet for warehouse, logistics, and plant-floor workflows.",
+            "Electronics",
+            28999m,
+            1,
+            40,
+            "https://image.pollinations.ai/prompt/rugged%20industrial%20tablet%20device%20enterprise%20product%20photography%20white%20background?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "SPR-201",
+            "Hydraulic Pump Seal Kit",
+            "Maintenance-grade replacement seal kit for heavy-duty hydraulic pumps.",
+            "Spare Parts",
+            1399m,
+            2,
+            220,
+            "https://image.pollinations.ai/prompt/hydraulic%20pump%20seal%20kit%20industrial%20spare%20parts%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "CPU-301",
+            "Rackmount Compute Node",
+            "High-reliability server compute node for edge workloads and control systems.",
+            "Computer Parts",
+            84999m,
+            1,
+            18,
+            "https://image.pollinations.ai/prompt/rackmount%20compute%20server%20node%20enterprise%20hardware%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "NET-401",
+            "Managed 24-Port Gigabit Switch",
+            "Layer-2 managed switch with VLAN, QoS, and monitoring for warehouse LAN segments.",
+            "Networking",
+            12499m,
+            1,
+            55,
+            "https://image.pollinations.ai/prompt/managed%2024%20port%20gigabit%20network%20switch%20enterprise%20product%20shot?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "AUT-501",
+            "PLC I/O Expansion Module",
+            "DIN-rail mount expansion module for programmable logic controller deployments.",
+            "Automation",
+            6799m,
+            1,
+            90,
+            "https://image.pollinations.ai/prompt/plc%20io%20expansion%20module%20industrial%20automation%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "TLS-601",
+            "Digital Torque Wrench",
+            "Precision torque wrench with digital readout for assembly and service operations.",
+            "Tools",
+            3599m,
+            1,
+            110,
+            "https://image.pollinations.ai/prompt/digital%20torque%20wrench%20industrial%20tool%20product%20photography?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "PKG-701",
+            "Heavy-Duty Corrugated Pallet Box",
+            "Stackable corrugated pallet box for outbound shipment packaging.",
+            "Packaging",
+            499m,
+            5,
+            600,
+            "https://image.pollinations.ai/prompt/heavy%20duty%20corrugated%20pallet%20box%20warehouse%20packaging%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "OFF-801",
+            "Thermal Label Printer",
+            "High-throughput thermal label printer for invoices, bins, and shipping labels.",
+            "Office Supplies",
+            8999m,
+            1,
+            46,
+            "https://image.pollinations.ai/prompt/thermal%20label%20printer%20office%20logistics%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "LOG-901",
+            "Handheld Barcode Scanner",
+            "Fast-reading handheld barcode scanner optimized for warehouse and dispatch operations.",
+            "Logistics Equipment",
+            2799m,
+            1,
+            180,
+            "https://image.pollinations.ai/prompt/handheld%20barcode%20scanner%20warehouse%20equipment%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "MNT-951",
+            "Industrial Lubricant Cartridge",
+            "High-performance lubricant cartridge for preventive maintenance programs.",
+            "Maintenance",
+            349m,
+            10,
+            900,
+            "https://image.pollinations.ai/prompt/industrial%20lubricant%20cartridge%20maintenance%20consumable%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "SNS-111",
+            "IoT Temperature And Humidity Sensor",
+            "Industrial sensor node with calibrated telemetry for warehouse condition monitoring.",
+            "Sensors",
+            2199m,
+            1,
+            140,
+            "https://image.pollinations.ai/prompt/iot%20temperature%20humidity%20sensor%20industrial%20product%20photo%20clean%20background?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "DSP-112",
+            "24-inch Industrial HMI Display",
+            "High-brightness touch display for production line supervision and control dashboards.",
+            "Displays",
+            18499m,
+            1,
+            34,
+            "https://image.pollinations.ai/prompt/industrial%20hmi%20touch%20display%20enterprise%20hardware%20product%20shot?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "MOB-113",
+            "Rugged Warehouse Handheld Terminal",
+            "Android-based handheld terminal with barcode engine and long-shift battery life.",
+            "Mobile Devices",
+            22999m,
+            1,
+            52,
+            "https://image.pollinations.ai/prompt/rugged%20warehouse%20handheld%20terminal%20barcode%20device%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "CPU-321",
+            "Industrial Multi-Core Processor",
+            "Energy-efficient enterprise processor tuned for edge compute workloads.",
+            "Processors",
+            32999m,
+            1,
+            28,
+            "https://image.pollinations.ai/prompt/industrial%20multi%20core%20processor%20chip%20enterprise%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "RAM-322",
+            "ECC DDR5 32GB Memory Module",
+            "Server-grade ECC memory module for mission-critical workloads.",
+            "Memory Modules",
+            9799m,
+            2,
+            86,
+            "https://image.pollinations.ai/prompt/ecc%20ddr5%20memory%20module%20enterprise%20hardware%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "SSD-323",
+            "Enterprise NVMe SSD 2TB",
+            "High endurance NVMe drive optimized for transactional systems and analytics.",
+            "Storage Drives",
+            16999m,
+            1,
+            74,
+            "https://image.pollinations.ai/prompt/enterprise%20nvme%20ssd%202tb%20storage%20product%20photography?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "MBD-324",
+            "Industrial ATX Motherboard",
+            "Long-lifecycle motherboard with remote management and hardened I/O.",
+            "Motherboards",
+            14799m,
+            1,
+            40,
+            "https://image.pollinations.ai/prompt/industrial%20atx%20motherboard%20enterprise%20hardware%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "GPU-325",
+            "Workstation GPU 16GB",
+            "Professional graphics accelerator for visualization and AI-assisted planning.",
+            "Graphics Cards",
+            58999m,
+            1,
+            20,
+            "https://image.pollinations.ai/prompt/workstation%20gpu%20graphics%20card%20enterprise%20product%20shot?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "PRF-326",
+            "Rugged Mechanical Keyboard",
+            "Spill-resistant mechanical keyboard built for continuous operations desks.",
+            "Peripherals",
+            3699m,
+            1,
+            160,
+            "https://image.pollinations.ai/prompt/rugged%20mechanical%20keyboard%20peripheral%20product%20photography?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "MSP-411",
+            "Conveyor Drive Roller Spare",
+            "Precision-machined spare roller for conveyor maintenance cycles.",
+            "Mechanical Spares",
+            899m,
+            4,
+            260,
+            "https://image.pollinations.ai/prompt/conveyor%20drive%20roller%20spare%20part%20industrial%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "ESP-412",
+            "Panel Fuse Replacement Pack",
+            "Certified electrical fuse replacement pack for panel safety maintenance.",
+            "Electrical Spares",
+            299m,
+            10,
+            520,
+            "https://image.pollinations.ai/prompt/electrical%20fuse%20replacement%20pack%20industrial%20spare%20product%20photo?width=1024&height=768&nologo=true")
     };
 
     var productSkus = products.Select(x => x.Sku).ToArray();
@@ -210,7 +453,7 @@ static async Task SeedCatalogAsync(CatalogInventoryDbContext dbContext)
         .Where(p => productSkus.Contains(p.Sku))
         .ToDictionaryAsync(p => p.Sku);
 
-    var changed = false;
+    var productsChanged = false;
 
     foreach (var seed in products)
     {
@@ -225,7 +468,7 @@ static async Task SeedCatalogAsync(CatalogInventoryDbContext dbContext)
                 seed.MinOrderQty,
                 seed.ImageUrl,
                 true);
-            changed = true;
+            productsChanged = true;
             continue;
         }
 
@@ -238,14 +481,18 @@ static async Task SeedCatalogAsync(CatalogInventoryDbContext dbContext)
             seed.MinOrderQty,
             seed.OpeningStock,
             seed.ImageUrl));
-        changed = true;
+        productsChanged = true;
     }
 
-    if (changed)
+    if (productsChanged)
     {
         await dbContext.SaveChangesAsync();
     }
 }
+
+internal sealed record SeedCatalogCategory(
+    string Name,
+    string? ParentCategoryName = null);
 
 internal sealed record SeedCatalogProduct(
     string Sku,

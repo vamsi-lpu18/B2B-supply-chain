@@ -15,12 +15,18 @@ This repository contains a backend-first scaffold for a 6-service supply chain p
 ## Local Infrastructure
 
 - SQL Server: local machine installation (outside Docker)
-- Redis + RabbitMQ: Docker
+- Redis + RabbitMQ + Mailpit (SMTP capture): Docker
 
 Start infra:
 
 ```powershell
 docker compose --env-file .env.example up -d
+```
+
+Mailpit UI (captured emails):
+
+```text
+http://localhost:8025
 ```
 
 ## Run services
@@ -73,6 +79,103 @@ Gateway notes:
 Invoke-RestMethod -Headers @{ "Oc-Client" = "student-local"; "X-Correlation-Id" = [Guid]::NewGuid().ToString("N") } "http://localhost:5000/payments/api/payment/dealers/<dealer-id>/credit-check?amount=1000"
 ```
 
+## Load Balancer demo (Ocelot RoundRobin)
+
+A demo gateway route is configured for every backend service.
+
+Configured LB demo routes:
+
+```text
+POST /identity-lb/api/auth/{everything}
+GET  /catalog-lb/api/products/{everything}
+ANY  /orders-lb/{everything}
+ANY  /logistics-lb/{everything}
+GET  /payments-lb/api/payment/dealers/{dealerId}/credit-check
+POST /notifications-lb/api/notifications/ingest
+```
+
+Each route uses two downstream instances with Ocelot round-robin:
+
+```text
+IdentityAuth      : 8001 + 8101
+CatalogInventory  : 8002 + 8102
+Order             : 8003 + 8103
+LogisticsTracking : 8004 + 8104
+PaymentInvoice    : 8005 + 8105
+Notification      : 8006 + 8106
+```
+
+Start first instances (800x) as you already do, then start second instances (810x), for example:
+
+```powershell
+dotnet run --project services/CatalogInventory/CatalogInventory.API --urls http://localhost:8102
+dotnet run --project services/Order/Order.API --urls http://localhost:8103
+dotnet run --project services/LogisticsTracking/LogisticsTracking.API --urls http://localhost:8104
+dotnet run --project services/PaymentInvoice/PaymentInvoice.API --urls http://localhost:8105
+dotnet run --project services/Notification/Notification.API --urls http://localhost:8106
+```
+
+IdentityAuth example:
+
+```text
+POST /identity-lb/api/auth/{everything}
+```
+
+It uses two downstream instances of IdentityAuth with Ocelot round-robin.
+
+1. Start first IdentityAuth instance (port 8001):
+
+```powershell
+dotnet run --project services/IdentityAuth/IdentityAuth.API --urls http://localhost:8001
+```
+
+2. Start second IdentityAuth instance (port 8101):
+
+```powershell
+dotnet run --project services/IdentityAuth/IdentityAuth.API --urls http://localhost:8101
+```
+
+3. Run the demo traffic script:
+
+```powershell
+./scripts/demo-load-balancer.ps1 -Count 10
+```
+
+By default, this script calls `/identity-lb/api/auth/forgot-password` so no seeded login credentials are required.
+
+Watch both IdentityAuth terminals. Requests sent via `/identity-lb/api/auth/{everything}` should be distributed between the two instances.
+
+For secured LB demo routes (`/orders-lb/*` and `/logistics-lb/*`), send a valid bearer token.
+
+## Backend unit tests (JUnit XML)
+
+Backend unit tests are implemented using xUnit, and test reports are exported in JUnit XML format.
+
+Current test projects:
+
+- `tests/IdentityAuth.Domain.Tests`
+- `tests/CatalogInventory.Domain.Tests`
+- `tests/Order.Domain.Tests`
+- `tests/LogisticsTracking.Domain.Tests`
+- `tests/PaymentInvoice.Domain.Tests`
+- `tests/Notification.Domain.Tests`
+
+Run tests with JUnit output using script:
+
+```powershell
+./scripts/run-dotnet-junit-tests.ps1
+```
+
+Or run directly:
+
+```powershell
+dotnet test SupplyChainPlatform.slnx --logger "junit;LogFilePath=artifacts/test-results/{assembly}.xml;MethodFormat=Class;FailureBodyFormat=Verbose"
+```
+
+JUnit XML reports are generated under:
+
+- `artifacts/test-results/`
+
 ## Database migrations
 
 Each service now uses EF Core migrations at startup (via `Database.MigrateAsync`) with startup checks for pending/applied migrations.
@@ -89,6 +192,12 @@ Apply migrations directly to local databases:
 ./scripts/apply-migrations.ps1
 ```
 
+Apply the simple index performance patch (idempotent):
+
+```powershell
+./scripts/apply-indexing-patch.ps1
+```
+
 Generated SQL files are stored under:
 
 - `scripts/migrations/IdentityAuth.sql`
@@ -97,6 +206,7 @@ Generated SQL files are stored under:
 - `scripts/migrations/LogisticsTracking.sql`
 - `scripts/migrations/PaymentInvoice.sql`
 - `scripts/migrations/Notification.sql`
+- `scripts/migrations/IndexingPatch.sql`
 
 ## Notes
 
@@ -107,3 +217,15 @@ Generated SQL files are stored under:
 
 - Enterprise naming, API naming, and image policy guidance is documented in `docs/enterprise-standards.md`.
 - Repository-wide formatting and C# naming conventions are enforced via `.editorconfig` at the repository root.
+
+## Documentation index
+
+- HLD: `docs/hld.md`
+- LLD: `docs/lld.md`
+- Project submission: `docs/project-submission-document.md`
+- API documentation: `docs/api-documentation.md`
+- Frontend documentation: `docs/frontend-documentation.md`
+- Backend documentation: `docs/backend-documentation.md`
+- UML diagrams: `docs/uml-diagrams.md`
+- Email trigger matrix: `docs/email-trigger-matrix.md`
+- Enterprise standards: `docs/enterprise-standards.md`

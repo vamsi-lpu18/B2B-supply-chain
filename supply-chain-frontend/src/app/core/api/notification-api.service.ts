@@ -38,4 +38,12 @@ export class NotificationApiService {
   markFailed(id: string, req: MarkNotificationFailedRequest): Observable<unknown> {
     return this.http.put(`${this.base}/${id}/failed`, req);
   }
+
+  markRead(id: string): Observable<unknown> {
+    return this.http.put(`${this.base}/${id}/read`, {});
+  }
+
+  markUnread(id: string): Observable<unknown> {
+    return this.http.put(`${this.base}/${id}/unread`, {});
+  }
 }

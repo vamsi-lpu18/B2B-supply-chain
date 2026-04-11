@@ -10,57 +10,65 @@ import { ToastService } from '../../../core/services/toast.service';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, RouterLink],
   template: `
-    <div class="auth-page">
-      <div class="auth-card card">
-        <h1 class="auth-title">Reset Password</h1>
+    <div class="auth-page page-content">
+      <div class="auth-shell">
+        <div class="page-header auth-header">
+          <div class="page-title">
+            <h1>Reset Password</h1>
+            <p>Use email OTP verification to set a new password</p>
+          </div>
+          <a routerLink="/login" class="btn btn-secondary btn-sm">Back to Sign In</a>
+        </div>
 
-        @if (step() === 'email') {
-          <p class="auth-subtitle">Enter your email to receive an OTP</p>
-          <form [formGroup]="emailForm" (ngSubmit)="sendOtp()">
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control" formControlName="email" placeholder="you@example.com">
-              @if (emailForm.get('email')?.invalid && emailForm.get('email')?.touched) {
-                <span class="form-error">Valid email is required</span>
-              }
-            </div>
-            <button type="submit" class="btn btn-primary w-full" [disabled]="emailForm.invalid || loading()">
-              @if (loading()) { <span class="spinner"></span> } Send OTP
-            </button>
-          </form>
-        }
+        <div class="auth-card card">
 
-        @if (step() === 'reset') {
-          <p class="auth-subtitle">Enter the OTP sent to your email</p>
-          <form [formGroup]="resetForm" (ngSubmit)="resetPassword()">
-            <div class="form-group">
-              <label>OTP Code</label>
-              <input type="text" class="form-control" formControlName="otpCode"
-                     placeholder="6-digit code" maxlength="6">
-              @if (resetForm.get('otpCode')?.invalid && resetForm.get('otpCode')?.touched) {
-                <span class="form-error">6-digit OTP is required</span>
-              }
-            </div>
-            <div class="form-group">
-              <label>New Password</label>
-              <input type="password" class="form-control" formControlName="newPassword">
-              @if (resetForm.get('newPassword')?.invalid && resetForm.get('newPassword')?.touched) {
-                <span class="form-error">Min 8 chars with uppercase, lowercase, number, special char</span>
-              }
-            </div>
-            @if (errorMsg()) { <div class="alert alert-error">{{ errorMsg() }}</div> }
-            <button type="submit" class="btn btn-primary w-full" [disabled]="resetForm.invalid || loading()">
-              @if (loading()) { <span class="spinner"></span> } Reset Password
-            </button>
-          </form>
-        }
+          @if (step() === 'email') {
+            <p class="auth-subtitle">Enter your email to receive an OTP</p>
+            <form [formGroup]="emailForm" (ngSubmit)="sendOtp()">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="you@example.com">
+                @if (emailForm.get('email')?.invalid && emailForm.get('email')?.touched) {
+                  <span class="form-error">Valid email is required</span>
+                }
+              </div>
+              <button type="submit" class="btn btn-primary w-full" [disabled]="emailForm.invalid || loading()">
+                @if (loading()) { <span class="spinner"></span> } Send OTP
+              </button>
+            </form>
+          }
 
-        <div class="auth-links"><a routerLink="/login">Back to Sign In</a></div>
+          @if (step() === 'reset') {
+            <p class="auth-subtitle">Enter the OTP sent to your email</p>
+            <form [formGroup]="resetForm" (ngSubmit)="resetPassword()">
+              <div class="form-group">
+                <label>OTP Code</label>
+                <input type="text" class="form-control" formControlName="otpCode"
+                      placeholder="6-digit code" maxlength="6">
+                @if (resetForm.get('otpCode')?.invalid && resetForm.get('otpCode')?.touched) {
+                  <span class="form-error">6-digit OTP is required</span>
+                }
+              </div>
+              <div class="form-group">
+                <label>New Password</label>
+                <input type="password" class="form-control" formControlName="newPassword">
+                @if (resetForm.get('newPassword')?.invalid && resetForm.get('newPassword')?.touched) {
+                  <span class="form-error">Min 8 chars with uppercase, lowercase, number, special char</span>
+                }
+              </div>
+              @if (errorMsg()) { <div class="alert alert-error">{{ errorMsg() }}</div> }
+              <button type="submit" class="btn btn-primary w-full" [disabled]="resetForm.invalid || loading()">
+                @if (loading()) { <span class="spinner"></span> } Reset Password
+              </button>
+            </form>
+          }
+
+          <div class="auth-links"><a routerLink="/login">Back to Sign In</a></div>
+        </div>
       </div>
     </div>
   `,
   styles: [`
-    .auth-card { max-width: 430px; }
     .w-full { width: 100%; justify-content: center; }
     .alert { margin-bottom: 16px; }
     .auth-links { margin-top: 20px; }

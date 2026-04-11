@@ -431,6 +431,53 @@ public sealed class OrderService(
         return true;
     }
 
+    public async Task<bool> ApproveReturnAsync(Guid orderId, Guid adminUserId, CancellationToken cancellationToken)
+    {
+        var order = await orderRepository.GetOrderByIdAsync(orderId, cancellationToken);
+        if (order is null || order.Status != OrderStatus.ReturnRequested || order.ReturnRequest is null)
+        {
+            return false;
+        }
+
+        order.ApproveReturn(adminUserId, "Admin");
+
+        await orderRepository.AddOutboxMessageAsync("ReturnApproved", new
+        {
+            order.OrderId,
+            order.OrderNumber,
+            order.DealerId,
+            occurredAtUtc = DateTime.UtcNow
+        }, cancellationToken);
+
+        await orderRepository.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
+    public async Task<bool> RejectReturnAsync(Guid orderId, string reason, Guid adminUserId, CancellationToken cancellationToken)
+    {
+        await returnValidator.ValidateAndThrowAsync(new ReturnRequestDto(reason), cancellationToken);
+
+        var order = await orderRepository.GetOrderByIdAsync(orderId, cancellationToken);
+        if (order is null || order.Status != OrderStatus.ReturnRequested || order.ReturnRequest is null)
+        {
+            return false;
+        }
+
+        order.RejectReturn(adminUserId, "Admin");
+
+        await orderRepository.AddOutboxMessageAsync("ReturnRejected", new
+        {
+            order.OrderId,
+            order.OrderNumber,
+            order.DealerId,
+            reason,
+            occurredAtUtc = DateTime.UtcNow
+        }, cancellationToken);
+
+        await orderRepository.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
     private static string GenerateOrderNumber()
     {
         var year = DateTime.UtcNow.Year;

@@ -5,7 +5,15 @@ using Ocelot.Middleware;
 using Ocelot.Provider.Polly;
 using Serilog;
 using System.Text;
-
+/// <summary>
+/// Ocelot API Gateway for the Supply Chain Management Platform.
+/// This gateway routes requests to the appropriate microservices based on the configuration defined in ocelot.json.
+/// It also handles cross-cutting concerns such as authentication, logging, and resilience.
+/// </summary>
+/// <remarks>
+/// The Ocelot API Gateway is configured to use JWT Bearer authentication, allowing it to validate tokens issued by the IdentityAuth service before forwarding requests to downstream services.
+/// It also uses Serilog for structured logging and Polly for implementing resilience policies on outgoing HTTP requests.
+/// </remarks>
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration

@@ -16,7 +16,7 @@ import { PaginationComponent } from '../../../shared/components/pagination/pagin
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule, PaginationComponent],
   template: `
-    <div class="page-content">
+    <div class="page-content feature-orders">
       <div class="page-header">
         <h1>{{ isDealer() ? 'My Orders' : 'All Orders' }}</h1>
         <div class="d-flex gap-2 flex-wrap">
@@ -157,7 +157,12 @@ import { PaginationComponent } from '../../../shared/components/pagination/pagin
                   <td class="text-sm">{{ expectedLabel(o) }}</td>
                   <td class="fw-600">{{ o.totalAmount | currency:'INR':'symbol':'1.2-2' }}</td>
                   <td class="text-sm">{{ o.placedAtUtc | date:'dd MMM yyyy, HH:mm' }}</td>
-                  <td><a [routerLink]="['/orders', o.orderId]" class="btn btn-ghost btn-sm">View →</a></td>
+                  <td>
+                    <div class="d-flex gap-2" (click)="$event.stopPropagation()">
+                      <a [routerLink]="['/orders', o.orderId]" class="btn btn-ghost btn-sm">View</a>
+                      <a [routerLink]="['/orders', o.orderId, 'tracking']" class="btn btn-secondary btn-sm">Track</a>
+                    </div>
+                  </td>
                 </tr>
               }
             </tbody>

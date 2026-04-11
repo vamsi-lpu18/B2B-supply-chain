@@ -43,4 +43,12 @@
     <Project Path="src/BuildingBlocks/BuildingBlocks.csproj" />
     <Project Path="src/SharedKernel/SharedKernel.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CatalogInventory.Domain.Tests/CatalogInventory.Domain.Tests.csproj" />
+    <Project Path="tests/IdentityAuth.Domain.Tests/IdentityAuth.Domain.Tests.csproj" />
+    <Project Path="tests/LogisticsTracking.Domain.Tests/LogisticsTracking.Domain.Tests.csproj" />
+    <Project Path="tests/Notification.Domain.Tests/Notification.Domain.Tests.csproj" />
+    <Project Path="tests/Order.Domain.Tests/Order.Domain.Tests.csproj" />
+    <Project Path="tests/PaymentInvoice.Domain.Tests/PaymentInvoice.Domain.Tests.csproj" />
+  </Folder>
 </Solution>

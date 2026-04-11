@@ -12,6 +12,8 @@ public interface INotificationService
     Task<IReadOnlyList<NotificationDto>> GetAllAsync(CancellationToken cancellationToken);
     Task<bool> MarkSentAsync(Guid notificationId, CancellationToken cancellationToken);
     Task<bool> MarkFailedAsync(Guid notificationId, string reason, CancellationToken cancellationToken);
+    Task<bool> MarkReadAsync(Guid notificationId, CancellationToken cancellationToken);
+    Task<bool> MarkUnreadAsync(Guid notificationId, CancellationToken cancellationToken);
 }
 
 public interface INotificationRepository

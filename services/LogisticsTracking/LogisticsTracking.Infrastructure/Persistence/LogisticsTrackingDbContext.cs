@@ -19,6 +19,9 @@ public sealed class LogisticsTrackingDbContext(DbContextOptions<LogisticsTrackin
             builder.HasKey(x => x.ShipmentId);
             builder.Property(x => x.ShipmentNumber).HasMaxLength(32).IsRequired();
             builder.HasIndex(x => x.ShipmentNumber).IsUnique();
+            builder.HasIndex(x => new { x.DealerId, x.CreatedAtUtc });
+            builder.HasIndex(x => new { x.AssignedAgentId, x.CreatedAtUtc });
+            builder.HasIndex(x => x.CreatedAtUtc);
             builder.Property(x => x.DeliveryAddress).HasMaxLength(500).IsRequired();
             builder.Property(x => x.City).HasMaxLength(100).IsRequired();
             builder.Property(x => x.State).HasMaxLength(100).IsRequired();

@@ -1,0 +1,74 @@
+name: Demo CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: demo-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend-build:
+    name: Backend Build (.NET)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore backend
+        run: dotnet restore SupplyChainPlatform.slnx
+
+      - name: Build backend
+        run: dotnet build SupplyChainPlatform.slnx --configuration Release --no-restore
+
+      - name: Run backend tests (JUnit XML)
+        run: |
+          mkdir -p artifacts/test-results
+          dotnet test SupplyChainPlatform.slnx --configuration Release --no-build --logger "junit;LogFilePath=artifacts/test-results/{assembly}.xml;MethodFormat=Class;FailureBodyFormat=Verbose"
+
+      - name: Upload JUnit test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-test-results
+          path: artifacts/test-results/*.xml
+          if-no-files-found: warn
+
+  frontend-build:
+    name: Frontend Build (Angular)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: supply-chain-frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: supply-chain-frontend/package-lock.json
+
+      - name: Use npm 11
+        run: npm install -g npm@11
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build

@@ -142,6 +142,10 @@ Shared outbox statuses:
 | GET | /api/products/{id} | Optional | Public | Product detail |
 | GET | /api/products/search | Optional | Public, role aware inactive filter | Product search |
 | GET | /api/products/{id}/stock | Yes | Admin, Warehouse | Stock level read |
+| GET | /api/products/{id}/reviews | Optional | Public, Admin | Product review list (admin can include pending) |
+| POST | /api/products/{id}/reviews | Yes | Dealer | Submit product review |
+| PUT | /api/products/reviews/{reviewId}/approve | Yes | Admin | Approve product review |
+| PUT | /api/products/reviews/{reviewId}/reject | Yes | Admin | Reject product review |
 | POST | /api/inventory/soft-lock | Yes | Admin, Dealer, OrderService | Reserve stock |
 | POST | /api/inventory/hard-deduct | Yes | Admin, Warehouse, Logistics | Final stock deduction |
 | POST | /api/inventory/release-soft-lock | Yes | Admin, OrderService | Release reserved stock |
@@ -179,6 +183,7 @@ Shared outbox statuses:
 | POST | /api/orders | Yes | Dealer | Create order |
 | GET | /api/orders/my | Yes | Dealer | Dealer order list |
 | GET | /api/orders/{id} | Yes | Role aware | Get order by id with ownership check |
+| GET | /api/orders/{id}/saga | Yes | Role aware | Get saga state for order |
 | PUT | /api/orders/{id}/status | Yes | Admin, Warehouse, Logistics | Update status |
 | POST | /api/orders/{id}/cancel | Yes | Dealer, Admin | Cancel order |
 | POST | /api/orders/{id}/returns | Yes | Dealer | Request return |
@@ -186,6 +191,8 @@ Shared outbox statuses:
 | POST | /api/admin/orders/bulk-status | Yes | Admin, Warehouse, Logistics | Validate or apply bulk transition |
 | PUT | /api/admin/orders/{id}/approve-hold | Yes | Admin, Warehouse, Logistics | Approve hold |
 | PUT | /api/admin/orders/{id}/reject-hold | Yes | Admin, Warehouse, Logistics | Reject hold |
+| PUT | /api/admin/orders/{id}/approve-return | Yes | Admin | Approve return |
+| PUT | /api/admin/orders/{id}/reject-return | Yes | Admin | Reject return |
 
 ### 6.3 Data Model
 - Orders
@@ -232,13 +239,16 @@ Allowed transitions:
 | POST | /api/logistics/shipments | Yes | Admin, Warehouse, Logistics | Create shipment |
 | GET | /api/logistics/shipments/{shipmentId} | Yes | Any authenticated | Shipment detail |
 | GET | /api/logistics/shipments/my | Yes | Dealer | Dealer shipments |
-| GET | /api/logistics/shipments | Yes | Admin, Warehouse, Logistics, Agent | All shipments |
+| GET | /api/logistics/shipments | Yes | Admin, Warehouse, Logistics | All shipments |
+| GET | /api/logistics/shipments/assigned | Yes | Agent | Agent assigned shipments |
 | PUT | /api/logistics/shipments/{shipmentId}/assign-agent | Yes | Admin, Logistics | Assign agent |
 | PUT | /api/logistics/shipments/{shipmentId}/assign-vehicle | Yes | Admin, Logistics | Assign vehicle |
 | PUT | /api/logistics/shipments/{shipmentId}/status | Yes | Admin, Logistics, Agent | Update shipment status |
 | GET | /api/logistics/shipments/{shipmentId}/ops-state | Yes | Admin, Warehouse, Logistics, Agent, Dealer | Read ops state |
 | POST | /api/logistics/shipments/ops-states/batch | Yes | Admin, Warehouse, Logistics, Agent, Dealer | Read batch ops states |
 | PUT | /api/logistics/shipments/{shipmentId}/ops-state | Yes | Admin, Logistics | Upsert ops state |
+| POST | /api/logistics/shipments/{shipmentId}/ai-recommendation | Yes | Admin, Warehouse, Logistics | Generate AI recommendation |
+| POST | /api/logistics/shipments/ai-recommendations/{recommendationId}/approve | Yes | Admin, Logistics | Approve AI recommendation |
 
 ### 7.3 Data Model
 - Shipments
@@ -331,6 +341,8 @@ Allowed transitions:
 | GET | /api/notifications/{id} | Yes | Authenticated | Notification detail with recipient check |
 | PUT | /api/notifications/{id}/sent | Yes | Admin | Mark sent |
 | PUT | /api/notifications/{id}/failed | Yes | Admin | Mark failed |
+| PUT | /api/notifications/{id}/read | Yes | Authenticated, Admin | Mark notification read |
+| PUT | /api/notifications/{id}/unread | Yes | Authenticated, Admin | Mark notification unread |
 
 ### 9.3 Data Model
 - Notifications

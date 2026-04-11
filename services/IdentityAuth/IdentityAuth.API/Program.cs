@@ -6,6 +6,7 @@ using IdentityAuth.Application.Abstractions;
 using IdentityAuth.Application.Exceptions;
 using IdentityAuth.Domain.Entities;
 using IdentityAuth.Domain.Enums;
+using IdentityAuth.Domain.ValueObjects;
 using IdentityAuth.Infrastructure;
 using IdentityAuth.Infrastructure.Persistence;
 using FluentValidation;
@@ -115,7 +116,7 @@ using (var scope = app.Services.CreateScope())
     var appliedMigrations = await dbContext.Database.GetAppliedMigrationsAsync();
     startupLogger.LogInformation("IdentityAuth migrations applied count: {AppliedCount}", appliedMigrations.Count());
 
-    await SeedAdminAsync(scope.ServiceProvider, app.Configuration);
+    await SeedDemoUsersAsync(scope.ServiceProvider, app.Configuration);
 }
 
 if (app.Environment.IsDevelopment())
@@ -178,34 +179,161 @@ RecurringJob.AddOrUpdate<HangfireHeartbeatJob>(
 
 app.Run();
 
-static async Task SeedAdminAsync(IServiceProvider services, IConfiguration configuration)
+static async Task SeedDemoUsersAsync(IServiceProvider services, IConfiguration configuration)
 {
     var dbContext = services.GetRequiredService<IdentityAuthDbContext>();
     var passwordService = services.GetRequiredService<IPasswordService>();
 
-    var email = configuration["AdminSeed:Email"] ?? "admin@supplychain.local";
-    var password = configuration["AdminSeed:Password"] ?? "Admin@1234";
-    var fullName = configuration["AdminSeed:FullName"] ?? "Platform Admin";
-    var phone = configuration["AdminSeed:PhoneNumber"] ?? "9999999999";
-    var normalizedEmail = email.Trim().ToLowerInvariant();
+    await UpsertStaffUserAsync(
+        dbContext,
+        passwordService,
+        UserRole.Admin,
+        configuration["AdminSeed:Email"] ?? "admin@supplychain.local",
+        configuration["AdminSeed:Password"] ?? "Admin@1234",
+        configuration["AdminSeed:FullName"] ?? "Platform Admin",
+        configuration["AdminSeed:PhoneNumber"] ?? "9999999999");
 
-    var seededAdmin = await dbContext.Users.FirstOrDefaultAsync(u => u.Email == normalizedEmail);
-    if (seededAdmin is not null)
+    await UpsertStaffUserAsync(
+        dbContext,
+        passwordService,
+        UserRole.Warehouse,
+        configuration["WarehouseSeed:Email"] ?? "warehouse@supplychain.local",
+        configuration["WarehouseSeed:Password"] ?? "Warehouse@123",
+        configuration["WarehouseSeed:FullName"] ?? "Warehouse Operator",
+        configuration["WarehouseSeed:PhoneNumber"] ?? "9000000001");
+
+    await UpsertStaffUserAsync(
+        dbContext,
+        passwordService,
+        UserRole.Logistics,
+        configuration["LogisticsSeed:Email"] ?? "logistics@supplychain.local",
+        configuration["LogisticsSeed:Password"] ?? "Logistics@123",
+        configuration["LogisticsSeed:FullName"] ?? "Logistics Coordinator",
+        configuration["LogisticsSeed:PhoneNumber"] ?? "9000000002");
+
+    await UpsertStaffUserAsync(
+        dbContext,
+        passwordService,
+        UserRole.Agent,
+        configuration["AgentSeed:Email"] ?? "agent@supplychain.local",
+        configuration["AgentSeed:Password"] ?? "Agent@123",
+        configuration["AgentSeed:FullName"] ?? "Delivery Agent",
+        configuration["AgentSeed:PhoneNumber"] ?? "9000000003");
+
+    await UpsertDealerUserAsync(
+        dbContext,
+        passwordService,
+        configuration["DealerSeed:Email"] ?? "dealer@supplychain.local",
+        configuration["DealerSeed:Password"] ?? "Dealer@123",
+        configuration["DealerSeed:FullName"] ?? "Demo Dealer",
+        configuration["DealerSeed:PhoneNumber"] ?? "9000000004",
+        configuration["DealerSeed:BusinessName"] ?? "Demo Traders Pvt Ltd",
+        configuration["DealerSeed:GstNumber"] ?? "37ABCDE1234F1Z5",
+        configuration["DealerSeed:TradeLicenseNo"] ?? "TL-DEM-0001",
+        configuration["DealerSeed:Address"] ?? "12 Market Street",
+        configuration["DealerSeed:City"] ?? "Hyderabad",
+        configuration["DealerSeed:State"] ?? "Telangana",
+        configuration["DealerSeed:PinCode"] ?? "500001",
+        configuration.GetValue<bool?>("DealerSeed:IsInterstate") ?? true);
+
+    await dbContext.SaveChangesAsync();
+}
+
+static async Task UpsertStaffUserAsync(
+    IdentityAuthDbContext dbContext,
+    IPasswordService passwordService,
+    UserRole role,
+    string email,
+    string password,
+    string fullName,
+    string phoneNumber)
+{
+    var normalizedEmail = email.Trim().ToLowerInvariant();
+    var existingUser = await dbContext.Users
+        .Include(x => x.DealerProfile)
+        .FirstOrDefaultAsync(u => u.Email == normalizedEmail);
+
+    if (existingUser is null)
     {
-        dbContext.Entry(seededAdmin).Property(u => u.Role).CurrentValue = UserRole.Admin;
-        dbContext.Entry(seededAdmin).Property(u => u.Status).CurrentValue = UserStatus.Active;
-        seededAdmin.UpdatePassword(passwordService.HashPassword(password));
-        await dbContext.SaveChangesAsync();
+        var user = User.CreateStaff(
+            normalizedEmail,
+            passwordService.HashPassword(password),
+            fullName,
+            phoneNumber,
+            role);
+
+        await dbContext.Users.AddAsync(user);
         return;
     }
 
-    var adminUser = User.CreateStaff(
-        normalizedEmail,
-        passwordService.HashPassword(password),
-        fullName,
-        phone,
-        UserRole.Admin);
+    dbContext.Entry(existingUser).Property(u => u.Role).CurrentValue = role;
+    dbContext.Entry(existingUser).Property(u => u.Status).CurrentValue = UserStatus.Active;
+    dbContext.Entry(existingUser).Property(u => u.FullName).CurrentValue = fullName.Trim();
+    dbContext.Entry(existingUser).Property(u => u.PhoneNumber).CurrentValue = phoneNumber.Trim();
+    existingUser.UpdatePassword(passwordService.HashPassword(password));
+}
 
-    await dbContext.Users.AddAsync(adminUser);
-    await dbContext.SaveChangesAsync();
+static async Task UpsertDealerUserAsync(
+    IdentityAuthDbContext dbContext,
+    IPasswordService passwordService,
+    string email,
+    string password,
+    string fullName,
+    string phoneNumber,
+    string businessName,
+    string gstNumber,
+    string tradeLicenseNo,
+    string address,
+    string city,
+    string state,
+    string pinCode,
+    bool isInterstate)
+{
+    var normalizedEmail = email.Trim().ToLowerInvariant();
+    var existingUser = await dbContext.Users
+        .Include(x => x.DealerProfile)
+        .FirstOrDefaultAsync(u => u.Email == normalizedEmail);
+
+    if (existingUser is null)
+    {
+        var dealer = User.CreateDealer(
+            normalizedEmail,
+            passwordService.HashPassword(password),
+            fullName,
+            phoneNumber,
+            businessName,
+            gstNumber,
+            tradeLicenseNo,
+            address,
+            city,
+            state,
+            pinCode,
+            isInterstate);
+
+        dealer.ApproveDealer();
+        await dbContext.Users.AddAsync(dealer);
+        return;
+    }
+
+    dbContext.Entry(existingUser).Property(u => u.Role).CurrentValue = UserRole.Dealer;
+    dbContext.Entry(existingUser).Property(u => u.Status).CurrentValue = UserStatus.Active;
+    dbContext.Entry(existingUser).Property(u => u.FullName).CurrentValue = fullName.Trim();
+    dbContext.Entry(existingUser).Property(u => u.PhoneNumber).CurrentValue = phoneNumber.Trim();
+    existingUser.UpdatePassword(passwordService.HashPassword(password));
+
+    if (existingUser.DealerProfile is null)
+    {
+        var dealerProfile = DealerProfile.Create(
+            existingUser.UserId,
+            businessName,
+            gstNumber,
+            tradeLicenseNo,
+            address,
+            city,
+            state,
+            pinCode,
+            isInterstate);
+
+        await dbContext.DealerProfiles.AddAsync(dealerProfile);
+    }
 }

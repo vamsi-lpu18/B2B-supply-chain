@@ -1,0 +1,19 @@
+<testsuites>
+  <testsuite name="Order.Domain.Tests.dll" tests="6" skipped="0" failures="0" errors="0" time="0.7038126" timestamp="2026-04-10T19:47:47" hostname="DESKTOP-NFND817" id="0" package="Order.Domain.Tests.dll">
+    <properties />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.Create_SetsPlacedStatusAndPaymentMode" time="0.6641594" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.RaiseReturn_WhenDeliveredWithinWindow_CreatesReturnRequest" time="0.0138099" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.TransitionTo_AllowedTransition_UpdatesStatusAndHistory" time="0.0041205" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.AddLine_RecalculatesTotalAmount" time="0.0164412" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.TransitionTo_InvalidTransition_ThrowsInvalidOperationException" time="0.0042948" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.MarkCreditRejected_CancelsOrderAndSetsReason" time="0.0009868" />
+    <system-out>
+Test Framework Informational Messages:
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.5)
+[xUnit.net 00:00:00.88]   Discovering: Order.Domain.Tests
+[xUnit.net 00:00:01.22]   Discovered:  Order.Domain.Tests
+[xUnit.net 00:00:01.30]   Starting:    Order.Domain.Tests
+[xUnit.net 00:00:02.09]   Finished:    Order.Domain.Tests
+</system-out>
+  </testsuite>
+</testsuites>

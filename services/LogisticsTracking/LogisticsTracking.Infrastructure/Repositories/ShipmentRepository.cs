@@ -33,6 +33,18 @@ internal sealed class ShipmentRepository(LogisticsTrackingDbContext dbContext) :
         return shipments;
     }
 
+    public async Task<IReadOnlyList<Shipment>> GetAgentShipmentsAsync(Guid agentId, CancellationToken cancellationToken)
+    {
+        var shipments = await dbContext.Shipments
+            .AsNoTracking()
+            .Include(x => x.Events)
+            .Where(x => x.AssignedAgentId == agentId)
+            .OrderByDescending(x => x.CreatedAtUtc)
+            .ToListAsync(cancellationToken);
+
+        return shipments;
+    }
+
     public async Task<IReadOnlyList<Shipment>> GetAllShipmentsAsync(CancellationToken cancellationToken)
     {
         var shipments = await dbContext.Shipments

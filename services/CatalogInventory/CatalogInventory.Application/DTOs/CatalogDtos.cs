@@ -44,10 +44,32 @@ public sealed record ProductDto(
     string? ImageUrl,
     DateTime UpdatedAtUtc);
 
+public sealed record CreateProductReviewRequest(
+    int Rating,
+    string Title,
+    string Comment);
+
+public sealed record ModerateProductReviewRequest(string? Note);
+
+public sealed record ProductReviewDto(
+    Guid ReviewId,
+    Guid ProductId,
+    Guid DealerId,
+    int Rating,
+    string Title,
+    string Comment,
+    bool IsApproved,
+    bool IsRejected,
+    string? ModerationNote,
+    DateTime CreatedAtUtc,
+    DateTime? ModeratedAtUtc,
+    Guid? ModeratedByUserId);
+
 public sealed record ProductListItemDto(
     Guid ProductId,
     string Sku,
     string Name,
+    Guid CategoryId,
     decimal UnitPrice,
     int AvailableStock,
     bool IsActive,

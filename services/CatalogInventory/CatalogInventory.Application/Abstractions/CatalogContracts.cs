@@ -19,6 +19,10 @@ public interface ICatalogInventoryService
     Task<bool> ReleaseSoftLockAsync(ReleaseSoftLockRequest request, CancellationToken cancellationToken);
     Task<bool> SubscribeStockAsync(StockSubscriptionRequest request, CancellationToken cancellationToken);
     Task<bool> UnsubscribeStockAsync(StockSubscriptionRequest request, CancellationToken cancellationToken);
+    Task<ProductReviewDto?> AddProductReviewAsync(Guid productId, Guid dealerId, CreateProductReviewRequest request, CancellationToken cancellationToken);
+    Task<IReadOnlyList<ProductReviewDto>> GetProductReviewsAsync(Guid productId, bool includePending, CancellationToken cancellationToken);
+    Task<ProductReviewDto?> ApproveProductReviewAsync(Guid reviewId, Guid adminUserId, string? note, CancellationToken cancellationToken);
+    Task<ProductReviewDto?> RejectProductReviewAsync(Guid reviewId, Guid adminUserId, string? note, CancellationToken cancellationToken);
 }
 
 public interface IProductRepository

@@ -5,6 +5,7 @@ using PaymentInvoice.Infrastructure.Documents;
 using PaymentInvoice.Infrastructure.PaymentGateway;
 using PaymentInvoice.Infrastructure.Persistence;
 using PaymentInvoice.Infrastructure.Repositories;
+using BuildingBlocks.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +22,7 @@ public static class DependencyInjection
             ?? throw new InvalidOperationException("Connection string 'Redis' is missing.");
 
         services.AddDbContext<PaymentInvoiceDbContext>(options => options.UseSqlServer(sqlConnection));
+        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<PaymentInvoiceDbContext>());
         services.AddPlatformRedis(redisConnection);
 
         services.AddScoped<IPaymentRepository, PaymentRepository>();

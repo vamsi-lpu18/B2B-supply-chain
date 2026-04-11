@@ -6,22 +6,31 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <div class="auth-page">
-      <div class="unauth-card card empty-state">
-        <div class="empty-icon">🔒</div>
-        <div class="empty-title">Access Denied</div>
-        <div class="empty-desc">You don't have permission to view this page.</div>
-        <a routerLink="/dashboard" class="btn btn-primary mt-4">Go to Dashboard</a>
+    <div class="auth-page page-content">
+      <div class="auth-shell">
+        <div class="page-header auth-header">
+          <div class="page-title">
+            <h1>Access Denied</h1>
+            <p>You don't have permission to view this page.</p>
+          </div>
+          <a routerLink="/dashboard" class="btn btn-primary btn-sm">Go to Dashboard</a>
+        </div>
+
+        <div class="unauth-card card empty-state">
+          <div class="empty-icon">🔒</div>
+          <div class="empty-title">Access Denied</div>
+          <div class="empty-desc">Your role does not grant access to this route.</div>
+        </div>
       </div>
     </div>
   `,
   styles: [`
     .unauth-card {
-      width: min(520px, 100%);
-      padding: 48px 28px;
-      border-radius: 22px;
+      width: 100%;
+      padding: 44px 28px;
+      border-radius: 18px;
       border: 1px solid #d7e3ef;
-      box-shadow: 0 20px 42px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
     }
 
     .empty-title {

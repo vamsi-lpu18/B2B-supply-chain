@@ -30,4 +30,6 @@ export interface NotificationDto {
   createdAtUtc: string;
   sentAtUtc?: string;
   failureReason?: string;
+  isRead: boolean;
+  readAtUtc?: string;
 }

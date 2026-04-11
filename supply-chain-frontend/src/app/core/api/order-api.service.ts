@@ -60,6 +60,14 @@ export class AdminOrderApiService {
     return this.http.put(`${this.base}/${id}/reject-hold`, req);
   }
 
+  approveReturn(id: string): Observable<unknown> {
+    return this.http.put(`${this.base}/${id}/approve-return`, {});
+  }
+
+  rejectReturn(id: string, req: AdminDecisionRequest): Observable<unknown> {
+    return this.http.put(`${this.base}/${id}/reject-return`, req);
+  }
+
   bulkUpdateStatus(req: BulkUpdateOrderStatusRequest): Observable<BulkUpdateOrderStatusResultDto> {
     return this.http.post<BulkUpdateOrderStatusResultDto>(`${this.base}/bulk-status`, req);
   }

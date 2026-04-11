@@ -9,6 +9,7 @@ public interface ILogisticsService
     Task<ShipmentDto> CreateShipmentAsync(CreateShipmentRequest request, Guid createdByUserId, string createdByRole, CancellationToken cancellationToken);
     Task<ShipmentDto?> GetShipmentAsync(Guid shipmentId, CancellationToken cancellationToken);
     Task<IReadOnlyList<ShipmentDto>> GetDealerShipmentsAsync(Guid dealerId, CancellationToken cancellationToken);
+    Task<IReadOnlyList<ShipmentDto>> GetAgentShipmentsAsync(Guid agentId, CancellationToken cancellationToken);
     Task<IReadOnlyList<ShipmentDto>> GetAllShipmentsAsync(CancellationToken cancellationToken);
     Task<bool> AssignAgentAsync(Guid shipmentId, Guid agentId, Guid updatedByUserId, string updatedByRole, CancellationToken cancellationToken);
     Task<bool> AssignVehicleAsync(Guid shipmentId, string vehicleNumber, Guid updatedByUserId, string updatedByRole, CancellationToken cancellationToken);
@@ -56,6 +57,7 @@ public interface IShipmentRepository
     Task AddShipmentAsync(Shipment shipment, CancellationToken cancellationToken);
     Task<Shipment?> GetShipmentByIdAsync(Guid shipmentId, CancellationToken cancellationToken);
     Task<IReadOnlyList<Shipment>> GetDealerShipmentsAsync(Guid dealerId, CancellationToken cancellationToken);
+    Task<IReadOnlyList<Shipment>> GetAgentShipmentsAsync(Guid agentId, CancellationToken cancellationToken);
     Task<IReadOnlyList<Shipment>> GetAllShipmentsAsync(CancellationToken cancellationToken);
     Task<IReadOnlyList<Shipment>> GetShipmentsByIdsAsync(IReadOnlyCollection<Guid> shipmentIds, CancellationToken cancellationToken);
     Task<ShipmentOpsState?> GetShipmentOpsStateAsync(Guid shipmentId, CancellationToken cancellationToken);

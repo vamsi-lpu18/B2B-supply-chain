@@ -1,5 +1,6 @@
-using IdentityAuth.Application.Abstractions;
 using IdentityAuth.Application.DTOs;
+using IdentityAuth.Application.Features.Auth;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -9,14 +10,14 @@ namespace IdentityAuth.API.Controllers;
 
 [ApiController]
 [Route("api/auth")]
-public sealed class AuthController(IIdentityAuthService identityAuthService) : ControllerBase
+public sealed class AuthController(ISender sender) : ControllerBase
 {
     [HttpPost("register")]
     [AllowAnonymous]
     [ProducesResponseType(typeof(RegisterDealerResponse), StatusCodes.Status201Created)]
     public async Task<IActionResult> Register([FromBody] RegisterDealerRequest request, CancellationToken cancellationToken)
     {
-        var response = await identityAuthService.RegisterDealerAsync(request, cancellationToken);
+        var response = await sender.Send(new RegisterDealerCommand(request), cancellationToken);
         return CreatedAtAction(nameof(Register), new { id = response.UserId }, response);
     }
 
@@ -25,7 +26,7 @@ public sealed class AuthController(IIdentityAuthService identityAuthService) : C
     [ProducesResponseType(typeof(AuthResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> Login([FromBody] LoginRequest request, CancellationToken cancellationToken)
     {
-        var response = await identityAuthService.LoginAsync(request, cancellationToken);
+        var response = await sender.Send(new LoginCommand(request), cancellationToken);
         SetRefreshCookie(response.RefreshToken, response.RefreshTokenExpiresAtUtc);
         return Ok(response with { RefreshToken = string.Empty });
     }
@@ -40,7 +41,7 @@ public sealed class AuthController(IIdentityAuthService identityAuthService) : C
             return Unauthorized(new { message = "Refresh token cookie is missing." });
         }
 
-        var response = await identityAuthService.RefreshTokenAsync(refreshToken, cancellationToken);
+        var response = await sender.Send(new RefreshTokenCommand(refreshToken), cancellationToken);
         SetRefreshCookie(response.RefreshToken, response.RefreshTokenExpiresAtUtc);
         return Ok(response with { RefreshToken = string.Empty });
     }
@@ -49,7 +50,7 @@ public sealed class AuthController(IIdentityAuthService identityAuthService) : C
     [AllowAnonymous]
     public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequest request, CancellationToken cancellationToken)
     {
-        await identityAuthService.ForgotPasswordAsync(request, cancellationToken);
+        await sender.Send(new ForgotPasswordCommand(request), cancellationToken);
         return Ok(new { message = "If the account exists, an OTP has been sent." });
     }
 
@@ -57,7 +58,7 @@ public sealed class AuthController(IIdentityAuthService identityAuthService) : C
     [AllowAnonymous]
     public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request, CancellationToken cancellationToken)
     {
-        await identityAuthService.ResetPasswordAsync(request, cancellationToken);
+        await sender.Send(new ResetPasswordCommand(request), cancellationToken);
         return Ok(new { message = "Password reset successful." });
     }
 
@@ -81,7 +82,9 @@ public sealed class AuthController(IIdentityAuthService identityAuthService) : C
             tokenExpiresAtUtc = DateTimeOffset.FromUnixTimeSeconds(expUnix).UtcDateTime;
         }
 
-        await identityAuthService.LogoutAsync(userId, jti, tokenExpiresAtUtc, request?.RefreshToken, cancellationToken);
+        await sender.Send(
+            new LogoutCommand(userId, jti, tokenExpiresAtUtc, request?.RefreshToken),
+            cancellationToken);
 
         Response.Cookies.Delete("refreshToken");
         return Ok(new { message = "Logged out successfully." });

@@ -2,6 +2,7 @@ using FluentValidation;
 using Notification.Application.Abstractions;
 using Notification.Application.DTOs;
 using Notification.Domain.Entities;
+using System.Collections.Concurrent;
 
 namespace Notification.Application.Services;
 
@@ -12,6 +13,8 @@ public sealed class NotificationService(
     IValidator<MarkNotificationFailedRequest> failedValidator)
     : INotificationService
 {
+    private static readonly ConcurrentDictionary<Guid, DateTime> ReadState = new();
+
     public async Task<NotificationDto> CreateManualAsync(CreateManualNotificationRequest request, CancellationToken cancellationToken)
     {
         await manualValidator.ValidateAndThrowAsync(request, cancellationToken);
@@ -88,8 +91,34 @@ public sealed class NotificationService(
         return true;
     }
 
+    public async Task<bool> MarkReadAsync(Guid notificationId, CancellationToken cancellationToken)
+    {
+        var message = await notificationRepository.GetByIdAsync(notificationId, cancellationToken);
+        if (message is null)
+        {
+            return false;
+        }
+
+        ReadState[notificationId] = DateTime.UtcNow;
+        return true;
+    }
+
+    public async Task<bool> MarkUnreadAsync(Guid notificationId, CancellationToken cancellationToken)
+    {
+        var message = await notificationRepository.GetByIdAsync(notificationId, cancellationToken);
+        if (message is null)
+        {
+            return false;
+        }
+
+        ReadState.TryRemove(notificationId, out _);
+        return true;
+    }
+
     private static NotificationDto Map(NotificationMessage message)
     {
+        var isRead = ReadState.TryGetValue(message.NotificationId, out var readAtUtc);
+
         return new NotificationDto(
             message.NotificationId,
             message.RecipientUserId,
@@ -101,6 +130,8 @@ public sealed class NotificationService(
             message.Status,
             message.CreatedAtUtc,
             message.SentAtUtc,
-            message.FailureReason);
+            message.FailureReason,
+            isRead,
+            isRead ? readAtUtc : null);
     }
 }

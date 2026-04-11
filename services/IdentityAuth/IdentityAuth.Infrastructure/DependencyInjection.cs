@@ -5,6 +5,7 @@ using IdentityAuth.Infrastructure.Integrations;
 using IdentityAuth.Infrastructure.Persistence;
 using IdentityAuth.Infrastructure.Repositories;
 using IdentityAuth.Infrastructure.Security;
+using BuildingBlocks.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +22,7 @@ public static class DependencyInjection
             ?? throw new InvalidOperationException("Connection string 'Redis' is missing.");
 
         services.AddDbContext<IdentityAuthDbContext>(options => options.UseSqlServer(sqlConnection));
+        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<IdentityAuthDbContext>());
         services.AddPlatformRedis(redisConnection);
         services.AddScoped<IUserRepository, IdentityUserRepository>();
         services.AddSingleton<ITokenService, JwtTokenService>();

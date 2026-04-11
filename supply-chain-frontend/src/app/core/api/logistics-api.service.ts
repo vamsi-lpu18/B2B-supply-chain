@@ -35,6 +35,10 @@ export class LogisticsApiService {
     return this.http.get<ShipmentDto[]>(this.base);
   }
 
+  getAssignedShipments(): Observable<ShipmentDto[]> {
+    return this.http.get<ShipmentDto[]>(`${this.base}/assigned`);
+  }
+
   assignAgent(shipmentId: string, req: AssignAgentRequest): Observable<unknown> {
     return this.http.put(`${this.base}/${shipmentId}/assign-agent`, req);
   }

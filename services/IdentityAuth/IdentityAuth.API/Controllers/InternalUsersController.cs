@@ -1,4 +1,5 @@
-using IdentityAuth.Application.Abstractions;
+using IdentityAuth.Application.Features.Auth;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,7 +9,7 @@ namespace IdentityAuth.API.Controllers;
 [Route("api/internal/users")]
 [AllowAnonymous]
 public sealed class InternalUsersController(
-    IIdentityAuthService identityAuthService,
+    ISender sender,
     IConfiguration configuration) : ControllerBase
 {
     [HttpGet("{id:guid}/contact")]
@@ -22,7 +23,7 @@ public sealed class InternalUsersController(
             return Unauthorized(new { message = "Invalid internal API key." });
         }
 
-        var contact = await identityAuthService.GetInternalUserContactAsync(id, cancellationToken);
+        var contact = await sender.Send(new GetInternalUserContactQuery(id), cancellationToken);
         return contact is null ? NotFound() : Ok(contact);
     }
 

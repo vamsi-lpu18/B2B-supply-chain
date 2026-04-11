@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Hey\\Desktop\\demo\\services\\IdentityAuth\\IdentityAuth.Domain\\IdentityAuth.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Hey\\Desktop\\demo\\services\\IdentityAuth\\IdentityAuth.Domain\\IdentityAuth.Domain.csproj",
       "projectName": "IdentityAuth.Domain",
-      "projectPath": "c:\\Users\\Hey\\Desktop\\demo\\services\\IdentityAuth\\IdentityAuth.Domain\\IdentityAuth.Domain.csproj",
+      "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\services\\IdentityAuth\\IdentityAuth.Domain\\IdentityAuth.Domain.csproj",
       "packagesPath": "C:\\Users\\Hey\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Hey\\Desktop\\demo\\services\\IdentityAuth\\IdentityAuth.Domain\\obj\\",
+      "outputPath": "C:\\Users\\Hey\\Desktop\\demo\\services\\IdentityAuth\\IdentityAuth.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hey\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -51,8 +51,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
-              "projectPath": "c:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
+            "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj": {
+              "projectPath": "C:\\Users\\Hey\\Desktop\\demo\\src\\SharedKernel\\SharedKernel.csproj"
             }
           }
         }

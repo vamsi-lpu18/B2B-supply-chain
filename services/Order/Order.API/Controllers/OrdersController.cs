@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Order.Application.Abstractions;
 using Order.Application.DTOs;
+using Order.Application.Features.Orders;
 using Order.Domain.Enums;
+using MediatR;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 
@@ -11,7 +12,7 @@ namespace Order.API.Controllers;
 [ApiController]
 [Route("api/orders")]
 [Authorize]
-public sealed class OrdersController(IOrderService orderService) : ControllerBase
+public sealed class OrdersController(ISender sender) : ControllerBase
 {
     [HttpPost]
     [Authorize(Roles = "Dealer")]
@@ -23,7 +24,7 @@ public sealed class OrdersController(IOrderService orderService) : ControllerBas
             return Unauthorized(new { message = "Invalid token." });
         }
 
-        var order = await orderService.CreateOrderAsync(userId, request, cancellationToken);
+        var order = await sender.Send(new CreateOrderCommand(userId, request), cancellationToken);
         return CreatedAtAction(nameof(GetById), new { id = order.OrderId }, order);
     }
 
@@ -37,7 +38,7 @@ public sealed class OrdersController(IOrderService orderService) : ControllerBas
             return Unauthorized(new { message = "Invalid token." });
         }
 
-        var result = await orderService.GetDealerOrdersAsync(userId, page, pageSize, cancellationToken);
+        var result = await sender.Send(new GetDealerOrdersQuery(userId, page, pageSize), cancellationToken);
         return Ok(result);
     }
 
@@ -52,7 +53,7 @@ public sealed class OrdersController(IOrderService orderService) : ControllerBas
         }
 
         var role = User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? string.Empty;
-        var order = await orderService.GetOrderAsync(id, userId, role, cancellationToken);
+        var order = await sender.Send(new GetOrderQuery(id, userId, role), cancellationToken);
         return order is null ? NotFound() : Ok(order);
     }
 
@@ -67,7 +68,7 @@ public sealed class OrdersController(IOrderService orderService) : ControllerBas
         }
 
         var role = User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? string.Empty;
-        var order = await orderService.GetOrderAsync(id, userId, role, cancellationToken);
+        var order = await sender.Send(new GetOrderQuery(id, userId, role), cancellationToken);
         if (order is null)
         {
             return NotFound();
@@ -88,7 +89,7 @@ public sealed class OrdersController(IOrderService orderService) : ControllerBas
         }
 
         var role = User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? "System";
-        var updated = await orderService.UpdateOrderStatusAsync(id, request.NewStatus, userId, role, cancellationToken);
+        var updated = await sender.Send(new UpdateOrderStatusCommand(id, request.NewStatus, userId, role), cancellationToken);
         return updated ? Ok(new { message = "Status updated." }) : NotFound();
     }
 
@@ -102,7 +103,7 @@ public sealed class OrdersController(IOrderService orderService) : ControllerBas
         }
 
         var role = User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? "System";
-        var cancelled = await orderService.CancelOrderAsync(id, request.Reason, userId, role, cancellationToken);
+        var cancelled = await sender.Send(new CancelOrderCommand(id, request.Reason, userId, role), cancellationToken);
         return cancelled ? Ok(new { message = "Order cancelled." }) : NotFound();
     }
 
@@ -115,7 +116,7 @@ public sealed class OrdersController(IOrderService orderService) : ControllerBas
             return Unauthorized(new { message = "Invalid token." });
         }
 
-        var requested = await orderService.RequestReturnAsync(id, userId, request.Reason, cancellationToken);
+        var requested = await sender.Send(new RequestReturnCommand(id, userId, request.Reason), cancellationToken);
         return requested ? Ok(new { message = "Return request submitted." }) : NotFound();
     }
 

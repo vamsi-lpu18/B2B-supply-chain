@@ -4,6 +4,7 @@ using LogisticsTracking.Infrastructure.Ai;
 using LogisticsTracking.Infrastructure.Background;
 using LogisticsTracking.Infrastructure.Persistence;
 using LogisticsTracking.Infrastructure.Repositories;
+using BuildingBlocks.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,7 @@ public static class DependencyInjection
             ?? throw new InvalidOperationException("Connection string 'Redis' is missing.");
 
         services.AddDbContext<LogisticsTrackingDbContext>(options => options.UseSqlServer(sqlConnection));
+        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<LogisticsTrackingDbContext>());
         services.AddPlatformRedis(redisConnection);
         services.AddScoped<IShipmentRepository, ShipmentRepository>();
         services.Configure<ShipmentAiProviderOptions>(configuration.GetSection("Ai"));

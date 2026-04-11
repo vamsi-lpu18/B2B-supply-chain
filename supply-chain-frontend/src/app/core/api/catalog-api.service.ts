@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import {
   CreateProductRequest, UpdateProductRequest, RestockProductRequest,
   ProductDto, ProductListItemDto, StockLevelDto, CategoryDto,
-  SoftLockStockRequest, HardDeductStockRequest, ReleaseSoftLockRequest, StockSubscriptionRequest
+  SoftLockStockRequest, HardDeductStockRequest, ReleaseSoftLockRequest, StockSubscriptionRequest,
+  ProductReviewDto, CreateProductReviewRequest, ModerateProductReviewRequest
 } from '../models/catalog.models';
 import { PagedResult } from '../models/shared.models';
 
@@ -56,6 +57,23 @@ export class CatalogApiService {
 
   restockProduct(id: string, req: RestockProductRequest): Observable<unknown> {
     return this.http.post(`${this.products}/${id}/restock`, req);
+  }
+
+  getProductReviews(id: string, includePending = false): Observable<ProductReviewDto[]> {
+    const params = new HttpParams().set('includePending', String(includePending));
+    return this.http.get<ProductReviewDto[]>(`${this.products}/${id}/reviews`, { params });
+  }
+
+  createProductReview(id: string, req: CreateProductReviewRequest): Observable<ProductReviewDto> {
+    return this.http.post<ProductReviewDto>(`${this.products}/${id}/reviews`, req);
+  }
+
+  approveProductReview(reviewId: string, req: ModerateProductReviewRequest): Observable<ProductReviewDto> {
+    return this.http.put<ProductReviewDto>(`${this.products}/reviews/${reviewId}/approve`, req);
+  }
+
+  rejectProductReview(reviewId: string, req: ModerateProductReviewRequest): Observable<ProductReviewDto> {
+    return this.http.put<ProductReviewDto>(`${this.products}/reviews/${reviewId}/reject`, req);
   }
 
   // Inventory

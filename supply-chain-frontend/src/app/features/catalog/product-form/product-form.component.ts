@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit, input } from '@angular/core';
+import { Component, computed, inject, signal, OnInit, input } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -6,12 +6,17 @@ import { CatalogApiService } from '../../../core/api/catalog-api.service';
 import { ToastService } from '../../../core/services/toast.service';
 import { CategoryDto } from '../../../core/models/catalog.models';
 
+interface CategoryOptionEntry {
+  category: CategoryDto;
+  label: string;
+}
+
 @Component({
   selector: 'app-product-form',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, RouterLink],
   template: `
-    <div class="page-content">
+    <div class="page-content feature-catalog">
       <div class="page-header">
         <h1>{{ isEdit() ? 'Edit Product' : 'Create Product' }}</h1>
         <a routerLink="/products" class="btn btn-secondary">Cancel</a>
@@ -51,8 +56,8 @@ import { CategoryDto } from '../../../core/models/catalog.models';
               <label>Category *</label>
               <select class="form-control" formControlName="categoryId" [disabled]="categoriesLoading() || categories().length === 0">
                 <option value="">Select category</option>
-                @for (category of categories(); track category.categoryId) {
-                  <option [value]="category.categoryId">{{ category.name }}</option>
+                @for (entry of categoryOptions(); track entry.category.categoryId) {
+                  <option [value]="entry.category.categoryId">{{ entry.label }}</option>
                 }
               </select>
               @if (categoriesLoading()) { <small>Loading categories...</small> }
@@ -108,6 +113,40 @@ export class ProductFormComponent implements OnInit {
   readonly categories = signal<CategoryDto[]>([]);
   readonly categoriesLoading = signal(false);
   readonly categoryLoadFailed = signal(false);
+  readonly categoryOptions = computed<CategoryOptionEntry[]>(() => {
+    const categories = this.categories();
+    const roots = categories
+      .filter(category => !category.parentCategoryId)
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    const byParent = new Map<string, CategoryDto[]>();
+    categories.forEach(category => {
+      if (!category.parentCategoryId) {
+        return;
+      }
+
+      if (!byParent.has(category.parentCategoryId)) {
+        byParent.set(category.parentCategoryId, []);
+      }
+
+      byParent.get(category.parentCategoryId)!.push(category);
+    });
+
+    byParent.forEach((items, key) => {
+      byParent.set(key, [...items].sort((a, b) => a.name.localeCompare(b.name)));
+    });
+
+    const entries: CategoryOptionEntry[] = [];
+    for (const root of roots) {
+      entries.push({ category: root, label: root.name });
+      const children = byParent.get(root.categoryId) ?? [];
+      for (const child of children) {
+        entries.push({ category: child, label: `↳ ${child.name}` });
+      }
+    }
+
+    return entries;
+  });
 
   readonly form = this.fb.group({
     sku:          ['', [Validators.required, Validators.maxLength(60), Validators.pattern(/^[A-Za-z0-9-_]+$/)]],

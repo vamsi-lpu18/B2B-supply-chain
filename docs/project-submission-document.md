@@ -64,25 +64,30 @@ The system supports 5 primary roles:
 - Product activation/deactivation
 - Restock operation for Admin/Warehouse
 - Product browse/search/detail for user journeys
+- Product reviews with admin moderation (approve/reject)
 - Inventory soft lock, hard deduct, and release
 - Stock subscription/unsubscription for alerts
 
 ### 5.3 Order Management
 - Dealer order placement
 - Dealer order list and order details
+- Order saga state visibility per order
 - Role-based order status updates
 - Order cancel flow
 - Return request flow
 - Credit hold path with approval/rejection
+- Admin return approval/rejection operations
 - Bulk status transitions for staff/admin operations
 
 ### 5.4 Logistics Tracking
 - Shipment creation
 - Shipment list/detail by role
+- Agent assigned-shipment view
 - Agent and vehicle assignment
 - Shipment status updates across delivery lifecycle
 - Shipment ops-state read and upsert APIs
 - Batch ops-state query for operational dashboards
+- AI recommendation generation and approval for shipment handling
 
 ### 5.5 Payment and Invoice
 - Dealer account seeding
@@ -98,7 +103,7 @@ The system supports 5 primary roles:
 - Integration event ingest API
 - Recipient-specific notification feed
 - Admin view of all notifications
-- Notification sent/failed state updates
+- Notification sent/failed/read/unread state updates
 - Email dispatch and digest processing
 
 ## 6. Verified Technology Stack

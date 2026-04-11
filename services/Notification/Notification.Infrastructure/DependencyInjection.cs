@@ -5,6 +5,7 @@ using Notification.Infrastructure.Email;
 using Notification.Infrastructure.Integrations;
 using Notification.Infrastructure.Persistence;
 using Notification.Infrastructure.Repositories;
+using BuildingBlocks.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +22,7 @@ public static class DependencyInjection
             ?? throw new InvalidOperationException("Connection string 'Redis' is missing.");
 
         services.AddDbContext<NotificationDbContext>(options => options.UseSqlServer(sqlConnection));
+        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<NotificationDbContext>());
         services.AddPlatformRedis(redisConnection);
         services.AddScoped<INotificationRepository, NotificationRepository>();
         services.AddScoped<SmtpEmailSender>();

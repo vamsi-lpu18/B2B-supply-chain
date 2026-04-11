@@ -1,4 +1,5 @@
-using IdentityAuth.Application.Abstractions;
+using IdentityAuth.Application.Features.Auth;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -9,7 +10,7 @@ namespace IdentityAuth.API.Controllers;
 [ApiController]
 [Route("api/users")]
 [Authorize]
-public sealed class UsersController(IIdentityAuthService identityAuthService) : ControllerBase
+public sealed class UsersController(ISender sender) : ControllerBase
 {
     [HttpGet("profile")]
     public async Task<IActionResult> GetProfile(CancellationToken cancellationToken)
@@ -21,7 +22,7 @@ public sealed class UsersController(IIdentityAuthService identityAuthService) : 
             return Unauthorized(new { message = "Invalid access token." });
         }
 
-        var profile = await identityAuthService.GetProfileAsync(userId, cancellationToken);
+        var profile = await sender.Send(new GetProfileQuery(userId), cancellationToken);
         return profile is null ? NotFound() : Ok(profile);
     }
 }

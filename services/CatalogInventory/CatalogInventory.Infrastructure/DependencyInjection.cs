@@ -4,6 +4,7 @@ using CatalogInventory.Infrastructure.Background;
 using CatalogInventory.Infrastructure.Cache;
 using CatalogInventory.Infrastructure.Persistence;
 using CatalogInventory.Infrastructure.Repositories;
+using BuildingBlocks.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,7 @@ public static class DependencyInjection
             ?? throw new InvalidOperationException("Connection string 'Redis' is missing.");
 
         services.AddDbContext<CatalogInventoryDbContext>(options => options.UseSqlServer(sqlConnection));
+        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<CatalogInventoryDbContext>());
         services.AddPlatformRedis(redisConnection);
         services.AddScoped<IProductRepository, CatalogInventoryRepository>();
         services.AddSingleton<IInventoryCacheStore, RedisInventoryCacheStore>();

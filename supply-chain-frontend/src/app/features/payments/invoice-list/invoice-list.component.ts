@@ -21,7 +21,7 @@ type InvoiceWorkflowComputedStatus = InvoiceWorkflowStatus | 'overdue';
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule],
   template: `
-    <div class="page-content">
+    <div class="page-content feature-payments">
       <div class="page-header">
         <h1>Invoices</h1>
         <button class="btn btn-secondary btn-sm" (click)="exportCsv()" [disabled]="invoices().length === 0">Export CSV</button>
