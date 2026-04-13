@@ -1,6 +1,8 @@
 using BuildingBlocks.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Order.Application.Abstractions;
+using Order.Application.DTOs;
+using Order.Domain.Enums;
 using Order.Domain.Entities;
 using Order.Infrastructure.Persistence;
 using System.Text.Json;
@@ -75,6 +77,107 @@ internal sealed class OrderRepository(OrderDbContext dbContext) : IOrderReposito
             .ToListAsync(cancellationToken);
 
         return (items, totalCount);
+    }
+
+    public async Task<OrderAnalyticsDto> GetOrderAnalyticsAsync(DateTime fromUtc, int top, CancellationToken cancellationToken)
+    {
+        var safeTop = Math.Clamp(top, 3, 20);
+        var toUtc = DateTime.UtcNow;
+
+        var analyticsOrders = dbContext.Orders
+            .AsNoTracking()
+            .Where(order => order.PlacedAtUtc >= fromUtc && order.Status != OrderStatus.Cancelled);
+
+        var summary = await analyticsOrders
+            .GroupBy(_ => 1)
+            .Select(group => new
+            {
+                TotalOrders = group.Count(),
+                TotalRevenue = group.Sum(order => order.TotalAmount),
+                UniqueDealers = group.Select(order => order.DealerId).Distinct().Count()
+            })
+            .FirstOrDefaultAsync(cancellationToken);
+
+        var totalOrders = summary?.TotalOrders ?? 0;
+        var totalRevenue = summary?.TotalRevenue ?? 0m;
+        var uniqueDealers = summary?.UniqueDealers ?? 0;
+        var averageOrderValue = totalOrders > 0
+            ? decimal.Round(totalRevenue / totalOrders, 2)
+            : 0m;
+
+        var orderIds = analyticsOrders.Select(order => order.OrderId);
+
+        var unitsSold = await dbContext.OrderLines
+            .AsNoTracking()
+            .Where(line => orderIds.Contains(line.OrderId))
+            .SumAsync(line => (int?)line.Quantity, cancellationToken) ?? 0;
+
+        var topDealers = await analyticsOrders
+            .GroupBy(order => order.DealerId)
+            .Select(group => new
+            {
+                DealerId = group.Key,
+                OrderCount = group.Count(),
+                TotalAmount = group.Sum(order => order.TotalAmount)
+            })
+            .OrderByDescending(item => item.TotalAmount)
+            .ThenByDescending(item => item.OrderCount)
+            .Take(safeTop)
+            .Select(item => new DealerPurchaseStatDto(
+                item.DealerId,
+                item.OrderCount,
+                item.TotalAmount))
+            .ToListAsync(cancellationToken);
+
+        var topProducts = await dbContext.OrderLines
+            .AsNoTracking()
+            .Where(line => orderIds.Contains(line.OrderId))
+            .GroupBy(line => new { line.ProductId, line.ProductName, line.Sku })
+            .Select(group => new
+            {
+                group.Key.ProductId,
+                group.Key.ProductName,
+                group.Key.Sku,
+                UnitsSold = group.Sum(line => line.Quantity),
+                Revenue = group.Sum(line => line.UnitPrice * line.Quantity)
+            })
+            .OrderByDescending(item => item.Revenue)
+            .ThenByDescending(item => item.UnitsSold)
+            .Take(safeTop)
+            .Select(item => new ProductPurchaseStatDto(
+                item.ProductId,
+                item.ProductName,
+                item.Sku,
+                item.UnitsSold,
+                item.Revenue))
+            .ToListAsync(cancellationToken);
+
+        var dailyRevenueRows = await analyticsOrders
+            .GroupBy(order => order.PlacedAtUtc.Date)
+            .Select(group => new
+            {
+                DayUtc = group.Key,
+                OrderCount = group.Count(),
+                Revenue = group.Sum(order => order.TotalAmount)
+            })
+            .OrderBy(point => point.DayUtc)
+            .ToListAsync(cancellationToken);
+
+        var dailyRevenue = dailyRevenueRows
+            .Select(point => new DailyRevenuePointDto(point.DayUtc, point.OrderCount, point.Revenue))
+            .ToList();
+
+        return new OrderAnalyticsDto(
+            fromUtc,
+            toUtc,
+            totalOrders,
+            totalRevenue,
+            averageOrderValue,
+            uniqueDealers,
+            unitsSold,
+            topDealers,
+            topProducts,
+            dailyRevenue);
     }
 
     public async Task AddOutboxMessageAsync(string eventType, object payload, CancellationToken cancellationToken)

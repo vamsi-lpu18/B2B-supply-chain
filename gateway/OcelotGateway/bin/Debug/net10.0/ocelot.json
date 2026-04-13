@@ -31,6 +31,116 @@
       "RequestIdKey": "X-Correlation-Id"
     },
     {
+      "Key": "identity-auth-public-lb-demo",
+      "DownstreamPathTemplate": "/api/auth/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 8001 },
+        { "Host": "localhost", "Port": 8101 }
+      ],
+      "UpstreamPathTemplate": "/identity-lb/api/auth/{everything}",
+      "UpstreamHttpMethod": ["POST"],
+      "Priority": 11,
+      "RequestIdKey": "X-Correlation-Id",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "Key": "identity-auth-lb-demo"
+      }
+    },
+    {
+      "Key": "catalog-public-lb-demo",
+      "DownstreamPathTemplate": "/api/products/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 8002 },
+        { "Host": "localhost", "Port": 8102 }
+      ],
+      "UpstreamPathTemplate": "/catalog-lb/api/products/{everything}",
+      "UpstreamHttpMethod": ["GET"],
+      "Priority": 11,
+      "RequestIdKey": "X-Correlation-Id",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "Key": "catalog-lb-demo"
+      }
+    },
+    {
+      "Key": "order-route-lb-demo",
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 8003 },
+        { "Host": "localhost", "Port": 8103 }
+      ],
+      "UpstreamPathTemplate": "/orders-lb/{everything}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "PATCH", "DELETE"],
+      "Priority": 11,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RequestIdKey": "X-Correlation-Id",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "Key": "order-lb-demo"
+      }
+    },
+    {
+      "Key": "logistics-route-lb-demo",
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 8004 },
+        { "Host": "localhost", "Port": 8104 }
+      ],
+      "UpstreamPathTemplate": "/logistics-lb/{everything}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "PATCH", "DELETE"],
+      "Priority": 11,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RequestIdKey": "X-Correlation-Id",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "Key": "logistics-lb-demo"
+      }
+    },
+    {
+      "Key": "payment-credit-check-public-lb-demo",
+      "DownstreamPathTemplate": "/api/payment/dealers/{dealerId}/credit-check",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 8005 },
+        { "Host": "localhost", "Port": 8105 }
+      ],
+      "UpstreamPathTemplate": "/payments-lb/api/payment/dealers/{dealerId}/credit-check",
+      "UpstreamHttpMethod": ["GET"],
+      "Priority": 11,
+      "RequestIdKey": "X-Correlation-Id",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "Key": "payment-lb-demo"
+      }
+    },
+    {
+      "Key": "notification-ingest-public-lb-demo",
+      "DownstreamPathTemplate": "/api/notifications/ingest",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 8006 },
+        { "Host": "localhost", "Port": 8106 }
+      ],
+      "UpstreamPathTemplate": "/notifications-lb/api/notifications/ingest",
+      "UpstreamHttpMethod": ["POST"],
+      "Priority": 11,
+      "RequestIdKey": "X-Correlation-Id",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin",
+        "Key": "notification-lb-demo"
+      }
+    },
+    {
       "Key": "identity-route-get",
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
@@ -182,10 +292,6 @@
         "PeriodTimespan": 60,
         "Limit": 500,
         "QuotaExceededMessage": "Gateway rate limit exceeded."
-      },
-      "FileCacheOptions": {
-        "TtlSeconds": 10,
-        "Region": "catalog"
       }
     },
     {

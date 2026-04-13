@@ -115,6 +115,8 @@ namespace Notification.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("RecipientUserId");
 
+                    b.HasIndex("RecipientUserId", "CreatedAtUtc");
+
                     b.ToTable("Notifications", (string)null);
                 });
 #pragma warning restore 612, 618

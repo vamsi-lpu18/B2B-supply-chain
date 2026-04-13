@@ -25,11 +25,35 @@ public sealed record AuthResponse(
     string AccessToken,
     DateTime AccessTokenExpiresAtUtc,
     string RefreshToken,
-    DateTime RefreshTokenExpiresAtUtc);
+    DateTime RefreshTokenExpiresAtUtc,
+    bool MustChangePassword);
+
+public sealed record CreateAgentRequest(
+    string Email,
+    string TemporaryPassword,
+    string FullName,
+    string PhoneNumber);
+
+public sealed record CreateAgentResponse(
+    Guid UserId,
+    string Email,
+    string FullName,
+    string Status,
+    string Message);
+
+public sealed record AgentSummaryDto(
+    Guid UserId,
+    string FullName,
+    string Email,
+    string PhoneNumber,
+    string Status,
+    DateTime CreatedAtUtc);
 
 public sealed record ForgotPasswordRequest(string Email);
 
 public sealed record ResetPasswordRequest(string Email, string OtpCode, string NewPassword);
+
+public sealed record ChangePasswordRequest(string CurrentPassword, string NewPassword);
 
 public sealed record LogoutRequest(string? RefreshToken);
 

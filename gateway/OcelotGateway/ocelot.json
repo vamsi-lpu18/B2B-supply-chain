@@ -292,10 +292,6 @@
         "PeriodTimespan": 60,
         "Limit": 500,
         "QuotaExceededMessage": "Gateway rate limit exceeded."
-      },
-      "FileCacheOptions": {
-        "TtlSeconds": 10,
-        "Region": "catalog"
       }
     },
     {

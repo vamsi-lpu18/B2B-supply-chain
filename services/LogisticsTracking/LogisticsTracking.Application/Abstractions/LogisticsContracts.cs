@@ -12,6 +12,9 @@ public interface ILogisticsService
     Task<IReadOnlyList<ShipmentDto>> GetAgentShipmentsAsync(Guid agentId, CancellationToken cancellationToken);
     Task<IReadOnlyList<ShipmentDto>> GetAllShipmentsAsync(CancellationToken cancellationToken);
     Task<bool> AssignAgentAsync(Guid shipmentId, Guid agentId, Guid updatedByUserId, string updatedByRole, CancellationToken cancellationToken);
+    Task<bool> AcceptAssignmentAsync(Guid shipmentId, Guid agentId, Guid updatedByUserId, string updatedByRole, CancellationToken cancellationToken);
+    Task<bool> RejectAssignmentAsync(Guid shipmentId, Guid agentId, string reason, Guid updatedByUserId, string updatedByRole, CancellationToken cancellationToken);
+    Task<bool> RateDeliveryAgentAsync(Guid shipmentId, int rating, string? comment, Guid ratedByUserId, string ratedByRole, CancellationToken cancellationToken);
     Task<bool> AssignVehicleAsync(Guid shipmentId, string vehicleNumber, Guid updatedByUserId, string updatedByRole, CancellationToken cancellationToken);
     Task<bool> UpdateShipmentStatusAsync(Guid shipmentId, ShipmentStatus status, string note, Guid updatedByUserId, string updatedByRole, CancellationToken cancellationToken);
     Task<ShipmentOpsStateDto?> GetShipmentOpsStateAsync(Guid shipmentId, CancellationToken cancellationToken);

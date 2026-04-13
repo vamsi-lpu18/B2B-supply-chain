@@ -30,3 +30,15 @@ C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Applicati
 C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\LogisticsTracking.Application.deps.json
 C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\LogisticsTracking.Application.dll
 C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\LogisticsTracking.Application.pdb
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\artifacts\build-check\logistics-api\LogisticsTracking.Application.deps.json
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\artifacts\build-check\logistics-api\LogisticsTracking.Application.dll
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\artifacts\build-check\logistics-api\LogisticsTracking.Application.pdb
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\artifacts\build-check\logistics-api\BuildingBlocks.dll
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\artifacts\build-check\logistics-api\LogisticsTracking.Domain.dll
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\artifacts\build-check\logistics-api\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\artifacts\build-check\logistics-api\LogisticsTracking.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\artifacts\build-check\logistics-api\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\artifacts\build-check\logistics-api\BuildingBlocks.pdb
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-role-hardening\LogisticsTracking.Application.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-role-hardening\LogisticsTracking.Application.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-role-hardening\LogisticsTracking.Application.pdb

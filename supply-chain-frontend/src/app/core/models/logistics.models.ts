@@ -1,4 +1,4 @@
-import { ShipmentStatus } from './enums';
+import { AssignmentDecisionStatus, ShipmentStatus } from './enums';
 
 export interface CreateShipmentRequest {
   orderId: string;
@@ -15,6 +15,15 @@ export interface AssignAgentRequest {
 
 export interface AssignVehicleRequest {
   vehicleNumber: string;
+}
+
+export interface RejectAssignmentRequest {
+  reason: string;
+}
+
+export interface RateDeliveryAgentRequest {
+  rating: number;
+  comment?: string;
 }
 
 export interface UpdateShipmentStatusRequest {
@@ -42,6 +51,13 @@ export interface ShipmentDto {
   postalCode: string;
   assignedAgentId?: string;
   vehicleNumber?: string;
+  assignmentDecisionStatus: AssignmentDecisionStatus;
+  assignmentDecisionReason?: string;
+  assignmentDecisionAtUtc?: string;
+  deliveryAgentRating?: number;
+  deliveryAgentRatingComment?: string;
+  deliveryAgentRatedAtUtc?: string;
+  deliveryAgentRatedByUserId?: string;
   status: ShipmentStatus;
   createdAtUtc: string;
   deliveredAtUtc?: string;

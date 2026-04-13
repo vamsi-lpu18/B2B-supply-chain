@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SupplyChain — Premium UI Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN SYSTEM TOKENS
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Brand palette */
+  --brand-50:  #eef4fb;
+  --brand-100: #dbe7f5;
+  --brand-200: #b8d0eb;
+  --brand-300: #8bb3db;
+  --brand-400: #6096c7;
+  --brand-500: #4178ad;
+  --brand-600: #335f8e;
+  --brand-700: #2b4d73;
+  --brand-800: #263f5e;
+  --brand-900: #1b2d44;
+
+  /* Accent — Amber */
+  --amber-50: #fffbeb; --amber-100: #fef3c7; --amber-200: #fde68a;
+  --amber-400: #fbbf24; --amber-500: #f59e0b; --amber-600: #d97706;
+
+  /* Accent — Emerald */
+  --emerald-50: #ecfdf5; --emerald-100: #d1fae5; --emerald-200: #a7f3d0;
+  --emerald-400: #34d399; --emerald-500: #10b981; --emerald-600: #059669;
+
+  /* Accent — Violet */
+  --violet-50: #f5f3ff; --violet-100: #ede9fe; --violet-200: #ddd6fe;
+  --violet-400: #a78bfa; --violet-500: #8b5cf6; --violet-600: #7c3aed;
+
+  /* Semantic */
+  --success: #10b981; --success-bg: #ecfdf5; --success-text: #065f46;
+  --warning: #f59e0b; --warning-bg: #fffbeb; --warning-text: #92400e;
+  --error:   #ef4444; --error-bg:   #fef2f2; --error-text:   #991b1b;
+  --info:    #3b82f6; --info-bg:    #eff6ff; --info-text:    #1e40af;
+
+  /* Neutrals */
+  --gray-50:  #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
+  --gray-600: #475569; --gray-700: #334155; --gray-800: #1e293b;
+  --gray-900: #0f172a;
+
+  /* Surface */
+  --bg: #f0f4f8;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+
+  /* Layout */
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 72px;
+  --topbar-height: 64px;
+
+  /* Radius */
+  --r-sm: 6px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px; --r-2xl: 20px; --r-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.08), 0 4px 6px -4px rgba(0,0,0,.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,.08), 0 8px 10px -6px rgba(0,0,0,.04);
+
+  /* Transitions */
+  --ease: cubic-bezier(.22,1,.36,1);
+  --ease-spring: cubic-bezier(.34,1.56,.64,1);
+  --t-fast: 150ms;
+  --t-base: 200ms;
+  --t-slow: 300ms;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESET & BASE
+   ═══════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; height: 100%; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4 { font-family: var(--font-display); }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+
+/* ═══════════════════════════════════════════════════════════════
+   DEMO PAGE WRAPPER
+   ═══════════════════════════════════════════════════════════════ */
+.demo-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+.demo-section {
+  margin-bottom: 60px;
+}
+.demo-section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -.03em;
+}
+.demo-section-desc {
+  color: var(--text-secondary);
+  font-size: .9rem;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.demo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--brand-50);
+  color: var(--brand-700);
+  border: 1px solid var(--brand-200);
+  border-radius: var(--r-full);
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 16px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   1. APP SHELL — SIDEBAR + TOPBAR
+   ═══════════════════════════════════════════════════════════════ */
+.shell {
+  display: flex;
+  height: 600px;
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xl);
+  background: var(--bg);
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: width var(--t-slow) var(--ease);
+  overflow: hidden;
+}
+
+.sidebar-header {
+  padding: 20px 20px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-logo {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-400) 100%);
+  border-radius: var(--r-lg);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(51,95,142,.3);
+}
+.sidebar-logo svg { width: 20px; height: 20px; }
+
+.sidebar-brand {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.sidebar-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+.sidebar-brand-sub {
+  font-size: .65rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-weight: 600;
+}
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 10px;
+}
+
+.nav-group {
+  margin-bottom: 8px;
+}
+.nav-group-label {
+  font-size: .65rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  padding: 8px 12px 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--r-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: .85rem;
+  font-weight: 600;
+  transition: all var(--t-fast) var(--ease);
+  position: relative;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.nav-item:hover {
+  background: var(--gray-50);
+  color: var(--text-primary);
+}
+.nav-item.active {
+  background: var(--brand-50);
+  color: var(--brand-700);
+  font-weight: 700;
+  border-color: var(--brand-100);
+}
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: var(--brand-600);
+  border-radius: 0 var(--r-full) var(--r-full) 0;
+}
+
+.nav-icon {
+  width: 18px; height: 18px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  opacity: .7;
+}
+.nav-item.active .nav-icon { opacity: 1; }
+.nav-item:hover .nav-icon { opacity: 1; }
+
+.nav-badge {
+  margin-left: auto;
+  min-width: 20px; height: 20px;
+  background: var(--brand-600);
+  color: #fff;
+  border-radius: var(--r-full);
+  font-size: .65rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 6px;
+}
+
+/* Sidebar footer */
+.sidebar-footer {
+  padding: 12px;
+  border-top: 1px solid var(--border);
+}
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--r-lg);
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease);
+}
+.sidebar-profile:hover {
+  background: var(--gray-50);
+}
+.sidebar-avatar {
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, var(--brand-600), var(--violet-500));
+  border-radius: var(--r-full);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: .8rem;
+  flex-shrink: 0;
+}
+.sidebar-profile-info { flex: 1; min-width: 0; }
+.sidebar-profile-name {
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+.sidebar-profile-role {
+  font-size: .7rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.sidebar-collapse-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  color: var(--text-tertiary);
+  font-size: .75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-fast) var(--ease);
+  font-family: inherit;
+}
+.sidebar-collapse-btn:hover {
+  background: var(--gray-100);
+  color: var(--text-secondary);
+}
+
+/* TOPBAR */
+.topbar {
+  height: var(--topbar-height);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.topbar-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .8125rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+.topbar-breadcrumb span { color: var(--text-primary); font-weight: 600; }
+
+.topbar-search {
+  flex: 1;
+  max-width: 400px;
+  margin-left: 16px;
+  position: relative;
+}
+.topbar-search input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  font-size: .8125rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--surface-2);
+  outline: none;
+  transition: all var(--t-base) var(--ease);
+}
+.topbar-search input::placeholder { color: var(--text-tertiary); }
+.topbar-search input:focus {
+  border-color: var(--brand-300);
+  box-shadow: 0 0 0 3px rgba(65,120,173,.12);
+  background: var(--surface);
+}
+.topbar-search-icon {
+  position: absolute;
+  left: 10px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+}
+.topbar-search-icon svg { width: 16px; height: 16px; }
+
+.topbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.topbar-icon-btn {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--r-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: all var(--t-fast) var(--ease);
+  position: relative;
+}
+.topbar-icon-btn:hover {
+  background: var(--gray-100);
+  color: var(--text-primary);
+}
+.topbar-icon-btn svg { width: 18px; height: 18px; }
+.topbar-notif-dot {
+  position: absolute;
+  top: 6px; right: 6px;
+  width: 8px; height: 8px;
+  background: var(--error);
+  border-radius: 50%;
+  border: 2px solid var(--surface);
+  animation: pulse 2s infinite;
+}
+
+/* Main content area */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--bg);
+}
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   2. STAT CARDS
+   ═══════════════════════════════════════════════════════════════ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: all var(--t-base) var(--ease);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 0 var(--r-full) var(--r-full) 0;
+}
+.stat-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+}
+
+.stat-card.accent-blue::before { background: var(--brand-500); }
+.stat-card.accent-emerald::before { background: var(--emerald-500); }
+.stat-card.accent-amber::before { background: var(--amber-500); }
+.stat-card.accent-violet::before { background: var(--violet-500); }
+
+.stat-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--r-lg);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+.stat-icon.blue    { background: var(--brand-50);   color: var(--brand-600); }
+.stat-icon.emerald { background: var(--emerald-50); color: var(--emerald-600); }
+.stat-icon.amber   { background: var(--amber-50);   color: var(--amber-600); }
+.stat-icon.violet  { background: var(--violet-50);  color: var(--violet-600); }
+
+.stat-body { flex: 1; min-width: 0; }
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -.03em;
+  line-height: 1;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-size: .8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+.stat-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: .72rem;
+  font-weight: 700;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+}
+.stat-trend.up   { color: var(--success-text); background: var(--success-bg); }
+.stat-trend.down { color: var(--error-text);   background: var(--error-bg); }
+
+/* ═══════════════════════════════════════════════════════════════
+   3. TABLE
+   ═══════════════════════════════════════════════════════════════ */
+.table-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.table-title {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.table-title-icon {
+  width: 28px; height: 28px;
+  background: var(--brand-50);
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+.view-all {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--brand-600);
+  text-decoration: none;
+  transition: color var(--t-fast) var(--ease);
+}
+.view-all:hover { color: var(--brand-700); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table thead th {
+  padding: 10px 16px;
+  text-align: left;
+  font-size: .68rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: all var(--t-fast) var(--ease);
+}
+table tbody tr:last-child { border-bottom: none; }
+table tbody tr:hover {
+  background: var(--brand-50);
+}
+table tbody tr:hover td:first-child {
+  box-shadow: inset 3px 0 0 var(--brand-400);
+}
+table tbody td {
+  padding: 12px 16px;
+  font-size: .85rem;
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+.mono {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  font-weight: 600;
+}
+.muted { color: var(--text-secondary); }
+
+/* Status badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.status-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.status-badge.success { background: var(--success-bg); color: var(--success-text); }
+.status-badge.warning { background: var(--warning-bg); color: var(--warning-text); }
+.status-badge.error   { background: var(--error-bg);   color: var(--error-text); }
+.status-badge.info    { background: var(--info-bg);     color: var(--info-text); }
+.status-badge.neutral { background: var(--gray-100);    color: var(--gray-600); }
+
+.status-badge.success::before { animation: statusPulse 2s ease-in-out infinite; }
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .5; transform: scale(.8); }
+}
+
+.row-link {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--brand-600);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+.row-link:hover { color: var(--brand-700); }
+
+/* ═══════════════════════════════════════════════════════════════
+   4. PRODUCT CARDS
+   ═══════════════════════════════════════════════════════════════ */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition: all var(--t-slow) var(--ease);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+.product-card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+  border-color: var(--brand-200);
+}
+
+/* Shine effect */
+.product-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.4) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .6s var(--ease);
+  pointer-events: none;
+  z-index: 3;
+}
+.product-card:hover::after {
+  transform: translateX(120%);
+}
+
+.product-img {
+  height: 160px;
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--brand-50) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 48px;
+  overflow: hidden;
+  position: relative;
+}
+.product-img span {
+  transition: transform var(--t-slow) var(--ease);
+}
+.product-card:hover .product-img span {
+  transform: scale(1.1);
+}
+
+.product-stock-badge {
+  position: absolute;
+  top: 10px; right: 10px;
+  padding: 3px 8px;
+  border-radius: var(--r-full);
+  font-size: .65rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all var(--t-base) var(--ease);
+  z-index: 2;
+}
+.product-card:hover .product-stock-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+.product-stock-badge.in-stock { background: var(--success-bg); color: var(--success-text); }
+.product-stock-badge.low-stock { background: var(--warning-bg); color: var(--warning-text); }
+
+.product-body {
+  padding: 14px 16px;
+}
+.product-name {
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+.product-sku {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  color: var(--text-tertiary);
+}
+.product-category {
+  font-size: .72rem;
+  color: var(--brand-600);
+  font-weight: 600;
+  margin-top: 4px;
+}
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.product-price {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--brand-700);
+  letter-spacing: -.02em;
+}
+.product-add-btn {
+  padding: 6px 14px;
+  background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+  color: #fff;
+  border: none;
+  border-radius: var(--r-md);
+  font-size: .75rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all var(--t-base) var(--ease);
+}
+.product-card:hover .product-add-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+.product-add-btn:hover {
+  box-shadow: 0 4px 12px rgba(43,77,115,.4);
+}
+.product-add-btn:active {
+  transform: scale(.96);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5. BUTTONS DEMO
+   ═══════════════════════════════════════════════════════════════ */
+.btn-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--r-lg);
+  font-size: .85rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all var(--t-base) var(--ease);
+  text-decoration: none;
+  line-height: 1.2;
+}
+.btn:active { transform: scale(.97); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand-700), var(--brand-500));
+  color: #fff;
+  border-color: var(--brand-700);
+  box-shadow: 0 4px 14px rgba(43,77,115,.3);
+}
+.btn-primary:hover {
+  box-shadow: 0 8px 20px rgba(43,77,115,.35);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+.btn-secondary:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+.btn-ghost:hover {
+  background: var(--gray-100);
+  color: var(--text-primary);
+}
+
+.btn-success {
+  background: var(--emerald-500);
+  color: #fff;
+  border-color: var(--emerald-600);
+}
+.btn-danger {
+  background: var(--error);
+  color: #fff;
+  border-color: #dc2626;
+}
+
+.btn-sm { padding: 6px 14px; font-size: .8rem; border-radius: var(--r-md); }
+.btn-lg { padding: 14px 28px; font-size: .95rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+   6. FORM CONTROLS
+   ═══════════════════════════════════════════════════════════════ */
+.form-demo {
+  max-width: 440px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2xl);
+  padding: 28px;
+  box-shadow: var(--shadow-lg);
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-label {
+  display: block;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--r-md);
+  font-size: .875rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--surface);
+  outline: none;
+  transition: all var(--t-base) var(--ease);
+}
+.form-control::placeholder { color: var(--text-tertiary); }
+.form-control:focus {
+  border-color: var(--brand-400);
+  box-shadow: 0 0 0 3px rgba(65,120,173,.12);
+}
+
+/* Input with icon */
+.input-icon-wrap {
+  position: relative;
+}
+.input-icon-wrap .form-control { padding-left: 40px; }
+.input-icon {
+  position: absolute;
+  left: 12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+}
+.input-icon svg { width: 16px; height: 16px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   7. BADGES / CHIPS
+   ═══════════════════════════════════════════════════════════════ */
+.chips-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.chip-blue    { background: var(--brand-50);   color: var(--brand-700);   border: 1px solid var(--brand-200); }
+.chip-emerald { background: var(--emerald-50); color: var(--emerald-600); border: 1px solid var(--emerald-200); }
+.chip-amber   { background: var(--amber-50);   color: var(--amber-600);   border: 1px solid var(--amber-200); }
+.chip-violet  { background: var(--violet-50);  color: var(--violet-600);  border: 1px solid var(--violet-200); }
+.chip-red     { background: var(--error-bg);   color: var(--error-text);  border: 1px solid #fecaca; }
+.chip-gray    { background: var(--gray-100);   color: var(--gray-600);    border: 1px solid var(--gray-200); }
+
+/* ═══════════════════════════════════════════════════════════════
+   8. EMPTY STATE
+   ═══════════════════════════════════════════════════════════════ */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-xl);
+}
+.empty-icon {
+  width: 64px; height: 64px;
+  background: var(--brand-50);
+  border-radius: var(--r-2xl);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-md);
+}
+.empty-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.empty-desc {
+  font-size: .85rem;
+  color: var(--text-secondary);
+  max-width: 300px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   9. QUICK ACTIONS
+   ═══════════════════════════════════════════════════════════════ */
+.qa-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.qa-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--t-base) var(--ease);
+}
+.qa-card:hover {
+  border-color: var(--brand-200);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.qa-card:hover .qa-icon {
+  transform: scale(1.1);
+}
+.qa-icon {
+  width: 40px; height: 40px;
+  border-radius: var(--r-lg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: transform var(--t-base) var(--ease-spring);
+}
+.qa-name { font-size: .85rem; font-weight: 700; color: var(--text-primary); }
+.qa-desc { font-size: .72rem; color: var(--text-secondary); margin-top: 1px; }
+.qa-arrow {
+  margin-left: auto;
+  color: var(--text-tertiary);
+  font-size: .85rem;
+  transition: transform var(--t-fast) var(--ease);
+}
+.qa-card:hover .qa-arrow { transform: translateX(3px); }
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
+}
+
+.stagger-1 { animation: fadeInUp .5s var(--ease) .05s both; }
+.stagger-2 { animation: fadeInUp .5s var(--ease) .1s both; }
+.stagger-3 { animation: fadeInUp .5s var(--ease) .15s both; }
+.stagger-4 { animation: fadeInUp .5s var(--ease) .2s both; }
+.stagger-5 { animation: fadeInUp .5s var(--ease) .25s both; }
+.stagger-6 { animation: fadeInUp .5s var(--ease) .3s both; }
+
+/* ═══════════════════════════════════════════════════════════════
+   COLOR PALETTE SWATCHES
+   ═══════════════════════════════════════════════════════════════ */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+.swatch {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.swatch-color {
+  height: 48px;
+}
+.swatch-info {
+  padding: 8px 10px;
+  background: var(--surface);
+}
+.swatch-name {
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.swatch-hex {
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  color: var(--text-tertiary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .qa-grid { grid-template-columns: 1fr; }
+  .demo-page { padding: 20px 12px; }
+  .shell { height: auto; flex-direction: column; }
+  .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+  .sidebar-nav { display: flex; overflow-x: auto; padding: 8px; }
+  .nav-group { display: flex; gap: 4px; margin-bottom: 0; }
+  .nav-group-label { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="demo-page">
+
+  <!-- ================================================================
+       HEADER
+       ================================================================ -->
+  <div style="text-align:center; margin-bottom:60px; padding-top:20px">
+    <div class="demo-badge">🚀 Premium UI Demo — Light Theme</div>
+    <h1 style="font-size:2.4rem; font-weight:700; letter-spacing:-.04em; line-height:1.1; margin-bottom:12px; background: linear-gradient(135deg, #1b2d44 0%, #4178ad 50%, #1b2d44 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent">
+      SupplyChain Platform
+    </h1>
+    <p style="color:var(--text-secondary); font-size:1rem; max-width:500px; margin:0 auto; font-weight:500">
+      Premium B2B SaaS interface — light theme with warm accent palette, collapsible sidebar, and refined micro-interactions.
+    </p>
+  </div>
+
+  <!-- ================================================================
+       1. APP SHELL (SIDEBAR + TOPBAR)
+       ================================================================ -->
+  <div class="demo-section">
+    <div class="demo-badge">Section 1</div>
+    <div class="demo-section-title">App Shell — Sidebar + Topbar</div>
+    <div class="demo-section-desc">Collapsible sidebar with grouped navigation, clean minimal topbar with search & profile.</div>
+
+    <div class="shell">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </div>
+          <div class="sidebar-brand">
+            <div class="sidebar-brand-name">SupplyChain</div>
+            <div class="sidebar-brand-sub">Platform</div>
+          </div>
+        </div>
+
+        <div class="sidebar-nav">
+          <div class="nav-group">
+            <div class="nav-group-label">Overview</div>
+            <a class="nav-item active" href="#">
+              <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></span>
+              Dashboard
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-group-label">Catalog</div>
+            <a class="nav-item" href="#">
+              <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></span>
+              Products
+            </a>
+            <a class="nav-item" href="#">
+              <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>
+              Cart
+              <span class="nav-badge">3</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-group-label">Operations</div>
+            <a class="nav-item" href="#">
+              <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+              Orders
+            </a>
+            <a class="nav-item" href="#">
+              <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+              Shipments
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-group-label">Finance</div>
+            <a class="nav-item" href="#">
+              <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+              Invoices
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-group-label">System</div>
+            <a class="nav-item" href="#">
+              <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
+              Notifications
+            </a>
+            <a class="nav-item" href="#">
+              <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+              Dealers
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-profile">
+            <div class="sidebar-avatar">V</div>
+            <div class="sidebar-profile-info">
+              <div class="sidebar-profile-name">Vamsi</div>
+              <div class="sidebar-profile-role">Admin</div>
+            </div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <button class="sidebar-collapse-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg>
+            Collapse
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Area -->
+      <div class="main-area">
+        <div class="topbar">
+          <div class="topbar-breadcrumb">
+            Overview / <span>Dashboard</span>
+          </div>
+          <div class="topbar-search">
+            <span class="topbar-search-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+            <input type="text" placeholder="Search orders, products, shipments...">
+          </div>
+          <div class="topbar-right">
+            <button class="topbar-icon-btn" title="Notifications">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <span class="topbar-notif-dot"></span>
+            </button>
+            <button class="topbar-icon-btn" title="Settings">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="main-content">
+          <!-- Dashboard preview content -->
+          <div style="margin-bottom:20px">
+            <div style="font-size:.65rem; font-weight:700; color:var(--text-tertiary); text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px">Supply Chain Control Tower</div>
+            <h2 style="font-size:1.5rem; font-weight:700; letter-spacing:-.03em; line-height:1.2; background:linear-gradient(120deg,#1b2d44 0%,#4178ad 44%,#1b2d44 80%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent">Welcome back, Vamsi.</h2>
+            <p style="font-size:.82rem; color:var(--text-secondary); margin-top:4px; font-weight:500">Friday, 11 Apr 2026 · Admin workspace · Live operations</p>
+          </div>
+
+          <!-- Mini stat cards inside the shell -->
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px">
+            <div class="stat-card accent-blue stagger-1" style="padding:14px">
+              <div class="stat-icon blue" style="width:36px;height:36px;font-size:16px">📋</div>
+              <div class="stat-body">
+                <div class="stat-value" style="font-size:1.2rem">142</div>
+                <div class="stat-label" style="font-size:.72rem">Total Orders</div>
+              </div>
+            </div>
+            <div class="stat-card accent-emerald stagger-2" style="padding:14px">
+              <div class="stat-icon emerald" style="width:36px;height:36px;font-size:16px">🚚</div>
+              <div class="stat-body">
+                <div class="stat-value" style="font-size:1.2rem">28</div>
+                <div class="stat-label" style="font-size:.72rem">Active Shipments</div>
+              </div>
+            </div>
+            <div class="stat-card accent-violet stagger-3" style="padding:14px">
+              <div class="stat-icon violet" style="width:36px;height:36px;font-size:16px">📦</div>
+              <div class="stat-body">
+                <div class="stat-value" style="font-size:1.2rem">64</div>
+                <div class="stat-label" style="font-size:.72rem">Products</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini table -->
+          <div class="table-card" style="font-size:.8rem">
+            <div class="table-header" style="padding:12px 16px">
+              <div class="table-title" style="font-size:.85rem">
+                <span class="table-title-icon" style="width:24px;height:24px;font-size:12px">📋</span>
+                Recent Orders
+              </div>
+              <a href="#" class="view-all" style="font-size:.75rem">View all →</a>
+            </div>
+            <table>
+              <thead><tr><th>Order #</th><th>Status</th><th>Amount</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">ORD-20260411-001</td><td><span class="status-badge info">Processing</span></td><td style="font-weight:700">₹12,450</td></tr>
+                <tr><td class="mono">ORD-20260410-045</td><td><span class="status-badge success">Delivered</span></td><td style="font-weight:700">₹8,200</td></tr>
+                <tr><td class="mono">ORD-20260409-012</td><td><span class="status-badge warning">In Transit</span></td><td style="font-weight:700">₹24,100</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       2. STAT CARDS
+       ================================================================ -->
+  <div class="demo-section">
+    <div class="demo-badge">Section 2</div>
+    <div class="demo-section-title">Stat Cards — Multi-Accent</div>
+    <div class="demo-section-desc">Each card has a colored left accent bar, themed icon background, and trend indicator.</div>
+
+    <div class="stats-grid">
+      <div class="stat-card accent-blue stagger-1">
+        <div class="stat-icon blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div class="stat-body">
+          <div class="stat-value">₹2,45,000</div>
+          <div class="stat-label">Available Credit</div>
+          <span class="stat-trend up">↑ 12% from last month</span>
+        </div>
+      </div>
+      <div class="stat-card accent-emerald stagger-2">
+        <div class="stat-icon emerald">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div class="stat-body">
+          <div class="stat-value">142</div>
+          <div class="stat-label">Total Orders</div>
+          <span class="stat-trend up">↑ 8 this week</span>
+        </div>
+      </div>
+      <div class="stat-card accent-amber stagger-3">
+        <div class="stat-icon amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <div class="stat-body">
+          <div class="stat-value">5</div>
+          <div class="stat-label">Cart Items</div>
+          <span class="stat-trend down">₹18,400 total</span>
+        </div>
+      </div>
+      <div class="stat-card accent-violet stagger-4">
+        <div class="stat-icon violet">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="stat-body">
+          <div class="stat-value">12</div>
+          <div class="stat-label">Active Shipments</div>
+          <span class="stat-trend up">↑ 3 in transit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       3. DATA TABLE
+       ================================================================ -->
+  <div class="demo-section">
+    <div class="demo-badge">Section 3</div>
+    <div class="demo-section-title">Data Tables — Professional Grade</div>
+    <div class="demo-section-desc">Sticky headers, row hover spotlight with left accent bar, status badges with animated dots.</div>
+
+    <div class="table-card">
+      <div class="table-header">
+        <div class="table-title">
+          <span class="table-title-icon">📋</span>
+          Recent Orders
+        </div>
+        <a href="#" class="view-all">View all →</a>
+      </div>
+      <div style="max-height:320px; overflow-y:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Order #</th>
+              <th>Dealer</th>
+              <th>Status</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono">ORD-20260411-001</td>
+              <td style="font-weight:600">Rajesh Trading Co.</td>
+              <td><span class="status-badge info">Processing</span></td>
+              <td style="font-weight:700">₹24,500</td>
+              <td class="muted">11 Apr 2026</td>
+              <td><a href="#" class="row-link">View →</a></td>
+            </tr>
+            <tr>
+              <td class="mono">ORD-20260410-045</td>
+              <td style="font-weight:600">Sharma Enterprises</td>
+              <td><span class="status-badge success">Delivered</span></td>
+              <td style="font-weight:700">₹18,200</td>
+              <td class="muted">10 Apr 2026</td>
+              <td><a href="#" class="row-link">View →</a></td>
+            </tr>
+            <tr>
+              <td class="mono">ORD-20260409-012</td>
+              <td style="font-weight:600">Kumar Industries</td>
+              <td><span class="status-badge warning">In Transit</span></td>
+              <td style="font-weight:700">₹42,100</td>
+              <td class="muted">09 Apr 2026</td>
+              <td><a href="#" class="row-link">View →</a></td>
+            </tr>
+            <tr>
+              <td class="mono">ORD-20260408-067</td>
+              <td style="font-weight:600">Patel Distributors</td>
+              <td><span class="status-badge success">Delivered</span></td>
+              <td style="font-weight:700">₹15,800</td>
+              <td class="muted">08 Apr 2026</td>
+              <td><a href="#" class="row-link">View →</a></td>
+            </tr>
+            <tr>
+              <td class="mono">ORD-20260407-089</td>
+              <td style="font-weight:600">Singh & Sons</td>
+              <td><span class="status-badge error">Cancelled</span></td>
+              <td style="font-weight:700">₹9,300</td>
+              <td class="muted">07 Apr 2026</td>
+              <td><a href="#" class="row-link">View →</a></td>
+            </tr>
+            <tr>
+              <td class="mono">ORD-20260406-034</td>
+              <td style="font-weight:600">Gupta Traders</td>
+              <td><span class="status-badge neutral">Placed</span></td>
+              <td style="font-weight:700">₹31,700</td>
+              <td class="muted">06 Apr 2026</td>
+              <td><a href="#" class="row-link">View →</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       4. PRODUCT CARDS
+       ================================================================ -->
+  <div class="demo-section">
+    <div class="demo-badge">Section 4</div>
+    <div class="demo-section-title">Product Cards — E-Commerce Grade</div>
+    <div class="demo-section-desc">Hover for shine sweep, image zoom, floating stock badge, and slide-up add button.</div>
+
+    <div class="products-grid">
+      <div class="product-card stagger-1">
+        <div class="product-img">
+          <span>🔩</span>
+          <div class="product-stock-badge in-stock">✓ In Stock</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Industrial Steel Bolts M12</div>
+          <div class="product-sku">SKU-BOLT-M12-001</div>
+          <div class="product-category">Fasteners / Bolts</div>
+          <div class="product-footer">
+            <div class="product-price">₹2,450</div>
+            <button class="product-add-btn">+ Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card stagger-2">
+        <div class="product-img">
+          <span>⚙️</span>
+          <div class="product-stock-badge low-stock">⚠ Low Stock: 8</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Precision Gear Assembly Kit</div>
+          <div class="product-sku">SKU-GEAR-KIT-042</div>
+          <div class="product-category">Machinery / Gears</div>
+          <div class="product-footer">
+            <div class="product-price">₹18,900</div>
+            <button class="product-add-btn">+ Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card stagger-3">
+        <div class="product-img">
+          <span>🔧</span>
+          <div class="product-stock-badge in-stock">✓ In Stock</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Heavy Duty Wrench Set</div>
+          <div class="product-sku">SKU-WRCH-HD-015</div>
+          <div class="product-category">Tools / Hand Tools</div>
+          <div class="product-footer">
+            <div class="product-price">₹4,200</div>
+            <button class="product-add-btn">+ Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card stagger-4">
+        <div class="product-img">
+          <span>🛡️</span>
+          <div class="product-stock-badge in-stock">✓ In Stock</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Safety Helmet Premium</div>
+          <div class="product-sku">SKU-HELM-PRE-008</div>
+          <div class="product-category">Safety / PPE</div>
+          <div class="product-footer">
+            <div class="product-price">₹1,850</div>
+            <button class="product-add-btn">+ Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       5. BUTTONS & BADGES
+       ================================================================ -->
+  <div class="demo-section">
+    <div class="demo-badge">Section 5</div>
+    <div class="demo-section-title">Buttons & Badges</div>
+    <div class="demo-section-desc">Full button hierarchy + color-coded badge system with warm accents.</div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary">Primary Action</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-ghost">Ghost</button>
+      <button class="btn btn-success">Approve</button>
+      <button class="btn btn-danger">Reject</button>
+    </div>
+    <div class="btn-row" style="margin-bottom:24px">
+      <button class="btn btn-primary btn-sm">Small</button>
+      <button class="btn btn-primary btn-lg">Large Button</button>
+    </div>
+
+    <div class="chips-row">
+      <span class="chip chip-blue">Admin</span>
+      <span class="chip chip-emerald">Delivered</span>
+      <span class="chip chip-amber">In Transit</span>
+      <span class="chip chip-violet">Analytics</span>
+      <span class="chip chip-red">Cancelled</span>
+      <span class="chip chip-gray">Inactive</span>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       6. FORM CONTROLS
+       ================================================================ -->
+  <div class="demo-section">
+    <div class="demo-badge">Section 6</div>
+    <div class="demo-section-title">Form Controls</div>
+    <div class="demo-section-desc">Clean inputs with icon prefixes, focused states, and validation styling.</div>
+
+    <div class="form-demo">
+      <div style="text-align:center; margin-bottom:24px">
+        <h3 style="font-size:1.3rem; font-weight:700; letter-spacing:-.02em; margin-bottom:4px">Welcome back</h3>
+        <p style="color:var(--text-secondary); font-size:.875rem; font-weight:500">Sign in to your account</p>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email address</label>
+        <div class="input-icon-wrap">
+          <span class="input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+          <input type="email" class="form-control" placeholder="you@company.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <div class="input-icon-wrap">
+          <span class="input-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          <input type="password" class="form-control" placeholder="••••••••">
+        </div>
+      </div>
+      <button class="btn btn-primary" style="width:100%; margin-top:8px; padding:12px">Sign in →</button>
+      <p style="text-align:center; margin-top:20px; font-size:.84rem; color:var(--text-secondary)">
+        New dealer? <a href="#" style="color:var(--brand-600); font-weight:700; text-decoration:none">Create an account</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       7. QUICK ACTIONS + EMPTY STATE
+       ================================================================ -->
+  <div class="demo-section">
+    <div class="demo-badge">Section 7</div>
+    <div class="demo-section-title">Quick Actions & Empty States</div>
+    <div class="demo-section-desc">Animated hover cards and illustrated empty states with CTAs.</div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px">
+      <div>
+        <h4 style="font-size:.9rem; font-weight:700; margin-bottom:12px">Quick Actions</h4>
+        <div class="qa-grid">
+          <a href="#" class="qa-card">
+            <div class="qa-icon" style="background:var(--brand-50); color:var(--brand-600)">📦</div>
+            <div><div class="qa-name">Browse Products</div><div class="qa-desc">Explore catalog</div></div>
+            <span class="qa-arrow">→</span>
+          </a>
+          <a href="#" class="qa-card">
+            <div class="qa-icon" style="background:var(--emerald-50); color:var(--emerald-600)">🛒</div>
+            <div><div class="qa-name">View Cart</div><div class="qa-desc">3 items</div></div>
+            <span class="qa-arrow">→</span>
+          </a>
+          <a href="#" class="qa-card">
+            <div class="qa-icon" style="background:var(--amber-50); color:var(--amber-600)">📋</div>
+            <div><div class="qa-name">My Orders</div><div class="qa-desc">Track purchases</div></div>
+            <span class="qa-arrow">→</span>
+          </a>
+          <a href="#" class="qa-card">
+            <div class="qa-icon" style="background:var(--violet-50); color:var(--violet-600)">🚚</div>
+            <div><div class="qa-name">Track Shipments</div><div class="qa-desc">Live tracking</div></div>
+            <span class="qa-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-size:.9rem; font-weight:700; margin-bottom:12px">Empty State</h4>
+        <div class="empty-state">
+          <div class="empty-icon">📋</div>
+          <div class="empty-title">No orders yet</div>
+          <div class="empty-desc">Start by browsing the catalog and adding products to your cart.</div>
+          <button class="btn btn-primary btn-sm">Browse Products →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       8. COLOR PALETTE
+       ================================================================ -->
+  <div class="demo-section">
+    <div class="demo-badge">Section 8</div>
+    <div class="demo-section-title">Color Palette</div>
+    <div class="demo-section-desc">Full accent palette — Brand blue, Amber warmth, Emerald success, Violet insights.</div>
+
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#2b4d73"></div><div class="swatch-info"><div class="swatch-name">Brand 700</div><div class="swatch-hex">#2b4d73</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#4178ad"></div><div class="swatch-info"><div class="swatch-name">Brand 500</div><div class="swatch-hex">#4178ad</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#eef4fb"></div><div class="swatch-info"><div class="swatch-name">Brand 50</div><div class="swatch-hex">#eef4fb</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#f59e0b"></div><div class="swatch-info"><div class="swatch-name">Amber 500</div><div class="swatch-hex">#f59e0b</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#fffbeb"></div><div class="swatch-info"><div class="swatch-name">Amber 50</div><div class="swatch-hex">#fffbeb</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#10b981"></div><div class="swatch-info"><div class="swatch-name">Emerald 500</div><div class="swatch-hex">#10b981</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#ecfdf5"></div><div class="swatch-info"><div class="swatch-name">Emerald 50</div><div class="swatch-hex">#ecfdf5</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#8b5cf6"></div><div class="swatch-info"><div class="swatch-name">Violet 500</div><div class="swatch-hex">#8b5cf6</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#f5f3ff"></div><div class="swatch-info"><div class="swatch-name">Violet 50</div><div class="swatch-hex">#f5f3ff</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#f0f4f8"></div><div class="swatch-info"><div class="swatch-name">Background</div><div class="swatch-hex">#f0f4f8</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#ffffff"></div><div class="swatch-info"><div class="swatch-name">Surface</div><div class="swatch-hex">#ffffff</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#0f172a"></div><div class="swatch-info"><div class="swatch-name">Text Primary</div><div class="swatch-hex">#0f172a</div></div></div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

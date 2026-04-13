@@ -23,6 +23,16 @@ public sealed class NotificationMessageTests
         Assert.Equal(NotificationChannel.InApp, message.Channel);
     }
 
+    [Theory]
+    [InlineData("ShipmentAssignmentAccepted")]
+    [InlineData("ShipmentAssignmentRejected")]
+    public void CreateFromEvent_LogisticsAssignmentDecision_UsesEmailChannel(string eventType)
+    {
+        var message = NotificationMessage.CreateFromEvent("Logistics", eventType, "payload", Guid.NewGuid());
+
+        Assert.Equal(NotificationChannel.Email, message.Channel);
+    }
+
     [Fact]
     public void MarkFailed_SetsFailedStatusAndTrimmedReason()
     {

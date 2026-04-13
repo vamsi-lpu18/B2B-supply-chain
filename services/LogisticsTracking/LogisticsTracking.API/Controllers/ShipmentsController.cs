@@ -1,5 +1,6 @@
 using LogisticsTracking.Application.DTOs;
 using LogisticsTracking.Application.Features.Shipments;
+using LogisticsTracking.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ namespace LogisticsTracking.API.Controllers;
 public sealed class ShipmentsController(ISender sender) : ControllerBase
 {
     [HttpPost]
-    [Authorize(Roles = "Admin,Warehouse,Logistics")]
+    [Authorize(Roles = "Admin,Logistics")]
     [ProducesResponseType(typeof(ShipmentDto), StatusCodes.Status201Created)]
     public async Task<IActionResult> Create([FromBody] CreateShipmentRequest request, CancellationToken cancellationToken)
     {
@@ -24,6 +25,7 @@ public sealed class ShipmentsController(ISender sender) : ControllerBase
     }
 
     [HttpGet("{shipmentId:guid}")]
+    [Authorize(Roles = "Admin,Logistics,Agent,Dealer")]
     [ProducesResponseType(typeof(ShipmentDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetById([FromRoute] Guid shipmentId, CancellationToken cancellationToken)
@@ -71,7 +73,7 @@ public sealed class ShipmentsController(ISender sender) : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin,Warehouse,Logistics")]
+    [Authorize(Roles = "Admin,Logistics")]
     [ProducesResponseType(typeof(IReadOnlyList<ShipmentDto>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
@@ -102,6 +104,44 @@ public sealed class ShipmentsController(ISender sender) : ControllerBase
         return updated ? Ok(new { message = "Agent assigned." }) : NotFound();
     }
 
+    [HttpPut("{shipmentId:guid}/assignment/accept")]
+    [Authorize(Roles = "Agent")]
+    public async Task<IActionResult> AcceptAssignment([FromRoute] Guid shipmentId, CancellationToken cancellationToken)
+    {
+        var (userId, role) = GetActor();
+        var updated = await sender.Send(new AcceptAssignmentCommand(shipmentId, userId, userId, role), cancellationToken);
+        return updated ? Ok(new { message = "Assignment accepted." }) : NotFound();
+    }
+
+    [HttpPut("{shipmentId:guid}/assignment/reject")]
+    [Authorize(Roles = "Agent")]
+    public async Task<IActionResult> RejectAssignment([FromRoute] Guid shipmentId, [FromBody] RejectAssignmentRequest request, CancellationToken cancellationToken)
+    {
+        var (userId, role) = GetActor();
+        var updated = await sender.Send(new RejectAssignmentCommand(shipmentId, userId, request.Reason, userId, role), cancellationToken);
+        return updated ? Ok(new { message = "Assignment rejected." }) : NotFound();
+    }
+
+    [HttpPut("{shipmentId:guid}/agent-rating")]
+    [Authorize(Roles = "Dealer")]
+    public async Task<IActionResult> RateDeliveryAgent([FromRoute] Guid shipmentId, [FromBody] RateDeliveryAgentRequest request, CancellationToken cancellationToken)
+    {
+        if (!TryGetUserId(out var dealerId))
+        {
+            return Unauthorized(new { message = "Invalid token." });
+        }
+
+        var shipment = await sender.Send(new GetShipmentQuery(shipmentId), cancellationToken);
+        if (shipment is null || shipment.DealerId != dealerId)
+        {
+            return NotFound();
+        }
+
+        var (userId, role) = GetActor();
+        var updated = await sender.Send(new RateDeliveryAgentCommand(shipmentId, request.Rating, request.Comment, userId, role), cancellationToken);
+        return updated ? Ok(new { message = "Delivery agent rated." }) : NotFound();
+    }
+
     [HttpPut("{shipmentId:guid}/assign-vehicle")]
     [Authorize(Roles = "Admin,Logistics")]
     public async Task<IActionResult> AssignVehicle([FromRoute] Guid shipmentId, [FromBody] AssignVehicleRequest request, CancellationToken cancellationToken)
@@ -124,6 +164,11 @@ public sealed class ShipmentsController(ISender sender) : ControllerBase
             {
                 return NotFound();
             }
+
+            if (shipment.AssignmentDecisionStatus != AssignmentDecisionStatus.Accepted)
+            {
+                return Conflict(new { message = "Assignment must be accepted before updating shipment status." });
+            }
         }
 
         var updated = await sender.Send(new UpdateShipmentStatusCommand(shipmentId, request.Status, request.Note, userId, role), cancellationToken);
@@ -131,7 +176,7 @@ public sealed class ShipmentsController(ISender sender) : ControllerBase
     }
 
     [HttpGet("{shipmentId:guid}/ops-state")]
-    [Authorize(Roles = "Admin,Warehouse,Logistics,Agent,Dealer")]
+    [Authorize(Roles = "Admin,Logistics,Agent,Dealer")]
     [ProducesResponseType(typeof(ShipmentOpsStateDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetOpsState([FromRoute] Guid shipmentId, CancellationToken cancellationToken)
@@ -166,7 +211,7 @@ public sealed class ShipmentsController(ISender sender) : ControllerBase
     }
 
     [HttpPost("ops-states/batch")]
-    [Authorize(Roles = "Admin,Warehouse,Logistics,Agent,Dealer")]
+    [Authorize(Roles = "Admin,Logistics,Agent,Dealer")]
     [ProducesResponseType(typeof(IReadOnlyList<ShipmentOpsStateDto>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetOpsStatesBatch([FromBody] GetShipmentOpsStatesRequest request, CancellationToken cancellationToken)
     {
@@ -217,7 +262,7 @@ public sealed class ShipmentsController(ISender sender) : ControllerBase
     }
 
     [HttpPost("{shipmentId:guid}/ai-recommendation")]
-    [Authorize(Roles = "Admin,Warehouse,Logistics")]
+    [Authorize(Roles = "Admin,Logistics")]
     [ProducesResponseType(typeof(ShipmentAiRecommendationDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GenerateAiRecommendation([FromRoute] Guid shipmentId, CancellationToken cancellationToken)

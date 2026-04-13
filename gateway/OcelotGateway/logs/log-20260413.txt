@@ -1,0 +1,1594 @@
+2026-04-13 01:45:12.281 +05:30 [INF] RequestId: 8873b437-6eff-44ac-b21f-875e6e39fd3d, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:16:12.2809952Z
+2026-04-13 01:45:12.281 +05:30 [INF] RequestId: 8b58fd16-fc7e-4787-bbcc-86a15f4a82ba, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:16:12.2809952Z
+2026-04-13 01:45:12.298 +05:30 [INF] RequestId: 8873b437-6eff-44ac-b21f-875e6e39fd3d, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:45:12.298 +05:30 [INF] RequestId: 8b58fd16-fc7e-4787-bbcc-86a15f4a82ba, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:45:12.300 +05:30 [WRN] RequestId: 8873b437-6eff-44ac-b21f-875e6e39fd3d, PreviousRequestId: -
+Client has NOT been authenticated for path '/catalog/api/products/categories' and pipeline error set. UnauthenticatedError: Request for authenticated route '/catalog/api/products/categories' was unauthenticated!;
+2026-04-13 01:45:12.307 +05:30 [WRN] RequestId: 8b58fd16-fc7e-4787-bbcc-86a15f4a82ba, PreviousRequestId: -
+Client has NOT been authenticated for path '/catalog/api/products' and pipeline error set. UnauthenticatedError: Request for authenticated route '/catalog/api/products' was unauthenticated!;
+2026-04-13 01:45:12.309 +05:30 [WRN] RequestId: 8873b437-6eff-44ac-b21f-875e6e39fd3d, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/catalog/api/products/categories' was unauthenticated!
+Setting error response for request: GET /catalog/api/products/categories
+2026-04-13 01:45:12.311 +05:30 [WRN] RequestId: 8b58fd16-fc7e-4787-bbcc-86a15f4a82ba, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/catalog/api/products' was unauthenticated!
+Setting error response for request: GET /catalog/api/products
+2026-04-13 01:45:12.311 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 401 in 31.4954 ms
+2026-04-13 01:45:12.313 +05:30 [INF] HTTP GET /catalog/api/products responded 401 in 33.0997 ms
+2026-04-13 01:45:12.332 +05:30 [INF] RequestId: 35b1f429-c74d-4158-b866-726353a72b24, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:16:12.3321699Z
+2026-04-13 01:45:12.335 +05:30 [INF] RequestId: 35b1f429-c74d-4158-b866-726353a72b24, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 01:45:12.399 +05:30 [INF] RequestId: 35b1f429-c74d-4158-b866-726353a72b24, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 01:45:12.407 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 75.8446 ms
+2026-04-13 01:45:12.423 +05:30 [INF] RequestId: 8b58fd16-fc7e-4787-bbcc-86a15f4a82ba, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:16:12.2809952Z
+2026-04-13 01:45:12.423 +05:30 [INF] RequestId: 8873b437-6eff-44ac-b21f-875e6e39fd3d, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:16:12.2809952Z
+2026-04-13 01:45:12.426 +05:30 [INF] RequestId: 8b58fd16-fc7e-4787-bbcc-86a15f4a82ba, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:45:12.428 +05:30 [INF] RequestId: 8873b437-6eff-44ac-b21f-875e6e39fd3d, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:45:12.432 +05:30 [INF] RequestId: 8b58fd16-fc7e-4787-bbcc-86a15f4a82ba, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:45:12.440 +05:30 [INF] RequestId: 8873b437-6eff-44ac-b21f-875e6e39fd3d, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/categories' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:45:12.495 +05:30 [INF] RequestId: 8b58fd16-fc7e-4787-bbcc-86a15f4a82ba, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=20&includeInactive=false
+2026-04-13 01:45:12.499 +05:30 [INF] RequestId: 8873b437-6eff-44ac-b21f-875e6e39fd3d, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/categories
+2026-04-13 01:45:12.509 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 86.0220 ms
+2026-04-13 01:45:12.522 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 200 in 98.8668 ms
+2026-04-13 01:45:59.804 +05:30 [INF] RequestId: 98e9ed02-b0e7-4dc8-b371-9909c863d01d, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T20:16:12.2809952Z
+2026-04-13 01:45:59.806 +05:30 [INF] RequestId: 8324be6d-4fec-4c5e-9aee-e82a2b05bc57, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T20:16:12.2809952Z
+2026-04-13 01:45:59.810 +05:30 [INF] RequestId: 98e9ed02-b0e7-4dc8-b371-9909c863d01d, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:45:59.815 +05:30 [INF] RequestId: 8324be6d-4fec-4c5e-9aee-e82a2b05bc57, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:45:59.817 +05:30 [WRN] RequestId: 98e9ed02-b0e7-4dc8-b371-9909c863d01d, PreviousRequestId: -
+Client has NOT been authenticated for path '/catalog/api/products/categories' and pipeline error set. UnauthenticatedError: Request for authenticated route '/catalog/api/products/categories' was unauthenticated!;
+2026-04-13 01:45:59.825 +05:30 [WRN] RequestId: 8324be6d-4fec-4c5e-9aee-e82a2b05bc57, PreviousRequestId: -
+Client has NOT been authenticated for path '/catalog/api/products' and pipeline error set. UnauthenticatedError: Request for authenticated route '/catalog/api/products' was unauthenticated!;
+2026-04-13 01:45:59.828 +05:30 [WRN] RequestId: 98e9ed02-b0e7-4dc8-b371-9909c863d01d, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/catalog/api/products/categories' was unauthenticated!
+Setting error response for request: GET /catalog/api/products/categories
+2026-04-13 01:45:59.865 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 401 in 61.5037 ms
+2026-04-13 01:45:59.838 +05:30 [WRN] RequestId: 8324be6d-4fec-4c5e-9aee-e82a2b05bc57, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/catalog/api/products' was unauthenticated!
+Setting error response for request: GET /catalog/api/products
+2026-04-13 01:45:59.883 +05:30 [INF] HTTP GET /catalog/api/products responded 401 in 77.2599 ms
+2026-04-13 01:45:59.896 +05:30 [INF] RequestId: 9750530f-1b76-49ae-8833-18422db5347a, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:16:12.3321699Z
+2026-04-13 01:45:59.913 +05:30 [INF] RequestId: 9750530f-1b76-49ae-8833-18422db5347a, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 01:46:00.004 +05:30 [INF] RequestId: 9750530f-1b76-49ae-8833-18422db5347a, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 01:46:00.009 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 113.5357 ms
+2026-04-13 01:46:00.032 +05:30 [INF] RequestId: 8324be6d-4fec-4c5e-9aee-e82a2b05bc57, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 493/500 resets at 2026-04-12T20:16:12.2809952Z
+2026-04-13 01:46:00.032 +05:30 [INF] RequestId: 98e9ed02-b0e7-4dc8-b371-9909c863d01d, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 492/500 resets at 2026-04-12T20:16:12.2809952Z
+2026-04-13 01:46:00.040 +05:30 [INF] RequestId: 8324be6d-4fec-4c5e-9aee-e82a2b05bc57, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:00.042 +05:30 [INF] RequestId: 98e9ed02-b0e7-4dc8-b371-9909c863d01d, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:00.044 +05:30 [INF] RequestId: 8324be6d-4fec-4c5e-9aee-e82a2b05bc57, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:00.047 +05:30 [INF] RequestId: 98e9ed02-b0e7-4dc8-b371-9909c863d01d, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/categories' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:00.113 +05:30 [INF] RequestId: 8324be6d-4fec-4c5e-9aee-e82a2b05bc57, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=20&includeInactive=true
+2026-04-13 01:46:00.126 +05:30 [INF] RequestId: 98e9ed02-b0e7-4dc8-b371-9909c863d01d, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/categories
+2026-04-13 01:46:00.145 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 113.4579 ms
+2026-04-13 01:46:00.166 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 200 in 134.1556 ms
+2026-04-13 01:46:01.259 +05:30 [INF] RequestId: 557d6165-a3fe-4b55-89a3-ce88d36fb17e, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:17:01.2596994Z
+2026-04-13 01:46:01.261 +05:30 [INF] RequestId: 557d6165-a3fe-4b55-89a3-ce88d36fb17e, PreviousRequestId: -
+The path '/orders/api/admin/orders/analytics' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:01.263 +05:30 [INF] RequestId: 557d6165-a3fe-4b55-89a3-ce88d36fb17e, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders/analytics' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:01.265 +05:30 [INF] RequestId: df7fc546-d914-42a1-880f-c8027a921675, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:17:01.2596994Z
+2026-04-13 01:46:01.267 +05:30 [INF] RequestId: a6b16258-9063-455e-8404-fcdf1420c47b, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:17:01.2677138Z
+2026-04-13 01:46:01.268 +05:30 [INF] RequestId: 58c02452-98e7-423e-9a5a-445fd55b7dc1, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 491/500 resets at 2026-04-12T20:16:12.2809952Z
+2026-04-13 01:46:01.273 +05:30 [INF] RequestId: df7fc546-d914-42a1-880f-c8027a921675, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:01.281 +05:30 [INF] RequestId: df7fc546-d914-42a1-880f-c8027a921675, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:01.279 +05:30 [INF] RequestId: 58c02452-98e7-423e-9a5a-445fd55b7dc1, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:01.277 +05:30 [INF] RequestId: a6b16258-9063-455e-8404-fcdf1420c47b, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:01.303 +05:30 [INF] RequestId: 58c02452-98e7-423e-9a5a-445fd55b7dc1, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:01.325 +05:30 [INF] RequestId: a6b16258-9063-455e-8404-fcdf1420c47b, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:01.395 +05:30 [INF] RequestId: df7fc546-d914-42a1-880f-c8027a921675, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=8
+2026-04-13 01:46:01.408 +05:30 [INF] RequestId: 58c02452-98e7-423e-9a5a-445fd55b7dc1, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=100&includeInactive=false
+2026-04-13 01:46:01.448 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 183.5367 ms
+2026-04-13 01:46:01.456 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 188.8015 ms
+2026-04-13 01:46:01.548 +05:30 [INF] RequestId: a6b16258-9063-455e-8404-fcdf1420c47b, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments
+2026-04-13 01:46:01.614 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments responded 200 in 347.8948 ms
+2026-04-13 01:46:01.648 +05:30 [INF] RequestId: 557d6165-a3fe-4b55-89a3-ce88d36fb17e, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders/analytics?days=90&top=5
+2026-04-13 01:46:01.707 +05:30 [INF] HTTP GET /orders/api/admin/orders/analytics responded 200 in 448.5442 ms
+2026-04-13 01:46:01.728 +05:30 [INF] RequestId: 5299a482-002c-4906-9798-90e471494708, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:01.729 +05:30 [INF] RequestId: 574c3f9f-8fc2-433d-ac81-7d94011708f2, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:01.738 +05:30 [INF] RequestId: 73e3a89b-426a-4b18-8eb8-9df0010d84b3, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:01.739 +05:30 [INF] RequestId: 1d76db1b-67ee-4a84-8f50-e96fda161c0c, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:01.743 +05:30 [INF] RequestId: 5299a482-002c-4906-9798-90e471494708, PreviousRequestId: -
+The path '/identity/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:01.744 +05:30 [INF] RequestId: bcb233b4-3ef4-4597-879a-04e044eee761, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:01.745 +05:30 [INF] RequestId: 574c3f9f-8fc2-433d-ac81-7d94011708f2, PreviousRequestId: -
+The path '/identity/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:01.748 +05:30 [INF] RequestId: 73e3a89b-426a-4b18-8eb8-9df0010d84b3, PreviousRequestId: -
+The path '/identity/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:01.750 +05:30 [INF] RequestId: 1d76db1b-67ee-4a84-8f50-e96fda161c0c, PreviousRequestId: -
+The path '/identity/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:01.755 +05:30 [INF] RequestId: 5299a482-002c-4906-9798-90e471494708, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:01.757 +05:30 [INF] RequestId: bcb233b4-3ef4-4597-879a-04e044eee761, PreviousRequestId: -
+The path '/identity/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:01.759 +05:30 [INF] RequestId: 574c3f9f-8fc2-433d-ac81-7d94011708f2, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:01.763 +05:30 [INF] RequestId: 73e3a89b-426a-4b18-8eb8-9df0010d84b3, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:01.765 +05:30 [INF] RequestId: 1d76db1b-67ee-4a84-8f50-e96fda161c0c, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:01.776 +05:30 [INF] RequestId: bcb233b4-3ef4-4597-879a-04e044eee761, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:01.955 +05:30 [INF] RequestId: 5299a482-002c-4906-9798-90e471494708, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548
+2026-04-13 01:46:01.959 +05:30 [INF] RequestId: 574c3f9f-8fc2-433d-ac81-7d94011708f2, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393
+2026-04-13 01:46:01.964 +05:30 [INF] RequestId: 73e3a89b-426a-4b18-8eb8-9df0010d84b3, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b
+2026-04-13 01:46:01.976 +05:30 [INF] RequestId: 1d76db1b-67ee-4a84-8f50-e96fda161c0c, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820
+2026-04-13 01:46:01.981 +05:30 [INF] RequestId: bcb233b4-3ef4-4597-879a-04e044eee761, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e
+2026-04-13 01:46:01.988 +05:30 [INF] HTTP GET /identity/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548 responded 200 in 260.6805 ms
+2026-04-13 01:46:02.001 +05:30 [INF] HTTP GET /identity/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393 responded 200 in 272.5626 ms
+2026-04-13 01:46:02.010 +05:30 [INF] HTTP GET /identity/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b responded 200 in 272.1125 ms
+2026-04-13 01:46:02.021 +05:30 [INF] HTTP GET /identity/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820 responded 200 in 283.3804 ms
+2026-04-13 01:46:02.032 +05:30 [INF] HTTP GET /identity/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e responded 200 in 289.1007 ms
+2026-04-13 01:46:16.115 +05:30 [INF] RequestId: 35218694-479a-468d-bab5-33f35e9986e6, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:16.349 +05:30 [INF] RequestId: 35218694-479a-468d-bab5-33f35e9986e6, PreviousRequestId: -
+The path '/identity/api/admin/dealers' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:16.467 +05:30 [INF] RequestId: 35218694-479a-468d-bab5-33f35e9986e6, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:16.824 +05:30 [INF] RequestId: 35218694-479a-468d-bab5-33f35e9986e6, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers?page=1&pageSize=20
+2026-04-13 01:46:16.927 +05:30 [INF] HTTP GET /identity/api/admin/dealers responded 200 in 812.9957 ms
+2026-04-13 01:46:21.124 +05:30 [INF] RequestId: 1fc2cbe1-499c-4613-baf0-f2b7428074c4, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 493/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:21.127 +05:30 [INF] RequestId: 1fc2cbe1-499c-4613-baf0-f2b7428074c4, PreviousRequestId: -
+The path '/identity/api/admin/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:21.129 +05:30 [INF] RequestId: 1fc2cbe1-499c-4613-baf0-f2b7428074c4, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:21.164 +05:30 [INF] RequestId: 1fc2cbe1-499c-4613-baf0-f2b7428074c4, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0
+2026-04-13 01:46:21.171 +05:30 [INF] HTTP GET /identity/api/admin/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0 responded 200 in 46.9456 ms
+2026-04-13 01:46:21.184 +05:30 [INF] RequestId: b2d11e83-fc0f-4217-92b5-67e1007fea18, PreviousRequestId: -
+Route '/payments/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:17:21.1843320Z
+2026-04-13 01:46:21.186 +05:30 [INF] RequestId: 137d5304-7f85-4f76-8556-802cbaf2ea8e, PreviousRequestId: -
+Route '/payments/api/payment/dealers/{dealerId}/credit-check' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:17:21.1860345Z
+2026-04-13 01:46:21.192 +05:30 [INF] RequestId: b2d11e83-fc0f-4217-92b5-67e1007fea18, PreviousRequestId: -
+The path '/payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/invoices' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:21.193 +05:30 [INF] RequestId: 137d5304-7f85-4f76-8556-802cbaf2ea8e, PreviousRequestId: -
+No authentication is required for the path '/payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/credit-check' in the route /payments/api/payment/dealers/{dealerId}/credit-check.
+2026-04-13 01:46:21.210 +05:30 [WRN] RequestId: b2d11e83-fc0f-4217-92b5-67e1007fea18, PreviousRequestId: -
+Client has NOT been authenticated for path '/payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/invoices' and pipeline error set. UnauthenticatedError: Request for authenticated route '/payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/invoices' was unauthenticated!;
+2026-04-13 01:46:21.217 +05:30 [WRN] RequestId: b2d11e83-fc0f-4217-92b5-67e1007fea18, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/invoices' was unauthenticated!
+Setting error response for request: GET /payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/invoices
+2026-04-13 01:46:21.228 +05:30 [WRN] RequestId: 137d5304-7f85-4f76-8556-802cbaf2ea8e, PreviousRequestId: -
+401 Unauthorized status code of request URI: http://localhost:8005/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/credit-check?amount=0
+2026-04-13 01:46:21.230 +05:30 [INF] HTTP GET /payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/invoices responded 401 in 46.6537 ms
+2026-04-13 01:46:21.232 +05:30 [INF] HTTP GET /payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/credit-check responded 401 in 47.5419 ms
+2026-04-13 01:46:21.256 +05:30 [INF] RequestId: b01493c5-9563-4ae8-80b6-d948cb8361e4, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:17:21.2568648Z
+2026-04-13 01:46:21.259 +05:30 [INF] RequestId: b01493c5-9563-4ae8-80b6-d948cb8361e4, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 01:46:21.335 +05:30 [INF] RequestId: b01493c5-9563-4ae8-80b6-d948cb8361e4, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 01:46:21.347 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 90.7768 ms
+2026-04-13 01:46:21.365 +05:30 [INF] RequestId: 137d5304-7f85-4f76-8556-802cbaf2ea8e, PreviousRequestId: -
+Route '/payments/api/payment/dealers/{dealerId}/credit-check' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:17:21.1860345Z
+2026-04-13 01:46:21.365 +05:30 [INF] RequestId: b2d11e83-fc0f-4217-92b5-67e1007fea18, PreviousRequestId: -
+Route '/payments/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:17:21.1843320Z
+2026-04-13 01:46:21.374 +05:30 [INF] RequestId: 137d5304-7f85-4f76-8556-802cbaf2ea8e, PreviousRequestId: -
+No authentication is required for the path '/payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/credit-check' in the route /payments/api/payment/dealers/{dealerId}/credit-check.
+2026-04-13 01:46:21.376 +05:30 [INF] RequestId: b2d11e83-fc0f-4217-92b5-67e1007fea18, PreviousRequestId: -
+The path '/payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/invoices' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:21.399 +05:30 [INF] RequestId: b2d11e83-fc0f-4217-92b5-67e1007fea18, PreviousRequestId: -
+Client has been authenticated for path '/payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/invoices' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:21.447 +05:30 [INF] RequestId: 137d5304-7f85-4f76-8556-802cbaf2ea8e, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8005/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/credit-check?amount=0
+2026-04-13 01:46:21.460 +05:30 [INF] HTTP GET /payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/credit-check responded 200 in 96.1442 ms
+2026-04-13 01:46:21.520 +05:30 [INF] RequestId: b2d11e83-fc0f-4217-92b5-67e1007fea18, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8005/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/invoices
+2026-04-13 01:46:21.533 +05:30 [INF] HTTP GET /payments/api/payment/dealers/6a1ba40a-e765-4817-84a4-3b8eed43c5c0/invoices responded 200 in 168.9940 ms
+2026-04-13 01:46:23.265 +05:30 [INF] RequestId: ad483fcd-e48d-4ed0-ab07-5380044f1d6c, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:17:01.2596994Z
+2026-04-13 01:46:23.266 +05:30 [INF] RequestId: 839a8a5e-1638-4f75-a895-1c53c07fbe21, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:17:01.2596994Z
+2026-04-13 01:46:23.270 +05:30 [INF] RequestId: 66e49a25-4abd-44ba-af6f-c7c21ea1a177, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:17:23.2709143Z
+2026-04-13 01:46:23.288 +05:30 [INF] RequestId: 66e49a25-4abd-44ba-af6f-c7c21ea1a177, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:23.276 +05:30 [INF] RequestId: ad483fcd-e48d-4ed0-ab07-5380044f1d6c, PreviousRequestId: -
+The path '/orders/api/admin/orders/analytics' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:23.281 +05:30 [INF] RequestId: 839a8a5e-1638-4f75-a895-1c53c07fbe21, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:23.275 +05:30 [INF] RequestId: 6759f1fc-264e-4a5b-8e2b-fb7c44eb5682, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:17:01.2677138Z
+2026-04-13 01:46:23.290 +05:30 [INF] RequestId: 66e49a25-4abd-44ba-af6f-c7c21ea1a177, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:23.293 +05:30 [INF] RequestId: ad483fcd-e48d-4ed0-ab07-5380044f1d6c, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders/analytics' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:23.294 +05:30 [INF] RequestId: 839a8a5e-1638-4f75-a895-1c53c07fbe21, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:23.295 +05:30 [INF] RequestId: 6759f1fc-264e-4a5b-8e2b-fb7c44eb5682, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:23.327 +05:30 [INF] RequestId: 66e49a25-4abd-44ba-af6f-c7c21ea1a177, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=100&includeInactive=false
+2026-04-13 01:46:23.339 +05:30 [INF] RequestId: 6759f1fc-264e-4a5b-8e2b-fb7c44eb5682, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:23.349 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 78.5845 ms
+2026-04-13 01:46:23.399 +05:30 [INF] RequestId: 839a8a5e-1638-4f75-a895-1c53c07fbe21, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=8
+2026-04-13 01:46:23.433 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 167.8583 ms
+2026-04-13 01:46:23.442 +05:30 [INF] RequestId: 6759f1fc-264e-4a5b-8e2b-fb7c44eb5682, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments
+2026-04-13 01:46:23.467 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments responded 200 in 192.8210 ms
+2026-04-13 01:46:23.525 +05:30 [INF] RequestId: ad483fcd-e48d-4ed0-ab07-5380044f1d6c, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders/analytics?days=90&top=5
+2026-04-13 01:46:23.545 +05:30 [INF] HTTP GET /orders/api/admin/orders/analytics responded 200 in 280.6996 ms
+2026-04-13 01:46:23.567 +05:30 [INF] RequestId: 0502433d-2e93-40f1-bc80-2674bb450aaf, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 492/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:23.569 +05:30 [INF] RequestId: 26b5a82f-33c7-476e-a9a7-76740ee6e5bd, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 491/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:23.580 +05:30 [INF] RequestId: a789a35e-944c-46b9-bdd3-9ff7b7e1f33e, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 490/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:23.580 +05:30 [INF] RequestId: 9d316a9e-e1e3-4f5b-897e-8948c3b9126f, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 489/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:23.580 +05:30 [INF] RequestId: 4f219de8-8408-42a8-99cb-101d488b2940, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 488/500 resets at 2026-04-12T20:17:01.7284059Z
+2026-04-13 01:46:23.590 +05:30 [INF] RequestId: 0502433d-2e93-40f1-bc80-2674bb450aaf, PreviousRequestId: -
+The path '/identity/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:23.594 +05:30 [INF] RequestId: 26b5a82f-33c7-476e-a9a7-76740ee6e5bd, PreviousRequestId: -
+The path '/identity/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:23.598 +05:30 [INF] RequestId: a789a35e-944c-46b9-bdd3-9ff7b7e1f33e, PreviousRequestId: -
+The path '/identity/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:23.602 +05:30 [INF] RequestId: 9d316a9e-e1e3-4f5b-897e-8948c3b9126f, PreviousRequestId: -
+The path '/identity/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:23.606 +05:30 [INF] RequestId: 4f219de8-8408-42a8-99cb-101d488b2940, PreviousRequestId: -
+The path '/identity/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:46:23.609 +05:30 [INF] RequestId: 0502433d-2e93-40f1-bc80-2674bb450aaf, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:23.612 +05:30 [INF] RequestId: 26b5a82f-33c7-476e-a9a7-76740ee6e5bd, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:23.615 +05:30 [INF] RequestId: a789a35e-944c-46b9-bdd3-9ff7b7e1f33e, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:23.622 +05:30 [INF] RequestId: 9d316a9e-e1e3-4f5b-897e-8948c3b9126f, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:23.625 +05:30 [INF] RequestId: 4f219de8-8408-42a8-99cb-101d488b2940, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:46:23.682 +05:30 [INF] RequestId: 0502433d-2e93-40f1-bc80-2674bb450aaf, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393
+2026-04-13 01:46:23.689 +05:30 [INF] RequestId: 26b5a82f-33c7-476e-a9a7-76740ee6e5bd, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548
+2026-04-13 01:46:23.691 +05:30 [INF] RequestId: 9d316a9e-e1e3-4f5b-897e-8948c3b9126f, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e
+2026-04-13 01:46:23.695 +05:30 [INF] RequestId: 4f219de8-8408-42a8-99cb-101d488b2940, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b
+2026-04-13 01:46:23.705 +05:30 [INF] HTTP GET /identity/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393 responded 200 in 138.4425 ms
+2026-04-13 01:46:23.706 +05:30 [INF] RequestId: a789a35e-944c-46b9-bdd3-9ff7b7e1f33e, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820
+2026-04-13 01:46:23.715 +05:30 [INF] HTTP GET /identity/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548 responded 200 in 146.9342 ms
+2026-04-13 01:46:23.725 +05:30 [INF] HTTP GET /identity/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e responded 200 in 145.5955 ms
+2026-04-13 01:46:23.729 +05:30 [INF] HTTP GET /identity/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b responded 200 in 149.4729 ms
+2026-04-13 01:46:23.739 +05:30 [INF] HTTP GET /identity/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820 responded 200 in 159.8695 ms
+2026-04-13 01:51:48.399 +05:30 [INF] RequestId: 8d34205d-aa6d-4f40-9522-d9c5f9d54fea, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:22:48.3992015Z
+2026-04-13 01:51:48.400 +05:30 [INF] RequestId: 8d34205d-aa6d-4f40-9522-d9c5f9d54fea, PreviousRequestId: -
+The path '/orders/api/orders/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:51:48.401 +05:30 [INF] RequestId: 8d34205d-aa6d-4f40-9522-d9c5f9d54fea, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:51:48.423 +05:30 [INF] RequestId: 8d34205d-aa6d-4f40-9522-d9c5f9d54fea, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/my?page=1&pageSize=20
+2026-04-13 01:51:48.425 +05:30 [INF] HTTP GET /orders/api/orders/my responded 200 in 26.6206 ms
+2026-04-13 01:52:01.021 +05:30 [INF] RequestId: 34548617-f222-45a5-9007-9c1c91540827, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:22:48.3992015Z
+2026-04-13 01:52:01.022 +05:30 [INF] RequestId: 34548617-f222-45a5-9007-9c1c91540827, PreviousRequestId: -
+The path '/orders/api/orders/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:01.023 +05:30 [WRN] RequestId: 34548617-f222-45a5-9007-9c1c91540827, PreviousRequestId: -
+Client has NOT been authenticated for path '/orders/api/orders/my' and pipeline error set. UnauthenticatedError: Request for authenticated route '/orders/api/orders/my' was unauthenticated!;
+2026-04-13 01:52:01.024 +05:30 [WRN] RequestId: 34548617-f222-45a5-9007-9c1c91540827, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/orders/api/orders/my' was unauthenticated!
+Setting error response for request: GET /orders/api/orders/my
+2026-04-13 01:52:01.025 +05:30 [INF] HTTP GET /orders/api/orders/my responded 401 in 4.3034 ms
+2026-04-13 01:52:01.072 +05:30 [INF] RequestId: b11e3222-d6ee-4700-a5c2-305901ab6eea, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:23:01.0720851Z
+2026-04-13 01:52:01.073 +05:30 [INF] RequestId: b11e3222-d6ee-4700-a5c2-305901ab6eea, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 01:52:01.109 +05:30 [INF] RequestId: b11e3222-d6ee-4700-a5c2-305901ab6eea, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 01:52:01.111 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 39.7398 ms
+2026-04-13 01:52:01.120 +05:30 [INF] RequestId: 34548617-f222-45a5-9007-9c1c91540827, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:22:48.3992015Z
+2026-04-13 01:52:01.121 +05:30 [INF] RequestId: 34548617-f222-45a5-9007-9c1c91540827, PreviousRequestId: -
+The path '/orders/api/orders/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:01.122 +05:30 [INF] RequestId: 34548617-f222-45a5-9007-9c1c91540827, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:01.132 +05:30 [INF] RequestId: 34548617-f222-45a5-9007-9c1c91540827, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/my?page=1&pageSize=20
+2026-04-13 01:52:01.135 +05:30 [INF] HTTP GET /orders/api/orders/my responded 200 in 15.1048 ms
+2026-04-13 01:52:04.512 +05:30 [INF] RequestId: a034bffa-c9c2-444c-b510-6b4e73d9ba3e, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:23:01.0720851Z
+2026-04-13 01:52:04.513 +05:30 [INF] RequestId: a034bffa-c9c2-444c-b510-6b4e73d9ba3e, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/logout' in the route /identity/api/auth/{everything}.
+2026-04-13 01:52:04.716 +05:30 [INF] RequestId: a034bffa-c9c2-444c-b510-6b4e73d9ba3e, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/logout
+2026-04-13 01:52:04.718 +05:30 [INF] HTTP POST /identity/api/auth/logout responded 200 in 206.2967 ms
+2026-04-13 01:52:24.037 +05:30 [INF] RequestId: c6c22879-c790-4e5a-9c27-3fd94cafa7a9, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:23:01.0720851Z
+2026-04-13 01:52:24.038 +05:30 [INF] RequestId: c6c22879-c790-4e5a-9c27-3fd94cafa7a9, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/login' in the route /identity/api/auth/{everything}.
+2026-04-13 01:52:24.164 +05:30 [INF] RequestId: c6c22879-c790-4e5a-9c27-3fd94cafa7a9, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/login
+2026-04-13 01:52:24.166 +05:30 [INF] HTTP POST /identity/api/auth/login responded 200 in 129.4974 ms
+2026-04-13 01:52:24.173 +05:30 [INF] RequestId: 07d73d4c-e75d-474a-99ae-36d966438788, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:23:24.1738742Z
+2026-04-13 01:52:24.174 +05:30 [INF] RequestId: 07d73d4c-e75d-474a-99ae-36d966438788, PreviousRequestId: -
+The path '/identity/api/users/profile' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.175 +05:30 [WRN] RequestId: 07d73d4c-e75d-474a-99ae-36d966438788, PreviousRequestId: -
+Client has NOT been authenticated for path '/identity/api/users/profile' and pipeline error set. UnauthenticatedError: Request for authenticated route '/identity/api/users/profile' was unauthenticated!;
+2026-04-13 01:52:24.176 +05:30 [WRN] RequestId: 07d73d4c-e75d-474a-99ae-36d966438788, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/identity/api/users/profile' was unauthenticated!
+Setting error response for request: GET /identity/api/users/profile
+2026-04-13 01:52:24.177 +05:30 [INF] HTTP GET /identity/api/users/profile responded 401 in 3.3371 ms
+2026-04-13 01:52:24.186 +05:30 [INF] RequestId: f442fc76-c3d9-4a14-b848-06fa15f4131a, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:23:01.0720851Z
+2026-04-13 01:52:24.187 +05:30 [INF] RequestId: f442fc76-c3d9-4a14-b848-06fa15f4131a, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 01:52:24.214 +05:30 [INF] RequestId: f442fc76-c3d9-4a14-b848-06fa15f4131a, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 01:52:24.221 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 36.1948 ms
+2026-04-13 01:52:24.232 +05:30 [INF] RequestId: 07d73d4c-e75d-474a-99ae-36d966438788, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:23:24.1738742Z
+2026-04-13 01:52:24.236 +05:30 [INF] RequestId: 07d73d4c-e75d-474a-99ae-36d966438788, PreviousRequestId: -
+The path '/identity/api/users/profile' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.238 +05:30 [INF] RequestId: 07d73d4c-e75d-474a-99ae-36d966438788, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/users/profile' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:24.254 +05:30 [INF] RequestId: 07d73d4c-e75d-474a-99ae-36d966438788, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/users/profile
+2026-04-13 01:52:24.256 +05:30 [INF] HTTP GET /identity/api/users/profile responded 200 in 24.7017 ms
+2026-04-13 01:52:24.348 +05:30 [INF] RequestId: 97f181a4-f590-45f4-8daf-11f6754328f7, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:22:48.3992015Z
+2026-04-13 01:52:24.349 +05:30 [INF] RequestId: 97f181a4-f590-45f4-8daf-11f6754328f7, PreviousRequestId: -
+The path '/orders/api/admin/orders/analytics' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.351 +05:30 [INF] RequestId: 97f181a4-f590-45f4-8daf-11f6754328f7, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders/analytics' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:24.355 +05:30 [INF] RequestId: 0ddc8b1b-7685-4dd1-a8f4-cfbf0e1087f1, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:23:24.3553085Z
+2026-04-13 01:52:24.355 +05:30 [INF] RequestId: 2e1633db-f03d-4243-832e-2d6a7b7e76f7, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T20:22:48.3992015Z
+2026-04-13 01:52:24.356 +05:30 [INF] RequestId: f45dcdcd-4b6e-41b4-b92c-6fb6829a18a5, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:23:24.3561565Z
+2026-04-13 01:52:24.356 +05:30 [INF] RequestId: 0ddc8b1b-7685-4dd1-a8f4-cfbf0e1087f1, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.356 +05:30 [INF] RequestId: 2e1633db-f03d-4243-832e-2d6a7b7e76f7, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.358 +05:30 [INF] RequestId: f45dcdcd-4b6e-41b4-b92c-6fb6829a18a5, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.360 +05:30 [INF] RequestId: f45dcdcd-4b6e-41b4-b92c-6fb6829a18a5, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:24.359 +05:30 [INF] RequestId: 2e1633db-f03d-4243-832e-2d6a7b7e76f7, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:24.359 +05:30 [INF] RequestId: 0ddc8b1b-7685-4dd1-a8f4-cfbf0e1087f1, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:24.393 +05:30 [INF] RequestId: 2e1633db-f03d-4243-832e-2d6a7b7e76f7, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=8
+2026-04-13 01:52:24.408 +05:30 [INF] RequestId: 0ddc8b1b-7685-4dd1-a8f4-cfbf0e1087f1, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=100&includeInactive=false
+2026-04-13 01:52:24.410 +05:30 [INF] RequestId: f45dcdcd-4b6e-41b4-b92c-6fb6829a18a5, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments
+2026-04-13 01:52:24.411 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 56.3709 ms
+2026-04-13 01:52:24.416 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments responded 200 in 60.6707 ms
+2026-04-13 01:52:24.425 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 70.6943 ms
+2026-04-13 01:52:24.460 +05:30 [INF] RequestId: 97f181a4-f590-45f4-8daf-11f6754328f7, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders/analytics?days=90&top=5
+2026-04-13 01:52:24.462 +05:30 [INF] HTTP GET /orders/api/admin/orders/analytics responded 200 in 113.6453 ms
+2026-04-13 01:52:24.487 +05:30 [INF] RequestId: 6db4763d-c643-40fe-901f-b0ecb01e51e3, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:23:24.1738742Z
+2026-04-13 01:52:24.487 +05:30 [INF] RequestId: aad44e3b-69ec-47ed-962b-c320efb66a08, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:23:24.1738742Z
+2026-04-13 01:52:24.487 +05:30 [INF] RequestId: d04833a6-d66b-4057-9371-6ca3e6025636, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T20:23:24.1738742Z
+2026-04-13 01:52:24.487 +05:30 [INF] RequestId: 3fafcb76-c3cb-43c1-a8fc-28daf190b3ef, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T20:23:24.1738742Z
+2026-04-13 01:52:24.487 +05:30 [INF] RequestId: 8395034c-8fc8-4e68-bdde-3ab69bef86e9, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 493/500 resets at 2026-04-12T20:23:24.1738742Z
+2026-04-13 01:52:24.488 +05:30 [INF] RequestId: 6db4763d-c643-40fe-901f-b0ecb01e51e3, PreviousRequestId: -
+The path '/identity/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.489 +05:30 [INF] RequestId: aad44e3b-69ec-47ed-962b-c320efb66a08, PreviousRequestId: -
+The path '/identity/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.489 +05:30 [INF] RequestId: d04833a6-d66b-4057-9371-6ca3e6025636, PreviousRequestId: -
+The path '/identity/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.490 +05:30 [INF] RequestId: 3fafcb76-c3cb-43c1-a8fc-28daf190b3ef, PreviousRequestId: -
+The path '/identity/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.490 +05:30 [INF] RequestId: 8395034c-8fc8-4e68-bdde-3ab69bef86e9, PreviousRequestId: -
+The path '/identity/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:24.491 +05:30 [INF] RequestId: 6db4763d-c643-40fe-901f-b0ecb01e51e3, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:24.492 +05:30 [INF] RequestId: aad44e3b-69ec-47ed-962b-c320efb66a08, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:24.492 +05:30 [INF] RequestId: d04833a6-d66b-4057-9371-6ca3e6025636, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:24.493 +05:30 [INF] RequestId: 3fafcb76-c3cb-43c1-a8fc-28daf190b3ef, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:24.494 +05:30 [INF] RequestId: 8395034c-8fc8-4e68-bdde-3ab69bef86e9, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:24.522 +05:30 [INF] RequestId: aad44e3b-69ec-47ed-962b-c320efb66a08, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548
+2026-04-13 01:52:24.525 +05:30 [INF] HTTP GET /identity/api/admin/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548 responded 200 in 39.0438 ms
+2026-04-13 01:52:24.537 +05:30 [INF] RequestId: d04833a6-d66b-4057-9371-6ca3e6025636, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b
+2026-04-13 01:52:24.539 +05:30 [INF] RequestId: 6db4763d-c643-40fe-901f-b0ecb01e51e3, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393
+2026-04-13 01:52:24.543 +05:30 [INF] HTTP GET /identity/api/admin/dealers/a4e01e04-ad29-4b83-a795-1e09662b8d4b responded 200 in 56.0292 ms
+2026-04-13 01:52:24.544 +05:30 [INF] RequestId: 3fafcb76-c3cb-43c1-a8fc-28daf190b3ef, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820
+2026-04-13 01:52:24.546 +05:30 [INF] RequestId: 8395034c-8fc8-4e68-bdde-3ab69bef86e9, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e
+2026-04-13 01:52:24.549 +05:30 [INF] HTTP GET /identity/api/admin/dealers/6c676936-90b1-47ed-96ab-10cf2f1f8393 responded 200 in 62.3594 ms
+2026-04-13 01:52:24.557 +05:30 [INF] HTTP GET /identity/api/admin/dealers/1e5445dc-2119-4b44-9aae-5b8f7e341820 responded 200 in 70.3311 ms
+2026-04-13 01:52:24.561 +05:30 [INF] HTTP GET /identity/api/admin/dealers/eab997fa-fd33-43e9-a264-c1207d7a4b5e responded 200 in 73.5385 ms
+2026-04-13 01:52:28.645 +05:30 [INF] RequestId: cc1fa659-f29f-4b01-98c0-8da04ea8c6c0, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T20:22:48.3992015Z
+2026-04-13 01:52:28.646 +05:30 [INF] RequestId: cc1fa659-f29f-4b01-98c0-8da04ea8c6c0, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:28.647 +05:30 [INF] RequestId: cc1fa659-f29f-4b01-98c0-8da04ea8c6c0, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:28.665 +05:30 [INF] RequestId: cc1fa659-f29f-4b01-98c0-8da04ea8c6c0, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=20
+2026-04-13 01:52:28.666 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 21.3923 ms
+2026-04-13 01:52:37.391 +05:30 [INF] RequestId: de095cf6-fa92-4246-bbd6-0454ffeec3c9, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 493/500 resets at 2026-04-12T20:22:48.3992015Z
+2026-04-13 01:52:37.392 +05:30 [INF] RequestId: de095cf6-fa92-4246-bbd6-0454ffeec3c9, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:37.393 +05:30 [INF] RequestId: de095cf6-fa92-4246-bbd6-0454ffeec3c9, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:37.418 +05:30 [INF] RequestId: de095cf6-fa92-4246-bbd6-0454ffeec3c9, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe
+2026-04-13 01:52:37.420 +05:30 [INF] HTTP GET /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe responded 200 in 29.3367 ms
+2026-04-13 01:52:43.520 +05:30 [INF] RequestId: 980b7566-e824-486f-a335-0b72e90a061f, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:23:43.5202311Z
+2026-04-13 01:52:43.521 +05:30 [INF] RequestId: 980b7566-e824-486f-a335-0b72e90a061f, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:43.522 +05:30 [INF] RequestId: 980b7566-e824-486f-a335-0b72e90a061f, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:43.524 +05:30 [WRN] RequestId: 980b7566-e824-486f-a335-0b72e90a061f, PreviousRequestId: -
+Route '/orders/{everything}' has invalid QoSOptions for Polly's Circuit Breaker strategy. Specifically, the BreakDuration value (10) is outside the valid range (500 to 86400000 milliseconds). Therefore, ensure the value falls within this range; otherwise, the default value (5000) will be substituted.
+2026-04-13 01:52:43.836 +05:30 [INF] RequestId: 980b7566-e824-486f-a335-0b72e90a061f, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status
+2026-04-13 01:52:43.837 +05:30 [INF] HTTP PUT /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status responded 200 in 317.5948 ms
+2026-04-13 01:52:43.843 +05:30 [INF] RequestId: cee66c84-86e8-46fd-bf16-a7d2788872bf, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 492/500 resets at 2026-04-12T20:22:48.3992015Z
+2026-04-13 01:52:43.844 +05:30 [INF] RequestId: cee66c84-86e8-46fd-bf16-a7d2788872bf, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:43.844 +05:30 [INF] RequestId: cee66c84-86e8-46fd-bf16-a7d2788872bf, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:43.852 +05:30 [INF] RequestId: cee66c84-86e8-46fd-bf16-a7d2788872bf, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe
+2026-04-13 01:52:43.854 +05:30 [INF] HTTP GET /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe responded 200 in 11.1452 ms
+2026-04-13 01:52:48.858 +05:30 [INF] RequestId: 192e3099-e00c-4bc0-a49f-9ceffe5b6518, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:23:48.8584831Z
+2026-04-13 01:52:48.859 +05:30 [INF] RequestId: 192e3099-e00c-4bc0-a49f-9ceffe5b6518, PreviousRequestId: -
+The path '/orders/api/orders/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:48.860 +05:30 [INF] RequestId: 192e3099-e00c-4bc0-a49f-9ceffe5b6518, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:48.870 +05:30 [INF] RequestId: 192e3099-e00c-4bc0-a49f-9ceffe5b6518, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/my?page=1&pageSize=20
+2026-04-13 01:52:48.872 +05:30 [INF] HTTP GET /orders/api/orders/my responded 200 in 14.5310 ms
+2026-04-13 01:52:56.784 +05:30 [INF] RequestId: 27ebdfb1-9b74-4c9d-84f2-9eb593dc4179, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:23:43.5202311Z
+2026-04-13 01:52:56.786 +05:30 [INF] RequestId: 27ebdfb1-9b74-4c9d-84f2-9eb593dc4179, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:56.787 +05:30 [INF] RequestId: 27ebdfb1-9b74-4c9d-84f2-9eb593dc4179, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:57.365 +05:30 [INF] RequestId: 27ebdfb1-9b74-4c9d-84f2-9eb593dc4179, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status
+2026-04-13 01:52:57.387 +05:30 [INF] HTTP PUT /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status responded 200 in 603.2644 ms
+2026-04-13 01:52:57.397 +05:30 [INF] RequestId: 52c55e8c-6883-4715-9529-8bde24b5dcc5, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:23:48.8584831Z
+2026-04-13 01:52:57.398 +05:30 [INF] RequestId: 52c55e8c-6883-4715-9529-8bde24b5dcc5, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:52:57.398 +05:30 [INF] RequestId: 52c55e8c-6883-4715-9529-8bde24b5dcc5, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:52:57.407 +05:30 [INF] RequestId: 52c55e8c-6883-4715-9529-8bde24b5dcc5, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe
+2026-04-13 01:52:57.408 +05:30 [INF] HTTP GET /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe responded 200 in 11.9743 ms
+2026-04-13 01:53:03.865 +05:30 [INF] RequestId: 4ae15469-ca8a-4048-aaae-620474cdb8ed, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:23:48.8584831Z
+2026-04-13 01:53:03.866 +05:30 [INF] RequestId: 4ae15469-ca8a-4048-aaae-620474cdb8ed, PreviousRequestId: -
+The path '/orders/api/orders/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:03.867 +05:30 [INF] RequestId: 4ae15469-ca8a-4048-aaae-620474cdb8ed, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:03.875 +05:30 [INF] RequestId: 4ae15469-ca8a-4048-aaae-620474cdb8ed, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/my?page=1&pageSize=20
+2026-04-13 01:53:03.876 +05:30 [INF] HTTP GET /orders/api/orders/my responded 200 in 11.1778 ms
+2026-04-13 01:53:05.910 +05:30 [INF] RequestId: 2bea5ad6-f67e-43d1-bdd5-81d2b0d631fd, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:23:24.3553085Z
+2026-04-13 01:53:05.910 +05:30 [INF] RequestId: a883176c-06d9-440b-a0e2-37c9e8e09891, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:23:24.3553085Z
+2026-04-13 01:53:05.911 +05:30 [INF] RequestId: 2bea5ad6-f67e-43d1-bdd5-81d2b0d631fd, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:05.911 +05:30 [INF] RequestId: a883176c-06d9-440b-a0e2-37c9e8e09891, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:05.912 +05:30 [INF] RequestId: 2bea5ad6-f67e-43d1-bdd5-81d2b0d631fd, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/categories' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:05.913 +05:30 [INF] RequestId: a883176c-06d9-440b-a0e2-37c9e8e09891, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:05.928 +05:30 [INF] RequestId: 2bea5ad6-f67e-43d1-bdd5-81d2b0d631fd, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/categories
+2026-04-13 01:53:05.931 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 200 in 21.1957 ms
+2026-04-13 01:53:05.948 +05:30 [INF] RequestId: a883176c-06d9-440b-a0e2-37c9e8e09891, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=20&includeInactive=false
+2026-04-13 01:53:05.952 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 42.0688 ms
+2026-04-13 01:53:10.292 +05:30 [INF] RequestId: 0565204d-232b-4452-8adf-616cb26c6681, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:23:48.8584831Z
+2026-04-13 01:53:10.293 +05:30 [INF] RequestId: 0565204d-232b-4452-8adf-616cb26c6681, PreviousRequestId: -
+The path '/orders/api/orders/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:10.294 +05:30 [INF] RequestId: 0565204d-232b-4452-8adf-616cb26c6681, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:10.303 +05:30 [INF] RequestId: 0565204d-232b-4452-8adf-616cb26c6681, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/my?page=1&pageSize=20
+2026-04-13 01:53:10.305 +05:30 [INF] HTTP GET /orders/api/orders/my responded 200 in 13.3215 ms
+2026-04-13 01:53:13.804 +05:30 [INF] RequestId: 3fa4a5c4-609a-4907-9d88-0508ff84b6a9, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T20:23:48.8584831Z
+2026-04-13 01:53:13.805 +05:30 [INF] RequestId: 3fa4a5c4-609a-4907-9d88-0508ff84b6a9, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:13.806 +05:30 [INF] RequestId: 3fa4a5c4-609a-4907-9d88-0508ff84b6a9, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:13.814 +05:30 [INF] RequestId: 3fa4a5c4-609a-4907-9d88-0508ff84b6a9, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe
+2026-04-13 01:53:13.816 +05:30 [INF] HTTP GET /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe responded 200 in 11.9014 ms
+2026-04-13 01:53:15.937 +05:30 [INF] RequestId: 0e9984f1-6f5a-4a2e-8dcb-5af210bca1d0, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:23:24.3561565Z
+2026-04-13 01:53:15.937 +05:30 [INF] RequestId: 64f4b859-f8be-48bd-9238-0bbe08767769, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T20:23:48.8584831Z
+2026-04-13 01:53:15.938 +05:30 [INF] RequestId: 0e9984f1-6f5a-4a2e-8dcb-5af210bca1d0, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:15.938 +05:30 [INF] RequestId: 64f4b859-f8be-48bd-9238-0bbe08767769, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:15.939 +05:30 [INF] RequestId: 0e9984f1-6f5a-4a2e-8dcb-5af210bca1d0, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:15.939 +05:30 [INF] RequestId: 64f4b859-f8be-48bd-9238-0bbe08767769, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:15.952 +05:30 [INF] RequestId: 64f4b859-f8be-48bd-9238-0bbe08767769, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe
+2026-04-13 01:53:15.954 +05:30 [INF] HTTP GET /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe responded 200 in 17.3320 ms
+2026-04-13 01:53:15.955 +05:30 [INF] RequestId: 0e9984f1-6f5a-4a2e-8dcb-5af210bca1d0, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/my
+2026-04-13 01:53:15.957 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/my responded 200 in 20.7371 ms
+2026-04-13 01:53:26.015 +05:30 [INF] RequestId: b47c45ef-e5ab-4f5f-945b-0458d812c199, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:23:43.5202311Z
+2026-04-13 01:53:26.017 +05:30 [INF] RequestId: b47c45ef-e5ab-4f5f-945b-0458d812c199, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:26.018 +05:30 [INF] RequestId: b47c45ef-e5ab-4f5f-945b-0458d812c199, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:26.041 +05:30 [INF] RequestId: b47c45ef-e5ab-4f5f-945b-0458d812c199, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status
+2026-04-13 01:53:26.044 +05:30 [INF] HTTP PUT /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe/status responded 200 in 28.8990 ms
+2026-04-13 01:53:26.050 +05:30 [INF] RequestId: 1c8e2519-440b-4e62-be7e-934ea2314568, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 493/500 resets at 2026-04-12T20:23:48.8584831Z
+2026-04-13 01:53:26.052 +05:30 [INF] RequestId: 1c8e2519-440b-4e62-be7e-934ea2314568, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:26.052 +05:30 [INF] RequestId: 1c8e2519-440b-4e62-be7e-934ea2314568, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:26.060 +05:30 [INF] RequestId: 1c8e2519-440b-4e62-be7e-934ea2314568, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe
+2026-04-13 01:53:26.061 +05:30 [INF] HTTP GET /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe responded 200 in 10.9651 ms
+2026-04-13 01:53:31.215 +05:30 [INF] RequestId: 02870cfb-7195-4724-b287-f4be30060b9a, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:24:31.2152153Z
+2026-04-13 01:53:31.215 +05:30 [INF] RequestId: 38eff148-fc51-479d-87f8-2b1a3d7edd60, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 492/500 resets at 2026-04-12T20:23:48.8584831Z
+2026-04-13 01:53:31.216 +05:30 [INF] RequestId: 02870cfb-7195-4724-b287-f4be30060b9a, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:31.217 +05:30 [INF] RequestId: 38eff148-fc51-479d-87f8-2b1a3d7edd60, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:31.218 +05:30 [INF] RequestId: 02870cfb-7195-4724-b287-f4be30060b9a, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:31.219 +05:30 [INF] RequestId: 38eff148-fc51-479d-87f8-2b1a3d7edd60, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:31.246 +05:30 [INF] RequestId: 02870cfb-7195-4724-b287-f4be30060b9a, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/my
+2026-04-13 01:53:31.246 +05:30 [INF] RequestId: 38eff148-fc51-479d-87f8-2b1a3d7edd60, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe
+2026-04-13 01:53:31.253 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/my responded 200 in 38.5497 ms
+2026-04-13 01:53:31.255 +05:30 [INF] HTTP GET /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe responded 200 in 40.6158 ms
+2026-04-13 01:53:43.196 +05:30 [INF] RequestId: 1baab95c-b9f3-4ad5-a3b6-b72530e83eb6, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:24:31.2152153Z
+2026-04-13 01:53:43.198 +05:30 [INF] RequestId: 1baab95c-b9f3-4ad5-a3b6-b72530e83eb6, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:43.199 +05:30 [INF] RequestId: 1baab95c-b9f3-4ad5-a3b6-b72530e83eb6, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:43.225 +05:30 [INF] RequestId: 1baab95c-b9f3-4ad5-a3b6-b72530e83eb6, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments
+2026-04-13 01:53:43.227 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments responded 200 in 31.6041 ms
+2026-04-13 01:53:43.236 +05:30 [INF] RequestId: 800c0127-6640-42cc-bab8-de44cb40b0f5, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:24:43.2365141Z
+2026-04-13 01:53:43.238 +05:30 [INF] RequestId: 800c0127-6640-42cc-bab8-de44cb40b0f5, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/ops-states/batch' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:43.239 +05:30 [INF] RequestId: 800c0127-6640-42cc-bab8-de44cb40b0f5, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/ops-states/batch' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:43.272 +05:30 [INF] RequestId: 800c0127-6640-42cc-bab8-de44cb40b0f5, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/ops-states/batch
+2026-04-13 01:53:43.274 +05:30 [INF] HTTP POST /logistics/api/logistics/shipments/ops-states/batch responded 200 in 38.1908 ms
+2026-04-13 01:53:46.517 +05:30 [INF] RequestId: c6c8bfd0-6788-42a9-b6be-f608733fd3c6, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:24:31.2152153Z
+2026-04-13 01:53:46.520 +05:30 [INF] RequestId: c6c8bfd0-6788-42a9-b6be-f608733fd3c6, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:46.523 +05:30 [INF] RequestId: c6c8bfd0-6788-42a9-b6be-f608733fd3c6, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:46.561 +05:30 [INF] RequestId: c6c8bfd0-6788-42a9-b6be-f608733fd3c6, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03
+2026-04-13 01:53:46.566 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03 responded 200 in 49.0624 ms
+2026-04-13 01:53:46.577 +05:30 [INF] RequestId: a77affe1-b18c-4579-8691-4b262c0b967f, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:24:31.2152153Z
+2026-04-13 01:53:46.579 +05:30 [INF] RequestId: a77affe1-b18c-4579-8691-4b262c0b967f, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ops-state' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:53:46.580 +05:30 [INF] RequestId: a77affe1-b18c-4579-8691-4b262c0b967f, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ops-state' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:53:46.596 +05:30 [INF] RequestId: a77affe1-b18c-4579-8691-4b262c0b967f, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ops-state
+2026-04-13 01:53:46.598 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ops-state responded 200 in 21.1500 ms
+2026-04-13 01:54:25.418 +05:30 [INF] RequestId: 3b128602-2787-406b-9c8a-45e6bc8ecba7, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:25:25.4185872Z
+2026-04-13 01:54:25.419 +05:30 [INF] RequestId: 3b128602-2787-406b-9c8a-45e6bc8ecba7, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/logout' in the route /identity/api/auth/{everything}.
+2026-04-13 01:54:25.486 +05:30 [INF] RequestId: 3b128602-2787-406b-9c8a-45e6bc8ecba7, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/logout
+2026-04-13 01:54:25.488 +05:30 [INF] HTTP POST /identity/api/auth/logout responded 200 in 70.0490 ms
+2026-04-13 01:54:37.489 +05:30 [INF] RequestId: 4334d944-6362-4bb6-8649-18c0e1669931, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:25:25.4185872Z
+2026-04-13 01:54:37.490 +05:30 [INF] RequestId: 4334d944-6362-4bb6-8649-18c0e1669931, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/login' in the route /identity/api/auth/{everything}.
+2026-04-13 01:54:37.597 +05:30 [INF] RequestId: 4334d944-6362-4bb6-8649-18c0e1669931, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/login
+2026-04-13 01:54:37.599 +05:30 [INF] HTTP POST /identity/api/auth/login responded 200 in 111.0098 ms
+2026-04-13 01:54:37.606 +05:30 [INF] RequestId: b1dc0656-f245-4443-bc1d-bcc36f4965ee, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:25:37.6068380Z
+2026-04-13 01:54:37.607 +05:30 [INF] RequestId: b1dc0656-f245-4443-bc1d-bcc36f4965ee, PreviousRequestId: -
+The path '/identity/api/users/profile' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:37.608 +05:30 [WRN] RequestId: b1dc0656-f245-4443-bc1d-bcc36f4965ee, PreviousRequestId: -
+Client has NOT been authenticated for path '/identity/api/users/profile' and pipeline error set. UnauthenticatedError: Request for authenticated route '/identity/api/users/profile' was unauthenticated!;
+2026-04-13 01:54:37.609 +05:30 [WRN] RequestId: b1dc0656-f245-4443-bc1d-bcc36f4965ee, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/identity/api/users/profile' was unauthenticated!
+Setting error response for request: GET /identity/api/users/profile
+2026-04-13 01:54:37.609 +05:30 [INF] HTTP GET /identity/api/users/profile responded 401 in 3.2552 ms
+2026-04-13 01:54:37.617 +05:30 [INF] RequestId: 87c62792-b8fd-47f6-b542-65ba351923d2, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:25:25.4185872Z
+2026-04-13 01:54:37.618 +05:30 [INF] RequestId: 87c62792-b8fd-47f6-b542-65ba351923d2, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 01:54:37.643 +05:30 [INF] RequestId: 87c62792-b8fd-47f6-b542-65ba351923d2, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 01:54:37.645 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 28.0951 ms
+2026-04-13 01:54:37.654 +05:30 [INF] RequestId: b1dc0656-f245-4443-bc1d-bcc36f4965ee, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:25:37.6068380Z
+2026-04-13 01:54:37.655 +05:30 [INF] RequestId: b1dc0656-f245-4443-bc1d-bcc36f4965ee, PreviousRequestId: -
+The path '/identity/api/users/profile' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:37.656 +05:30 [INF] RequestId: b1dc0656-f245-4443-bc1d-bcc36f4965ee, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/users/profile' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:54:37.669 +05:30 [INF] RequestId: b1dc0656-f245-4443-bc1d-bcc36f4965ee, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/users/profile
+2026-04-13 01:54:37.672 +05:30 [INF] HTTP GET /identity/api/users/profile responded 200 in 18.6793 ms
+2026-04-13 01:54:37.719 +05:30 [INF] RequestId: 4f9c4c0a-d142-4222-9439-a97e3f49398e, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:25:37.7192363Z
+2026-04-13 01:54:37.719 +05:30 [INF] RequestId: 1a976a3d-9b02-40f5-acd1-3fc9638bee5b, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:25:37.7192363Z
+2026-04-13 01:54:37.721 +05:30 [INF] RequestId: 4f9c4c0a-d142-4222-9439-a97e3f49398e, PreviousRequestId: -
+The path '/orders/api/admin/orders/analytics' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:37.722 +05:30 [INF] RequestId: 1a976a3d-9b02-40f5-acd1-3fc9638bee5b, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:37.723 +05:30 [INF] RequestId: 4f9c4c0a-d142-4222-9439-a97e3f49398e, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders/analytics' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:54:37.724 +05:30 [INF] RequestId: 1a976a3d-9b02-40f5-acd1-3fc9638bee5b, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:54:37.771 +05:30 [INF] RequestId: ff3d1cc5-faf1-4494-8b99-3e8e5b4e585a, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:25:37.7711526Z
+2026-04-13 01:54:37.772 +05:30 [INF] RequestId: ff3d1cc5-faf1-4494-8b99-3e8e5b4e585a, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:37.773 +05:30 [INF] RequestId: ff3d1cc5-faf1-4494-8b99-3e8e5b4e585a, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:54:37.775 +05:30 [INF] RequestId: 4f9c4c0a-d142-4222-9439-a97e3f49398e, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders/analytics?days=90&top=5
+2026-04-13 01:54:37.778 +05:30 [INF] HTTP GET /orders/api/admin/orders/analytics responded 200 in 59.3732 ms
+2026-04-13 01:54:37.795 +05:30 [INF] RequestId: 1a976a3d-9b02-40f5-acd1-3fc9638bee5b, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=8
+2026-04-13 01:54:37.799 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 79.9002 ms
+2026-04-13 01:54:37.813 +05:30 [INF] RequestId: ff3d1cc5-faf1-4494-8b99-3e8e5b4e585a, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=100&includeInactive=false
+2026-04-13 01:54:37.815 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 44.2446 ms
+2026-04-13 01:54:41.934 +05:30 [INF] RequestId: f8b9e1e9-cc90-4f2f-b944-9b26a3578033, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:25:37.7192363Z
+2026-04-13 01:54:41.935 +05:30 [INF] RequestId: f8b9e1e9-cc90-4f2f-b944-9b26a3578033, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:41.936 +05:30 [INF] RequestId: f8b9e1e9-cc90-4f2f-b944-9b26a3578033, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:54:41.947 +05:30 [INF] RequestId: f8b9e1e9-cc90-4f2f-b944-9b26a3578033, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=20
+2026-04-13 01:54:41.949 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 15.1765 ms
+2026-04-13 01:54:44.148 +05:30 [INF] RequestId: 54f7ac63-7d26-4e96-9e3b-c5fb1d2e4694, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:25:37.7192363Z
+2026-04-13 01:54:44.149 +05:30 [INF] RequestId: 54f7ac63-7d26-4e96-9e3b-c5fb1d2e4694, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:44.151 +05:30 [INF] RequestId: 54f7ac63-7d26-4e96-9e3b-c5fb1d2e4694, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:54:44.165 +05:30 [INF] RequestId: 54f7ac63-7d26-4e96-9e3b-c5fb1d2e4694, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe
+2026-04-13 01:54:44.170 +05:30 [INF] HTTP GET /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe responded 200 in 22.7949 ms
+2026-04-13 01:54:46.049 +05:30 [INF] RequestId: 712d4c69-9b49-4e64-90df-d514b52a1b0c, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T20:25:37.7192363Z
+2026-04-13 01:54:46.051 +05:30 [INF] RequestId: 712d4c69-9b49-4e64-90df-d514b52a1b0c, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:46.052 +05:30 [INF] RequestId: 712d4c69-9b49-4e64-90df-d514b52a1b0c, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:54:46.062 +05:30 [INF] RequestId: 712d4c69-9b49-4e64-90df-d514b52a1b0c, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=20
+2026-04-13 01:54:46.064 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 14.7149 ms
+2026-04-13 01:54:47.692 +05:30 [INF] RequestId: 7842289a-85c0-4f99-9503-9888f5a1a2e9, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T20:25:37.7192363Z
+2026-04-13 01:54:47.693 +05:30 [INF] RequestId: 7842289a-85c0-4f99-9503-9888f5a1a2e9, PreviousRequestId: -
+The path '/orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:47.694 +05:30 [INF] RequestId: 7842289a-85c0-4f99-9503-9888f5a1a2e9, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:54:47.704 +05:30 [INF] RequestId: 7842289a-85c0-4f99-9503-9888f5a1a2e9, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0
+2026-04-13 01:54:47.706 +05:30 [INF] HTTP GET /orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0 responded 200 in 14.2291 ms
+2026-04-13 01:54:53.071 +05:30 [INF] RequestId: 509e7f66-0273-4a68-a791-b5ddff169c20, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:25:53.0719430Z
+2026-04-13 01:54:53.072 +05:30 [INF] RequestId: 509e7f66-0273-4a68-a791-b5ddff169c20, PreviousRequestId: -
+The path '/orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0/status' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:53.073 +05:30 [INF] RequestId: 509e7f66-0273-4a68-a791-b5ddff169c20, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0/status' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:54:53.101 +05:30 [INF] RequestId: 509e7f66-0273-4a68-a791-b5ddff169c20, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0/status
+2026-04-13 01:54:53.102 +05:30 [INF] HTTP PUT /orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0/status responded 200 in 30.9732 ms
+2026-04-13 01:54:53.110 +05:30 [INF] RequestId: dd6348a2-b50f-45b6-8206-9fc4b978644e, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 493/500 resets at 2026-04-12T20:25:37.7192363Z
+2026-04-13 01:54:53.111 +05:30 [INF] RequestId: dd6348a2-b50f-45b6-8206-9fc4b978644e, PreviousRequestId: -
+The path '/orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:54:53.112 +05:30 [INF] RequestId: dd6348a2-b50f-45b6-8206-9fc4b978644e, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:54:53.121 +05:30 [INF] RequestId: dd6348a2-b50f-45b6-8206-9fc4b978644e, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0
+2026-04-13 01:54:53.122 +05:30 [INF] HTTP GET /orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0 responded 200 in 12.7884 ms
+2026-04-13 01:55:40.455 +05:30 [INF] RequestId: 466e4bcc-803e-4341-96e3-008be54aec7d, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:26:40.4550893Z
+2026-04-13 01:55:40.456 +05:30 [INF] RequestId: 466e4bcc-803e-4341-96e3-008be54aec7d, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:55:40.457 +05:30 [INF] RequestId: 466e4bcc-803e-4341-96e3-008be54aec7d, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/categories' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:55:40.458 +05:30 [INF] RequestId: e0e41cbd-464e-4892-9c54-52f7f83ffc54, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:26:40.4550893Z
+2026-04-13 01:55:40.459 +05:30 [INF] RequestId: e0e41cbd-464e-4892-9c54-52f7f83ffc54, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:55:40.460 +05:30 [INF] RequestId: e0e41cbd-464e-4892-9c54-52f7f83ffc54, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:55:40.471 +05:30 [INF] RequestId: 466e4bcc-803e-4341-96e3-008be54aec7d, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/categories
+2026-04-13 01:55:40.475 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 200 in 20.8966 ms
+2026-04-13 01:55:40.475 +05:30 [INF] RequestId: e0e41cbd-464e-4892-9c54-52f7f83ffc54, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=20&includeInactive=false
+2026-04-13 01:55:40.482 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 24.0042 ms
+2026-04-13 01:55:47.006 +05:30 [INF] RequestId: 2f7e3731-d5cb-41c3-9cf6-c61e077d91eb, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:26:47.0063427Z
+2026-04-13 01:55:47.007 +05:30 [INF] RequestId: 2f7e3731-d5cb-41c3-9cf6-c61e077d91eb, PreviousRequestId: -
+The path '/orders/api/admin/orders/analytics' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:55:47.008 +05:30 [INF] RequestId: 2f7e3731-d5cb-41c3-9cf6-c61e077d91eb, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders/analytics' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:55:47.008 +05:30 [INF] RequestId: 3197398a-6268-4462-956d-3f527f987532, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:26:47.0063427Z
+2026-04-13 01:55:47.008 +05:30 [INF] RequestId: fb57a331-64e0-4c3c-83e3-44b0e8208b83, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:26:40.4550893Z
+2026-04-13 01:55:47.010 +05:30 [INF] RequestId: 3197398a-6268-4462-956d-3f527f987532, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:55:47.011 +05:30 [INF] RequestId: 3197398a-6268-4462-956d-3f527f987532, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:55:47.011 +05:30 [INF] RequestId: fb57a331-64e0-4c3c-83e3-44b0e8208b83, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:55:47.014 +05:30 [INF] RequestId: fb57a331-64e0-4c3c-83e3-44b0e8208b83, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:55:47.022 +05:30 [INF] RequestId: fb57a331-64e0-4c3c-83e3-44b0e8208b83, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=100&includeInactive=false
+2026-04-13 01:55:47.024 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 16.3022 ms
+2026-04-13 01:55:47.032 +05:30 [INF] RequestId: 3197398a-6268-4462-956d-3f527f987532, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=8
+2026-04-13 01:55:47.035 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 27.0885 ms
+2026-04-13 01:55:47.097 +05:30 [INF] RequestId: 2f7e3731-d5cb-41c3-9cf6-c61e077d91eb, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders/analytics?days=90&top=5
+2026-04-13 01:55:47.098 +05:30 [INF] HTTP GET /orders/api/admin/orders/analytics responded 200 in 92.5994 ms
+2026-04-13 01:55:55.017 +05:30 [INF] RequestId: dbc3762c-5e69-45b2-a889-e88ae70f0d14, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:26:47.0063427Z
+2026-04-13 01:55:55.019 +05:30 [INF] RequestId: dbc3762c-5e69-45b2-a889-e88ae70f0d14, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:55:55.019 +05:30 [INF] RequestId: dbc3762c-5e69-45b2-a889-e88ae70f0d14, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:55:55.028 +05:30 [INF] RequestId: dbc3762c-5e69-45b2-a889-e88ae70f0d14, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=20
+2026-04-13 01:55:55.030 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 13.0164 ms
+2026-04-13 01:55:58.349 +05:30 [INF] RequestId: 8c1181e5-f2aa-4636-8b87-47876618535a, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:26:47.0063427Z
+2026-04-13 01:55:58.351 +05:30 [INF] RequestId: 8c1181e5-f2aa-4636-8b87-47876618535a, PreviousRequestId: -
+The path '/orders/api/orders/d4d5350e-5150-4094-a18b-e0c02e968cca' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:55:58.353 +05:30 [INF] RequestId: 8c1181e5-f2aa-4636-8b87-47876618535a, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/d4d5350e-5150-4094-a18b-e0c02e968cca' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:55:58.375 +05:30 [INF] RequestId: 8c1181e5-f2aa-4636-8b87-47876618535a, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/d4d5350e-5150-4094-a18b-e0c02e968cca
+2026-04-13 01:55:58.377 +05:30 [INF] HTTP GET /orders/api/orders/d4d5350e-5150-4094-a18b-e0c02e968cca responded 200 in 28.1019 ms
+2026-04-13 01:56:01.710 +05:30 [INF] RequestId: 70f1c421-c626-4f70-8a3a-01dc8bb8aa1d, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:27:01.7105366Z
+2026-04-13 01:56:01.711 +05:30 [INF] RequestId: 70f1c421-c626-4f70-8a3a-01dc8bb8aa1d, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/logout' in the route /identity/api/auth/{everything}.
+2026-04-13 01:56:01.723 +05:30 [INF] RequestId: 70f1c421-c626-4f70-8a3a-01dc8bb8aa1d, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/logout
+2026-04-13 01:56:01.725 +05:30 [INF] HTTP POST /identity/api/auth/logout responded 200 in 15.2939 ms
+2026-04-13 01:56:23.878 +05:30 [INF] RequestId: 0e7db9b5-7fe7-4593-ae23-e5f4b0a896fc, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:27:01.7105366Z
+2026-04-13 01:56:23.879 +05:30 [INF] RequestId: 0e7db9b5-7fe7-4593-ae23-e5f4b0a896fc, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/login' in the route /identity/api/auth/{everything}.
+2026-04-13 01:56:24.032 +05:30 [INF] RequestId: 0e7db9b5-7fe7-4593-ae23-e5f4b0a896fc, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/login
+2026-04-13 01:56:24.035 +05:30 [INF] HTTP POST /identity/api/auth/login responded 200 in 156.9265 ms
+2026-04-13 01:56:24.043 +05:30 [INF] RequestId: 0dd5ab7a-3b40-466d-acec-b53cf480eb07, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:27:24.0439180Z
+2026-04-13 01:56:24.045 +05:30 [INF] RequestId: 0dd5ab7a-3b40-466d-acec-b53cf480eb07, PreviousRequestId: -
+The path '/identity/api/users/profile' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:56:24.047 +05:30 [WRN] RequestId: 0dd5ab7a-3b40-466d-acec-b53cf480eb07, PreviousRequestId: -
+Client has NOT been authenticated for path '/identity/api/users/profile' and pipeline error set. UnauthenticatedError: Request for authenticated route '/identity/api/users/profile' was unauthenticated!;
+2026-04-13 01:56:24.049 +05:30 [WRN] RequestId: 0dd5ab7a-3b40-466d-acec-b53cf480eb07, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/identity/api/users/profile' was unauthenticated!
+Setting error response for request: GET /identity/api/users/profile
+2026-04-13 01:56:24.051 +05:30 [INF] HTTP GET /identity/api/users/profile responded 401 in 7.7108 ms
+2026-04-13 01:56:24.061 +05:30 [INF] RequestId: 066ad41a-6f3f-438c-9726-acaae104d289, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:27:01.7105366Z
+2026-04-13 01:56:24.063 +05:30 [INF] RequestId: 066ad41a-6f3f-438c-9726-acaae104d289, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 01:56:24.086 +05:30 [INF] RequestId: 066ad41a-6f3f-438c-9726-acaae104d289, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 01:56:24.089 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 27.9591 ms
+2026-04-13 01:56:24.096 +05:30 [INF] RequestId: 0dd5ab7a-3b40-466d-acec-b53cf480eb07, PreviousRequestId: -
+Route '/identity/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:27:24.0439180Z
+2026-04-13 01:56:24.097 +05:30 [INF] RequestId: 0dd5ab7a-3b40-466d-acec-b53cf480eb07, PreviousRequestId: -
+The path '/identity/api/users/profile' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:56:24.098 +05:30 [INF] RequestId: 0dd5ab7a-3b40-466d-acec-b53cf480eb07, PreviousRequestId: -
+Client has been authenticated for path '/identity/api/users/profile' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:56:24.107 +05:30 [INF] RequestId: 0dd5ab7a-3b40-466d-acec-b53cf480eb07, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/users/profile
+2026-04-13 01:56:24.109 +05:30 [INF] HTTP GET /identity/api/users/profile responded 200 in 12.4308 ms
+2026-04-13 01:56:24.154 +05:30 [INF] RequestId: 674c5e6a-edd2-450b-a47a-df3129e70e68, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T20:26:47.0063427Z
+2026-04-13 01:56:24.154 +05:30 [INF] RequestId: d674ca48-d1e9-4c07-b15d-24a631b373f4, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T20:26:47.0063427Z
+2026-04-13 01:56:24.156 +05:30 [INF] RequestId: 674c5e6a-edd2-450b-a47a-df3129e70e68, PreviousRequestId: -
+The path '/orders/api/admin/orders/analytics' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:56:24.157 +05:30 [INF] RequestId: d674ca48-d1e9-4c07-b15d-24a631b373f4, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:56:24.157 +05:30 [INF] RequestId: 674c5e6a-edd2-450b-a47a-df3129e70e68, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders/analytics' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:56:24.158 +05:30 [INF] RequestId: d674ca48-d1e9-4c07-b15d-24a631b373f4, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:56:24.159 +05:30 [INF] RequestId: a47c3d18-2f14-4a61-8fdb-d95fc4f30e6f, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:26:40.4550893Z
+2026-04-13 01:56:24.160 +05:30 [INF] RequestId: 3352b106-ae7d-4f48-ada9-6a9e922aac91, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:27:24.1600181Z
+2026-04-13 01:56:24.161 +05:30 [INF] RequestId: a47c3d18-2f14-4a61-8fdb-d95fc4f30e6f, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:56:24.162 +05:30 [INF] RequestId: 3352b106-ae7d-4f48-ada9-6a9e922aac91, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:56:24.162 +05:30 [INF] RequestId: a47c3d18-2f14-4a61-8fdb-d95fc4f30e6f, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:56:24.162 +05:30 [INF] RequestId: 3352b106-ae7d-4f48-ada9-6a9e922aac91, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:56:24.181 +05:30 [INF] RequestId: d674ca48-d1e9-4c07-b15d-24a631b373f4, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=8
+2026-04-13 01:56:24.186 +05:30 [INF] RequestId: a47c3d18-2f14-4a61-8fdb-d95fc4f30e6f, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=100&includeInactive=false
+2026-04-13 01:56:24.189 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 34.9745 ms
+2026-04-13 01:56:24.193 +05:30 [INF] RequestId: 674c5e6a-edd2-450b-a47a-df3129e70e68, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders/analytics?days=90&top=5
+2026-04-13 01:56:24.195 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 35.8811 ms
+2026-04-13 01:56:24.197 +05:30 [INF] RequestId: 3352b106-ae7d-4f48-ada9-6a9e922aac91, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments
+2026-04-13 01:56:24.205 +05:30 [INF] HTTP GET /orders/api/admin/orders/analytics responded 200 in 51.3940 ms
+2026-04-13 01:56:24.215 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments responded 200 in 55.3587 ms
+2026-04-13 01:57:02.797 +05:30 [INF] RequestId: 1052f1c2-6c2f-4e51-a21a-2e3e656f21ff, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:28:02.7973477Z
+2026-04-13 01:57:02.798 +05:30 [INF] RequestId: 1052f1c2-6c2f-4e51-a21a-2e3e656f21ff, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:02.800 +05:30 [INF] RequestId: 1052f1c2-6c2f-4e51-a21a-2e3e656f21ff, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:02.814 +05:30 [INF] RequestId: 1052f1c2-6c2f-4e51-a21a-2e3e656f21ff, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=20
+2026-04-13 01:57:02.820 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 23.8615 ms
+2026-04-13 01:57:05.618 +05:30 [INF] RequestId: 9fd4430e-6ece-4fe9-8f09-35b1689e89ee, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:28:02.7973477Z
+2026-04-13 01:57:05.619 +05:30 [INF] RequestId: 9fd4430e-6ece-4fe9-8f09-35b1689e89ee, PreviousRequestId: -
+The path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:05.621 +05:30 [INF] RequestId: 9fd4430e-6ece-4fe9-8f09-35b1689e89ee, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:05.638 +05:30 [INF] RequestId: 9fd4430e-6ece-4fe9-8f09-35b1689e89ee, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe
+2026-04-13 01:57:05.640 +05:30 [INF] HTTP GET /orders/api/orders/2596f847-8ae6-48a9-aaf1-5341ce0267fe responded 200 in 22.8383 ms
+2026-04-13 01:57:07.548 +05:30 [INF] RequestId: 27e0ab64-c507-4e8e-8a74-5417c63cc6db, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:28:02.7973477Z
+2026-04-13 01:57:07.549 +05:30 [INF] RequestId: 27e0ab64-c507-4e8e-8a74-5417c63cc6db, PreviousRequestId: -
+The path '/orders/api/admin/orders' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:07.551 +05:30 [INF] RequestId: 27e0ab64-c507-4e8e-8a74-5417c63cc6db, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/admin/orders' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:07.560 +05:30 [INF] RequestId: 27e0ab64-c507-4e8e-8a74-5417c63cc6db, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/admin/orders?page=1&pageSize=20
+2026-04-13 01:57:07.562 +05:30 [INF] HTTP GET /orders/api/admin/orders responded 200 in 14.2786 ms
+2026-04-13 01:57:09.363 +05:30 [INF] RequestId: 2417510e-774f-4eb8-b206-ab12adcc2372, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:28:02.7973477Z
+2026-04-13 01:57:09.364 +05:30 [INF] RequestId: 2417510e-774f-4eb8-b206-ab12adcc2372, PreviousRequestId: -
+The path '/orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:09.366 +05:30 [INF] RequestId: 2417510e-774f-4eb8-b206-ab12adcc2372, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:09.415 +05:30 [INF] RequestId: 2417510e-774f-4eb8-b206-ab12adcc2372, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0
+2026-04-13 01:57:09.418 +05:30 [INF] HTTP GET /orders/api/orders/2ec5320b-99d2-421c-a25b-982ecb2ed4b0 responded 200 in 55.4578 ms
+2026-04-13 01:57:16.864 +05:30 [INF] RequestId: 23f4888a-6f02-4de6-8105-6416ca6014b9, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:27:24.1600181Z
+2026-04-13 01:57:16.865 +05:30 [INF] RequestId: 23f4888a-6f02-4de6-8105-6416ca6014b9, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:16.868 +05:30 [INF] RequestId: 23f4888a-6f02-4de6-8105-6416ca6014b9, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:16.890 +05:30 [INF] RequestId: 23f4888a-6f02-4de6-8105-6416ca6014b9, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments
+2026-04-13 01:57:16.892 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments responded 200 in 29.0658 ms
+2026-04-13 01:57:16.903 +05:30 [INF] RequestId: 8725a47f-4b5e-4bc8-ad2f-00db50fb4afa, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:28:16.9036662Z
+2026-04-13 01:57:16.905 +05:30 [INF] RequestId: 8725a47f-4b5e-4bc8-ad2f-00db50fb4afa, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/ops-states/batch' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:16.906 +05:30 [INF] RequestId: 8725a47f-4b5e-4bc8-ad2f-00db50fb4afa, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/ops-states/batch' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:16.964 +05:30 [INF] RequestId: 8725a47f-4b5e-4bc8-ad2f-00db50fb4afa, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/ops-states/batch
+2026-04-13 01:57:16.969 +05:30 [INF] HTTP POST /logistics/api/logistics/shipments/ops-states/batch responded 200 in 65.6644 ms
+2026-04-13 01:57:18.578 +05:30 [INF] RequestId: 967c6ff6-fe80-44f7-afb2-589ee912b9e4, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:27:24.1600181Z
+2026-04-13 01:57:18.579 +05:30 [INF] RequestId: 967c6ff6-fe80-44f7-afb2-589ee912b9e4, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:18.580 +05:30 [INF] RequestId: 967c6ff6-fe80-44f7-afb2-589ee912b9e4, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:18.797 +05:30 [INF] RequestId: 967c6ff6-fe80-44f7-afb2-589ee912b9e4, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03
+2026-04-13 01:57:18.801 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03 responded 200 in 223.2918 ms
+2026-04-13 01:57:18.810 +05:30 [INF] RequestId: 6ad31819-b4b3-4fc8-bac2-bb0cd0875308, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:27:24.1600181Z
+2026-04-13 01:57:18.811 +05:30 [INF] RequestId: 6ad31819-b4b3-4fc8-bac2-bb0cd0875308, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ops-state' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:18.812 +05:30 [INF] RequestId: 6ad31819-b4b3-4fc8-bac2-bb0cd0875308, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ops-state' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:18.829 +05:30 [INF] RequestId: 6ad31819-b4b3-4fc8-bac2-bb0cd0875308, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ops-state
+2026-04-13 01:57:18.830 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ops-state responded 200 in 19.9653 ms
+2026-04-13 01:57:26.568 +05:30 [INF] RequestId: b40cc9ce-75e6-4685-8ac3-992a1ed76369, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:28:26.5688361Z
+2026-04-13 01:57:26.569 +05:30 [INF] RequestId: b40cc9ce-75e6-4685-8ac3-992a1ed76369, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:26.571 +05:30 [INF] RequestId: b40cc9ce-75e6-4685-8ac3-992a1ed76369, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:26.740 +05:30 [INF] RequestId: b40cc9ce-75e6-4685-8ac3-992a1ed76369, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments
+2026-04-13 01:57:26.742 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments responded 200 in 173.9148 ms
+2026-04-13 01:57:26.748 +05:30 [INF] RequestId: 5bad941d-debb-46d8-83b9-07582e692639, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:28:16.9036662Z
+2026-04-13 01:57:26.750 +05:30 [INF] RequestId: 5bad941d-debb-46d8-83b9-07582e692639, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/ops-states/batch' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:26.750 +05:30 [INF] RequestId: 5bad941d-debb-46d8-83b9-07582e692639, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/ops-states/batch' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:26.759 +05:30 [INF] RequestId: 5bad941d-debb-46d8-83b9-07582e692639, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/ops-states/batch
+2026-04-13 01:57:26.761 +05:30 [INF] HTTP POST /logistics/api/logistics/shipments/ops-states/batch responded 200 in 12.6904 ms
+2026-04-13 01:57:28.961 +05:30 [INF] RequestId: d95e4dac-3d49-4b6d-a840-9036ec1cd327, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:28:26.5688361Z
+2026-04-13 01:57:28.962 +05:30 [INF] RequestId: d95e4dac-3d49-4b6d-a840-9036ec1cd327, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:28.963 +05:30 [INF] RequestId: d95e4dac-3d49-4b6d-a840-9036ec1cd327, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:28.974 +05:30 [INF] RequestId: d95e4dac-3d49-4b6d-a840-9036ec1cd327, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69
+2026-04-13 01:57:28.977 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69 responded 200 in 15.7273 ms
+2026-04-13 01:57:28.986 +05:30 [INF] RequestId: 1f1005b0-912d-4b50-bb62-d3d77b3de570, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:28:26.5688361Z
+2026-04-13 01:57:28.987 +05:30 [INF] RequestId: 1f1005b0-912d-4b50-bb62-d3d77b3de570, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:28.988 +05:30 [INF] RequestId: 1f1005b0-912d-4b50-bb62-d3d77b3de570, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:28.997 +05:30 [INF] RequestId: 1f1005b0-912d-4b50-bb62-d3d77b3de570, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state
+2026-04-13 01:57:28.999 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state responded 200 in 12.7460 ms
+2026-04-13 01:57:37.135 +05:30 [INF] RequestId: 8efa979a-2d3a-4b9e-9d96-e1cc544f80c4, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:28:37.1353094Z
+2026-04-13 01:57:37.137 +05:30 [INF] RequestId: 8efa979a-2d3a-4b9e-9d96-e1cc544f80c4, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/assign-vehicle' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:37.139 +05:30 [INF] RequestId: 8efa979a-2d3a-4b9e-9d96-e1cc544f80c4, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/assign-vehicle' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:37.140 +05:30 [WRN] RequestId: 8efa979a-2d3a-4b9e-9d96-e1cc544f80c4, PreviousRequestId: -
+Route '/logistics/{everything}' has invalid QoSOptions for Polly's Circuit Breaker strategy. Specifically, the BreakDuration value (10) is outside the valid range (500 to 86400000 milliseconds). Therefore, ensure the value falls within this range; otherwise, the default value (5000) will be substituted.
+2026-04-13 01:57:37.786 +05:30 [INF] RequestId: 8efa979a-2d3a-4b9e-9d96-e1cc544f80c4, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/assign-vehicle
+2026-04-13 01:57:37.788 +05:30 [INF] HTTP PUT /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/assign-vehicle responded 200 in 653.5492 ms
+2026-04-13 01:57:37.795 +05:30 [INF] RequestId: 895ae8e8-56ab-468b-ae2c-c211f9e699bd, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:28:26.5688361Z
+2026-04-13 01:57:37.796 +05:30 [INF] RequestId: 895ae8e8-56ab-468b-ae2c-c211f9e699bd, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:37.796 +05:30 [INF] RequestId: 895ae8e8-56ab-468b-ae2c-c211f9e699bd, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:37.807 +05:30 [INF] RequestId: 895ae8e8-56ab-468b-ae2c-c211f9e699bd, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69
+2026-04-13 01:57:37.808 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69 responded 200 in 13.2921 ms
+2026-04-13 01:57:37.816 +05:30 [INF] RequestId: 9b831698-45c4-436c-8e47-4c83993ecf44, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T20:28:26.5688361Z
+2026-04-13 01:57:37.817 +05:30 [INF] RequestId: 9b831698-45c4-436c-8e47-4c83993ecf44, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:37.818 +05:30 [INF] RequestId: 9b831698-45c4-436c-8e47-4c83993ecf44, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:37.826 +05:30 [INF] RequestId: 9b831698-45c4-436c-8e47-4c83993ecf44, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state
+2026-04-13 01:57:37.829 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state responded 200 in 12.4869 ms
+2026-04-13 01:57:39.501 +05:30 [INF] RequestId: 6d5203b2-5078-4226-8c76-a12bafafe3d9, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T20:28:26.5688361Z
+2026-04-13 01:57:39.502 +05:30 [INF] RequestId: 6d5203b2-5078-4226-8c76-a12bafafe3d9, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:39.503 +05:30 [INF] RequestId: 6d5203b2-5078-4226-8c76-a12bafafe3d9, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:39.514 +05:30 [INF] RequestId: 6d5203b2-5078-4226-8c76-a12bafafe3d9, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments
+2026-04-13 01:57:39.521 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments responded 200 in 19.8620 ms
+2026-04-13 01:57:39.530 +05:30 [INF] RequestId: 18a5a9ba-0128-4ab8-b2a5-9cf79761c107, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:28:16.9036662Z
+2026-04-13 01:57:39.531 +05:30 [INF] RequestId: 18a5a9ba-0128-4ab8-b2a5-9cf79761c107, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/ops-states/batch' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:39.532 +05:30 [INF] RequestId: 18a5a9ba-0128-4ab8-b2a5-9cf79761c107, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/ops-states/batch' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:39.545 +05:30 [INF] RequestId: 18a5a9ba-0128-4ab8-b2a5-9cf79761c107, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/ops-states/batch
+2026-04-13 01:57:39.547 +05:30 [INF] HTTP POST /logistics/api/logistics/shipments/ops-states/batch responded 200 in 17.0154 ms
+2026-04-13 01:57:41.948 +05:30 [INF] RequestId: 1649f2df-817a-4d92-8d92-74d9a8ce1bec, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 493/500 resets at 2026-04-12T20:28:26.5688361Z
+2026-04-13 01:57:41.949 +05:30 [INF] RequestId: 1649f2df-817a-4d92-8d92-74d9a8ce1bec, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:41.952 +05:30 [INF] RequestId: 1649f2df-817a-4d92-8d92-74d9a8ce1bec, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:41.961 +05:30 [INF] RequestId: 1649f2df-817a-4d92-8d92-74d9a8ce1bec, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69
+2026-04-13 01:57:41.963 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69 responded 200 in 14.9501 ms
+2026-04-13 01:57:41.973 +05:30 [INF] RequestId: 476da2dc-8258-4d67-9d8b-d9eda025e287, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 492/500 resets at 2026-04-12T20:28:26.5688361Z
+2026-04-13 01:57:41.975 +05:30 [INF] RequestId: 476da2dc-8258-4d67-9d8b-d9eda025e287, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:57:41.975 +05:30 [INF] RequestId: 476da2dc-8258-4d67-9d8b-d9eda025e287, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:57:41.986 +05:30 [INF] RequestId: 476da2dc-8258-4d67-9d8b-d9eda025e287, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state
+2026-04-13 01:57:41.990 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state responded 200 in 16.6508 ms
+2026-04-13 01:59:04.847 +05:30 [INF] RequestId: 64dd54e6-0f25-45e1-9169-79bd58e18bcc, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:30:04.8478089Z
+2026-04-13 01:59:04.849 +05:30 [INF] RequestId: 64dd54e6-0f25-45e1-9169-79bd58e18bcc, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ai-recommendation' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:59:04.851 +05:30 [INF] RequestId: 64dd54e6-0f25-45e1-9169-79bd58e18bcc, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ai-recommendation' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:59:04.934 +05:30 [INF] RequestId: 64dd54e6-0f25-45e1-9169-79bd58e18bcc, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ai-recommendation
+2026-04-13 01:59:04.938 +05:30 [INF] HTTP POST /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ai-recommendation responded 200 in 90.8403 ms
+2026-04-13 01:59:19.936 +05:30 [INF] RequestId: 308b0161-87ee-4465-a3f6-4018fa9b1e37, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:30:04.8478089Z
+2026-04-13 01:59:19.937 +05:30 [INF] RequestId: 308b0161-87ee-4465-a3f6-4018fa9b1e37, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/ai-recommendations/0fe7012a-336c-442c-90d7-a583a396838b/approve' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:59:19.938 +05:30 [INF] RequestId: 308b0161-87ee-4465-a3f6-4018fa9b1e37, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/ai-recommendations/0fe7012a-336c-442c-90d7-a583a396838b/approve' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:59:20.005 +05:30 [INF] RequestId: 308b0161-87ee-4465-a3f6-4018fa9b1e37, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/ai-recommendations/0fe7012a-336c-442c-90d7-a583a396838b/approve
+2026-04-13 01:59:20.008 +05:30 [INF] HTTP POST /logistics/api/logistics/shipments/ai-recommendations/0fe7012a-336c-442c-90d7-a583a396838b/approve responded 200 in 72.4101 ms
+2026-04-13 01:59:20.017 +05:30 [INF] RequestId: 4834a9f9-5736-4277-b43c-f6a0b8543c5c, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:30:20.0171021Z
+2026-04-13 01:59:20.017 +05:30 [INF] RequestId: eb469799-819c-4bcf-be9c-7d470a9dccc6, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:30:20.0171021Z
+2026-04-13 01:59:20.018 +05:30 [INF] RequestId: 4834a9f9-5736-4277-b43c-f6a0b8543c5c, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:59:20.019 +05:30 [INF] RequestId: eb469799-819c-4bcf-be9c-7d470a9dccc6, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:59:20.019 +05:30 [INF] RequestId: 4834a9f9-5736-4277-b43c-f6a0b8543c5c, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:59:20.020 +05:30 [INF] RequestId: eb469799-819c-4bcf-be9c-7d470a9dccc6, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:59:20.039 +05:30 [INF] RequestId: 4834a9f9-5736-4277-b43c-f6a0b8543c5c, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state
+2026-04-13 01:59:20.042 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state responded 200 in 26.0944 ms
+2026-04-13 01:59:20.043 +05:30 [INF] RequestId: eb469799-819c-4bcf-be9c-7d470a9dccc6, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69
+2026-04-13 01:59:20.045 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69 responded 200 in 28.5729 ms
+2026-04-13 01:59:20.053 +05:30 [INF] RequestId: 92206382-27c2-4d6e-9d57-6fa4f578b156, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:30:20.0171021Z
+2026-04-13 01:59:20.055 +05:30 [INF] RequestId: 92206382-27c2-4d6e-9d57-6fa4f578b156, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 01:59:20.057 +05:30 [INF] RequestId: 92206382-27c2-4d6e-9d57-6fa4f578b156, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 01:59:20.070 +05:30 [INF] RequestId: 92206382-27c2-4d6e-9d57-6fa4f578b156, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state
+2026-04-13 01:59:20.072 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/fa68734c-d4f4-4147-8105-0329f27b7d69/ops-state responded 200 in 19.0361 ms
+2026-04-13 02:09:38.360 +05:30 [INF] RequestId: 37e81e95-e52b-43e9-9d5d-014be846bc7f, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:09:38.395 +05:30 [INF] RequestId: 0d33825f-13f3-4f62-8ba2-d054e00a47ba, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:09:38.692 +05:30 [INF] RequestId: 37e81e95-e52b-43e9-9d5d-014be846bc7f, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:09:39.922 +05:30 [INF] RequestId: 0d33825f-13f3-4f62-8ba2-d054e00a47ba, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:09:39.950 +05:30 [WRN] RequestId: 37e81e95-e52b-43e9-9d5d-014be846bc7f, PreviousRequestId: -
+Client has NOT been authenticated for path '/catalog/api/products' and pipeline error set. UnauthenticatedError: Request for authenticated route '/catalog/api/products' was unauthenticated!;
+2026-04-13 02:09:40.308 +05:30 [WRN] RequestId: 0d33825f-13f3-4f62-8ba2-d054e00a47ba, PreviousRequestId: -
+Client has NOT been authenticated for path '/catalog/api/products/categories' and pipeline error set. UnauthenticatedError: Request for authenticated route '/catalog/api/products/categories' was unauthenticated!;
+2026-04-13 02:09:40.982 +05:30 [WRN] RequestId: 0d33825f-13f3-4f62-8ba2-d054e00a47ba, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/catalog/api/products/categories' was unauthenticated!
+Setting error response for request: GET /catalog/api/products/categories
+2026-04-13 02:09:40.942 +05:30 [WRN] RequestId: 37e81e95-e52b-43e9-9d5d-014be846bc7f, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/catalog/api/products' was unauthenticated!
+Setting error response for request: GET /catalog/api/products
+2026-04-13 02:09:40.983 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 401 in 2632.0427 ms
+2026-04-13 02:09:41.302 +05:30 [INF] HTTP GET /catalog/api/products responded 401 in 2944.0627 ms
+2026-04-13 02:09:41.349 +05:30 [INF] RequestId: 0e301508-7897-4eb5-bb3a-59f7a2f93324, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:40:41.3491266Z
+2026-04-13 02:09:41.540 +05:30 [INF] RequestId: 0e301508-7897-4eb5-bb3a-59f7a2f93324, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 02:09:41.666 +05:30 [INF] RequestId: 0e301508-7897-4eb5-bb3a-59f7a2f93324, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 02:09:41.753 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 404.7063 ms
+2026-04-13 02:09:41.820 +05:30 [INF] RequestId: 37e81e95-e52b-43e9-9d5d-014be846bc7f, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:09:41.820 +05:30 [INF] RequestId: 0d33825f-13f3-4f62-8ba2-d054e00a47ba, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:09:41.822 +05:30 [INF] RequestId: 37e81e95-e52b-43e9-9d5d-014be846bc7f, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:09:41.824 +05:30 [INF] RequestId: 0d33825f-13f3-4f62-8ba2-d054e00a47ba, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:09:41.827 +05:30 [INF] RequestId: 37e81e95-e52b-43e9-9d5d-014be846bc7f, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:09:41.828 +05:30 [INF] RequestId: 0d33825f-13f3-4f62-8ba2-d054e00a47ba, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/categories' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:09:42.059 +05:30 [INF] RequestId: 37e81e95-e52b-43e9-9d5d-014be846bc7f, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=20&includeInactive=false
+2026-04-13 02:09:42.062 +05:30 [INF] RequestId: 0d33825f-13f3-4f62-8ba2-d054e00a47ba, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/categories
+2026-04-13 02:09:42.126 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 200 in 305.5280 ms
+2026-04-13 02:09:42.120 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 300.6493 ms
+2026-04-13 02:09:46.304 +05:30 [INF] RequestId: 7d26d89c-fc00-42f1-8e51-95c210ac20a5, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:09:46.314 +05:30 [INF] RequestId: 7d26d89c-fc00-42f1-8e51-95c210ac20a5, PreviousRequestId: -
+The path '/catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:09:46.318 +05:30 [INF] RequestId: 7d26d89c-fc00-42f1-8e51-95c210ac20a5, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:09:46.408 +05:30 [INF] RequestId: 7d26d89c-fc00-42f1-8e51-95c210ac20a5, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7
+2026-04-13 02:09:46.435 +05:30 [INF] HTTP GET /catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 131.6751 ms
+2026-04-13 02:09:47.606 +05:30 [INF] RequestId: fea8c4ee-73ec-44e3-bbe1-f5baf7ec9e30, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:09:47.611 +05:30 [INF] RequestId: fea8c4ee-73ec-44e3-bbe1-f5baf7ec9e30, PreviousRequestId: -
+The path '/catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:09:47.612 +05:30 [INF] RequestId: fea8c4ee-73ec-44e3-bbe1-f5baf7ec9e30, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:09:47.628 +05:30 [INF] RequestId: fea8c4ee-73ec-44e3-bbe1-f5baf7ec9e30, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7
+2026-04-13 02:09:47.636 +05:30 [INF] HTTP GET /catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 30.7780 ms
+2026-04-13 02:09:48.045 +05:30 [INF] RequestId: 2fb6accf-cc19-4fba-ad2c-40cef81b87d1, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 493/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:09:48.387 +05:30 [INF] RequestId: 2fb6accf-cc19-4fba-ad2c-40cef81b87d1, PreviousRequestId: -
+The path '/catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:09:48.526 +05:30 [INF] RequestId: 2fb6accf-cc19-4fba-ad2c-40cef81b87d1, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:09:48.628 +05:30 [INF] RequestId: 2fb6accf-cc19-4fba-ad2c-40cef81b87d1, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7
+2026-04-13 02:09:48.675 +05:30 [INF] HTTP GET /catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 630.5175 ms
+2026-04-13 02:09:48.774 +05:30 [INF] RequestId: 3c9f23c9-ec62-42b3-a186-17bb12441eaf, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 492/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:09:48.776 +05:30 [INF] RequestId: 3c9f23c9-ec62-42b3-a186-17bb12441eaf, PreviousRequestId: -
+The path '/catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:09:48.794 +05:30 [INF] RequestId: 3c9f23c9-ec62-42b3-a186-17bb12441eaf, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:09:49.024 +05:30 [INF] RequestId: 3c9f23c9-ec62-42b3-a186-17bb12441eaf, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7
+2026-04-13 02:09:49.059 +05:30 [INF] HTTP GET /catalog/api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 285.1249 ms
+2026-04-13 02:10:00.906 +05:30 [INF] RequestId: 32113432-7b8a-4f2e-8417-92723febe705, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:41:00.9062872Z
+2026-04-13 02:10:00.908 +05:30 [INF] RequestId: 890ee0d9-440f-4f9d-9f32-2a4ffab8d311, PreviousRequestId: -
+Route '/payments/api/payment/dealers/{dealerId}/credit-check' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:41:00.9085690Z
+2026-04-13 02:10:00.910 +05:30 [INF] RequestId: 6abdeb33-9a3b-4d9c-bdf2-f25c5a451244, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 491/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:10:00.913 +05:30 [INF] RequestId: 0a875872-abfe-437d-969f-b23b82bc5ffe, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:41:00.9130728Z
+2026-04-13 02:10:00.917 +05:30 [INF] RequestId: 32113432-7b8a-4f2e-8417-92723febe705, PreviousRequestId: -
+The path '/orders/api/orders/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:00.919 +05:30 [INF] RequestId: 890ee0d9-440f-4f9d-9f32-2a4ffab8d311, PreviousRequestId: -
+No authentication is required for the path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/credit-check' in the route /payments/api/payment/dealers/{dealerId}/credit-check.
+2026-04-13 02:10:00.921 +05:30 [INF] RequestId: 6abdeb33-9a3b-4d9c-bdf2-f25c5a451244, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:00.926 +05:30 [INF] RequestId: 0a875872-abfe-437d-969f-b23b82bc5ffe, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:00.938 +05:30 [INF] RequestId: 32113432-7b8a-4f2e-8417-92723febe705, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:00.963 +05:30 [INF] RequestId: 6abdeb33-9a3b-4d9c-bdf2-f25c5a451244, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:00.973 +05:30 [INF] RequestId: 0a875872-abfe-437d-969f-b23b82bc5ffe, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:00.996 +05:30 [WRN] RequestId: 890ee0d9-440f-4f9d-9f32-2a4ffab8d311, PreviousRequestId: -
+401 Unauthorized status code of request URI: http://localhost:8005/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/credit-check?amount=0
+2026-04-13 02:10:01.031 +05:30 [INF] HTTP GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/credit-check responded 401 in 122.9129 ms
+2026-04-13 02:10:01.141 +05:30 [INF] RequestId: c7af145b-2b8f-4cea-80ed-73264105c81b, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:40:41.3491266Z
+2026-04-13 02:10:01.145 +05:30 [INF] RequestId: c7af145b-2b8f-4cea-80ed-73264105c81b, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 02:10:01.147 +05:30 [INF] RequestId: 6abdeb33-9a3b-4d9c-bdf2-f25c5a451244, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=100&includeInactive=false
+2026-04-13 02:10:01.157 +05:30 [INF] RequestId: 32113432-7b8a-4f2e-8417-92723febe705, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/my?page=1&pageSize=8
+2026-04-13 02:10:01.190 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 280.5757 ms
+2026-04-13 02:10:01.240 +05:30 [INF] RequestId: 0a875872-abfe-437d-969f-b23b82bc5ffe, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/my
+2026-04-13 02:10:01.304 +05:30 [INF] HTTP GET /orders/api/orders/my responded 200 in 398.9970 ms
+2026-04-13 02:10:01.436 +05:30 [INF] RequestId: c7af145b-2b8f-4cea-80ed-73264105c81b, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 02:10:01.443 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/my responded 200 in 530.7360 ms
+2026-04-13 02:10:01.493 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 352.0040 ms
+2026-04-13 02:10:01.536 +05:30 [INF] RequestId: 890ee0d9-440f-4f9d-9f32-2a4ffab8d311, PreviousRequestId: -
+Route '/payments/api/payment/dealers/{dealerId}/credit-check' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:41:00.9085690Z
+2026-04-13 02:10:01.562 +05:30 [INF] RequestId: 890ee0d9-440f-4f9d-9f32-2a4ffab8d311, PreviousRequestId: -
+No authentication is required for the path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/credit-check' in the route /payments/api/payment/dealers/{dealerId}/credit-check.
+2026-04-13 02:10:01.697 +05:30 [INF] RequestId: 890ee0d9-440f-4f9d-9f32-2a4ffab8d311, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8005/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/credit-check?amount=0
+2026-04-13 02:10:01.727 +05:30 [INF] HTTP GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/credit-check responded 200 in 191.6828 ms
+2026-04-13 02:10:27.970 +05:30 [INF] RequestId: d02ce0ca-abf8-4ae4-892c-dc1ca2cb1e88, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 490/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:10:28.072 +05:30 [INF] RequestId: 9848ed4e-a132-4375-8099-09b5f91ccae7, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 489/500 resets at 2026-04-12T20:40:38.3603894Z
+2026-04-13 02:10:28.575 +05:30 [INF] RequestId: d02ce0ca-abf8-4ae4-892c-dc1ca2cb1e88, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:28.596 +05:30 [INF] RequestId: 9848ed4e-a132-4375-8099-09b5f91ccae7, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:28.604 +05:30 [INF] RequestId: d02ce0ca-abf8-4ae4-892c-dc1ca2cb1e88, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/categories' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:29.029 +05:30 [INF] RequestId: 9848ed4e-a132-4375-8099-09b5f91ccae7, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:30.545 +05:30 [INF] RequestId: d02ce0ca-abf8-4ae4-892c-dc1ca2cb1e88, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/categories
+2026-04-13 02:10:30.561 +05:30 [INF] RequestId: 9848ed4e-a132-4375-8099-09b5f91ccae7, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=20&includeInactive=false
+2026-04-13 02:10:30.996 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 200 in 3028.2402 ms
+2026-04-13 02:10:31.043 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 2972.0897 ms
+2026-04-13 02:10:34.329 +05:30 [INF] RequestId: aa2864bd-f306-4620-8f19-0aa137a78fda, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:41:00.9062872Z
+2026-04-13 02:10:34.374 +05:30 [INF] RequestId: aa2864bd-f306-4620-8f19-0aa137a78fda, PreviousRequestId: -
+The path '/orders/api/orders/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:34.447 +05:30 [INF] RequestId: aa2864bd-f306-4620-8f19-0aa137a78fda, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:35.903 +05:30 [INF] RequestId: aa2864bd-f306-4620-8f19-0aa137a78fda, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/my?page=1&pageSize=20
+2026-04-13 02:10:36.113 +05:30 [INF] RequestId: fa3b6442-1236-45a7-b889-cfedb40cdcd1, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:41:00.9130728Z
+2026-04-13 02:10:36.427 +05:30 [INF] HTTP GET /orders/api/orders/my responded 200 in 2098.0267 ms
+2026-04-13 02:10:36.474 +05:30 [INF] RequestId: fa3b6442-1236-45a7-b889-cfedb40cdcd1, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:36.552 +05:30 [INF] RequestId: fa3b6442-1236-45a7-b889-cfedb40cdcd1, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:36.811 +05:30 [INF] RequestId: fa3b6442-1236-45a7-b889-cfedb40cdcd1, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/my
+2026-04-13 02:10:36.825 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/my responded 200 in 727.1163 ms
+2026-04-13 02:10:36.849 +05:30 [INF] RequestId: 1fcb61e3-1542-4cbc-ac13-90d6719e9588, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T20:41:36.8495810Z
+2026-04-13 02:10:36.852 +05:30 [INF] RequestId: 1fcb61e3-1542-4cbc-ac13-90d6719e9588, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/ops-states/batch' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:36.854 +05:30 [INF] RequestId: 1fcb61e3-1542-4cbc-ac13-90d6719e9588, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/ops-states/batch' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:37.003 +05:30 [INF] RequestId: 1fcb61e3-1542-4cbc-ac13-90d6719e9588, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/ops-states/batch
+2026-04-13 02:10:37.042 +05:30 [INF] HTTP POST /logistics/api/logistics/shipments/ops-states/batch responded 200 in 193.2433 ms
+2026-04-13 02:10:39.877 +05:30 [INF] RequestId: 43756c0e-79fb-4300-96ea-d190050b40d1, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T20:41:00.9130728Z
+2026-04-13 02:10:39.879 +05:30 [INF] RequestId: 43756c0e-79fb-4300-96ea-d190050b40d1, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:39.889 +05:30 [INF] RequestId: 43756c0e-79fb-4300-96ea-d190050b40d1, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:40.401 +05:30 [INF] RequestId: 43756c0e-79fb-4300-96ea-d190050b40d1, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2
+2026-04-13 02:10:40.719 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2 responded 200 in 842.9556 ms
+2026-04-13 02:10:41.578 +05:30 [INF] RequestId: 55416f80-d33f-49be-8d6a-1f031159fe41, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T20:41:00.9130728Z
+2026-04-13 02:10:41.636 +05:30 [INF] RequestId: 55416f80-d33f-49be-8d6a-1f031159fe41, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2/ops-state' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:41.638 +05:30 [INF] RequestId: 55416f80-d33f-49be-8d6a-1f031159fe41, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2/ops-state' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:41.762 +05:30 [INF] RequestId: 55416f80-d33f-49be-8d6a-1f031159fe41, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2/ops-state
+2026-04-13 02:10:41.907 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2/ops-state responded 200 in 330.0495 ms
+2026-04-13 02:10:45.505 +05:30 [INF] RequestId: 2f5ee659-5820-4a51-8f8d-01a11a5bec1a, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T20:41:00.9130728Z
+2026-04-13 02:10:45.511 +05:30 [INF] RequestId: 2f5ee659-5820-4a51-8f8d-01a11a5bec1a, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:45.514 +05:30 [INF] RequestId: 2f5ee659-5820-4a51-8f8d-01a11a5bec1a, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:45.685 +05:30 [INF] RequestId: 2f5ee659-5820-4a51-8f8d-01a11a5bec1a, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/my
+2026-04-13 02:10:45.707 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/my responded 200 in 203.0486 ms
+2026-04-13 02:10:45.729 +05:30 [INF] RequestId: ba4b8c09-9310-4a64-89e0-1aa6b8ad19ad, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T20:41:36.8495810Z
+2026-04-13 02:10:46.009 +05:30 [INF] RequestId: ba4b8c09-9310-4a64-89e0-1aa6b8ad19ad, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/ops-states/batch' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:10:46.014 +05:30 [INF] RequestId: ba4b8c09-9310-4a64-89e0-1aa6b8ad19ad, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/ops-states/batch' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:10:46.889 +05:30 [INF] RequestId: ba4b8c09-9310-4a64-89e0-1aa6b8ad19ad, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/ops-states/batch
+2026-04-13 02:10:46.941 +05:30 [INF] HTTP POST /logistics/api/logistics/shipments/ops-states/batch responded 200 in 1212.2475 ms
+2026-04-13 02:29:18.916 +05:30 [INF] RequestId: 0f4404fe-ac28-46df-9f5a-29cbe589c361, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T21:00:18.9159466Z
+2026-04-13 02:29:18.916 +05:30 [INF] RequestId: 493a8f8b-bc31-4ccf-a734-e776ff17d9d2, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T21:00:18.9159466Z
+2026-04-13 02:29:18.917 +05:30 [INF] RequestId: 0f4404fe-ac28-46df-9f5a-29cbe589c361, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:18.918 +05:30 [INF] RequestId: 493a8f8b-bc31-4ccf-a734-e776ff17d9d2, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:18.918 +05:30 [WRN] RequestId: 0f4404fe-ac28-46df-9f5a-29cbe589c361, PreviousRequestId: -
+Client has NOT been authenticated for path '/catalog/api/products' and pipeline error set. UnauthenticatedError: Request for authenticated route '/catalog/api/products' was unauthenticated!;
+2026-04-13 02:29:18.919 +05:30 [WRN] RequestId: 493a8f8b-bc31-4ccf-a734-e776ff17d9d2, PreviousRequestId: -
+Client has NOT been authenticated for path '/catalog/api/products/categories' and pipeline error set. UnauthenticatedError: Request for authenticated route '/catalog/api/products/categories' was unauthenticated!;
+2026-04-13 02:29:18.920 +05:30 [WRN] RequestId: 0f4404fe-ac28-46df-9f5a-29cbe589c361, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/catalog/api/products' was unauthenticated!
+Setting error response for request: GET /catalog/api/products
+2026-04-13 02:29:18.921 +05:30 [WRN] RequestId: 493a8f8b-bc31-4ccf-a734-e776ff17d9d2, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/catalog/api/products/categories' was unauthenticated!
+Setting error response for request: GET /catalog/api/products/categories
+2026-04-13 02:29:18.921 +05:30 [INF] HTTP GET /catalog/api/products responded 401 in 6.1604 ms
+2026-04-13 02:29:18.922 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 401 in 7.0357 ms
+2026-04-13 02:29:18.934 +05:30 [INF] RequestId: b556bf97-016c-4b7c-8670-4bc33325639c, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T21:00:18.9340982Z
+2026-04-13 02:29:18.934 +05:30 [INF] RequestId: b556bf97-016c-4b7c-8670-4bc33325639c, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 02:29:18.984 +05:30 [INF] RequestId: b556bf97-016c-4b7c-8670-4bc33325639c, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 02:29:18.986 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 53.1264 ms
+2026-04-13 02:29:18.994 +05:30 [INF] RequestId: 0f4404fe-ac28-46df-9f5a-29cbe589c361, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T21:00:18.9159466Z
+2026-04-13 02:29:18.994 +05:30 [INF] RequestId: 493a8f8b-bc31-4ccf-a734-e776ff17d9d2, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T21:00:18.9159466Z
+2026-04-13 02:29:18.995 +05:30 [INF] RequestId: 0f4404fe-ac28-46df-9f5a-29cbe589c361, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:18.995 +05:30 [INF] RequestId: 493a8f8b-bc31-4ccf-a734-e776ff17d9d2, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:18.996 +05:30 [INF] RequestId: 0f4404fe-ac28-46df-9f5a-29cbe589c361, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:18.998 +05:30 [INF] RequestId: 493a8f8b-bc31-4ccf-a734-e776ff17d9d2, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/categories' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:19.021 +05:30 [INF] RequestId: 493a8f8b-bc31-4ccf-a734-e776ff17d9d2, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/categories
+2026-04-13 02:29:19.023 +05:30 [INF] RequestId: 0f4404fe-ac28-46df-9f5a-29cbe589c361, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=20&includeInactive=false
+2026-04-13 02:29:19.024 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 200 in 30.6289 ms
+2026-04-13 02:29:19.027 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 33.4226 ms
+2026-04-13 02:29:21.452 +05:30 [INF] RequestId: a274e183-64da-4d8c-8fa8-83f8c2de4a81, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T21:00:18.9159466Z
+2026-04-13 02:29:21.452 +05:30 [INF] RequestId: 0eb4289f-3034-4928-aa26-4fa289f233f8, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T21:00:18.9159466Z
+2026-04-13 02:29:21.453 +05:30 [INF] RequestId: a274e183-64da-4d8c-8fa8-83f8c2de4a81, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:21.454 +05:30 [INF] RequestId: a274e183-64da-4d8c-8fa8-83f8c2de4a81, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/categories' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:21.453 +05:30 [INF] RequestId: 0eb4289f-3034-4928-aa26-4fa289f233f8, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:21.456 +05:30 [INF] RequestId: 0eb4289f-3034-4928-aa26-4fa289f233f8, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:21.465 +05:30 [INF] RequestId: 0eb4289f-3034-4928-aa26-4fa289f233f8, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=20&includeInactive=false
+2026-04-13 02:29:21.469 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 17.2590 ms
+2026-04-13 02:29:21.470 +05:30 [INF] RequestId: a274e183-64da-4d8c-8fa8-83f8c2de4a81, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/categories
+2026-04-13 02:29:21.474 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 200 in 22.8948 ms
+2026-04-13 02:29:22.059 +05:30 [INF] RequestId: 435a36f0-67ea-4b82-b3e5-8bb714a6d96f, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 493/500 resets at 2026-04-12T21:00:18.9159466Z
+2026-04-13 02:29:22.060 +05:30 [INF] RequestId: 435a36f0-67ea-4b82-b3e5-8bb714a6d96f, PreviousRequestId: -
+The path '/catalog/api/products/categories' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:22.060 +05:30 [INF] RequestId: eca9c45e-2fc8-41f4-a0e9-311d9841baf8, PreviousRequestId: -
+Route '/catalog/{everything}' must return rate limiting headers with the following data: 492/500 resets at 2026-04-12T21:00:18.9159466Z
+2026-04-13 02:29:22.061 +05:30 [INF] RequestId: 435a36f0-67ea-4b82-b3e5-8bb714a6d96f, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products/categories' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:22.061 +05:30 [INF] RequestId: eca9c45e-2fc8-41f4-a0e9-311d9841baf8, PreviousRequestId: -
+The path '/catalog/api/products' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:22.064 +05:30 [INF] RequestId: eca9c45e-2fc8-41f4-a0e9-311d9841baf8, PreviousRequestId: -
+Client has been authenticated for path '/catalog/api/products' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:22.077 +05:30 [INF] RequestId: 435a36f0-67ea-4b82-b3e5-8bb714a6d96f, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products/categories
+2026-04-13 02:29:22.087 +05:30 [INF] HTTP GET /catalog/api/products/categories responded 200 in 27.8349 ms
+2026-04-13 02:29:22.090 +05:30 [INF] RequestId: eca9c45e-2fc8-41f4-a0e9-311d9841baf8, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8002/api/products?page=1&size=20&includeInactive=false
+2026-04-13 02:29:22.106 +05:30 [INF] HTTP GET /catalog/api/products responded 200 in 46.5672 ms
+2026-04-13 02:29:24.320 +05:30 [INF] RequestId: 82d2c9fe-87c5-407c-a755-75ac80279d9c, PreviousRequestId: -
+Route '/orders/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T21:00:24.3205238Z
+2026-04-13 02:29:24.358 +05:30 [INF] RequestId: 82d2c9fe-87c5-407c-a755-75ac80279d9c, PreviousRequestId: -
+The path '/orders/api/orders/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:24.368 +05:30 [INF] RequestId: 82d2c9fe-87c5-407c-a755-75ac80279d9c, PreviousRequestId: -
+Client has been authenticated for path '/orders/api/orders/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:24.485 +05:30 [INF] RequestId: 82d2c9fe-87c5-407c-a755-75ac80279d9c, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8003/api/orders/my?page=1&pageSize=20
+2026-04-13 02:29:24.487 +05:30 [INF] HTTP GET /orders/api/orders/my responded 200 in 167.2739 ms
+2026-04-13 02:29:24.772 +05:30 [INF] RequestId: e1b31a06-c563-41c6-a715-e7aed74b4334, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T21:00:24.7721757Z
+2026-04-13 02:29:24.773 +05:30 [INF] RequestId: e1b31a06-c563-41c6-a715-e7aed74b4334, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:24.773 +05:30 [INF] RequestId: e1b31a06-c563-41c6-a715-e7aed74b4334, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:24.793 +05:30 [INF] RequestId: e1b31a06-c563-41c6-a715-e7aed74b4334, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/my
+2026-04-13 02:29:24.796 +05:30 [INF] HTTP GET /logistics/api/logistics/shipments/my responded 200 in 24.4054 ms
+2026-04-13 02:29:24.805 +05:30 [INF] RequestId: f8064b6e-535c-484d-9c14-922d68798118, PreviousRequestId: -
+Route '/logistics/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T21:00:24.8053504Z
+2026-04-13 02:29:24.806 +05:30 [INF] RequestId: f8064b6e-535c-484d-9c14-922d68798118, PreviousRequestId: -
+The path '/logistics/api/logistics/shipments/ops-states/batch' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:24.807 +05:30 [INF] RequestId: f8064b6e-535c-484d-9c14-922d68798118, PreviousRequestId: -
+Client has been authenticated for path '/logistics/api/logistics/shipments/ops-states/batch' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:24.838 +05:30 [INF] RequestId: f8064b6e-535c-484d-9c14-922d68798118, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8004/api/logistics/shipments/ops-states/batch
+2026-04-13 02:29:24.845 +05:30 [INF] HTTP POST /logistics/api/logistics/shipments/ops-states/batch responded 200 in 40.1897 ms
+2026-04-13 02:29:25.541 +05:30 [INF] RequestId: a665b656-08d0-4efb-98d5-121237b74d82, PreviousRequestId: -
+Route '/payments/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T21:00:25.5411869Z
+2026-04-13 02:29:25.542 +05:30 [INF] RequestId: a665b656-08d0-4efb-98d5-121237b74d82, PreviousRequestId: -
+The path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:25.544 +05:30 [WRN] RequestId: a665b656-08d0-4efb-98d5-121237b74d82, PreviousRequestId: -
+Client has NOT been authenticated for path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' and pipeline error set. UnauthenticatedError: Request for authenticated route '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' was unauthenticated!;
+2026-04-13 02:29:25.545 +05:30 [WRN] RequestId: a665b656-08d0-4efb-98d5-121237b74d82, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' was unauthenticated!
+Setting error response for request: GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices
+2026-04-13 02:29:25.547 +05:30 [INF] HTTP GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices responded 401 in 6.5445 ms
+2026-04-13 02:29:25.568 +05:30 [INF] RequestId: b9424587-b0be-49b5-82c1-ba0713ed014c, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T21:00:18.9340982Z
+2026-04-13 02:29:25.570 +05:30 [INF] RequestId: b9424587-b0be-49b5-82c1-ba0713ed014c, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 02:29:25.619 +05:30 [INF] RequestId: b9424587-b0be-49b5-82c1-ba0713ed014c, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 02:29:25.622 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 54.4392 ms
+2026-04-13 02:29:25.649 +05:30 [INF] RequestId: a665b656-08d0-4efb-98d5-121237b74d82, PreviousRequestId: -
+Route '/payments/{everything}' must return rate limiting headers with the following data: 498/500 resets at 2026-04-12T21:00:25.5411869Z
+2026-04-13 02:29:25.651 +05:30 [INF] RequestId: a665b656-08d0-4efb-98d5-121237b74d82, PreviousRequestId: -
+The path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:25.652 +05:30 [INF] RequestId: a665b656-08d0-4efb-98d5-121237b74d82, PreviousRequestId: -
+Client has been authenticated for path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:25.733 +05:30 [INF] RequestId: a665b656-08d0-4efb-98d5-121237b74d82, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8005/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices
+2026-04-13 02:29:25.735 +05:30 [INF] HTTP GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices responded 200 in 85.9132 ms
+2026-04-13 02:29:25.745 +05:30 [INF] RequestId: 4e8e12f2-e84d-450b-8cdb-2a994634701d, PreviousRequestId: -
+Route '/payments/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T21:00:25.5411869Z
+2026-04-13 02:29:25.746 +05:30 [INF] RequestId: 4e8e12f2-e84d-450b-8cdb-2a994634701d, PreviousRequestId: -
+The path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:25.747 +05:30 [WRN] RequestId: 4e8e12f2-e84d-450b-8cdb-2a994634701d, PreviousRequestId: -
+Client has NOT been authenticated for path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' and pipeline error set. UnauthenticatedError: Request for authenticated route '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' was unauthenticated!;
+2026-04-13 02:29:25.748 +05:30 [WRN] RequestId: 4e8e12f2-e84d-450b-8cdb-2a994634701d, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' was unauthenticated!
+Setting error response for request: GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows
+2026-04-13 02:29:25.748 +05:30 [INF] HTTP GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows responded 401 in 3.6276 ms
+2026-04-13 02:29:25.758 +05:30 [INF] RequestId: 6e537abb-08f7-46e3-afc6-aa7173d7d74e, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 497/500 resets at 2026-04-12T21:00:18.9340982Z
+2026-04-13 02:29:25.760 +05:30 [INF] RequestId: 6e537abb-08f7-46e3-afc6-aa7173d7d74e, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 02:29:25.800 +05:30 [INF] RequestId: 6e537abb-08f7-46e3-afc6-aa7173d7d74e, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 02:29:25.802 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 44.5085 ms
+2026-04-13 02:29:25.811 +05:30 [INF] RequestId: 4e8e12f2-e84d-450b-8cdb-2a994634701d, PreviousRequestId: -
+Route '/payments/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T21:00:25.5411869Z
+2026-04-13 02:29:25.812 +05:30 [INF] RequestId: 4e8e12f2-e84d-450b-8cdb-2a994634701d, PreviousRequestId: -
+The path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:25.813 +05:30 [INF] RequestId: 4e8e12f2-e84d-450b-8cdb-2a994634701d, PreviousRequestId: -
+Client has been authenticated for path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:25.899 +05:30 [INF] RequestId: 4e8e12f2-e84d-450b-8cdb-2a994634701d, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8005/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows
+2026-04-13 02:29:25.900 +05:30 [INF] HTTP GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows responded 200 in 89.9098 ms
+2026-04-13 02:29:26.171 +05:30 [INF] RequestId: 0a27173a-8c12-4052-a979-7a7b37048a76, PreviousRequestId: -
+Route '/notifications/{everything}' must return rate limiting headers with the following data: 499/500 resets at 2026-04-12T21:00:26.1687502Z
+2026-04-13 02:29:26.172 +05:30 [INF] RequestId: 0a27173a-8c12-4052-a979-7a7b37048a76, PreviousRequestId: -
+The path '/notifications/api/notifications/my' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:26.173 +05:30 [INF] RequestId: 0a27173a-8c12-4052-a979-7a7b37048a76, PreviousRequestId: -
+Client has been authenticated for path '/notifications/api/notifications/my' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:26.181 +05:30 [WRN] RequestId: 0a27173a-8c12-4052-a979-7a7b37048a76, PreviousRequestId: -
+Route '/notifications/{everything}' has invalid QoSOptions for Polly's Circuit Breaker strategy. Specifically, the BreakDuration value (10) is outside the valid range (500 to 86400000 milliseconds). Therefore, ensure the value falls within this range; otherwise, the default value (5000) will be substituted.
+2026-04-13 02:29:26.766 +05:30 [INF] RequestId: bd2c5926-153a-417f-b148-59bb239abe47, PreviousRequestId: -
+Route '/payments/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T21:00:25.5411869Z
+2026-04-13 02:29:26.768 +05:30 [INF] RequestId: bd2c5926-153a-417f-b148-59bb239abe47, PreviousRequestId: -
+The path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:26.769 +05:30 [WRN] RequestId: bd2c5926-153a-417f-b148-59bb239abe47, PreviousRequestId: -
+Client has NOT been authenticated for path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' and pipeline error set. UnauthenticatedError: Request for authenticated route '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' was unauthenticated!;
+2026-04-13 02:29:26.770 +05:30 [WRN] RequestId: bd2c5926-153a-417f-b148-59bb239abe47, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' was unauthenticated!
+Setting error response for request: GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices
+2026-04-13 02:29:26.770 +05:30 [INF] HTTP GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices responded 401 in 4.0899 ms
+2026-04-13 02:29:26.783 +05:30 [INF] RequestId: d099127e-4c55-4604-93d1-baf7200ca7ae, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 496/500 resets at 2026-04-12T21:00:18.9340982Z
+2026-04-13 02:29:26.784 +05:30 [INF] RequestId: 0a27173a-8c12-4052-a979-7a7b37048a76, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8006/api/notifications/my
+2026-04-13 02:29:26.784 +05:30 [INF] RequestId: d099127e-4c55-4604-93d1-baf7200ca7ae, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 02:29:26.790 +05:30 [INF] HTTP GET /notifications/api/notifications/my responded 200 in 632.9878 ms
+2026-04-13 02:29:26.815 +05:30 [INF] RequestId: d099127e-4c55-4604-93d1-baf7200ca7ae, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 02:29:26.817 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 34.0812 ms
+2026-04-13 02:29:26.826 +05:30 [INF] RequestId: bd2c5926-153a-417f-b148-59bb239abe47, PreviousRequestId: -
+Route '/payments/{everything}' must return rate limiting headers with the following data: 494/500 resets at 2026-04-12T21:00:25.5411869Z
+2026-04-13 02:29:26.827 +05:30 [INF] RequestId: bd2c5926-153a-417f-b148-59bb239abe47, PreviousRequestId: -
+The path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:26.828 +05:30 [INF] RequestId: bd2c5926-153a-417f-b148-59bb239abe47, PreviousRequestId: -
+Client has been authenticated for path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:26.856 +05:30 [INF] RequestId: bd2c5926-153a-417f-b148-59bb239abe47, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8005/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices
+2026-04-13 02:29:26.862 +05:30 [INF] HTTP GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoices responded 200 in 36.6713 ms
+2026-04-13 02:29:26.874 +05:30 [INF] RequestId: adcd70e8-d57e-487f-a411-84c026329b89, PreviousRequestId: -
+Route '/payments/{everything}' must return rate limiting headers with the following data: 493/500 resets at 2026-04-12T21:00:25.5411869Z
+2026-04-13 02:29:26.874 +05:30 [INF] RequestId: adcd70e8-d57e-487f-a411-84c026329b89, PreviousRequestId: -
+The path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:26.876 +05:30 [WRN] RequestId: adcd70e8-d57e-487f-a411-84c026329b89, PreviousRequestId: -
+Client has NOT been authenticated for path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' and pipeline error set. UnauthenticatedError: Request for authenticated route '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' was unauthenticated!;
+2026-04-13 02:29:26.877 +05:30 [WRN] RequestId: adcd70e8-d57e-487f-a411-84c026329b89, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' was unauthenticated!
+Setting error response for request: GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows
+2026-04-13 02:29:26.881 +05:30 [INF] HTTP GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows responded 401 in 7.8915 ms
+2026-04-13 02:29:26.896 +05:30 [INF] RequestId: 16088361-9c7f-4971-802f-2747749a4abe, PreviousRequestId: -
+Route '/identity/api/auth/{everything}' must return rate limiting headers with the following data: 495/500 resets at 2026-04-12T21:00:18.9340982Z
+2026-04-13 02:29:26.898 +05:30 [INF] RequestId: 16088361-9c7f-4971-802f-2747749a4abe, PreviousRequestId: -
+No authentication is required for the path '/identity/api/auth/refresh' in the route /identity/api/auth/{everything}.
+2026-04-13 02:29:26.960 +05:30 [INF] RequestId: 16088361-9c7f-4971-802f-2747749a4abe, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8001/api/auth/refresh
+2026-04-13 02:29:26.973 +05:30 [INF] HTTP POST /identity/api/auth/refresh responded 200 in 77.4527 ms
+2026-04-13 02:29:26.993 +05:30 [INF] RequestId: adcd70e8-d57e-487f-a411-84c026329b89, PreviousRequestId: -
+Route '/payments/{everything}' must return rate limiting headers with the following data: 492/500 resets at 2026-04-12T21:00:25.5411869Z
+2026-04-13 02:29:27.002 +05:30 [INF] RequestId: adcd70e8-d57e-487f-a411-84c026329b89, PreviousRequestId: -
+The path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2026-04-13 02:29:27.003 +05:30 [INF] RequestId: adcd70e8-d57e-487f-a411-84c026329b89, PreviousRequestId: -
+Client has been authenticated for path '/payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows' by 'AuthenticationTypes.Federation' scheme.
+2026-04-13 02:29:27.034 +05:30 [INF] RequestId: adcd70e8-d57e-487f-a411-84c026329b89, PreviousRequestId: -
+200 OK status code of request URI: http://localhost:8005/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows
+2026-04-13 02:29:27.037 +05:30 [INF] HTTP GET /payments/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/invoice-workflows responded 200 in 44.3736 ms

@@ -6,11 +6,14 @@ namespace IdentityAuth.Application.Abstractions;
 public interface IIdentityAuthService
 {
     Task<RegisterDealerResponse> RegisterDealerAsync(RegisterDealerRequest request, CancellationToken cancellationToken);
+    Task<CreateAgentResponse> CreateAgentAsync(CreateAgentRequest request, CancellationToken cancellationToken);
     Task<AuthResponse> LoginAsync(LoginRequest request, CancellationToken cancellationToken);
     Task<AuthResponse> RefreshTokenAsync(string refreshToken, CancellationToken cancellationToken);
     Task ForgotPasswordAsync(ForgotPasswordRequest request, CancellationToken cancellationToken);
     Task ResetPasswordAsync(ResetPasswordRequest request, CancellationToken cancellationToken);
+    Task ChangePasswordAsync(Guid userId, ChangePasswordRequest request, CancellationToken cancellationToken);
     Task LogoutAsync(Guid userId, string? jti, DateTime? tokenExpiresAtUtc, string? refreshToken, CancellationToken cancellationToken);
+    Task<PagedResult<AgentSummaryDto>> GetAgentsAsync(int page, int pageSize, string? search, CancellationToken cancellationToken);
     Task<PagedResult<DealerSummaryDto>> GetDealersAsync(int page, int pageSize, string? search, CancellationToken cancellationToken);
     Task<DealerDetailDto?> GetDealerAsync(Guid dealerId, CancellationToken cancellationToken);
     Task<bool> ApproveDealerAsync(Guid dealerId, CancellationToken cancellationToken);
@@ -27,6 +30,7 @@ public interface IUserRepository
     Task<User?> GetByIdAsync(Guid userId, CancellationToken cancellationToken);
     Task<bool> EmailExistsAsync(string email, CancellationToken cancellationToken);
     Task<bool> GstExistsAsync(string gstNumber, CancellationToken cancellationToken);
+    Task<(IReadOnlyList<User> Items, int TotalCount)> GetAgentsAsync(int page, int pageSize, string? search, CancellationToken cancellationToken);
     Task<(IReadOnlyList<User> Items, int TotalCount)> GetDealersAsync(int page, int pageSize, string? search, CancellationToken cancellationToken);
     Task AddRefreshTokenAsync(RefreshToken refreshToken, CancellationToken cancellationToken);
     Task<RefreshToken?> GetValidRefreshTokenAsync(string tokenHash, CancellationToken cancellationToken);

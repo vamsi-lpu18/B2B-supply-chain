@@ -5,6 +5,8 @@ import {
   CreateShipmentRequest,
   AssignAgentRequest,
   AssignVehicleRequest,
+  RateDeliveryAgentRequest,
+  RejectAssignmentRequest,
   UpdateShipmentStatusRequest,
   ShipmentDto,
   ShipmentOpsStateDto,
@@ -41,6 +43,18 @@ export class LogisticsApiService {
 
   assignAgent(shipmentId: string, req: AssignAgentRequest): Observable<unknown> {
     return this.http.put(`${this.base}/${shipmentId}/assign-agent`, req);
+  }
+
+  acceptAssignment(shipmentId: string): Observable<unknown> {
+    return this.http.put(`${this.base}/${shipmentId}/assignment/accept`, {});
+  }
+
+  rejectAssignment(shipmentId: string, req: RejectAssignmentRequest): Observable<unknown> {
+    return this.http.put(`${this.base}/${shipmentId}/assignment/reject`, req);
+  }
+
+  rateDeliveryAgent(shipmentId: string, req: RateDeliveryAgentRequest): Observable<unknown> {
+    return this.http.put(`${this.base}/${shipmentId}/agent-rating`, req);
   }
 
   assignVehicle(shipmentId: string, req: AssignVehicleRequest): Observable<unknown> {

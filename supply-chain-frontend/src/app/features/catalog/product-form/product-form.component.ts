@@ -6,9 +6,9 @@ import { CatalogApiService } from '../../../core/api/catalog-api.service';
 import { ToastService } from '../../../core/services/toast.service';
 import { CategoryDto } from '../../../core/models/catalog.models';
 
-interface CategoryOptionEntry {
-  category: CategoryDto;
-  label: string;
+interface CategoryGroupEntry {
+  parent: CategoryDto;
+  children: CategoryDto[];
 }
 
 @Component({
@@ -56,8 +56,17 @@ interface CategoryOptionEntry {
               <label>Category *</label>
               <select class="form-control" formControlName="categoryId" [disabled]="categoriesLoading() || categories().length === 0">
                 <option value="">Select category</option>
-                @for (entry of categoryOptions(); track entry.category.categoryId) {
-                  <option [value]="entry.category.categoryId">{{ entry.label }}</option>
+                @for (group of categoryGroups(); track group.parent.categoryId) {
+                  @if (group.children.length > 0) {
+                    <optgroup [label]="group.parent.name">
+                      <option [value]="group.parent.categoryId">{{ group.parent.name }} (General)</option>
+                      @for (child of group.children; track child.categoryId) {
+                        <option [value]="child.categoryId">{{ child.name }}</option>
+                      }
+                    </optgroup>
+                  } @else {
+                    <option [value]="group.parent.categoryId">{{ group.parent.name }}</option>
+                  }
                 }
               </select>
               @if (categoriesLoading()) { <small>Loading categories...</small> }
@@ -113,40 +122,37 @@ export class ProductFormComponent implements OnInit {
   readonly categories = signal<CategoryDto[]>([]);
   readonly categoriesLoading = signal(false);
   readonly categoryLoadFailed = signal(false);
-  readonly categoryOptions = computed<CategoryOptionEntry[]>(() => {
-    const categories = this.categories();
-    const roots = categories
+  readonly topLevelCategories = computed(() =>
+    this.categories()
       .filter(category => !category.parentCategoryId)
-      .sort((a, b) => a.name.localeCompare(b.name));
-
-    const byParent = new Map<string, CategoryDto[]>();
-    categories.forEach(category => {
+      .sort((a, b) => a.name.localeCompare(b.name))
+  );
+  readonly categoryChildrenMap = computed(() => {
+    const map = new Map<string, CategoryDto[]>();
+    this.categories().forEach(category => {
       if (!category.parentCategoryId) {
         return;
       }
 
-      if (!byParent.has(category.parentCategoryId)) {
-        byParent.set(category.parentCategoryId, []);
+      if (!map.has(category.parentCategoryId)) {
+        map.set(category.parentCategoryId, []);
       }
 
-      byParent.get(category.parentCategoryId)!.push(category);
+      map.get(category.parentCategoryId)!.push(category);
     });
 
-    byParent.forEach((items, key) => {
-      byParent.set(key, [...items].sort((a, b) => a.name.localeCompare(b.name)));
+    map.forEach((items, key) => {
+      map.set(key, [...items].sort((a, b) => a.name.localeCompare(b.name)));
     });
 
-    const entries: CategoryOptionEntry[] = [];
-    for (const root of roots) {
-      entries.push({ category: root, label: root.name });
-      const children = byParent.get(root.categoryId) ?? [];
-      for (const child of children) {
-        entries.push({ category: child, label: `↳ ${child.name}` });
-      }
-    }
-
-    return entries;
+    return map;
   });
+  readonly categoryGroups = computed<CategoryGroupEntry[]>(() =>
+    this.topLevelCategories().map(parent => ({
+      parent,
+      children: this.categoryChildrenMap().get(parent.categoryId) ?? []
+    }))
+  );
 
   readonly form = this.fb.group({
     sku:          ['', [Validators.required, Validators.maxLength(60), Validators.pattern(/^[A-Za-z0-9-_]+$/)]],

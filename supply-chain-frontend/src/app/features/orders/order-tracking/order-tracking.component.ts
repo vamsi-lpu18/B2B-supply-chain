@@ -8,7 +8,7 @@ import { AuthStore } from '../../../core/stores/auth.store';
 import { ToastService } from '../../../core/services/toast.service';
 import { ShipmentDto } from '../../../core/models/logistics.models';
 import { OrderDto } from '../../../core/models/order.models';
-import { OrderStatus, ORDER_STATUS_BADGE, ORDER_STATUS_LABELS, ShipmentStatus, SHIPMENT_STATUS_BADGE, SHIPMENT_STATUS_LABELS, UserRole } from '../../../core/models/enums';
+import { AssignmentDecisionStatus, OrderStatus, ORDER_STATUS_BADGE, ORDER_STATUS_LABELS, ShipmentStatus, SHIPMENT_STATUS_BADGE, SHIPMENT_STATUS_LABELS, UserRole } from '../../../core/models/enums';
 
 @Component({
   selector: 'app-order-tracking',
@@ -125,7 +125,13 @@ import { OrderStatus, ORDER_STATUS_BADGE, ORDER_STATUS_LABELS, ShipmentStatus, S
               <div><span class="field-label">Address</span><span>{{ currentShipment.deliveryAddress }}, {{ currentShipment.city }}, {{ currentShipment.state }} - {{ currentShipment.postalCode }}</span></div>
               <div><span class="field-label">Vehicle</span><span>{{ currentShipment.vehicleNumber || 'Not assigned' }}</span></div>
               <div><span class="field-label">Assigned Agent</span><span>{{ currentShipment.assignedAgentId ? (currentShipment.assignedAgentId | slice:0:8) + '...' : 'Not assigned' }}</span></div>
+              <div><span class="field-label">Assignment</span><span class="badge" [class]="assignmentDecisionBadge(currentShipment.assignmentDecisionStatus)">{{ assignmentDecisionLabel(currentShipment.assignmentDecisionStatus) }}</span></div>
+              <div><span class="field-label">Agent Response</span><span>{{ currentShipment.assignmentDecisionAtUtc ? (currentShipment.assignmentDecisionAtUtc | date:'dd MMM yyyy, HH:mm') : 'Pending' }}</span></div>
             </div>
+
+            @if (currentShipment.assignmentDecisionReason) {
+              <p class="text-sm text-danger mb-3">Assignment note: {{ currentShipment.assignmentDecisionReason }}</p>
+            }
 
             <div class="timeline">
               @for (event of currentShipment.events; track event.shipmentEventId) {
@@ -148,6 +154,24 @@ import { OrderStatus, ORDER_STATUS_BADGE, ORDER_STATUS_LABELS, ShipmentStatus, S
         @if (isAgent() && selectedShipment()) {
           <div class="card mb-4">
             <h2 class="mb-3">Delivery Agent Approval</h2>
+            @if (canRespondToAssignment()) {
+              <p class="text-sm text-secondary mb-2">
+                Confirm if you can take this assignment before updating delivery status.
+              </p>
+              <div class="form-group mb-2">
+                <label>Assignment Response Note</label>
+                <textarea
+                  class="form-control"
+                  rows="2"
+                  maxlength="500"
+                  [(ngModel)]="assignmentResponseNote"
+                  placeholder="Optional for accept, required for reject"></textarea>
+              </div>
+              <div class="delivery-actions mb-3">
+                <button class="btn btn-primary" (click)="acceptAssignment()" [disabled]="actionLoading()">Accept Assignment</button>
+                <button class="btn btn-danger" (click)="rejectAssignment()" [disabled]="actionLoading()">Reject Assignment</button>
+              </div>
+            }
             <p class="text-sm text-secondary mb-3">
               Keep this timeline accurate by moving the shipment to out-for-delivery and finally delivered.
             </p>
@@ -434,6 +458,7 @@ export class OrderTrackingComponent implements OnInit {
   readonly selectedShipmentId = signal<string | null>(null);
 
   deliveryNote = '';
+  assignmentResponseNote = '';
   private orderResolved = false;
   private shipmentsResolved = false;
 
@@ -490,6 +515,18 @@ export class OrderTrackingComponent implements OnInit {
 
   shipmentStatusBadge(status: ShipmentStatus): string {
     return `badge ${SHIPMENT_STATUS_BADGE[status] ?? 'badge-neutral'}`;
+  }
+
+  assignmentDecisionLabel(status: AssignmentDecisionStatus): string {
+    if (status === AssignmentDecisionStatus.Accepted) return 'Accepted';
+    if (status === AssignmentDecisionStatus.Rejected) return 'Rejected';
+    return 'Pending';
+  }
+
+  assignmentDecisionBadge(status: AssignmentDecisionStatus): string {
+    if (status === AssignmentDecisionStatus.Accepted) return 'badge-success';
+    if (status === AssignmentDecisionStatus.Rejected) return 'badge-error';
+    return 'badge-warning';
   }
 
   trackingEventCount(): number {
@@ -631,7 +668,11 @@ export class OrderTrackingComponent implements OnInit {
 
   canMarkOutForDelivery(): boolean {
     const shipment = this.selectedShipment();
-    if (!shipment) {
+    if (!shipment || !this.canActAsAssignedAgent(shipment)) {
+      return false;
+    }
+
+    if (shipment.assignmentDecisionStatus !== AssignmentDecisionStatus.Accepted) {
       return false;
     }
 
@@ -642,11 +683,77 @@ export class OrderTrackingComponent implements OnInit {
 
   canApproveDelivery(): boolean {
     const shipment = this.selectedShipment();
-    if (!shipment) {
+    if (!shipment || !this.canActAsAssignedAgent(shipment)) {
+      return false;
+    }
+
+    if (shipment.assignmentDecisionStatus !== AssignmentDecisionStatus.Accepted) {
       return false;
     }
 
     return shipment.status === ShipmentStatus.OutForDelivery || shipment.status === ShipmentStatus.InTransit;
+  }
+
+  canRespondToAssignment(): boolean {
+    const shipment = this.selectedShipment();
+    if (!shipment || !this.canActAsAssignedAgent(shipment)) {
+      return false;
+    }
+
+    if (shipment.status === ShipmentStatus.Delivered || shipment.status === ShipmentStatus.Returned) {
+      return false;
+    }
+
+    return shipment.assignmentDecisionStatus === AssignmentDecisionStatus.Pending;
+  }
+
+  acceptAssignment(): void {
+    const shipment = this.selectedShipment();
+    if (!shipment || !this.canRespondToAssignment()) {
+      return;
+    }
+
+    this.actionLoading.set(true);
+    this.logisticsApi.acceptAssignment(shipment.shipmentId).subscribe({
+      next: () => {
+        this.toast.success('Assignment accepted');
+        this.assignmentResponseNote = '';
+        this.actionLoading.set(false);
+        this.refresh();
+      },
+      error: () => {
+        this.toast.error('Failed to accept assignment');
+        this.actionLoading.set(false);
+      }
+    });
+  }
+
+  rejectAssignment(): void {
+    const shipment = this.selectedShipment();
+    if (!shipment || !this.canRespondToAssignment()) {
+      return;
+    }
+
+    const reason = this.assignmentResponseNote.trim();
+    if (!reason) {
+      this.toast.error('Rejection reason is required');
+      return;
+    }
+
+    this.actionLoading.set(true);
+    this.logisticsApi.rejectAssignment(shipment.shipmentId, { reason }).subscribe({
+      next: () => {
+        this.toast.success('Assignment rejected');
+        this.assignmentResponseNote = '';
+        this.deliveryNote = '';
+        this.actionLoading.set(false);
+        this.refresh();
+      },
+      error: () => {
+        this.toast.error('Failed to reject assignment');
+        this.actionLoading.set(false);
+      }
+    });
   }
 
   markOutForDelivery(): void {
@@ -695,7 +802,17 @@ export class OrderTrackingComponent implements OnInit {
       ? this.logisticsApi.getMyShipments()
       : this.isAgent()
         ? this.logisticsApi.getAssignedShipments()
-        : this.logisticsApi.getAllShipments();
+        : this.authStore.hasRole(UserRole.Admin, UserRole.Logistics)
+          ? this.logisticsApi.getAllShipments()
+          : null;
+
+    if (!shipmentsRequest) {
+      this.shipments.set([]);
+      this.selectedShipmentId.set(null);
+      this.shipmentsResolved = true;
+      this.tryFinishLoading();
+      return;
+    }
 
     shipmentsRequest.subscribe({
       next: allShipments => {
@@ -743,5 +860,18 @@ export class OrderTrackingComponent implements OnInit {
         this.actionLoading.set(false);
       }
     });
+  }
+
+  private canActAsAssignedAgent(shipment: ShipmentDto): boolean {
+    const userId = this.authStore.user()?.userId;
+    if (!this.isAgent() || !userId || !shipment.assignedAgentId) {
+      return false;
+    }
+
+    return this.isSameGuid(userId, shipment.assignedAgentId);
+  }
+
+  private isSameGuid(left: string, right: string): boolean {
+    return left.trim().toLowerCase() === right.trim().toLowerCase();
   }
 }

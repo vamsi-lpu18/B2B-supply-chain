@@ -21,7 +21,16 @@ public sealed class AdminOrdersController(ISender sender) : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("analytics")]
+    [ProducesResponseType(typeof(OrderAnalyticsDto), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetAnalytics([FromQuery] int days = 90, [FromQuery] int top = 5, CancellationToken cancellationToken = default)
+    {
+        var result = await sender.Send(new GetOrderAnalyticsQuery(days, top), cancellationToken);
+        return Ok(result);
+    }
+
     [HttpPost("bulk-status")]
+    [Authorize(Roles = "Admin,Logistics")]
     [ProducesResponseType(typeof(BulkUpdateOrderStatusResultDto), StatusCodes.Status200OK)]
     public async Task<IActionResult> BulkUpdateStatus([FromBody] BulkUpdateOrderStatusRequest request, CancellationToken cancellationToken)
     {
@@ -36,6 +45,7 @@ public sealed class AdminOrdersController(ISender sender) : ControllerBase
     }
 
     [HttpPut("{id:guid}/approve-hold")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> ApproveHold(Guid id, CancellationToken cancellationToken)
     {
         if (!TryGetUserId(out var userId))
@@ -48,6 +58,7 @@ public sealed class AdminOrdersController(ISender sender) : ControllerBase
     }
 
     [HttpPut("{id:guid}/reject-hold")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> RejectHold(Guid id, [FromBody] AdminDecisionRequest request, CancellationToken cancellationToken)
     {
         if (!TryGetUserId(out var userId))

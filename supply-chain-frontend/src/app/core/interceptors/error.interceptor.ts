@@ -21,7 +21,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
       if (err.status === 401 && !req.url.includes('/api/auth/')) {
         return handle401(req, next, http, authStore, router, toast);
       }
-      handleError(err, toast, router);
+      handleError(err, toast, req, router);
       return throwError(() => err);
     })
   );
@@ -41,6 +41,18 @@ function handle401(
 
     return http.post<AuthResponse>('/identity/api/auth/refresh', {}, { withCredentials: true }).pipe(
       switchMap(res => {
+        if (res.mustChangePassword) {
+          isRefreshing = false;
+          authStore.clear();
+          router.navigate(['/forgot-password'], {
+            queryParams: {
+              email: res.email,
+              enforced: '1'
+            }
+          });
+          return throwError(() => new Error('Password reset required.'));
+        }
+
         isRefreshing = false;
         authStore.updateToken(res.accessToken);
         refreshSubject.next(res.accessToken);
@@ -67,10 +79,13 @@ function handle401(
   );
 }
 
-function handleError(err: HttpErrorResponse, toast: ToastService, router: Router): void {
+function handleError(err: HttpErrorResponse, toast: ToastService, req: HttpRequest<unknown>, router: Router): void {
   switch (err.status) {
     case 403:
-      toast.error('Access denied. You don\'t have permission.');
+      // Many views do role-scoped background GETs; avoid noisy toasts on expected forbidden reads.
+      if (req.method !== 'GET') {
+        toast.error('Access denied. You don\'t have permission.');
+      }
       break;
     case 404:
       // Let components handle 404 individually

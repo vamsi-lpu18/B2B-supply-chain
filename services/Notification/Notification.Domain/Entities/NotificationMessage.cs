@@ -25,6 +25,8 @@ public sealed class NotificationMessage
     {
         "shipmentcreated",
         "shipmentassigned",
+        "shipmentassignmentaccepted",
+        "shipmentassignmentrejected",
         "shipmentstatusupdated"
     };
 

@@ -1,0 +1,1466 @@
+2026-04-11 00:00:03.214 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:30:03.2148972Z"
+2026-04-11 00:01:03.336 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:31:03.3361945Z"
+2026-04-11 00:02:03.565 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:32:03.5652884Z"
+2026-04-11 00:03:03.720 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:33:03.7208433Z"
+2026-04-11 00:04:03.966 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:34:03.9666067Z"
+2026-04-11 00:05:04.150 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:35:04.1504280Z"
+2026-04-11 00:06:04.254 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:36:04.2544262Z"
+2026-04-11 00:07:04.458 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:37:04.4581023Z"
+2026-04-11 00:08:04.637 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:38:04.6374504Z"
+2026-04-11 00:09:04.782 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:39:04.7827502Z"
+2026-04-11 00:10:04.894 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:40:04.8942706Z"
+2026-04-11 00:11:05.031 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:41:05.0316474Z"
+2026-04-11 00:12:05.169 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:42:05.1698249Z"
+2026-04-11 00:13:05.551 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:43:05.5514245Z"
+2026-04-11 00:14:05.902 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:44:05.9026786Z"
+2026-04-11 00:15:05.915 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:45:05.9156578Z"
+2026-04-11 00:16:06.071 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:46:06.0718582Z"
+2026-04-11 00:17:06.424 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:47:06.4248907Z"
+2026-04-11 00:18:06.725 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:48:06.7251324Z"
+2026-04-11 00:19:06.879 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:49:06.8799096Z"
+2026-04-11 00:20:06.992 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:50:06.9920904Z"
+2026-04-11 00:21:07.177 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:51:07.1774596Z"
+2026-04-11 00:22:07.372 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:52:07.3720141Z"
+2026-04-11 00:23:07.700 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:53:07.7009161Z"
+2026-04-11 00:24:07.865 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:54:07.8658039Z"
+2026-04-11 00:25:07.971 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:55:07.9718604Z"
+2026-04-11 00:26:08.124 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:56:08.1241384Z"
+2026-04-11 00:27:08.410 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:57:08.4100081Z"
+2026-04-11 00:28:08.652 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:58:08.6528961Z"
+2026-04-11 00:29:08.919 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T18:59:08.9195192Z"
+2026-04-11 00:30:09.443 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:00:09.4435880Z"
+2026-04-11 00:31:09.740 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:01:09.7404723Z"
+2026-04-11 00:32:09.967 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:02:09.9671149Z"
+2026-04-11 00:33:10.263 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:03:10.2631031Z"
+2026-04-11 00:34:10.629 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:04:10.6297675Z"
+2026-04-11 00:35:10.801 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:05:10.8012878Z"
+2026-04-11 00:36:10.924 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:06:10.9240791Z"
+2026-04-11 00:37:11.236 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:07:11.2360946Z"
+2026-04-11 00:38:11.551 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:08:11.5515941Z"
+2026-04-11 00:39:11.751 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:09:11.7513990Z"
+2026-04-11 00:40:12.124 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:10:12.1244276Z"
+2026-04-11 00:41:12.512 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:11:12.5125886Z"
+2026-04-11 00:42:12.882 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:12:12.8827718Z"
+2026-04-11 00:43:13.131 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:13:13.1314490Z"
+2026-04-11 00:44:13.603 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:14:13.6032077Z"
+2026-04-11 00:45:13.859 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:15:13.8592889Z"
+2026-04-11 00:46:14.037 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:16:14.0372147Z"
+2026-04-11 00:47:14.269 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:17:14.2690209Z"
+2026-04-11 00:48:14.678 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:18:14.6785112Z"
+2026-04-11 00:49:15.083 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:19:15.0836112Z"
+2026-04-11 00:50:00.478 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:20:00.4781677Z"
+2026-04-11 00:51:00.937 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:21:00.9373433Z"
+2026-04-11 00:52:01.191 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:22:01.1911921Z"
+2026-04-11 00:53:01.393 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:23:01.3934723Z"
+2026-04-11 00:54:01.563 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:24:01.5639784Z"
+2026-04-11 00:55:01.829 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:25:01.8293214Z"
+2026-04-11 00:56:02.083 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:26:02.0830548Z"
+2026-04-11 00:57:02.179 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:27:02.1798999Z"
+2026-04-11 00:58:02.378 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:28:02.3789428Z"
+2026-04-11 00:59:02.549 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:29:02.5495339Z"
+2026-04-11 01:00:02.914 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:30:02.9142999Z"
+2026-04-11 01:01:03.091 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:31:03.0912683Z"
+2026-04-11 01:02:03.211 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:32:03.2110191Z"
+2026-04-11 01:03:03.293 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:33:03.2938468Z"
+2026-04-11 01:04:03.342 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:34:03.3422894Z"
+2026-04-11 01:05:03.384 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:35:03.3845807Z"
+2026-04-11 01:06:03.586 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:36:03.5868076Z"
+2026-04-11 01:07:03.794 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:37:03.7943677Z"
+2026-04-11 01:08:03.893 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:38:03.8933943Z"
+2026-04-11 01:09:03.942 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:39:03.9428996Z"
+2026-04-11 01:10:04.169 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:40:04.1696719Z"
+2026-04-11 01:11:04.081 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:41:04.0819113Z"
+2026-04-11 01:12:04.195 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:42:04.1959632Z"
+2026-04-11 01:13:04.245 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:43:04.2455567Z"
+2026-04-11 01:14:04.353 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:44:04.3536918Z"
+2026-04-11 01:15:04.443 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:45:04.4432316Z"
+2026-04-11 01:16:04.716 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:46:04.7163877Z"
+2026-04-11 01:17:04.816 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:47:04.8161486Z"
+2026-04-11 01:18:05.040 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:48:05.0401889Z"
+2026-04-11 01:19:05.356 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:49:05.3566377Z"
+2026-04-11 01:20:05.513 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:50:05.5130835Z"
+2026-04-11 01:21:05.601 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:51:05.6016869Z"
+2026-04-11 01:22:05.693 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:52:05.6934802Z"
+2026-04-11 01:23:05.855 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:53:05.8550322Z"
+2026-04-11 01:24:05.929 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:54:05.9298352Z"
+2026-04-11 01:25:06.044 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:55:06.0440583Z"
+2026-04-11 01:26:06.092 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:56:06.0921857Z"
+2026-04-11 01:27:06.191 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:57:06.1910310Z"
+2026-04-11 01:28:06.367 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:58:06.3673560Z"
+2026-04-11 01:29:06.622 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T19:59:06.6228150Z"
+2026-04-11 01:30:06.703 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:00:06.7038921Z"
+2026-04-11 01:31:06.776 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:01:06.7766365Z"
+2026-04-11 01:32:06.856 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:02:06.8561667Z"
+2026-04-11 01:33:07.153 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:03:07.1536430Z"
+2026-04-11 01:34:07.435 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:04:07.4355021Z"
+2026-04-11 01:35:07.527 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:05:07.5270116Z"
+2026-04-11 01:36:07.770 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:06:07.7701946Z"
+2026-04-11 01:37:07.770 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:07:07.7709574Z"
+2026-04-11 01:38:08.123 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:08:08.1231628Z"
+2026-04-11 01:39:08.610 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:09:08.6108913Z"
+2026-04-11 01:40:08.779 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:10:08.7798752Z"
+2026-04-11 01:41:09.075 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:11:09.0759572Z"
+2026-04-11 01:42:09.344 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:12:09.3445759Z"
+2026-04-11 01:43:09.559 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:13:09.5591484Z"
+2026-04-11 01:44:10.043 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:14:10.0431681Z"
+2026-04-11 01:45:10.071 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:15:10.0717634Z"
+2026-04-11 01:46:10.194 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:16:10.1945812Z"
+2026-04-11 01:47:10.504 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:17:10.5044248Z"
+2026-04-11 01:48:10.902 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:18:10.9021198Z"
+2026-04-11 01:49:11.022 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:19:11.0227604Z"
+2026-04-11 01:50:11.124 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:20:11.1242293Z"
+2026-04-11 01:51:11.591 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:21:11.5918876Z"
+2026-04-11 01:52:11.728 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:22:11.7284084Z"
+2026-04-11 01:53:11.991 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:23:11.9916909Z"
+2026-04-11 01:54:12.117 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:24:12.1170141Z"
+2026-04-11 01:55:12.253 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:25:12.2539167Z"
+2026-04-11 01:56:12.413 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:26:12.4130966Z"
+2026-04-11 01:57:12.700 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:27:12.7009500Z"
+2026-04-11 01:58:12.879 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:28:12.8797801Z"
+2026-04-11 01:59:13.003 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:29:13.0034515Z"
+2026-04-11 02:00:13.134 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:30:13.1342859Z"
+2026-04-11 02:01:13.242 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:31:13.2428643Z"
+2026-04-11 02:02:13.530 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:32:13.5304250Z"
+2026-04-11 02:03:13.651 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:33:13.6515344Z"
+2026-04-11 02:04:13.772 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:34:13.7727380Z"
+2026-04-11 02:05:13.894 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:35:13.8943702Z"
+2026-04-11 02:06:14.017 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:36:14.0178537Z"
+2026-04-11 02:07:14.133 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:37:14.1332929Z"
+2026-04-11 02:08:14.505 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:38:14.5051577Z"
+2026-04-11 02:09:14.605 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:39:14.6050881Z"
+2026-04-11 02:10:14.933 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:40:14.9337141Z"
+2026-04-11 02:11:15.039 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:41:15.0394432Z"
+2026-04-11 02:12:00.311 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:42:00.3116162Z"
+2026-04-11 02:13:00.610 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:43:00.6108014Z"
+2026-04-11 02:14:00.763 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:44:00.7639428Z"
+2026-04-11 02:15:00.870 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:45:00.8708187Z"
+2026-04-11 02:16:01.247 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:46:01.2478599Z"
+2026-04-11 02:17:01.380 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:47:01.3803313Z"
+2026-04-11 02:18:01.502 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:48:01.5021434Z"
+2026-04-11 02:19:01.741 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:49:01.7413930Z"
+2026-04-11 02:20:01.928 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:50:01.9274654Z"
+2026-04-11 02:21:02.074 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:51:02.0741873Z"
+2026-04-11 02:22:02.183 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:52:02.1838621Z"
+2026-04-11 02:23:02.308 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:53:02.3080848Z"
+2026-04-11 02:24:02.532 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:54:02.5320902Z"
+2026-04-11 02:25:02.685 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:55:02.6853791Z"
+2026-04-11 02:26:02.915 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:56:02.9151226Z"
+2026-04-11 02:27:03.026 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:57:03.0266948Z"
+2026-04-11 02:28:03.366 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:58:03.3661293Z"
+2026-04-11 02:29:03.643 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:59:03.6437288Z"
+2026-04-11 02:30:03.855 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:00:03.8553787Z"
+2026-04-11 02:31:03.986 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:01:03.9868337Z"
+2026-04-11 02:32:04.073 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:02:04.0738576Z"
+2026-04-11 02:33:04.333 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:03:04.3335171Z"
+2026-04-11 02:34:04.516 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:04:04.5161830Z"
+2026-04-11 02:35:04.551 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:05:04.5515873Z"
+2026-04-11 02:36:04.673 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:06:04.6732015Z"
+2026-04-11 02:37:04.837 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:07:04.8373606Z"
+2026-04-11 02:38:04.931 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:08:04.9315931Z"
+2026-04-11 02:39:05.118 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:09:05.1189204Z"
+2026-04-11 02:40:05.403 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:10:05.4035489Z"
+2026-04-11 02:41:05.543 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:11:05.5437852Z"
+2026-04-11 02:42:05.643 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:12:05.6432696Z"
+2026-04-11 02:43:05.856 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:13:05.8564647Z"
+2026-04-11 02:44:05.943 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:14:05.9439083Z"
+2026-04-11 02:45:06.166 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:15:06.1660238Z"
+2026-04-11 02:46:06.310 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:16:06.3109602Z"
+2026-04-11 02:47:06.553 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:17:06.5530864Z"
+2026-04-11 02:48:06.716 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:18:06.7164210Z"
+2026-04-11 02:49:06.905 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:19:06.9057730Z"
+2026-04-11 02:50:07.036 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:20:07.0365631Z"
+2026-04-11 02:51:07.201 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:21:07.2016620Z"
+2026-04-11 02:52:07.568 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:22:07.5685692Z"
+2026-04-11 02:53:07.835 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:23:07.8356727Z"
+2026-04-11 02:54:08.013 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:24:08.0137168Z"
+2026-04-11 02:55:08.392 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:25:08.3920118Z"
+2026-04-11 02:56:08.607 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:26:08.6071579Z"
+2026-04-11 02:57:08.863 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:27:08.8633217Z"
+2026-04-11 02:58:09.294 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:28:09.2941726Z"
+2026-04-11 02:59:09.706 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:29:09.7068392Z"
+2026-04-11 03:00:10.005 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:30:10.0054173Z"
+2026-04-11 03:01:10.212 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:31:10.2122315Z"
+2026-04-11 03:02:10.309 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:32:10.3098165Z"
+2026-04-11 03:03:10.550 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:33:10.5502963Z"
+2026-04-11 03:04:10.891 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:34:10.8914518Z"
+2026-04-11 03:05:11.178 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:35:11.1789405Z"
+2026-04-11 03:06:11.479 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:36:11.4799253Z"
+2026-04-11 03:07:11.840 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:37:11.8407889Z"
+2026-04-11 03:08:12.054 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:38:12.0545240Z"
+2026-04-11 03:09:12.245 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:39:12.2458450Z"
+2026-04-11 03:10:12.550 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:40:12.5507656Z"
+2026-04-11 03:11:12.863 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:41:12.8633337Z"
+2026-04-11 03:12:13.042 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:42:13.0427871Z"
+2026-04-11 03:13:13.211 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:43:13.2117544Z"
+2026-04-11 03:14:13.472 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:44:13.4727110Z"
+2026-04-11 03:15:13.820 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:45:13.8200661Z"
+2026-04-11 03:16:13.995 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:46:13.9956316Z"
+2026-04-11 03:17:14.284 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:47:14.2847253Z"
+2026-04-11 03:18:14.509 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:48:14.5094961Z"
+2026-04-11 03:19:14.751 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:49:14.7519559Z"
+2026-04-11 03:20:15.004 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:50:15.0040303Z"
+2026-04-11 03:21:15.247 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:51:15.2475288Z"
+2026-04-11 03:22:00.610 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:52:00.6109736Z"
+2026-04-11 03:23:00.769 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:53:00.7698679Z"
+2026-04-11 03:24:01.044 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:54:01.0440979Z"
+2026-04-11 03:25:01.209 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:55:01.2094844Z"
+2026-04-11 03:26:01.628 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:56:01.6287930Z"
+2026-04-11 03:27:02.003 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:57:02.0031261Z"
+2026-04-11 03:28:02.373 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:58:02.3730895Z"
+2026-04-11 03:29:02.804 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:59:02.8048723Z"
+2026-04-11 03:30:03.089 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:00:03.0897316Z"
+2026-04-11 03:31:03.301 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:01:03.3016358Z"
+2026-04-11 03:32:03.396 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:02:03.3968754Z"
+2026-04-11 03:33:03.754 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:03:03.7543619Z"
+2026-04-11 03:34:04.073 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:04:04.0737874Z"
+2026-04-11 03:35:04.287 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:05:04.2871382Z"
+2026-04-11 03:36:04.497 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:06:04.4971106Z"
+2026-04-11 03:37:04.780 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:07:04.7800538Z"
+2026-04-11 03:38:05.132 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:08:05.1326649Z"
+2026-04-11 03:39:05.437 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:09:05.4378664Z"
+2026-04-11 03:40:05.777 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:10:05.7773272Z"
+2026-04-11 03:41:05.948 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:11:05.9486896Z"
+2026-04-11 03:42:06.092 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:12:06.0923948Z"
+2026-04-11 03:43:06.420 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:13:06.4199826Z"
+2026-04-11 03:44:06.657 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:14:06.6570287Z"
+2026-04-11 03:45:06.902 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:15:06.9024789Z"
+2026-04-11 03:46:07.095 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:16:07.0951825Z"
+2026-04-11 03:47:07.289 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:17:07.2891003Z"
+2026-04-11 03:48:07.547 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:18:07.5473387Z"
+2026-04-11 03:49:07.933 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:19:07.9339078Z"
+2026-04-11 03:50:08.142 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:20:08.1425429Z"
+2026-04-11 03:51:08.493 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:21:08.4938289Z"
+2026-04-11 03:52:08.713 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:22:08.7136852Z"
+2026-04-11 03:53:09.103 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:23:09.1029979Z"
+2026-04-11 03:54:09.690 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:24:09.6904079Z"
+2026-04-11 03:55:09.966 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:25:09.9663995Z"
+2026-04-11 03:56:10.171 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:26:10.1719662Z"
+2026-04-11 03:57:10.529 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:27:10.5299071Z"
+2026-04-11 03:58:10.933 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:28:10.9334263Z"
+2026-04-11 03:59:11.142 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:29:11.1421962Z"
+2026-04-11 04:00:11.348 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:30:11.3481708Z"
+2026-04-11 04:01:11.692 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:31:11.6929286Z"
+2026-04-11 04:02:12.004 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:32:12.0046284Z"
+2026-04-11 04:03:12.217 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:33:12.2173330Z"
+2026-04-11 04:04:12.382 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:34:12.3822964Z"
+2026-04-11 04:05:12.556 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:35:12.5560896Z"
+2026-04-11 04:06:12.815 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:36:12.8153026Z"
+2026-04-11 04:07:13.240 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:37:13.2402505Z"
+2026-04-11 04:08:13.486 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:38:13.4865832Z"
+2026-04-11 04:09:13.653 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:39:13.6539389Z"
+2026-04-11 04:10:14.012 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:40:14.0120511Z"
+2026-04-11 04:11:14.355 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:41:14.3553884Z"
+2026-04-11 04:12:14.592 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:42:14.5925582Z"
+2026-04-11 04:13:14.882 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:43:14.8818812Z"
+2026-04-11 04:14:15.273 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:44:15.2739018Z"
+2026-04-11 04:15:00.385 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:45:00.3850765Z"
+2026-04-11 04:16:00.732 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:46:00.7325663Z"
+2026-04-11 04:17:01.058 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:47:01.0580683Z"
+2026-04-11 04:18:01.240 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:48:01.2407171Z"
+2026-04-11 04:19:01.447 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:49:01.4470342Z"
+2026-04-11 04:20:01.795 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:50:01.7952532Z"
+2026-04-11 04:21:02.082 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:51:02.0825197Z"
+2026-04-11 04:22:02.159 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:52:02.1593154Z"
+2026-04-11 04:23:02.381 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:53:02.3816140Z"
+2026-04-11 04:24:02.589 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:54:02.5896458Z"
+2026-04-11 04:25:02.846 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:55:02.8466932Z"
+2026-04-11 04:26:02.993 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:56:02.9934099Z"
+2026-04-11 04:27:03.179 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:57:03.1798295Z"
+2026-04-11 04:28:03.456 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:58:03.4567040Z"
+2026-04-11 04:29:03.758 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:59:03.7580844Z"
+2026-04-11 04:30:04.013 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:00:04.0139633Z"
+2026-04-11 04:31:04.300 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:01:04.3008565Z"
+2026-04-11 04:32:04.526 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:02:04.5265527Z"
+2026-04-11 04:33:04.828 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:03:04.8285303Z"
+2026-04-11 04:34:05.134 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:04:05.1343481Z"
+2026-04-11 04:35:05.507 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:05:05.5070178Z"
+2026-04-11 04:36:05.820 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:06:05.8200702Z"
+2026-04-11 04:37:06.173 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:07:06.1735106Z"
+2026-04-11 04:38:06.327 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:08:06.3277287Z"
+2026-04-11 04:39:06.792 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:09:06.7926129Z"
+2026-04-11 09:46:08.636 +05:30 [INF] CatalogInventory migrations applied count: 1
+2026-04-11 09:48:25.936 +05:30 [INF] CatalogInventory migrations applied count: 1
+2026-04-11 09:48:29.354 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 09:48:32.489 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 09:48:34.109 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@CatalogInventoryMigrationsDB'
+2026-04-11 09:48:34.138 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 09:48:34.150 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 09:48:34.485 +05:30 [INF] Server desktop-nfnd817:19204:69359e0d successfully announced in 272.8625 ms
+2026-04-11 09:48:34.495 +05:30 [INF] Server desktop-nfnd817:19204:69359e0d is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 09:48:34.540 +05:30 [INF] Server desktop-nfnd817:19204:69359e0d all the dispatchers started
+2026-04-11 09:48:34.548 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 09:48:35.578 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:18:35.5778432Z"
+2026-04-11 09:49:05.420 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:19:05.4201618Z"
+2026-04-11 09:50:05.660 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:20:05.6607358Z"
+2026-04-11 09:51:05.971 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:21:05.9710856Z"
+2026-04-11 09:52:06.180 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:22:06.1801790Z"
+2026-04-11 09:52:49.397 +05:30 [INF] HTTP GET /health responded 200 in 85.5580 ms
+2026-04-11 09:53:06.334 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:23:06.3345435Z"
+2026-04-11 09:54:06.599 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:24:06.5995876Z"
+2026-04-11 09:55:06.915 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:25:06.9155117Z"
+2026-04-11 09:56:07.301 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:26:07.3011134Z"
+2026-04-11 10:01:37.347 +05:30 [INF] CatalogInventory migrations applied count: 1
+2026-04-11 10:01:40.461 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 10:01:44.056 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 10:01:44.933 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@CatalogInventoryMigrationsDB'
+2026-04-11 10:01:45.015 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 10:01:45.217 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 10:01:45.929 +05:30 [INF] Server desktop-nfnd817:19476:48a6970d successfully announced in 350.7642 ms
+2026-04-11 10:01:45.938 +05:30 [INF] Server desktop-nfnd817:19476:48a6970d is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 10:01:46.016 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 10:01:46.467 +05:30 [INF] Server desktop-nfnd817:19476:48a6970d all the dispatchers started
+2026-04-11 10:01:47.295 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:31:47.2911472Z"
+2026-04-11 10:01:59.182 +05:30 [INF] HTTP GET /health responded 200 in 229.6486 ms
+2026-04-11 10:02:02.450 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:32:02.4500324Z"
+2026-04-11 10:02:03.865 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 10:02:04.453 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:32:04.4532191Z"
+2026-04-11 10:02:04.869 +05:30 [INF] Handled GetProductListQuery in 416.113ms
+2026-04-11 10:02:04.905 +05:30 [INF] HTTP GET /api/products responded 200 in 1391.2087 ms
+2026-04-11 10:02:12.385 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:32:12.3852028Z"
+2026-04-11 10:02:12.424 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T04:32:12.4240668Z"
+2026-04-11 10:02:12.515 +05:30 [INF] Handled GetCategoriesQuery in 90.9742ms
+2026-04-11 10:02:12.535 +05:30 [INF] Handled GetProductListQuery in 150.4598ms
+2026-04-11 10:02:12.539 +05:30 [INF] HTTP GET /api/products responded 200 in 169.1723 ms
+2026-04-11 10:02:12.546 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 175.7802 ms
+2026-04-11 10:02:40.673 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T04:32:40.6730864Z"
+2026-04-11 10:02:40.678 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:32:40.6782738Z"
+2026-04-11 10:02:40.687 +05:30 [INF] Handled GetCategoriesQuery in 14.0399ms
+2026-04-11 10:02:40.689 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 18.9246 ms
+2026-04-11 10:02:40.712 +05:30 [INF] Handled GetProductListQuery in 34.0254ms
+2026-04-11 10:02:40.714 +05:30 [INF] HTTP GET /api/products responded 200 in 44.5935 ms
+2026-04-11 10:03:02.526 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:33:02.5265560Z"
+2026-04-11 10:03:20.042 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:33:20.0424797Z"
+2026-04-11 10:03:20.049 +05:30 [INF] Handled GetProductListQuery in 6.7047ms
+2026-04-11 10:03:20.051 +05:30 [INF] HTTP GET /api/products responded 200 in 10.4676 ms
+2026-04-11 10:03:23.473 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:33:23.4734969Z"
+2026-04-11 10:03:23.481 +05:30 [INF] Handled GetProductListQuery in 7.5777ms
+2026-04-11 10:03:23.482 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T04:33:23.4826011Z"
+2026-04-11 10:03:23.484 +05:30 [INF] HTTP GET /api/products responded 200 in 12.0227 ms
+2026-04-11 10:03:23.499 +05:30 [INF] Handled GetCategoriesQuery in 17.2779ms
+2026-04-11 10:03:23.503 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 32.3590 ms
+2026-04-11 10:04:02.626 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:34:02.6262194Z"
+2026-04-11 10:05:02.764 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:35:02.7647240Z"
+2026-04-11 10:06:02.889 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:36:02.8896154Z"
+2026-04-11 10:07:02.980 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:37:02.9802087Z"
+2026-04-11 10:07:21.566 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T04:37:21.5663133Z"
+2026-04-11 10:07:21.569 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:37:21.5699488Z"
+2026-04-11 10:07:21.584 +05:30 [INF] Handled GetCategoriesQuery in 17.6629ms
+2026-04-11 10:07:21.590 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 25.5018 ms
+2026-04-11 10:07:21.644 +05:30 [INF] Handled GetProductListQuery in 74.0606ms
+2026-04-11 10:07:21.655 +05:30 [INF] HTTP GET /api/products responded 200 in 87.1973 ms
+2026-04-11 10:08:03.133 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:38:03.1333146Z"
+2026-04-11 10:09:03.223 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:39:03.2233530Z"
+2026-04-11 10:09:03.568 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:39:03.5685790Z"
+2026-04-11 10:09:03.568 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T04:39:03.5685781Z"
+2026-04-11 10:09:03.572 +05:30 [INF] Handled GetProductListQuery in 3.8449ms
+2026-04-11 10:09:03.573 +05:30 [INF] HTTP GET /api/products responded 200 in 5.7840 ms
+2026-04-11 10:09:03.575 +05:30 [INF] Handled GetCategoriesQuery in 6.9396ms
+2026-04-11 10:09:03.578 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 10.0966 ms
+2026-04-11 10:10:03.274 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:40:03.2744754Z"
+2026-04-11 10:11:03.540 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:41:03.5403615Z"
+2026-04-11 10:12:03.759 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:42:03.7590486Z"
+2026-04-11 10:13:04.076 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:43:04.0765931Z"
+2026-04-11 10:13:20.980 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:43:20.9808183Z"
+2026-04-11 10:13:21.019 +05:30 [INF] Handled GetProductListQuery in 38.5452ms
+2026-04-11 10:13:21.032 +05:30 [INF] HTTP GET /api/products responded 200 in 52.6051 ms
+2026-04-11 10:13:25.464 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T04:43:25.4641243Z"
+2026-04-11 10:13:25.464 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:43:25.4643603Z"
+2026-04-11 10:13:25.471 +05:30 [INF] Handled GetCategoriesQuery in 6.9588ms
+2026-04-11 10:13:25.473 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 10.2668 ms
+2026-04-11 10:13:25.490 +05:30 [INF] Handled GetProductListQuery in 26.2652ms
+2026-04-11 10:13:25.493 +05:30 [INF] HTTP GET /api/products responded 200 in 30.9236 ms
+2026-04-11 10:13:31.381 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:43:31.3814049Z"
+2026-04-11 10:13:31.386 +05:30 [INF] Handled GetProductListQuery in 4.8711ms
+2026-04-11 10:13:31.388 +05:30 [INF] HTTP GET /api/products responded 200 in 7.5889 ms
+2026-04-11 10:13:51.381 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:43:51.3819572Z"
+2026-04-11 10:13:51.386 +05:30 [INF] Handled GetProductListQuery in 4.2188ms
+2026-04-11 10:13:51.389 +05:30 [INF] HTTP GET /api/products responded 200 in 8.3890 ms
+2026-04-11 10:14:04.107 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:44:04.1074674Z"
+2026-04-11 10:14:13.371 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:44:13.3717351Z"
+2026-04-11 10:14:13.374 +05:30 [INF] Handled GetProductListQuery in 3.2356ms
+2026-04-11 10:14:13.376 +05:30 [INF] HTTP GET /api/products responded 200 in 6.1126 ms
+2026-04-11 10:14:23.780 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:44:23.7804834Z"
+2026-04-11 10:14:23.784 +05:30 [INF] Handled GetProductListQuery in 4.2666ms
+2026-04-11 10:14:23.786 +05:30 [INF] HTTP GET /api/products responded 200 in 6.6223 ms
+2026-04-11 10:14:40.065 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:44:40.0657010Z"
+2026-04-11 10:14:40.076 +05:30 [INF] Handled GetProductListQuery in 11.0506ms
+2026-04-11 10:14:40.085 +05:30 [INF] HTTP GET /api/products responded 200 in 20.9302 ms
+2026-04-11 10:15:04.226 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:45:04.2266969Z"
+2026-04-11 10:15:06.349 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:45:06.3493243Z"
+2026-04-11 10:15:06.359 +05:30 [INF] Handled GetProductListQuery in 9.9461ms
+2026-04-11 10:15:06.370 +05:30 [INF] HTTP GET /api/products responded 200 in 23.1309 ms
+2026-04-11 10:15:27.318 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:45:27.3188288Z"
+2026-04-11 10:15:27.336 +05:30 [INF] Handled GetProductListQuery in 17.1745ms
+2026-04-11 10:15:27.352 +05:30 [INF] HTTP GET /api/products responded 200 in 35.7803 ms
+2026-04-11 10:15:30.931 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T04:45:30.9318021Z"
+2026-04-11 10:15:30.933 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:45:30.9336073Z"
+2026-04-11 10:15:30.945 +05:30 [INF] Handled GetCategoriesQuery in 13.6236ms
+2026-04-11 10:15:30.948 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 17.1193 ms
+2026-04-11 10:15:30.965 +05:30 [INF] Handled GetProductListQuery in 31.7835ms
+2026-04-11 10:15:30.970 +05:30 [INF] HTTP GET /api/products responded 200 in 38.3159 ms
+2026-04-11 10:15:33.084 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T04:45:33.0843439Z"
+2026-04-11 10:15:33.136 +05:30 [INF] Handled GetProductDetailQuery in 52.0391ms
+2026-04-11 10:15:33.139 +05:30 [INF] HTTP GET /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9 responded 200 in 75.7878 ms
+2026-04-11 10:15:33.177 +05:30 [INF] Handling GetProductReviewsQuery at "2026-04-11T04:45:33.1774274Z"
+2026-04-11 10:15:33.194 +05:30 [INF] Handled GetProductReviewsQuery in 16.6968ms
+2026-04-11 10:15:33.210 +05:30 [INF] HTTP GET /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9/reviews responded 200 in 46.8610 ms
+2026-04-11 10:16:04.317 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:46:04.3177833Z"
+2026-04-11 10:17:04.419 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:47:04.4190838Z"
+2026-04-11 10:17:32.643 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T04:47:32.6436190Z"
+2026-04-11 10:17:32.645 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:47:32.6456838Z"
+2026-04-11 10:17:32.648 +05:30 [INF] Handled GetCategoriesQuery in 4.6683ms
+2026-04-11 10:17:32.648 +05:30 [INF] Handled GetProductListQuery in 3.1819ms
+2026-04-11 10:17:32.650 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 7.8995 ms
+2026-04-11 10:17:32.651 +05:30 [INF] HTTP GET /api/products responded 200 in 6.9441 ms
+2026-04-11 10:17:58.658 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:47:58.6586428Z"
+2026-04-11 10:17:58.661 +05:30 [INF] Handled GetProductListQuery in 2.9503ms
+2026-04-11 10:17:58.663 +05:30 [INF] HTTP GET /api/products responded 200 in 5.8344 ms
+2026-04-11 10:18:04.584 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:48:04.5843876Z"
+2026-04-11 10:19:04.657 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:49:04.6576254Z"
+2026-04-11 10:20:04.747 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:50:04.7472358Z"
+2026-04-11 10:21:04.850 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:51:04.8500606Z"
+2026-04-11 10:22:04.913 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:52:04.9137416Z"
+2026-04-11 10:22:34.302 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:52:34.3026431Z"
+2026-04-11 10:22:34.334 +05:30 [INF] Handled GetProductListQuery in 32.209ms
+2026-04-11 10:22:34.337 +05:30 [INF] HTTP GET /api/products responded 200 in 35.9243 ms
+2026-04-11 10:22:59.590 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T04:52:59.5906113Z"
+2026-04-11 10:22:59.590 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T04:52:59.5906210Z"
+2026-04-11 10:22:59.595 +05:30 [INF] Handled GetCategoriesQuery in 5.2997ms
+2026-04-11 10:22:59.597 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 7.9466 ms
+2026-04-11 10:22:59.610 +05:30 [INF] Handled GetProductListQuery in 19.433ms
+2026-04-11 10:22:59.612 +05:30 [INF] HTTP GET /api/products responded 200 in 22.2462 ms
+2026-04-11 10:23:05.014 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:53:05.0143958Z"
+2026-04-11 10:24:05.136 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:54:05.1363750Z"
+2026-04-11 10:25:05.196 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:55:05.1962299Z"
+2026-04-11 10:26:05.443 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:56:05.4432994Z"
+2026-04-11 10:27:05.521 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:57:05.5219175Z"
+2026-04-11 10:28:05.623 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:58:05.6236945Z"
+2026-04-11 10:29:05.722 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:59:05.7221649Z"
+2026-04-11 10:30:05.882 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:00:05.8823456Z"
+2026-04-11 10:31:05.924 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:01:05.9246676Z"
+2026-04-11 10:32:06.003 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:02:06.0032814Z"
+2026-04-11 10:33:06.079 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:03:06.0797260Z"
+2026-04-11 10:34:06.295 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:04:06.2955440Z"
+2026-04-11 10:35:06.413 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:05:06.4135416Z"
+2026-04-11 10:36:06.472 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:06:06.4725695Z"
+2026-04-11 10:37:06.540 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:07:06.5401656Z"
+2026-04-11 10:38:06.624 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:08:06.6245329Z"
+2026-04-11 10:38:20.673 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:08:20.6730745Z"
+2026-04-11 10:38:20.718 +05:30 [INF] Handled GetProductListQuery in 45.189ms
+2026-04-11 10:38:20.738 +05:30 [INF] HTTP GET /api/products responded 200 in 67.5229 ms
+2026-04-11 10:39:04.505 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:09:04.5059858Z"
+2026-04-11 10:39:04.505 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T05:09:04.5059859Z"
+2026-04-11 10:39:04.511 +05:30 [INF] Handled GetCategoriesQuery in 5.6383ms
+2026-04-11 10:39:04.513 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 8.4447 ms
+2026-04-11 10:39:04.526 +05:30 [INF] Handled GetProductListQuery in 20.9181ms
+2026-04-11 10:39:04.528 +05:30 [INF] HTTP GET /api/products responded 200 in 23.5086 ms
+2026-04-11 10:39:06.685 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:09:06.6859755Z"
+2026-04-11 10:39:08.481 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T05:09:08.4810208Z"
+2026-04-11 10:39:08.488 +05:30 [INF] Handled GetProductDetailQuery in 7.4226ms
+2026-04-11 10:39:08.490 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 10.8267 ms
+2026-04-11 10:39:08.504 +05:30 [INF] Handling GetProductReviewsQuery at "2026-04-11T05:09:08.5046986Z"
+2026-04-11 10:39:08.509 +05:30 [INF] Handled GetProductReviewsQuery in 4.554ms
+2026-04-11 10:39:08.510 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/reviews responded 200 in 7.1547 ms
+2026-04-11 10:39:46.428 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:09:46.4284860Z"
+2026-04-11 10:39:46.431 +05:30 [INF] Handled GetProductListQuery in 3.4805ms
+2026-04-11 10:39:46.433 +05:30 [INF] HTTP GET /api/products responded 200 in 5.7746 ms
+2026-04-11 10:40:06.761 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:10:06.7619306Z"
+2026-04-11 10:40:28.236 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T05:10:28.2364220Z"
+2026-04-11 10:40:28.236 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:10:28.2364217Z"
+2026-04-11 10:40:28.241 +05:30 [INF] Handled GetProductListQuery in 5.0064ms
+2026-04-11 10:40:28.244 +05:30 [INF] Handled GetCategoriesQuery in 7.8108ms
+2026-04-11 10:40:28.245 +05:30 [INF] HTTP GET /api/products responded 200 in 9.0983 ms
+2026-04-11 10:40:28.246 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 10.4123 ms
+2026-04-11 10:40:28.936 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:10:28.9369334Z"
+2026-04-11 10:40:28.941 +05:30 [INF] Handled GetProductListQuery in 4.6862ms
+2026-04-11 10:40:28.943 +05:30 [INF] HTTP GET /api/products responded 200 in 6.9195 ms
+2026-04-11 10:41:07.043 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:11:07.0435871Z"
+2026-04-11 10:42:07.102 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:12:07.1025546Z"
+2026-04-11 10:43:07.210 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:13:07.2101697Z"
+2026-04-11 10:44:07.312 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:14:07.3124177Z"
+2026-04-11 10:45:08.156 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:15:08.1561142Z"
+2026-04-11 10:46:08.613 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:16:08.6131326Z"
+2026-04-11 10:47:13.247 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:17:13.2478661Z"
+2026-04-11 10:48:13.391 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:18:13.3915059Z"
+2026-04-11 10:49:13.589 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:19:13.5896715Z"
+2026-04-11 10:50:13.996 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:20:13.9969114Z"
+2026-04-11 10:51:14.020 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:21:14.0203382Z"
+2026-04-11 10:52:14.198 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:22:14.1982809Z"
+2026-04-11 10:53:14.428 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:23:14.4282844Z"
+2026-04-11 10:54:14.540 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:24:14.5409161Z"
+2026-04-11 10:55:14.826 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:25:14.8260987Z"
+2026-04-11 10:56:18.504 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:26:18.5045961Z"
+2026-04-11 10:57:04.957 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:27:04.9559538Z"
+2026-04-11 10:58:05.237 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:28:05.2377009Z"
+2026-04-11 10:59:05.390 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:29:05.3905385Z"
+2026-04-11 11:00:05.545 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:30:05.5456189Z"
+2026-04-11 11:01:05.686 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:31:05.6863185Z"
+2026-04-11 11:02:05.887 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:32:05.8875524Z"
+2026-04-11 11:03:06.054 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:33:06.0549565Z"
+2026-04-11 11:04:06.216 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:34:06.2163967Z"
+2026-04-11 11:05:06.439 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:35:06.4395917Z"
+2026-04-11 11:06:06.551 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:36:06.5514934Z"
+2026-04-11 11:07:06.746 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:37:06.7469115Z"
+2026-04-11 11:07:30.249 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:37:30.2490036Z"
+2026-04-11 11:07:31.831 +05:30 [INF] Handled GetProductListQuery in 1582.7906ms
+2026-04-11 11:07:31.855 +05:30 [INF] HTTP GET /api/products responded 200 in 1661.7271 ms
+2026-04-11 11:07:42.035 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:37:42.0355352Z"
+2026-04-11 11:07:42.064 +05:30 [INF] Handled GetProductListQuery in 29.0916ms
+2026-04-11 11:07:42.078 +05:30 [INF] HTTP GET /api/products responded 200 in 44.4906 ms
+2026-04-11 11:07:47.271 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T05:37:47.2717721Z"
+2026-04-11 11:07:47.342 +05:30 [INF] Handled GetProductDetailQuery in 70.6176ms
+2026-04-11 11:07:47.351 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 93.9494 ms
+2026-04-11 11:07:47.416 +05:30 [INF] Handling GetProductReviewsQuery at "2026-04-11T05:37:47.4162925Z"
+2026-04-11 11:07:47.434 +05:30 [INF] Handled GetProductReviewsQuery in 18.1619ms
+2026-04-11 11:07:47.442 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/reviews responded 200 in 39.2310 ms
+2026-04-11 11:08:06.949 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:38:06.9498067Z"
+2026-04-11 11:09:07.485 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:39:07.4855021Z"
+2026-04-11 11:09:14.727 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:39:14.7277730Z"
+2026-04-11 11:09:15.101 +05:30 [INF] Handled GetProductListQuery in 373.5506ms
+2026-04-11 11:09:15.902 +05:30 [INF] HTTP GET /api/products responded 200 in 1176.7200 ms
+2026-04-11 11:09:38.202 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:39:38.2027033Z"
+2026-04-11 11:09:38.283 +05:30 [INF] Handled GetProductListQuery in 80.8287ms
+2026-04-11 11:09:38.392 +05:30 [INF] HTTP GET /api/products responded 200 in 192.3852 ms
+2026-04-11 11:10:07.498 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:40:07.4983142Z"
+2026-04-11 11:11:07.722 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:41:07.7227420Z"
+2026-04-11 11:12:08.144 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:42:08.1441808Z"
+2026-04-11 11:12:52.728 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:42:52.7282056Z"
+2026-04-11 11:12:52.852 +05:30 [INF] Handled GetProductListQuery in 124.3292ms
+2026-04-11 11:12:52.863 +05:30 [INF] HTTP GET /api/products responded 200 in 137.7744 ms
+2026-04-11 11:12:58.440 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:42:58.4408117Z"
+2026-04-11 11:12:58.441 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T05:42:58.4410294Z"
+2026-04-11 11:12:58.470 +05:30 [INF] Handled GetProductListQuery in 29.8285ms
+2026-04-11 11:12:58.475 +05:30 [INF] Handled GetCategoriesQuery in 34.4635ms
+2026-04-11 11:12:58.478 +05:30 [INF] HTTP GET /api/products responded 200 in 37.9584 ms
+2026-04-11 11:12:58.481 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 42.0151 ms
+2026-04-11 11:13:00.603 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T05:43:00.6033357Z"
+2026-04-11 11:13:00.626 +05:30 [INF] Handled GetProductDetailQuery in 22.7087ms
+2026-04-11 11:13:00.632 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 30.4674 ms
+2026-04-11 11:13:00.692 +05:30 [INF] Handling GetProductReviewsQuery at "2026-04-11T05:43:00.6925192Z"
+2026-04-11 11:13:00.704 +05:30 [INF] Handled GetProductReviewsQuery in 11.8392ms
+2026-04-11 11:13:00.708 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/reviews responded 200 in 17.4502 ms
+2026-04-11 11:13:03.021 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:43:03.0219495Z"
+2026-04-11 11:13:03.025 +05:30 [INF] Handled GetProductListQuery in 3.9532ms
+2026-04-11 11:13:03.033 +05:30 [INF] HTTP GET /api/products responded 200 in 13.6836 ms
+2026-04-11 11:13:08.161 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:43:08.1611506Z"
+2026-04-11 11:13:21.853 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:43:21.8530470Z"
+2026-04-11 11:13:21.864 +05:30 [INF] Handled GetProductListQuery in 11.1619ms
+2026-04-11 11:13:21.869 +05:30 [INF] HTTP GET /api/products responded 200 in 16.6253 ms
+2026-04-11 11:13:36.360 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T05:43:36.3604778Z"
+2026-04-11 11:13:36.365 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:43:36.3659038Z"
+2026-04-11 11:13:36.376 +05:30 [INF] Handled GetProductListQuery in 10.8079ms
+2026-04-11 11:13:36.382 +05:30 [INF] HTTP GET /api/products responded 200 in 17.7005 ms
+2026-04-11 11:13:36.383 +05:30 [INF] Handled GetCategoriesQuery in 23.0593ms
+2026-04-11 11:13:36.397 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 37.8750 ms
+2026-04-11 11:13:46.092 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:43:46.0924676Z"
+2026-04-11 11:13:46.102 +05:30 [INF] Handled GetProductListQuery in 9.5427ms
+2026-04-11 11:13:46.107 +05:30 [INF] HTTP GET /api/products responded 200 in 16.5069 ms
+2026-04-11 11:14:08.281 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:44:08.2817813Z"
+2026-04-11 11:15:08.616 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:45:08.6164421Z"
+2026-04-11 11:16:08.686 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:46:08.6869239Z"
+2026-04-11 11:17:08.981 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:47:08.9814682Z"
+2026-04-11 11:17:56.089 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T05:47:56.0892800Z"
+2026-04-11 11:17:56.162 +05:30 [INF] Handled GetProductListQuery in 72.8158ms
+2026-04-11 11:17:56.169 +05:30 [INF] HTTP GET /api/products responded 200 in 83.0894 ms
+2026-04-11 11:18:09.119 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:48:09.1197063Z"
+2026-04-11 11:19:09.219 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:49:09.2197322Z"
+2026-04-11 11:20:09.361 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:50:09.3615899Z"
+2026-04-11 11:21:09.500 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:51:09.5009341Z"
+2026-04-11 11:22:09.619 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:52:09.6196357Z"
+2026-04-11 11:23:09.965 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:53:09.9655658Z"
+2026-04-11 11:24:11.299 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:54:11.2996214Z"
+2026-04-11 11:25:11.498 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:55:11.4986543Z"
+2026-04-11 11:26:11.975 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:56:11.9756833Z"
+2026-04-11 11:27:12.453 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:57:12.4530657Z"
+2026-04-11 11:28:13.072 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:58:13.0726845Z"
+2026-04-11 11:29:13.264 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:59:13.2647472Z"
+2026-04-11 11:30:13.526 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:00:13.5260635Z"
+2026-04-11 11:31:13.659 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:01:13.6598107Z"
+2026-04-11 11:32:14.298 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:02:14.2988126Z"
+2026-04-11 11:33:00.360 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:03:00.3606429Z"
+2026-04-11 11:34:00.446 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:04:00.4466739Z"
+2026-04-11 11:35:00.531 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:05:00.5318710Z"
+2026-04-11 11:36:00.688 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:06:00.6888645Z"
+2026-04-11 11:37:00.788 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:07:00.7886869Z"
+2026-04-11 11:38:00.890 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:08:00.8906679Z"
+2026-04-11 11:39:01.033 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:09:01.0334469Z"
+2026-04-11 11:40:01.103 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:10:01.1036084Z"
+2026-04-11 11:41:01.201 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:11:01.2013835Z"
+2026-04-11 11:42:01.910 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:12:01.9107724Z"
+2026-04-11 11:43:02.696 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:13:02.6959788Z"
+2026-04-11 11:44:02.773 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:14:02.7730719Z"
+2026-04-11 11:44:22.598 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:14:22.5982004Z"
+2026-04-11 11:44:22.843 +05:30 [INF] Handled GetProductListQuery in 245.5755ms
+2026-04-11 11:44:22.884 +05:30 [INF] HTTP GET /api/products responded 200 in 374.4898 ms
+2026-04-11 11:44:23.150 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T06:14:23.1502072Z"
+2026-04-11 11:44:23.253 +05:30 [INF] Handled GetProductDetailQuery in 103.3094ms
+2026-04-11 11:44:23.271 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 126.8586 ms
+2026-04-11 11:44:24.085 +05:30 [INF] Handling RestockProductCommand at "2026-04-11T06:14:24.0841145Z"
+2026-04-11 11:44:25.603 +05:30 [INF] Handled RestockProductCommand in 1519.1169ms
+2026-04-11 11:44:25.629 +05:30 [INF] HTTP POST /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/restock responded 200 in 2236.3861 ms
+2026-04-11 11:44:53.126 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:14:53.1266455Z"
+2026-04-11 11:44:54.471 +05:30 [INF] Handled GetProductListQuery in 1345.2041ms
+2026-04-11 11:44:55.548 +05:30 [INF] HTTP GET /api/products responded 200 in 2437.2866 ms
+2026-04-11 11:45:03.931 +05:30 [INF] HTTP POST /api/products responded 403 in 46.9813 ms
+2026-04-11 11:45:04.215 +05:30 [INF] Handling UpdateProductCommand at "2026-04-11T06:15:04.2149692Z"
+2026-04-11 11:45:04.758 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:15:04.7587710Z"
+2026-04-11 11:45:04.913 +05:30 [INF] Handled UpdateProductCommand in 698.6786ms
+2026-04-11 11:45:05.027 +05:30 [INF] HTTP PUT /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 953.1316 ms
+2026-04-11 11:45:05.697 +05:30 [INF] Handling GetStockLevelQuery at "2026-04-11T06:15:05.6973546Z"
+2026-04-11 11:45:05.750 +05:30 [INF] Handled GetStockLevelQuery in 52.9162ms
+2026-04-11 11:45:05.796 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/stock responded 200 in 136.5655 ms
+2026-04-11 11:45:06.044 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T06:15:06.0432604Z"
+2026-04-11 11:45:06.171 +05:30 [INF] Handled SoftLockStockCommand in 128.0007ms
+2026-04-11 11:45:06.181 +05:30 [INF] HTTP POST /api/inventory/soft-lock responded 200 in 212.2842 ms
+2026-04-11 11:45:06.521 +05:30 [INF] Handling HardDeductStockCommand at "2026-04-11T06:15:06.5209142Z"
+2026-04-11 11:45:06.792 +05:30 [INF] Handled HardDeductStockCommand in 271.3532ms
+2026-04-11 11:45:06.877 +05:30 [INF] HTTP POST /api/inventory/hard-deduct responded 200 in 409.8529 ms
+2026-04-11 11:45:07.239 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T06:15:07.2387406Z"
+2026-04-11 11:45:07.291 +05:30 [INF] Handled ReleaseSoftLockCommand in 52.8497ms
+2026-04-11 11:45:07.297 +05:30 [INF] HTTP POST /api/inventory/release-soft-lock responded 200 in 121.7801 ms
+2026-04-11 11:45:07.443 +05:30 [INF] Handling SubscribeStockCommand at "2026-04-11T06:15:07.4426618Z"
+2026-04-11 11:45:07.597 +05:30 [INF] Handled SubscribeStockCommand in 154.403ms
+2026-04-11 11:45:07.610 +05:30 [INF] HTTP POST /api/inventory/subscriptions responded 200 in 214.0116 ms
+2026-04-11 11:45:07.766 +05:30 [INF] Handling UnsubscribeStockCommand at "2026-04-11T06:15:07.7655415Z"
+2026-04-11 11:45:08.756 +05:30 [INF] Handled UnsubscribeStockCommand in 991.3881ms
+2026-04-11 11:45:08.766 +05:30 [INF] HTTP DELETE /api/inventory/subscriptions responded 200 in 1070.4745 ms
+2026-04-11 11:45:12.833 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:15:12.8333029Z"
+2026-04-11 11:45:13.096 +05:30 [INF] Handled GetProductListQuery in 263.2015ms
+2026-04-11 11:45:13.368 +05:30 [INF] HTTP GET /api/products responded 200 in 536.1626 ms
+2026-04-11 11:45:26.081 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:15:26.0810406Z"
+2026-04-11 11:45:26.263 +05:30 [INF] Handled GetProductListQuery in 182.6108ms
+2026-04-11 11:45:26.435 +05:30 [INF] HTTP GET /api/products responded 200 in 360.6069 ms
+2026-04-11 11:46:05.080 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:16:05.0801226Z"
+2026-04-11 11:47:19.010 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:17:19.0107444Z"
+2026-04-11 11:48:05.994 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:18:05.9942593Z"
+2026-04-11 11:48:49.697 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:18:49.6971143Z"
+2026-04-11 11:48:51.731 +05:30 [INF] Handled GetProductListQuery in 2034.3245ms
+2026-04-11 11:48:54.063 +05:30 [INF] HTTP GET /api/products responded 200 in 4367.7409 ms
+2026-04-11 11:49:13.496 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:19:13.4959836Z"
+2026-04-11 11:54:38.842 +05:30 [INF] CatalogInventory migrations applied count: 1
+2026-04-11 11:54:40.498 +05:30 [INF] CatalogInventory migrations applied count: 1
+2026-04-11 11:54:46.695 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 11:54:49.023 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 11:54:49.334 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 11:54:49.402 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 11:54:52.227 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@CatalogInventoryMigrationsDB'
+2026-04-11 11:54:52.463 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 11:54:52.524 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 11:54:53.045 +05:30 [INF] Server desktop-nfnd817:25288:819bb755 successfully announced in 129.8196 ms
+2026-04-11 11:54:53.131 +05:30 [INF] Server desktop-nfnd817:25288:819bb755 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 11:54:52.709 +05:30 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:8002: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-04-11 11:54:53.706 +05:30 [INF] Server desktop-nfnd817:25288:819bb755 all the dispatchers started
+2026-04-11 11:54:57.040 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:24:57.0278926Z"
+2026-04-11 11:55:11.822 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:25:11.8210638Z"
+2026-04-11 11:56:12.999 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:26:12.9991078Z"
+2026-04-11 11:57:05.160 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:27:05.1604457Z"
+2026-04-11 11:58:06.390 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:28:06.3902367Z"
+2026-04-11 11:59:07.064 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:29:07.0646428Z"
+2026-04-11 11:59:53.395 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 12:00:13.405 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:30:13.4051819Z"
+2026-04-11 12:01:15.150 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:31:15.1503320Z"
+2026-04-11 12:02:13.834 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:32:13.8345231Z"
+2026-04-11 12:03:15.237 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:33:15.2376696Z"
+2026-04-11 12:04:04.114 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:34:04.1140952Z"
+2026-04-11 12:05:05.107 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:35:05.1071381Z"
+2026-04-11 12:06:06.245 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:36:06.2456156Z"
+2026-04-11 12:07:06.242 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:37:06.2426972Z"
+2026-04-11 12:08:06.528 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:38:06.5279470Z"
+2026-04-11 12:09:06.722 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:39:06.7227116Z"
+2026-04-11 12:09:35.786 +05:30 [INF] HTTP GET /health responded 200 in 212.7590 ms
+2026-04-11 12:10:06.965 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:40:06.9658466Z"
+2026-04-11 12:11:07.630 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:41:07.6308463Z"
+2026-04-11 12:12:01.184 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 12:12:06.132 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:42:06.1303131Z"
+2026-04-11 12:12:07.206 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:42:07.2063472Z"
+2026-04-11 12:12:12.028 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:42:12.0288153Z"
+2026-04-11 12:12:12.150 +05:30 [ERR] HTTP GET /api/products responded 500 in 5052.6142 ms
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at CatalogInventory.Infrastructure.Repositories.CatalogInventoryRepository.GetProductPageAsync(Int32 page, Int32 size, Boolean includeInactive, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\Repositories\CatalogInventoryRepository.cs:line 53
+   at CatalogInventory.Application.Services.CatalogInventoryService.GetProductListAsync(Int32 page, Int32 size, Boolean includeInactive, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\Services\CatalogInventoryService.cs:line 229
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at CatalogInventory.API.Controllers.ProductsController.GetPage(Int32 page, Int32 size, Boolean includeInactive, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.API\Controllers\ProductsController.cs:line 56
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 12:12:12.149 +05:30 [ERR] HTTP GET /api/products responded 500 in 11957.0685 ms
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at CatalogInventory.Infrastructure.Repositories.CatalogInventoryRepository.GetProductPageAsync(Int32 page, Int32 size, Boolean includeInactive, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\Repositories\CatalogInventoryRepository.cs:line 53
+   at CatalogInventory.Application.Services.CatalogInventoryService.GetProductListAsync(Int32 page, Int32 size, Boolean includeInactive, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\Services\CatalogInventoryService.cs:line 229
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at CatalogInventory.API.Controllers.ProductsController.GetPage(Int32 page, Int32 size, Boolean includeInactive, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.API\Controllers\ProductsController.cs:line 56
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 12:12:18.254 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T06:42:18.1980933Z"
+2026-04-11 12:12:18.344 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:42:18.3441740Z"
+2026-04-11 12:12:18.743 +05:30 [INF] Handled GetCategoriesQuery in 545.5245ms
+2026-04-11 12:12:19.264 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 1347.3266 ms
+2026-04-11 12:12:19.355 +05:30 [INF] Handled GetProductListQuery in 1011.5902ms
+2026-04-11 12:12:19.419 +05:30 [INF] HTTP GET /api/products responded 200 in 1409.0102 ms
+2026-04-11 12:12:20.799 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:42:20.7998725Z"
+2026-04-11 12:12:21.235 +05:30 [INF] Handled GetProductListQuery in 435.2836ms
+2026-04-11 12:12:21.274 +05:30 [INF] HTTP GET /api/products responded 200 in 492.4700 ms
+2026-04-11 12:12:37.599 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:42:37.5990859Z"
+2026-04-11 12:12:37.819 +05:30 [INF] Handled GetProductListQuery in 220.2881ms
+2026-04-11 12:12:38.532 +05:30 [INF] HTTP GET /api/products responded 200 in 937.5578 ms
+2026-04-11 12:13:08.402 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:43:08.4021943Z"
+2026-04-11 12:13:08.416 +05:30 [INF] Handled GetProductListQuery in 14.09ms
+2026-04-11 12:13:08.449 +05:30 [INF] HTTP GET /api/products responded 200 in 51.1944 ms
+2026-04-11 12:13:11.599 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:43:11.5997575Z"
+2026-04-11 12:14:12.765 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:44:12.7647145Z"
+2026-04-11 12:14:47.064 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T06:44:47.0646388Z"
+2026-04-11 12:14:47.076 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:44:47.0763855Z"
+2026-04-11 12:14:47.337 +05:30 [INF] Handled GetProductListQuery in 261.4428ms
+2026-04-11 12:14:47.344 +05:30 [INF] HTTP GET /api/products responded 200 in 280.1508 ms
+2026-04-11 12:14:47.345 +05:30 [INF] Handled GetCategoriesQuery in 280.593ms
+2026-04-11 12:14:47.396 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 338.0957 ms
+2026-04-11 12:14:55.339 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T06:44:55.3268226Z"
+2026-04-11 12:14:55.714 +05:30 [INF] Handled GetProductDetailQuery in 387.6052ms
+2026-04-11 12:14:55.775 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 565.6661 ms
+2026-04-11 12:15:08.376 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T06:45:08.3764760Z"
+2026-04-11 12:15:08.458 +05:30 [INF] Handled GetProductDetailQuery in 81.6481ms
+2026-04-11 12:15:08.499 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 130.0534 ms
+2026-04-11 12:15:13.970 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:45:13.9707099Z"
+2026-04-11 12:16:14.254 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:46:14.2538977Z"
+2026-04-11 12:17:14.431 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:47:14.4319343Z"
+2026-04-11 12:18:14.821 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:48:14.8217956Z"
+2026-04-11 12:19:14.866 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:49:14.8669337Z"
+2026-04-11 12:20:14.990 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:50:14.9900805Z"
+2026-04-11 12:21:00.106 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:51:00.1062720Z"
+2026-04-11 12:22:00.290 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:52:00.2903613Z"
+2026-04-11 12:23:00.371 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:53:00.3717240Z"
+2026-04-11 12:24:00.573 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:54:00.5735741Z"
+2026-04-11 12:24:21.780 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:54:21.7801304Z"
+2026-04-11 12:24:21.810 +05:30 [INF] Handled GetProductListQuery in 30.3382ms
+2026-04-11 12:24:21.815 +05:30 [INF] HTTP GET /api/products responded 200 in 36.3274 ms
+2026-04-11 12:24:52.067 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T06:54:52.0670918Z"
+2026-04-11 12:24:52.081 +05:30 [INF] Handled GetProductDetailQuery in 14.2626ms
+2026-04-11 12:24:52.085 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 29.9732 ms
+2026-04-11 12:24:52.403 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T06:54:52.4031734Z"
+2026-04-11 12:24:52.658 +05:30 [INF] Handled SoftLockStockCommand in 255.2982ms
+2026-04-11 12:24:52.664 +05:30 [INF] HTTP POST /api/internal/inventory/soft-lock responded 200 in 304.9780 ms
+2026-04-11 12:25:00.665 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:55:00.6650967Z"
+2026-04-11 12:25:01.816 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:55:01.8160430Z"
+2026-04-11 12:25:01.821 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T06:55:01.8219547Z"
+2026-04-11 12:25:01.848 +05:30 [INF] Handled GetCategoriesQuery in 26.7345ms
+2026-04-11 12:25:01.848 +05:30 [INF] Handled GetProductListQuery in 32.905ms
+2026-04-11 12:25:01.851 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 38.7112 ms
+2026-04-11 12:25:01.853 +05:30 [INF] HTTP GET /api/products responded 200 in 38.4395 ms
+2026-04-11 12:25:17.865 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T06:55:17.8651202Z"
+2026-04-11 12:25:17.865 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:55:17.8655385Z"
+2026-04-11 12:25:17.917 +05:30 [INF] Handled GetProductListQuery in 52.3294ms
+2026-04-11 12:25:17.926 +05:30 [INF] Handled GetCategoriesQuery in 61.3067ms
+2026-04-11 12:25:17.928 +05:30 [INF] HTTP GET /api/products responded 200 in 65.5103 ms
+2026-04-11 12:25:17.932 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 69.3518 ms
+2026-04-11 12:26:00.823 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:56:00.8236939Z"
+2026-04-11 12:27:01.532 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:57:01.5320208Z"
+2026-04-11 12:28:01.643 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:58:01.6431006Z"
+2026-04-11 12:28:28.465 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T06:58:28.4655275Z"
+2026-04-11 12:28:28.466 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:58:28.4661162Z"
+2026-04-11 12:28:28.480 +05:30 [INF] Handled GetProductListQuery in 13.9277ms
+2026-04-11 12:28:28.480 +05:30 [INF] Handled GetCategoriesQuery in 14.7627ms
+2026-04-11 12:28:28.489 +05:30 [INF] HTTP GET /api/products responded 200 in 27.2462 ms
+2026-04-11 12:28:28.492 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 28.2395 ms
+2026-04-11 12:29:01.804 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:59:01.8046369Z"
+2026-04-11 12:29:24.779 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T06:59:24.7799441Z"
+2026-04-11 12:29:24.808 +05:30 [INF] Handled GetCategoriesQuery in 28.8265ms
+2026-04-11 12:29:24.831 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:59:24.8319691Z"
+2026-04-11 12:29:24.836 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 58.7390 ms
+2026-04-11 12:29:24.853 +05:30 [INF] Handled GetProductListQuery in 21.9591ms
+2026-04-11 12:29:24.885 +05:30 [INF] HTTP GET /api/products responded 200 in 54.8739 ms
+2026-04-11 12:29:42.377 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T06:59:42.3776179Z"
+2026-04-11 12:29:42.435 +05:30 [INF] Handled GetProductListQuery in 55.3816ms
+2026-04-11 12:29:42.442 +05:30 [INF] HTTP GET /api/products responded 200 in 65.3900 ms
+2026-04-11 12:30:02.119 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:00:02.1191908Z"
+2026-04-11 12:30:31.916 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:00:31.9159906Z"
+2026-04-11 12:30:31.934 +05:30 [INF] Handled GetProductListQuery in 18.2363ms
+2026-04-11 12:30:31.937 +05:30 [INF] HTTP GET /api/products responded 200 in 22.2114 ms
+2026-04-11 12:30:31.978 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T07:00:31.9785062Z"
+2026-04-11 12:30:31.988 +05:30 [INF] Handled GetProductDetailQuery in 9.7598ms
+2026-04-11 12:30:31.990 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 12.0956 ms
+2026-04-11 12:30:32.055 +05:30 [INF] Handling RestockProductCommand at "2026-04-11T07:00:32.0553164Z"
+2026-04-11 12:30:32.125 +05:30 [INF] Handled RestockProductCommand in 69.7909ms
+2026-04-11 12:30:32.127 +05:30 [INF] HTTP POST /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/restock responded 200 in 107.2125 ms
+2026-04-11 12:30:32.181 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T07:00:32.1813826Z"
+2026-04-11 12:30:32.198 +05:30 [INF] Handled SoftLockStockCommand in 17.5534ms
+2026-04-11 12:30:32.203 +05:30 [INF] HTTP POST /api/internal/inventory/soft-lock responded 200 in 23.1733 ms
+2026-04-11 12:30:48.844 +05:30 [INF] HTTP POST /api/products responded 403 in 52.4303 ms
+2026-04-11 12:30:49.062 +05:30 [INF] Handling UpdateProductCommand at "2026-04-11T07:00:49.0618110Z"
+2026-04-11 12:30:49.354 +05:30 [INF] Handled UpdateProductCommand in 292.7666ms
+2026-04-11 12:30:49.361 +05:30 [INF] HTTP PUT /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 434.0213 ms
+2026-04-11 12:30:49.727 +05:30 [INF] Handling GetStockLevelQuery at "2026-04-11T07:00:49.7264199Z"
+2026-04-11 12:30:49.739 +05:30 [INF] Handled GetStockLevelQuery in 12.9686ms
+2026-04-11 12:30:49.750 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/stock responded 200 in 63.1026 ms
+2026-04-11 12:30:49.893 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T07:00:49.8933043Z"
+2026-04-11 12:30:49.915 +05:30 [INF] Handled SoftLockStockCommand in 22.246ms
+2026-04-11 12:30:49.927 +05:30 [INF] HTTP POST /api/inventory/soft-lock responded 409 in 87.8209 ms
+2026-04-11 12:30:50.009 +05:30 [INF] Handling HardDeductStockCommand at "2026-04-11T07:00:50.0088402Z"
+2026-04-11 12:30:50.079 +05:30 [INF] Handled HardDeductStockCommand in 70.8685ms
+2026-04-11 12:30:50.087 +05:30 [INF] HTTP POST /api/inventory/hard-deduct responded 200 in 122.1440 ms
+2026-04-11 12:30:50.313 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T07:00:50.3124955Z"
+2026-04-11 12:30:50.358 +05:30 [INF] Handled ReleaseSoftLockCommand in 45.869ms
+2026-04-11 12:30:50.362 +05:30 [INF] HTTP POST /api/inventory/release-soft-lock responded 200 in 105.3299 ms
+2026-04-11 12:30:50.486 +05:30 [INF] Handling SubscribeStockCommand at "2026-04-11T07:00:50.4851847Z"
+2026-04-11 12:30:50.576 +05:30 [INF] Handled SubscribeStockCommand in 91.5799ms
+2026-04-11 12:30:50.580 +05:30 [INF] HTTP POST /api/inventory/subscriptions responded 200 in 130.7189 ms
+2026-04-11 12:30:50.675 +05:30 [INF] Handling UnsubscribeStockCommand at "2026-04-11T07:00:50.6747047Z"
+2026-04-11 12:30:50.992 +05:30 [INF] Handled UnsubscribeStockCommand in 317.4279ms
+2026-04-11 12:30:50.998 +05:30 [INF] HTTP DELETE /api/inventory/subscriptions responded 200 in 349.2649 ms
+2026-04-11 12:30:51.178 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:00:51.1781115Z"
+2026-04-11 12:30:51.399 +05:30 [INF] Handled GetProductListQuery in 221.2069ms
+2026-04-11 12:30:51.447 +05:30 [INF] HTTP GET /api/products responded 200 in 269.9352 ms
+2026-04-11 12:30:53.000 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T07:00:53.0008660Z"
+2026-04-11 12:30:53.019 +05:30 [INF] Handled ReleaseSoftLockCommand in 18.576ms
+2026-04-11 12:30:53.025 +05:30 [INF] HTTP POST /api/internal/inventory/release-soft-lock responded 200 in 57.3314 ms
+2026-04-11 12:31:02.323 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:01:02.3239336Z"
+2026-04-11 12:31:46.544 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:01:46.5441394Z"
+2026-04-11 12:31:46.570 +05:30 [INF] Handled GetProductListQuery in 26.4681ms
+2026-04-11 12:31:46.574 +05:30 [INF] HTTP GET /api/products responded 200 in 32.1556 ms
+2026-04-11 12:31:46.651 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T07:01:46.6513217Z"
+2026-04-11 12:31:46.674 +05:30 [INF] Handled SoftLockStockCommand in 22.6885ms
+2026-04-11 12:31:46.680 +05:30 [INF] HTTP POST /api/internal/inventory/soft-lock responded 200 in 30.9999 ms
+2026-04-11 12:31:48.290 +05:30 [INF] HTTP POST /api/products responded 403 in 2.7877 ms
+2026-04-11 12:31:48.381 +05:30 [INF] HTTP POST /api/products responded 403 in 0.4610 ms
+2026-04-11 12:31:48.415 +05:30 [INF] HTTP POST /api/products responded 403 in 3.1871 ms
+2026-04-11 12:31:48.472 +05:30 [INF] HTTP POST /api/products responded 403 in 0.4249 ms
+2026-04-11 12:31:48.507 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T07:01:48.5075421Z"
+2026-04-11 12:31:48.518 +05:30 [INF] Handled GetProductDetailQuery in 11.2908ms
+2026-04-11 12:31:48.523 +05:30 [INF] HTTP GET /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9 responded 200 in 16.0368 ms
+2026-04-11 12:31:48.635 +05:30 [INF] Handling CreateProductCommand at "2026-04-11T07:01:48.6348155Z"
+2026-04-11 12:31:48.727 +05:30 [INF] Handled CreateProductCommand in 92.47ms
+2026-04-11 12:31:48.792 +05:30 [INF] HTTP POST /api/products responded 201 in 204.4613 ms
+2026-04-11 12:31:55.463 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T07:01:55.4637933Z"
+2026-04-11 12:31:55.505 +05:30 [INF] Handled SoftLockStockCommand in 41.7063ms
+2026-04-11 12:31:55.509 +05:30 [INF] HTTP POST /api/internal/inventory/soft-lock responded 200 in 46.8076 ms
+2026-04-11 12:32:02.577 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:02:02.5772687Z"
+2026-04-11 12:32:42.947 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:02:42.9476830Z"
+2026-04-11 12:32:43.087 +05:30 [INF] Handled GetProductListQuery in 139.757ms
+2026-04-11 12:32:43.113 +05:30 [INF] HTTP GET /api/products responded 200 in 167.3107 ms
+2026-04-11 12:33:02.779 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:03:02.7799315Z"
+2026-04-11 12:34:03.792 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:04:03.7923523Z"
+2026-04-11 12:35:07.669 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:05:07.6697427Z"
+2026-04-11 12:35:49.763 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:05:49.7634235Z"
+2026-04-11 12:35:49.787 +05:30 [INF] Handled GetProductListQuery in 24.0993ms
+2026-04-11 12:35:49.794 +05:30 [INF] HTTP GET /api/products responded 200 in 32.6850 ms
+2026-04-11 12:36:08.694 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:06:08.6944485Z"
+2026-04-11 12:37:08.870 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:07:08.8700818Z"
+2026-04-11 12:37:30.678 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:07:30.6784581Z"
+2026-04-11 12:37:30.695 +05:30 [INF] Handled GetProductListQuery in 17.1279ms
+2026-04-11 12:37:30.711 +05:30 [INF] HTTP GET /api/products responded 200 in 34.1599 ms
+2026-04-11 12:38:09.136 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:08:09.1367380Z"
+2026-04-11 12:39:09.497 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:09:09.4979238Z"
+2026-04-11 12:39:57.171 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:09:57.1713945Z"
+2026-04-11 12:39:57.236 +05:30 [INF] Handled GetProductListQuery in 60.5773ms
+2026-04-11 12:39:57.246 +05:30 [INF] HTTP GET /api/products responded 200 in 76.7187 ms
+2026-04-11 12:40:04.008 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T07:10:04.0087638Z"
+2026-04-11 12:40:04.015 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:10:04.0151179Z"
+2026-04-11 12:40:04.172 +05:30 [INF] Handled GetCategoriesQuery in 163.3189ms
+2026-04-11 12:40:04.210 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 204.2116 ms
+2026-04-11 12:40:04.231 +05:30 [INF] Handled GetProductListQuery in 216.7624ms
+2026-04-11 12:40:04.298 +05:30 [INF] HTTP GET /api/products responded 200 in 284.2555 ms
+2026-04-11 12:40:09.818 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:10:09.8187654Z"
+2026-04-11 12:41:10.073 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:11:10.0734000Z"
+2026-04-11 12:42:04.778 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T07:12:04.7785342Z"
+2026-04-11 12:42:04.806 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:12:04.8061404Z"
+2026-04-11 12:42:04.808 +05:30 [INF] Handled GetCategoriesQuery in 30.0227ms
+2026-04-11 12:42:04.813 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 36.2142 ms
+2026-04-11 12:42:04.815 +05:30 [INF] Handled GetProductListQuery in 8.9366ms
+2026-04-11 12:42:04.841 +05:30 [INF] HTTP GET /api/products responded 200 in 36.9623 ms
+2026-04-11 12:42:10.333 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:12:10.3331207Z"
+2026-04-11 12:43:10.495 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:13:10.4955715Z"
+2026-04-11 12:44:10.801 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:14:10.8016948Z"
+2026-04-11 12:45:11.014 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:15:11.0148005Z"
+2026-04-11 12:46:11.131 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:16:11.1312518Z"
+2026-04-11 12:47:11.234 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:17:11.2342330Z"
+2026-04-11 12:47:40.778 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T07:17:40.7779890Z"
+2026-04-11 12:47:40.780 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:17:40.7808730Z"
+2026-04-11 12:47:40.817 +05:30 [INF] Handled GetCategoriesQuery in 39.428ms
+2026-04-11 12:47:40.825 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 50.7232 ms
+2026-04-11 12:47:40.966 +05:30 [INF] Handled GetProductListQuery in 185.7392ms
+2026-04-11 12:47:40.977 +05:30 [INF] HTTP GET /api/products responded 200 in 197.4863 ms
+2026-04-11 12:48:11.464 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:18:11.4643629Z"
+2026-04-11 12:49:11.679 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:19:11.6791214Z"
+2026-04-11 12:49:26.921 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:19:26.9212053Z"
+2026-04-11 12:49:26.970 +05:30 [INF] Handled GetProductListQuery in 48.7998ms
+2026-04-11 12:49:26.981 +05:30 [INF] HTTP GET /api/products responded 200 in 61.1857 ms
+2026-04-11 12:49:33.260 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:19:33.2609568Z"
+2026-04-11 12:49:33.263 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T07:19:33.2631137Z"
+2026-04-11 12:49:33.269 +05:30 [INF] Handled GetProductListQuery in 8.8024ms
+2026-04-11 12:49:33.274 +05:30 [INF] HTTP GET /api/products responded 200 in 14.0491 ms
+2026-04-11 12:49:33.285 +05:30 [INF] Handled GetCategoriesQuery in 22.3047ms
+2026-04-11 12:49:33.288 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 27.1798 ms
+2026-04-11 12:50:11.998 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:20:11.9986382Z"
+2026-04-11 12:51:12.087 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:21:12.0878785Z"
+2026-04-11 12:52:12.349 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:22:12.3495889Z"
+2026-04-11 12:53:12.443 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:23:12.4437671Z"
+2026-04-11 12:54:05.073 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T07:24:05.0735097Z"
+2026-04-11 12:54:05.075 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:24:05.0755442Z"
+2026-04-11 12:54:05.083 +05:30 [INF] Handled GetCategoriesQuery in 9.8004ms
+2026-04-11 12:54:05.088 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 15.1572 ms
+2026-04-11 12:54:05.108 +05:30 [INF] Handled GetProductListQuery in 32.561ms
+2026-04-11 12:54:05.111 +05:30 [INF] HTTP GET /api/products responded 200 in 36.4179 ms
+2026-04-11 12:54:12.608 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:24:12.6081228Z"
+2026-04-11 12:55:12.728 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:25:12.7287606Z"
+2026-04-11 12:55:39.023 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T07:25:39.0232004Z"
+2026-04-11 12:55:39.023 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:25:39.0232043Z"
+2026-04-11 12:55:39.033 +05:30 [INF] Handled GetCategoriesQuery in 10.1877ms
+2026-04-11 12:55:39.036 +05:30 [INF] Handled GetProductListQuery in 13.6631ms
+2026-04-11 12:55:39.040 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 17.4139 ms
+2026-04-11 12:55:39.047 +05:30 [INF] HTTP GET /api/products responded 200 in 25.4531 ms
+2026-04-11 12:55:40.085 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:25:40.0856948Z"
+2026-04-11 12:55:40.114 +05:30 [INF] Handled GetProductListQuery in 28.3461ms
+2026-04-11 12:55:40.120 +05:30 [INF] HTTP GET /api/products responded 200 in 35.3597 ms
+2026-04-11 12:56:12.894 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:26:12.8947356Z"
+2026-04-11 12:57:13.173 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:27:13.1734420Z"
+2026-04-11 12:58:13.338 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:28:13.3382410Z"
+2026-04-11 12:59:13.580 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:29:13.5799954Z"
+2026-04-11 13:00:13.996 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:30:13.9960109Z"
+2026-04-11 13:01:14.391 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:31:14.3918083Z"
+2026-04-11 13:02:14.641 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:32:14.6419558Z"
+2026-04-11 13:03:00.709 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:33:00.7091855Z"
+2026-04-11 13:03:00.844 +05:30 [INF] Handled GetProductListQuery in 134.9523ms
+2026-04-11 13:03:00.854 +05:30 [INF] HTTP GET /api/products responded 200 in 146.8016 ms
+2026-04-11 13:03:14.967 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:33:14.9678192Z"
+2026-04-11 13:04:00.253 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:34:00.2530477Z"
+2026-04-11 13:05:00.555 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:35:00.5559479Z"
+2026-04-11 13:06:00.939 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:36:00.9395256Z"
+2026-04-11 13:07:01.829 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:37:01.8294681Z"
+2026-04-11 13:07:29.516 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:37:29.5159814Z"
+2026-04-11 13:07:29.672 +05:30 [INF] Handled GetProductListQuery in 156.7464ms
+2026-04-11 13:07:29.748 +05:30 [INF] HTTP GET /api/products responded 200 in 246.5942 ms
+2026-04-11 13:08:01.959 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:38:01.9594824Z"
+2026-04-11 13:08:11.758 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T07:38:11.7584540Z"
+2026-04-11 13:08:11.763 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:38:11.7630563Z"
+2026-04-11 13:08:11.769 +05:30 [INF] Handled GetCategoriesQuery in 10.9717ms
+2026-04-11 13:08:11.774 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 16.5786 ms
+2026-04-11 13:08:12.000 +05:30 [INF] Handled GetProductListQuery in 237.7154ms
+2026-04-11 13:08:12.005 +05:30 [INF] HTTP GET /api/products responded 200 in 247.2978 ms
+2026-04-11 13:08:41.678 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:38:41.6784704Z"
+2026-04-11 13:08:41.713 +05:30 [INF] Handled GetProductListQuery in 34.9183ms
+2026-04-11 13:08:41.719 +05:30 [INF] HTTP GET /api/products responded 200 in 44.1845 ms
+2026-04-11 13:09:02.116 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:39:02.1160496Z"
+2026-04-11 13:09:10.231 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:39:10.2315070Z"
+2026-04-11 13:09:10.231 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T07:39:10.2316166Z"
+2026-04-11 13:09:10.239 +05:30 [INF] Handled GetProductListQuery in 7.4812ms
+2026-04-11 13:09:10.244 +05:30 [INF] HTTP GET /api/products responded 200 in 14.0328 ms
+2026-04-11 13:09:10.252 +05:30 [INF] Handled GetCategoriesQuery in 20.7973ms
+2026-04-11 13:09:10.260 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 35.9565 ms
+2026-04-11 13:09:47.004 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:39:47.0044710Z"
+2026-04-11 13:09:47.025 +05:30 [INF] Handled GetProductListQuery in 21.3737ms
+2026-04-11 13:09:47.075 +05:30 [INF] HTTP GET /api/products responded 200 in 72.3289 ms
+2026-04-11 13:10:02.322 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:40:02.3224005Z"
+2026-04-11 13:11:02.477 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:41:02.4773772Z"
+2026-04-11 13:11:14.772 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:41:14.7722060Z"
+2026-04-11 13:11:14.778 +05:30 [INF] Handled GetProductListQuery in 6.7751ms
+2026-04-11 13:11:14.785 +05:30 [INF] HTTP GET /api/products responded 200 in 13.9838 ms
+2026-04-11 13:12:02.590 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:42:02.5900663Z"
+2026-04-11 13:13:02.728 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:43:02.7282379Z"
+2026-04-11 13:14:03.108 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:44:03.1086774Z"
+2026-04-11 13:15:03.309 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:45:03.3094783Z"
+2026-04-11 13:16:03.449 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:46:03.4492777Z"
+2026-04-11 13:17:03.796 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:47:03.7966500Z"
+2026-04-11 13:18:03.934 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:48:03.9345042Z"
+2026-04-11 13:19:04.104 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:49:04.1043881Z"
+2026-04-11 13:20:04.449 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:50:04.4490190Z"
+2026-04-11 13:20:20.883 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:50:20.8829927Z"
+2026-04-11 13:20:20.919 +05:30 [INF] Handled GetProductListQuery in 36.7251ms
+2026-04-11 13:20:20.924 +05:30 [INF] HTTP GET /api/products responded 200 in 48.1160 ms
+2026-04-11 13:20:32.971 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:50:32.9712551Z"
+2026-04-11 13:20:33.102 +05:30 [INF] Handled GetProductListQuery in 131.3075ms
+2026-04-11 13:20:33.106 +05:30 [INF] HTTP GET /api/products responded 200 in 136.1736 ms
+2026-04-11 13:21:04.632 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:51:04.6326101Z"
+2026-04-11 13:22:05.088 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:52:05.0886804Z"
+2026-04-11 13:23:05.258 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:53:05.2585835Z"
+2026-04-11 13:24:05.422 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:54:05.4220643Z"
+2026-04-11 13:25:05.649 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:55:05.6496096Z"
+2026-04-11 13:26:05.984 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:56:05.9844772Z"
+2026-04-11 13:27:06.092 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:57:06.0924918Z"
+2026-04-11 13:28:06.209 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:58:06.2093951Z"
+2026-04-11 13:28:39.415 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T07:58:39.4156944Z"
+2026-04-11 13:28:39.426 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T07:58:39.4265358Z"
+2026-04-11 13:28:39.451 +05:30 [INF] Handled GetCategoriesQuery in 24.7445ms
+2026-04-11 13:28:39.455 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 29.6482 ms
+2026-04-11 13:28:39.477 +05:30 [INF] Handled GetProductListQuery in 61.7626ms
+2026-04-11 13:28:39.481 +05:30 [INF] HTTP GET /api/products responded 200 in 69.2681 ms
+2026-04-11 13:29:06.590 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:59:06.5899859Z"
+2026-04-11 13:31:00.280 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T08:01:00.2800933Z"
+2026-04-11 13:31:00.314 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T08:01:00.3144969Z"
+2026-04-11 13:31:00.396 +05:30 [INF] Handled GetProductListQuery in 82.0384ms
+2026-04-11 13:31:00.432 +05:30 [INF] Handled GetCategoriesQuery in 152.7428ms
+2026-04-11 13:31:00.439 +05:30 [INF] HTTP GET /api/products responded 200 in 125.7438 ms
+2026-04-11 13:31:00.441 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 161.3997 ms
+2026-04-11 13:31:08.189 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:01:08.1892382Z"
+2026-04-11 13:31:43.455 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T08:01:43.4556676Z"
+2026-04-11 13:31:43.457 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T08:01:43.4577600Z"
+2026-04-11 13:31:43.464 +05:30 [INF] Handled GetProductListQuery in 8.5844ms
+2026-04-11 13:31:43.470 +05:30 [INF] HTTP GET /api/products responded 200 in 15.5718 ms
+2026-04-11 13:31:43.471 +05:30 [INF] Handled GetCategoriesQuery in 14.0036ms
+2026-04-11 13:31:43.479 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 21.7713 ms
+2026-04-11 13:32:08.349 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:02:08.3498765Z"
+2026-04-11 13:33:08.545 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:03:08.5456662Z"
+2026-04-11 13:34:08.652 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:04:08.6528238Z"
+2026-04-11 13:35:08.833 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:05:08.8335514Z"
+2026-04-11 13:46:40.872 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T08:16:40.8727417Z"
+2026-04-11 13:46:40.894 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T08:16:40.8945232Z"
+2026-04-11 13:46:40.905 +05:30 [INF] Handled GetProductListQuery in 32.6007ms
+2026-04-11 13:46:40.905 +05:30 [INF] Handled GetCategoriesQuery in 11.4109ms
+2026-04-11 13:46:40.908 +05:30 [INF] HTTP GET /api/products responded 200 in 36.9968 ms
+2026-04-11 13:46:40.912 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 18.9534 ms
+2026-04-11 14:24:32.887 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:54:32.8873061Z"
+2026-04-11 14:24:34.424 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T08:54:34.4241495Z"
+2026-04-11 14:24:34.428 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T08:54:34.4282578Z"
+2026-04-11 14:24:34.430 +05:30 [INF] Handled GetCategoriesQuery in 2.7149ms
+2026-04-11 14:24:34.432 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 4.0056 ms
+2026-04-11 14:24:34.433 +05:30 [INF] Handled GetProductListQuery in 9.3434ms
+2026-04-11 14:24:34.437 +05:30 [INF] HTTP GET /api/products responded 200 in 14.2499 ms
+2026-04-11 14:25:02.979 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:55:02.9798046Z"
+2026-04-11 14:25:28.543 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T08:55:28.5430114Z"
+2026-04-11 14:25:28.545 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T08:55:28.5450226Z"
+2026-04-11 14:25:28.550 +05:30 [INF] Handled GetProductListQuery in 5.2567ms
+2026-04-11 14:25:28.553 +05:30 [INF] Handled GetCategoriesQuery in 10.7607ms
+2026-04-11 14:25:28.556 +05:30 [INF] HTTP GET /api/products responded 200 in 11.8559 ms
+2026-04-11 14:25:28.557 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 15.5928 ms
+2026-04-11 14:26:03.188 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:56:03.1886199Z"
+2026-04-11 14:27:03.270 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:57:03.2703703Z"
+2026-04-11 14:28:03.365 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:58:03.3658497Z"
+2026-04-11 14:28:36.277 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T08:58:36.2773876Z"
+2026-04-11 14:28:36.317 +05:30 [INF] Handled GetProductListQuery in 39.6369ms
+2026-04-11 14:28:36.319 +05:30 [INF] HTTP GET /api/products responded 200 in 45.2861 ms
+2026-04-11 14:28:36.366 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T08:58:36.3662651Z"
+2026-04-11 14:28:36.425 +05:30 [INF] Handled GetProductDetailQuery in 59.5966ms
+2026-04-11 14:28:36.428 +05:30 [INF] HTTP GET /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9 responded 200 in 68.1564 ms
+2026-04-11 14:28:36.507 +05:30 [INF] Handling RestockProductCommand at "2026-04-11T08:58:36.5064755Z"
+2026-04-11 14:28:36.659 +05:30 [INF] Handled RestockProductCommand in 152.9609ms
+2026-04-11 14:28:36.664 +05:30 [INF] HTTP POST /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9/restock responded 200 in 200.7675 ms
+2026-04-11 14:28:36.862 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T08:58:36.8627817Z"
+2026-04-11 14:28:36.896 +05:30 [INF] Handled SoftLockStockCommand in 33.9246ms
+2026-04-11 14:28:36.900 +05:30 [INF] HTTP POST /api/internal/inventory/soft-lock responded 200 in 50.4798 ms
+2026-04-11 14:28:39.914 +05:30 [INF] HTTP POST /api/products responded 403 in 3.3130 ms
+2026-04-11 14:28:39.944 +05:30 [INF] Handling UpdateProductCommand at "2026-04-11T08:58:39.9444121Z"
+2026-04-11 14:28:40.025 +05:30 [INF] Handled UpdateProductCommand in 80.9414ms
+2026-04-11 14:28:40.028 +05:30 [INF] HTTP PUT /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9 responded 200 in 93.5319 ms
+2026-04-11 14:28:40.136 +05:30 [INF] Handling GetStockLevelQuery at "2026-04-11T08:58:40.1366287Z"
+2026-04-11 14:28:40.150 +05:30 [INF] Handled GetStockLevelQuery in 13.9531ms
+2026-04-11 14:28:40.153 +05:30 [INF] HTTP GET /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9/stock responded 200 in 24.6344 ms
+2026-04-11 14:28:40.197 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T08:58:40.1979316Z"
+2026-04-11 14:28:40.212 +05:30 [INF] Handled SoftLockStockCommand in 14.9982ms
+2026-04-11 14:28:40.222 +05:30 [INF] HTTP POST /api/inventory/soft-lock responded 409 in 28.4925 ms
+2026-04-11 14:28:40.249 +05:30 [INF] Handling HardDeductStockCommand at "2026-04-11T08:58:40.2495752Z"
+2026-04-11 14:28:40.276 +05:30 [INF] Handled HardDeductStockCommand in 26.5351ms
+2026-04-11 14:28:40.278 +05:30 [INF] HTTP POST /api/inventory/hard-deduct responded 200 in 33.1979 ms
+2026-04-11 14:28:40.352 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T08:58:40.3522794Z"
+2026-04-11 14:28:40.365 +05:30 [INF] Handled ReleaseSoftLockCommand in 12.7552ms
+2026-04-11 14:28:40.366 +05:30 [INF] HTTP POST /api/inventory/release-soft-lock responded 200 in 29.8404 ms
+2026-04-11 14:28:40.408 +05:30 [INF] Handling SubscribeStockCommand at "2026-04-11T08:58:40.4083618Z"
+2026-04-11 14:28:40.442 +05:30 [INF] Handled SubscribeStockCommand in 33.6804ms
+2026-04-11 14:28:40.445 +05:30 [INF] HTTP POST /api/inventory/subscriptions responded 200 in 45.4717 ms
+2026-04-11 14:28:40.482 +05:30 [INF] Handling UnsubscribeStockCommand at "2026-04-11T08:58:40.4823413Z"
+2026-04-11 14:28:40.503 +05:30 [INF] Handled UnsubscribeStockCommand in 20.8299ms
+2026-04-11 14:28:40.507 +05:30 [INF] HTTP DELETE /api/inventory/subscriptions responded 200 in 29.7712 ms
+2026-04-11 14:28:41.219 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T08:58:41.2194277Z"
+2026-04-11 14:28:41.234 +05:30 [INF] Handled ReleaseSoftLockCommand in 14.9306ms
+2026-04-11 14:28:41.236 +05:30 [INF] HTTP POST /api/internal/inventory/release-soft-lock responded 200 in 18.3347 ms
+2026-04-11 14:29:03.518 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:59:03.5186728Z"
+2026-04-11 14:30:09.163 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:00:09.1638175Z"
+2026-04-11 14:33:38.435 +05:30 [INF] CatalogInventory migrations applied count: 1
+2026-04-11 14:34:00.132 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 14:34:17.350 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 14:34:20.044 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@CatalogInventoryMigrationsDB'
+2026-04-11 14:34:20.248 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 14:34:20.426 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 14:34:20.776 +05:30 [INF] Server desktop-nfnd817:23256:a763376e successfully announced in 138.156 ms
+2026-04-11 14:34:20.915 +05:30 [INF] Server desktop-nfnd817:23256:a763376e is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 14:34:21.375 +05:30 [INF] Server desktop-nfnd817:23256:a763376e all the dispatchers started
+2026-04-11 14:34:24.040 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:04:24.0390363Z"
+2026-04-11 14:34:41.268 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 14:34:41.922 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:04:41.9215930Z"
+2026-04-11 14:34:42.873 +05:30 [INF] Handled GetProductListQuery in 952.0773ms
+2026-04-11 14:34:43.159 +05:30 [INF] HTTP GET /api/products responded 200 in 2256.5593 ms
+2026-04-11 14:35:08.240 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:05:08.2400921Z"
+2026-04-11 14:35:43.979 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:05:43.9799341Z"
+2026-04-11 14:35:44.010 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T09:05:44.0099344Z"
+2026-04-11 14:35:44.052 +05:30 [INF] Handled GetProductListQuery in 72.867ms
+2026-04-11 14:35:44.060 +05:30 [INF] HTTP GET /api/products responded 200 in 93.9975 ms
+2026-04-11 14:35:44.063 +05:30 [INF] Handled GetCategoriesQuery in 53.5845ms
+2026-04-11 14:35:44.094 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 128.3388 ms
+2026-04-11 14:35:59.729 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T09:05:59.7287894Z"
+2026-04-11 14:35:59.804 +05:30 [INF] Handled GetProductDetailQuery in 76.153ms
+2026-04-11 14:35:59.811 +05:30 [INF] HTTP GET /api/products/cc0532fd-f74e-4eea-8aa2-513c6c241db5 responded 200 in 117.3017 ms
+2026-04-11 14:35:59.867 +05:30 [INF] Handling GetProductReviewsQuery at "2026-04-11T09:05:59.8668281Z"
+2026-04-11 14:35:59.894 +05:30 [INF] Handled GetProductReviewsQuery in 27.1355ms
+2026-04-11 14:35:59.917 +05:30 [INF] HTTP GET /api/products/cc0532fd-f74e-4eea-8aa2-513c6c241db5/reviews responded 200 in 72.1745 ms
+2026-04-11 14:36:02.245 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T09:06:02.2456600Z"
+2026-04-11 14:36:02.260 +05:30 [INF] Handled GetCategoriesQuery in 14.5392ms
+2026-04-11 14:36:02.265 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 23.1596 ms
+2026-04-11 14:36:08.481 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:06:08.4809841Z"
+2026-04-11 14:36:52.562 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T09:06:52.5627405Z"
+2026-04-11 14:36:52.568 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:06:52.5682016Z"
+2026-04-11 14:36:52.602 +05:30 [INF] Handled GetCategoriesQuery in 40.0596ms
+2026-04-11 14:36:52.611 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 63.5212 ms
+2026-04-11 14:36:52.628 +05:30 [INF] Handled GetProductListQuery in 60.6174ms
+2026-04-11 14:36:52.633 +05:30 [INF] HTTP GET /api/products responded 200 in 81.7490 ms
+2026-04-11 14:37:08.869 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:07:08.8691464Z"
+2026-04-11 14:38:08.983 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:08:08.9835547Z"
+2026-04-11 14:39:09.135 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:09:09.1358100Z"
+2026-04-11 14:39:21.175 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 14:40:45.220 +05:30 [INF] CatalogInventory migrations applied count: 1
+2026-04-11 14:40:49.576 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 14:40:52.596 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 14:40:54.119 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@CatalogInventoryMigrationsDB'
+2026-04-11 14:40:54.198 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 14:40:54.230 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 14:40:54.453 +05:30 [INF] Server desktop-nfnd817:23928:bedd5329 successfully announced in 138.1951 ms
+2026-04-11 14:40:54.466 +05:30 [INF] Server desktop-nfnd817:23928:bedd5329 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 14:40:54.546 +05:30 [INF] Server desktop-nfnd817:23928:bedd5329 all the dispatchers started
+2026-04-11 14:40:55.779 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:10:55.7771261Z"
+2026-04-11 14:41:47.692 +05:30 [INF] CatalogInventory migrations applied count: 1
+2026-04-11 14:41:49.008 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 14:41:49.891 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 14:41:50.274 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@CatalogInventoryMigrationsDB'
+2026-04-11 14:41:50.275 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 14:41:50.277 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 14:41:50.324 +05:30 [INF] Server desktop-nfnd817:29748:98d31edc successfully announced in 28.8613 ms
+2026-04-11 14:41:50.328 +05:30 [INF] Server desktop-nfnd817:29748:98d31edc is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 14:41:50.339 +05:30 [INF] Server desktop-nfnd817:29748:98d31edc all the dispatchers started
+2026-04-11 14:41:50.761 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:11:50.7612015Z"
+2026-04-11 14:42:05.770 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:12:05.7706527Z"
+2026-04-11 14:42:42.265 +05:30 [INF] HTTP GET /health responded 200 in 45.8389 ms
+2026-04-11 14:42:49.880 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 14:42:50.038 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:12:50.0381026Z"
+2026-04-11 14:42:50.204 +05:30 [INF] Handled GetProductListQuery in 165.8724ms
+2026-04-11 14:42:50.217 +05:30 [INF] HTTP GET /api/products responded 200 in 418.4816 ms
+2026-04-11 14:42:50.312 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T09:12:50.3118895Z"
+2026-04-11 14:42:50.348 +05:30 [INF] Handled GetProductDetailQuery in 36.1195ms
+2026-04-11 14:42:50.351 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 53.7121 ms
+2026-04-11 14:42:50.449 +05:30 [INF] Handling RestockProductCommand at "2026-04-11T09:12:50.4498010Z"
+2026-04-11 14:42:50.616 +05:30 [INF] Handled RestockProductCommand in 166.9561ms
+2026-04-11 14:42:50.622 +05:30 [INF] HTTP POST /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/restock responded 200 in 214.1605 ms
+2026-04-11 14:42:51.721 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T09:12:51.7211949Z"
+2026-04-11 14:42:51.757 +05:30 [INF] Handled SoftLockStockCommand in 35.953ms
+2026-04-11 14:42:51.759 +05:30 [INF] HTTP POST /api/internal/inventory/soft-lock responded 200 in 55.9113 ms
+2026-04-11 14:43:01.249 +05:30 [INF] HTTP POST /api/products responded 403 in 4.7781 ms
+2026-04-11 14:43:01.303 +05:30 [INF] Handling UpdateProductCommand at "2026-04-11T09:13:01.3035254Z"
+2026-04-11 14:43:01.405 +05:30 [INF] Handled UpdateProductCommand in 102.1442ms
+2026-04-11 14:43:01.408 +05:30 [INF] HTTP PUT /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 127.2420 ms
+2026-04-11 14:43:01.530 +05:30 [INF] Handling GetStockLevelQuery at "2026-04-11T09:13:01.5299314Z"
+2026-04-11 14:43:01.545 +05:30 [INF] Handled GetStockLevelQuery in 15.4299ms
+2026-04-11 14:43:01.551 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/stock responded 200 in 34.1181 ms
+2026-04-11 14:43:01.628 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T09:13:01.6281029Z"
+2026-04-11 14:43:01.647 +05:30 [INF] Handled SoftLockStockCommand in 19.2747ms
+2026-04-11 14:43:01.662 +05:30 [INF] HTTP POST /api/inventory/soft-lock responded 409 in 48.1149 ms
+2026-04-11 14:43:01.715 +05:30 [INF] HTTP POST /api/inventory/hard-deduct responded 403 in 1.0520 ms
+2026-04-11 14:43:01.814 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T09:13:01.8145319Z"
+2026-04-11 14:43:01.846 +05:30 [INF] Handled ReleaseSoftLockCommand in 31.9997ms
+2026-04-11 14:43:01.848 +05:30 [INF] HTTP POST /api/inventory/release-soft-lock responded 200 in 49.3365 ms
+2026-04-11 14:43:01.899 +05:30 [INF] Handling SubscribeStockCommand at "2026-04-11T09:13:01.8997087Z"
+2026-04-11 14:43:01.959 +05:30 [INF] Handled SubscribeStockCommand in 59.5699ms
+2026-04-11 14:43:01.963 +05:30 [INF] HTTP POST /api/inventory/subscriptions responded 200 in 77.7732 ms
+2026-04-11 14:43:02.021 +05:30 [INF] Handling UnsubscribeStockCommand at "2026-04-11T09:13:02.0215628Z"
+2026-04-11 14:43:02.068 +05:30 [INF] Handled UnsubscribeStockCommand in 46.5891ms
+2026-04-11 14:43:02.073 +05:30 [INF] HTTP DELETE /api/inventory/subscriptions responded 200 in 66.2408 ms
+2026-04-11 14:43:03.527 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T09:13:03.5273597Z"
+2026-04-11 14:43:03.551 +05:30 [INF] Handled ReleaseSoftLockCommand in 24.5662ms
+2026-04-11 14:43:03.553 +05:30 [INF] HTTP POST /api/internal/inventory/release-soft-lock responded 200 in 38.5433 ms
+2026-04-11 14:43:05.945 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:13:05.9455764Z"
+2026-04-11 14:43:40.764 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:13:40.7646513Z"
+2026-04-11 14:43:40.811 +05:30 [INF] Handled GetProductListQuery in 47.2386ms
+2026-04-11 14:43:40.832 +05:30 [INF] HTTP GET /api/products responded 200 in 73.6187 ms
+2026-04-11 14:43:51.944 +05:30 [INF] Handling HardDeductStockCommand at "2026-04-11T09:13:51.9436994Z"
+2026-04-11 14:43:51.964 +05:30 [INF] Handled HardDeductStockCommand in 20.8881ms
+2026-04-11 14:43:51.968 +05:30 [INF] HTTP POST /api/internal/inventory/hard-deduct responded 409 in 63.8494 ms
+2026-04-11 14:44:06.250 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:14:06.2504849Z"
+2026-04-11 14:44:25.885 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:14:25.8853840Z"
+2026-04-11 14:44:25.966 +05:30 [INF] Handled GetProductListQuery in 80.7568ms
+2026-04-11 14:44:25.970 +05:30 [INF] HTTP GET /api/products responded 200 in 104.4114 ms
+2026-04-11 14:44:26.652 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T09:14:26.6526287Z"
+2026-04-11 14:44:26.692 +05:30 [INF] Handled GetProductDetailQuery in 40.2571ms
+2026-04-11 14:44:26.816 +05:30 [INF] HTTP GET /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9 responded 200 in 167.2407 ms
+2026-04-11 14:44:26.930 +05:30 [INF] Handling RestockProductCommand at "2026-04-11T09:14:26.9308106Z"
+2026-04-11 14:44:26.986 +05:30 [INF] Handled RestockProductCommand in 55.5393ms
+2026-04-11 14:44:26.995 +05:30 [INF] HTTP POST /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9/restock responded 200 in 69.8170 ms
+2026-04-11 14:44:27.138 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T09:14:27.1381328Z"
+2026-04-11 14:44:27.177 +05:30 [INF] Handled SoftLockStockCommand in 39.1033ms
+2026-04-11 14:44:27.182 +05:30 [INF] HTTP POST /api/internal/inventory/soft-lock responded 200 in 57.6309 ms
+2026-04-11 14:44:29.538 +05:30 [INF] HTTP POST /api/products responded 403 in 0.4895 ms
+2026-04-11 14:44:29.601 +05:30 [INF] Handling UpdateProductCommand at "2026-04-11T09:14:29.6010611Z"
+2026-04-11 14:44:29.671 +05:30 [INF] Handled UpdateProductCommand in 69.4834ms
+2026-04-11 14:44:29.682 +05:30 [INF] HTTP PUT /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9 responded 200 in 85.9768 ms
+2026-04-11 14:44:29.876 +05:30 [INF] Handling GetStockLevelQuery at "2026-04-11T09:14:29.8761375Z"
+2026-04-11 14:44:29.896 +05:30 [INF] Handled GetStockLevelQuery in 20.7671ms
+2026-04-11 14:44:29.927 +05:30 [INF] HTTP GET /api/products/8e28a1f3-e24e-434a-8ee6-103dd5d068b9/stock responded 200 in 57.8827 ms
+2026-04-11 14:44:30.234 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T09:14:30.2339998Z"
+2026-04-11 14:44:30.265 +05:30 [INF] Handled SoftLockStockCommand in 31.2599ms
+2026-04-11 14:44:30.278 +05:30 [INF] HTTP POST /api/inventory/soft-lock responded 409 in 46.3686 ms
+2026-04-11 14:44:30.347 +05:30 [INF] HTTP POST /api/inventory/hard-deduct responded 403 in 0.7519 ms
+2026-04-11 14:44:30.383 +05:30 [INF] Handling HardDeductStockCommand at "2026-04-11T09:14:30.3830705Z"
+2026-04-11 14:44:30.446 +05:30 [INF] Handled HardDeductStockCommand in 63.3658ms
+2026-04-11 14:44:30.454 +05:30 [INF] HTTP POST /api/internal/inventory/hard-deduct responded 200 in 74.8590 ms
+2026-04-11 14:44:30.551 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T09:14:30.5511474Z"
+2026-04-11 14:44:30.582 +05:30 [INF] Handled ReleaseSoftLockCommand in 31.5211ms
+2026-04-11 14:44:30.586 +05:30 [INF] HTTP POST /api/inventory/release-soft-lock responded 200 in 50.6138 ms
+2026-04-11 14:44:30.719 +05:30 [INF] Handling SubscribeStockCommand at "2026-04-11T09:14:30.7193104Z"
+2026-04-11 14:44:30.749 +05:30 [INF] Handled SubscribeStockCommand in 30.3673ms
+2026-04-11 14:44:30.755 +05:30 [INF] HTTP POST /api/inventory/subscriptions responded 200 in 38.5741 ms
+2026-04-11 14:44:30.953 +05:30 [INF] Handling UnsubscribeStockCommand at "2026-04-11T09:14:30.9537979Z"
+2026-04-11 14:44:31.005 +05:30 [INF] Handled UnsubscribeStockCommand in 52.0384ms
+2026-04-11 14:44:31.011 +05:30 [INF] HTTP DELETE /api/inventory/subscriptions responded 200 in 61.9238 ms
+2026-04-11 14:44:32.353 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T09:14:32.3530152Z"
+2026-04-11 14:44:32.407 +05:30 [INF] Handled ReleaseSoftLockCommand in 54.4294ms
+2026-04-11 14:44:32.413 +05:30 [INF] HTTP POST /api/internal/inventory/release-soft-lock responded 200 in 61.9859 ms
+2026-04-11 14:44:51.421 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:14:51.4216532Z"
+2026-04-11 14:44:51.448 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T09:14:51.4479519Z"
+2026-04-11 14:44:51.486 +05:30 [INF] Handled GetProductListQuery in 64.5442ms
+2026-04-11 14:44:51.493 +05:30 [INF] Handled GetCategoriesQuery in 45.4154ms
+2026-04-11 14:44:51.494 +05:30 [INF] HTTP GET /api/products responded 200 in 73.8261 ms
+2026-04-11 14:44:51.518 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 104.8572 ms
+2026-04-11 14:45:06.600 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:15:06.6004618Z"
+2026-04-11 14:46:06.785 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:16:06.7851052Z"
+2026-04-11 14:46:50.358 +05:30 [INF] 2 servers were removed due to timeout
+2026-04-11 14:47:07.234 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:17:07.2340669Z"
+2026-04-11 14:50:10.461 +05:30 [INF] CatalogInventory migrations applied count: 1
+2026-04-11 14:50:14.321 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 14:50:16.094 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 14:50:17.603 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@CatalogInventoryMigrationsDB'
+2026-04-11 14:50:17.663 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 14:50:17.667 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 14:50:17.796 +05:30 [INF] Server desktop-nfnd817:26068:e01c240c successfully announced in 77.236 ms
+2026-04-11 14:50:17.844 +05:30 [INF] Server desktop-nfnd817:26068:e01c240c is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 14:50:17.959 +05:30 [INF] Server desktop-nfnd817:26068:e01c240c all the dispatchers started
+2026-04-11 14:50:18.867 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:20:18.8667119Z"
+2026-04-11 14:50:28.464 +05:30 [INF] HTTP GET /health responded 200 in 174.6677 ms
+2026-04-11 14:51:03.835 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:21:03.8354042Z"
+2026-04-11 14:52:04.121 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:22:04.1214316Z"
+2026-04-11 14:53:04.236 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:23:04.2368755Z"
+2026-04-11 14:54:04.409 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:24:04.4093717Z"
+2026-04-11 14:54:07.428 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 14:54:07.919 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:24:07.9186512Z"
+2026-04-11 14:54:08.306 +05:30 [INF] Handled GetProductListQuery in 387.6652ms
+2026-04-11 14:54:08.335 +05:30 [INF] HTTP GET /api/products responded 200 in 1168.8259 ms
+2026-04-11 14:54:08.634 +05:30 [INF] Handling GetProductDetailQuery at "2026-04-11T09:24:08.6340673Z"
+2026-04-11 14:54:08.735 +05:30 [INF] Handled GetProductDetailQuery in 101.6366ms
+2026-04-11 14:54:08.754 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 151.5141 ms
+2026-04-11 14:54:08.933 +05:30 [INF] Handling RestockProductCommand at "2026-04-11T09:24:08.9327934Z"
+2026-04-11 14:54:09.319 +05:30 [INF] Handled RestockProductCommand in 386.6705ms
+2026-04-11 14:54:09.329 +05:30 [INF] HTTP POST /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/restock responded 200 in 490.5746 ms
+2026-04-11 14:54:10.866 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T09:24:10.8660162Z"
+2026-04-11 14:54:10.944 +05:30 [INF] Handled SoftLockStockCommand in 78.8609ms
+2026-04-11 14:54:10.950 +05:30 [INF] HTTP POST /api/internal/inventory/soft-lock responded 200 in 134.2777 ms
+2026-04-11 14:54:23.596 +05:30 [INF] HTTP POST /api/products responded 403 in 11.9469 ms
+2026-04-11 14:54:23.703 +05:30 [INF] Handling UpdateProductCommand at "2026-04-11T09:24:23.7037228Z"
+2026-04-11 14:54:23.835 +05:30 [INF] Handled UpdateProductCommand in 131.8488ms
+2026-04-11 14:54:23.844 +05:30 [INF] HTTP PUT /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7 responded 200 in 198.0881 ms
+2026-04-11 14:54:24.018 +05:30 [INF] Handling GetStockLevelQuery at "2026-04-11T09:24:24.0178254Z"
+2026-04-11 14:54:24.032 +05:30 [INF] Handled GetStockLevelQuery in 14.4482ms
+2026-04-11 14:54:24.043 +05:30 [INF] HTTP GET /api/products/87a6247b-9cb0-4b9c-a7df-9c8084c389d7/stock responded 200 in 52.6251 ms
+2026-04-11 14:54:24.152 +05:30 [INF] Handling SoftLockStockCommand at "2026-04-11T09:24:24.1519978Z"
+2026-04-11 14:54:24.163 +05:30 [INF] Handled SoftLockStockCommand in 11.4268ms
+2026-04-11 14:54:24.169 +05:30 [INF] HTTP POST /api/inventory/soft-lock responded 409 in 45.9776 ms
+2026-04-11 14:54:24.214 +05:30 [INF] HTTP POST /api/inventory/hard-deduct responded 403 in 1.2739 ms
+2026-04-11 14:54:24.284 +05:30 [INF] Handling HardDeductStockCommand at "2026-04-11T09:24:24.2846436Z"
+2026-04-11 14:54:24.334 +05:30 [INF] Handled HardDeductStockCommand in 50.3041ms
+2026-04-11 14:54:24.342 +05:30 [INF] HTTP POST /api/internal/inventory/hard-deduct responded 200 in 86.7019 ms
+2026-04-11 14:54:24.472 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T09:24:24.4719406Z"
+2026-04-11 14:54:24.531 +05:30 [INF] Handled ReleaseSoftLockCommand in 59.3181ms
+2026-04-11 14:54:24.573 +05:30 [INF] HTTP POST /api/inventory/release-soft-lock responded 200 in 129.3781 ms
+2026-04-11 14:54:24.689 +05:30 [INF] Handling SubscribeStockCommand at "2026-04-11T09:24:24.6894702Z"
+2026-04-11 14:54:24.812 +05:30 [INF] Handled SubscribeStockCommand in 123.4534ms
+2026-04-11 14:54:24.846 +05:30 [INF] HTTP POST /api/inventory/subscriptions responded 200 in 190.2029 ms
+2026-04-11 14:54:24.951 +05:30 [INF] Handling UnsubscribeStockCommand at "2026-04-11T09:24:24.9508974Z"
+2026-04-11 14:54:25.053 +05:30 [INF] Handled UnsubscribeStockCommand in 102.2642ms
+2026-04-11 14:54:25.063 +05:30 [INF] HTTP DELETE /api/inventory/subscriptions responded 200 in 133.5932 ms
+2026-04-11 14:54:27.031 +05:30 [INF] Handling ReleaseSoftLockCommand at "2026-04-11T09:24:27.0313695Z"
+2026-04-11 14:54:27.049 +05:30 [INF] Handled ReleaseSoftLockCommand in 17.8965ms
+2026-04-11 14:54:27.055 +05:30 [INF] HTTP POST /api/internal/inventory/release-soft-lock responded 200 in 58.9115 ms
+2026-04-11 14:55:04.638 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:25:04.6380533Z"
+2026-04-11 14:55:17.927 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 14:56:04.881 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:26:04.8811556Z"
+2026-04-11 14:57:05.170 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:27:05.1707684Z"
+2026-04-11 14:58:05.300 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:28:05.3008082Z"
+2026-04-11 14:59:05.623 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:29:05.6238081Z"
+2026-04-11 15:00:05.789 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:30:05.7891046Z"
+2026-04-11 15:01:06.001 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:31:06.0013187Z"
+2026-04-11 15:02:06.245 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:32:06.2454087Z"
+2026-04-11 15:03:06.571 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:33:06.5716122Z"
+2026-04-11 15:04:06.778 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:34:06.7782441Z"
+2026-04-11 15:05:07.055 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:35:07.0556692Z"
+2026-04-11 15:06:07.150 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:36:07.1502946Z"
+2026-04-11 15:06:24.348 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:36:24.3481091Z"
+2026-04-11 15:06:24.411 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T09:36:24.4103411Z"
+2026-04-11 15:06:24.495 +05:30 [INF] Handled GetCategoriesQuery in 84.8021ms
+2026-04-11 15:06:24.562 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 273.1256 ms
+2026-04-11 15:06:24.606 +05:30 [INF] Handled GetProductListQuery in 257.972ms
+2026-04-11 15:06:24.610 +05:30 [INF] HTTP GET /api/products responded 200 in 321.5374 ms
+2026-04-11 15:06:26.211 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:36:26.2118556Z"
+2026-04-11 15:06:26.317 +05:30 [INF] Handled GetProductListQuery in 105.3288ms
+2026-04-11 15:06:26.326 +05:30 [INF] HTTP GET /api/products responded 200 in 130.0671 ms
+2026-04-11 15:07:00.204 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:37:00.2041749Z"
+2026-04-11 15:07:00.224 +05:30 [INF] Handled GetProductListQuery in 20.7283ms
+2026-04-11 15:07:00.228 +05:30 [INF] HTTP GET /api/products responded 200 in 27.6065 ms
+2026-04-11 15:07:07.393 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:37:07.3936290Z"
+2026-04-11 15:08:07.522 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:38:07.5223021Z"
+2026-04-11 15:09:07.658 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:39:07.6587929Z"
+2026-04-11 15:09:23.626 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:39:23.6259960Z"
+2026-04-11 15:09:23.632 +05:30 [INF] Handled GetProductListQuery in 6.5418ms
+2026-04-11 15:09:23.637 +05:30 [INF] HTTP GET /api/products responded 200 in 13.7338 ms
+2026-04-11 15:10:07.777 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:40:07.7773547Z"
+2026-04-11 15:11:08.021 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:41:08.0214340Z"
+2026-04-11 15:12:08.000 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:42:08.0008266Z"
+2026-04-11 15:12:19.357 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T09:42:19.3576189Z"
+2026-04-11 15:12:19.360 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T09:42:19.3606016Z"
+2026-04-11 15:12:19.375 +05:30 [INF] Handled GetCategoriesQuery in 15.1996ms
+2026-04-11 15:12:19.382 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 26.8215 ms
+2026-04-11 15:12:19.424 +05:30 [INF] Handled GetProductListQuery in 67.2944ms
+2026-04-11 15:12:19.428 +05:30 [INF] HTTP GET /api/products responded 200 in 73.3452 ms
+2026-04-11 15:13:08.125 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:43:08.1258067Z"
+2026-04-11 15:14:08.280 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:44:08.2805175Z"
+2026-04-11 15:15:08.446 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:45:08.4464505Z"
+2026-04-11 15:16:08.558 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:46:08.5579773Z"
+2026-04-11 15:17:08.691 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:47:08.6917068Z"
+2026-04-11 15:18:08.811 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:48:08.8110935Z"
+2026-04-11 15:19:08.964 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:49:08.9643768Z"
+2026-04-11 15:20:09.134 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:50:09.1349620Z"
+2026-04-11 15:21:09.265 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:51:09.2658321Z"
+2026-04-11 15:22:09.500 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:52:09.5000520Z"
+2026-04-11 15:23:09.614 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:53:09.6141276Z"
+2026-04-11 15:24:09.698 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:54:09.6983247Z"
+2026-04-11 15:25:09.787 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:55:09.7875689Z"
+2026-04-11 15:26:09.904 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:56:09.9043704Z"
+2026-04-11 15:27:10.032 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:57:10.0320045Z"
+2026-04-11 15:28:10.254 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:58:10.2549699Z"
+2026-04-11 15:29:10.322 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:59:10.3228127Z"
+2026-04-11 15:30:10.434 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:00:10.4349506Z"
+2026-04-11 15:31:10.683 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:01:10.6829124Z"
+2026-04-11 15:32:10.930 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:02:10.9307897Z"
+2026-04-11 15:33:11.583 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:03:11.5832463Z"
+2026-04-11 15:34:12.208 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:04:12.2084978Z"
+2026-04-11 15:35:12.895 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:05:12.8955681Z"
+2026-04-11 15:35:34.864 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T10:05:34.8643730Z"
+2026-04-11 15:35:34.865 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T10:05:34.8655976Z"
+2026-04-11 15:35:35.032 +05:30 [INF] Handling GetCategoriesQuery at "2026-04-11T10:05:35.0321990Z"
+2026-04-11 15:35:35.847 +05:30 [INF] Handled GetProductListQuery in 981.8108ms
+2026-04-11 15:35:35.850 +05:30 [INF] Handled GetProductListQuery in 985.7559ms
+2026-04-11 15:35:35.864 +05:30 [INF] Handled GetCategoriesQuery in 832.1896ms
+2026-04-11 15:35:35.908 +05:30 [INF] HTTP GET /api/products responded 200 in 1162.8550 ms
+2026-04-11 15:35:35.913 +05:30 [INF] HTTP GET /api/products responded 200 in 1213.8716 ms
+2026-04-11 15:35:36.000 +05:30 [INF] HTTP GET /api/products/categories responded 200 in 1139.5326 ms
+2026-04-11 15:36:13.101 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:06:13.1017123Z"
+2026-04-11 15:37:13.367 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:07:13.3678829Z"
+2026-04-11 15:38:13.573 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:08:13.5737967Z"
+2026-04-11 15:39:14.507 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:09:14.5074935Z"
+2026-04-11 15:40:14.930 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:10:14.9307772Z"
+2026-04-11 15:41:14.858 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:11:14.8582280Z"
+2026-04-11 15:41:25.101 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T10:11:25.1018491Z"
+2026-04-11 15:41:25.246 +05:30 [INF] Handled GetProductListQuery in 144.7911ms
+2026-04-11 15:41:25.262 +05:30 [INF] HTTP GET /api/products responded 200 in 284.3178 ms
+2026-04-11 15:42:15.191 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:12:15.1916671Z"
+2026-04-11 15:43:00.521 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:13:00.5214526Z"
+2026-04-11 15:44:01.924 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:14:01.9239952Z"
+2026-04-11 15:45:02.204 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:15:02.2047110Z"
+2026-04-11 15:46:02.294 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:16:02.2946214Z"
+2026-04-11 15:47:02.470 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:17:02.4706743Z"
+2026-04-11 15:47:10.002 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T10:17:10.0026880Z"
+2026-04-11 15:47:10.074 +05:30 [INF] Handled GetProductListQuery in 71.6075ms
+2026-04-11 15:47:10.081 +05:30 [INF] HTTP GET /api/products responded 200 in 86.4038 ms
+2026-04-11 15:48:02.558 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:18:02.5583867Z"
+2026-04-11 15:48:13.373 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T10:18:13.3730522Z"
+2026-04-11 15:48:13.407 +05:30 [INF] Handled GetProductListQuery in 34.7945ms
+2026-04-11 15:48:13.412 +05:30 [INF] HTTP GET /api/products responded 200 in 49.6705 ms
+2026-04-11 15:49:03.293 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:19:03.2938206Z"
+2026-04-11 15:50:03.215 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:20:03.2159295Z"
+2026-04-11 15:51:03.344 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:21:03.3449035Z"
+2026-04-11 15:52:03.413 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:22:03.4132924Z"
+2026-04-11 15:53:03.516 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:23:03.5168383Z"
+2026-04-11 15:53:57.961 +05:30 [INF] Handling GetProductListQuery at "2026-04-11T10:23:57.9611308Z"
+2026-04-11 15:53:57.979 +05:30 [INF] Handled GetProductListQuery in 18.3139ms
+2026-04-11 15:53:57.980 +05:30 [INF] HTTP GET /api/products responded 200 in 20.7762 ms
+2026-04-11 15:54:03.568 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:24:03.5689647Z"
+2026-04-11 15:55:03.694 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:25:03.6942608Z"

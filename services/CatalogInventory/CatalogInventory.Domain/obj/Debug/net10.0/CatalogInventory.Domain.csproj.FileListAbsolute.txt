@@ -17,3 +17,8 @@ C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\
 C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Domain.deps.json
 C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Domain.dll
 C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\artifacts\build-check\catalog-api\CatalogInventory.Domain.deps.json
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\artifacts\build-check\catalog-api\CatalogInventory.Domain.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\artifacts\build-check\catalog-api\CatalogInventory.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\artifacts\build-check\catalog-api\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\artifacts\build-check\catalog-api\SharedKernel.pdb

@@ -96,3 +96,1663 @@
 2026-04-11 01:35:08.178 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:05:08.1783289Z"
 2026-04-11 01:36:08.452 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:06:08.4524636Z"
 2026-04-11 01:37:08.534 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:07:08.5348299Z"
+2026-04-11 01:38:08.911 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:08:08.9116915Z"
+2026-04-11 01:39:09.180 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:09:09.1799935Z"
+2026-04-11 01:40:09.401 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:10:09.4013303Z"
+2026-04-11 01:41:09.533 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:11:09.5337389Z"
+2026-04-11 01:42:09.695 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:12:09.6958054Z"
+2026-04-11 01:43:09.904 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:13:09.9042235Z"
+2026-04-11 01:44:10.085 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:14:10.0851306Z"
+2026-04-11 01:45:10.296 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:15:10.2965788Z"
+2026-04-11 01:46:10.419 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:16:10.4196006Z"
+2026-04-11 01:47:10.567 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:17:10.5675493Z"
+2026-04-11 01:48:10.853 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:18:10.8532844Z"
+2026-04-11 01:49:11.022 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:19:11.0227541Z"
+2026-04-11 01:50:11.129 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:20:11.1290413Z"
+2026-04-11 01:51:11.603 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:21:11.6037497Z"
+2026-04-11 01:52:11.748 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:22:11.7489582Z"
+2026-04-11 01:53:11.959 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:23:11.9592348Z"
+2026-04-11 01:54:12.129 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:24:12.1292014Z"
+2026-04-11 01:55:12.254 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:25:12.2540377Z"
+2026-04-11 01:56:12.407 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:26:12.4073152Z"
+2026-04-11 01:57:12.522 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:27:12.5224643Z"
+2026-04-11 01:58:12.809 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:28:12.8098653Z"
+2026-04-11 01:59:12.831 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:29:12.8319578Z"
+2026-04-11 02:00:13.088 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:30:13.0889605Z"
+2026-04-11 02:01:13.216 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:31:13.2168364Z"
+2026-04-11 02:02:13.346 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:32:13.3468768Z"
+2026-04-11 02:03:13.451 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:33:13.4515390Z"
+2026-04-11 02:04:13.581 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:34:13.5814851Z"
+2026-04-11 02:05:13.732 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:35:13.7321577Z"
+2026-04-11 02:06:14.012 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:36:14.0122701Z"
+2026-04-11 02:07:14.211 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:37:14.2115453Z"
+2026-04-11 02:08:14.448 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:38:14.4481618Z"
+2026-04-11 02:09:14.604 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:39:14.6049561Z"
+2026-04-11 02:10:14.910 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:40:14.9105122Z"
+2026-04-11 02:11:15.137 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:41:15.1370672Z"
+2026-04-11 02:12:00.314 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:42:00.3145108Z"
+2026-04-11 02:13:00.632 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:43:00.6320613Z"
+2026-04-11 02:14:00.771 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:44:00.7712434Z"
+2026-04-11 02:15:00.893 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:45:00.8935098Z"
+2026-04-11 02:16:01.246 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:46:01.2462344Z"
+2026-04-11 02:17:01.392 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:47:01.3925530Z"
+2026-04-11 02:18:01.525 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:48:01.5256431Z"
+2026-04-11 02:19:01.731 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:49:01.7311684Z"
+2026-04-11 02:20:01.897 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:50:01.8975316Z"
+2026-04-11 02:21:02.043 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:51:02.0432385Z"
+2026-04-11 02:22:02.155 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:52:02.1552118Z"
+2026-04-11 02:23:02.286 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:53:02.2865964Z"
+2026-04-11 02:24:02.520 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:54:02.5206291Z"
+2026-04-11 02:25:02.886 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:55:02.8866295Z"
+2026-04-11 02:26:03.009 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:56:03.0095460Z"
+2026-04-11 02:27:03.119 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:57:03.1196801Z"
+2026-04-11 02:28:03.363 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:58:03.3631562Z"
+2026-04-11 02:29:03.631 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:59:03.6309970Z"
+2026-04-11 02:30:03.869 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:00:03.8694482Z"
+2026-04-11 02:31:04.005 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:01:04.0054455Z"
+2026-04-11 02:32:04.155 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:02:04.1558684Z"
+2026-04-11 02:33:04.310 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:03:04.3103927Z"
+2026-04-11 02:34:04.570 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:04:04.5707379Z"
+2026-04-11 02:35:04.667 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:05:04.6679312Z"
+2026-04-11 02:36:04.786 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:06:04.7863506Z"
+2026-04-11 02:37:04.919 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:07:04.9192640Z"
+2026-04-11 02:38:05.002 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:08:05.0022682Z"
+2026-04-11 02:39:05.128 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:09:05.1283644Z"
+2026-04-11 02:40:05.258 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:10:05.2586700Z"
+2026-04-11 02:41:05.369 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:11:05.3694316Z"
+2026-04-11 02:42:05.599 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:12:05.5999034Z"
+2026-04-11 02:43:05.737 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:13:05.7373929Z"
+2026-04-11 02:44:05.852 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:14:05.8521360Z"
+2026-04-11 02:45:06.164 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:15:06.1646089Z"
+2026-04-11 02:46:06.283 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:16:06.2835566Z"
+2026-04-11 02:47:06.531 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:17:06.5316843Z"
+2026-04-11 02:48:06.583 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:18:06.5835045Z"
+2026-04-11 02:49:06.744 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:19:06.7449291Z"
+2026-04-11 02:50:06.904 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:20:06.9049283Z"
+2026-04-11 02:51:07.095 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:21:07.0959582Z"
+2026-04-11 02:52:07.343 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:22:07.3434322Z"
+2026-04-11 02:53:07.487 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:23:07.4874894Z"
+2026-04-11 02:54:07.717 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:24:07.7177167Z"
+2026-04-11 02:55:07.908 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:25:07.9082892Z"
+2026-04-11 02:56:08.413 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:26:08.4134772Z"
+2026-04-11 02:57:08.852 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:27:08.8528730Z"
+2026-04-11 02:58:09.298 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:28:09.2985307Z"
+2026-04-11 02:59:09.700 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:29:09.7009293Z"
+2026-04-11 03:00:10.021 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:30:10.0218041Z"
+2026-04-11 03:01:10.329 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:31:10.3296522Z"
+2026-04-11 03:02:10.528 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:32:10.5286518Z"
+2026-04-11 03:03:10.791 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:33:10.7915097Z"
+2026-04-11 03:04:10.997 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:34:10.9973489Z"
+2026-04-11 03:05:11.146 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:35:11.1466508Z"
+2026-04-11 03:06:11.479 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:36:11.4798149Z"
+2026-04-11 03:07:11.835 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:37:11.8351178Z"
+2026-04-11 03:08:12.049 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:38:12.0490267Z"
+2026-04-11 03:09:12.255 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:39:12.2556491Z"
+2026-04-11 03:10:12.672 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:40:12.6726537Z"
+2026-04-11 03:11:12.978 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:41:12.9782243Z"
+2026-04-11 03:12:13.184 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:42:13.1847607Z"
+2026-04-11 03:13:13.377 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:43:13.3775287Z"
+2026-04-11 03:14:13.550 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:44:13.5500689Z"
+2026-04-11 03:15:13.835 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:45:13.8351730Z"
+2026-04-11 03:16:13.995 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:46:13.9956076Z"
+2026-04-11 03:17:14.388 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:47:14.3882151Z"
+2026-04-11 03:18:14.566 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:48:14.5669178Z"
+2026-04-11 03:19:14.729 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:49:14.7292128Z"
+2026-04-11 03:20:14.880 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:50:14.8805549Z"
+2026-04-11 03:21:15.247 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:51:15.2474602Z"
+2026-04-11 03:22:00.617 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:52:00.6178591Z"
+2026-04-11 03:23:00.793 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:53:00.7938488Z"
+2026-04-11 03:24:00.924 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:54:00.9245260Z"
+2026-04-11 03:25:01.240 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:55:01.2405889Z"
+2026-04-11 03:26:01.629 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:56:01.6290463Z"
+2026-04-11 03:27:02.065 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:57:02.0659413Z"
+2026-04-11 03:28:02.484 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:58:02.4846307Z"
+2026-04-11 03:29:02.799 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:59:02.7995574Z"
+2026-04-11 03:30:03.107 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:00:03.1076372Z"
+2026-04-11 03:31:03.276 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:01:03.2767816Z"
+2026-04-11 03:32:03.448 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:02:03.4486438Z"
+2026-04-11 03:33:03.575 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:03:03.5759216Z"
+2026-04-11 03:34:03.761 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:04:03.7614218Z"
+2026-04-11 03:35:04.220 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:05:04.2206753Z"
+2026-04-11 03:36:04.498 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:06:04.4982327Z"
+2026-04-11 03:37:04.783 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:07:04.7832078Z"
+2026-04-11 03:38:05.073 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:08:05.0730542Z"
+2026-04-11 03:39:05.271 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:09:05.2711886Z"
+2026-04-11 03:40:05.441 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:10:05.4410382Z"
+2026-04-11 03:41:05.614 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:11:05.6143360Z"
+2026-04-11 03:42:05.818 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:12:05.8182559Z"
+2026-04-11 03:43:06.276 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:13:06.2761223Z"
+2026-04-11 03:44:06.643 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:14:06.6437060Z"
+2026-04-11 03:45:06.893 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:15:06.8938561Z"
+2026-04-11 03:46:07.090 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:16:07.0900126Z"
+2026-04-11 03:47:07.237 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:17:07.2376460Z"
+2026-04-11 03:48:07.469 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:18:07.4697487Z"
+2026-04-11 03:49:07.686 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:19:07.6867932Z"
+2026-04-11 03:50:07.954 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:20:07.9540141Z"
+2026-04-11 03:51:08.283 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:21:08.2830546Z"
+2026-04-11 03:52:08.485 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:22:08.4854011Z"
+2026-04-11 03:53:08.651 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:23:08.6512311Z"
+2026-04-11 03:54:08.881 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:24:08.8809974Z"
+2026-04-11 03:55:09.068 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:25:09.0688262Z"
+2026-04-11 03:56:09.259 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:26:09.2598109Z"
+2026-04-11 03:57:09.778 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:27:09.7783128Z"
+2026-04-11 03:58:09.870 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:28:09.8707410Z"
+2026-04-11 03:59:10.078 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:29:10.0784197Z"
+2026-04-11 04:00:10.312 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:30:10.3128889Z"
+2026-04-11 04:01:10.579 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:31:10.5793010Z"
+2026-04-11 04:02:10.950 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:32:10.9500108Z"
+2026-04-11 04:03:11.152 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:33:11.1528474Z"
+2026-04-11 04:04:11.386 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:34:11.3861426Z"
+2026-04-11 04:05:11.531 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:35:11.5317554Z"
+2026-04-11 04:06:11.726 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:36:11.7268529Z"
+2026-04-11 04:07:12.045 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:37:12.0450558Z"
+2026-04-11 04:08:12.267 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:38:12.2678669Z"
+2026-04-11 04:09:12.539 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:39:12.5398590Z"
+2026-04-11 04:10:12.720 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:40:12.7204521Z"
+2026-04-11 04:11:12.913 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:41:12.9136394Z"
+2026-04-11 04:12:13.310 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:42:13.3100532Z"
+2026-04-11 04:13:13.554 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:43:13.5547974Z"
+2026-04-11 04:14:13.748 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:44:13.7482525Z"
+2026-04-11 04:15:13.956 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:45:13.9569130Z"
+2026-04-11 04:16:14.107 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:46:14.1077632Z"
+2026-04-11 04:17:14.324 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:47:14.3245034Z"
+2026-04-11 04:18:14.464 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:48:14.4645703Z"
+2026-04-11 04:19:14.886 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:49:14.8861213Z"
+2026-04-11 04:20:15.035 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:50:15.0352892Z"
+2026-04-11 04:21:00.460 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:51:00.4600166Z"
+2026-04-11 04:22:00.642 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:52:00.6428451Z"
+2026-04-11 04:23:00.777 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:53:00.7773571Z"
+2026-04-11 04:24:01.147 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:54:01.1479646Z"
+2026-04-11 04:25:01.541 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:55:01.5414045Z"
+2026-04-11 04:26:01.702 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:56:01.7028732Z"
+2026-04-11 04:27:01.936 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:57:01.9362312Z"
+2026-04-11 04:28:02.188 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:58:02.1885449Z"
+2026-04-11 04:29:02.360 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:59:02.3604508Z"
+2026-04-11 04:30:02.642 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:00:02.6424867Z"
+2026-04-11 04:31:02.862 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:01:02.8624630Z"
+2026-04-11 04:32:03.111 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:02:03.1112374Z"
+2026-04-11 04:33:03.323 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:03:03.3231693Z"
+2026-04-11 04:34:03.633 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:04:03.6339209Z"
+2026-04-11 04:35:03.955 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:05:03.9558932Z"
+2026-04-11 04:36:04.191 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:06:04.1911017Z"
+2026-04-11 04:37:04.407 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:07:04.4072521Z"
+2026-04-11 04:38:04.702 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:08:04.7027442Z"
+2026-04-11 04:39:05.114 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:09:05.1142956Z"
+2026-04-11 10:01:43.968 +05:30 [INF] Order migrations applied count: 3
+2026-04-11 10:01:44.281 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 10:01:46.924 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 10:01:47.929 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@OrderMigrationsDB'
+2026-04-11 10:01:48.106 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 10:01:48.292 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 10:01:48.874 +05:30 [INF] Server desktop-nfnd817:25972:77c0ba62 successfully announced in 197.8881 ms
+2026-04-11 10:01:48.890 +05:30 [INF] Server desktop-nfnd817:25972:77c0ba62 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 10:01:49.061 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 10:01:49.189 +05:30 [INF] Server desktop-nfnd817:25972:77c0ba62 all the dispatchers started
+2026-04-11 10:01:50.481 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:31:50.4790026Z"
+2026-04-11 10:01:59.900 +05:30 [INF] HTTP GET /health responded 200 in 215.0064 ms
+2026-04-11 10:02:03.861 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 10:02:04.579 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:32:04.5779789Z"
+2026-04-11 10:02:04.991 +05:30 [INF] Handled GetAllOrdersQuery in 412.9246ms
+2026-04-11 10:02:05.099 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 1598.5366 ms
+2026-04-11 10:02:05.359 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:32:05.3589550Z"
+2026-04-11 10:02:14.998 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:32:14.9986367Z"
+2026-04-11 10:02:15.131 +05:30 [INF] Handled GetAllOrdersQuery in 132.4203ms
+2026-04-11 10:02:15.162 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 262.6270 ms
+2026-04-11 10:02:41.773 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:32:41.7729650Z"
+2026-04-11 10:02:41.789 +05:30 [INF] Handled GetAllOrdersQuery in 16.7884ms
+2026-04-11 10:02:41.795 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 31.7739 ms
+2026-04-11 10:02:52.162 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:32:52.1625066Z"
+2026-04-11 10:02:52.173 +05:30 [INF] Handled GetAllOrdersQuery in 10.798ms
+2026-04-11 10:02:52.179 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 19.2664 ms
+2026-04-11 10:03:05.579 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:33:05.5798285Z"
+2026-04-11 10:03:06.508 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:33:06.5089255Z"
+2026-04-11 10:03:06.588 +05:30 [INF] Handled GetAllOrdersQuery in 79.1695ms
+2026-04-11 10:03:06.675 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 168.7657 ms
+2026-04-11 10:03:20.040 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:33:20.0404920Z"
+2026-04-11 10:03:20.054 +05:30 [INF] Handled GetAllOrdersQuery in 14.4126ms
+2026-04-11 10:03:20.066 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 26.7472 ms
+2026-04-11 10:04:05.701 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:34:05.7016101Z"
+2026-04-11 10:05:05.827 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:35:05.8275927Z"
+2026-04-11 10:06:05.921 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:36:05.9210003Z"
+2026-04-11 10:07:06.041 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:37:06.0418303Z"
+2026-04-11 10:08:06.156 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:38:06.1569737Z"
+2026-04-11 10:09:06.248 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:39:06.2486865Z"
+2026-04-11 10:09:08.337 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:39:08.3369884Z"
+2026-04-11 10:09:08.351 +05:30 [INF] Handled GetAllOrdersQuery in 14.8643ms
+2026-04-11 10:09:08.354 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 18.3699 ms
+2026-04-11 10:10:06.324 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:40:06.3244871Z"
+2026-04-11 10:11:06.406 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:41:06.4067369Z"
+2026-04-11 10:12:06.568 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:42:06.5684428Z"
+2026-04-11 10:13:07.142 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:43:07.1421141Z"
+2026-04-11 10:13:20.980 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:43:20.9803553Z"
+2026-04-11 10:13:20.999 +05:30 [INF] Handled GetAllOrdersQuery in 19.2129ms
+2026-04-11 10:13:21.002 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 23.2888 ms
+2026-04-11 10:13:28.729 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:43:28.7289716Z"
+2026-04-11 10:13:28.752 +05:30 [INF] Handled GetAllOrdersQuery in 23.5565ms
+2026-04-11 10:13:28.755 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 27.6637 ms
+2026-04-11 10:13:31.382 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:43:31.3825872Z"
+2026-04-11 10:13:31.394 +05:30 [INF] Handled GetAllOrdersQuery in 11.3295ms
+2026-04-11 10:13:31.397 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 16.0340 ms
+2026-04-11 10:13:39.254 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:43:39.2544916Z"
+2026-04-11 10:13:39.276 +05:30 [INF] Handled GetAllOrdersQuery in 21.5865ms
+2026-04-11 10:13:39.278 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 25.3663 ms
+2026-04-11 10:13:51.386 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:43:51.3864709Z"
+2026-04-11 10:13:51.401 +05:30 [INF] Handled GetAllOrdersQuery in 15.0175ms
+2026-04-11 10:13:51.413 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 34.8861 ms
+2026-04-11 10:14:07.212 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:44:07.2128461Z"
+2026-04-11 10:15:07.341 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:45:07.3413375Z"
+2026-04-11 10:15:27.316 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:45:27.3159402Z"
+2026-04-11 10:15:27.358 +05:30 [INF] Handled GetAllOrdersQuery in 42.2856ms
+2026-04-11 10:15:27.366 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 54.1295 ms
+2026-04-11 10:15:36.147 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:45:36.1474144Z"
+2026-04-11 10:15:36.151 +05:30 [INF] Handled GetAllOrdersQuery in 4.5388ms
+2026-04-11 10:15:36.153 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 7.0679 ms
+2026-04-11 10:15:54.259 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:45:54.2590926Z"
+2026-04-11 10:15:54.268 +05:30 [INF] Handled GetAllOrdersQuery in 9.5273ms
+2026-04-11 10:15:54.271 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 13.9773 ms
+2026-04-11 10:15:56.570 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T04:45:56.5702150Z"
+2026-04-11 10:15:56.805 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-04-11 10:15:57.129 +05:30 [INF] Handled GetOrderQuery in 559.0143ms
+2026-04-11 10:15:57.207 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 667.5225 ms
+2026-04-11 10:16:07.448 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:46:07.4481169Z"
+2026-04-11 10:16:26.640 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T04:46:26.6402258Z"
+2026-04-11 10:16:26.648 +05:30 [INF] Handled GetOrderQuery in 8.4863ms
+2026-04-11 10:16:26.650 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 13.2987 ms
+2026-04-11 10:17:07.575 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:47:07.5754390Z"
+2026-04-11 10:17:14.016 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T04:47:14.0163723Z"
+2026-04-11 10:17:14.040 +05:30 [INF] Handled GetOrderQuery in 23.9763ms
+2026-04-11 10:17:14.045 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 35.6960 ms
+2026-04-11 10:17:15.438 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T04:47:15.4382463Z"
+2026-04-11 10:17:15.444 +05:30 [INF] Handled GetOrderQuery in 6.2586ms
+2026-04-11 10:17:15.446 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 8.9643 ms
+2026-04-11 10:18:07.647 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:48:07.6474366Z"
+2026-04-11 10:19:07.729 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:49:07.7291606Z"
+2026-04-11 10:20:07.774 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:50:07.7741419Z"
+2026-04-11 10:21:07.836 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:51:07.8362650Z"
+2026-04-11 10:22:07.920 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:52:07.9200014Z"
+2026-04-11 10:22:34.301 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:52:34.3018807Z"
+2026-04-11 10:22:34.320 +05:30 [INF] Handled GetAllOrdersQuery in 18.1307ms
+2026-04-11 10:22:34.322 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 22.1191 ms
+2026-04-11 10:23:02.659 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T04:53:02.6596218Z"
+2026-04-11 10:23:02.664 +05:30 [INF] Handled GetAllOrdersQuery in 4.4678ms
+2026-04-11 10:23:02.666 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 8.5502 ms
+2026-04-11 10:23:05.016 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T04:53:05.0166395Z"
+2026-04-11 10:23:05.045 +05:30 [INF] Handled GetOrderQuery in 28.3849ms
+2026-04-11 10:23:05.048 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 33.0699 ms
+2026-04-11 10:23:08.040 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:53:08.0400718Z"
+2026-04-11 10:23:08.877 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T04:53:08.8777071Z"
+2026-04-11 10:23:08.883 +05:30 [INF] Handled GetOrderQuery in 6.03ms
+2026-04-11 10:23:08.886 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 9.0086 ms
+2026-04-11 10:23:16.193 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T04:53:16.1937886Z"
+2026-04-11 10:23:16.205 +05:30 [INF] Handled GetOrderQuery in 11.9148ms
+2026-04-11 10:23:16.214 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 21.5501 ms
+2026-04-11 10:23:17.934 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T04:53:17.9341175Z"
+2026-04-11 10:23:17.938 +05:30 [INF] Handled GetOrderQuery in 4.279ms
+2026-04-11 10:23:17.940 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 7.1094 ms
+2026-04-11 10:23:30.843 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T04:53:30.8437742Z"
+2026-04-11 10:23:30.869 +05:30 [INF] Handled GetOrderQuery in 25.342ms
+2026-04-11 10:23:30.872 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 28.8075 ms
+2026-04-11 10:24:08.186 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:54:08.1868584Z"
+2026-04-11 10:25:08.276 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:55:08.2768052Z"
+2026-04-11 10:26:08.384 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:56:08.3839901Z"
+2026-04-11 10:27:08.463 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:57:08.4633527Z"
+2026-04-11 10:28:08.553 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:58:08.5530663Z"
+2026-04-11 10:29:08.779 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:59:08.7793016Z"
+2026-04-11 10:30:08.957 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:00:08.9576030Z"
+2026-04-11 10:31:08.994 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:01:08.9947460Z"
+2026-04-11 10:32:09.077 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:02:09.0778456Z"
+2026-04-11 10:33:09.149 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:03:09.1494830Z"
+2026-04-11 10:34:09.246 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:04:09.2465495Z"
+2026-04-11 10:35:09.334 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:05:09.3346079Z"
+2026-04-11 10:36:09.445 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:06:09.4451173Z"
+2026-04-11 10:37:09.556 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:07:09.5569162Z"
+2026-04-11 10:38:09.615 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:08:09.6151071Z"
+2026-04-11 10:38:20.670 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:08:20.6701753Z"
+2026-04-11 10:38:20.688 +05:30 [INF] Handled GetAllOrdersQuery in 18.2086ms
+2026-04-11 10:38:20.718 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 49.5347 ms
+2026-04-11 10:38:59.516 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:08:59.5167312Z"
+2026-04-11 10:38:59.535 +05:30 [INF] Handled GetOrderQuery in 18.3534ms
+2026-04-11 10:38:59.536 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 20.7264 ms
+2026-04-11 10:39:09.694 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:09:09.6943076Z"
+2026-04-11 10:39:11.464 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:09:11.4645448Z"
+2026-04-11 10:39:11.471 +05:30 [INF] Handled GetAllOrdersQuery in 6.9952ms
+2026-04-11 10:39:11.474 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 10.3974 ms
+2026-04-11 10:39:13.411 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:09:13.4114010Z"
+2026-04-11 10:39:13.415 +05:30 [INF] Handled GetOrderQuery in 4.4502ms
+2026-04-11 10:39:13.418 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 7.5216 ms
+2026-04-11 10:39:46.432 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:09:46.4326135Z"
+2026-04-11 10:39:46.442 +05:30 [INF] Handled GetAllOrdersQuery in 9.6317ms
+2026-04-11 10:39:46.448 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 16.8025 ms
+2026-04-11 10:40:09.755 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:10:09.7557278Z"
+2026-04-11 10:40:28.938 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:10:28.9383386Z"
+2026-04-11 10:40:28.947 +05:30 [INF] Handled GetAllOrdersQuery in 9.6264ms
+2026-04-11 10:40:28.949 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 12.7869 ms
+2026-04-11 10:40:48.350 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:10:48.3503449Z"
+2026-04-11 10:40:48.358 +05:30 [INF] Handled GetAllOrdersQuery in 7.8495ms
+2026-04-11 10:40:48.359 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 10.7475 ms
+2026-04-11 10:40:55.503 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:10:55.5036140Z"
+2026-04-11 10:40:55.517 +05:30 [INF] Handled GetOrderQuery in 13.9199ms
+2026-04-11 10:40:55.519 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 16.7063 ms
+2026-04-11 10:41:09.844 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:11:09.8449872Z"
+2026-04-11 10:41:18.278 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:11:18.2780392Z"
+2026-04-11 10:41:18.288 +05:30 [INF] Handled GetOrderQuery in 10.7147ms
+2026-04-11 10:41:18.291 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 14.2817 ms
+2026-04-11 10:42:09.923 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:12:09.9230683Z"
+2026-04-11 10:42:52.618 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:12:52.6188039Z"
+2026-04-11 10:42:52.633 +05:30 [INF] Handled GetOrderQuery in 14.7892ms
+2026-04-11 10:42:52.635 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 17.3855 ms
+2026-04-11 10:43:10.033 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:13:10.0338960Z"
+2026-04-11 10:44:10.080 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:14:10.0806736Z"
+2026-04-11 10:45:11.649 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:15:11.6491659Z"
+2026-04-11 10:46:11.934 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:16:11.9346871Z"
+2026-04-11 10:47:13.228 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:17:13.2286273Z"
+2026-04-11 10:48:13.385 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:18:13.3857230Z"
+2026-04-11 10:49:02.182 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:19:02.1820690Z"
+2026-04-11 10:49:02.317 +05:30 [INF] Handled GetOrderQuery in 135.6459ms
+2026-04-11 10:49:02.332 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 152.1690 ms
+2026-04-11 10:49:13.604 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:19:13.6040366Z"
+2026-04-11 10:49:47.970 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:19:47.9702896Z"
+2026-04-11 10:49:48.022 +05:30 [INF] Handled GetOrderQuery in 52.2205ms
+2026-04-11 10:49:48.033 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 63.8562 ms
+2026-04-11 10:50:14.116 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:20:14.1160132Z"
+2026-04-11 10:50:49.071 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:20:49.0712685Z"
+2026-04-11 10:50:49.125 +05:30 [INF] Handled GetOrderQuery in 53.9268ms
+2026-04-11 10:50:49.135 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 65.5735 ms
+2026-04-11 10:51:14.240 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:21:14.2400433Z"
+2026-04-11 10:51:35.514 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:21:35.5141633Z"
+2026-04-11 10:51:35.554 +05:30 [INF] Handled GetOrderQuery in 40.7706ms
+2026-04-11 10:51:35.564 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 54.0870 ms
+2026-04-11 10:52:14.357 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:22:14.3574795Z"
+2026-04-11 10:53:14.612 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:23:14.6121500Z"
+2026-04-11 10:54:14.708 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:24:14.7084721Z"
+2026-04-11 10:55:15.116 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:25:15.1167434Z"
+2026-04-11 10:56:00.580 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:26:00.5799905Z"
+2026-04-11 10:57:02.638 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:27:02.6380214Z"
+2026-04-11 10:58:03.338 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:28:03.3384593Z"
+2026-04-11 10:59:03.639 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:29:03.6397651Z"
+2026-04-11 11:00:03.841 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:30:03.8412212Z"
+2026-04-11 11:01:04.017 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:31:04.0177138Z"
+2026-04-11 11:02:04.520 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:32:04.5199912Z"
+2026-04-11 11:03:05.013 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:33:05.0132558Z"
+2026-04-11 11:04:05.726 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:34:05.7265952Z"
+2026-04-11 11:05:05.828 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:35:05.8282896Z"
+2026-04-11 11:06:05.971 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:36:05.9718664Z"
+2026-04-11 11:07:06.196 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:37:06.1959624Z"
+2026-04-11 11:07:28.418 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:37:28.4182928Z"
+2026-04-11 11:07:28.544 +05:30 [INF] Handled GetOrderQuery in 126.2594ms
+2026-04-11 11:07:28.560 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 165.5431 ms
+2026-04-11 11:07:30.137 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:37:30.1378176Z"
+2026-04-11 11:07:30.266 +05:30 [INF] Handled GetAllOrdersQuery in 128.504ms
+2026-04-11 11:07:30.277 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 147.9187 ms
+2026-04-11 11:07:34.518 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:37:34.5185038Z"
+2026-04-11 11:07:34.550 +05:30 [INF] Handled GetOrderQuery in 32.1034ms
+2026-04-11 11:07:34.554 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 37.0911 ms
+2026-04-11 11:07:41.984 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:37:41.9846240Z"
+2026-04-11 11:07:42.035 +05:30 [INF] Handled GetAllOrdersQuery in 51.2721ms
+2026-04-11 11:07:42.051 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 68.1813 ms
+2026-04-11 11:08:06.690 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:38:06.6901853Z"
+2026-04-11 11:09:07.303 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:39:07.3037520Z"
+2026-04-11 11:10:07.846 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:40:07.8465425Z"
+2026-04-11 11:11:08.235 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:41:08.2355756Z"
+2026-04-11 11:12:08.438 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:42:08.4388913Z"
+2026-04-11 11:12:52.720 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:42:52.7205429Z"
+2026-04-11 11:12:52.781 +05:30 [INF] Handled GetAllOrdersQuery in 60.7741ms
+2026-04-11 11:12:52.798 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 79.9373 ms
+2026-04-11 11:12:54.771 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:42:54.7718580Z"
+2026-04-11 11:12:54.810 +05:30 [INF] Handled GetOrderQuery in 39.0171ms
+2026-04-11 11:12:54.814 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 45.7849 ms
+2026-04-11 11:13:03.016 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:43:03.0160645Z"
+2026-04-11 11:13:03.033 +05:30 [INF] Handled GetAllOrdersQuery in 17.7622ms
+2026-04-11 11:13:03.077 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 62.1018 ms
+2026-04-11 11:13:09.004 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:43:09.0043544Z"
+2026-04-11 11:13:09.450 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:43:09.4502345Z"
+2026-04-11 11:13:09.491 +05:30 [INF] Handled GetOrderQuery in 40.9248ms
+2026-04-11 11:13:09.496 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 47.5359 ms
+2026-04-11 11:13:21.856 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:43:21.8567867Z"
+2026-04-11 11:13:21.880 +05:30 [INF] Handled GetAllOrdersQuery in 23.2636ms
+2026-04-11 11:13:21.884 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 29.3784 ms
+2026-04-11 11:13:23.819 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:43:23.8194843Z"
+2026-04-11 11:13:23.856 +05:30 [INF] Handled GetOrderQuery in 37.0596ms
+2026-04-11 11:13:23.861 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 42.7652 ms
+2026-04-11 11:13:29.543 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:43:29.5438511Z"
+2026-04-11 11:13:29.571 +05:30 [INF] Handled GetOrderQuery in 27.3111ms
+2026-04-11 11:13:29.577 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 34.7334 ms
+2026-04-11 11:13:32.320 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:43:32.3203179Z"
+2026-04-11 11:13:32.355 +05:30 [INF] Handled GetOrderQuery in 35.441ms
+2026-04-11 11:13:32.359 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 39.5531 ms
+2026-04-11 11:13:46.075 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:43:46.0758488Z"
+2026-04-11 11:13:46.100 +05:30 [INF] Handled GetAllOrdersQuery in 24.595ms
+2026-04-11 11:13:46.103 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 28.8462 ms
+2026-04-11 11:14:08.985 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:44:08.9854404Z"
+2026-04-11 11:15:09.119 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:45:09.1197848Z"
+2026-04-11 11:16:09.261 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:46:09.2610231Z"
+2026-04-11 11:16:51.077 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:46:51.0774324Z"
+2026-04-11 11:16:51.110 +05:30 [INF] Handled GetOrderQuery in 32.739ms
+2026-04-11 11:16:51.113 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 37.3365 ms
+2026-04-11 11:17:09.522 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:47:09.5223733Z"
+2026-04-11 11:17:47.982 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:47:47.9825312Z"
+2026-04-11 11:17:48.031 +05:30 [INF] Handled GetOrderQuery in 48.4562ms
+2026-04-11 11:17:48.034 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 53.0134 ms
+2026-04-11 11:17:56.094 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:47:56.0943582Z"
+2026-04-11 11:17:56.128 +05:30 [INF] Handled GetAllOrdersQuery in 33.8611ms
+2026-04-11 11:17:56.163 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 77.3585 ms
+2026-04-11 11:18:03.115 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:48:03.1152809Z"
+2026-04-11 11:18:03.130 +05:30 [INF] Handled GetAllOrdersQuery in 15.0243ms
+2026-04-11 11:18:03.140 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 25.7159 ms
+2026-04-11 11:18:06.338 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:48:06.3386687Z"
+2026-04-11 11:18:06.346 +05:30 [INF] Handled GetOrderQuery in 7.8679ms
+2026-04-11 11:18:06.353 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 15.2620 ms
+2026-04-11 11:18:09.654 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:48:09.6544687Z"
+2026-04-11 11:18:10.409 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:48:10.4099782Z"
+2026-04-11 11:18:10.419 +05:30 [INF] Handled GetAllOrdersQuery in 9.9783ms
+2026-04-11 11:18:10.428 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 18.8030 ms
+2026-04-11 11:18:13.953 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:48:13.9532617Z"
+2026-04-11 11:18:13.968 +05:30 [INF] Handled GetOrderQuery in 14.9976ms
+2026-04-11 11:18:13.984 +05:30 [INF] HTTP GET /api/orders/65de45f6-bcec-4e42-a6cc-4a9bbf5058e7 responded 200 in 31.9724 ms
+2026-04-11 11:18:30.117 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:48:30.1174643Z"
+2026-04-11 11:18:30.140 +05:30 [INF] Handled GetAllOrdersQuery in 23.4511ms
+2026-04-11 11:18:30.146 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 39.0082 ms
+2026-04-11 11:18:32.993 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:48:32.9936091Z"
+2026-04-11 11:18:33.044 +05:30 [INF] Handled GetOrderQuery in 50.6769ms
+2026-04-11 11:18:33.050 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 59.8199 ms
+2026-04-11 11:18:40.066 +05:30 [INF] Handling UpdateOrderStatusCommand at "2026-04-11T05:48:40.0660575Z"
+2026-04-11 11:18:42.287 +05:30 [INF] Order saga "2a659508-696a-4794-953d-e5aaa9ade091" transitioned to "CompletedApproved"
+2026-04-11 11:18:42.299 +05:30 [INF] Handled UpdateOrderStatusCommand in 2233.6913ms
+2026-04-11 11:18:42.323 +05:30 [INF] HTTP PUT /api/orders/2a659508-696a-4794-953d-e5aaa9ade091/status responded 200 in 2677.4016 ms
+2026-04-11 11:18:42.433 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T05:48:42.4333320Z"
+2026-04-11 11:18:42.461 +05:30 [INF] Handled GetOrderQuery in 27.6548ms
+2026-04-11 11:18:42.469 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 37.6766 ms
+2026-04-11 11:18:47.197 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:48:47.1978748Z"
+2026-04-11 11:18:47.209 +05:30 [INF] Handled GetAllOrdersQuery in 12.0609ms
+2026-04-11 11:18:47.213 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 16.5445 ms
+2026-04-11 11:19:09.858 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:49:09.8584315Z"
+2026-04-11 11:20:10.032 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:50:10.0323871Z"
+2026-04-11 11:21:08.825 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T05:51:08.8252076Z"
+2026-04-11 11:21:08.843 +05:30 [INF] Handled GetAllOrdersQuery in 18.5366ms
+2026-04-11 11:21:08.848 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 23.6756 ms
+2026-04-11 11:21:10.167 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:51:10.1673578Z"
+2026-04-11 11:22:10.320 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:52:10.3208892Z"
+2026-04-11 11:23:10.613 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:53:10.6133107Z"
+2026-04-11 11:24:11.854 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:54:11.8543652Z"
+2026-04-11 11:25:12.914 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:55:12.9141782Z"
+2026-04-11 11:26:13.544 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:56:13.5443346Z"
+2026-04-11 11:27:13.977 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:57:13.9771062Z"
+2026-04-11 11:28:15.046 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:58:15.0466606Z"
+2026-04-11 11:29:00.446 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:59:00.4467670Z"
+2026-04-11 11:30:00.827 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:00:00.8278032Z"
+2026-04-11 11:30:55.406 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:00:55.4064515Z"
+2026-04-11 11:30:55.503 +05:30 [INF] Handled GetAllOrdersQuery in 97.255ms
+2026-04-11 11:30:55.523 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 150.0792 ms
+2026-04-11 11:31:00.897 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:01:00.8970483Z"
+2026-04-11 11:32:01.123 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:02:01.1239420Z"
+2026-04-11 11:33:01.781 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:03:01.7810714Z"
+2026-04-11 11:34:01.879 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:04:01.8797414Z"
+2026-04-11 11:35:01.992 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:05:01.9928910Z"
+2026-04-11 11:36:02.105 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:06:02.1054081Z"
+2026-04-11 11:37:02.215 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:07:02.2153378Z"
+2026-04-11 11:38:02.294 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:08:02.2941550Z"
+2026-04-11 11:39:02.462 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:09:02.4624139Z"
+2026-04-11 11:40:02.508 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:10:02.5082456Z"
+2026-04-11 11:41:02.654 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:11:02.6547426Z"
+2026-04-11 11:42:03.133 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:12:03.1339089Z"
+2026-04-11 11:43:04.186 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:13:04.1867638Z"
+2026-04-11 11:44:04.057 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:14:04.0570580Z"
+2026-04-11 11:44:26.485 +05:30 [INF] Handling CreateOrderCommand at "2026-04-11T06:14:26.4834729Z"
+2026-04-11 11:44:27.201 +05:30 [INF] Start processing HTTP request GET http://localhost:8005/api/payment/dealers/cecf8d12-83d6-413b-bf1d-eb5f349e8ddb/credit-check?*
+2026-04-11 11:44:27.224 +05:30 [INF] Sending HTTP request GET http://localhost:8005/api/payment/dealers/cecf8d12-83d6-413b-bf1d-eb5f349e8ddb/credit-check?*
+2026-04-11 11:44:30.223 +05:30 [INF] Received HTTP response headers after 2962.9961ms - 200
+2026-04-11 11:44:30.282 +05:30 [INF] End processing HTTP request after 3131.3609ms - 200
+2026-04-11 11:44:31.022 +05:30 [ERR] HTTP POST /api/orders responded 500 in 5247.8271 ms
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A severe error occurred on the current command.  The results, if any, should be discarded.
+Operation cancelled by user.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:90060969-38d4-4711-8449-e3f8cecbaa69
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Order.Application.Services.OrderService.CreateOrderAsync(Guid dealerId, CreateOrderRequest request, CancellationToken cancellationToken)
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.Create(CreateOrderRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 11:44:31.784 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A severe error occurred on the current command.  The results, if any, should be discarded.
+Operation cancelled by user.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:90060969-38d4-4711-8449-e3f8cecbaa69
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Order.Application.Services.OrderService.CreateOrderAsync(Guid dealerId, CreateOrderRequest request, CancellationToken cancellationToken)
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.Create(CreateOrderRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 27
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Program.<>c.<<<Main>$>b__0_4>d.MoveNext() in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Program.cs:line 120
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-04-11 11:44:48.166 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:14:48.1663969Z"
+2026-04-11 11:44:49.844 +05:30 [INF] Handled GetAllOrdersQuery in 1677.6956ms
+2026-04-11 11:44:51.094 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 2929.2719 ms
+2026-04-11 11:44:52.751 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:14:52.7510211Z"
+2026-04-11 11:44:53.083 +05:30 [INF] Handled GetAllOrdersQuery in 332.4993ms
+2026-04-11 11:44:53.689 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 954.7514 ms
+2026-04-11 11:45:05.399 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:15:05.3995204Z"
+2026-04-11 11:45:06.484 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T06:15:06.4838917Z"
+2026-04-11 11:45:06.680 +05:30 [INF] Handled GetOrderQuery in 196.672ms
+2026-04-11 11:45:06.705 +05:30 [INF] HTTP GET /api/orders/26bad3ad-7489-490f-9622-b0ae0750583f responded 200 in 227.2255 ms
+2026-04-11 11:45:09.314 +05:30 [INF] HTTP POST /api/orders responded 403 in 53.3699 ms
+2026-04-11 11:45:10.168 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T06:15:10.1666414Z"
+2026-04-11 11:45:10.798 +05:30 [INF] Handled GetDealerOrdersQuery in 631.9117ms
+2026-04-11 11:45:10.851 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 795.4252 ms
+2026-04-11 11:45:12.235 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T06:15:12.2357482Z"
+2026-04-11 11:45:12.301 +05:30 [INF] Handled GetOrderQuery in 65.9611ms
+2026-04-11 11:45:12.750 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:15:12.7501957Z"
+2026-04-11 11:45:12.934 +05:30 [INF] Handled GetAllOrdersQuery in 184.5102ms
+2026-04-11 11:45:12.950 +05:30 [INF] HTTP GET /api/orders/3b84eead-3547-4b0c-87fb-16810546901a responded 404 in 715.6928 ms
+2026-04-11 11:45:13.040 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 291.0076 ms
+2026-04-11 11:45:14.398 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T06:15:14.3986954Z"
+2026-04-11 11:45:14.551 +05:30 [INF] Handled GetOrderQuery in 152.6852ms
+2026-04-11 11:45:14.640 +05:30 [INF] HTTP GET /api/orders/3b84eead-3547-4b0c-87fb-16810546901a responded 404 in 242.0134 ms
+2026-04-11 11:45:14.842 +05:30 [INF] Handling UpdateOrderStatusCommand at "2026-04-11T06:15:14.8426261Z"
+2026-04-11 11:45:14.915 +05:30 [INF] Handled UpdateOrderStatusCommand in 72.5163ms
+2026-04-11 11:45:14.996 +05:30 [INF] HTTP PUT /api/orders/3b84eead-3547-4b0c-87fb-16810546901a/status responded 404 in 180.6579 ms
+2026-04-11 11:45:15.124 +05:30 [INF] Handling UpdateOrderStatusCommand at "2026-04-11T06:15:15.1248318Z"
+2026-04-11 11:45:15.180 +05:30 [INF] Handled UpdateOrderStatusCommand in 55.3818ms
+2026-04-11 11:45:15.199 +05:30 [INF] HTTP PUT /api/orders/3b84eead-3547-4b0c-87fb-16810546901a/status responded 404 in 105.7847 ms
+2026-04-11 11:45:15.366 +05:30 [INF] Handling CancelOrderCommand at "2026-04-11T06:15:15.3661369Z"
+2026-04-11 11:45:15.431 +05:30 [INF] Handled CancelOrderCommand in 65.2615ms
+2026-04-11 11:45:15.441 +05:30 [INF] HTTP POST /api/orders/3b84eead-3547-4b0c-87fb-16810546901a/cancel responded 404 in 123.7055 ms
+2026-04-11 11:45:15.668 +05:30 [INF] Handling RequestReturnCommand at "2026-04-11T06:15:15.6680571Z"
+2026-04-11 11:45:15.761 +05:30 [INF] Handled RequestReturnCommand in 93.8395ms
+2026-04-11 11:45:15.767 +05:30 [INF] HTTP POST /api/orders/3b84eead-3547-4b0c-87fb-16810546901a/returns responded 404 in 204.6506 ms
+2026-04-11 11:45:15.822 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:15:15.8226836Z"
+2026-04-11 11:45:15.846 +05:30 [INF] Handled GetAllOrdersQuery in 23.5161ms
+2026-04-11 11:45:15.851 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 32.8002 ms
+2026-04-11 11:45:16.049 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:15:16.0491151Z"
+2026-04-11 11:45:16.106 +05:30 [INF] Handled GetAllOrdersQuery in 57.1549ms
+2026-04-11 11:45:16.112 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 64.0774 ms
+2026-04-11 11:45:16.264 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:15:16.2648314Z"
+2026-04-11 11:45:16.327 +05:30 [INF] Handled GetAllOrdersQuery in 62.3374ms
+2026-04-11 11:45:16.348 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 83.9281 ms
+2026-04-11 11:45:16.658 +05:30 [INF] Handling BulkUpdateOrderStatusCommand at "2026-04-11T06:15:16.6583004Z"
+2026-04-11 11:45:17.193 +05:30 [INF] Handled BulkUpdateOrderStatusCommand in 535.3626ms
+2026-04-11 11:45:17.240 +05:30 [INF] HTTP POST /api/admin/orders/bulk-status responded 200 in 680.4051 ms
+2026-04-11 11:45:18.127 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T06:15:18.1271025Z"
+2026-04-11 11:45:18.433 +05:30 [INF] Handled GetOrderQuery in 306.4867ms
+2026-04-11 11:45:18.531 +05:30 [INF] HTTP GET /api/orders/7a219e6d-bdbb-4cfd-9624-a90726e690eb responded 200 in 405.3458 ms
+2026-04-11 11:45:19.822 +05:30 [INF] Handling ApproveOnHoldCommand at "2026-04-11T06:15:19.8216246Z"
+2026-04-11 11:45:20.095 +05:30 [INF] Handled ApproveOnHoldCommand in 274.1612ms
+2026-04-11 11:45:20.128 +05:30 [INF] HTTP PUT /api/admin/orders/3b84eead-3547-4b0c-87fb-16810546901a/approve-hold responded 404 in 377.6215 ms
+2026-04-11 11:45:20.550 +05:30 [INF] Handling RejectOnHoldCommand at "2026-04-11T06:15:20.5498128Z"
+2026-04-11 11:45:20.677 +05:30 [INF] Handled RejectOnHoldCommand in 127.1908ms
+2026-04-11 11:45:20.718 +05:30 [INF] HTTP PUT /api/admin/orders/3b84eead-3547-4b0c-87fb-16810546901a/reject-hold responded 404 in 218.4683 ms
+2026-04-11 11:45:20.889 +05:30 [INF] Handling ApproveOnHoldCommand at "2026-04-11T06:15:20.8892205Z"
+2026-04-11 11:45:21.001 +05:30 [INF] Handled ApproveOnHoldCommand in 111.7963ms
+2026-04-11 11:45:21.343 +05:30 [INF] HTTP PUT /api/admin/orders/3b84eead-3547-4b0c-87fb-16810546901a/approve-hold responded 404 in 458.6039 ms
+2026-04-11 11:45:26.067 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:15:26.0671709Z"
+2026-04-11 11:45:26.229 +05:30 [INF] Handled GetAllOrdersQuery in 162.1915ms
+2026-04-11 11:45:26.345 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 280.8737 ms
+2026-04-11 11:45:30.412 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:15:30.4120923Z"
+2026-04-11 11:45:30.480 +05:30 [INF] Handled GetAllOrdersQuery in 68.0048ms
+2026-04-11 11:45:31.118 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 706.9984 ms
+2026-04-11 11:45:36.118 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T06:15:36.1180503Z"
+2026-04-11 11:45:36.413 +05:30 [INF] Handled GetOrderQuery in 295.159ms
+2026-04-11 11:45:36.632 +05:30 [INF] HTTP GET /api/orders/3905b34b-de46-40bd-946a-2b19ecb7ee71 responded 200 in 515.2125 ms
+2026-04-11 11:45:42.832 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:15:42.8321473Z"
+2026-04-11 11:45:42.941 +05:30 [INF] Handled GetAllOrdersQuery in 109.6252ms
+2026-04-11 11:45:42.995 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 164.1258 ms
+2026-04-11 11:45:51.686 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T06:15:51.6861165Z"
+2026-04-11 11:45:51.825 +05:30 [INF] Handled GetOrderQuery in 139.3904ms
+2026-04-11 11:45:52.264 +05:30 [INF] HTTP GET /api/orders/3ec681e9-8e39-4182-84a6-425710eb311b responded 200 in 579.3519 ms
+2026-04-11 11:45:57.045 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:15:57.0456948Z"
+2026-04-11 11:45:57.368 +05:30 [INF] Handled GetAllOrdersQuery in 322.7869ms
+2026-04-11 11:45:57.386 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 341.3944 ms
+2026-04-11 11:46:05.589 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:16:05.5897299Z"
+2026-04-11 11:47:19.075 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:17:19.0756045Z"
+2026-04-11 11:48:17.079 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:18:17.0792949Z"
+2026-04-11 11:48:23.677 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T06:18:23.6778681Z"
+2026-04-11 11:48:26.794 +05:30 [INF] Handled GetOrderQuery in 3116.7047ms
+2026-04-11 11:48:29.981 +05:30 [INF] HTTP GET /api/orders/2a659508-696a-4794-953d-e5aaa9ade091 responded 200 in 6332.2281 ms
+2026-04-11 11:48:48.163 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:18:48.1634308Z"
+2026-04-11 11:48:51.073 +05:30 [INF] Handled GetAllOrdersQuery in 2910.5031ms
+2026-04-11 11:48:53.424 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 5307.6071 ms
+2026-04-11 11:49:20.792 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:19:20.7922330Z"
+2026-04-11 11:55:39.664 +05:30 [INF] Order migrations applied count: 3
+2026-04-11 11:55:41.258 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 11:55:42.680 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 11:55:44.876 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@OrderMigrationsDB'
+2026-04-11 11:55:44.883 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 11:55:44.898 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 11:55:45.067 +05:30 [INF] Server desktop-nfnd817:12280:cb4e373a successfully announced in 95.6702 ms
+2026-04-11 11:55:45.083 +05:30 [INF] Server desktop-nfnd817:12280:cb4e373a is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 11:55:45.137 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 11:55:45.301 +05:30 [INF] Server desktop-nfnd817:12280:cb4e373a all the dispatchers started
+2026-04-11 11:55:46.048 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:25:46.0460154Z"
+2026-04-11 11:55:46.072 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:25:46.0719031Z"
+2026-04-11 11:56:01.340 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:26:01.3398692Z"
+2026-04-11 11:57:03.200 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:27:03.1999182Z"
+2026-04-11 11:58:03.712 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:28:03.7121712Z"
+2026-04-11 11:59:04.243 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:29:04.2425657Z"
+2026-04-11 12:00:08.246 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:30:08.2460737Z"
+2026-04-11 12:01:12.744 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:31:12.7440425Z"
+2026-04-11 12:02:24.928 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:32:24.9279952Z"
+2026-04-11 12:03:15.022 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:33:15.0221137Z"
+2026-04-11 12:04:15.930 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:34:15.9305668Z"
+2026-04-11 12:05:01.467 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:35:01.4676519Z"
+2026-04-11 12:06:01.816 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:36:01.8168428Z"
+2026-04-11 12:07:01.934 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:37:01.9341515Z"
+2026-04-11 12:08:02.230 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:38:02.2301147Z"
+2026-04-11 12:09:02.482 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:39:02.4825902Z"
+2026-04-11 12:09:36.525 +05:30 [INF] HTTP GET /health responded 200 in 225.5908 ms
+2026-04-11 12:10:03.096 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:40:03.0965140Z"
+2026-04-11 12:11:04.724 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:41:04.7244610Z"
+2026-04-11 12:12:01.295 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 12:12:04.689 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:42:04.6796409Z"
+2026-04-11 12:12:06.685 +05:30 [ERR] HTTP GET /api/admin/orders responded 500 in 6493.3289 ms
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Order.Infrastructure.Repositories.OrderRepository.GetAllOrdersAsync(Int32 page, Int32 pageSize, Nullable`1 status, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Infrastructure\Repositories\OrderRepository.cs:line 71
+   at Order.Application.Services.OrderService.GetAllOrdersAsync(Int32 page, Int32 pageSize, Nullable`1 status, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 147
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.AdminOrdersController.GetAll(Int32 page, Int32 pageSize, Nullable`1 status, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\AdminOrdersController.cs:line 20
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 12:12:07.745 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:42:07.7458781Z"
+2026-04-11 12:12:08.061 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:42:08.0618474Z"
+2026-04-11 12:12:11.549 +05:30 [INF] Handled GetAllOrdersQuery in 3803.6657ms
+2026-04-11 12:12:12.980 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 5631.8709 ms
+2026-04-11 12:12:20.950 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:42:20.9500095Z"
+2026-04-11 12:12:21.232 +05:30 [INF] Handled GetAllOrdersQuery in 282.6966ms
+2026-04-11 12:12:21.275 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 465.1910 ms
+2026-04-11 12:12:26.696 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T06:42:26.6959528Z"
+2026-04-11 12:12:27.745 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-04-11 12:12:29.359 +05:30 [INF] Handled GetOrderQuery in 2663.1274ms
+2026-04-11 12:12:29.629 +05:30 [INF] HTTP GET /api/orders/7a219e6d-bdbb-4cfd-9624-a90726e690eb responded 200 in 3031.1896 ms
+2026-04-11 12:12:37.682 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T06:42:37.6827561Z"
+2026-04-11 12:12:38.132 +05:30 [INF] Handled GetAllOrdersQuery in 449.3014ms
+2026-04-11 12:12:38.876 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 1196.7074 ms
+2026-04-11 12:13:08.143 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T06:43:08.1426419Z"
+2026-04-11 12:13:08.446 +05:30 [INF] Handled GetDealerOrdersQuery in 304.0643ms
+2026-04-11 12:13:08.530 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 433.1413 ms
+2026-04-11 12:13:09.928 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:43:09.9284327Z"
+2026-04-11 12:14:10.265 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:44:10.2654999Z"
+2026-04-11 12:15:11.447 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:45:11.4475278Z"
+2026-04-11 12:16:11.895 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:46:11.8952913Z"
+2026-04-11 12:17:12.099 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:47:12.0994590Z"
+2026-04-11 12:18:12.398 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:48:12.3985945Z"
+2026-04-11 12:19:12.529 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:49:12.5292396Z"
+2026-04-11 12:20:12.618 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:50:12.6182484Z"
+2026-04-11 12:21:12.722 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:51:12.7222001Z"
+2026-04-11 12:22:12.800 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:52:12.8000589Z"
+2026-04-11 12:23:12.915 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:53:12.9152608Z"
+2026-04-11 12:24:13.011 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:54:13.0115745Z"
+2026-04-11 12:24:21.780 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T06:54:21.7808826Z"
+2026-04-11 12:24:21.814 +05:30 [INF] Handled GetDealerOrdersQuery in 33.3209ms
+2026-04-11 12:24:21.824 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 46.5262 ms
+2026-04-11 12:24:23.574 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T06:54:23.5742344Z"
+2026-04-11 12:24:23.589 +05:30 [INF] Handled GetDealerOrdersQuery in 14.8739ms
+2026-04-11 12:24:23.596 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 29.1564 ms
+2026-04-11 12:24:52.180 +05:30 [INF] Handling CreateOrderCommand at "2026-04-11T06:54:52.1801964Z"
+2026-04-11 12:24:52.308 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 12:24:52.311 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 12:24:52.674 +05:30 [INF] Received HTTP response headers after 358.2851ms - 200
+2026-04-11 12:24:52.676 +05:30 [INF] End processing HTTP request after 371.1049ms - 200
+2026-04-11 12:24:52.682 +05:30 [INF] Start processing HTTP request GET http://localhost:8005/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/credit-check?*
+2026-04-11 12:24:52.684 +05:30 [INF] Sending HTTP request GET http://localhost:8005/api/payment/dealers/1efe2be4-0591-454a-b0c4-0c3f3eb0d548/credit-check?*
+2026-04-11 12:24:52.703 +05:30 [INF] Received HTTP response headers after 17.3811ms - 200
+2026-04-11 12:24:52.704 +05:30 [INF] End processing HTTP request after 22.4125ms - 200
+2026-04-11 12:24:53.146 +05:30 [INF] Order saga started for order "552b463b-ccfc-4408-846f-7bc4fe6ea607"
+2026-04-11 12:24:53.166 +05:30 [INF] Order saga "552b463b-ccfc-4408-846f-7bc4fe6ea607" transitioned to "CreditCheckInProgress"
+2026-04-11 12:24:53.173 +05:30 [INF] Order saga "552b463b-ccfc-4408-846f-7bc4fe6ea607" transitioned to "CompletedApproved"
+2026-04-11 12:24:53.179 +05:30 [INF] Handled CreateOrderCommand in 999.6253ms
+2026-04-11 12:24:53.209 +05:30 [INF] HTTP POST /api/orders responded 201 in 1103.8032 ms
+2026-04-11 12:24:53.260 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T06:54:53.2604205Z"
+2026-04-11 12:24:53.276 +05:30 [INF] Handled GetOrderQuery in 15.9632ms
+2026-04-11 12:24:53.277 +05:30 [INF] HTTP GET /api/orders/552b463b-ccfc-4408-846f-7bc4fe6ea607 responded 200 in 18.9890 ms
+2026-04-11 12:25:15.204 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:55:15.2039819Z"
+2026-04-11 12:26:00.292 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:56:00.2929225Z"
+2026-04-11 12:27:00.651 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:57:00.6519667Z"
+2026-04-11 12:28:00.764 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:58:00.7641098Z"
+2026-04-11 12:29:00.917 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:59:00.9177886Z"
+2026-04-11 12:29:41.061 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T06:59:41.0618450Z"
+2026-04-11 12:29:41.083 +05:30 [INF] Handled GetDealerOrdersQuery in 21.138ms
+2026-04-11 12:29:41.092 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 32.7894 ms
+2026-04-11 12:29:42.374 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T06:59:42.3747108Z"
+2026-04-11 12:29:42.393 +05:30 [INF] Handled GetDealerOrdersQuery in 18.6296ms
+2026-04-11 12:29:42.397 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 24.9641 ms
+2026-04-11 12:30:01.339 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:00:01.3399517Z"
+2026-04-11 12:30:32.170 +05:30 [INF] Handling CreateOrderCommand at "2026-04-11T07:00:32.1700087Z"
+2026-04-11 12:30:32.173 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 12:30:32.174 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 12:30:32.203 +05:30 [INF] Received HTTP response headers after 27.7773ms - 200
+2026-04-11 12:30:32.205 +05:30 [INF] End processing HTTP request after 31.8015ms - 200
+2026-04-11 12:30:32.206 +05:30 [INF] Start processing HTTP request GET http://localhost:8005/api/payment/dealers/29291410-3fbf-4078-b640-6efdb5023431/credit-check?*
+2026-04-11 12:30:32.207 +05:30 [INF] Sending HTTP request GET http://localhost:8005/api/payment/dealers/29291410-3fbf-4078-b640-6efdb5023431/credit-check?*
+2026-04-11 12:30:32.510 +05:30 [INF] Received HTTP response headers after 300.7941ms - 200
+2026-04-11 12:30:32.512 +05:30 [INF] End processing HTTP request after 306.0392ms - 200
+2026-04-11 12:30:32.572 +05:30 [INF] Order saga started for order "ce45a50e-e6c3-46c9-9cb1-8fc66b86482c"
+2026-04-11 12:30:32.581 +05:30 [INF] Order saga "ce45a50e-e6c3-46c9-9cb1-8fc66b86482c" transitioned to "CreditCheckInProgress"
+2026-04-11 12:30:32.595 +05:30 [INF] Order saga "ce45a50e-e6c3-46c9-9cb1-8fc66b86482c" transitioned to "CompletedApproved"
+2026-04-11 12:30:32.598 +05:30 [INF] Handled CreateOrderCommand in 428.5327ms
+2026-04-11 12:30:32.603 +05:30 [INF] HTTP POST /api/orders responded 201 in 449.5154 ms
+2026-04-11 12:30:51.181 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T07:00:51.1816182Z"
+2026-04-11 12:30:51.264 +05:30 [INF] Handled GetDealerOrdersQuery in 82.9529ms
+2026-04-11 12:30:51.276 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 96.7273 ms
+2026-04-11 12:30:51.649 +05:30 [INF] HTTP POST /api/orders responded 403 in 17.2253 ms
+2026-04-11 12:30:51.780 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T07:00:51.7807841Z"
+2026-04-11 12:30:51.802 +05:30 [INF] Handled GetDealerOrdersQuery in 21.5611ms
+2026-04-11 12:30:51.810 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 31.3945 ms
+2026-04-11 12:30:52.082 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T07:00:52.0824192Z"
+2026-04-11 12:30:52.166 +05:30 [INF] Handled GetOrderQuery in 84.4568ms
+2026-04-11 12:30:52.173 +05:30 [INF] HTTP GET /api/orders/ce45a50e-e6c3-46c9-9cb1-8fc66b86482c responded 200 in 109.6459 ms
+2026-04-11 12:30:52.303 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T07:00:52.3030848Z"
+2026-04-11 12:30:52.334 +05:30 [INF] Handled GetOrderQuery in 30.9537ms
+2026-04-11 12:30:52.356 +05:30 [INF] HTTP GET /api/orders/ce45a50e-e6c3-46c9-9cb1-8fc66b86482c responded 200 in 54.6786 ms
+2026-04-11 12:30:52.712 +05:30 [INF] Handling UpdateOrderStatusCommand at "2026-04-11T07:00:52.7120034Z"
+2026-04-11 12:30:52.759 +05:30 [ERR] HTTP PUT /api/orders/ce45a50e-e6c3-46c9-9cb1-8fc66b86482c/status responded 500 in 126.8217 ms
+System.InvalidOperationException: Role 'Logistics' cannot move orders to 'Processing'.
+   at Order.Application.Services.OrderService.UpdateOrderStatusAsync(Guid orderId, OrderStatus newStatus, Guid changedByUserId, String changedByRole, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 168
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.UpdateStatus(Guid id, UpdateOrderStatusRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 92
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 12:30:52.820 +05:30 [INF] HTTP PUT /api/orders/ce45a50e-e6c3-46c9-9cb1-8fc66b86482c/status responded 403 in 1.6212 ms
+2026-04-11 12:30:52.919 +05:30 [INF] Handling CancelOrderCommand at "2026-04-11T07:00:52.9181093Z"
+2026-04-11 12:30:52.955 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/release-soft-lock
+2026-04-11 12:30:52.959 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/release-soft-lock
+2026-04-11 12:30:53.025 +05:30 [INF] Received HTTP response headers after 62.4849ms - 200
+2026-04-11 12:30:53.029 +05:30 [INF] End processing HTTP request after 75.5243ms - 200
+2026-04-11 12:30:53.113 +05:30 [INF] Order saga "ce45a50e-e6c3-46c9-9cb1-8fc66b86482c" transitioned to "CompletedCancelled"
+2026-04-11 12:30:53.120 +05:30 [INF] Handled CancelOrderCommand in 202.5155ms
+2026-04-11 12:30:53.125 +05:30 [INF] HTTP POST /api/orders/ce45a50e-e6c3-46c9-9cb1-8fc66b86482c/cancel responded 200 in 243.5965 ms
+2026-04-11 12:30:53.220 +05:30 [INF] Handling RequestReturnCommand at "2026-04-11T07:00:53.2203866Z"
+2026-04-11 12:30:53.237 +05:30 [ERR] HTTP POST /api/orders/ce45a50e-e6c3-46c9-9cb1-8fc66b86482c/returns responded 500 in 43.9785 ms
+System.InvalidOperationException: Return request can only be raised after delivery.
+   at Order.Domain.Entities.OrderAggregate.RaiseReturn(Guid requestedByDealerId, String reason) in C:\Users\Hey\Desktop\demo\services\Order\Order.Domain\Entities\OrderAggregate.cs:line 124
+   at Order.Application.Services.OrderService.RequestReturnAsync(Guid orderId, Guid dealerId, String reason, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 500
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.RequestReturn(Guid id, ReturnRequestDto request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 119
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 12:30:53.317 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:00:53.3174976Z"
+2026-04-11 12:30:53.334 +05:30 [INF] Handled GetAllOrdersQuery in 16.755ms
+2026-04-11 12:30:53.344 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 29.4620 ms
+2026-04-11 12:30:53.461 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:00:53.4615991Z"
+2026-04-11 12:30:53.473 +05:30 [INF] Handled GetAllOrdersQuery in 11.3919ms
+2026-04-11 12:30:53.481 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 20.6224 ms
+2026-04-11 12:30:53.575 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:00:53.5755196Z"
+2026-04-11 12:30:53.582 +05:30 [INF] Handled GetAllOrdersQuery in 7.281ms
+2026-04-11 12:30:53.589 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 15.2199 ms
+2026-04-11 12:30:53.695 +05:30 [INF] HTTP POST /api/admin/orders/bulk-status responded 403 in 1.1759 ms
+2026-04-11 12:30:53.759 +05:30 [INF] Handling ApproveOnHoldCommand at "2026-04-11T07:00:53.7590516Z"
+2026-04-11 12:30:53.774 +05:30 [INF] Handled ApproveOnHoldCommand in 15.1761ms
+2026-04-11 12:30:53.850 +05:30 [INF] HTTP PUT /api/admin/orders/ce45a50e-e6c3-46c9-9cb1-8fc66b86482c/approve-hold responded 404 in 123.0939 ms
+2026-04-11 12:30:53.915 +05:30 [INF] Handling RejectOnHoldCommand at "2026-04-11T07:00:53.9148695Z"
+2026-04-11 12:30:53.926 +05:30 [INF] Handled RejectOnHoldCommand in 11.8402ms
+2026-04-11 12:30:53.932 +05:30 [INF] HTTP PUT /api/admin/orders/ce45a50e-e6c3-46c9-9cb1-8fc66b86482c/reject-hold responded 404 in 46.4746 ms
+2026-04-11 12:30:53.963 +05:30 [INF] HTTP PUT /api/admin/orders/ce45a50e-e6c3-46c9-9cb1-8fc66b86482c/approve-hold responded 403 in 0.8624 ms
+2026-04-11 12:31:01.552 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:01:01.5522201Z"
+2026-04-11 12:31:46.633 +05:30 [INF] Handling CreateOrderCommand at "2026-04-11T07:01:46.6333367Z"
+2026-04-11 12:31:46.637 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 12:31:46.641 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 12:31:46.681 +05:30 [INF] Received HTTP response headers after 34.7586ms - 200
+2026-04-11 12:31:46.685 +05:30 [INF] End processing HTTP request after 47.99ms - 200
+2026-04-11 12:31:46.687 +05:30 [INF] Start processing HTTP request GET http://localhost:8005/api/payment/dealers/892f5fd4-6cc1-462b-b900-17aaa9ec5ef5/credit-check?*
+2026-04-11 12:31:46.689 +05:30 [INF] Sending HTTP request GET http://localhost:8005/api/payment/dealers/892f5fd4-6cc1-462b-b900-17aaa9ec5ef5/credit-check?*
+2026-04-11 12:31:46.721 +05:30 [INF] Received HTTP response headers after 28.4027ms - 200
+2026-04-11 12:31:46.725 +05:30 [INF] End processing HTTP request after 37.7308ms - 200
+2026-04-11 12:31:46.771 +05:30 [INF] Order saga started for order "58543a1f-62ef-4a53-9716-53c0359dd312"
+2026-04-11 12:31:46.785 +05:30 [INF] Order saga "58543a1f-62ef-4a53-9716-53c0359dd312" transitioned to "CreditCheckInProgress"
+2026-04-11 12:31:46.803 +05:30 [INF] Order saga "58543a1f-62ef-4a53-9716-53c0359dd312" transitioned to "CompletedApproved"
+2026-04-11 12:31:46.807 +05:30 [INF] Handled CreateOrderCommand in 173.7092ms
+2026-04-11 12:31:46.812 +05:30 [INF] HTTP POST /api/orders responded 201 in 193.8538 ms
+2026-04-11 12:31:47.260 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T07:01:47.2606467Z"
+2026-04-11 12:31:47.277 +05:30 [INF] Handled GetDealerOrdersQuery in 16.7599ms
+2026-04-11 12:31:47.280 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 21.2799 ms
+2026-04-11 12:31:47.313 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:01:47.3131767Z"
+2026-04-11 12:31:47.327 +05:30 [INF] Handled GetAllOrdersQuery in 14.5927ms
+2026-04-11 12:31:47.331 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 19.1255 ms
+2026-04-11 12:31:48.857 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T07:01:48.8577994Z"
+2026-04-11 12:31:48.865 +05:30 [INF] Handled GetDealerOrdersQuery in 8.1579ms
+2026-04-11 12:31:48.870 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 14.5970 ms
+2026-04-11 12:31:48.924 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:01:48.9248033Z"
+2026-04-11 12:31:48.934 +05:30 [INF] Handled GetAllOrdersQuery in 9.5388ms
+2026-04-11 12:31:48.937 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 13.6773 ms
+2026-04-11 12:31:49.036 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:01:49.0368200Z"
+2026-04-11 12:31:49.045 +05:30 [INF] Handled GetAllOrdersQuery in 8.6352ms
+2026-04-11 12:31:49.053 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 18.0312 ms
+2026-04-11 12:31:49.205 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:01:49.2056082Z"
+2026-04-11 12:31:49.214 +05:30 [INF] Handled GetAllOrdersQuery in 9.1504ms
+2026-04-11 12:31:49.222 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 17.6426 ms
+2026-04-11 12:31:49.300 +05:30 [INF] HTTP GET /api/admin/orders responded 403 in 1.0546 ms
+2026-04-11 12:31:55.448 +05:30 [INF] Handling CreateOrderCommand at "2026-04-11T07:01:55.4488879Z"
+2026-04-11 12:31:55.455 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 12:31:55.459 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 12:31:55.510 +05:30 [INF] Received HTTP response headers after 48.5103ms - 200
+2026-04-11 12:31:55.513 +05:30 [INF] End processing HTTP request after 58.1249ms - 200
+2026-04-11 12:31:55.517 +05:30 [INF] Start processing HTTP request GET http://localhost:8005/api/payment/dealers/892f5fd4-6cc1-462b-b900-17aaa9ec5ef5/credit-check?*
+2026-04-11 12:31:55.520 +05:30 [INF] Sending HTTP request GET http://localhost:8005/api/payment/dealers/892f5fd4-6cc1-462b-b900-17aaa9ec5ef5/credit-check?*
+2026-04-11 12:31:55.562 +05:30 [INF] Received HTTP response headers after 39.3736ms - 200
+2026-04-11 12:31:55.568 +05:30 [INF] End processing HTTP request after 50.7595ms - 200
+2026-04-11 12:31:55.645 +05:30 [INF] Order saga started for order "8378ac59-c750-4c23-aa3a-078dcf102427"
+2026-04-11 12:31:55.661 +05:30 [INF] Order saga "8378ac59-c750-4c23-aa3a-078dcf102427" transitioned to "CreditCheckInProgress"
+2026-04-11 12:31:55.690 +05:30 [INF] Order saga "8378ac59-c750-4c23-aa3a-078dcf102427" transitioned to "CompletedApproved"
+2026-04-11 12:31:55.705 +05:30 [INF] Handled CreateOrderCommand in 256.3602ms
+2026-04-11 12:31:55.709 +05:30 [INF] HTTP POST /api/orders responded 201 in 263.0361 ms
+2026-04-11 12:31:55.759 +05:30 [INF] HTTP POST /api/orders responded 403 in 0.4251 ms
+2026-04-11 12:31:55.793 +05:30 [INF] HTTP POST /api/orders responded 403 in 0.3220 ms
+2026-04-11 12:31:55.827 +05:30 [INF] HTTP POST /api/orders responded 403 in 0.3889 ms
+2026-04-11 12:31:55.881 +05:30 [INF] HTTP POST /api/orders responded 403 in 0.4679 ms
+2026-04-11 12:32:01.831 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:02:01.8317598Z"
+2026-04-11 12:32:42.934 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T07:02:42.9346345Z"
+2026-04-11 12:32:42.959 +05:30 [INF] Handled GetDealerOrdersQuery in 25.1137ms
+2026-04-11 12:32:42.981 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 48.4639 ms
+2026-04-11 12:33:02.059 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:03:02.0597615Z"
+2026-04-11 12:34:02.396 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:04:02.3962411Z"
+2026-04-11 12:35:05.813 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:05:05.8136593Z"
+2026-04-11 12:35:49.702 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T07:05:49.7029497Z"
+2026-04-11 12:35:49.912 +05:30 [INF] Handled GetDealerOrdersQuery in 209.4183ms
+2026-04-11 12:35:50.096 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 399.1630 ms
+2026-04-11 12:36:05.540 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:06:05.5404764Z"
+2026-04-11 12:37:05.784 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:07:05.7840309Z"
+2026-04-11 12:37:30.673 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T07:07:30.6736183Z"
+2026-04-11 12:37:30.723 +05:30 [INF] Handled GetDealerOrdersQuery in 49.7766ms
+2026-04-11 12:37:30.744 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 72.3357 ms
+2026-04-11 12:38:05.945 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:08:05.9450640Z"
+2026-04-11 12:39:06.809 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:09:06.8097027Z"
+2026-04-11 12:39:57.163 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T07:09:57.1638294Z"
+2026-04-11 12:39:57.238 +05:30 [INF] Handled GetDealerOrdersQuery in 75.0586ms
+2026-04-11 12:39:57.256 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 93.4538 ms
+2026-04-11 12:40:07.302 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:10:07.3027550Z"
+2026-04-11 12:41:07.513 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:11:07.5132675Z"
+2026-04-11 12:42:07.834 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:12:07.8348595Z"
+2026-04-11 12:43:07.996 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:13:07.9963817Z"
+2026-04-11 12:44:08.359 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:14:08.3599264Z"
+2026-04-11 12:45:08.598 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:15:08.5979838Z"
+2026-04-11 12:46:08.771 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:16:08.7717028Z"
+2026-04-11 12:47:08.974 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:17:08.9748692Z"
+2026-04-11 12:48:09.216 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:18:09.2164898Z"
+2026-04-11 12:49:09.427 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:19:09.4277502Z"
+2026-04-11 12:49:26.922 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:19:26.9228691Z"
+2026-04-11 12:49:26.964 +05:30 [INF] Handled GetAllOrdersQuery in 41.2738ms
+2026-04-11 12:49:26.972 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 57.7662 ms
+2026-04-11 12:50:09.638 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:20:09.6387782Z"
+2026-04-11 12:51:09.650 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:21:09.6501377Z"
+2026-04-11 12:52:09.853 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:22:09.8537541Z"
+2026-04-11 12:53:10.018 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:23:10.0184835Z"
+2026-04-11 12:54:10.163 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:24:10.1638496Z"
+2026-04-11 12:55:10.295 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:25:10.2957837Z"
+2026-04-11 12:55:36.327 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:25:36.3274455Z"
+2026-04-11 12:55:36.349 +05:30 [INF] Handled GetAllOrdersQuery in 22.491ms
+2026-04-11 12:55:36.358 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 31.9586 ms
+2026-04-11 12:55:40.085 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:25:40.0852812Z"
+2026-04-11 12:55:40.108 +05:30 [INF] Handled GetAllOrdersQuery in 23.5963ms
+2026-04-11 12:55:40.113 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 30.8438 ms
+2026-04-11 12:55:46.831 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T07:25:46.8312785Z"
+2026-04-11 12:55:46.948 +05:30 [INF] Handled GetOrderQuery in 116.8942ms
+2026-04-11 12:55:46.958 +05:30 [INF] HTTP GET /api/orders/8378ac59-c750-4c23-aa3a-078dcf102427 responded 200 in 139.8589 ms
+2026-04-11 12:56:10.442 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:26:10.4423201Z"
+2026-04-11 12:57:10.793 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:27:10.7931357Z"
+2026-04-11 12:58:11.010 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:28:11.0103051Z"
+2026-04-11 12:59:11.394 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:29:11.3948467Z"
+2026-04-11 13:00:11.761 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:30:11.7612406Z"
+2026-04-11 13:01:12.508 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:31:12.5080075Z"
+2026-04-11 13:02:12.874 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:32:12.8744041Z"
+2026-04-11 13:03:00.656 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:33:00.6560275Z"
+2026-04-11 13:03:00.687 +05:30 [INF] Handled GetAllOrdersQuery in 31.6636ms
+2026-04-11 13:03:00.772 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 120.6001 ms
+2026-04-11 13:03:13.238 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:33:13.2380919Z"
+2026-04-11 13:04:13.510 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:34:13.5106598Z"
+2026-04-11 13:05:13.731 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:35:13.7313090Z"
+2026-04-11 13:06:13.912 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:36:13.9123329Z"
+2026-04-11 13:07:14.361 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:37:14.3617845Z"
+2026-04-11 13:07:29.505 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:37:29.5049885Z"
+2026-04-11 13:07:29.678 +05:30 [INF] Handled GetAllOrdersQuery in 173.2271ms
+2026-04-11 13:07:29.750 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 250.3110 ms
+2026-04-11 13:08:14.552 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:38:14.5527365Z"
+2026-04-11 13:08:17.842 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:38:17.8425453Z"
+2026-04-11 13:08:17.859 +05:30 [INF] Handled GetAllOrdersQuery in 17.2806ms
+2026-04-11 13:08:17.862 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 21.7972 ms
+2026-04-11 13:08:41.665 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:38:41.6658946Z"
+2026-04-11 13:08:41.689 +05:30 [INF] Handled GetAllOrdersQuery in 23.816ms
+2026-04-11 13:08:41.696 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 34.0390 ms
+2026-04-11 13:09:14.752 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:39:14.7520994Z"
+2026-04-11 13:09:46.976 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:39:46.9764872Z"
+2026-04-11 13:09:47.011 +05:30 [INF] Handled GetAllOrdersQuery in 34.6922ms
+2026-04-11 13:09:47.021 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 46.5304 ms
+2026-04-11 13:10:14.939 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:40:14.9391960Z"
+2026-04-11 13:11:10.124 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T07:41:10.1246748Z"
+2026-04-11 13:11:10.172 +05:30 [INF] Handled GetOrderQuery in 47.7955ms
+2026-04-11 13:11:10.179 +05:30 [INF] HTTP GET /api/orders/8378ac59-c750-4c23-aa3a-078dcf102427 responded 200 in 57.7153 ms
+2026-04-11 13:11:14.771 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:41:14.7719631Z"
+2026-04-11 13:11:14.792 +05:30 [INF] Handled GetAllOrdersQuery in 20.3704ms
+2026-04-11 13:11:14.795 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 28.7693 ms
+2026-04-11 13:11:15.119 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:41:15.1190135Z"
+2026-04-11 13:12:00.226 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:42:00.2260775Z"
+2026-04-11 13:13:00.423 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:43:00.4233826Z"
+2026-04-11 13:14:00.584 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:44:00.5843983Z"
+2026-04-11 13:15:00.954 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:45:00.9545360Z"
+2026-04-11 13:16:01.068 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:46:01.0685894Z"
+2026-04-11 13:17:01.357 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:47:01.3579058Z"
+2026-04-11 13:18:01.458 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:48:01.4589016Z"
+2026-04-11 13:19:01.720 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:49:01.7199795Z"
+2026-04-11 13:20:02.095 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:50:02.0953721Z"
+2026-04-11 13:20:20.887 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:50:20.8876479Z"
+2026-04-11 13:20:20.908 +05:30 [INF] Handled GetAllOrdersQuery in 20.8976ms
+2026-04-11 13:20:20.911 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 25.1802 ms
+2026-04-11 13:20:26.477 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T07:50:26.4776235Z"
+2026-04-11 13:20:26.525 +05:30 [INF] Handled GetOrderQuery in 48.0651ms
+2026-04-11 13:20:26.529 +05:30 [INF] HTTP GET /api/orders/8378ac59-c750-4c23-aa3a-078dcf102427 responded 200 in 52.9523 ms
+2026-04-11 13:20:33.055 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T07:50:33.0554824Z"
+2026-04-11 13:20:33.118 +05:30 [INF] Handled GetAllOrdersQuery in 62.9596ms
+2026-04-11 13:20:33.218 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 167.2016 ms
+2026-04-11 13:20:41.165 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T07:50:41.1659594Z"
+2026-04-11 13:20:41.199 +05:30 [INF] Handled GetOrderQuery in 33.9718ms
+2026-04-11 13:20:41.204 +05:30 [INF] HTTP GET /api/orders/8378ac59-c750-4c23-aa3a-078dcf102427 responded 200 in 41.9697 ms
+2026-04-11 13:21:02.293 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:51:02.2932894Z"
+2026-04-11 13:22:02.448 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:52:02.4480913Z"
+2026-04-11 13:23:02.696 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:53:02.6960278Z"
+2026-04-11 13:24:02.821 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:54:02.8217280Z"
+2026-04-11 13:25:03.049 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:55:03.0493396Z"
+2026-04-11 13:26:03.334 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:56:03.3347405Z"
+2026-04-11 13:27:03.441 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:57:03.4413016Z"
+2026-04-11 13:28:03.569 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:58:03.5697055Z"
+2026-04-11 13:29:03.785 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:59:03.7851382Z"
+2026-04-11 13:31:05.422 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:01:05.4223627Z"
+2026-04-11 13:32:05.612 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:02:05.6126795Z"
+2026-04-11 13:32:11.012 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T08:02:11.0123837Z"
+2026-04-11 13:32:11.144 +05:30 [INF] Handled GetOrderQuery in 132.3194ms
+2026-04-11 13:32:11.189 +05:30 [INF] HTTP GET /api/orders/8378ac59-c750-4c23-aa3a-078dcf102427 responded 200 in 186.2805 ms
+2026-04-11 13:33:05.789 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:03:05.7898921Z"
+2026-04-11 13:34:05.886 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:04:05.8868643Z"
+2026-04-11 13:35:06.020 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:05:06.0201371Z"
+2026-04-11 13:46:40.752 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T08:16:40.7527823Z"
+2026-04-11 13:46:40.811 +05:30 [INF] Handled GetOrderQuery in 58.5935ms
+2026-04-11 13:46:40.824 +05:30 [INF] HTTP GET /api/orders/8378ac59-c750-4c23-aa3a-078dcf102427 responded 200 in 74.6471 ms
+2026-04-11 13:46:41.336 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:16:41.3360398Z"
+2026-04-11 14:24:45.107 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:54:45.1076680Z"
+2026-04-11 14:24:48.197 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T08:54:48.1976325Z"
+2026-04-11 14:24:48.233 +05:30 [INF] Handled GetOrderQuery in 35.8229ms
+2026-04-11 14:24:48.239 +05:30 [INF] HTTP GET /api/orders/8378ac59-c750-4c23-aa3a-078dcf102427 responded 200 in 42.8494 ms
+2026-04-11 14:25:00.119 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:55:00.1192611Z"
+2026-04-11 14:25:24.394 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T08:55:24.3940822Z"
+2026-04-11 14:25:24.407 +05:30 [INF] Handled GetOrderQuery in 13.0949ms
+2026-04-11 14:25:24.410 +05:30 [INF] HTTP GET /api/orders/8378ac59-c750-4c23-aa3a-078dcf102427 responded 200 in 17.1640 ms
+2026-04-11 14:26:00.400 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:56:00.4008070Z"
+2026-04-11 14:27:00.582 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:57:00.5823880Z"
+2026-04-11 14:28:00.643 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:58:00.6433711Z"
+2026-04-11 14:28:36.733 +05:30 [INF] Handling CreateOrderCommand at "2026-04-11T08:58:36.7332027Z"
+2026-04-11 14:28:36.778 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 14:28:36.782 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 14:28:36.903 +05:30 [INF] Received HTTP response headers after 117.7799ms - 200
+2026-04-11 14:28:36.911 +05:30 [INF] End processing HTTP request after 136.1789ms - 200
+2026-04-11 14:28:36.925 +05:30 [INF] Start processing HTTP request GET http://localhost:8005/api/payment/dealers/d583ab66-75af-4cdf-9793-ea6272acdc54/credit-check?*
+2026-04-11 14:28:36.929 +05:30 [INF] Sending HTTP request GET http://localhost:8005/api/payment/dealers/d583ab66-75af-4cdf-9793-ea6272acdc54/credit-check?*
+2026-04-11 14:28:37.275 +05:30 [INF] Received HTTP response headers after 343.5315ms - 200
+2026-04-11 14:28:37.281 +05:30 [INF] End processing HTTP request after 356.2488ms - 200
+2026-04-11 14:28:37.409 +05:30 [INF] Order saga started for order "f44dfc64-6940-480b-860d-483c8328a24b"
+2026-04-11 14:28:37.425 +05:30 [INF] Order saga "f44dfc64-6940-480b-860d-483c8328a24b" transitioned to "CreditCheckInProgress"
+2026-04-11 14:28:37.434 +05:30 [INF] Order saga "f44dfc64-6940-480b-860d-483c8328a24b" transitioned to "CompletedApproved"
+2026-04-11 14:28:37.441 +05:30 [INF] Handled CreateOrderCommand in 707.8254ms
+2026-04-11 14:28:37.454 +05:30 [INF] HTTP POST /api/orders responded 201 in 759.8793 ms
+2026-04-11 14:28:40.566 +05:30 [INF] HTTP POST /api/orders responded 403 in 3.6515 ms
+2026-04-11 14:28:40.606 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T08:58:40.6062962Z"
+2026-04-11 14:28:40.648 +05:30 [INF] Handled GetDealerOrdersQuery in 42.5885ms
+2026-04-11 14:28:40.651 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 50.3532 ms
+2026-04-11 14:28:40.720 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T08:58:40.7200570Z"
+2026-04-11 14:28:40.802 +05:30 [INF] Handled GetOrderQuery in 82.501ms
+2026-04-11 14:28:40.807 +05:30 [INF] HTTP GET /api/orders/f44dfc64-6940-480b-860d-483c8328a24b responded 200 in 87.6599 ms
+2026-04-11 14:28:40.948 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T08:58:40.9488542Z"
+2026-04-11 14:28:40.981 +05:30 [INF] Handled GetOrderQuery in 32.8364ms
+2026-04-11 14:28:40.996 +05:30 [INF] HTTP GET /api/orders/f44dfc64-6940-480b-860d-483c8328a24b responded 200 in 48.4781 ms
+2026-04-11 14:28:41.067 +05:30 [INF] Handling UpdateOrderStatusCommand at "2026-04-11T08:58:41.0674684Z"
+2026-04-11 14:28:41.083 +05:30 [ERR] HTTP PUT /api/orders/f44dfc64-6940-480b-860d-483c8328a24b/status responded 500 in 29.8441 ms
+System.InvalidOperationException: Role 'Logistics' cannot move orders to 'Processing'.
+   at Order.Application.Services.OrderService.UpdateOrderStatusAsync(Guid orderId, OrderStatus newStatus, Guid changedByUserId, String changedByRole, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 168
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.UpdateStatus(Guid id, UpdateOrderStatusRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 92
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 14:28:41.163 +05:30 [INF] HTTP PUT /api/orders/f44dfc64-6940-480b-860d-483c8328a24b/status responded 403 in 0.6748 ms
+2026-04-11 14:28:41.202 +05:30 [INF] Handling CancelOrderCommand at "2026-04-11T08:58:41.2020901Z"
+2026-04-11 14:28:41.212 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/release-soft-lock
+2026-04-11 14:28:41.214 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/release-soft-lock
+2026-04-11 14:28:41.236 +05:30 [INF] Received HTTP response headers after 20.4742ms - 200
+2026-04-11 14:28:41.239 +05:30 [INF] End processing HTTP request after 27.2956ms - 200
+2026-04-11 14:28:41.266 +05:30 [INF] Order saga "f44dfc64-6940-480b-860d-483c8328a24b" transitioned to "CompletedCancelled"
+2026-04-11 14:28:41.271 +05:30 [INF] Handled CancelOrderCommand in 69.2609ms
+2026-04-11 14:28:41.276 +05:30 [INF] HTTP POST /api/orders/f44dfc64-6940-480b-860d-483c8328a24b/cancel responded 200 in 78.4740 ms
+2026-04-11 14:28:41.320 +05:30 [INF] Handling RequestReturnCommand at "2026-04-11T08:58:41.3202451Z"
+2026-04-11 14:28:41.328 +05:30 [ERR] HTTP POST /api/orders/f44dfc64-6940-480b-860d-483c8328a24b/returns responded 500 in 13.3353 ms
+System.InvalidOperationException: Return request can only be raised after delivery.
+   at Order.Domain.Entities.OrderAggregate.RaiseReturn(Guid requestedByDealerId, String reason) in C:\Users\Hey\Desktop\demo\services\Order\Order.Domain\Entities\OrderAggregate.cs:line 124
+   at Order.Application.Services.OrderService.RequestReturnAsync(Guid orderId, Guid dealerId, String reason, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 500
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.RequestReturn(Guid id, ReturnRequestDto request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 119
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 14:28:41.368 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T08:58:41.3687336Z"
+2026-04-11 14:28:41.397 +05:30 [INF] Handled GetAllOrdersQuery in 29.0131ms
+2026-04-11 14:28:41.401 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 35.4387 ms
+2026-04-11 14:28:41.448 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T08:58:41.4483268Z"
+2026-04-11 14:28:41.457 +05:30 [INF] Handled GetAllOrdersQuery in 9.0491ms
+2026-04-11 14:28:41.459 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 11.3459 ms
+2026-04-11 14:28:41.510 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T08:58:41.5104180Z"
+2026-04-11 14:28:41.518 +05:30 [INF] Handled GetAllOrdersQuery in 7.7954ms
+2026-04-11 14:28:41.523 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 14.2017 ms
+2026-04-11 14:28:41.570 +05:30 [INF] HTTP POST /api/admin/orders/bulk-status responded 403 in 0.4087 ms
+2026-04-11 14:28:41.607 +05:30 [INF] Handling ApproveOnHoldCommand at "2026-04-11T08:58:41.6076752Z"
+2026-04-11 14:28:41.615 +05:30 [INF] Handled ApproveOnHoldCommand in 7.6412ms
+2026-04-11 14:28:41.622 +05:30 [INF] HTTP PUT /api/admin/orders/f44dfc64-6940-480b-860d-483c8328a24b/approve-hold responded 404 in 18.6262 ms
+2026-04-11 14:28:41.647 +05:30 [INF] Handling RejectOnHoldCommand at "2026-04-11T08:58:41.6478169Z"
+2026-04-11 14:28:41.656 +05:30 [INF] Handled RejectOnHoldCommand in 8.3643ms
+2026-04-11 14:28:41.659 +05:30 [INF] HTTP PUT /api/admin/orders/f44dfc64-6940-480b-860d-483c8328a24b/reject-hold responded 404 in 18.1401 ms
+2026-04-11 14:28:41.682 +05:30 [INF] HTTP PUT /api/admin/orders/f44dfc64-6940-480b-860d-483c8328a24b/approve-hold responded 403 in 0.1999 ms
+2026-04-11 14:29:00.919 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:59:00.9197351Z"
+2026-04-11 14:30:04.006 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:00:04.0067984Z"
+2026-04-11 14:34:00.301 +05:30 [INF] Order migrations applied count: 3
+2026-04-11 14:34:01.169 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 14:34:20.258 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 14:34:22.584 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@OrderMigrationsDB'
+2026-04-11 14:34:22.851 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 14:34:23.043 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 14:34:23.960 +05:30 [INF] Server desktop-nfnd817:30804:42f290b4 successfully announced in 279.116 ms
+2026-04-11 14:34:24.023 +05:30 [INF] Server desktop-nfnd817:30804:42f290b4 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 14:34:24.586 +05:30 [INF] Server desktop-nfnd817:30804:42f290b4 all the dispatchers started
+2026-04-11 14:34:28.768 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:04:28.7671335Z"
+2026-04-11 14:34:41.382 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 14:34:41.948 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:04:41.9484852Z"
+2026-04-11 14:34:42.782 +05:30 [INF] Handled GetAllOrdersQuery in 833.3198ms
+2026-04-11 14:34:43.368 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 2382.7655 ms
+2026-04-11 14:35:12.625 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:05:12.6255153Z"
+2026-04-11 14:35:45.149 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:05:45.1492545Z"
+2026-04-11 14:35:45.191 +05:30 [INF] Handled GetAllOrdersQuery in 42.2477ms
+2026-04-11 14:35:45.201 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 72.9472 ms
+2026-04-11 14:36:12.933 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:06:12.9331685Z"
+2026-04-11 14:36:50.905 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:06:50.9050562Z"
+2026-04-11 14:36:50.950 +05:30 [INF] Handled GetAllOrdersQuery in 45.3131ms
+2026-04-11 14:36:50.958 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 92.7653 ms
+2026-04-11 14:37:13.182 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:07:13.1828008Z"
+2026-04-11 14:38:13.473 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:08:13.4735503Z"
+2026-04-11 14:39:13.647 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:09:13.6476059Z"
+2026-04-11 14:39:24.421 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 14:40:32.829 +05:30 [INF] Order migrations applied count: 3
+2026-04-11 14:40:33.657 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 14:40:38.370 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 14:40:39.817 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@OrderMigrationsDB'
+2026-04-11 14:40:39.905 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 14:40:39.994 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 14:40:40.258 +05:30 [INF] Server desktop-nfnd817:28040:a1d0e235 successfully announced in 73.2107 ms
+2026-04-11 14:40:40.269 +05:30 [INF] Server desktop-nfnd817:28040:a1d0e235 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 14:40:40.479 +05:30 [INF] Server desktop-nfnd817:28040:a1d0e235 all the dispatchers started
+2026-04-11 14:40:41.681 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:10:41.6812249Z"
+2026-04-11 14:40:48.284 +05:30 [INF] HTTP GET /health responded 200 in 346.0609 ms
+2026-04-11 14:41:11.473 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:11:11.4731444Z"
+2026-04-11 14:42:11.658 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:12:11.6579533Z"
+2026-04-11 14:42:42.294 +05:30 [INF] HTTP GET /health responded 200 in 5.0071 ms
+2026-04-11 14:42:50.870 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 14:42:51.302 +05:30 [INF] Handling CreateOrderCommand at "2026-04-11T09:12:51.3018503Z"
+2026-04-11 14:42:51.600 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 14:42:51.607 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 14:42:51.776 +05:30 [INF] Received HTTP response headers after 158.5746ms - 200
+2026-04-11 14:42:51.781 +05:30 [INF] End processing HTTP request after 197.96ms - 200
+2026-04-11 14:42:51.796 +05:30 [INF] Start processing HTTP request GET http://localhost:8005/api/payment/internal/dealers/c3119a6f-be9b-40c3-8a80-ee5457ffb4b0/credit-check?*
+2026-04-11 14:42:51.800 +05:30 [INF] Sending HTTP request GET http://localhost:8005/api/payment/internal/dealers/c3119a6f-be9b-40c3-8a80-ee5457ffb4b0/credit-check?*
+2026-04-11 14:42:52.946 +05:30 [INF] Received HTTP response headers after 1141.5202ms - 200
+2026-04-11 14:42:52.951 +05:30 [INF] End processing HTTP request after 1154.9452ms - 200
+2026-04-11 14:42:54.134 +05:30 [INF] Order saga started for order "f003484f-2d5e-4280-9174-91bb6f6b320b"
+2026-04-11 14:42:54.188 +05:30 [INF] Order saga "f003484f-2d5e-4280-9174-91bb6f6b320b" transitioned to "CreditCheckInProgress"
+2026-04-11 14:42:54.210 +05:30 [INF] Order saga "f003484f-2d5e-4280-9174-91bb6f6b320b" transitioned to "CompletedApproved"
+2026-04-11 14:42:54.270 +05:30 [INF] Handled CreateOrderCommand in 2968.9692ms
+2026-04-11 14:42:54.454 +05:30 [INF] HTTP POST /api/orders responded 201 in 3775.3643 ms
+2026-04-11 14:43:02.130 +05:30 [INF] HTTP POST /api/orders responded 403 in 11.7859 ms
+2026-04-11 14:43:02.249 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T09:13:02.2496021Z"
+2026-04-11 14:43:02.436 +05:30 [INF] Handled GetDealerOrdersQuery in 186.9402ms
+2026-04-11 14:43:02.458 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 255.6440 ms
+2026-04-11 14:43:02.515 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T09:13:02.5149046Z"
+2026-04-11 14:43:02.680 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-04-11 14:43:02.799 +05:30 [INF] Handled GetOrderQuery in 284.6515ms
+2026-04-11 14:43:02.805 +05:30 [INF] HTTP GET /api/orders/f003484f-2d5e-4280-9174-91bb6f6b320b responded 200 in 307.4369 ms
+2026-04-11 14:43:02.847 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T09:13:02.8477403Z"
+2026-04-11 14:43:02.880 +05:30 [INF] Handled GetOrderQuery in 32.6901ms
+2026-04-11 14:43:02.909 +05:30 [INF] HTTP GET /api/orders/f003484f-2d5e-4280-9174-91bb6f6b320b responded 200 in 63.6570 ms
+2026-04-11 14:43:03.003 +05:30 [INF] Handling UpdateOrderStatusCommand at "2026-04-11T09:13:03.0028652Z"
+2026-04-11 14:43:03.116 +05:30 [ERR] HTTP PUT /api/orders/f003484f-2d5e-4280-9174-91bb6f6b320b/status responded 500 in 163.2781 ms
+System.InvalidOperationException: Role 'Logistics' cannot move orders to 'Processing'.
+   at Order.Application.Services.OrderService.UpdateOrderStatusAsync(Guid orderId, OrderStatus newStatus, Guid changedByUserId, String changedByRole, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 168
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.UpdateStatus(Guid id, UpdateOrderStatusRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 92
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 14:43:03.408 +05:30 [INF] HTTP PUT /api/orders/f003484f-2d5e-4280-9174-91bb6f6b320b/status responded 403 in 1.2605 ms
+2026-04-11 14:43:03.465 +05:30 [INF] Handling CancelOrderCommand at "2026-04-11T09:13:03.4656907Z"
+2026-04-11 14:43:03.500 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/release-soft-lock
+2026-04-11 14:43:03.509 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/release-soft-lock
+2026-04-11 14:43:03.554 +05:30 [INF] Received HTTP response headers after 42.7142ms - 200
+2026-04-11 14:43:03.558 +05:30 [INF] End processing HTTP request after 59.4631ms - 200
+2026-04-11 14:43:03.643 +05:30 [INF] Order saga "f003484f-2d5e-4280-9174-91bb6f6b320b" transitioned to "CompletedCancelled"
+2026-04-11 14:43:03.648 +05:30 [INF] Handled CancelOrderCommand in 182.9677ms
+2026-04-11 14:43:03.654 +05:30 [INF] HTTP POST /api/orders/f003484f-2d5e-4280-9174-91bb6f6b320b/cancel responded 200 in 203.3962 ms
+2026-04-11 14:43:03.733 +05:30 [INF] Handling RequestReturnCommand at "2026-04-11T09:13:03.7332532Z"
+2026-04-11 14:43:03.764 +05:30 [ERR] HTTP POST /api/orders/f003484f-2d5e-4280-9174-91bb6f6b320b/returns responded 500 in 63.9986 ms
+System.InvalidOperationException: Return request can only be raised after delivery.
+   at Order.Domain.Entities.OrderAggregate.RaiseReturn(Guid requestedByDealerId, String reason) in C:\Users\Hey\Desktop\demo\services\Order\Order.Domain\Entities\OrderAggregate.cs:line 124
+   at Order.Application.Services.OrderService.RequestReturnAsync(Guid orderId, Guid dealerId, String reason, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 500
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.RequestReturn(Guid id, ReturnRequestDto request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 119
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 14:43:03.831 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:13:03.8310997Z"
+2026-04-11 14:43:03.880 +05:30 [INF] Handled GetAllOrdersQuery in 49.1128ms
+2026-04-11 14:43:03.887 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 73.7162 ms
+2026-04-11 14:43:03.939 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:13:03.9399177Z"
+2026-04-11 14:43:03.958 +05:30 [INF] Handled GetAllOrdersQuery in 18.5123ms
+2026-04-11 14:43:03.961 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 26.4002 ms
+2026-04-11 14:43:04.033 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:13:04.0337130Z"
+2026-04-11 14:43:04.064 +05:30 [INF] Handled GetAllOrdersQuery in 30.597ms
+2026-04-11 14:43:04.082 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 62.4416 ms
+2026-04-11 14:43:04.143 +05:30 [INF] HTTP POST /api/admin/orders/bulk-status responded 403 in 0.6475 ms
+2026-04-11 14:43:04.214 +05:30 [INF] Handling ApproveOnHoldCommand at "2026-04-11T09:13:04.2136583Z"
+2026-04-11 14:43:04.243 +05:30 [INF] Handled ApproveOnHoldCommand in 29.8656ms
+2026-04-11 14:43:04.283 +05:30 [INF] HTTP PUT /api/admin/orders/f003484f-2d5e-4280-9174-91bb6f6b320b/approve-hold responded 404 in 96.6577 ms
+2026-04-11 14:43:04.354 +05:30 [INF] Handling RejectOnHoldCommand at "2026-04-11T09:13:04.3547243Z"
+2026-04-11 14:43:04.385 +05:30 [INF] Handled RejectOnHoldCommand in 30.5638ms
+2026-04-11 14:43:04.392 +05:30 [INF] HTTP PUT /api/admin/orders/f003484f-2d5e-4280-9174-91bb6f6b320b/reject-hold responded 404 in 72.4016 ms
+2026-04-11 14:43:04.415 +05:30 [INF] HTTP PUT /api/admin/orders/f003484f-2d5e-4280-9174-91bb6f6b320b/approve-hold responded 403 in 0.6902 ms
+2026-04-11 14:43:11.836 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:13:11.8364519Z"
+2026-04-11 14:43:40.761 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:13:40.7615942Z"
+2026-04-11 14:43:40.790 +05:30 [INF] Handled GetAllOrdersQuery in 28.969ms
+2026-04-11 14:43:40.798 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 40.8729 ms
+2026-04-11 14:44:12.093 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:14:12.0929937Z"
+2026-04-11 14:44:27.098 +05:30 [INF] Handling CreateOrderCommand at "2026-04-11T09:14:27.0986165Z"
+2026-04-11 14:44:27.109 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 14:44:27.115 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 14:44:27.182 +05:30 [INF] Received HTTP response headers after 63.2166ms - 200
+2026-04-11 14:44:27.191 +05:30 [INF] End processing HTTP request after 81.2446ms - 200
+2026-04-11 14:44:27.195 +05:30 [INF] Start processing HTTP request GET http://localhost:8005/api/payment/internal/dealers/6b9d60f6-0ec3-432e-b8e2-89298bf7ceb6/credit-check?*
+2026-04-11 14:44:27.200 +05:30 [INF] Sending HTTP request GET http://localhost:8005/api/payment/internal/dealers/6b9d60f6-0ec3-432e-b8e2-89298bf7ceb6/credit-check?*
+2026-04-11 14:44:27.313 +05:30 [INF] Received HTTP response headers after 106.6254ms - 200
+2026-04-11 14:44:27.317 +05:30 [INF] End processing HTTP request after 121.9857ms - 200
+2026-04-11 14:44:27.379 +05:30 [INF] Order saga started for order "77319d40-3719-40e8-892f-eb763a202e60"
+2026-04-11 14:44:27.397 +05:30 [INF] Order saga "77319d40-3719-40e8-892f-eb763a202e60" transitioned to "CreditCheckInProgress"
+2026-04-11 14:44:27.414 +05:30 [INF] Order saga "77319d40-3719-40e8-892f-eb763a202e60" transitioned to "CompletedApproved"
+2026-04-11 14:44:27.426 +05:30 [INF] Handled CreateOrderCommand in 327.7102ms
+2026-04-11 14:44:27.438 +05:30 [INF] HTTP POST /api/orders responded 201 in 344.2763 ms
+2026-04-11 14:44:31.200 +05:30 [INF] HTTP POST /api/orders responded 403 in 0.6863 ms
+2026-04-11 14:44:31.268 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T09:14:31.2686897Z"
+2026-04-11 14:44:31.303 +05:30 [INF] Handled GetDealerOrdersQuery in 34.2578ms
+2026-04-11 14:44:31.313 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 49.3658 ms
+2026-04-11 14:44:31.483 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T09:14:31.4837811Z"
+2026-04-11 14:44:31.612 +05:30 [INF] Handled GetOrderQuery in 128.3943ms
+2026-04-11 14:44:31.616 +05:30 [INF] HTTP GET /api/orders/77319d40-3719-40e8-892f-eb763a202e60 responded 200 in 148.5218 ms
+2026-04-11 14:44:31.870 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T09:14:31.8708948Z"
+2026-04-11 14:44:32.026 +05:30 [INF] Handled GetOrderQuery in 155.3812ms
+2026-04-11 14:44:32.030 +05:30 [INF] HTTP GET /api/orders/77319d40-3719-40e8-892f-eb763a202e60 responded 200 in 161.0138 ms
+2026-04-11 14:44:32.145 +05:30 [INF] Handling UpdateOrderStatusCommand at "2026-04-11T09:14:32.1451036Z"
+2026-04-11 14:44:32.186 +05:30 [ERR] HTTP PUT /api/orders/77319d40-3719-40e8-892f-eb763a202e60/status responded 500 in 50.0874 ms
+System.InvalidOperationException: Role 'Logistics' cannot move orders to 'Processing'.
+   at Order.Application.Services.OrderService.UpdateOrderStatusAsync(Guid orderId, OrderStatus newStatus, Guid changedByUserId, String changedByRole, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 168
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.UpdateStatus(Guid id, UpdateOrderStatusRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 92
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 14:44:32.251 +05:30 [INF] HTTP PUT /api/orders/77319d40-3719-40e8-892f-eb763a202e60/status responded 403 in 0.6432 ms
+2026-04-11 14:44:32.293 +05:30 [INF] Handling CancelOrderCommand at "2026-04-11T09:14:32.2935486Z"
+2026-04-11 14:44:32.332 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/release-soft-lock
+2026-04-11 14:44:32.345 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/release-soft-lock
+2026-04-11 14:44:32.415 +05:30 [INF] Received HTTP response headers after 67.3296ms - 200
+2026-04-11 14:44:32.423 +05:30 [INF] End processing HTTP request after 91.2353ms - 200
+2026-04-11 14:44:32.505 +05:30 [INF] Order saga "77319d40-3719-40e8-892f-eb763a202e60" transitioned to "CompletedCancelled"
+2026-04-11 14:44:32.510 +05:30 [INF] Handled CancelOrderCommand in 217.1519ms
+2026-04-11 14:44:32.515 +05:30 [INF] HTTP POST /api/orders/77319d40-3719-40e8-892f-eb763a202e60/cancel responded 200 in 226.6805 ms
+2026-04-11 14:44:32.623 +05:30 [INF] Handling RequestReturnCommand at "2026-04-11T09:14:32.6232273Z"
+2026-04-11 14:44:32.662 +05:30 [ERR] HTTP POST /api/orders/77319d40-3719-40e8-892f-eb763a202e60/returns responded 500 in 45.3614 ms
+System.InvalidOperationException: Return request can only be raised after delivery.
+   at Order.Domain.Entities.OrderAggregate.RaiseReturn(Guid requestedByDealerId, String reason) in C:\Users\Hey\Desktop\demo\services\Order\Order.Domain\Entities\OrderAggregate.cs:line 124
+   at Order.Application.Services.OrderService.RequestReturnAsync(Guid orderId, Guid dealerId, String reason, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 500
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.RequestReturn(Guid id, ReturnRequestDto request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 119
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 14:44:32.726 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:14:32.7266102Z"
+2026-04-11 14:44:32.746 +05:30 [INF] Handled GetAllOrdersQuery in 19.9976ms
+2026-04-11 14:44:32.751 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 25.6264 ms
+2026-04-11 14:44:32.918 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:14:32.9188280Z"
+2026-04-11 14:44:32.950 +05:30 [INF] Handled GetAllOrdersQuery in 31.5965ms
+2026-04-11 14:44:32.955 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 38.9749 ms
+2026-04-11 14:44:33.102 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:14:33.1020010Z"
+2026-04-11 14:44:33.125 +05:30 [INF] Handled GetAllOrdersQuery in 23.3826ms
+2026-04-11 14:44:33.130 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 29.8549 ms
+2026-04-11 14:44:33.285 +05:30 [INF] HTTP POST /api/admin/orders/bulk-status responded 403 in 1.2940 ms
+2026-04-11 14:44:33.334 +05:30 [INF] Handling ApproveOnHoldCommand at "2026-04-11T09:14:33.3346180Z"
+2026-04-11 14:44:33.381 +05:30 [INF] Handled ApproveOnHoldCommand in 46.347ms
+2026-04-11 14:44:33.385 +05:30 [INF] HTTP PUT /api/admin/orders/77319d40-3719-40e8-892f-eb763a202e60/approve-hold responded 404 in 53.7550 ms
+2026-04-11 14:44:33.418 +05:30 [INF] Handling RejectOnHoldCommand at "2026-04-11T09:14:33.4186163Z"
+2026-04-11 14:44:33.457 +05:30 [INF] Handled RejectOnHoldCommand in 38.6796ms
+2026-04-11 14:44:33.463 +05:30 [INF] HTTP PUT /api/admin/orders/77319d40-3719-40e8-892f-eb763a202e60/reject-hold responded 404 in 47.7810 ms
+2026-04-11 14:44:33.500 +05:30 [INF] HTTP PUT /api/admin/orders/77319d40-3719-40e8-892f-eb763a202e60/approve-hold responded 403 in 0.6457 ms
+2026-04-11 14:44:54.982 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:14:54.9827043Z"
+2026-04-11 14:44:55.001 +05:30 [INF] Handled GetAllOrdersQuery in 19.2434ms
+2026-04-11 14:44:55.009 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 29.4829 ms
+2026-04-11 14:45:12.294 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:15:12.2944600Z"
+2026-04-11 14:45:40.343 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 14:46:12.621 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:16:12.6217992Z"
+2026-04-11 14:47:13.156 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:17:13.1564335Z"
+2026-04-11 14:50:09.151 +05:30 [INF] Order migrations applied count: 3
+2026-04-11 14:50:09.726 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 14:50:14.070 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 14:50:16.002 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@OrderMigrationsDB'
+2026-04-11 14:50:16.010 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 14:50:16.012 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 14:50:16.143 +05:30 [INF] Server desktop-nfnd817:10776:7af88242 successfully announced in 81.9835 ms
+2026-04-11 14:50:16.225 +05:30 [INF] Server desktop-nfnd817:10776:7af88242 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 14:50:16.918 +05:30 [INF] Server desktop-nfnd817:10776:7af88242 all the dispatchers started
+2026-04-11 14:50:18.303 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:20:18.3031670Z"
+2026-04-11 14:50:28.862 +05:30 [INF] HTTP GET /health responded 200 in 141.6200 ms
+2026-04-11 14:51:03.109 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:21:03.1095505Z"
+2026-04-11 14:52:03.327 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:22:03.3274813Z"
+2026-04-11 14:53:03.430 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:23:03.4305844Z"
+2026-04-11 14:54:03.624 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:24:03.6249079Z"
+2026-04-11 14:54:09.738 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 14:54:10.305 +05:30 [INF] Handling CreateOrderCommand at "2026-04-11T09:24:10.3053936Z"
+2026-04-11 14:54:10.693 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 14:54:10.700 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/soft-lock
+2026-04-11 14:54:10.972 +05:30 [INF] Received HTTP response headers after 257.2123ms - 200
+2026-04-11 14:54:10.980 +05:30 [INF] End processing HTTP request after 305.7798ms - 200
+2026-04-11 14:54:10.998 +05:30 [INF] Start processing HTTP request GET http://localhost:8005/api/payment/internal/dealers/fdb7192a-bfef-49aa-93ff-1980d1bcf104/credit-check?*
+2026-04-11 14:54:11.001 +05:30 [INF] Sending HTTP request GET http://localhost:8005/api/payment/internal/dealers/fdb7192a-bfef-49aa-93ff-1980d1bcf104/credit-check?*
+2026-04-11 14:54:12.376 +05:30 [INF] Received HTTP response headers after 1369.712ms - 200
+2026-04-11 14:54:12.380 +05:30 [INF] End processing HTTP request after 1382.5719ms - 200
+2026-04-11 14:54:13.678 +05:30 [INF] Order saga started for order "a6da1a47-69e1-48ff-8ac1-0990099f4006"
+2026-04-11 14:54:13.729 +05:30 [INF] Order saga "a6da1a47-69e1-48ff-8ac1-0990099f4006" transitioned to "CreditCheckInProgress"
+2026-04-11 14:54:13.751 +05:30 [INF] Order saga "a6da1a47-69e1-48ff-8ac1-0990099f4006" transitioned to "CompletedApproved"
+2026-04-11 14:54:13.822 +05:30 [INF] Handled CreateOrderCommand in 3517.2497ms
+2026-04-11 14:54:14.025 +05:30 [INF] HTTP POST /api/orders responded 201 in 4566.3499 ms
+2026-04-11 14:54:25.145 +05:30 [INF] HTTP POST /api/orders responded 403 in 16.0842 ms
+2026-04-11 14:54:25.278 +05:30 [INF] Handling GetDealerOrdersQuery at "2026-04-11T09:24:25.2777153Z"
+2026-04-11 14:54:25.580 +05:30 [INF] Handled GetDealerOrdersQuery in 302.8108ms
+2026-04-11 14:54:25.610 +05:30 [INF] HTTP GET /api/orders/my responded 200 in 391.6211 ms
+2026-04-11 14:54:25.741 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T09:24:25.7409788Z"
+2026-04-11 14:54:26.035 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-04-11 14:54:26.292 +05:30 [INF] Handled GetOrderQuery in 551.1686ms
+2026-04-11 14:54:26.303 +05:30 [INF] HTTP GET /api/orders/a6da1a47-69e1-48ff-8ac1-0990099f4006 responded 200 in 584.7665 ms
+2026-04-11 14:54:26.597 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T09:24:26.5969571Z"
+2026-04-11 14:54:26.611 +05:30 [INF] Handled GetOrderQuery in 14.347ms
+2026-04-11 14:54:26.616 +05:30 [INF] HTTP GET /api/orders/a6da1a47-69e1-48ff-8ac1-0990099f4006 responded 200 in 22.5561 ms
+2026-04-11 14:54:26.751 +05:30 [INF] Handling UpdateOrderStatusCommand at "2026-04-11T09:24:26.7514111Z"
+2026-04-11 14:54:26.784 +05:30 [ERR] HTTP PUT /api/orders/a6da1a47-69e1-48ff-8ac1-0990099f4006/status responded 500 in 83.0194 ms
+System.InvalidOperationException: Role 'Logistics' cannot move orders to 'Processing'.
+   at Order.Application.Services.OrderService.UpdateOrderStatusAsync(Guid orderId, OrderStatus newStatus, Guid changedByUserId, String changedByRole, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 168
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.UpdateStatus(Guid id, UpdateOrderStatusRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 92
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 14:54:26.879 +05:30 [INF] HTTP PUT /api/orders/a6da1a47-69e1-48ff-8ac1-0990099f4006/status responded 403 in 1.5902 ms
+2026-04-11 14:54:26.947 +05:30 [INF] Handling CancelOrderCommand at "2026-04-11T09:24:26.9465604Z"
+2026-04-11 14:54:26.978 +05:30 [INF] Start processing HTTP request POST http://localhost:8002/api/internal/inventory/release-soft-lock
+2026-04-11 14:54:26.981 +05:30 [INF] Sending HTTP request POST http://localhost:8002/api/internal/inventory/release-soft-lock
+2026-04-11 14:54:27.057 +05:30 [INF] Received HTTP response headers after 65.25ms - 200
+2026-04-11 14:54:27.061 +05:30 [INF] End processing HTTP request after 84.5076ms - 200
+2026-04-11 14:54:27.137 +05:30 [INF] Order saga "a6da1a47-69e1-48ff-8ac1-0990099f4006" transitioned to "CompletedCancelled"
+2026-04-11 14:54:27.143 +05:30 [INF] Handled CancelOrderCommand in 196.8128ms
+2026-04-11 14:54:27.149 +05:30 [INF] HTTP POST /api/orders/a6da1a47-69e1-48ff-8ac1-0990099f4006/cancel responded 200 in 231.4510 ms
+2026-04-11 14:54:27.308 +05:30 [INF] Handling RequestReturnCommand at "2026-04-11T09:24:27.3075902Z"
+2026-04-11 14:54:27.327 +05:30 [ERR] HTTP POST /api/orders/a6da1a47-69e1-48ff-8ac1-0990099f4006/returns responded 500 in 50.8228 ms
+System.InvalidOperationException: Return request can only be raised after delivery.
+   at Order.Domain.Entities.OrderAggregate.RaiseReturn(Guid requestedByDealerId, String reason) in C:\Users\Hey\Desktop\demo\services\Order\Order.Domain\Entities\OrderAggregate.cs:line 124
+   at Order.Application.Services.OrderService.RequestReturnAsync(Guid orderId, Guid dealerId, String reason, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.Application\Services\OrderService.cs:line 500
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at Order.API.Controllers.OrdersController.RequestReturn(Guid id, ReturnRequestDto request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\Order\Order.API\Controllers\OrdersController.cs:line 119
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-11 14:54:27.414 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:24:27.4136488Z"
+2026-04-11 14:54:27.798 +05:30 [INF] Handled GetAllOrdersQuery in 384.8439ms
+2026-04-11 14:54:27.809 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 425.1073 ms
+2026-04-11 14:54:27.959 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:24:27.9598113Z"
+2026-04-11 14:54:27.972 +05:30 [INF] Handled GetAllOrdersQuery in 12.938ms
+2026-04-11 14:54:27.978 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 21.5523 ms
+2026-04-11 14:54:28.145 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:24:28.1456786Z"
+2026-04-11 14:54:28.178 +05:30 [INF] Handled GetAllOrdersQuery in 33.2442ms
+2026-04-11 14:54:28.184 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 55.4660 ms
+2026-04-11 14:54:28.334 +05:30 [INF] HTTP POST /api/admin/orders/bulk-status responded 403 in 0.7872 ms
+2026-04-11 14:54:28.408 +05:30 [INF] Handling ApproveOnHoldCommand at "2026-04-11T09:24:28.4082588Z"
+2026-04-11 14:54:28.420 +05:30 [INF] Handled ApproveOnHoldCommand in 12.5145ms
+2026-04-11 14:54:28.480 +05:30 [INF] HTTP PUT /api/admin/orders/a6da1a47-69e1-48ff-8ac1-0990099f4006/approve-hold responded 404 in 98.2540 ms
+2026-04-11 14:54:28.549 +05:30 [INF] Handling RejectOnHoldCommand at "2026-04-11T09:24:28.5489966Z"
+2026-04-11 14:54:28.565 +05:30 [INF] Handled RejectOnHoldCommand in 16.6618ms
+2026-04-11 14:54:28.571 +05:30 [INF] HTTP PUT /api/admin/orders/a6da1a47-69e1-48ff-8ac1-0990099f4006/reject-hold responded 404 in 51.4641 ms
+2026-04-11 14:54:28.602 +05:30 [INF] HTTP PUT /api/admin/orders/a6da1a47-69e1-48ff-8ac1-0990099f4006/approve-hold responded 403 in 0.9879 ms
+2026-04-11 14:55:03.804 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:25:03.8043878Z"
+2026-04-11 14:55:16.472 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 14:56:03.986 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:26:03.9862054Z"
+2026-04-11 14:57:04.199 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:27:04.1997136Z"
+2026-04-11 14:58:04.543 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:28:04.5437133Z"
+2026-04-11 14:59:04.668 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:29:04.6682297Z"
+2026-04-11 15:00:04.788 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:30:04.7886866Z"
+2026-04-11 15:01:05.117 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:31:05.1170132Z"
+2026-04-11 15:02:05.545 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:32:05.5456981Z"
+2026-04-11 15:03:05.694 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:33:05.6944114Z"
+2026-04-11 15:04:05.836 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:34:05.8363150Z"
+2026-04-11 15:05:06.027 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:35:06.0276697Z"
+2026-04-11 15:06:06.113 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:36:06.1132485Z"
+2026-04-11 15:06:22.693 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:36:22.6929900Z"
+2026-04-11 15:06:22.787 +05:30 [INF] Handled GetAllOrdersQuery in 94.2323ms
+2026-04-11 15:06:22.812 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 173.1923 ms
+2026-04-11 15:06:26.196 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:36:26.1964934Z"
+2026-04-11 15:06:26.230 +05:30 [INF] Handled GetAllOrdersQuery in 34.4716ms
+2026-04-11 15:06:26.282 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 87.4172 ms
+2026-04-11 15:06:30.041 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T09:36:30.0415039Z"
+2026-04-11 15:06:30.119 +05:30 [INF] Handled GetOrderQuery in 77.9965ms
+2026-04-11 15:06:30.126 +05:30 [INF] HTTP GET /api/orders/a6da1a47-69e1-48ff-8ac1-0990099f4006 responded 200 in 102.7533 ms
+2026-04-11 15:06:36.226 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:36:36.2265312Z"
+2026-04-11 15:06:36.236 +05:30 [INF] Handled GetAllOrdersQuery in 9.5098ms
+2026-04-11 15:06:36.239 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 15.8310 ms
+2026-04-11 15:06:42.749 +05:30 [INF] Handling GetOrderQuery at "2026-04-11T09:36:42.7493475Z"
+2026-04-11 15:06:42.772 +05:30 [INF] Handled GetOrderQuery in 23.233ms
+2026-04-11 15:06:42.775 +05:30 [INF] HTTP GET /api/orders/8378ac59-c750-4c23-aa3a-078dcf102427 responded 200 in 28.0186 ms
+2026-04-11 15:07:00.192 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:37:00.1921114Z"
+2026-04-11 15:07:00.201 +05:30 [INF] Handled GetAllOrdersQuery in 9.2472ms
+2026-04-11 15:07:00.210 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 22.3602 ms
+2026-04-11 15:07:06.235 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:37:06.2356483Z"
+2026-04-11 15:08:06.341 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:38:06.3416166Z"
+2026-04-11 15:09:06.642 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:39:06.6422425Z"
+2026-04-11 15:09:23.626 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T09:39:23.6260353Z"
+2026-04-11 15:09:23.642 +05:30 [INF] Handled GetAllOrdersQuery in 15.8941ms
+2026-04-11 15:09:23.645 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 21.5434 ms
+2026-04-11 15:10:06.757 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:40:06.7573703Z"
+2026-04-11 15:11:06.871 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:41:06.8717773Z"
+2026-04-11 15:12:06.987 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:42:06.9874641Z"
+2026-04-11 15:13:07.121 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:43:07.1213898Z"
+2026-04-11 15:14:07.249 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:44:07.2497128Z"
+2026-04-11 15:15:07.491 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:45:07.4918023Z"
+2026-04-11 15:16:07.663 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:46:07.6631797Z"
+2026-04-11 15:17:07.724 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:47:07.7248385Z"
+2026-04-11 15:18:07.832 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:48:07.8326080Z"
+2026-04-11 15:19:07.936 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:49:07.9368223Z"
+2026-04-11 15:20:08.059 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:50:08.0591524Z"
+2026-04-11 15:21:08.244 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:51:08.2448475Z"
+2026-04-11 15:22:08.388 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:52:08.3886875Z"
+2026-04-11 15:23:08.476 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:53:08.4761684Z"
+2026-04-11 15:24:08.531 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:54:08.5318322Z"
+2026-04-11 15:25:08.621 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:55:08.6212989Z"
+2026-04-11 15:26:08.767 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:56:08.7674073Z"
+2026-04-11 15:27:08.924 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:57:08.9248492Z"
+2026-04-11 15:28:09.052 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:58:09.0528485Z"
+2026-04-11 15:29:09.178 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:59:09.1788462Z"
+2026-04-11 15:30:09.332 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:00:09.3327985Z"
+2026-04-11 15:31:10.041 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:01:10.0413026Z"
+2026-04-11 15:32:10.049 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:02:10.0490507Z"
+2026-04-11 15:33:10.740 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:03:10.7405849Z"
+2026-04-11 15:34:11.427 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:04:11.4275841Z"
+2026-04-11 15:35:14.474 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:05:14.4741579Z"
+2026-04-11 15:35:34.879 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T10:05:34.8793750Z"
+2026-04-11 15:35:35.575 +05:30 [INF] Handled GetAllOrdersQuery in 695.7306ms
+2026-04-11 15:35:35.815 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 1098.8141 ms
+2026-04-11 15:35:37.050 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T10:05:37.0502189Z"
+2026-04-11 15:35:37.489 +05:30 [INF] Handled GetAllOrdersQuery in 439.3958ms
+2026-04-11 15:35:37.839 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 813.3569 ms
+2026-04-11 15:36:14.603 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:06:14.6029795Z"
+2026-04-11 15:37:15.084 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:07:15.0842748Z"
+2026-04-11 15:38:00.329 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:08:00.3293364Z"
+2026-04-11 15:39:00.699 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:09:00.6995920Z"
+2026-04-11 15:40:01.977 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:10:01.9779602Z"
+2026-04-11 15:41:02.125 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:11:02.1255205Z"
+2026-04-11 15:41:25.137 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T10:11:25.1376167Z"
+2026-04-11 15:41:25.247 +05:30 [INF] Handled GetAllOrdersQuery in 110.0258ms
+2026-04-11 15:41:25.266 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 238.7589 ms
+2026-04-11 15:42:02.241 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:12:02.2414246Z"
+2026-04-11 15:43:02.377 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:13:02.3776835Z"
+2026-04-11 15:44:02.732 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:14:02.7325016Z"
+2026-04-11 15:45:03.060 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:15:03.0605157Z"
+2026-04-11 15:46:03.189 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:16:03.1897856Z"
+2026-04-11 15:47:03.307 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:17:03.3073686Z"
+2026-04-11 15:47:10.003 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T10:17:10.0030704Z"
+2026-04-11 15:47:10.046 +05:30 [INF] Handled GetAllOrdersQuery in 43.5709ms
+2026-04-11 15:47:10.057 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 61.5164 ms
+2026-04-11 15:47:16.661 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T10:17:16.6613913Z"
+2026-04-11 15:47:16.673 +05:30 [INF] Handled GetAllOrdersQuery in 11.8246ms
+2026-04-11 15:47:16.679 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 18.7511 ms
+2026-04-11 15:48:03.409 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:18:03.4090943Z"
+2026-04-11 15:48:13.374 +05:30 [INF] Handling GetAllOrdersQuery at "2026-04-11T10:18:13.3744450Z"
+2026-04-11 15:48:13.381 +05:30 [INF] HTTP GET /api/admin/orders/analytics responded 404 in 4.7619 ms
+2026-04-11 15:48:13.399 +05:30 [INF] Handled GetAllOrdersQuery in 24.6109ms
+2026-04-11 15:48:13.406 +05:30 [INF] HTTP GET /api/admin/orders responded 200 in 33.6212 ms
+2026-04-11 15:49:04.491 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:19:04.4915516Z"
+2026-04-11 15:50:04.616 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:20:04.6164649Z"

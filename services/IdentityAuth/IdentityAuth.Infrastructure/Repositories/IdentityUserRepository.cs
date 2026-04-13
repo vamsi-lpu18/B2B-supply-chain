@@ -42,6 +42,39 @@ internal sealed class IdentityUserRepository(IdentityAuthDbContext dbContext) : 
         return dbContext.DealerProfiles.AnyAsync(x => x.GstNumber == normalizedGst, cancellationToken);
     }
 
+    public async Task<(IReadOnlyList<User> Items, int TotalCount)> GetAgentsAsync(int page, int pageSize, string? search, CancellationToken cancellationToken)
+    {
+        var baseQuery = dbContext.Users
+            .Where(x => x.Role == UserRole.Agent)
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            if (Enum.TryParse<UserStatus>(search, ignoreCase: true, out var statusFilter))
+            {
+                baseQuery = baseQuery.Where(x => x.Status == statusFilter);
+            }
+            else
+            {
+                var term = search.Trim().ToLowerInvariant();
+                baseQuery = baseQuery.Where(x =>
+                    x.FullName.ToLower().Contains(term) ||
+                    x.Email.ToLower().Contains(term) ||
+                    x.PhoneNumber.ToLower().Contains(term));
+            }
+        }
+
+        var query = baseQuery.OrderByDescending(x => x.CreatedAtUtc);
+
+        var totalCount = await query.CountAsync(cancellationToken);
+        var items = await query
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync(cancellationToken);
+
+        return (items, totalCount);
+    }
+
     public async Task<(IReadOnlyList<User> Items, int TotalCount)> GetDealersAsync(int page, int pageSize, string? search, CancellationToken cancellationToken)
     {
         var baseQuery = dbContext.Users

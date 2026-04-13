@@ -87,6 +87,60 @@ public sealed class Product
         UpdatedAtUtc = DateTime.UtcNow;
     }
 
+    public void SoftReserve(int quantity)
+    {
+        if (quantity <= 0)
+        {
+            throw new InvalidOperationException("Reserve quantity must be greater than zero.");
+        }
+
+        if (AvailableStock < quantity)
+        {
+            throw new InvalidOperationException("Insufficient available stock.");
+        }
+
+        ReservedStock += quantity;
+        UpdatedAtUtc = DateTime.UtcNow;
+    }
+
+    public void ReleaseReserve(int quantity)
+    {
+        if (quantity <= 0)
+        {
+            throw new InvalidOperationException("Release quantity must be greater than zero.");
+        }
+
+        if (ReservedStock < quantity)
+        {
+            throw new InvalidOperationException("Reserved stock is lower than release quantity.");
+        }
+
+        ReservedStock -= quantity;
+        UpdatedAtUtc = DateTime.UtcNow;
+    }
+
+    public void HardDeductReserved(int quantity)
+    {
+        if (quantity <= 0)
+        {
+            throw new InvalidOperationException("Deduct quantity must be greater than zero.");
+        }
+
+        if (ReservedStock < quantity)
+        {
+            throw new InvalidOperationException("Reserved stock is lower than deduct quantity.");
+        }
+
+        if (TotalStock < quantity)
+        {
+            throw new InvalidOperationException("Insufficient total stock.");
+        }
+
+        ReservedStock -= quantity;
+        TotalStock -= quantity;
+        UpdatedAtUtc = DateTime.UtcNow;
+    }
+
     public void HardDeduct(int quantity)
     {
         if (quantity <= 0)

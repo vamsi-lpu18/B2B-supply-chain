@@ -17,7 +17,9 @@ public sealed class IdentityAuthService(
     INotificationGateway notificationGateway,
     IValidator<RegisterDealerRequest> registerDealerValidator,
     IValidator<LoginRequest> loginValidator,
+    IValidator<CreateAgentRequest> createAgentValidator,
     IValidator<ResetPasswordRequest> resetPasswordValidator,
+    IValidator<ChangePasswordRequest> changePasswordValidator,
     IValidator<RejectDealerRequest> rejectDealerValidator,
     IValidator<UpdateCreditLimitRequest> updateCreditLimitValidator)
     : IIdentityAuthService
@@ -65,6 +67,43 @@ public sealed class IdentityAuthService(
         await userRepository.SaveChangesAsync(cancellationToken);
 
         return new RegisterDealerResponse(user.UserId, user.Status.ToString(), "Registration submitted and pending admin approval.");
+    }
+
+    public async Task<CreateAgentResponse> CreateAgentAsync(CreateAgentRequest request, CancellationToken cancellationToken)
+    {
+        await createAgentValidator.ValidateAndThrowAsync(request, cancellationToken);
+
+        if (await userRepository.EmailExistsAsync(request.Email, cancellationToken))
+        {
+            throw new DomainValidationException("Email is already registered.");
+        }
+
+        var user = User.CreateStaff(
+            request.Email,
+            passwordService.HashPassword(request.TemporaryPassword),
+            request.FullName,
+            request.PhoneNumber,
+            UserRole.Agent);
+
+        user.RequirePasswordChange();
+
+        await userRepository.AddUserAsync(user, cancellationToken);
+        await userRepository.AddOutboxMessageAsync("AgentCreated", new
+        {
+            user.UserId,
+            user.Email,
+            user.FullName,
+            occurredAtUtc = DateTime.UtcNow
+        }, cancellationToken);
+
+        await userRepository.SaveChangesAsync(cancellationToken);
+
+        return new CreateAgentResponse(
+            user.UserId,
+            user.Email,
+            user.FullName,
+            user.Status.ToString(),
+            "Agent created. The user must reset password after first login.");
     }
 
     public async Task<AuthResponse> LoginAsync(LoginRequest request, CancellationToken cancellationToken)
@@ -178,8 +217,39 @@ public sealed class IdentityAuthService(
 
         otpRecord.MarkUsed();
         user.UpdatePassword(passwordService.HashPassword(request.NewPassword));
+        user.ClearPasswordChangeRequirement();
 
         await userRepository.AddOutboxMessageAsync("PasswordResetCompleted", new
+        {
+            user.UserId,
+            user.Email,
+            occurredAtUtc = DateTime.UtcNow
+        }, cancellationToken);
+
+        await userRepository.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task ChangePasswordAsync(Guid userId, ChangePasswordRequest request, CancellationToken cancellationToken)
+    {
+        await changePasswordValidator.ValidateAndThrowAsync(request, cancellationToken);
+
+        var user = await userRepository.GetByIdAsync(userId, cancellationToken)
+            ?? throw new UnauthorizedAccessException("Invalid user context.");
+
+        if (!passwordService.VerifyPassword(user.PasswordHash, request.CurrentPassword))
+        {
+            throw new UnauthorizedAccessException("Current password is incorrect.");
+        }
+
+        if (passwordService.VerifyPassword(user.PasswordHash, request.NewPassword))
+        {
+            throw new DomainValidationException("New password must be different from current password.");
+        }
+
+        user.UpdatePassword(passwordService.HashPassword(request.NewPassword));
+        user.ClearPasswordChangeRequirement();
+
+        await userRepository.AddOutboxMessageAsync("PasswordChanged", new
         {
             user.UserId,
             user.Email,
@@ -232,6 +302,25 @@ public sealed class IdentityAuthService(
             .ToList();
 
         return new PagedResult<DealerSummaryDto>(mapped, totalCount, page, pageSize);
+    }
+
+    public async Task<PagedResult<AgentSummaryDto>> GetAgentsAsync(int page, int pageSize, string? search, CancellationToken cancellationToken)
+    {
+        page = page <= 0 ? 1 : page;
+        pageSize = pageSize <= 0 ? 50 : Math.Min(pageSize, 100);
+
+        var (items, totalCount) = await userRepository.GetAgentsAsync(page, pageSize, search, cancellationToken);
+        var mapped = items
+            .Select(agent => new AgentSummaryDto(
+                agent.UserId,
+                agent.FullName,
+                agent.Email,
+                agent.PhoneNumber,
+                agent.Status.ToString(),
+                agent.CreatedAtUtc))
+            .ToList();
+
+        return new PagedResult<AgentSummaryDto>(mapped, totalCount, page, pageSize);
     }
 
     public async Task<DealerDetailDto?> GetDealerAsync(Guid dealerId, CancellationToken cancellationToken)
@@ -380,6 +469,7 @@ public sealed class IdentityAuthService(
             accessToken.Token,
             accessToken.ExpiresAtUtc,
             refreshToken.Token,
-            refreshToken.ExpiresAtUtc);
+            refreshToken.ExpiresAtUtc,
+            user.IsPasswordChangeRequired());
     }
 }

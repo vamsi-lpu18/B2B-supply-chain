@@ -14,6 +14,10 @@ public sealed record AssignAgentRequest(Guid AgentId);
 
 public sealed record AssignVehicleRequest(string VehicleNumber);
 
+public sealed record RejectAssignmentRequest(string Reason);
+
+public sealed record RateDeliveryAgentRequest(int Rating, string? Comment);
+
 public sealed record UpdateShipmentStatusRequest(ShipmentStatus Status, string Note);
 
 public sealed record ShipmentEventDto(
@@ -35,6 +39,13 @@ public sealed record ShipmentDto(
     string PostalCode,
     Guid? AssignedAgentId,
     string? VehicleNumber,
+    AssignmentDecisionStatus AssignmentDecisionStatus,
+    string? AssignmentDecisionReason,
+    DateTime? AssignmentDecisionAtUtc,
+    int? DeliveryAgentRating,
+    string? DeliveryAgentRatingComment,
+    DateTime? DeliveryAgentRatedAtUtc,
+    Guid? DeliveryAgentRatedByUserId,
     ShipmentStatus Status,
     DateTime CreatedAtUtc,
     DateTime? DeliveredAtUtc,

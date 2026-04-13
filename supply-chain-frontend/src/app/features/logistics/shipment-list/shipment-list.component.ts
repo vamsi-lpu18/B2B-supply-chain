@@ -171,7 +171,17 @@ export class ShipmentListComponent implements OnInit {
       ? this.logisticsApi.getMyShipments()
       : this.isAgent()
         ? this.logisticsApi.getAssignedShipments()
-        : this.logisticsApi.getAllShipments();
+        : this.authStore.hasRole(UserRole.Admin, UserRole.Logistics)
+          ? this.logisticsApi.getAllShipments()
+          : null;
+
+    if (!obs) {
+      this.all.set([]);
+      this.filtered.set([]);
+      this.loading.set(false);
+      return;
+    }
+
     obs.subscribe({
       next: r => {
         const sorted = [...r].sort((a, b) => new Date(b.createdAtUtc).getTime() - new Date(a.createdAtUtc).getTime());

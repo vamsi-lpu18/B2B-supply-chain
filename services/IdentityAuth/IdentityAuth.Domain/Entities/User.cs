@@ -5,6 +5,8 @@ namespace IdentityAuth.Domain.Entities;
 
 public sealed class User
 {
+    private const string PasswordChangeRequiredMarker = "__PASSWORD_CHANGE_REQUIRED__";
+
     private User()
     {
     }
@@ -107,5 +109,25 @@ public sealed class User
     {
         CreditLimit = creditLimit;
         UpdatedAtUtc = DateTime.UtcNow;
+    }
+
+    public void RequirePasswordChange()
+    {
+        RejectionReason = PasswordChangeRequiredMarker;
+        UpdatedAtUtc = DateTime.UtcNow;
+    }
+
+    public void ClearPasswordChangeRequirement()
+    {
+        if (RejectionReason == PasswordChangeRequiredMarker)
+        {
+            RejectionReason = null;
+            UpdatedAtUtc = DateTime.UtcNow;
+        }
+    }
+
+    public bool IsPasswordChangeRequired()
+    {
+        return RejectionReason == PasswordChangeRequiredMarker;
     }
 }

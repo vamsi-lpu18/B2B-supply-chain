@@ -1,0 +1,6 @@
+C:\Users\Hey\Desktop\demo\artifacts\build-check\backend-sweep\identityauth.api\obj\Debug\net10.0\SharedKernel.csproj.AssemblyReference.cache
+C:\Users\Hey\Desktop\demo\artifacts\build-check\backend-sweep\identityauth.api\obj\Debug\net10.0\SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hey\Desktop\demo\artifacts\build-check\backend-sweep\identityauth.api\obj\Debug\net10.0\SharedKernel.AssemblyInfoInputs.cache
+C:\Users\Hey\Desktop\demo\artifacts\build-check\backend-sweep\identityauth.api\obj\Debug\net10.0\SharedKernel.AssemblyInfo.cs
+C:\Users\Hey\Desktop\demo\artifacts\build-check\backend-sweep\identityauth.api\obj\Debug\net10.0\SharedKernel.csproj.CoreCompileInputs.cache
+C:\Users\Hey\Desktop\demo\artifacts\build-check\backend-sweep\identityauth.api\obj\Debug\net10.0\SharedKernel.sourcelink.json

@@ -27,6 +27,7 @@ public static class DependencyInjection
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IOrderSagaCoordinator, OrderSagaCoordinator>();
         services.AddHttpClient<ICreditCheckGateway, PaymentCreditCheckGateway>();
+        services.AddHttpClient<IInventoryGateway, CatalogInventoryGateway>();
         services.AddHostedService<OrderOutboxDispatcher>();
 
         return services;

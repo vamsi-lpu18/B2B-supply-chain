@@ -12,6 +12,8 @@ public sealed class LogisticsService(
     IShipmentAiRecommendationProvider aiRecommendationProvider,
     IValidator<CreateShipmentRequest> createValidator,
     IValidator<AssignAgentRequest> assignValidator,
+    IValidator<RejectAssignmentRequest> rejectAssignmentValidator,
+    IValidator<RateDeliveryAgentRequest> rateDeliveryAgentValidator,
     IValidator<AssignVehicleRequest> assignVehicleValidator,
     IValidator<UpdateShipmentStatusRequest> statusValidator)
     : ILogisticsService
@@ -121,7 +123,114 @@ public sealed class LogisticsService(
             shipment.OrderId,
             shipment.DealerId,
             shipment.AssignedAgentId,
+            shipment.AssignmentDecisionStatus,
             shipment.Status,
+            occurredAtUtc = DateTime.UtcNow
+        }, cancellationToken);
+
+        try
+        {
+            await shipmentRepository.SaveChangesAsync(cancellationToken);
+            return true;
+        }
+        catch (Exception ex) when (IsDbUpdateConcurrencyException(ex))
+        {
+            return false;
+        }
+    }
+
+    public async Task<bool> AcceptAssignmentAsync(Guid shipmentId, Guid agentId, Guid updatedByUserId, string updatedByRole, CancellationToken cancellationToken)
+    {
+        await assignValidator.ValidateAndThrowAsync(new AssignAgentRequest(agentId), cancellationToken);
+
+        var shipment = await shipmentRepository.GetShipmentByIdAsync(shipmentId, cancellationToken);
+        if (shipment is null || shipment.AssignedAgentId != agentId)
+        {
+            return false;
+        }
+
+        shipment.AcceptAssignment(updatedByUserId, updatedByRole);
+        await SyncOpsStateWithShipmentAsync(shipment, cancellationToken);
+
+        await shipmentRepository.AddOutboxMessageAsync("ShipmentAssignmentAccepted", new
+        {
+            shipment.ShipmentId,
+            shipment.OrderId,
+            shipment.DealerId,
+            shipment.AssignedAgentId,
+            shipment.AssignmentDecisionStatus,
+            occurredAtUtc = DateTime.UtcNow
+        }, cancellationToken);
+
+        try
+        {
+            await shipmentRepository.SaveChangesAsync(cancellationToken);
+            return true;
+        }
+        catch (Exception ex) when (IsDbUpdateConcurrencyException(ex))
+        {
+            return false;
+        }
+    }
+
+    public async Task<bool> RejectAssignmentAsync(Guid shipmentId, Guid agentId, string reason, Guid updatedByUserId, string updatedByRole, CancellationToken cancellationToken)
+    {
+        await assignValidator.ValidateAndThrowAsync(new AssignAgentRequest(agentId), cancellationToken);
+        await rejectAssignmentValidator.ValidateAndThrowAsync(new RejectAssignmentRequest(reason), cancellationToken);
+
+        var shipment = await shipmentRepository.GetShipmentByIdAsync(shipmentId, cancellationToken);
+        if (shipment is null || shipment.AssignedAgentId != agentId)
+        {
+            return false;
+        }
+
+        shipment.RejectAssignment(reason, updatedByUserId, updatedByRole);
+        await SyncOpsStateWithShipmentAsync(shipment, cancellationToken);
+
+        await shipmentRepository.AddOutboxMessageAsync("ShipmentAssignmentRejected", new
+        {
+            shipment.ShipmentId,
+            shipment.OrderId,
+            shipment.DealerId,
+            rejectedAgentId = agentId,
+            reason,
+            occurredAtUtc = DateTime.UtcNow
+        }, cancellationToken);
+
+        try
+        {
+            await shipmentRepository.SaveChangesAsync(cancellationToken);
+            return true;
+        }
+        catch (Exception ex) when (IsDbUpdateConcurrencyException(ex))
+        {
+            return false;
+        }
+    }
+
+    public async Task<bool> RateDeliveryAgentAsync(Guid shipmentId, int rating, string? comment, Guid ratedByUserId, string ratedByRole, CancellationToken cancellationToken)
+    {
+        await rateDeliveryAgentValidator.ValidateAndThrowAsync(new RateDeliveryAgentRequest(rating, comment), cancellationToken);
+
+        var shipment = await shipmentRepository.GetShipmentByIdAsync(shipmentId, cancellationToken);
+        if (shipment is null)
+        {
+            return false;
+        }
+
+        shipment.RateDeliveryAgent(rating, comment, ratedByUserId, ratedByRole);
+
+        await shipmentRepository.AddOutboxMessageAsync("ShipmentAgentRated", new
+        {
+            shipment.ShipmentId,
+            shipment.OrderId,
+            shipment.DealerId,
+            shipment.AssignedAgentId,
+            RecipientUserId = shipment.AssignedAgentId,
+            shipment.DeliveryAgentRating,
+            Comment = shipment.DeliveryAgentRatingComment,
+            shipment.DeliveryAgentRatedByUserId,
+            shipment.DeliveryAgentRatedAtUtc,
             occurredAtUtc = DateTime.UtcNow
         }, cancellationToken);
 
@@ -184,6 +293,13 @@ public sealed class LogisticsService(
         if (shipment is null)
         {
             return false;
+        }
+
+        if (string.Equals(updatedByRole, "Agent", StringComparison.Ordinal)
+            && RequiresVehicleForAgentStatus(status)
+            && string.IsNullOrWhiteSpace(shipment.VehicleNumber))
+        {
+            throw new InvalidOperationException("Vehicle must be assigned before an agent can set InTransit, OutForDelivery, or Delivered.");
         }
 
         shipment.UpdateStatus(status, note, updatedByUserId, updatedByRole);
@@ -714,6 +830,13 @@ public sealed class LogisticsService(
         return string.Equals(ex.GetType().Name, "DbUpdateConcurrencyException", StringComparison.Ordinal);
     }
 
+    private static bool RequiresVehicleForAgentStatus(ShipmentStatus status)
+    {
+        return status is ShipmentStatus.InTransit
+            or ShipmentStatus.OutForDelivery
+            or ShipmentStatus.Delivered;
+    }
+
     private static string GenerateShipmentNumber()
     {
         var year = DateTime.UtcNow.Year;
@@ -745,6 +868,13 @@ public sealed class LogisticsService(
             shipment.PostalCode,
             shipment.AssignedAgentId,
             shipment.VehicleNumber,
+            shipment.AssignmentDecisionStatus,
+            shipment.AssignmentDecisionReason,
+            shipment.AssignmentDecisionAtUtc,
+            shipment.DeliveryAgentRating,
+            shipment.DeliveryAgentRatingComment,
+            shipment.DeliveryAgentRatedAtUtc,
+            shipment.DeliveryAgentRatedByUserId,
             shipment.Status,
             shipment.CreatedAtUtc,
             shipment.DeliveredAtUtc,

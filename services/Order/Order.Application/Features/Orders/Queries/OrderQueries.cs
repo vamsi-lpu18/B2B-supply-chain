@@ -31,3 +31,13 @@ public sealed class GetAllOrdersQueryHandler(IOrderService service)
     public Task<PagedResult<OrderListItemDto>> Handle(GetAllOrdersQuery request, CancellationToken cancellationToken)
         => service.GetAllOrdersAsync(request.Page, request.PageSize, request.Status, cancellationToken);
 }
+
+public sealed record GetOrderAnalyticsQuery(int Days, int Top)
+    : IRequest<OrderAnalyticsDto>;
+
+public sealed class GetOrderAnalyticsQueryHandler(IOrderService service)
+    : IRequestHandler<GetOrderAnalyticsQuery, OrderAnalyticsDto>
+{
+    public Task<OrderAnalyticsDto> Handle(GetOrderAnalyticsQuery request, CancellationToken cancellationToken)
+        => service.GetOrderAnalyticsAsync(request.Days, request.Top, cancellationToken);
+}

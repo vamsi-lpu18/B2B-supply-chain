@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DealerSummaryDto, DealerDetailDto, RejectDealerRequest, UpdateCreditLimitRequest, CreditLimitUpdateResult } from '../models/auth.models';
+import { DealerSummaryDto, DealerDetailDto, RejectDealerRequest, UpdateCreditLimitRequest, CreditLimitUpdateResult, CreateAgentRequest, CreateAgentResponse, AgentSummaryDto } from '../models/auth.models';
 import { PagedResult } from '../models/shared.models';
 
 @Injectable({ providedIn: 'root' })
@@ -29,5 +29,15 @@ export class AdminApiService {
 
   updateCreditLimit(id: string, req: UpdateCreditLimitRequest): Observable<CreditLimitUpdateResult> {
     return this.http.put<CreditLimitUpdateResult>(`${this.base}/dealers/${id}/credit-limit`, req);
+  }
+
+  createAgent(req: CreateAgentRequest): Observable<CreateAgentResponse> {
+    return this.http.post<CreateAgentResponse>(`${this.base}/users/agents`, req);
+  }
+
+  getAgents(page = 1, pageSize = 50, search?: string): Observable<PagedResult<AgentSummaryDto>> {
+    let params = new HttpParams().set('page', page).set('pageSize', pageSize);
+    if (search) params = params.set('search', search);
+    return this.http.get<PagedResult<AgentSummaryDto>>(`${this.base}/users/agents`, { params });
   }
 }

@@ -3,12 +3,18 @@ using Order.Application.Abstractions;
 using Order.Application.DTOs;
 using Order.Domain.Entities;
 using Order.Domain.Enums;
-
+/// <summary>
+/// The OrderService class implements the IOrderService interface and provides methods for managing orders, including creating orders, retrieving order details, updating order statuses, and handling order cancellations and returns. It interacts with the order repository for data persistence, gateways for credit checks and inventory management, and a saga coordinator for orchestrating long-running processes related to orders.
+/// </summary>
+///     <remarks>
+/// The OrderService is responsible for enforcing business rules around order processing, such as validating requests,  managing stock reservations, and ensuring that only authorized roles can perform certain actions on orders. It also handles the coordination of sagas to manage complex workflows that may involve multiple steps and external systems, such as credit checks and inventory updates.
+/// </remarks>
 namespace Order.Application.Services;
 
 public sealed class OrderService(
     IOrderRepository orderRepository,
     ICreditCheckGateway creditCheckGateway,
+    IInventoryGateway inventoryGateway,
     IOrderSagaCoordinator sagaCoordinator,
     IValidator<CreateOrderRequest> createValidator,
     IValidator<CancelOrderRequest> cancelValidator,
@@ -16,6 +22,19 @@ public sealed class OrderService(
     IValidator<ReturnRequestDto> returnValidator)
     : IOrderService
 {
+    private static readonly HashSet<OrderStatus> _logisticsManagedOrderStatuses =
+    [
+        OrderStatus.ReadyForDispatch,
+        OrderStatus.InTransit,
+        OrderStatus.Exception,
+        OrderStatus.Delivered
+    ];
+
+    private static readonly HashSet<OrderStatus> _warehouseManagedOrderStatuses =
+    [
+        OrderStatus.ReadyForDispatch
+    ];
+
     public async Task<OrderDto> CreateOrderAsync(Guid dealerId, CreateOrderRequest request, CancellationToken cancellationToken)
     {
         await createValidator.ValidateAndThrowAsync(request, cancellationToken);
@@ -32,6 +51,12 @@ public sealed class OrderService(
                 line.Quantity,
                 line.UnitPrice,
                 line.MinOrderQty);
+        }
+
+        var stockSoftLocked = await SoftLockOrderStockAsync(order, cancellationToken);
+        if (!stockSoftLocked)
+        {
+            throw new InvalidOperationException("Unable to reserve stock for one or more order lines.");
         }
 
         var creditResult = await creditCheckGateway.CheckCreditAsync(order.DealerId, order.TotalAmount, cancellationToken);
@@ -135,6 +160,15 @@ public sealed class OrderService(
         return new PagedResult<OrderListItemDto>(mapped, totalCount, page, pageSize);
     }
 
+    public Task<OrderAnalyticsDto> GetOrderAnalyticsAsync(int days, int top, CancellationToken cancellationToken)
+    {
+        var safeDays = Math.Clamp(days, 7, 365);
+        var safeTop = Math.Clamp(top, 3, 20);
+        var fromUtc = DateTime.UtcNow.Date.AddDays(-safeDays + 1);
+
+        return orderRepository.GetOrderAnalyticsAsync(fromUtc, safeTop, cancellationToken);
+    }
+
     public async Task<bool> UpdateOrderStatusAsync(
         Guid orderId,
         OrderStatus newStatus,
@@ -146,6 +180,22 @@ public sealed class OrderService(
         if (order is null)
         {
             return false;
+        }
+
+        if (!CanRoleManageOrderStatus(changedByRole, newStatus))
+        {
+            throw new InvalidOperationException(BuildRoleTransitionDeniedMessage(changedByRole, newStatus));
+        }
+
+        if (!order.CanTransitionTo(newStatus))
+        {
+            throw new InvalidOperationException($"Cannot transition order from '{order.Status}' to '{newStatus}'.");
+        }
+
+        var inventoryFailure = await TryApplyInventoryForTransitionAsync(order, newStatus, cancellationToken);
+        if (!string.IsNullOrWhiteSpace(inventoryFailure))
+        {
+            throw new InvalidOperationException(inventoryFailure);
         }
 
         order.TransitionTo(newStatus, changedByUserId, changedByRole);
@@ -204,6 +254,18 @@ public sealed class OrderService(
                 continue;
             }
 
+            if (!CanRoleManageOrderStatus(changedByRole, request.NewStatus))
+            {
+                results.Add(new BulkOrderStatusItemResultDto(
+                    orderId,
+                    order.OrderNumber,
+                    order.Status,
+                    false,
+                    false,
+                    BuildRoleTransitionDeniedMessage(changedByRole, request.NewStatus)));
+                continue;
+            }
+
             if (!order.CanTransitionTo(request.NewStatus))
             {
                 results.Add(new BulkOrderStatusItemResultDto(
@@ -216,19 +278,32 @@ public sealed class OrderService(
                 continue;
             }
 
-            results.Add(new BulkOrderStatusItemResultDto(
-                orderId,
-                order.OrderNumber,
-                order.Status,
-                true,
-                false,
-                null));
-
             if (request.ValidateOnly)
             {
+                results.Add(new BulkOrderStatusItemResultDto(
+                    orderId,
+                    order.OrderNumber,
+                    order.Status,
+                    true,
+                    false,
+                    null));
                 continue;
             }
 
+            var inventoryFailure = await TryApplyInventoryForTransitionAsync(order, request.NewStatus, cancellationToken);
+            if (!string.IsNullOrWhiteSpace(inventoryFailure))
+            {
+                results.Add(new BulkOrderStatusItemResultDto(
+                    orderId,
+                    order.OrderNumber,
+                    order.Status,
+                    false,
+                    false,
+                    inventoryFailure));
+                continue;
+            }
+
+            var currentStatus = order.Status;
             order.TransitionTo(request.NewStatus, changedByUserId, changedByRole);
 
             await orderRepository.AddOutboxMessageAsync($"Order{request.NewStatus}", new
@@ -239,6 +314,14 @@ public sealed class OrderService(
                 order.Status,
                 occurredAtUtc = DateTime.UtcNow
             }, cancellationToken);
+
+            results.Add(new BulkOrderStatusItemResultDto(
+                orderId,
+                order.OrderNumber,
+                currentStatus,
+                true,
+                false,
+                null));
         }
 
         if (!request.ValidateOnly && results.Any(result => result.CanTransition))
@@ -284,6 +367,17 @@ public sealed class OrderService(
         if (order is null)
         {
             return false;
+        }
+
+        if (!order.CanTransitionTo(OrderStatus.Cancelled))
+        {
+            throw new InvalidOperationException($"Cannot transition order from '{order.Status}' to '{OrderStatus.Cancelled}'.");
+        }
+
+        var inventoryFailure = await TryApplyInventoryForTransitionAsync(order, OrderStatus.Cancelled, cancellationToken);
+        if (!string.IsNullOrWhiteSpace(inventoryFailure))
+        {
+            throw new InvalidOperationException(inventoryFailure);
         }
 
         order.Cancel(reason, changedByUserId, changedByRole);
@@ -390,6 +484,12 @@ public sealed class OrderService(
             return false;
         }
 
+        var inventoryFailure = await TryApplyInventoryForTransitionAsync(order, OrderStatus.Cancelled, cancellationToken);
+        if (!string.IsNullOrWhiteSpace(inventoryFailure))
+        {
+            throw new InvalidOperationException(inventoryFailure);
+        }
+
         order.MarkCreditRejected(reason);
 
         await orderRepository.AddOutboxMessageAsync("OrderCancelled", new
@@ -477,6 +577,151 @@ public sealed class OrderService(
         await orderRepository.SaveChangesAsync(cancellationToken);
         return true;
     }
+
+    private static bool CanRoleManageOrderStatus(string role, OrderStatus targetStatus)
+    {
+        if (string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        if (string.Equals(role, "Logistics", StringComparison.OrdinalIgnoreCase))
+        {
+            return _logisticsManagedOrderStatuses.Contains(targetStatus);
+        }
+
+        if (string.Equals(role, "Warehouse", StringComparison.OrdinalIgnoreCase))
+        {
+            return _warehouseManagedOrderStatuses.Contains(targetStatus);
+        }
+
+        return false;
+    }
+
+    private static string BuildRoleTransitionDeniedMessage(string role, OrderStatus targetStatus)
+    {
+        return $"Role '{role}' cannot move orders to '{targetStatus}'.";
+    }
+
+    private async Task<string?> TryApplyInventoryForTransitionAsync(OrderAggregate order, OrderStatus targetStatus, CancellationToken cancellationToken)
+    {
+        if (targetStatus == OrderStatus.InTransit && order.Status == OrderStatus.ReadyForDispatch)
+        {
+            var deducted = await HardDeductReservedStockAsync(order, cancellationToken);
+            if (!deducted)
+            {
+                return "Unable to deduct reserved stock while moving order to InTransit.";
+            }
+        }
+
+        if (targetStatus == OrderStatus.Cancelled && ShouldReleaseReservedStock(order.Status))
+        {
+            var released = await ReleaseSoftLockedStockAsync(order, cancellationToken);
+            if (!released)
+            {
+                return "Unable to release reserved stock while cancelling order.";
+            }
+        }
+
+        return null;
+    }
+
+    private async Task<bool> SoftLockOrderStockAsync(OrderAggregate order, CancellationToken cancellationToken)
+    {
+        var stockLines = BuildOrderStockLines(order);
+        var lockedProductIds = new List<Guid>(stockLines.Count);
+
+        foreach (var stockLine in stockLines)
+        {
+            var locked = await inventoryGateway.SoftLockStockAsync(order.OrderId, stockLine.ProductId, stockLine.Quantity, cancellationToken);
+            if (!locked)
+            {
+                await ReleaseSoftLocksBestEffortAsync(order.OrderId, lockedProductIds, cancellationToken);
+                return false;
+            }
+
+            lockedProductIds.Add(stockLine.ProductId);
+        }
+
+        return true;
+    }
+
+    private async Task<bool> HardDeductReservedStockAsync(OrderAggregate order, CancellationToken cancellationToken)
+    {
+        var stockLines = BuildOrderStockLines(order);
+        foreach (var stockLine in stockLines)
+        {
+            var deducted = await inventoryGateway.HardDeductStockAsync(order.OrderId, stockLine.ProductId, stockLine.Quantity, cancellationToken);
+            if (deducted)
+            {
+                continue;
+            }
+
+            // Soft-locks can expire before dispatch; try to reserve again and retry once.
+            var relocked = await inventoryGateway.SoftLockStockAsync(order.OrderId, stockLine.ProductId, stockLine.Quantity, cancellationToken);
+            if (!relocked)
+            {
+                return false;
+            }
+
+            deducted = await inventoryGateway.HardDeductStockAsync(order.OrderId, stockLine.ProductId, stockLine.Quantity, cancellationToken);
+            if (!deducted)
+            {
+                await inventoryGateway.ReleaseSoftLockAsync(order.OrderId, stockLine.ProductId, cancellationToken);
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private async Task<bool> ReleaseSoftLockedStockAsync(OrderAggregate order, CancellationToken cancellationToken)
+    {
+        var stockLines = BuildOrderStockLines(order);
+        foreach (var stockLine in stockLines)
+        {
+            var released = await inventoryGateway.ReleaseSoftLockAsync(order.OrderId, stockLine.ProductId, cancellationToken);
+            if (!released)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private async Task ReleaseSoftLocksBestEffortAsync(Guid orderId, IReadOnlyCollection<Guid> productIds, CancellationToken cancellationToken)
+    {
+        foreach (var productId in productIds)
+        {
+            try
+            {
+                await inventoryGateway.ReleaseSoftLockAsync(orderId, productId, cancellationToken);
+            }
+            catch
+            {
+                // Best effort rollback for partial soft-locks.
+            }
+        }
+    }
+
+    private static bool ShouldReleaseReservedStock(OrderStatus currentStatus)
+    {
+        return currentStatus == OrderStatus.Placed
+            || currentStatus == OrderStatus.OnHold
+            || currentStatus == OrderStatus.Processing
+            || currentStatus == OrderStatus.ReadyForDispatch;
+    }
+
+    private static IReadOnlyList<OrderStockLine> BuildOrderStockLines(OrderAggregate order)
+    {
+        return order.Lines
+            .GroupBy(line => line.ProductId)
+            .Select(group => new OrderStockLine(group.Key, group.Sum(line => line.Quantity)))
+            .ToList();
+    }
+
+    private readonly record struct OrderStockLine(Guid ProductId, int Quantity);
 
     private static string GenerateOrderNumber()
     {

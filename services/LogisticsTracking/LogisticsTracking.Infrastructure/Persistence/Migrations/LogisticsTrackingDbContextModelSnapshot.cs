@@ -69,6 +69,18 @@ namespace LogisticsTracking.Infrastructure.Persistence.Migrations
                     b.Property<Guid?>("AssignedAgentId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("AssignmentDecisionAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("AssignmentDecisionReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("AssignmentDecisionStatus")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<string>("City")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -85,6 +97,19 @@ namespace LogisticsTracking.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("DeliveryAddress")
                         .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime?>("DeliveryAgentRatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeliveryAgentRatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("DeliveryAgentRating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DeliveryAgentRatingComment")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -117,8 +142,14 @@ namespace LogisticsTracking.Infrastructure.Persistence.Migrations
 
                     b.HasKey("ShipmentId");
 
+                    b.HasIndex("CreatedAtUtc");
+
                     b.HasIndex("ShipmentNumber")
                         .IsUnique();
+
+                    b.HasIndex("AssignedAgentId", "CreatedAtUtc");
+
+                    b.HasIndex("DealerId", "CreatedAtUtc");
 
                     b.ToTable("Shipments", (string)null);
                 });

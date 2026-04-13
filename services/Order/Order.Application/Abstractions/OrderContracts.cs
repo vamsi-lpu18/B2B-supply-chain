@@ -10,6 +10,7 @@ public interface IOrderService
     Task<OrderDto?> GetOrderAsync(Guid orderId, Guid requesterUserId, string requesterRole, CancellationToken cancellationToken);
     Task<PagedResult<OrderListItemDto>> GetDealerOrdersAsync(Guid dealerId, int page, int pageSize, CancellationToken cancellationToken);
     Task<PagedResult<OrderListItemDto>> GetAllOrdersAsync(int page, int pageSize, int? status, CancellationToken cancellationToken);
+    Task<OrderAnalyticsDto> GetOrderAnalyticsAsync(int days, int top, CancellationToken cancellationToken);
     Task<bool> UpdateOrderStatusAsync(Guid orderId, OrderStatus newStatus, Guid changedByUserId, string changedByRole, CancellationToken cancellationToken);
     Task<BulkUpdateOrderStatusResultDto> BulkUpdateOrderStatusAsync(BulkUpdateOrderStatusRequest request, Guid changedByUserId, string changedByRole, CancellationToken cancellationToken);
     Task<bool> CancelOrderAsync(Guid orderId, string reason, Guid changedByUserId, string changedByRole, CancellationToken cancellationToken);
@@ -27,6 +28,7 @@ public interface IOrderRepository
     Task<IReadOnlyList<OrderAggregate>> GetOrdersByIdsAsync(IReadOnlyCollection<Guid> orderIds, CancellationToken cancellationToken);
     Task<(IReadOnlyList<OrderAggregate> Items, int TotalCount)> GetDealerOrdersAsync(Guid dealerId, int page, int pageSize, CancellationToken cancellationToken);
     Task<(IReadOnlyList<OrderAggregate> Items, int TotalCount)> GetAllOrdersAsync(int page, int pageSize, int? status, CancellationToken cancellationToken);
+    Task<OrderAnalyticsDto> GetOrderAnalyticsAsync(DateTime fromUtc, int top, CancellationToken cancellationToken);
     Task AddOutboxMessageAsync(string eventType, object payload, CancellationToken cancellationToken);
     Task SaveChangesAsync(CancellationToken cancellationToken);
 }
@@ -34,6 +36,13 @@ public interface IOrderRepository
 public interface ICreditCheckGateway
 {
     Task<CreditCheckResult> CheckCreditAsync(Guid dealerId, decimal amount, CancellationToken cancellationToken);
+}
+
+public interface IInventoryGateway
+{
+    Task<bool> SoftLockStockAsync(Guid orderId, Guid productId, int quantity, CancellationToken cancellationToken);
+    Task<bool> HardDeductStockAsync(Guid orderId, Guid productId, int quantity, CancellationToken cancellationToken);
+    Task<bool> ReleaseSoftLockAsync(Guid orderId, Guid productId, CancellationToken cancellationToken);
 }
 
 public interface IOrderSagaCoordinator

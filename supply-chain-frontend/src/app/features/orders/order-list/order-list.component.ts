@@ -8,7 +8,7 @@ import { OrderSlaService, OrderSlaState } from '../../../core/services/order-sla
 import { AuthStore } from '../../../core/stores/auth.store';
 import { ToastService } from '../../../core/services/toast.service';
 import { BulkOrderStatusItemResultDto, BulkUpdateOrderStatusResultDto, OrderListItemDto } from '../../../core/models/order.models';
-import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRANSITIONS, UserRole } from '../../../core/models/enums';
+import { LOGISTICS_MANAGED_ORDER_STATUSES, ORDER_STATUS_BADGE, ORDER_STATUS_LABELS, ORDER_STATUS_TRANSITIONS, OrderStatus, UserRole } from '../../../core/models/enums';
 import { PaginationComponent } from '../../../shared/components/pagination/pagination.component';
 
 @Component({
@@ -21,7 +21,7 @@ import { PaginationComponent } from '../../../shared/components/pagination/pagin
         <h1>{{ isDealer() ? 'My Orders' : 'All Orders' }}</h1>
         <div class="d-flex gap-2 flex-wrap">
           <button class="btn btn-secondary btn-sm" (click)="exportCsv()" [disabled]="orders().length === 0">Export CSV</button>
-          @if (isStaff()) {
+          @if (isStatusManager()) {
             <button class="btn btn-secondary btn-sm" (click)="selectAllMatchingAcrossPages()" [disabled]="!canSelectAllMatching() || selectAllMatchingLoading()">
               {{ selectAllMatchingLoading() ? 'Selecting...' : 'Select All Matching' }}
             </button>
@@ -30,12 +30,12 @@ import { PaginationComponent } from '../../../shared/components/pagination/pagin
         </div>
       </div>
 
-      @if (isStaff() && selectedCount() > 0) {
+      @if (isStatusManager() && selectedCount() > 0) {
         <div class="card mb-4 d-flex gap-3 align-center flex-wrap" style="padding:12px 14px">
           <span class="text-sm fw-600">{{ selectedCount() }} selected</span>
           <select class="form-control" style="width:220px" [(ngModel)]="bulkStatus" (ngModelChange)="onBulkStatusChange()">
             <option [ngValue]="null">Select status</option>
-            @for (s of bulkStatusOptions; track s.value) {
+            @for (s of bulkStatusOptions(); track s.value) {
               <option [ngValue]="s.value">{{ s.label }}</option>
             }
           </select>
@@ -126,7 +126,7 @@ import { PaginationComponent } from '../../../shared/components/pagination/pagin
           <table class="data-table">
             <thead>
               <tr>
-                @if (isStaff()) {
+                @if (isStatusManager()) {
                   <th style="width:40px"><input type="checkbox" [checked]="allVisibleSelected()" [indeterminate]="hasSomeVisibleSelected() && !allVisibleSelected()" (change)="toggleSelectAllVisible($any($event.target).checked)"></th>
                 }
                 <th>Order #</th>
@@ -142,7 +142,7 @@ import { PaginationComponent } from '../../../shared/components/pagination/pagin
             <tbody>
               @for (o of orders(); track o.orderId) {
                 <tr [routerLink]="['/orders', o.orderId]">
-                  @if (isStaff()) {
+                  @if (isStatusManager()) {
                     <td>
                       <input type="checkbox"
                              [checked]="isSelected(o.orderId)"
@@ -152,7 +152,17 @@ import { PaginationComponent } from '../../../shared/components/pagination/pagin
                   }
                   <td class="fw-600">{{ o.orderNumber }}</td>
                   @if (!isDealer()) { <td class="text-xs text-secondary">{{ o.dealerId | slice:0:8 }}...</td> }
-                  <td><span class="badge" [class]="statusBadge(o.status)">{{ statusLabel(o.status) }}</span></td>
+                  <td style="min-width:180px">
+                    <div class="status-pipeline">
+                      @for (step of pipelineSteps(o.status); track step.label) {
+                        <div class="status-pipeline-step" [class.completed]="step.completed" [class.active]="step.active" [class.cancelled]="step.cancelled">
+                          <div class="status-pipeline-dot"></div>
+                          <div class="status-pipeline-bar"></div>
+                          <div class="status-pipeline-label">{{ step.label }}</div>
+                        </div>
+                      }
+                    </div>
+                  </td>
                   <td><span class="badge" [class]="slaBadgeClass(o)">{{ slaLabel(o) }}</span></td>
                   <td class="text-sm">{{ expectedLabel(o) }}</td>
                   <td class="fw-600">{{ o.totalAmount | currency:'INR':'symbol':'1.2-2' }}</td>
@@ -160,7 +170,9 @@ import { PaginationComponent } from '../../../shared/components/pagination/pagin
                   <td>
                     <div class="d-flex gap-2" (click)="$event.stopPropagation()">
                       <a [routerLink]="['/orders', o.orderId]" class="btn btn-ghost btn-sm">View</a>
-                      <a [routerLink]="['/orders', o.orderId, 'tracking']" class="btn btn-secondary btn-sm">Track</a>
+                      @if (canTrackDelivery()) {
+                        <a [routerLink]="['/orders', o.orderId, 'tracking']" class="btn btn-secondary btn-sm">Track</a>
+                      }
                     </div>
                   </td>
                 </tr>
@@ -209,7 +221,7 @@ export class OrderListComponent implements OnInit {
   private bulkPrecheckSelectionKey = '';
 
   readonly isDealer = () => this.authStore.hasRole(UserRole.Dealer);
-  readonly isStaff = () => this.authStore.hasRole(UserRole.Admin, UserRole.Warehouse, UserRole.Logistics);
+  readonly isStatusManager = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics);
 
   readonly selectedCount = computed(() => Object.keys(this.selectedOrderIds()).length);
   readonly currentBulkPrecheck = computed(() => this.isPrecheckCurrent() ? this.bulkPrecheck() : null);
@@ -223,7 +235,10 @@ export class OrderListComponent implements OnInit {
 
     const selected = this.selectedOrderIds();
     const selectedOrders = this.allOrders().filter(order => !!selected[order.orderId]);
-    const valid = selectedOrders.filter(order => (ORDER_STATUS_TRANSITIONS[order.status] ?? []).includes(this.bulkStatus!)).length;
+    const canMoveToTarget = this.canManageStatusTarget(this.bulkStatus);
+    const valid = selectedOrders.filter(order =>
+      canMoveToTarget && (ORDER_STATUS_TRANSITIONS[order.status] ?? []).includes(this.bulkStatus!)
+    ).length;
     const invalid = selectedOrders.length - valid;
     const unknown = this.selectedCount() - selectedOrders.length;
 
@@ -231,7 +246,6 @@ export class OrderListComponent implements OnInit {
   });
 
   readonly statusOptions = Object.entries(ORDER_STATUS_LABELS).map(([v, l]) => ({ value: Number(v) as OrderStatus, label: l }));
-  readonly bulkStatusOptions = this.statusOptions;
 
   statusLabel(s: OrderStatus): string { return ORDER_STATUS_LABELS[s] ?? String(s); }
   statusBadge(s: OrderStatus): string { return `badge ${ORDER_STATUS_BADGE[s] ?? 'badge-neutral'}`; }
@@ -258,6 +272,25 @@ export class OrderListComponent implements OnInit {
     return 'badge badge-neutral';
   }
 
+  pipelineSteps(status: OrderStatus): Array<{label: string; completed: boolean; active: boolean; cancelled: boolean}> {
+    const stages = [
+      { label: 'Placed', threshold: OrderStatus.Placed },
+      { label: 'Process', threshold: OrderStatus.Processing },
+      { label: 'Dispatch', threshold: OrderStatus.ReadyForDispatch },
+      { label: 'Transit', threshold: OrderStatus.InTransit },
+      { label: 'Delivered', threshold: OrderStatus.Delivered },
+    ];
+    const isCancelled = status === OrderStatus.Cancelled;
+    const isClosed = status === OrderStatus.Closed;
+    return stages.map((s, i) => {
+      if (isCancelled) return { label: s.label, completed: false, active: false, cancelled: i === 0 };
+      const numericStatus = status as number;
+      const completed = numericStatus > s.threshold || isClosed;
+      const active = numericStatus === s.threshold;
+      return { label: s.label, completed, active, cancelled: false };
+    });
+  }
+
   ngOnInit(): void { this.loadPage(1); }
 
   loadPage(p: number): void {
@@ -269,9 +302,21 @@ export class OrderListComponent implements OnInit {
     this.loading.set(true);
     this.clearSelection();
 
+    const canViewAdminOrders = this.authStore.hasRole(UserRole.Admin, UserRole.Warehouse, UserRole.Logistics);
     const obs = this.isDealer()
       ? this.orderApi.getMyOrders(targetPage, pageSize, this.statusFilter ?? undefined)
-      : this.adminOrderApi.getAllOrders(targetPage, pageSize, this.statusFilter ?? undefined);
+      : canViewAdminOrders
+        ? this.adminOrderApi.getAllOrders(targetPage, pageSize, this.statusFilter ?? undefined)
+        : null;
+
+    if (!obs) {
+      this.allOrders.set([]);
+      this.orders.set([]);
+      this.serverTotalCount.set(0);
+      this.totalCount.set(0);
+      this.loading.set(false);
+      return;
+    }
 
     obs.subscribe({
       next: r => {
@@ -364,7 +409,7 @@ export class OrderListComponent implements OnInit {
   }
 
   canSelectAllMatching(): boolean {
-    return this.isStaff() && this.showPagination() && this.serverTotalCount() > 0 && !this.loading();
+    return this.isStatusManager() && this.showPagination() && this.serverTotalCount() > 0 && !this.loading();
   }
 
   async selectAllMatchingAcrossPages(): Promise<void> {
@@ -426,8 +471,9 @@ export class OrderListComponent implements OnInit {
     const precheck = this.currentBulkPrecheck();
 
     return (
-      this.isStaff() &&
+      this.isStatusManager() &&
       this.bulkStatus !== null &&
+      this.canManageStatusTarget(this.bulkStatus) &&
       this.selectedCount() > 0 &&
       !this.bulkUpdating() &&
       !this.precheckLoading() &&
@@ -437,7 +483,7 @@ export class OrderListComponent implements OnInit {
   }
 
   runBulkPrecheck(): void {
-    if (this.bulkStatus === null || this.selectedCount() === 0 || !this.isStaff()) {
+    if (this.bulkStatus === null || this.selectedCount() === 0 || !this.isStatusManager() || !this.canManageStatusTarget(this.bulkStatus)) {
       return;
     }
 
@@ -538,6 +584,34 @@ export class OrderListComponent implements OnInit {
     URL.revokeObjectURL(url);
 
     this.toast.success(`Exported ${this.orders().length} order(s)`);
+  }
+
+  canTrackDelivery(): boolean {
+    return !this.authStore.hasRole(UserRole.Warehouse);
+  }
+
+  bulkStatusOptions(): Array<{ value: OrderStatus; label: string }> {
+    if (this.authStore.hasRole(UserRole.Admin)) {
+      return this.statusOptions;
+    }
+
+    if (this.authStore.hasRole(UserRole.Logistics)) {
+      return this.statusOptions.filter(option => this.canManageStatusTarget(option.value));
+    }
+
+    return [];
+  }
+
+  private canManageStatusTarget(targetStatus: OrderStatus): boolean {
+    if (this.authStore.hasRole(UserRole.Admin)) {
+      return true;
+    }
+
+    if (this.authStore.hasRole(UserRole.Logistics)) {
+      return LOGISTICS_MANAGED_ORDER_STATUSES.includes(targetStatus);
+    }
+
+    return false;
   }
 
   private applyClientFilters(): void {

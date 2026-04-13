@@ -27,7 +27,12 @@ import { AuthStore } from '../../../core/stores/auth.store';
 
       <div class="login-left">
         <div class="login-brand">
-          <div class="login-brand-icon">⛓</div>
+          <div class="login-brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="24" height="24">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </div>
           <div>
             <div class="login-brand-name">SupplyChain</div>
             <div class="login-brand-sub">Platform</div>
@@ -38,16 +43,38 @@ import { AuthStore } from '../../../core/stores/auth.store';
           <p>Real-time tracking, smart inventory, and seamless order management — all in one place.</p>
 
           <div class="login-features">
-            <div class="login-feature"><span>✓</span> Role-based access control</div>
-            <div class="login-feature"><span>✓</span> Real-time shipment tracking</div>
-            <div class="login-feature"><span>✓</span> Automated invoice generation</div>
-            <div class="login-feature"><span>✓</span> Credit limit management</div>
+            <div class="login-feature stagger-1">
+              <span class="feature-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Role-based access control
+            </div>
+            <div class="login-feature stagger-2">
+              <span class="feature-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Real-time shipment tracking
+            </div>
+            <div class="login-feature stagger-3">
+              <span class="feature-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Automated invoice generation
+            </div>
+            <div class="login-feature stagger-4">
+              <span class="feature-check">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Credit limit management
+            </div>
           </div>
         </div>
       </div>
 
       <div class="login-right">
         <div class="login-card">
+          <div class="login-card-glow"></div>
+
           <div class="login-card-header">
             <h2>Welcome back</h2>
             <p>Sign in to your account to continue</p>
@@ -56,9 +83,14 @@ import { AuthStore } from '../../../core/stores/auth.store';
           <form [formGroup]="form" (ngSubmit)="submit()" class="login-form">
             <div class="form-group">
               <label for="email">Email address</label>
-              <input id="email" type="email" class="form-control"
-                     formControlName="email" placeholder="you@company.com"
-                     autocomplete="email">
+              <div class="input-icon-wrap">
+                <span class="input-icon-el">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <input id="email" type="email" class="form-control"
+                       formControlName="email" placeholder="you&#64;company.com"
+                       autocomplete="email">
+              </div>
               @if (form.get('email')?.invalid && form.get('email')?.touched) {
                 <span class="form-error">Please enter a valid email</span>
               }
@@ -69,12 +101,19 @@ import { AuthStore } from '../../../core/stores/auth.store';
                 <label for="password">Password</label>
                 <a routerLink="/forgot-password" class="forgot-link">Forgot password?</a>
               </div>
-              <div class="input-wrap">
+              <div class="input-icon-wrap">
+                <span class="input-icon-el">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </span>
                 <input id="password" [type]="showPwd() ? 'text' : 'password'"
                        class="form-control" formControlName="password"
                        placeholder="••••••••" autocomplete="current-password">
                 <button type="button" class="pwd-toggle" (click)="showPwd.update(v => !v)">
-                  {{ showPwd() ? '🙈' : '👁' }}
+                  @if (showPwd()) {
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                  } @else {
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  }
                 </button>
               </div>
               @if (form.get('password')?.invalid && form.get('password')?.touched) {
@@ -84,7 +123,8 @@ import { AuthStore } from '../../../core/stores/auth.store';
 
             @if (errorMsg()) {
               <div class="alert alert-error">
-                <span>⚠</span> {{ errorMsg() }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                {{ errorMsg() }}
               </div>
             }
 
@@ -93,7 +133,8 @@ import { AuthStore } from '../../../core/stores/auth.store';
               @if (loading()) {
                 <span class="spinner"></span> Signing in...
               } @else {
-                Sign in →
+                Sign in
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               }
             </button>
           </form>
@@ -111,10 +152,10 @@ import { AuthStore } from '../../../core/stores/auth.store';
       position: relative;
       overflow: hidden;
       display: grid;
-      grid-template-columns: minmax(460px, 1.05fr) minmax(380px, .95fr);
+      grid-template-columns: minmax(460px, 1.1fr) minmax(380px, .9fr);
       gap: 28px;
       padding: 28px;
-      background: #dce6f2;
+      background: #0c1929;
     }
 
     .login-page-video {
@@ -124,7 +165,7 @@ import { AuthStore } from '../../../core/stores/auth.store';
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      filter: saturate(.9) contrast(.95) brightness(.9);
+      filter: saturate(.85) contrast(.92) brightness(.85);
     }
 
     .login-page-video-overlay {
@@ -133,15 +174,13 @@ import { AuthStore } from '../../../core/stores/auth.store';
       z-index: 1;
       pointer-events: none;
       background:
-        linear-gradient(165deg, rgba(10, 26, 46, .56) 0%, rgba(13, 33, 58, .48) 46%, rgba(9, 24, 43, .58) 100%);
+        radial-gradient(ellipse at 20% 80%, rgba(43,77,115,.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(139,92,246,.15) 0%, transparent 50%),
+        linear-gradient(165deg, rgba(8, 20, 38, .62) 0%, rgba(10, 25, 45, .52) 40%, rgba(8, 20, 38, .64) 100%);
     }
 
     /* Left panel */
     .login-left {
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
       padding: 44px;
       display: flex;
       flex-direction: column;
@@ -154,51 +193,54 @@ import { AuthStore } from '../../../core/stores/auth.store';
       display: flex;
       align-items: center;
       gap: 12px;
-      position: relative;
-      z-index: 2;
-      text-shadow: 0 2px 10px rgba(2, 6, 23, 0.42);
     }
     .login-brand-icon {
       width: 46px; height: 46px;
-      background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
-      border-radius: 12px;
+      background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-400) 100%);
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      color: #fff;
-      box-shadow: 0 10px 24px rgba(37,99,235,.30);
+      box-shadow: 0 8px 24px rgba(43,77,115,.45);
     }
     .login-brand-name {
       font-size: 1.2rem;
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1.2;
       color: #f8fbff;
       font-family: var(--font-display);
-      letter-spacing: -.018em;
+      letter-spacing: -.02em;
+      text-shadow: 0 2px 12px rgba(0,0,0,.3);
     }
-    .login-brand-sub  { font-size: .69rem; color: #dbeafe; text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
+    .login-brand-sub {
+      font-size: .65rem;
+      color: rgba(219,234,254,.8);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+    }
 
     .login-hero {
       position: relative;
       z-index: 2;
+
       h1 {
-        font-size: clamp(1.9rem, 2.2vw, 2.4rem);
+        font-size: clamp(1.9rem, 2.4vw, 2.5rem);
         font-weight: 700;
         color: #f8fbff;
-        line-height: 1.14;
-        letter-spacing: -.03em;
+        line-height: 1.12;
+        letter-spacing: -.035em;
         margin-bottom: 16px;
         font-family: var(--font-display);
         text-wrap: balance;
-        text-shadow: 0 4px 18px rgba(2, 6, 23, 0.56);
+        text-shadow: 0 4px 20px rgba(0,0,0,.4);
       }
       p {
         font-size: 1rem;
-        color: #e2ebf8;
+        color: rgba(226,235,248,.9);
         line-height: 1.6;
-        margin-bottom: 28px;
-        max-width: 430px;
-        font-weight: 650;
-        text-shadow: 0 3px 12px rgba(2, 6, 23, 0.46);
+        margin-bottom: 32px;
+        max-width: 440px;
+        font-weight: 500;
+        text-shadow: 0 2px 8px rgba(0,0,0,.3);
       }
     }
 
@@ -206,7 +248,7 @@ import { AuthStore } from '../../../core/stores/auth.store';
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      max-width: 460px;
+      max-width: 480px;
     }
 
     .login-feature {
@@ -214,22 +256,31 @@ import { AuthStore } from '../../../core/stores/auth.store';
       align-items: center;
       gap: 10px;
       font-size: .84rem;
-      color: #e7f0fb;
-      background: rgba(8, 28, 52, .46);
-      border: 1px solid rgba(174, 206, 239, .44);
-      border-radius: 10px;
-      padding: 9px 10px;
-      box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28);
-      backdrop-filter: blur(2px);
-      span {
-        width: 20px; height: 20px;
-        background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%);
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        font-size: .75rem;
-        color: #1e3a8a;
-        flex-shrink: 0;
+      font-weight: 600;
+      color: rgba(231,240,251,.95);
+      background: rgba(8, 28, 52, .5);
+      border: 1px solid rgba(148, 180, 214, .25);
+      border-radius: 12px;
+      padding: 10px 12px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all .25s var(--ease);
+
+      &:hover {
+        background: rgba(15, 40, 70, .6);
+        border-color: rgba(148, 180, 214, .4);
+        transform: translateY(-1px);
       }
+    }
+
+    .feature-check {
+      width: 22px; height: 22px;
+      background: linear-gradient(135deg, rgba(219,234,254,.9), rgba(147,197,253,.9));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #1e3a8a;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(30,58,138,.2);
     }
 
     /* Right panel */
@@ -245,100 +296,161 @@ import { AuthStore } from '../../../core/stores/auth.store';
 
     .login-card {
       width: 100%;
-      max-width: 430px;
-      background: linear-gradient(180deg, rgba(244,249,255,.72) 0%, rgba(231,240,250,.58) 100%);
-      border: 1px solid rgba(186, 205, 224, .62);
-      border-radius: 22px;
-      box-shadow: 0 22px 44px rgba(13, 30, 49, 0.24);
-      padding: 34px;
+      max-width: 440px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(203, 213, 225, .6);
+      border-radius: 24px;
+      box-shadow:
+        0 24px 48px rgba(0, 0, 0, .2),
+        0 0 0 1px rgba(255,255,255,.1),
+        inset 0 1px 0 rgba(255,255,255,.6);
+      padding: 36px;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(24px) saturate(1.4);
+      -webkit-backdrop-filter: blur(24px) saturate(1.4);
+      animation: cardReveal .6s var(--ease) both;
 
-      &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(115deg, transparent 32%, rgba(85, 123, 161, .16) 50%, transparent 68%);
-        transform: translateX(-120%);
-        animation: cardSweep 10s linear infinite;
-        pointer-events: none;
-      }
+      > * { position: relative; z-index: 1; }
+    }
 
-      > * {
-        position: relative;
-        z-index: 1;
-      }
+    .login-card-glow {
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(
+        from 180deg,
+        transparent 0deg,
+        rgba(65,120,173,.08) 60deg,
+        rgba(139,92,246,.06) 120deg,
+        transparent 180deg,
+        rgba(16,185,129,.05) 240deg,
+        rgba(65,120,173,.08) 300deg,
+        transparent 360deg
+      );
+      animation: glowSpin 12s linear infinite;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .login-card-header {
       margin-bottom: 28px;
+      text-align: center;
+
       h2 {
-        font-size: 1.85rem;
+        font-size: 1.75rem;
         font-weight: 700;
-        color: #0f172a;
+        color: var(--text-primary);
         letter-spacing: -.03em;
         font-family: var(--font-display);
+        line-height: 1.15;
       }
-      p  { font-size: .95rem; color: #475569; margin-top: 8px; font-weight: 600; }
+      p {
+        font-size: .9rem;
+        color: var(--text-secondary);
+        margin-top: 6px;
+        font-weight: 500;
+      }
     }
 
     .login-form { display: flex; flex-direction: column; }
+
+    .login-form .form-group {
+      margin-bottom: 18px;
+
+      label {
+        font-size: .8rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 6px;
+        display: block;
+      }
+    }
+
+    .input-icon-wrap {
+      position: relative;
+    }
+    .input-icon-el {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+      display: flex;
+      pointer-events: none;
+      transition: color .2s var(--ease);
+      z-index: 2;
+    }
+    .input-icon-wrap .form-control {
+      padding-left: 42px;
+      padding-right: 14px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(248, 250, 252, .9);
+      border: 1.5px solid var(--gray-300);
+      font-size: .875rem;
+      transition: all .2s var(--ease);
+    }
+    .input-icon-wrap .form-control:focus {
+      background: #fff;
+      border-color: var(--brand-400);
+      box-shadow: 0 0 0 4px rgba(65,120,173,.12), 0 4px 12px rgba(0,0,0,.06);
+    }
+    .input-icon-wrap:focus-within .input-icon-el {
+      color: var(--brand-600);
+    }
 
     .label-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       label { margin-bottom: 0; }
     }
+
     .forgot-link {
-      font-size: .8125rem;
-      color: #2563eb;
+      font-size: .78rem;
+      color: var(--brand-600);
       font-weight: 700;
       text-decoration: none;
       position: relative;
+      transition: color .15s var(--ease);
 
       &::after {
         content: '';
         position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -2px;
-        height: 1px;
+        left: 0; right: 0; bottom: -2px;
+        height: 1.5px;
         background: currentColor;
         transform: scaleX(0);
         transform-origin: left;
-        transition: transform 120ms ease;
+        transition: transform .2s var(--ease);
       }
-
-      &:hover { color: #1e40af; }
+      &:hover { color: var(--brand-700); }
       &:hover::after { transform: scaleX(1); }
     }
 
-    .input-wrap { position: relative; }
-    .input-wrap .form-control { padding-right: 44px; }
-
-    .login-card .form-control {
-      background: linear-gradient(180deg, rgba(248, 252, 255, .68) 0%, rgba(236, 245, 253, .56) 100%);
-      border-color: rgba(172, 194, 216, .78);
-    }
-
-    .login-card .form-control:focus {
-      background: rgba(251, 254, 255, .82);
-      border-color: #84a4c3;
-      box-shadow: 0 0 0 4px rgba(99, 132, 162, .17), 0 8px 18px rgba(35, 59, 84, .16);
-    }
     .pwd-toggle {
       position: absolute;
       right: 12px; top: 50%;
       transform: translateY(-50%);
       background: none; border: none;
-      cursor: pointer; font-size: 16px;
-      color: #94a3b8; padding: 0;
+      cursor: pointer;
+      color: var(--text-tertiary);
+      padding: 4px;
       line-height: 1;
-      transition: color 120ms ease;
-      &:hover { color: #334155; }
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: all .15s var(--ease);
+      &:hover { color: var(--text-primary); background: var(--gray-100); }
+    }
+
+    .input-icon-wrap .pwd-toggle ~ .form-control,
+    .input-icon-wrap:has(.pwd-toggle) .form-control {
+      padding-right: 44px;
     }
 
     .submit-btn {
@@ -346,14 +458,55 @@ import { AuthStore } from '../../../core/stores/auth.store';
       height: 48px;
       font-size: .9375rem;
       letter-spacing: .01em;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--brand-700) 0%, var(--brand-500) 100%);
+      box-shadow: 0 4px 16px rgba(43,77,115,.35);
+      transition: all .25s var(--ease);
+
+      &:hover:not(:disabled) {
+        box-shadow: 0 8px 24px rgba(43,77,115,.4);
+        transform: translateY(-1px);
+      }
+      &:active:not(:disabled) {
+        transform: scale(.98);
+        box-shadow: 0 2px 8px rgba(43,77,115,.25);
+      }
+    }
+
+    .alert {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: .84rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      animation: slideUp .25s var(--ease);
+    }
+    .alert-error {
+      background: var(--error-bg);
+      color: var(--error-text);
+      border: 1px solid #fecaca;
     }
 
     .login-footer {
       text-align: center;
       margin-top: 24px;
-      font-size: .86rem;
-      color: #475569;
-      a { color: #1d4ed8; font-weight: 700; }
+      font-size: .84rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      a {
+        color: var(--brand-600);
+        font-weight: 700;
+        text-decoration: none;
+        transition: color .15s var(--ease);
+        &:hover { color: var(--brand-700); }
+      }
     }
 
     .spinner {
@@ -364,12 +517,29 @@ import { AuthStore } from '../../../core/stores/auth.store';
       animation: spin .6s linear infinite;
       display: inline-block;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
 
-    @keyframes cardSweep {
-      0% { transform: translateX(-120%); }
-      100% { transform: translateX(120%); }
+    .form-error {
+      font-size: .75rem;
+      color: var(--error-text);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+      font-weight: 500;
     }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes cardReveal {
+      from { opacity: 0; transform: translateY(16px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes glowSpin { to { transform: rotate(360deg); } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .stagger-1 { animation: slideUp .4s var(--ease) .1s both; }
+    .stagger-2 { animation: slideUp .4s var(--ease) .2s both; }
+    .stagger-3 { animation: slideUp .4s var(--ease) .3s both; }
+    .stagger-4 { animation: slideUp .4s var(--ease) .4s both; }
 
     @media (max-width: 1080px) {
       .login-page {
@@ -377,16 +547,19 @@ import { AuthStore } from '../../../core/stores/auth.store';
         padding: 16px;
       }
       .login-left { display: none; }
-      .login-right { width: 100%; min-width: 0; padding: 8px 0; }
-      .login-card { max-width: 520px; }
+      .login-right { width: 100%; min-width: 0; padding: 0; }
+      .login-card { max-width: 480px; }
+    }
+
+    @media (max-width: 480px) {
+      .login-card { padding: 24px; }
+      .submit-btn { height: 44px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .login-card::before { animation: none !important; }
-    }
-
-    @media (max-width: 768px) {
-      .submit-btn { height: 44px; }
+      .login-card { animation: none !important; }
+      .login-card-glow { animation: none !important; }
+      .login-feature { animation: none !important; }
     }
   `]
 })
@@ -459,6 +632,17 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
     const { email, password } = this.form.value;
     this.authApi.login({ email: email!, password: password! }).subscribe({
       next: res => {
+        if (res.mustChangePassword) {
+          this.loading.set(false);
+          this.router.navigate(['/forgot-password'], {
+            queryParams: {
+              email: res.email,
+              enforced: '1'
+            }
+          });
+          return;
+        }
+
         this.usersApi.getProfile().subscribe({
           next: profile => {
             this.authStore.setAuth(profile, res.accessToken);

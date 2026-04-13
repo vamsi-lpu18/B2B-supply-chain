@@ -97,3 +97,938 @@
 2026-04-11 01:36:09.627 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:06:09.6275213Z"
 2026-04-11 01:37:09.713 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:07:09.7136994Z"
 2026-04-11 01:38:09.955 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:08:09.9555905Z"
+2026-04-11 01:39:11.473 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:09:11.4730959Z"
+2026-04-11 01:40:11.655 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:10:11.6554837Z"
+2026-04-11 01:41:11.790 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:11:11.7900216Z"
+2026-04-11 01:42:11.929 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:12:11.9292723Z"
+2026-04-11 01:43:12.104 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:13:12.1046888Z"
+2026-04-11 01:44:12.322 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:14:12.3227941Z"
+2026-04-11 01:45:12.440 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:15:12.4402257Z"
+2026-04-11 01:46:12.555 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:16:12.5559485Z"
+2026-04-11 01:47:12.668 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:17:12.6687616Z"
+2026-04-11 01:48:12.781 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:18:12.7817799Z"
+2026-04-11 01:49:12.897 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:19:12.8978837Z"
+2026-04-11 01:50:13.015 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:20:13.0156947Z"
+2026-04-11 01:51:13.375 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:21:13.3756442Z"
+2026-04-11 01:52:13.592 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:22:13.5929598Z"
+2026-04-11 01:53:13.896 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:23:13.8968003Z"
+2026-04-11 01:54:14.186 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:24:14.1862148Z"
+2026-04-11 01:55:14.133 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:25:14.1333442Z"
+2026-04-11 01:56:14.294 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:26:14.2947812Z"
+2026-04-11 01:57:14.436 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:27:14.4361392Z"
+2026-04-11 01:58:14.579 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:28:14.5792167Z"
+2026-04-11 01:59:14.715 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:29:14.7158144Z"
+2026-04-11 02:00:15.042 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:30:15.0424978Z"
+2026-04-11 02:01:00.159 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:31:00.1591897Z"
+2026-04-11 02:02:00.467 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:32:00.4673926Z"
+2026-04-11 02:03:00.640 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:33:00.6409155Z"
+2026-04-11 02:04:00.769 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:34:00.7699604Z"
+2026-04-11 02:05:01.162 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:35:01.1620119Z"
+2026-04-11 02:06:01.443 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:36:01.4433600Z"
+2026-04-11 02:07:01.571 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:37:01.5709891Z"
+2026-04-11 02:08:01.981 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:38:01.9811617Z"
+2026-04-11 02:09:02.161 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:39:02.1619676Z"
+2026-04-11 02:10:02.407 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:40:02.4075887Z"
+2026-04-11 02:11:02.513 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:41:02.5138373Z"
+2026-04-11 02:12:02.702 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:42:02.7028402Z"
+2026-04-11 02:13:03.086 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:43:03.0863956Z"
+2026-04-11 02:14:03.201 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:44:03.2015451Z"
+2026-04-11 02:15:03.358 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:45:03.3584303Z"
+2026-04-11 02:16:03.431 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:46:03.4316588Z"
+2026-04-11 02:17:03.609 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:47:03.6095297Z"
+2026-04-11 02:18:03.909 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:48:03.9094980Z"
+2026-04-11 02:19:04.193 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:49:04.1934168Z"
+2026-04-11 02:20:04.422 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:50:04.4222566Z"
+2026-04-11 02:21:04.444 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:51:04.4447232Z"
+2026-04-11 02:22:04.618 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:52:04.6188103Z"
+2026-04-11 02:23:04.815 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:53:04.8155746Z"
+2026-04-11 02:24:04.801 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:54:04.8013425Z"
+2026-04-11 02:25:05.107 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:55:05.1076660Z"
+2026-04-11 02:26:05.248 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:56:05.2484138Z"
+2026-04-11 02:27:05.324 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:57:05.3247731Z"
+2026-04-11 02:28:05.578 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:58:05.5788859Z"
+2026-04-11 02:29:05.914 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T20:59:05.9145009Z"
+2026-04-11 02:30:06.285 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:00:06.2857428Z"
+2026-04-11 02:31:06.368 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:01:06.3689508Z"
+2026-04-11 02:32:06.624 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:02:06.6243172Z"
+2026-04-11 02:33:06.688 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:03:06.6884327Z"
+2026-04-11 02:34:06.772 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:04:06.7720895Z"
+2026-04-11 02:35:07.079 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:05:07.0797717Z"
+2026-04-11 02:36:07.192 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:06:07.1928278Z"
+2026-04-11 02:37:07.291 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:07:07.2916088Z"
+2026-04-11 02:38:07.434 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:08:07.4342534Z"
+2026-04-11 02:39:07.649 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:09:07.6495488Z"
+2026-04-11 02:40:07.795 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:10:07.7956323Z"
+2026-04-11 02:41:07.937 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:11:07.9372602Z"
+2026-04-11 02:42:08.190 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:12:08.1909089Z"
+2026-04-11 02:43:08.382 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:13:08.3826507Z"
+2026-04-11 02:44:08.546 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:14:08.5469193Z"
+2026-04-11 02:45:08.848 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:15:08.8484471Z"
+2026-04-11 02:46:09.006 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:16:09.0067080Z"
+2026-04-11 02:47:09.083 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:17:09.0830338Z"
+2026-04-11 02:48:09.232 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:18:09.2324678Z"
+2026-04-11 02:49:09.631 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:19:09.6310682Z"
+2026-04-11 02:50:09.864 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:20:09.8646543Z"
+2026-04-11 02:51:10.196 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:21:10.1962469Z"
+2026-04-11 02:52:10.585 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:22:10.5856016Z"
+2026-04-11 02:53:10.733 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:23:10.7338860Z"
+2026-04-11 02:54:10.912 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:24:10.9126845Z"
+2026-04-11 02:55:11.271 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:25:11.2715798Z"
+2026-04-11 02:56:11.464 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:26:11.4640796Z"
+2026-04-11 02:57:11.859 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:27:11.8591936Z"
+2026-04-11 02:58:12.211 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:28:12.2110481Z"
+2026-04-11 02:59:12.401 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:29:12.4012265Z"
+2026-04-11 03:00:12.635 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:30:12.6354947Z"
+2026-04-11 03:01:12.950 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:31:12.9506859Z"
+2026-04-11 03:02:13.082 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:32:13.0823498Z"
+2026-04-11 03:03:13.522 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:33:13.5222700Z"
+2026-04-11 03:04:13.716 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:34:13.7164910Z"
+2026-04-11 03:05:13.936 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:35:13.9364234Z"
+2026-04-11 03:06:14.320 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:36:14.3206867Z"
+2026-04-11 03:07:14.634 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:37:14.6340092Z"
+2026-04-11 03:08:14.866 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:38:14.8662755Z"
+2026-04-11 03:09:15.022 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:39:15.0229423Z"
+2026-04-11 03:10:00.354 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:40:00.3544423Z"
+2026-04-11 03:11:00.538 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:41:00.5385071Z"
+2026-04-11 03:12:00.748 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:42:00.7488918Z"
+2026-04-11 03:13:01.067 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:43:01.0671728Z"
+2026-04-11 03:14:01.309 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:44:01.3093238Z"
+2026-04-11 03:15:01.697 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:45:01.6973762Z"
+2026-04-11 03:16:02.024 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:46:02.0245467Z"
+2026-04-11 03:17:02.341 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:47:02.3418555Z"
+2026-04-11 03:18:02.546 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:48:02.5465372Z"
+2026-04-11 03:19:02.888 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:49:02.8888445Z"
+2026-04-11 03:20:03.098 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:50:03.0987839Z"
+2026-04-11 03:21:03.458 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:51:03.4580052Z"
+2026-04-11 03:22:03.809 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:52:03.8099376Z"
+2026-04-11 03:23:04.005 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:53:04.0057097Z"
+2026-04-11 03:24:04.234 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:54:04.2341410Z"
+2026-04-11 03:25:04.557 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:55:04.5570027Z"
+2026-04-11 03:26:04.858 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:56:04.8582865Z"
+2026-04-11 03:27:05.049 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:57:05.0491743Z"
+2026-04-11 03:28:05.392 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:58:05.3919914Z"
+2026-04-11 03:29:05.510 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T21:59:05.5109445Z"
+2026-04-11 03:30:05.659 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:00:05.6596960Z"
+2026-04-11 03:31:06.056 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:01:06.0565498Z"
+2026-04-11 03:32:06.253 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:02:06.2531409Z"
+2026-04-11 03:33:06.400 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:03:06.4001874Z"
+2026-04-11 03:34:06.595 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:04:06.5953554Z"
+2026-04-11 03:35:06.802 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:05:06.8020607Z"
+2026-04-11 03:36:06.975 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:06:06.9755363Z"
+2026-04-11 03:37:07.147 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:07:07.1477126Z"
+2026-04-11 03:38:07.535 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:08:07.5352095Z"
+2026-04-11 03:39:07.866 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:09:07.8662160Z"
+2026-04-11 03:40:08.026 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:10:08.0267977Z"
+2026-04-11 03:41:08.203 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:11:08.2037929Z"
+2026-04-11 03:42:08.469 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:12:08.4693515Z"
+2026-04-11 03:43:08.763 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:13:08.7630670Z"
+2026-04-11 03:44:09.011 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:14:09.0111178Z"
+2026-04-11 03:45:09.225 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:15:09.2257463Z"
+2026-04-11 03:46:09.380 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:16:09.3809640Z"
+2026-04-11 03:47:09.707 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:17:09.7079041Z"
+2026-04-11 03:48:09.843 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:18:09.8432546Z"
+2026-04-11 03:49:10.013 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:19:10.0133640Z"
+2026-04-11 03:50:10.267 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:20:10.2679596Z"
+2026-04-11 03:51:10.415 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:21:10.4153029Z"
+2026-04-11 03:52:10.642 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:22:10.6426815Z"
+2026-04-11 03:53:10.909 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:23:10.9098827Z"
+2026-04-11 03:54:11.140 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:24:11.1405250Z"
+2026-04-11 03:55:11.514 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:25:11.5145000Z"
+2026-04-11 03:56:11.857 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:26:11.8578776Z"
+2026-04-11 03:57:12.098 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:27:12.0983853Z"
+2026-04-11 03:58:12.512 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:28:12.5124452Z"
+2026-04-11 03:59:12.729 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:29:12.7298434Z"
+2026-04-11 04:00:13.057 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:30:13.0570419Z"
+2026-04-11 04:01:13.264 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:31:13.2640356Z"
+2026-04-11 04:02:13.597 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:32:13.5979675Z"
+2026-04-11 04:03:13.820 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:33:13.8201848Z"
+2026-04-11 04:04:14.166 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:34:14.1660229Z"
+2026-04-11 04:05:14.531 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:35:14.5313528Z"
+2026-04-11 04:06:14.720 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:36:14.7203272Z"
+2026-04-11 04:07:14.874 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:37:14.8744146Z"
+2026-04-11 04:08:15.197 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:38:15.1973991Z"
+2026-04-11 04:09:00.437 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:39:00.4374334Z"
+2026-04-11 04:10:00.653 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:40:00.6534781Z"
+2026-04-11 04:11:00.827 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:41:00.8271105Z"
+2026-04-11 04:12:01.064 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:42:01.0640240Z"
+2026-04-11 04:13:01.430 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:43:01.4306410Z"
+2026-04-11 04:14:01.555 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:44:01.5553853Z"
+2026-04-11 04:15:01.645 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:45:01.6454183Z"
+2026-04-11 04:16:01.871 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:46:01.8714590Z"
+2026-04-11 04:17:02.069 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:47:02.0691799Z"
+2026-04-11 04:18:02.225 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:48:02.2259457Z"
+2026-04-11 04:19:02.483 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:49:02.4830646Z"
+2026-04-11 04:20:02.712 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:50:02.7128370Z"
+2026-04-11 04:21:02.769 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:51:02.7698569Z"
+2026-04-11 04:22:02.890 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:52:02.8909559Z"
+2026-04-11 04:23:03.182 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:53:03.1819931Z"
+2026-04-11 04:24:03.403 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:54:03.4034003Z"
+2026-04-11 04:25:03.613 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:55:03.6136107Z"
+2026-04-11 04:26:03.742 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:56:03.7421917Z"
+2026-04-11 04:27:04.030 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:57:04.0304122Z"
+2026-04-11 04:28:04.292 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:58:04.2927371Z"
+2026-04-11 04:29:04.514 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T22:59:04.5144539Z"
+2026-04-11 04:30:04.789 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:00:04.7890068Z"
+2026-04-11 04:31:05.030 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:01:05.0305396Z"
+2026-04-11 04:32:05.333 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:02:05.3332199Z"
+2026-04-11 04:33:05.636 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:03:05.6366103Z"
+2026-04-11 04:34:05.829 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:04:05.8290035Z"
+2026-04-11 04:35:06.012 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:05:06.0127568Z"
+2026-04-11 04:36:06.322 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:06:06.3222594Z"
+2026-04-11 04:37:06.745 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:07:06.7455720Z"
+2026-04-11 04:38:07.249 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:08:07.2493543Z"
+2026-04-11 04:39:07.455 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-10T23:09:07.4553051Z"
+2026-04-11 10:01:55.389 +05:30 [INF] Notification migrations applied count: 2
+2026-04-11 10:01:56.071 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 10:01:57.645 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 10:01:59.232 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@NotificationMigrationsDB'
+2026-04-11 10:01:59.250 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 10:01:59.263 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 10:01:59.398 +05:30 [INF] Server desktop-nfnd817:21824:ae76985d successfully announced in 86.8049 ms
+2026-04-11 10:01:59.420 +05:30 [INF] Server desktop-nfnd817:21824:ae76985d is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 10:01:59.562 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 10:01:59.668 +05:30 [INF] Notification consumer connected to RabbitMQ and listening on queue notification.events.queue
+2026-04-11 10:01:59.746 +05:30 [INF] Server desktop-nfnd817:21824:ae76985d all the dispatchers started
+2026-04-11 10:02:00.871 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:32:00.8705665Z"
+2026-04-11 10:02:00.871 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:32:00.8705664Z"
+2026-04-11 10:02:01.823 +05:30 [INF] HTTP GET /health responded 200 in 153.7726 ms
+2026-04-11 10:03:00.939 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:33:00.9395511Z"
+2026-04-11 10:03:03.766 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 10:03:04.046 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T04:33:04.0460816Z"
+2026-04-11 10:03:04.174 +05:30 [INF] Handled GetAllNotificationsQuery in 127.8209ms
+2026-04-11 10:03:04.303 +05:30 [INF] HTTP GET /api/notifications responded 200 in 732.7811 ms
+2026-04-11 10:04:01.043 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:34:01.0434145Z"
+2026-04-11 10:05:01.152 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:35:01.1523831Z"
+2026-04-11 10:06:01.254 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:36:01.2539924Z"
+2026-04-11 10:07:01.419 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:37:01.4199255Z"
+2026-04-11 10:08:01.645 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:38:01.6456061Z"
+2026-04-11 10:09:01.739 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:39:01.7394858Z"
+2026-04-11 10:10:01.830 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:40:01.8302125Z"
+2026-04-11 10:11:02.090 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:41:02.0908110Z"
+2026-04-11 10:12:02.254 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:42:02.2542459Z"
+2026-04-11 10:13:02.491 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:43:02.4912554Z"
+2026-04-11 10:13:36.239 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T04:43:36.2393840Z"
+2026-04-11 10:13:36.256 +05:30 [INF] Handled GetAllNotificationsQuery in 16.6617ms
+2026-04-11 10:13:36.273 +05:30 [INF] HTTP GET /api/notifications responded 200 in 48.8512 ms
+2026-04-11 10:14:02.545 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:44:02.5449796Z"
+2026-04-11 10:15:02.652 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:45:02.6526066Z"
+2026-04-11 10:16:02.742 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:46:02.7425689Z"
+2026-04-11 10:17:02.919 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:47:02.9197717Z"
+2026-04-11 10:18:03.055 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:48:03.0552468Z"
+2026-04-11 10:18:14.401 +05:30 [INF] Sending single notification email to dealer@supplychain.local notificationId="6d3e31d8-aa3e-4316-ad69-ed21142ae5d6" source=logistics event=shipmentstatusupdated
+2026-04-11 10:19:03.195 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:49:03.1957832Z"
+2026-04-11 10:19:03.786 +05:30 [INF] Sending single notification email to dealer@supplychain.local notificationId="d83cd71c-e776-4f1f-b106-30f713f6b555" source=logistics event=shipmentstatusupdated
+2026-04-11 10:20:03.330 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:50:03.3301790Z"
+2026-04-11 10:21:03.413 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:51:03.4132769Z"
+2026-04-11 10:22:03.516 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:52:03.5163233Z"
+2026-04-11 10:23:03.618 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:53:03.6179802Z"
+2026-04-11 10:24:03.779 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:54:03.7798488Z"
+2026-04-11 10:25:03.840 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:55:03.8407332Z"
+2026-04-11 10:26:04.098 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:56:04.0982333Z"
+2026-04-11 10:27:04.152 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:57:04.1527147Z"
+2026-04-11 10:28:04.220 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:58:04.2200185Z"
+2026-04-11 10:29:04.337 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T04:59:04.3377449Z"
+2026-04-11 10:30:04.409 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:00:04.4090873Z"
+2026-04-11 10:31:04.465 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:01:04.4658824Z"
+2026-04-11 10:32:04.551 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:02:04.5510656Z"
+2026-04-11 10:33:04.828 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:03:04.8283373Z"
+2026-04-11 10:34:05.097 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:04:05.0973526Z"
+2026-04-11 10:35:05.191 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:05:05.1917246Z"
+2026-04-11 10:36:05.286 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:06:05.2866687Z"
+2026-04-11 10:37:05.378 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:07:05.3783870Z"
+2026-04-11 10:38:05.464 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:08:05.4645234Z"
+2026-04-11 10:39:05.693 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:09:05.6939001Z"
+2026-04-11 10:40:05.766 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:10:05.7661436Z"
+2026-04-11 10:41:05.859 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:11:05.8594277Z"
+2026-04-11 10:42:05.933 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:12:05.9331464Z"
+2026-04-11 10:43:05.995 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:13:05.9959304Z"
+2026-04-11 10:44:06.062 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:14:06.0620490Z"
+2026-04-11 10:45:06.339 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:15:06.3398826Z"
+2026-04-11 10:46:06.480 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:16:06.4804775Z"
+2026-04-11 10:47:08.606 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:17:08.6069080Z"
+2026-04-11 10:48:08.472 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:18:08.4721650Z"
+2026-04-11 10:49:08.677 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:19:08.6769834Z"
+2026-04-11 10:50:08.827 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:20:08.8272239Z"
+2026-04-11 10:51:08.977 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:21:08.9779360Z"
+2026-04-11 10:52:09.118 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:22:09.1171893Z"
+2026-04-11 10:53:09.672 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:23:09.6710971Z"
+2026-04-11 10:54:09.586 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:24:09.5866372Z"
+2026-04-11 10:55:09.751 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:25:09.7517562Z"
+2026-04-11 10:56:09.987 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:26:09.9868294Z"
+2026-04-11 10:57:11.662 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:27:11.6595510Z"
+2026-04-11 10:58:11.870 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:28:11.8700789Z"
+2026-04-11 10:59:12.081 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:29:12.0814129Z"
+2026-04-11 11:00:12.280 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:30:12.2801206Z"
+2026-04-11 11:01:13.158 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:31:13.1580189Z"
+2026-04-11 11:02:13.302 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:32:13.3028398Z"
+2026-04-11 11:03:13.694 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:33:13.6940962Z"
+2026-04-11 11:04:13.865 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:34:13.8658597Z"
+2026-04-11 11:05:14.063 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:35:14.0635612Z"
+2026-04-11 11:06:14.297 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:36:14.2974880Z"
+2026-04-11 11:07:14.473 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:37:14.4738506Z"
+2026-04-11 11:08:14.639 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:38:14.6390210Z"
+2026-04-11 11:09:18.067 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:39:18.0670928Z"
+2026-04-11 11:10:02.649 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:40:02.6498755Z"
+2026-04-11 11:11:02.788 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:41:02.7881360Z"
+2026-04-11 11:12:02.971 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:42:02.9717294Z"
+2026-04-11 11:13:03.167 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:43:03.1678910Z"
+2026-04-11 11:14:03.460 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:44:03.4607515Z"
+2026-04-11 11:15:03.466 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:45:03.4668539Z"
+2026-04-11 11:16:03.549 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:46:03.5492653Z"
+2026-04-11 11:17:03.806 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:47:03.8059950Z"
+2026-04-11 11:18:04.290 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:48:04.2908944Z"
+2026-04-11 11:18:50.828 +05:30 [INF] Sending single notification email to dealer@supplychain.local notificationId="cc4ef4cc-9200-439a-936d-8af5b5fff834" source=order event=orderreadyfordispatch
+2026-04-11 11:19:04.355 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:49:04.3550021Z"
+2026-04-11 11:20:04.484 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:50:04.4840670Z"
+2026-04-11 11:21:04.595 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:51:04.5953130Z"
+2026-04-11 11:22:04.750 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:52:04.7501706Z"
+2026-04-11 11:23:05.432 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:53:05.4328505Z"
+2026-04-11 11:24:06.217 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:54:06.2177206Z"
+2026-04-11 11:25:06.608 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:55:06.6087827Z"
+2026-04-11 11:26:06.767 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:56:06.7675150Z"
+2026-04-11 11:27:07.364 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:57:07.3640859Z"
+2026-04-11 11:28:07.731 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:58:07.7314516Z"
+2026-04-11 11:29:07.927 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T05:59:07.9274516Z"
+2026-04-11 11:30:08.268 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:00:08.2681092Z"
+2026-04-11 11:31:08.367 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:01:08.3678309Z"
+2026-04-11 11:32:08.633 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:02:08.6338757Z"
+2026-04-11 11:33:08.671 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:03:08.6713099Z"
+2026-04-11 11:34:08.753 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:04:08.7534127Z"
+2026-04-11 11:35:08.813 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:05:08.8136396Z"
+2026-04-11 11:36:08.895 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:06:08.8955082Z"
+2026-04-11 11:37:09.049 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:07:09.0499169Z"
+2026-04-11 11:38:09.167 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:08:09.1678983Z"
+2026-04-11 11:39:09.526 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:09:09.5266899Z"
+2026-04-11 11:40:09.491 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:10:09.4910324Z"
+2026-04-11 11:41:09.705 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:11:09.7053126Z"
+2026-04-11 11:42:09.950 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:12:09.9508145Z"
+2026-04-11 11:43:12.054 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:13:12.0541512Z"
+2026-04-11 11:44:12.295 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:14:12.2959554Z"
+2026-04-11 11:44:26.993 +05:30 [INF] Sending digest email to dealer.20260411114415@supplychain.local notificationCount=2 workflowKey=general
+2026-04-11 11:44:41.001 +05:30 [INF] Handling CreateManualNotificationCommand at "2026-04-11T06:14:41.0006055Z"
+2026-04-11 11:44:41.082 +05:30 [INF] Sending single notification email to dealer.20260411114415@supplychain.local notificationId="0756e660-8849-46dd-b385-18f99f6fc2ec" source=logistics event=shipmentcreated
+2026-04-11 11:44:41.410 +05:30 [INF] Handled CreateManualNotificationCommand in 409.662ms
+2026-04-11 11:44:41.699 +05:30 [INF] HTTP POST /api/notifications/manual responded 201 in 1274.0105 ms
+2026-04-11 11:44:45.526 +05:30 [INF] Handling IngestIntegrationEventCommand at "2026-04-11T06:14:45.5248152Z"
+2026-04-11 11:44:46.314 +05:30 [INF] Handled IngestIntegrationEventCommand in 789.9234ms
+2026-04-11 11:44:46.996 +05:30 [INF] HTTP POST /api/notifications/ingest responded 200 in 1631.4146 ms
+2026-04-11 11:44:49.790 +05:30 [INF] Sending single notification email to dealer.20260411114415@supplychain.local notificationId="d030c11f-b891-440f-83d5-5669dd072783" source=identity event=passwordresetrequested
+2026-04-11 11:45:04.749 +05:30 [INF] Sending single notification email to dealer.20260411114415@supplychain.local notificationId="95904ff8-6986-4813-900d-5b52a093a6af" source=payment event=dealercreditlimitupdated
+2026-04-11 11:45:12.800 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:15:12.8001752Z"
+2026-04-11 11:45:34.334 +05:30 [INF] Sending single notification email to dealer.20260411114415@supplychain.local notificationId="01040d6c-950b-4ecb-8f91-699df4731cbf" source=logistics event=shipmentassigned
+2026-04-11 11:45:38.511 +05:30 [INF] HTTP POST /api/notifications/manual responded 403 in 20.4165 ms
+2026-04-11 11:45:38.996 +05:30 [INF] Handling IngestIntegrationEventCommand at "2026-04-11T06:15:38.9969392Z"
+2026-04-11 11:45:39.060 +05:30 [INF] Handled IngestIntegrationEventCommand in 63.0688ms
+2026-04-11 11:45:39.238 +05:30 [INF] HTTP POST /api/notifications/ingest responded 200 in 255.2602 ms
+2026-04-11 11:45:39.924 +05:30 [INF] Handling GetNotificationsByRecipientQuery at "2026-04-11T06:15:39.9240551Z"
+2026-04-11 11:45:40.155 +05:30 [INF] Handled GetNotificationsByRecipientQuery in 231.8798ms
+2026-04-11 11:45:40.200 +05:30 [INF] HTTP GET /api/notifications/my responded 200 in 326.1179 ms
+2026-04-11 11:45:40.417 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T06:15:40.4170372Z"
+2026-04-11 11:45:40.674 +05:30 [INF] Handled GetAllNotificationsQuery in 257.2916ms
+2026-04-11 11:45:41.116 +05:30 [INF] HTTP GET /api/notifications responded 200 in 726.1522 ms
+2026-04-11 11:45:43.968 +05:30 [INF] Sending single notification email to dealer.20260411114415@supplychain.local notificationId="fc2b32f3-562e-4d80-a894-a15b6f286e2e" source=logistics event=shipmentstatusupdated
+2026-04-11 11:45:47.539 +05:30 [INF] Sending single notification email to dealer.20260411114415@supplychain.local notificationId="01fbbaa2-b61e-4954-9085-0005a2651eb7" source=payment event=dealercreditlimitupdated
+2026-04-11 11:45:55.810 +05:30 [INF] Handling GetNotificationByIdQuery at "2026-04-11T06:15:55.8101977Z"
+2026-04-11 11:45:55.982 +05:30 [INF] Handled GetNotificationByIdQuery in 172.6036ms
+2026-04-11 11:45:55.994 +05:30 [INF] HTTP GET /api/notifications/a364e5a1-fc0f-480e-a098-1d7a513f6068 responded 200 in 270.5943 ms
+2026-04-11 11:45:56.559 +05:30 [INF] Handling MarkNotificationSentCommand at "2026-04-11T06:15:56.5591355Z"
+2026-04-11 11:45:56.728 +05:30 [INF] Handled MarkNotificationSentCommand in 169.2265ms
+2026-04-11 11:45:56.905 +05:30 [INF] HTTP PUT /api/notifications/a364e5a1-fc0f-480e-a098-1d7a513f6068/sent responded 200 in 454.5609 ms
+2026-04-11 11:45:57.978 +05:30 [INF] Handling MarkNotificationFailedCommand at "2026-04-11T06:15:57.9783710Z"
+2026-04-11 11:45:58.047 +05:30 [INF] Handled MarkNotificationFailedCommand in 68.7387ms
+2026-04-11 11:45:58.058 +05:30 [INF] HTTP PUT /api/notifications/a364e5a1-fc0f-480e-a098-1d7a513f6068/failed responded 200 in 128.5229 ms
+2026-04-11 11:46:13.342 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:16:13.3422747Z"
+2026-04-11 11:47:16.688 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:17:16.6883907Z"
+2026-04-11 11:48:05.390 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:18:05.3907734Z"
+2026-04-11 11:49:19.194 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:19:19.1947909Z"
+2026-04-11 11:53:42.080 +05:30 [INF] Notification migrations applied count: 2
+2026-04-11 11:53:46.923 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 11:53:50.113 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 11:53:56.908 +05:30 [INF] Notification migrations applied count: 2
+2026-04-11 11:53:58.445 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 11:53:58.522 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@NotificationMigrationsDB'
+2026-04-11 11:53:59.591 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 11:54:00.833 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 11:54:02.563 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 11:54:02.556 +05:30 [INF] Server desktop-nfnd817:20564:b34fd788 successfully announced in 380.5446 ms
+2026-04-11 11:54:03.096 +05:30 [INF] Server desktop-nfnd817:20564:b34fd788 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 11:54:03.983 +05:30 [INF] Notification consumer connected to RabbitMQ and listening on queue notification.events.queue
+2026-04-11 11:54:05.888 +05:30 [INF] Server desktop-nfnd817:20564:b34fd788 all the dispatchers started
+2026-04-11 11:54:05.691 +05:30 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:8006: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-04-11 11:54:10.730 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:24:10.7226453Z"
+2026-04-11 11:55:10.728 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:25:10.7276280Z"
+2026-04-11 11:56:11.227 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:26:11.2277229Z"
+2026-04-11 11:57:12.867 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:27:12.8672042Z"
+2026-04-11 11:58:13.065 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:28:13.0651597Z"
+2026-04-11 11:59:04.059 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 11:59:13.322 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:29:13.3227059Z"
+2026-04-11 11:59:26.470 +05:30 [ERR] Notification consumer connection loop failed. Retrying in 5s.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 127.0.0.1:5673)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 127.0.0.1:5673
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at Notification.Infrastructure.Background.NotificationEventConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\Background\NotificationEventConsumer.cs:line 34
+2026-04-11 11:59:34.160 +05:30 [ERR] Notification consumer connection loop failed. Retrying in 5s.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at Notification.Infrastructure.Background.NotificationEventConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\Background\NotificationEventConsumer.cs:line 34
+2026-04-11 11:59:39.306 +05:30 [ERR] Notification consumer connection loop failed. Retrying in 5s.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at Notification.Infrastructure.Background.NotificationEventConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\Background\NotificationEventConsumer.cs:line 34
+2026-04-11 11:59:44.344 +05:30 [ERR] Notification consumer connection loop failed. Retrying in 5s.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at Notification.Infrastructure.Background.NotificationEventConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\Background\NotificationEventConsumer.cs:line 34
+2026-04-11 11:59:49.586 +05:30 [ERR] Notification consumer connection loop failed. Retrying in 5s.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at Notification.Infrastructure.Background.NotificationEventConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\Background\NotificationEventConsumer.cs:line 34
+2026-04-11 11:59:59.410 +05:30 [ERR] Notification consumer connection loop failed. Retrying in 5s.
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.IO.IOException: connection.start was never received, likely due to a network timeout
+ ---> System.IO.EndOfStreamException: Pipe is completed.
+   at RabbitMQ.Client.Impl.InboundFrame.ReadFromPipeAsync(PipeReader reader, UInt32 maxInboundMessageBodySize, InboundFrame frame, CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.ReceiveLoopAsync(CancellationToken mainLoopCancellationToken)
+   at RabbitMQ.Client.Framing.Connection.MainLoop()
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Framing.Connection.StartAndTuneAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.Connection.OpenAsync(CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Framing.AutorecoveringConnection.CreateAsync(ConnectionConfig config, IEndpointResolver endpoints, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at Notification.Infrastructure.Background.NotificationEventConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hey\Desktop\demo\services\Notification\Notification.Infrastructure\Background\NotificationEventConsumer.cs:line 34
+2026-04-11 12:00:06.243 +05:30 [INF] Notification consumer connected to RabbitMQ and listening on queue notification.events.queue
+2026-04-11 12:00:22.610 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:30:22.6099737Z"
+2026-04-11 12:01:20.189 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:31:20.1889972Z"
+2026-04-11 12:02:17.552 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:32:17.5518840Z"
+2026-04-11 12:03:13.883 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:33:13.8834708Z"
+2026-04-11 12:04:02.143 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:34:02.1435665Z"
+2026-04-11 12:05:03.756 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:35:03.7565650Z"
+2026-04-11 12:06:04.167 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:36:04.1671083Z"
+2026-04-11 12:07:04.363 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:37:04.3635975Z"
+2026-04-11 12:08:04.545 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:38:04.5456361Z"
+2026-04-11 12:09:04.762 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:39:04.7624637Z"
+2026-04-11 12:09:39.844 +05:30 [INF] HTTP GET /health responded 200 in 422.7150 ms
+2026-04-11 12:10:04.970 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:40:04.9707715Z"
+2026-04-11 12:11:05.491 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:41:05.4919236Z"
+2026-04-11 12:12:06.543 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:42:06.5437229Z"
+2026-04-11 12:13:06.993 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:43:06.9930088Z"
+2026-04-11 12:14:07.783 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:44:07.7829576Z"
+2026-04-11 12:15:08.817 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:45:08.8178248Z"
+2026-04-11 12:16:09.447 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:46:09.4470333Z"
+2026-04-11 12:17:09.755 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:47:09.7551222Z"
+2026-04-11 12:18:10.007 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:48:10.0074657Z"
+2026-04-11 12:19:10.069 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:49:10.0690806Z"
+2026-04-11 12:20:10.171 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:50:10.1715678Z"
+2026-04-11 12:21:10.229 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:51:10.2294580Z"
+2026-04-11 12:22:10.532 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:52:10.5328304Z"
+2026-04-11 12:23:10.617 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:53:10.6179522Z"
+2026-04-11 12:24:10.714 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:54:10.7144981Z"
+2026-04-11 12:25:00.033 +05:30 [INF] Sending single notification email to dealer@supplychain.local notificationId="e4ce6253-182e-4c96-9967-70cf77924ce0" source=order event=orderplaced
+2026-04-11 12:25:12.481 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:55:12.4814748Z"
+2026-04-11 12:26:13.374 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:56:13.3740877Z"
+2026-04-11 12:27:13.665 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:57:13.6652817Z"
+2026-04-11 12:28:13.761 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:58:13.7611257Z"
+2026-04-11 12:29:13.904 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T06:59:13.9042490Z"
+2026-04-11 12:30:14.196 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:00:14.1961806Z"
+2026-04-11 12:30:35.989 +05:30 [INF] Sending single notification email to dealer.20260411123030@supplychain.local notificationId="5efb3317-8b29-41d8-91fc-12fabcdb45e4" source=order event=orderplaced
+2026-04-11 12:30:39.290 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 12:30:39.584 +05:30 [INF] Sending digest email to dealer.20260411123030@supplychain.local notificationCount=2 workflowKey=general
+2026-04-11 12:30:40.403 +05:30 [INF] Handling CreateManualNotificationCommand at "2026-04-11T07:00:40.4024324Z"
+2026-04-11 12:30:40.607 +05:30 [INF] Handled CreateManualNotificationCommand in 204.8279ms
+2026-04-11 12:30:40.758 +05:30 [INF] HTTP POST /api/notifications/manual responded 201 in 1850.5317 ms
+2026-04-11 12:30:41.236 +05:30 [INF] Handling IngestIntegrationEventCommand at "2026-04-11T07:00:41.2359665Z"
+2026-04-11 12:30:41.268 +05:30 [INF] Handled IngestIntegrationEventCommand in 32.0371ms
+2026-04-11 12:30:41.275 +05:30 [INF] HTTP POST /api/notifications/ingest responded 200 in 112.6167 ms
+2026-04-11 12:30:49.308 +05:30 [INF] Sending single notification email to dealer.20260411123030@supplychain.local notificationId="5ad9a5dc-0bed-4705-911f-d016db4e8ac4" source=identity event=passwordresetrequested
+2026-04-11 12:30:52.316 +05:30 [INF] Sending digest email to dealer.20260411123030@supplychain.local notificationCount=2 workflowKey=orderId:ce45a50e-e6c3-46c9-9cb1-8fc66b86482c
+2026-04-11 12:30:56.894 +05:30 [INF] HTTP POST /api/notifications/manual responded 403 in 13.7562 ms
+2026-04-11 12:30:56.989 +05:30 [INF] Handling IngestIntegrationEventCommand at "2026-04-11T07:00:56.9889494Z"
+2026-04-11 12:30:57.000 +05:30 [INF] Handled IngestIntegrationEventCommand in 11.7735ms
+2026-04-11 12:30:57.006 +05:30 [INF] HTTP POST /api/notifications/ingest responded 200 in 67.2045 ms
+2026-04-11 12:30:57.122 +05:30 [INF] Handling GetNotificationsByRecipientQuery at "2026-04-11T07:00:57.1216012Z"
+2026-04-11 12:30:57.305 +05:30 [INF] Handled GetNotificationsByRecipientQuery in 184.1851ms
+2026-04-11 12:30:57.341 +05:30 [INF] HTTP GET /api/notifications/my responded 200 in 245.0062 ms
+2026-04-11 12:30:57.509 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T07:00:57.5090841Z"
+2026-04-11 12:30:57.604 +05:30 [INF] Handled GetAllNotificationsQuery in 95.3665ms
+2026-04-11 12:30:57.624 +05:30 [INF] HTTP GET /api/notifications responded 200 in 155.0308 ms
+2026-04-11 12:31:00.111 +05:30 [INF] Handling GetNotificationByIdQuery at "2026-04-11T07:01:00.1111690Z"
+2026-04-11 12:31:00.159 +05:30 [INF] Handled GetNotificationByIdQuery in 47.8315ms
+2026-04-11 12:31:00.165 +05:30 [INF] HTTP GET /api/notifications/ed2d0662-e82a-4e84-abfc-c9eae27fdfa1 responded 200 in 72.8671 ms
+2026-04-11 12:31:00.249 +05:30 [INF] Handling MarkNotificationSentCommand at "2026-04-11T07:01:00.2489014Z"
+2026-04-11 12:31:00.286 +05:30 [INF] Handled MarkNotificationSentCommand in 38.0579ms
+2026-04-11 12:31:00.291 +05:30 [INF] HTTP PUT /api/notifications/ed2d0662-e82a-4e84-abfc-c9eae27fdfa1/sent responded 200 in 69.8016 ms
+2026-04-11 12:31:00.346 +05:30 [INF] Handling MarkNotificationFailedCommand at "2026-04-11T07:01:00.3466881Z"
+2026-04-11 12:31:00.365 +05:30 [INF] Handled MarkNotificationFailedCommand in 19.1145ms
+2026-04-11 12:31:00.373 +05:30 [INF] HTTP PUT /api/notifications/ed2d0662-e82a-4e84-abfc-c9eae27fdfa1/failed responded 200 in 43.5095 ms
+2026-04-11 12:31:00.630 +05:30 [INF] Sending digest email to dealer.20260411123030@supplychain.local notificationCount=2 workflowKey=dealerId:29291410-3fbf-4078-b640-6efdb5023431
+2026-04-11 12:31:03.784 +05:30 [INF] Sending digest email to dealer.20260411123030@supplychain.local notificationCount=2 workflowKey=orderId:ce45a50e-e6c3-46c9-9cb1-8fc66b86482c
+2026-04-11 12:31:14.341 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:01:14.3414982Z"
+2026-04-11 12:31:47.112 +05:30 [INF] Handling CreateManualNotificationCommand at "2026-04-11T07:01:47.1125226Z"
+2026-04-11 12:31:47.128 +05:30 [INF] Handled CreateManualNotificationCommand in 16.3759ms
+2026-04-11 12:31:47.138 +05:30 [INF] HTTP POST /api/notifications/manual responded 201 in 30.9293 ms
+2026-04-11 12:31:51.782 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T07:01:51.7827570Z"
+2026-04-11 12:31:51.813 +05:30 [INF] Handled GetAllNotificationsQuery in 30.6786ms
+2026-04-11 12:31:51.830 +05:30 [INF] HTTP GET /api/notifications responded 200 in 51.5145 ms
+2026-04-11 12:31:52.209 +05:30 [INF] Sending digest email to deal.page.20260411123145@supplychain.local notificationCount=3 workflowKey=orderId:58543a1f-62ef-4a53-9716-53c0359dd312
+2026-04-11 12:31:54.349 +05:30 [INF] Handling GetNotificationsByRecipientQuery at "2026-04-11T07:01:54.3494652Z"
+2026-04-11 12:31:54.392 +05:30 [INF] Handled GetNotificationsByRecipientQuery in 43.1731ms
+2026-04-11 12:31:54.410 +05:30 [INF] HTTP GET /api/notifications/my responded 200 in 66.5169 ms
+2026-04-11 12:31:54.602 +05:30 [INF] Handling GetNotificationsByRecipientQuery at "2026-04-11T07:01:54.6022440Z"
+2026-04-11 12:31:54.645 +05:30 [INF] Handled GetNotificationsByRecipientQuery in 43.5414ms
+2026-04-11 12:31:54.652 +05:30 [INF] HTTP GET /api/notifications/my responded 200 in 74.5115 ms
+2026-04-11 12:31:54.765 +05:30 [INF] Handling GetNotificationsByRecipientQuery at "2026-04-11T07:01:54.7658685Z"
+2026-04-11 12:31:54.813 +05:30 [INF] Handled GetNotificationsByRecipientQuery in 47.948ms
+2026-04-11 12:31:54.850 +05:30 [INF] HTTP GET /api/notifications/my responded 200 in 85.9918 ms
+2026-04-11 12:31:54.923 +05:30 [INF] Handling GetNotificationsByRecipientQuery at "2026-04-11T07:01:54.9232898Z"
+2026-04-11 12:31:55.063 +05:30 [INF] Handled GetNotificationsByRecipientQuery in 139.7911ms
+2026-04-11 12:31:55.070 +05:30 [INF] HTTP GET /api/notifications/my responded 200 in 149.5029 ms
+2026-04-11 12:31:55.563 +05:30 [INF] Sending digest email to deal.page.20260411123145@supplychain.local notificationCount=2 workflowKey=general
+2026-04-11 12:32:03.742 +05:30 [INF] Sending single notification email to deal.page.20260411123145@supplychain.local notificationId="1bd1daf7-7230-4507-b7fb-480bc5b1310a" source=order event=orderplaced
+2026-04-11 12:32:14.453 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:02:14.4530140Z"
+2026-04-11 12:33:14.885 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:03:14.8852108Z"
+2026-04-11 12:34:15.091 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:04:15.0919417Z"
+2026-04-11 12:35:04.406 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:05:04.4067132Z"
+2026-04-11 12:36:04.091 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:06:04.0910026Z"
+2026-04-11 12:37:03.720 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:07:03.7200408Z"
+2026-04-11 12:38:03.854 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:08:03.8547169Z"
+2026-04-11 12:39:05.198 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:09:05.1986095Z"
+2026-04-11 12:40:05.782 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:10:05.7821370Z"
+2026-04-11 12:41:05.988 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:11:05.9885141Z"
+2026-04-11 12:42:06.197 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:12:06.1976788Z"
+2026-04-11 12:43:06.411 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:13:06.4112885Z"
+2026-04-11 12:44:06.796 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:14:06.7964847Z"
+2026-04-11 12:45:06.996 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:15:06.9961740Z"
+2026-04-11 12:46:07.114 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:16:07.1144325Z"
+2026-04-11 12:47:07.361 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:17:07.3610776Z"
+2026-04-11 12:48:07.667 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:18:07.6678548Z"
+2026-04-11 12:49:07.869 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:19:07.8696810Z"
+2026-04-11 12:50:08.082 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:20:08.0822956Z"
+2026-04-11 12:51:08.218 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:21:08.2180494Z"
+2026-04-11 12:52:08.423 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:22:08.4231288Z"
+2026-04-11 12:53:08.553 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:23:08.5530564Z"
+2026-04-11 12:54:08.727 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:24:08.7270286Z"
+2026-04-11 12:55:08.873 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:25:08.8732686Z"
+2026-04-11 12:56:09.104 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:26:09.1046336Z"
+2026-04-11 12:57:09.382 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:27:09.3825344Z"
+2026-04-11 12:58:09.702 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:28:09.7021654Z"
+2026-04-11 12:59:09.962 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:29:09.9623972Z"
+2026-04-11 13:00:10.361 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:30:10.3618156Z"
+2026-04-11 13:01:10.947 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:31:10.9473607Z"
+2026-04-11 13:02:11.761 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:32:11.7611483Z"
+2026-04-11 13:03:12.148 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:33:12.1486097Z"
+2026-04-11 13:04:12.296 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:34:12.2961492Z"
+2026-04-11 13:05:12.717 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:35:12.7173660Z"
+2026-04-11 13:06:12.953 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:36:12.9536930Z"
+2026-04-11 13:07:13.301 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:37:13.3011238Z"
+2026-04-11 13:08:13.443 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:38:13.4433748Z"
+2026-04-11 13:09:13.653 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:39:13.6536007Z"
+2026-04-11 13:10:13.889 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:40:13.8897630Z"
+2026-04-11 13:11:14.023 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:41:14.0236702Z"
+2026-04-11 13:12:14.158 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:42:14.1588493Z"
+2026-04-11 13:13:14.357 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:43:14.3572603Z"
+2026-04-11 13:14:14.509 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:44:14.5094870Z"
+2026-04-11 13:15:14.670 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:45:14.6707553Z"
+2026-04-11 13:16:14.789 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:46:14.7891377Z"
+2026-04-11 13:17:14.918 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:47:14.9181762Z"
+2026-04-11 13:18:15.071 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:48:15.0715011Z"
+2026-04-11 13:19:00.250 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:49:00.2503780Z"
+2026-04-11 13:20:00.513 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:50:00.5137559Z"
+2026-04-11 13:21:00.629 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:51:00.6295757Z"
+2026-04-11 13:22:00.850 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:52:00.8499996Z"
+2026-04-11 13:23:01.012 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:53:01.0121570Z"
+2026-04-11 13:24:01.256 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:54:01.2565553Z"
+2026-04-11 13:25:01.438 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:55:01.4386809Z"
+2026-04-11 13:26:01.632 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:56:01.6321064Z"
+2026-04-11 13:27:01.805 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:57:01.8054784Z"
+2026-04-11 13:28:02.105 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:58:02.1055355Z"
+2026-04-11 13:29:02.347 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T07:59:02.3477753Z"
+2026-04-11 13:31:03.984 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:01:03.9848764Z"
+2026-04-11 13:32:04.190 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:02:04.1908076Z"
+2026-04-11 13:33:04.363 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:03:04.3637164Z"
+2026-04-11 13:34:04.534 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:04:04.5348219Z"
+2026-04-11 13:35:04.657 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:05:04.6573261Z"
+2026-04-11 13:46:39.988 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:16:39.9885878Z"
+2026-04-11 14:24:43.815 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:54:43.8153906Z"
+2026-04-11 14:25:13.841 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:55:13.8410538Z"
+2026-04-11 14:26:13.978 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:56:13.9786381Z"
+2026-04-11 14:27:14.105 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:57:14.1056267Z"
+2026-04-11 14:28:14.215 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:58:14.2150880Z"
+2026-04-11 14:28:38.863 +05:30 [INF] Handling CreateManualNotificationCommand at "2026-04-11T08:58:38.8631698Z"
+2026-04-11 14:28:38.992 +05:30 [INF] Handled CreateManualNotificationCommand in 129.6041ms
+2026-04-11 14:28:39.019 +05:30 [INF] HTTP POST /api/notifications/manual responded 201 in 290.0004 ms
+2026-04-11 14:28:39.175 +05:30 [INF] Handling IngestIntegrationEventCommand at "2026-04-11T08:58:39.1759602Z"
+2026-04-11 14:28:39.185 +05:30 [INF] Handled IngestIntegrationEventCommand in 9.0982ms
+2026-04-11 14:28:39.192 +05:30 [INF] HTTP POST /api/notifications/ingest responded 200 in 54.7188 ms
+2026-04-11 14:28:43.101 +05:30 [INF] Sending single notification email to dealer.20260411142835@supplychain.local notificationId="794c9c5e-d9e9-4e00-8793-81606b1d256d" source=identity event=passwordresetrequested
+2026-04-11 14:28:43.121 +05:30 [INF] HTTP POST /api/notifications/manual responded 403 in 4.9057 ms
+2026-04-11 14:28:43.160 +05:30 [INF] Handling IngestIntegrationEventCommand at "2026-04-11T08:58:43.1600312Z"
+2026-04-11 14:28:43.168 +05:30 [INF] Handled IngestIntegrationEventCommand in 8.929ms
+2026-04-11 14:28:43.178 +05:30 [INF] HTTP POST /api/notifications/ingest responded 200 in 20.1633 ms
+2026-04-11 14:28:43.211 +05:30 [INF] Handling IngestIntegrationEventCommand at "2026-04-11T08:58:43.2112201Z"
+2026-04-11 14:28:43.218 +05:30 [INF] Handled IngestIntegrationEventCommand in 7.6244ms
+2026-04-11 14:28:43.226 +05:30 [INF] HTTP POST /api/notifications/ingest responded 200 in 15.9941 ms
+2026-04-11 14:28:43.263 +05:30 [INF] Handling GetNotificationsByRecipientQuery at "2026-04-11T08:58:43.2636031Z"
+2026-04-11 14:28:43.292 +05:30 [INF] Handled GetNotificationsByRecipientQuery in 29.3288ms
+2026-04-11 14:28:43.297 +05:30 [INF] HTTP GET /api/notifications/my responded 200 in 36.8962 ms
+2026-04-11 14:28:43.363 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T08:58:43.3631204Z"
+2026-04-11 14:28:43.388 +05:30 [INF] Handled GetAllNotificationsQuery in 25.0004ms
+2026-04-11 14:28:43.403 +05:30 [INF] HTTP GET /api/notifications responded 200 in 55.0242 ms
+2026-04-11 14:28:44.411 +05:30 [INF] Handling GetNotificationByIdQuery at "2026-04-11T08:58:44.4115734Z"
+2026-04-11 14:28:44.427 +05:30 [INF] Handled GetNotificationByIdQuery in 15.4189ms
+2026-04-11 14:28:44.431 +05:30 [INF] HTTP GET /api/notifications/aaffeb13-b323-45fa-b0f0-53c357bada70 responded 200 in 27.4333 ms
+2026-04-11 14:28:44.466 +05:30 [INF] Handling MarkNotificationSentCommand at "2026-04-11T08:58:44.4662815Z"
+2026-04-11 14:28:44.488 +05:30 [INF] Handled MarkNotificationSentCommand in 22.2571ms
+2026-04-11 14:28:44.491 +05:30 [INF] HTTP PUT /api/notifications/aaffeb13-b323-45fa-b0f0-53c357bada70/sent responded 200 in 30.9124 ms
+2026-04-11 14:28:44.528 +05:30 [INF] Handling MarkNotificationFailedCommand at "2026-04-11T08:58:44.5281099Z"
+2026-04-11 14:28:44.548 +05:30 [INF] Handled MarkNotificationFailedCommand in 20.7612ms
+2026-04-11 14:28:44.553 +05:30 [INF] HTTP PUT /api/notifications/aaffeb13-b323-45fa-b0f0-53c357bada70/failed responded 200 in 31.8165 ms
+2026-04-11 14:28:46.902 +05:30 [INF] Sending digest email to dealer.20260411142835@supplychain.local notificationCount=2 workflowKey=general
+2026-04-11 14:29:14.974 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T08:59:14.9744049Z"
+2026-04-11 14:30:01.305 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:00:01.3057657Z"
+2026-04-11 14:33:48.413 +05:30 [INF] Notification migrations applied count: 2
+2026-04-11 14:33:49.780 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 14:33:59.274 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 14:34:04.950 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@NotificationMigrationsDB'
+2026-04-11 14:34:05.864 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 14:34:06.197 +05:30 [INF] Notification consumer connected to RabbitMQ and listening on queue notification.events.queue
+2026-04-11 14:34:06.526 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 14:34:07.102 +05:30 [INF] Server desktop-nfnd817:22824:230564c3 successfully announced in 178.6385 ms
+2026-04-11 14:34:07.878 +05:30 [INF] Server desktop-nfnd817:22824:230564c3 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 14:34:09.309 +05:30 [INF] Server desktop-nfnd817:22824:230564c3 all the dispatchers started
+2026-04-11 14:34:13.273 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:04:13.2719159Z"
+2026-04-11 14:35:12.921 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:05:12.9206439Z"
+2026-04-11 14:36:13.124 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:06:13.1244726Z"
+2026-04-11 14:37:13.359 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:07:13.3591191Z"
+2026-04-11 14:38:13.624 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:08:13.6247268Z"
+2026-04-11 14:39:08.494 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 14:39:13.774 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:09:13.7740488Z"
+2026-04-11 14:40:47.715 +05:30 [INF] Notification migrations applied count: 2
+2026-04-11 14:40:48.384 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 14:40:51.599 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 14:40:52.971 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@NotificationMigrationsDB'
+2026-04-11 14:40:53.076 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 14:40:53.130 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 14:40:53.345 +05:30 [INF] Server desktop-nfnd817:19680:5b9de22b successfully announced in 84.0695 ms
+2026-04-11 14:40:53.361 +05:30 [INF] Server desktop-nfnd817:19680:5b9de22b is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 14:40:53.447 +05:30 [INF] Notification consumer connected to RabbitMQ and listening on queue notification.events.queue
+2026-04-11 14:40:53.491 +05:30 [INF] Server desktop-nfnd817:19680:5b9de22b all the dispatchers started
+2026-04-11 14:40:54.055 +05:30 [INF] HTTP GET /health responded 200 in 239.5681 ms
+2026-04-11 14:40:55.134 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:10:55.1331286Z"
+2026-04-11 14:41:09.847 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:11:09.8476708Z"
+2026-04-11 14:42:10.018 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:12:10.0184805Z"
+2026-04-11 14:42:42.505 +05:30 [INF] HTTP GET /health responded 200 in 3.6208 ms
+2026-04-11 14:42:55.301 +05:30 [INF] Sending digest email to dealer.20260411144247@supplychain.local notificationCount=2 workflowKey=general
+2026-04-11 14:42:59.417 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 14:42:59.899 +05:30 [INF] Handling CreateManualNotificationCommand at "2026-04-11T09:12:59.8987058Z"
+2026-04-11 14:43:00.076 +05:30 [INF] Handled CreateManualNotificationCommand in 177.559ms
+2026-04-11 14:43:00.201 +05:30 [INF] HTTP POST /api/notifications/manual responded 201 in 1019.5285 ms
+2026-04-11 14:43:00.424 +05:30 [INF] HTTP POST /api/notifications/ingest responded 401 in 59.6477 ms
+2026-04-11 14:43:05.277 +05:30 [INF] Sending single notification email to dealer.20260411144247@supplychain.local notificationId="2a52ce7c-386d-498b-86f6-860d61e6463f" source=identity event=passwordresetrequested
+2026-04-11 14:43:06.259 +05:30 [INF] HTTP POST /api/notifications/manual responded 403 in 10.3845 ms
+2026-04-11 14:43:06.294 +05:30 [INF] HTTP POST /api/notifications/ingest responded 401 in 4.8016 ms
+2026-04-11 14:43:06.319 +05:30 [INF] Handling IngestIntegrationEventCommand at "2026-04-11T09:13:06.3189418Z"
+2026-04-11 14:43:06.339 +05:30 [INF] Handled IngestIntegrationEventCommand in 20.2682ms
+2026-04-11 14:43:06.344 +05:30 [INF] HTTP POST /api/notifications/ingest responded 200 in 26.9671 ms
+2026-04-11 14:43:06.416 +05:30 [INF] Handling GetNotificationsByRecipientQuery at "2026-04-11T09:13:06.4158220Z"
+2026-04-11 14:43:06.496 +05:30 [INF] Handled GetNotificationsByRecipientQuery in 80.3953ms
+2026-04-11 14:43:06.516 +05:30 [INF] HTTP GET /api/notifications/my responded 200 in 124.7167 ms
+2026-04-11 14:43:06.585 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:13:06.5850535Z"
+2026-04-11 14:43:06.654 +05:30 [INF] Handled GetAllNotificationsQuery in 69.523ms
+2026-04-11 14:43:06.674 +05:30 [INF] HTTP GET /api/notifications responded 200 in 108.2681 ms
+2026-04-11 14:43:08.410 +05:30 [INF] Handling GetNotificationByIdQuery at "2026-04-11T09:13:08.4094912Z"
+2026-04-11 14:43:08.459 +05:30 [INF] Handled GetNotificationByIdQuery in 50.122ms
+2026-04-11 14:43:08.464 +05:30 [INF] HTTP GET /api/notifications/6fbcc3d1-c8fc-4259-ba1e-14ed0ea48265 responded 200 in 84.6538 ms
+2026-04-11 14:43:08.538 +05:30 [INF] Handling MarkNotificationSentCommand at "2026-04-11T09:13:08.5379958Z"
+2026-04-11 14:43:08.581 +05:30 [INF] Handled MarkNotificationSentCommand in 43.7173ms
+2026-04-11 14:43:08.592 +05:30 [INF] HTTP PUT /api/notifications/6fbcc3d1-c8fc-4259-ba1e-14ed0ea48265/sent responded 200 in 84.9420 ms
+2026-04-11 14:43:08.689 +05:30 [INF] Handling MarkNotificationFailedCommand at "2026-04-11T09:13:08.6892954Z"
+2026-04-11 14:43:08.744 +05:30 [INF] Handled MarkNotificationFailedCommand in 55.0687ms
+2026-04-11 14:43:08.875 +05:30 [INF] HTTP PUT /api/notifications/6fbcc3d1-c8fc-4259-ba1e-14ed0ea48265/failed responded 200 in 216.8917 ms
+2026-04-11 14:43:10.166 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:13:10.1661073Z"
+2026-04-11 14:44:10.407 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:14:10.4075821Z"
+2026-04-11 14:44:28.142 +05:30 [INF] Handling CreateManualNotificationCommand at "2026-04-11T09:14:28.1424618Z"
+2026-04-11 14:44:28.165 +05:30 [INF] Handled CreateManualNotificationCommand in 22.9534ms
+2026-04-11 14:44:28.172 +05:30 [INF] HTTP POST /api/notifications/manual responded 201 in 36.3931 ms
+2026-04-11 14:44:28.347 +05:30 [INF] HTTP POST /api/notifications/ingest responded 401 in 1.5499 ms
+2026-04-11 14:44:29.760 +05:30 [INF] Sending digest email to dealer.20260411144424@supplychain.local notificationCount=2 workflowKey=general
+2026-04-11 14:44:36.739 +05:30 [INF] HTTP POST /api/notifications/manual responded 403 in 1.1935 ms
+2026-04-11 14:44:36.812 +05:30 [INF] HTTP POST /api/notifications/ingest responded 401 in 1.5030 ms
+2026-04-11 14:44:36.889 +05:30 [INF] Handling IngestIntegrationEventCommand at "2026-04-11T09:14:36.8889579Z"
+2026-04-11 14:44:36.914 +05:30 [INF] Handled IngestIntegrationEventCommand in 25.3095ms
+2026-04-11 14:44:36.920 +05:30 [INF] HTTP POST /api/notifications/ingest responded 200 in 36.1239 ms
+2026-04-11 14:44:37.092 +05:30 [INF] Handling GetNotificationsByRecipientQuery at "2026-04-11T09:14:37.0920209Z"
+2026-04-11 14:44:37.129 +05:30 [INF] Handled GetNotificationsByRecipientQuery in 37.8134ms
+2026-04-11 14:44:37.135 +05:30 [INF] HTTP GET /api/notifications/my responded 200 in 45.8423 ms
+2026-04-11 14:44:37.320 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:14:37.3203867Z"
+2026-04-11 14:44:37.369 +05:30 [INF] Handled GetAllNotificationsQuery in 49.439ms
+2026-04-11 14:44:37.385 +05:30 [INF] HTTP GET /api/notifications responded 200 in 69.0537 ms
+2026-04-11 14:44:38.584 +05:30 [INF] Sending single notification email to dealer.20260411144424@supplychain.local notificationId="a7d78f5e-60a7-49ba-922a-5f2206387798" source=identity event=passwordresetrequested
+2026-04-11 14:44:41.313 +05:30 [INF] Handling GetNotificationByIdQuery at "2026-04-11T09:14:41.3138659Z"
+2026-04-11 14:44:41.329 +05:30 [INF] Handled GetNotificationByIdQuery in 15.6778ms
+2026-04-11 14:44:41.333 +05:30 [INF] HTTP GET /api/notifications/743861e4-4fc9-4315-862c-f6c1d9c037c2 responded 200 in 23.3841 ms
+2026-04-11 14:44:41.409 +05:30 [INF] Handling MarkNotificationSentCommand at "2026-04-11T09:14:41.4093201Z"
+2026-04-11 14:44:41.453 +05:30 [INF] Handled MarkNotificationSentCommand in 43.8355ms
+2026-04-11 14:44:41.485 +05:30 [INF] HTTP PUT /api/notifications/743861e4-4fc9-4315-862c-f6c1d9c037c2/sent responded 200 in 81.7674 ms
+2026-04-11 14:44:41.580 +05:30 [INF] Handling MarkNotificationFailedCommand at "2026-04-11T09:14:41.5802965Z"
+2026-04-11 14:44:41.607 +05:30 [INF] Handled MarkNotificationFailedCommand in 27.3159ms
+2026-04-11 14:44:41.613 +05:30 [INF] HTTP PUT /api/notifications/743861e4-4fc9-4315-862c-f6c1d9c037c2/failed responded 200 in 38.0685 ms
+2026-04-11 14:45:10.594 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:15:10.5945491Z"
+2026-04-11 14:45:53.442 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 14:46:10.805 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:16:10.8058341Z"
+2026-04-11 14:47:11.131 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:17:11.1313192Z"
+2026-04-11 14:49:47.050 +05:30 [INF] Notification migrations applied count: 2
+2026-04-11 14:49:47.554 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-11 14:49:49.965 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-11 14:49:51.572 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@NotificationMigrationsDB'
+2026-04-11 14:49:51.722 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-11 14:49:51.878 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-11 14:49:52.193 +05:30 [INF] Notification consumer connected to RabbitMQ and listening on queue notification.events.queue
+2026-04-11 14:49:52.248 +05:30 [INF] Server desktop-nfnd817:12568:6d5ad733 successfully announced in 179.3563 ms
+2026-04-11 14:49:52.388 +05:30 [INF] Server desktop-nfnd817:12568:6d5ad733 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-11 14:49:52.923 +05:30 [INF] Server desktop-nfnd817:12568:6d5ad733 all the dispatchers started
+2026-04-11 14:49:54.423 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:19:54.4227166Z"
+2026-04-11 14:50:09.346 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:20:09.3463988Z"
+2026-04-11 14:50:30.098 +05:30 [INF] HTTP GET /health responded 200 in 211.7369 ms
+2026-04-11 14:51:09.434 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:21:09.4344877Z"
+2026-04-11 14:52:09.603 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:22:09.6038458Z"
+2026-04-11 14:53:09.723 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:23:09.7233538Z"
+2026-04-11 14:54:09.855 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:24:09.8551883Z"
+2026-04-11 14:54:15.930 +05:30 [INF] Sending digest email to dealer.20260411145402@supplychain.local notificationCount=2 workflowKey=general
+2026-04-11 14:54:20.265 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-11 14:54:21.264 +05:30 [INF] Handling CreateManualNotificationCommand at "2026-04-11T09:24:21.2639085Z"
+2026-04-11 14:54:21.445 +05:30 [INF] Handled CreateManualNotificationCommand in 181.5847ms
+2026-04-11 14:54:21.551 +05:30 [INF] HTTP POST /api/notifications/manual responded 201 in 1600.2570 ms
+2026-04-11 14:54:22.117 +05:30 [INF] HTTP POST /api/notifications/ingest responded 401 in 71.8821 ms
+2026-04-11 14:54:26.318 +05:30 [INF] Sending single notification email to dealer.20260411145402@supplychain.local notificationId="9322d28e-c871-4267-a092-7ad98ccad4bd" source=identity event=passwordresetrequested
+2026-04-11 14:54:32.356 +05:30 [INF] HTTP POST /api/notifications/manual responded 403 in 18.6504 ms
+2026-04-11 14:54:32.460 +05:30 [INF] HTTP POST /api/notifications/ingest responded 401 in 25.2762 ms
+2026-04-11 14:54:32.494 +05:30 [INF] Handling IngestIntegrationEventCommand at "2026-04-11T09:24:32.4943330Z"
+2026-04-11 14:54:32.507 +05:30 [INF] Handled IngestIntegrationEventCommand in 12.8067ms
+2026-04-11 14:54:32.512 +05:30 [INF] HTTP POST /api/notifications/ingest responded 200 in 21.8773 ms
+2026-04-11 14:54:32.633 +05:30 [INF] Handling GetNotificationsByRecipientQuery at "2026-04-11T09:24:32.6329931Z"
+2026-04-11 14:54:32.707 +05:30 [INF] Handled GetNotificationsByRecipientQuery in 74.4127ms
+2026-04-11 14:54:32.731 +05:30 [INF] HTTP GET /api/notifications/my responded 200 in 123.9346 ms
+2026-04-11 14:54:32.923 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:24:32.9226612Z"
+2026-04-11 14:54:33.018 +05:30 [INF] Handled GetAllNotificationsQuery in 96.0834ms
+2026-04-11 14:54:33.040 +05:30 [INF] HTTP GET /api/notifications responded 200 in 147.6631 ms
+2026-04-11 14:54:37.590 +05:30 [INF] Handling GetNotificationByIdQuery at "2026-04-11T09:24:37.5896706Z"
+2026-04-11 14:54:37.647 +05:30 [INF] Handled GetNotificationByIdQuery in 57.772ms
+2026-04-11 14:54:37.655 +05:30 [INF] HTTP GET /api/notifications/90bb78d2-9178-4aa2-9940-fedcf555f97e responded 200 in 93.0786 ms
+2026-04-11 14:54:37.808 +05:30 [INF] Handling MarkNotificationSentCommand at "2026-04-11T09:24:37.8082926Z"
+2026-04-11 14:54:37.850 +05:30 [INF] Handled MarkNotificationSentCommand in 41.8185ms
+2026-04-11 14:54:37.856 +05:30 [INF] HTTP PUT /api/notifications/90bb78d2-9178-4aa2-9940-fedcf555f97e/sent responded 200 in 90.6368 ms
+2026-04-11 14:54:37.971 +05:30 [INF] Handling MarkNotificationFailedCommand at "2026-04-11T09:24:37.9712219Z"
+2026-04-11 14:54:38.000 +05:30 [INF] Handled MarkNotificationFailedCommand in 29.5115ms
+2026-04-11 14:54:38.006 +05:30 [INF] HTTP PUT /api/notifications/90bb78d2-9178-4aa2-9940-fedcf555f97e/failed responded 200 in 71.9890 ms
+2026-04-11 14:54:52.559 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-11 14:55:10.064 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:25:10.0646580Z"
+2026-04-11 14:56:10.374 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:26:10.3741529Z"
+2026-04-11 14:57:09.092 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:27:09.0927702Z"
+2026-04-11 14:57:09.127 +05:30 [INF] Handled GetAllNotificationsQuery in 34.8166ms
+2026-04-11 14:57:09.151 +05:30 [INF] HTTP GET /api/notifications responded 200 in 63.4416 ms
+2026-04-11 14:57:10.718 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:27:10.7181093Z"
+2026-04-11 14:58:10.394 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:28:10.3947136Z"
+2026-04-11 14:58:10.835 +05:30 [INF] Handled GetAllNotificationsQuery in 440.8125ms
+2026-04-11 14:58:11.219 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:28:11.2189609Z"
+2026-04-11 14:58:11.293 +05:30 [INF] HTTP GET /api/notifications responded 200 in 993.0666 ms
+2026-04-11 14:59:09.078 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:29:09.0784414Z"
+2026-04-11 14:59:09.102 +05:30 [INF] Handled GetAllNotificationsQuery in 24.2688ms
+2026-04-11 14:59:09.112 +05:30 [INF] HTTP GET /api/notifications responded 200 in 36.6782 ms
+2026-04-11 14:59:11.309 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:29:11.3096205Z"
+2026-04-11 15:00:09.081 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:30:09.0810067Z"
+2026-04-11 15:00:09.103 +05:30 [INF] Handled GetAllNotificationsQuery in 22.2525ms
+2026-04-11 15:00:09.114 +05:30 [INF] HTTP GET /api/notifications responded 200 in 35.8228 ms
+2026-04-11 15:00:11.396 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:30:11.3966116Z"
+2026-04-11 15:01:08.790 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:31:08.7902065Z"
+2026-04-11 15:01:08.829 +05:30 [INF] Handled GetAllNotificationsQuery in 39.5307ms
+2026-04-11 15:01:08.844 +05:30 [INF] HTTP GET /api/notifications responded 200 in 56.5913 ms
+2026-04-11 15:01:11.788 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:31:11.7879978Z"
+2026-04-11 15:02:08.785 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:32:08.7851273Z"
+2026-04-11 15:02:08.832 +05:30 [INF] Handled GetAllNotificationsQuery in 47.2547ms
+2026-04-11 15:02:08.844 +05:30 [INF] HTTP GET /api/notifications responded 200 in 61.9840 ms
+2026-04-11 15:02:12.094 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:32:12.0949448Z"
+2026-04-11 15:03:00.158 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:33:00.1585336Z"
+2026-04-11 15:03:00.181 +05:30 [INF] Handled GetAllNotificationsQuery in 22.9101ms
+2026-04-11 15:03:00.190 +05:30 [INF] HTTP GET /api/notifications responded 200 in 32.9762 ms
+2026-04-11 15:03:12.318 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:33:12.3180565Z"
+2026-04-11 15:04:01.085 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:34:01.0856932Z"
+2026-04-11 15:04:01.115 +05:30 [INF] Handled GetAllNotificationsQuery in 29.5974ms
+2026-04-11 15:04:01.125 +05:30 [INF] HTTP GET /api/notifications responded 200 in 42.5870 ms
+2026-04-11 15:04:07.277 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:34:07.2771554Z"
+2026-04-11 15:04:07.306 +05:30 [INF] Handled GetAllNotificationsQuery in 28.8288ms
+2026-04-11 15:04:07.316 +05:30 [INF] HTTP GET /api/notifications responded 200 in 40.7506 ms
+2026-04-11 15:04:12.536 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:34:12.5364494Z"
+2026-04-11 15:05:07.330 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:35:07.3308862Z"
+2026-04-11 15:05:07.382 +05:30 [INF] Handled GetAllNotificationsQuery in 51.3457ms
+2026-04-11 15:05:07.396 +05:30 [INF] HTTP GET /api/notifications responded 200 in 66.8798 ms
+2026-04-11 15:05:12.782 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:35:12.7825459Z"
+2026-04-11 15:05:34.184 +05:30 [INF] Handling GetAllNotificationsQuery at "2026-04-11T09:35:34.1841949Z"
+2026-04-11 15:05:34.214 +05:30 [INF] Handled GetAllNotificationsQuery in 30.6581ms
+2026-04-11 15:05:34.226 +05:30 [INF] HTTP GET /api/notifications responded 200 in 45.7905 ms
+2026-04-11 15:06:12.965 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:36:12.9651194Z"
+2026-04-11 15:07:13.074 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:37:13.0749337Z"
+2026-04-11 15:08:13.372 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:38:13.3718252Z"
+2026-04-11 15:09:13.498 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:39:13.4980790Z"
+2026-04-11 15:10:13.608 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:40:13.6079832Z"
+2026-04-11 15:11:13.721 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:41:13.7215180Z"
+2026-04-11 15:12:13.947 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:42:13.9473781Z"
+2026-04-11 15:13:13.964 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:43:13.9642091Z"
+2026-04-11 15:14:14.232 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:44:14.2323091Z"
+2026-04-11 15:15:14.369 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:45:14.3695353Z"
+2026-04-11 15:16:14.506 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:46:14.5062856Z"
+2026-04-11 15:17:14.591 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:47:14.5916837Z"
+2026-04-11 15:18:14.710 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:48:14.7105546Z"
+2026-04-11 15:19:14.877 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:49:14.8776404Z"
+2026-04-11 15:20:14.993 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:50:14.9932865Z"
+2026-04-11 15:21:00.158 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:51:00.1580687Z"
+2026-04-11 15:22:00.331 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:52:00.3314527Z"
+2026-04-11 15:23:00.429 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:53:00.4296159Z"
+2026-04-11 15:24:00.530 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:54:00.5307859Z"
+2026-04-11 15:25:00.605 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:55:00.6050635Z"
+2026-04-11 15:26:00.740 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:56:00.7405709Z"
+2026-04-11 15:27:00.834 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:57:00.8347427Z"
+2026-04-11 15:28:00.977 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:58:00.9771000Z"
+2026-04-11 15:29:01.339 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T09:59:01.3392315Z"
+2026-04-11 15:30:01.442 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:00:01.4426519Z"
+2026-04-11 15:31:01.646 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:01:01.6457735Z"
+2026-04-11 15:32:01.800 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:02:01.8008092Z"
+2026-04-11 15:33:02.688 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:03:02.6883243Z"
+2026-04-11 15:34:02.863 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:04:02.8636317Z"
+2026-04-11 15:35:03.322 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:05:03.3223294Z"
+2026-04-11 15:36:03.594 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:06:03.5949584Z"
+2026-04-11 15:37:04.056 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:07:04.0560975Z"
+2026-04-11 15:38:04.564 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:08:04.5641371Z"
+2026-04-11 15:39:04.659 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:09:04.6599114Z"
+2026-04-11 15:40:05.771 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:10:05.7713652Z"
+2026-04-11 15:41:06.035 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:11:06.0352796Z"
+2026-04-11 15:42:06.192 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:12:06.1925927Z"
+2026-04-11 15:43:06.539 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:13:06.5399574Z"
+2026-04-11 15:44:07.488 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:14:07.4885228Z"
+2026-04-11 15:45:07.736 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:15:07.7367705Z"
+2026-04-11 15:46:07.791 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:16:07.7910794Z"
+2026-04-11 15:47:07.928 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:17:07.9280955Z"
+2026-04-11 15:48:08.259 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:18:08.2592803Z"
+2026-04-11 15:49:09.130 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:19:09.1302002Z"
+2026-04-11 15:50:09.266 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:20:09.2663567Z"
+2026-04-11 15:51:09.430 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:21:09.4306151Z"
+2026-04-11 15:52:09.531 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:22:09.5314788Z"
+2026-04-11 15:53:09.592 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:23:09.5927967Z"
+2026-04-11 15:54:09.687 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-11T10:24:09.6879002Z"

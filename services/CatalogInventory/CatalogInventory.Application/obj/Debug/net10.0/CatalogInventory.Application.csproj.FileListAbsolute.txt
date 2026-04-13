@@ -21,3 +21,12 @@ C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application
 C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Application.deps.json
 C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Application.dll
 C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Application.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\artifacts\build-check\catalog-api\CatalogInventory.Application.deps.json
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\artifacts\build-check\catalog-api\CatalogInventory.Application.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\artifacts\build-check\catalog-api\CatalogInventory.Application.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\artifacts\build-check\catalog-api\BuildingBlocks.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\artifacts\build-check\catalog-api\CatalogInventory.Domain.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\artifacts\build-check\catalog-api\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\artifacts\build-check\catalog-api\CatalogInventory.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\artifacts\build-check\catalog-api\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Application\artifacts\build-check\catalog-api\BuildingBlocks.pdb

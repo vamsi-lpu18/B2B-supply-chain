@@ -209,3 +209,11 @@ C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\obj\Debug\net10
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\bin\Debug\net10.0\Hangfire.AspNetCore.dll
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\bin\Debug\net10.0\Hangfire.NetCore.dll
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.API\bin\Debug\net10.0\Hangfire.SqlServer.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\appsettings.Development.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\appsettings.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\IdentityAuth.API.staticwebassets.endpoints.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\IdentityAuth.API.exe
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\IdentityAuth.API.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\IdentityAuth.API.runtimeconfig.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\IdentityAuth.API.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\IdentityAuth.API.pdb

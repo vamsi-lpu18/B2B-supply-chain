@@ -29,6 +29,8 @@ This document maps email sending conditions that are currently implemented in th
 | order | order* (dynamic status updates) | Any status transition emitted as `Order{Status}` | `RecipientUserId` -> Identity internal contact lookup | Yes |
 | logistics | shipmentcreated | Warehouse/logistics creates shipment | `RecipientUserId` -> Identity internal contact lookup | Yes |
 | logistics | shipmentassigned | Shipment assigned to delivery agent | `RecipientUserId` -> Identity internal contact lookup | Yes |
+| logistics | shipmentassignmentaccepted | Assigned agent accepts shipment assignment | `RecipientUserId` -> Identity internal contact lookup | Yes |
+| logistics | shipmentassignmentrejected | Assigned agent rejects shipment assignment with reason | `RecipientUserId` -> Identity internal contact lookup | Yes |
 | logistics | shipmentstatusupdated | Shipment status changed with note | `RecipientUserId` -> Identity internal contact lookup | Yes |
 | notification | manual notification with channel=email | Admin manually creates notification and chooses email channel | Depends on recipient ID or payload `Email` | Yes |
 

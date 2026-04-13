@@ -266,7 +266,7 @@ Add-Check -Page '/dashboard' -Role 'Admin' -Method 'GET' -Path '/identity/api/ad
 Add-Check -Page '/dashboard' -Role 'Dealer' -Method 'GET' -Path '/orders/api/orders/my?page=1&pageSize=1' -Token $dealerToken -Expected @(200) | Out-Null
 Add-Check -Page '/dashboard' -Role 'Warehouse' -Method 'GET' -Path '/orders/api/admin/orders?page=1&pageSize=1' -Token $warehouseToken -Expected @(200) | Out-Null
 Add-Check -Page '/dashboard' -Role 'Logistics' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $logisticsToken -Expected @(200) | Out-Null
-Add-Check -Page '/dashboard' -Role 'Agent' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $agentToken -Expected @(200) | Out-Null
+Add-Check -Page '/dashboard' -Role 'Agent' -Method 'GET' -Path '/logistics/api/logistics/shipments/assigned' -Token $agentToken -Expected @(200) | Out-Null
 
 # Products page
 foreach ($roleRow in @(
@@ -300,9 +300,10 @@ Add-Check -Page '/orders' -Role 'Agent' -Method 'GET' -Path '/orders/api/admin/o
 # Shipments page
 Add-Check -Page '/shipments' -Role 'Dealer' -Method 'GET' -Path '/logistics/api/logistics/shipments/my' -Token $dealerToken -Expected @(200) | Out-Null
 Add-Check -Page '/shipments' -Role 'Admin' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $adminToken -Expected @(200) | Out-Null
-Add-Check -Page '/shipments' -Role 'Warehouse' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $warehouseToken -Expected @(200) | Out-Null
+Add-Check -Page '/shipments' -Role 'Warehouse' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $warehouseToken -Expected @(403) | Out-Null
 Add-Check -Page '/shipments' -Role 'Logistics' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $logisticsToken -Expected @(200) | Out-Null
-Add-Check -Page '/shipments' -Role 'Agent' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $agentToken -Expected @(200) | Out-Null
+Add-Check -Page '/shipments' -Role 'Agent' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $agentToken -Expected @(403) | Out-Null
+Add-Check -Page '/shipments' -Role 'Agent assigned endpoint' -Method 'GET' -Path '/logistics/api/logistics/shipments/assigned' -Token $agentToken -Expected @(200) | Out-Null
 
 # Invoices page
 Add-Check -Page '/invoices' -Role 'Admin' -Method 'GET' -Path "/payments/api/payment/dealers/$dealerId/invoices" -Token $adminToken -Expected @(200) | Out-Null
@@ -356,6 +357,8 @@ Add-RouteCheck -Name '/checkout guarded Dealer' -RoutesText $routesText -Pattern
 Add-RouteCheck -Name '/products/new guarded Admin' -RoutesText $routesText -Pattern "path:\s*'products/new'.*?canActivate:\s*\[roleGuard\].*?roles:\s*\[UserRole\.Admin\]"
 Add-RouteCheck -Name '/products/:id/edit guarded Admin' -RoutesText $routesText -Pattern "path:\s*'products/:id/edit'.*?canActivate:\s*\[roleGuard\].*?roles:\s*\[UserRole\.Admin\]"
 Add-RouteCheck -Name '/admin/dealers guarded Admin' -RoutesText $routesText -Pattern "path:\s*'admin/dealers'.*?canActivate:\s*\[roleGuard\].*?roles:\s*\[UserRole\.Admin\]"
+Add-RouteCheck -Name '/orders/:id/tracking excludes Warehouse' -RoutesText $routesText -Pattern "path:\s*'orders/:id/tracking'.*?roles:\s*\[UserRole\.Admin,\s*UserRole\.Dealer,\s*UserRole\.Logistics,\s*UserRole\.Agent\]"
+Add-RouteCheck -Name '/shipments excludes Warehouse' -RoutesText $routesText -Pattern "path:\s*'shipments'.*?roles:\s*\[UserRole\.Admin,\s*UserRole\.Logistics,\s*UserRole\.Agent,\s*UserRole\.Dealer\]"
 
 $total = $Rows.Count
 $passed = ($Rows | Where-Object { $_.Pass }).Count

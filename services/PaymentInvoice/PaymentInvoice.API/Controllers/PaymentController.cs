@@ -51,10 +51,31 @@ public sealed class PaymentController(ISender sender, IConfiguration configurati
     }
 
     [HttpGet("dealers/{dealerId:guid}/credit-check")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin,Dealer")]
     [ProducesResponseType(typeof(CreditCheckResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> CheckCredit(Guid dealerId, [FromQuery] decimal amount, CancellationToken cancellationToken)
     {
+        var scopeResult = EnsureDealerScope(dealerId);
+        if (scopeResult is not null)
+        {
+            return scopeResult;
+        }
+
+        var result = await sender.Send(new CheckCreditQuery(dealerId, amount), cancellationToken);
+        return Ok(result);
+    }
+
+    [HttpGet("internal/dealers/{dealerId:guid}/credit-check")]
+    [AllowAnonymous]
+    [ProducesResponseType(typeof(CreditCheckResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    public async Task<IActionResult> CheckCreditInternal(Guid dealerId, [FromQuery] decimal amount, CancellationToken cancellationToken)
+    {
+        if (!IsAuthorizedInternalCall())
+        {
+            return Unauthorized(new { message = "Invalid internal API key." });
+        }
+
         var result = await sender.Send(new CheckCreditQuery(dealerId, amount), cancellationToken);
         return Ok(result);
     }

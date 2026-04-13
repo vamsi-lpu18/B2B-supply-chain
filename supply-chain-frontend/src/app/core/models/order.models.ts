@@ -105,3 +105,36 @@ export interface OrderListItemDto {
   totalAmount: number;
   placedAtUtc: string;
 }
+
+export interface DealerPurchaseStatDto {
+  dealerId: string;
+  orderCount: number;
+  totalAmount: number;
+}
+
+export interface ProductPurchaseStatDto {
+  productId: string;
+  productName: string;
+  sku: string;
+  unitsSold: number;
+  revenue: number;
+}
+
+export interface DailyRevenuePointDto {
+  dayUtc: string;
+  orderCount: number;
+  revenue: number;
+}
+
+export interface OrderAnalyticsDto {
+  fromUtc: string;
+  toUtc: string;
+  totalOrders: number;
+  totalRevenue: number;
+  averageOrderValue: number;
+  uniqueDealers: number;
+  unitsSold: number;
+  topDealers: DealerPurchaseStatDto[];
+  topProducts: ProductPurchaseStatDto[];
+  dailyRevenue: DailyRevenuePointDto[];
+}

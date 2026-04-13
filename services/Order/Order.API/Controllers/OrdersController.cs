@@ -56,7 +56,14 @@ public sealed class OrdersController(ISender sender) : ControllerBase
         var order = await sender.Send(new GetOrderQuery(id, userId, role), cancellationToken);
         return order is null ? NotFound() : Ok(order);
     }
-
+/// <summary>
+/// Gets the saga state for a specific order. This endpoint is used to track the progress of an order through its various stages.
+/// </summary> <param name="id">The unique identifier of the order.</param>
+/// <param name="cancellationToken">A token to cancel the operation if needed.</param>
+/// <returns>The current saga state of the order, or a 404 if the order or saga state is not found.</returns>   
+/// <remarks>
+/// This endpoint is typically used by the frontend to display the order's progress in a visual format, such as a progress bar or timeline. It allows customers and internal users to see which stages of the order process have been completed and which are still pending.
+/// </remarks>
     [HttpGet("{id:guid}/saga")]
     [ProducesResponseType(typeof(OrderSagaDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -80,7 +87,7 @@ public sealed class OrdersController(ISender sender) : ControllerBase
     }
 
     [HttpPut("{id:guid}/status")]
-    [Authorize(Roles = "Admin,Warehouse,Logistics")]
+    [Authorize]
     public async Task<IActionResult> UpdateStatus(Guid id, [FromBody] UpdateOrderStatusRequest request, CancellationToken cancellationToken)
     {
         if (!TryGetUserId(out var userId))
@@ -89,6 +96,11 @@ public sealed class OrdersController(ISender sender) : ControllerBase
         }
 
         var role = User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? "System";
+        if (!CanManageOrderStatus(role))
+        {
+            return Forbid();
+        }
+
         var updated = await sender.Send(new UpdateOrderStatusCommand(id, request.NewStatus, userId, role), cancellationToken);
         return updated ? Ok(new { message = "Status updated." }) : NotFound();
     }
@@ -125,5 +137,12 @@ public sealed class OrdersController(ISender sender) : ControllerBase
         var sub = User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value
             ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         return Guid.TryParse(sub, out userId);
+    }
+
+    private static bool CanManageOrderStatus(string role)
+    {
+        return string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(role, "Logistics", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(role, "Warehouse", StringComparison.OrdinalIgnoreCase);
     }
 }

@@ -316,6 +316,16 @@ public sealed class CatalogInventoryService(
             return false;
         }
 
+        try
+        {
+            product.SoftReserve(request.Quantity);
+        }
+        catch (InvalidOperationException)
+        {
+            await cacheStore.DeleteAsync(lockKey, cancellationToken);
+            return false;
+        }
+
         await productRepository.AddStockTransactionAsync(
             StockTransaction.Create(request.ProductId, StockTransactionType.SoftLock, request.Quantity, request.OrderId.ToString("N")),
             cancellationToken);
@@ -329,6 +339,10 @@ public sealed class CatalogInventoryService(
         }, cancellationToken);
 
         await productRepository.SaveChangesAsync(cancellationToken);
+
+        await cacheStore.SetAsync(GetAvailableStockKey(product.ProductId), product.AvailableStock, AvailableStockTtl, cancellationToken);
+        await InvalidateProductReadCachesAsync(product.ProductId, cancellationToken);
+
         return true;
     }
 
@@ -338,7 +352,7 @@ public sealed class CatalogInventoryService(
 
         var lockKey = GetSoftLockKey(request.ProductId, request.OrderId);
         var softLockQty = await cacheStore.GetIntAsync(lockKey, cancellationToken);
-        if (!softLockQty.HasValue || softLockQty.Value < request.Quantity)
+        if (softLockQty.HasValue && softLockQty.Value < request.Quantity)
         {
             return false;
         }
@@ -349,7 +363,23 @@ public sealed class CatalogInventoryService(
             return false;
         }
 
-        product.HardDeduct(request.Quantity);
+        try
+        {
+            // Prefer consuming explicitly reserved stock first. If reserve state is absent
+            // (legacy data or cache reset), fall back to direct deduction.
+            if (product.ReservedStock >= request.Quantity)
+            {
+                product.HardDeductReserved(request.Quantity);
+            }
+            else
+            {
+                product.HardDeduct(request.Quantity);
+            }
+        }
+        catch (InvalidOperationException)
+        {
+            return false;
+        }
 
         await productRepository.AddStockTransactionAsync(
             StockTransaction.Create(request.ProductId, StockTransactionType.HardDeduct, request.Quantity, request.OrderId.ToString("N")),
@@ -375,10 +405,27 @@ public sealed class CatalogInventoryService(
     public async Task<bool> ReleaseSoftLockAsync(ReleaseSoftLockRequest request, CancellationToken cancellationToken)
     {
         var lockKey = GetSoftLockKey(request.ProductId, request.OrderId);
+        var softLockQty = await cacheStore.GetIntAsync(lockKey, cancellationToken);
+
+        var product = await productRepository.GetProductByIdAsync(request.ProductId, cancellationToken);
+        if (product is null)
+        {
+            return false;
+        }
+
+        if (softLockQty.HasValue && softLockQty.Value > 0 && product.ReservedStock > 0)
+        {
+            var releasableQty = Math.Min(softLockQty.Value, product.ReservedStock);
+            if (releasableQty > 0)
+            {
+                product.ReleaseReserve(releasableQty);
+            }
+        }
+
         await cacheStore.DeleteAsync(lockKey, cancellationToken);
 
         await productRepository.AddStockTransactionAsync(
-            StockTransaction.Create(request.ProductId, StockTransactionType.ReleaseReserve, 0, request.OrderId.ToString("N")),
+            StockTransaction.Create(request.ProductId, StockTransactionType.ReleaseReserve, softLockQty ?? 0, request.OrderId.ToString("N")),
             cancellationToken);
 
         await productRepository.AddOutboxMessageAsync("StockSoftLockReleased", new
@@ -389,6 +436,10 @@ public sealed class CatalogInventoryService(
         }, cancellationToken);
 
         await productRepository.SaveChangesAsync(cancellationToken);
+
+        await cacheStore.SetAsync(GetAvailableStockKey(product.ProductId), product.AvailableStock, AvailableStockTtl, cancellationToken);
+        await InvalidateProductReadCachesAsync(product.ProductId, cancellationToken);
+
         return true;
     }
 

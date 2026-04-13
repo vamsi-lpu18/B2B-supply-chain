@@ -26,3 +26,15 @@ C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Inf
 C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Infrastructure.runtimeconfig.json
 C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Infrastructure.dll
 C:\Users\Hey\Desktop\demo\artifacts\build-check\catalog-api\CatalogInventory.Infrastructure.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\CatalogInventory.Infrastructure.deps.json
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\CatalogInventory.Infrastructure.runtimeconfig.json
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\CatalogInventory.Infrastructure.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\CatalogInventory.Infrastructure.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\BuildingBlocks.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\CatalogInventory.Application.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\CatalogInventory.Domain.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\CatalogInventory.Application.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\CatalogInventory.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Infrastructure\artifacts\build-check\catalog-api\BuildingBlocks.pdb

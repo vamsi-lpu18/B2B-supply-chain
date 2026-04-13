@@ -4,6 +4,16 @@ using MediatR;
 
 namespace IdentityAuth.Application.Features.Auth;
 
+public sealed record GetAgentsQuery(int Page, int PageSize, string? Search)
+    : IRequest<PagedResult<AgentSummaryDto>>;
+
+public sealed class GetAgentsQueryHandler(IIdentityAuthService service)
+    : IRequestHandler<GetAgentsQuery, PagedResult<AgentSummaryDto>>
+{
+    public Task<PagedResult<AgentSummaryDto>> Handle(GetAgentsQuery request, CancellationToken cancellationToken)
+        => service.GetAgentsAsync(request.Page, request.PageSize, request.Search, cancellationToken);
+}
+
 public sealed record GetDealersQuery(int Page, int PageSize, string? Search)
     : IRequest<PagedResult<DealerSummaryDto>>;
 

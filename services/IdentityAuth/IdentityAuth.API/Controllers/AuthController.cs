@@ -62,6 +62,21 @@ public sealed class AuthController(ISender sender) : ControllerBase
         return Ok(new { message = "Password reset successful." });
     }
 
+    [HttpPost("change-password")]
+    [Authorize]
+    public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest request, CancellationToken cancellationToken)
+    {
+        var userIdClaim = User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value
+            ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (!Guid.TryParse(userIdClaim, out var userId))
+        {
+            return Unauthorized(new { message = "Invalid access token." });
+        }
+
+        await sender.Send(new ChangePasswordCommand(userId, request), cancellationToken);
+        return Ok(new { message = "Password changed successfully." });
+    }
+
     [HttpPost("logout")]
     [Authorize]
     public async Task<IActionResult> Logout([FromBody] LogoutRequest? request, CancellationToken cancellationToken)

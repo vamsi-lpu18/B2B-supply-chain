@@ -5,6 +5,8 @@ using Ocelot.Middleware;
 using Ocelot.Provider.Polly;
 using Serilog;
 using System.Text;
+using System.Threading.RateLimiting;
+using System.Linq;
 /// <summary>
 /// Ocelot API Gateway for the Supply Chain Management Platform.
 /// This gateway routes requests to the appropriate microservices based on the configuration defined in ocelot.json.
@@ -46,6 +48,46 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    options.OnRejected = async (context, cancellationToken) =>
+    {
+        var correlationId = context.HttpContext.Request.Headers.TryGetValue("X-Correlation-Id", out var header)
+            && !string.IsNullOrWhiteSpace(header)
+            ? header.ToString()
+            : context.HttpContext.TraceIdentifier;
+
+        context.HttpContext.Response.ContentType = "application/json";
+        await context.HttpContext.Response.WriteAsJsonAsync(new
+        {
+            code = "throttle.too-many-requests",
+            message = "Too many requests. Please retry after a short delay.",
+            retryable = true,
+            correlationId
+        }, cancellationToken);
+    };
+
+    options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
+    {
+        var clientId = httpContext.Request.Headers["Oc-Client"].FirstOrDefault();
+        var remoteIp = httpContext.Connection.RemoteIpAddress?.ToString();
+        var partitionKey = !string.IsNullOrWhiteSpace(clientId)
+            ? $"client:{clientId}"
+            : $"ip:{remoteIp ?? "unknown"}";
+
+        return RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey,
+            _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 120,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+});
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -73,8 +115,52 @@ var app = builder.Build();
 app.UseSerilogRequestLogging();
 app.UseCors();
 
+app.Use(async (context, next) =>
+{
+    try
+    {
+        await next();
+    }
+    catch (Exception ex)
+    {
+        app.Logger.LogError(ex, "Unhandled gateway exception for {Method} {Path}", context.Request.Method, context.Request.Path);
+        await WriteGatewayErrorAsync(
+            context,
+            StatusCodes.Status500InternalServerError,
+            "gateway.unexpected",
+            "Gateway failed to process the request.",
+            retryable: true);
+    }
+});
+
+app.UseRateLimiter();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
 await app.UseOcelot();
 app.Run();
+
+static Task WriteGatewayErrorAsync(HttpContext context, int statusCode, string code, string message, bool retryable)
+{
+    if (context.Response.HasStarted)
+    {
+        return Task.CompletedTask;
+    }
+
+    context.Response.StatusCode = statusCode;
+    context.Response.ContentType = "application/json";
+
+    var correlationId = context.Request.Headers.TryGetValue("X-Correlation-Id", out var header)
+        && !string.IsNullOrWhiteSpace(header)
+        ? header.ToString()
+        : context.TraceIdentifier;
+
+    return context.Response.WriteAsJsonAsync(new
+    {
+        code,
+        message,
+        retryable,
+        correlationId
+    });
+}

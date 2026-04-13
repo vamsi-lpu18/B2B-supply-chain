@@ -20,7 +20,7 @@ public sealed class InventoryController(ISender sender) : ControllerBase
     }
 
     [HttpPost("hard-deduct")]
-    [Authorize(Roles = "Admin,Warehouse,Logistics")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> HardDeduct([FromBody] HardDeductStockRequest request, CancellationToken cancellationToken)
     {
         var success = await sender.Send(new HardDeductStockCommand(request), cancellationToken);

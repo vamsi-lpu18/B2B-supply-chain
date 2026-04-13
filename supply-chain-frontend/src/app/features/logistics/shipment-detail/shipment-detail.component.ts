@@ -3,19 +3,21 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { LogisticsApiService } from '../../../core/api/logistics-api.service';
+import { AdminApiService } from '../../../core/api/admin-api.service';
 import { NotificationApiService } from '../../../core/api/notification-api.service';
 import { AuthStore } from '../../../core/stores/auth.store';
 import { ToastService } from '../../../core/services/toast.service';
 import { ShipmentEtaService } from '../../../core/services/shipment-eta.service';
 import { DeliveryAttemptOutcome, ShipmentDeliveryAttempt, ShipmentDeliveryAttemptsService } from '../../../core/services/shipment-delivery-attempts.service';
 import { ShipmentOpsQueueService, ShipmentOpsState } from '../../../core/services/shipment-ops-queue.service';
+import { AgentSummaryDto } from '../../../core/models/auth.models';
 import {
   ShipmentDto,
   ShipmentAiRecommendationDto,
   ApproveAiRecommendationResultDto,
   AiRecommendationExecutionStepDto
 } from '../../../core/models/logistics.models';
-import { NotificationChannel, ShipmentStatus, SHIPMENT_STATUS_LABELS, SHIPMENT_STATUS_BADGE, UserRole } from '../../../core/models/enums';
+import { AssignmentDecisionStatus, NotificationChannel, ShipmentStatus, SHIPMENT_STATUS_LABELS, SHIPMENT_STATUS_BADGE, UserRole } from '../../../core/models/enums';
 import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle.mocks';
 
 @Component({
@@ -30,6 +32,12 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
           <h1>{{ shipment()?.shipmentNumber ?? 'Shipment Detail' }}</h1>
         </div>
         <div class="d-flex gap-2">
+          @if (canAcceptAssignment()) {
+            <button class="btn btn-primary" (click)="acceptAssignment()" [disabled]="actionLoading()">Accept Assignment</button>
+          }
+          @if (canRejectAssignment()) {
+            <button class="btn btn-danger" (click)="showRejectAssignmentDialog.set(true)" [disabled]="actionLoading()">Reject Assignment</button>
+          }
           @if (canMarkOutForDeliveryQuick()) {
             <button class="btn btn-secondary" (click)="markOutForDeliveryQuick()" [disabled]="actionLoading()">Mark Out For Delivery</button>
           }
@@ -52,13 +60,16 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
             <button class="btn btn-secondary" (click)="showAttemptDialog.set(true)">Log Attempt</button>
           }
           @if (canAssignAgent()) {
-            <button class="btn btn-secondary" (click)="showAssignDialog.set(true)">Assign Agent</button>
+            <button class="btn btn-secondary" (click)="openAssignDialog()">Assign Agent</button>
           }
           @if (canAssignVehicle()) {
             <button class="btn btn-secondary" (click)="openVehicleDialog()">Assign Vehicle</button>
           }
           @if (canUpdateStatus()) {
             <button class="btn btn-primary" (click)="openStatusDialog()">Update Status</button>
+          }
+          @if (canRateDeliveryAgent()) {
+            <button class="btn btn-primary" (click)="openRatingDialog()">{{ hasDeliveryAgentRating() ? 'Update Delivery Agent Rating' : 'Rate Delivery Agent' }}</button>
           }
         </div>
       </div>
@@ -79,8 +90,10 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
               }
             </div>
             <div><span class="field-label">Agent</span><span>{{ shipment()!.assignedAgentId ? (shipment()!.assignedAgentId | slice:0:8) + '...' : 'Unassigned' }}</span></div>
+            <div><span class="field-label">Assignment</span><span class="badge" [class]="assignmentDecisionBadge(shipment()!.assignmentDecisionStatus)">{{ assignmentDecisionLabel(shipment()!.assignmentDecisionStatus) }}</span></div>
             <div><span class="field-label">Vehicle</span><span>{{ shipment()!.vehicleNumber || 'Unassigned' }}</span></div>
             <div><span class="field-label">Created</span><span>{{ shipment()!.createdAtUtc | date:'dd MMM yyyy, HH:mm' }}</span></div>
+            <div><span class="field-label">Assignment Response</span><span>{{ shipment()!.assignmentDecisionAtUtc ? (shipment()!.assignmentDecisionAtUtc | date:'dd MMM yyyy, HH:mm') : 'Pending' }}</span></div>
             <div><span class="field-label">Expected Delivery</span><span>{{ etaDateLabel(shipment()!) }}</span></div>
             <div><span class="field-label">SLA</span><span class="badge" [class]="slaBadgeClass(shipment()!)">{{ etaStatusLabel(shipment()!) }}</span></div>
             <div><span class="field-label">ETA Window</span><span>{{ etaRemainingLabel(shipment()!) }}</span></div>
@@ -92,6 +105,37 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
             <span class="field-label">Delivery Address</span>
             <p>{{ shipment()!.deliveryAddress }}, {{ shipment()!.city }}, {{ shipment()!.state }} - {{ shipment()!.postalCode }}</p>
           </div>
+          @if (shipment()!.assignmentDecisionReason) {
+            <div class="mt-3">
+              <span class="field-label">Assignment Decision Note</span>
+              <p class="text-sm text-danger">{{ shipment()!.assignmentDecisionReason }}</p>
+            </div>
+          }
+        </div>
+
+        <div class="card mb-4">
+          <div class="d-flex align-center justify-space-between mb-3">
+            <h2>Delivery Agent Rating</h2>
+            @if (canRateDeliveryAgent()) {
+              <button class="btn btn-secondary btn-sm" (click)="openRatingDialog()">{{ hasDeliveryAgentRating() ? 'Update Rating' : 'Rate Delivery Agent' }}</button>
+            }
+          </div>
+
+          @if (shipment()!.deliveryAgentRating !== undefined && shipment()!.deliveryAgentRating !== null) {
+            <div class="shipment-header-grid">
+              <div><span class="field-label">Rating</span><span class="rating-score">{{ shipment()!.deliveryAgentRating }}/5</span></div>
+              <div><span class="field-label">Rated At</span><span>{{ shipment()!.deliveryAgentRatedAtUtc ? (shipment()!.deliveryAgentRatedAtUtc | date:'dd MMM yyyy, HH:mm') : 'N/A' }}</span></div>
+              <div><span class="field-label">Rated By User</span><span>{{ shipment()!.deliveryAgentRatedByUserId ? (shipment()!.deliveryAgentRatedByUserId | slice:0:8) + '...' : 'N/A' }}</span></div>
+            </div>
+            @if (shipment()!.deliveryAgentRatingComment) {
+              <div class="mt-3">
+                <span class="field-label">Rating Comment</span>
+                <p class="text-sm">{{ shipment()!.deliveryAgentRatingComment }}</p>
+              </div>
+            }
+          } @else {
+            <p class="text-sm text-secondary">No delivery agent rating submitted yet.</p>
+          }
         </div>
 
         <div class="card mb-4">
@@ -240,8 +284,25 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
             <div class="modal-header"><h2>Assign Agent</h2><button class="btn btn-ghost btn-icon" (click)="showAssignDialog.set(false)">✕</button></div>
             <div class="modal-body">
               <div class="form-group">
+                <label>Select Active Agent</label>
+                @if (agentsLoading()) {
+                  <p class="text-sm text-secondary">Loading agents...</p>
+                } @else {
+                  <select class="form-control" [(ngModel)]="agentId">
+                    <option [ngValue]="''">Select an agent</option>
+                    @for (a of availableAgents(); track a.userId) {
+                      <option [ngValue]="a.userId">{{ a.fullName }} · {{ a.email }} · {{ a.phoneNumber }}</option>
+                    }
+                  </select>
+                  @if (availableAgents().length === 0) {
+                    <small class="text-xs text-secondary">No active agents found. You can still paste an Agent UUID below.</small>
+                  }
+                }
+              </div>
+              <div class="form-group">
                 <label>Agent ID (UUID) *</label>
                 <input type="text" class="form-control" [(ngModel)]="agentId" placeholder="Agent UUID">
+                <small class="text-xs text-secondary">This field is auto-filled when you pick from dropdown.</small>
               </div>
             </div>
             <div class="modal-footer">
@@ -259,13 +320,14 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
             <div class="modal-header"><h2>Assign Vehicle</h2><button class="btn btn-ghost btn-icon" (click)="showVehicleDialog.set(false)">✕</button></div>
             <div class="modal-body">
               <div class="form-group">
-                <label>Choose From Mock Fleet</label>
+                <label>Choose Demo Fleet Vehicle</label>
                 <select class="form-control" [(ngModel)]="selectedMockVehicle" (ngModelChange)="onVehiclePicked($event)">
                   <option [ngValue]="''">Select a mock vehicle</option>
                   @for (v of mockVehicles; track v.vehicleNumber) {
                     <option [ngValue]="v.vehicleNumber">{{ v.vehicleNumber }} · {{ v.vehicleType }} · {{ v.region }} · {{ v.driverName }}</option>
                   }
                 </select>
+                <small class="text-xs text-secondary">Vehicle assignment is independent from agent assignment in the current model.</small>
               </div>
               <div class="form-group">
                 <label>Vehicle Number *</label>
@@ -288,6 +350,25 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
         </div>
       }
 
+      <!-- Reject Assignment Dialog -->
+      @if (showRejectAssignmentDialog()) {
+        <div class="modal-backdrop" (click)="showRejectAssignmentDialog.set(false)">
+          <div class="modal" (click)="$event.stopPropagation()">
+            <div class="modal-header"><h2>Reject Assignment</h2><button class="btn btn-ghost btn-icon" (click)="showRejectAssignmentDialog.set(false)">✕</button></div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Reason *</label>
+                <textarea class="form-control" rows="3" maxlength="500" [(ngModel)]="assignmentRejectReason" placeholder="Why are you rejecting this shipment assignment?"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" (click)="showRejectAssignmentDialog.set(false)">Cancel</button>
+              <button class="btn btn-danger" (click)="rejectAssignment()" [disabled]="!assignmentRejectReason.trim() || actionLoading()">Reject</button>
+            </div>
+          </div>
+        </div>
+      }
+
       <!-- Update Status Dialog -->
       @if (showStatusDialog()) {
         <div class="modal-backdrop" (click)="showStatusDialog.set(false)">
@@ -301,6 +382,9 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
                     <option [ngValue]="s.value">{{ s.label }}</option>
                   }
                 </select>
+                @if (isAgent() && !hasAssignedVehicle()) {
+                  <small class="text-xs text-secondary">Assign a vehicle first. Agents can set only Delivery Failed until a vehicle is assigned.</small>
+                }
               </div>
               <div class="form-group">
                 <label>Note *</label>
@@ -385,6 +469,40 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
           </div>
         </div>
       }
+
+      <!-- Rate Delivery Agent Dialog -->
+      @if (showRatingDialog()) {
+        <div class="modal-backdrop" (click)="showRatingDialog.set(false)">
+          <div class="modal" (click)="$event.stopPropagation()">
+            <div class="modal-header"><h2>Rate Delivery Agent</h2><button class="btn btn-ghost btn-icon" (click)="showRatingDialog.set(false)">✕</button></div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Rating *</label>
+                <select class="form-control" [(ngModel)]="ratingScore">
+                  <option [ngValue]="5">5 - Excellent</option>
+                  <option [ngValue]="4">4 - Good</option>
+                  <option [ngValue]="3">3 - Average</option>
+                  <option [ngValue]="2">2 - Poor</option>
+                  <option [ngValue]="1">1 - Very Poor</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Comment (optional)</label>
+                <textarea
+                  class="form-control"
+                  rows="3"
+                  maxlength="500"
+                  [(ngModel)]="ratingComment"
+                  placeholder="Share feedback about the delivery experience"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" (click)="showRatingDialog.set(false)">Cancel</button>
+              <button class="btn btn-primary" (click)="saveAgentRating()" [disabled]="actionLoading() || ratingScore < 1 || ratingScore > 5">Save Rating</button>
+            </div>
+          </div>
+        </div>
+      }
     </div>
   `,
   styles: [`
@@ -400,6 +518,10 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
       line-height: 1.5;
       color: #334155;
     }
+    .rating-score {
+      font-weight: 700;
+      color: #0f172a;
+    }
     @media (max-width: 600px) { .shipment-header-grid { grid-template-columns: repeat(2, 1fr); } }
   `]
 })
@@ -407,6 +529,7 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
   readonly id = input.required<string>();
 
   private readonly logisticsApi = inject(LogisticsApiService);
+  private readonly adminApi = inject(AdminApiService);
   private readonly notificationApi = inject(NotificationApiService);
   private readonly etaService   = inject(ShipmentEtaService);
   private readonly authStore    = inject(AuthStore);
@@ -416,9 +539,11 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
 
   readonly loading          = signal(true);
   readonly actionLoading    = signal(false);
+  readonly agentsLoading    = signal(false);
   readonly aiGenerating     = signal(false);
   readonly aiApproving      = signal(false);
   readonly shipment         = signal<ShipmentDto | null>(null);
+  readonly availableAgents  = signal<AgentSummaryDto[]>([]);
   readonly attempts         = signal<ShipmentDeliveryAttempt[]>([]);
   readonly aiRecommendation = signal<ShipmentAiRecommendationDto | null>(null);
   readonly aiApprovalResult = signal<ApproveAiRecommendationResultDto | null>(null);
@@ -431,8 +556,10 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
   });
   readonly showAssignDialog = signal(false);
   readonly showVehicleDialog = signal(false);
+  readonly showRejectAssignmentDialog = signal(false);
   readonly showStatusDialog = signal(false);
   readonly showAttemptDialog = signal(false);
+  readonly showRatingDialog = signal(false);
   readonly showHandoverExceptionDialog = signal(false);
   readonly showRetryDialog = signal(false);
   readonly mockVehicles = mockVehicleFleet;
@@ -440,11 +567,14 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
   agentId    = '';
   vehicleNumber = '';
   selectedMockVehicle = '';
+  assignmentRejectReason = '';
   statusNote = '';
   attemptReason = '';
   handoverExceptionReason = '';
   retryDate = '';
   retryReason = '';
+  ratingComment = '';
+  ratingScore = 5;
   attemptOutcome: DeliveryAttemptOutcome = 'failed';
   newStatus: ShipmentStatus = ShipmentStatus.Assigned;
   private refreshTimer?: ReturnType<typeof setInterval>;
@@ -458,12 +588,24 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
       return this.statusOptions;
     }
 
-    return this.statusOptions.filter(option =>
-      option.value === ShipmentStatus.InTransit
-      || option.value === ShipmentStatus.OutForDelivery
-      || option.value === ShipmentStatus.Delivered
-      || option.value === ShipmentStatus.DeliveryFailed
-    );
+    const hasVehicle = this.hasAssignedVehicle();
+    return this.statusOptions.filter(option => {
+      if (option.value === ShipmentStatus.DeliveryFailed) {
+        return true;
+      }
+
+      if (!hasVehicle) {
+        return false;
+      }
+
+      return option.value === ShipmentStatus.InTransit
+        || option.value === ShipmentStatus.OutForDelivery
+        || option.value === ShipmentStatus.Delivered;
+    });
+  }
+
+  hasAssignedVehicle(shipment: ShipmentDto | null = this.shipment()): boolean {
+    return !!String(shipment?.vehicleNumber ?? '').trim();
   }
 
   etaDateLabel(shipment: ShipmentDto): string {
@@ -496,12 +638,23 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
 
   readonly canAssignAgent  = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics) && !this.shipment()?.assignedAgentId;
   readonly canAssignVehicle = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics);
+  readonly isDealer = () => this.authStore.hasRole(UserRole.Dealer);
   readonly isAgent = () => this.authStore.hasRole(UserRole.Agent);
-  readonly canUpdateStatus = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics, UserRole.Agent);
+  readonly canUpdateStatus = () => {
+    if (this.authStore.hasRole(UserRole.Admin, UserRole.Logistics)) {
+      return true;
+    }
+
+    if (!this.isAgent()) {
+      return false;
+    }
+
+    return this.shipment()?.assignmentDecisionStatus === AssignmentDecisionStatus.Accepted;
+  };
   readonly canLogAttempt = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics, UserRole.Agent);
   readonly canManageOps = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics);
   readonly canGenerateAiRecommendation = () => {
-    return !!this.shipment() && this.authStore.hasRole(UserRole.Admin, UserRole.Warehouse, UserRole.Logistics);
+    return !!this.shipment() && this.authStore.hasRole(UserRole.Admin, UserRole.Logistics);
   };
   readonly canApproveAiRecommendation = () => {
     return !!this.aiRecommendation() && this.authStore.hasRole(UserRole.Admin, UserRole.Logistics);
@@ -533,9 +686,45 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
       || this.latestAttemptRequiresRetry();
   };
   readonly canMarkHandoverCompleted = () => this.canManageOps() && this.opsState().handoverState !== 'completed';
+  readonly canRateDeliveryAgent = () => {
+    const shipment = this.shipment();
+    if (!shipment || !this.isDealer()) {
+      return false;
+    }
+
+    return !!shipment.assignedAgentId && shipment.status === ShipmentStatus.Delivered;
+  };
+
+  hasDeliveryAgentRating(): boolean {
+    const rating = this.shipment()?.deliveryAgentRating;
+    return rating !== undefined && rating !== null;
+  }
+
+  readonly canAcceptAssignment = () => {
+    const shipment = this.shipment();
+    const currentUserId = this.authStore.user()?.userId;
+    if (!shipment || !currentUserId || !this.isAgent()) {
+      return false;
+    }
+
+    if (!shipment.assignedAgentId || !this.isSameGuid(shipment.assignedAgentId, currentUserId)) {
+      return false;
+    }
+
+    if (shipment.status === ShipmentStatus.Delivered || shipment.status === ShipmentStatus.Returned) {
+      return false;
+    }
+
+    return shipment.assignmentDecisionStatus === AssignmentDecisionStatus.Pending;
+  };
+  readonly canRejectAssignment = () => this.canAcceptAssignment();
   readonly canMarkOutForDeliveryQuick = () => {
     const shipment = this.shipment();
-    if (!shipment || !this.isAgent()) {
+    if (!shipment || !this.isAgent() || shipment.assignmentDecisionStatus !== AssignmentDecisionStatus.Accepted) {
+      return false;
+    }
+
+    if (!this.hasAssignedVehicle(shipment)) {
       return false;
     }
 
@@ -545,7 +734,11 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
   };
   readonly canApproveDeliveryQuick = () => {
     const shipment = this.shipment();
-    if (!shipment || !this.isAgent()) {
+    if (!shipment || !this.isAgent() || shipment.assignmentDecisionStatus !== AssignmentDecisionStatus.Accepted) {
+      return false;
+    }
+
+    if (!this.hasAssignedVehicle(shipment)) {
       return false;
     }
 
@@ -559,6 +752,18 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
     if (state === 'ready') return 'Ready';
     if (state === 'exception') return 'Exception';
     return 'Completed';
+  }
+
+  assignmentDecisionLabel(status: AssignmentDecisionStatus): string {
+    if (status === AssignmentDecisionStatus.Accepted) return 'Accepted';
+    if (status === AssignmentDecisionStatus.Rejected) return 'Rejected';
+    return 'Pending';
+  }
+
+  assignmentDecisionBadge(status: AssignmentDecisionStatus): string {
+    if (status === AssignmentDecisionStatus.Accepted) return 'badge badge-success';
+    if (status === AssignmentDecisionStatus.Rejected) return 'badge badge-error';
+    return 'badge badge-warning';
   }
 
   handoverStateBadge(): string {
@@ -735,6 +940,43 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
     this.toast.success('Delivery attempt logged');
   }
 
+  openRatingDialog(): void {
+    const shipment = this.shipment();
+    this.ratingScore = shipment?.deliveryAgentRating ?? 5;
+    this.ratingComment = shipment?.deliveryAgentRatingComment ?? '';
+    this.showRatingDialog.set(true);
+  }
+
+  saveAgentRating(): void {
+    if (!this.canRateDeliveryAgent()) {
+      this.toast.error('Delivery agent details are missing for rating');
+      return;
+    }
+
+    const shipment = this.shipment();
+    if (!shipment) {
+      return;
+    }
+
+    this.actionLoading.set(true);
+
+    this.logisticsApi.rateDeliveryAgent(shipment.shipmentId, {
+      rating: this.ratingScore,
+      comment: this.ratingComment.trim() || undefined
+    }).subscribe({
+      next: () => {
+        this.showRatingDialog.set(false);
+        this.toast.success('Delivery agent rating saved');
+        this.loadShipment();
+        this.actionLoading.set(false);
+      },
+      error: err => {
+        this.actionLoading.set(false);
+        this.toast.error(this.getErrorMessage(err, 'Failed to save delivery agent rating'));
+      }
+    });
+  }
+
   raiseHandoverException(): void {
     const shipment = this.shipment();
     const reason = this.handoverExceptionReason.trim();
@@ -898,6 +1140,52 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
     });
   }
 
+  acceptAssignment(): void {
+    if (!this.canAcceptAssignment()) {
+      return;
+    }
+
+    this.actionLoading.set(true);
+    this.logisticsApi.acceptAssignment(this.id()).subscribe({
+      next: () => {
+        this.toast.success('Assignment accepted');
+        this.actionLoading.set(false);
+        this.loadShipment();
+      },
+      error: err => {
+        this.toast.error(this.getErrorMessage(err, 'Failed to accept assignment'));
+        this.actionLoading.set(false);
+      }
+    });
+  }
+
+  rejectAssignment(): void {
+    if (!this.canRejectAssignment()) {
+      return;
+    }
+
+    const reason = this.assignmentRejectReason.trim();
+    if (!reason) {
+      this.toast.error('Rejection reason is required');
+      return;
+    }
+
+    this.actionLoading.set(true);
+    this.logisticsApi.rejectAssignment(this.id(), { reason }).subscribe({
+      next: () => {
+        this.toast.success('Assignment rejected');
+        this.assignmentRejectReason = '';
+        this.showRejectAssignmentDialog.set(false);
+        this.actionLoading.set(false);
+        this.loadShipment();
+      },
+      error: err => {
+        this.toast.error(this.getErrorMessage(err, 'Failed to reject assignment'));
+        this.actionLoading.set(false);
+      }
+    });
+  }
+
   assignAgent(): void {
     const agentId = this.agentId.trim();
     if (!this.isValidUuid(agentId)) {
@@ -913,6 +1201,39 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
         this.actionLoading.set(false);
       }
     });
+  }
+
+  openAssignDialog(): void {
+    this.agentId = '';
+    this.loadAssignableAgents();
+    this.showAssignDialog.set(true);
+  }
+
+  private loadAssignableAgents(): void {
+    this.agentsLoading.set(true);
+    this.adminApi.getAgents(1, 100).subscribe({
+      next: result => {
+        const activeAgents = result.items.filter(agent => (agent.status ?? '').toLowerCase() === 'active');
+        this.availableAgents.set(activeAgents);
+        this.agentsLoading.set(false);
+      },
+      error: err => {
+        this.availableAgents.set([]);
+        this.agentsLoading.set(false);
+
+        const status = (err as { status?: number })?.status;
+        if (status === 405) {
+          this.toast.error('IdentityAuth API is running an older build. Restart IdentityAuth and retry.');
+          return;
+        }
+
+        this.toast.error(this.getErrorMessage(err, 'Failed to load agents list'));
+      }
+    });
+  }
+
+  private isSameGuid(left: string, right: string): boolean {
+    return left.trim().toLowerCase() === right.trim().toLowerCase();
   }
 
   openVehicleDialog(): void {
@@ -992,6 +1313,11 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
       return;
     }
 
+    if (this.isAgent() && this.requiresVehicleForAgentStatus(nextStatus) && !this.hasAssignedVehicle()) {
+      this.toast.error('Assign a vehicle before moving to In Transit, Out For Delivery, or Delivered');
+      return;
+    }
+
     this.actionLoading.set(true);
     this.logisticsApi.updateStatus(this.id(), { status: nextStatus, note }).subscribe({
       next: () => {
@@ -1051,6 +1377,12 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
   private getErrorMessage(err: unknown, fallback: string): string {
     const candidate = err as { error?: { message?: string; title?: string } };
     return candidate?.error?.message ?? candidate?.error?.title ?? fallback;
+  }
+
+  private requiresVehicleForAgentStatus(status: ShipmentStatus): boolean {
+    return status === ShipmentStatus.InTransit
+      || status === ShipmentStatus.OutForDelivery
+      || status === ShipmentStatus.Delivered;
   }
 
   private attemptOutcomeSuggestsRetry(outcome: DeliveryAttemptOutcome): boolean {

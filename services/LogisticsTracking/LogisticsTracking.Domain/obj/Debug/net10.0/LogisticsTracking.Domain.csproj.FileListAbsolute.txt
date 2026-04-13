@@ -22,3 +22,11 @@ C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\bi
 C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\LogisticsTracking.Domain.deps.json
 C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\LogisticsTracking.Domain.dll
 C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-isolated\LogisticsTracking.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\artifacts\build-check\logistics-api\LogisticsTracking.Domain.deps.json
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\artifacts\build-check\logistics-api\LogisticsTracking.Domain.dll
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\artifacts\build-check\logistics-api\LogisticsTracking.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\artifacts\build-check\logistics-api\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\artifacts\build-check\logistics-api\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-role-hardening\LogisticsTracking.Domain.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-role-hardening\LogisticsTracking.Domain.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\logistics-api-role-hardening\LogisticsTracking.Domain.pdb

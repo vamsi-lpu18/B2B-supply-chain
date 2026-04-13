@@ -144,6 +144,8 @@ namespace PaymentInvoice.Infrastructure.Persistence.Migrations
                     b.HasIndex("InvoiceNumber")
                         .IsUnique();
 
+                    b.HasIndex("DealerId", "CreatedAtUtc");
+
                     b.ToTable("Invoices", (string)null);
                 });
 

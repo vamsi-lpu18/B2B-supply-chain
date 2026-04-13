@@ -30,6 +30,53 @@ public sealed class AssignAgentCommandHandler(ILogisticsService service)
             cancellationToken);
 }
 
+public sealed record AcceptAssignmentCommand(Guid ShipmentId, Guid AgentId, Guid UpdatedByUserId, string UpdatedByRole)
+    : IRequest<bool>;
+
+public sealed class AcceptAssignmentCommandHandler(ILogisticsService service)
+    : IRequestHandler<AcceptAssignmentCommand, bool>
+{
+    public Task<bool> Handle(AcceptAssignmentCommand request, CancellationToken cancellationToken)
+        => service.AcceptAssignmentAsync(
+            request.ShipmentId,
+            request.AgentId,
+            request.UpdatedByUserId,
+            request.UpdatedByRole,
+            cancellationToken);
+}
+
+public sealed record RejectAssignmentCommand(Guid ShipmentId, Guid AgentId, string Reason, Guid UpdatedByUserId, string UpdatedByRole)
+    : IRequest<bool>;
+
+public sealed class RejectAssignmentCommandHandler(ILogisticsService service)
+    : IRequestHandler<RejectAssignmentCommand, bool>
+{
+    public Task<bool> Handle(RejectAssignmentCommand request, CancellationToken cancellationToken)
+        => service.RejectAssignmentAsync(
+            request.ShipmentId,
+            request.AgentId,
+            request.Reason,
+            request.UpdatedByUserId,
+            request.UpdatedByRole,
+            cancellationToken);
+}
+
+public sealed record RateDeliveryAgentCommand(Guid ShipmentId, int Rating, string? Comment, Guid RatedByUserId, string RatedByRole)
+    : IRequest<bool>;
+
+public sealed class RateDeliveryAgentCommandHandler(ILogisticsService service)
+    : IRequestHandler<RateDeliveryAgentCommand, bool>
+{
+    public Task<bool> Handle(RateDeliveryAgentCommand request, CancellationToken cancellationToken)
+        => service.RateDeliveryAgentAsync(
+            request.ShipmentId,
+            request.Rating,
+            request.Comment,
+            request.RatedByUserId,
+            request.RatedByRole,
+            cancellationToken);
+}
+
 public sealed record AssignVehicleCommand(Guid ShipmentId, string VehicleNumber, Guid UpdatedByUserId, string UpdatedByRole)
     : IRequest<bool>;
 

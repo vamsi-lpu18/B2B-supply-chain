@@ -13,6 +13,15 @@ public sealed class RegisterDealerCommandHandler(IIdentityAuthService service)
         => service.RegisterDealerAsync(request.Request, cancellationToken);
 }
 
+public sealed record CreateAgentCommand(CreateAgentRequest Request) : IRequest<CreateAgentResponse>;
+
+public sealed class CreateAgentCommandHandler(IIdentityAuthService service)
+    : IRequestHandler<CreateAgentCommand, CreateAgentResponse>
+{
+    public Task<CreateAgentResponse> Handle(CreateAgentCommand request, CancellationToken cancellationToken)
+        => service.CreateAgentAsync(request.Request, cancellationToken);
+}
+
 public sealed record LoginCommand(LoginRequest Request) : IRequest<AuthResponse>;
 
 public sealed class LoginCommandHandler(IIdentityAuthService service)
@@ -51,6 +60,18 @@ public sealed class ResetPasswordCommandHandler(IIdentityAuthService service)
     public async Task<Unit> Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
     {
         await service.ResetPasswordAsync(request.Request, cancellationToken);
+        return Unit.Value;
+    }
+}
+
+public sealed record ChangePasswordCommand(Guid UserId, ChangePasswordRequest Request) : IRequest<Unit>;
+
+public sealed class ChangePasswordCommandHandler(IIdentityAuthService service)
+    : IRequestHandler<ChangePasswordCommand, Unit>
+{
+    public async Task<Unit> Handle(ChangePasswordCommand request, CancellationToken cancellationToken)
+    {
+        await service.ChangePasswordAsync(request.UserId, request.Request, cancellationToken);
         return Unit.Value;
     }
 }

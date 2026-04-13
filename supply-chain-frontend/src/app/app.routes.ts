@@ -88,7 +88,7 @@ export const routes: Routes = [
       {
         path: 'orders/:id/tracking',
         canActivate: [roleGuard],
-        data: { roles: [UserRole.Admin, UserRole.Dealer, UserRole.Warehouse, UserRole.Logistics, UserRole.Agent] },
+        data: { roles: [UserRole.Admin, UserRole.Dealer, UserRole.Logistics, UserRole.Agent] },
         loadComponent: () => import('./features/orders/order-tracking/order-tracking.component').then(m => m.OrderTrackingComponent)
       },
       {
@@ -102,13 +102,13 @@ export const routes: Routes = [
       {
         path: 'shipments',
         canActivate: [roleGuard],
-        data: { roles: [UserRole.Admin, UserRole.Warehouse, UserRole.Logistics, UserRole.Agent, UserRole.Dealer] },
+        data: { roles: [UserRole.Admin, UserRole.Logistics, UserRole.Agent, UserRole.Dealer] },
         loadComponent: () => import('./features/logistics/shipment-list/shipment-list.component').then(m => m.ShipmentListComponent)
       },
       {
         path: 'shipments/:id',
         canActivate: [roleGuard],
-        data: { roles: [UserRole.Admin, UserRole.Warehouse, UserRole.Logistics, UserRole.Agent, UserRole.Dealer] },
+        data: { roles: [UserRole.Admin, UserRole.Logistics, UserRole.Agent, UserRole.Dealer] },
         loadComponent: () => import('./features/logistics/shipment-detail/shipment-detail.component').then(m => m.ShipmentDetailComponent)
       },
 
@@ -138,6 +138,12 @@ export const routes: Routes = [
         canActivate: [roleGuard],
         data: { roles: [UserRole.Admin] },
         loadComponent: () => import('./features/admin/dealer-list/dealer-list.component').then(m => m.DealerListComponent)
+      },
+      {
+        path: 'admin/agents/create',
+        canActivate: [roleGuard],
+        data: { roles: [UserRole.Admin] },
+        loadComponent: () => import('./features/admin/agent-create/agent-create.component').then(m => m.AgentCreateComponent)
       },
       {
         path: 'admin/dealers/:id',

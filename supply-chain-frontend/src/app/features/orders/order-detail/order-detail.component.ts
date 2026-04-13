@@ -10,7 +10,7 @@ import { CartStore } from '../../../core/stores/cart.store';
 import { ToastService } from '../../../core/services/toast.service';
 import { OrderOpsNote, OrderOpsNotesService } from '../../../core/services/order-ops-notes.service';
 import { OrderDto } from '../../../core/models/order.models';
-import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRANSITIONS, UserRole, PaymentMode, CreditHoldStatus } from '../../../core/models/enums';
+import { CreditHoldStatus, LOGISTICS_MANAGED_ORDER_STATUSES, ORDER_STATUS_BADGE, ORDER_STATUS_LABELS, ORDER_STATUS_TRANSITIONS, OrderStatus, PaymentMode, UserRole } from '../../../core/models/enums';
 
 @Component({
   selector: 'app-order-detail',
@@ -24,7 +24,9 @@ import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRAN
           <h1>{{ order()?.orderNumber ?? 'Order Detail' }}</h1>
         </div>
         <div class="d-flex gap-2 flex-wrap">
-          <a [routerLink]="['/orders', id(), 'tracking']" class="btn btn-secondary">Track Delivery</a>
+          @if (canTrackDelivery()) {
+            <a [routerLink]="['/orders', id(), 'tracking']" class="btn btn-secondary">Track Delivery</a>
+          }
           @if (canUpdateStatus()) {
             <button class="btn btn-secondary" (click)="showStatusDialog.set(true)">Update Status</button>
           }
@@ -96,7 +98,7 @@ import { OrderStatus, ORDER_STATUS_LABELS, ORDER_STATUS_BADGE, ORDER_STATUS_TRAN
           </div>
         </div>
 
-        @if (isStaff()) {
+        @if (canManageOpsNotes()) {
           <div class="card mb-4">
             <h2 class="mb-4">Operations Notes & Tags</h2>
             <div class="form-group">
@@ -301,7 +303,8 @@ export class OrderDetailComponent implements OnInit {
 
   readonly isDealer    = () => this.authStore.hasRole(UserRole.Dealer);
   readonly isAdmin     = () => this.authStore.hasRole(UserRole.Admin);
-  readonly isStaff     = () => this.authStore.hasRole(UserRole.Admin, UserRole.Warehouse, UserRole.Logistics);
+  readonly canManageOpsNotes = () => this.authStore.hasRole(UserRole.Admin, UserRole.Warehouse, UserRole.Logistics);
+  readonly canManageOrderLifecycle = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics, UserRole.Warehouse);
 
   canCancel(): boolean {
     const o = this.order();
@@ -316,7 +319,11 @@ export class OrderDetailComponent implements OnInit {
     return this.isDealer() && !!o && o.lines.length > 0;
   }
   canUpdateStatus(): boolean {
-    return this.isStaff() && this.nextStatuses().length > 0;
+    return this.canManageOrderLifecycle() && this.nextStatuses().length > 0;
+  }
+
+  canTrackDelivery(): boolean {
+    return this.authStore.hasRole(UserRole.Admin, UserRole.Dealer, UserRole.Logistics, UserRole.Agent);
   }
   canApproveHold(): boolean { return this.isAdmin() && this.order()?.status === OrderStatus.OnHold; }
   canReviewReturn(): boolean {
@@ -333,7 +340,25 @@ export class OrderDetailComponent implements OnInit {
   nextStatuses(): OrderStatus[] {
     const cur = this.order()?.status;
     if (cur === undefined) return [];
-    return ORDER_STATUS_TRANSITIONS[cur] ?? [];
+
+    const candidates = ORDER_STATUS_TRANSITIONS[cur] ?? [];
+    return candidates.filter(status => this.canManageStatusTarget(status));
+  }
+
+  private canManageStatusTarget(target: OrderStatus): boolean {
+    if (this.authStore.hasRole(UserRole.Admin)) {
+      return true;
+    }
+
+    if (this.authStore.hasRole(UserRole.Logistics)) {
+      return LOGISTICS_MANAGED_ORDER_STATUSES.includes(target);
+    }
+
+    if (this.authStore.hasRole(UserRole.Warehouse)) {
+      return target === OrderStatus.ReadyForDispatch;
+    }
+
+    return false;
   }
 
   ngOnInit(): void { this.loadOrder(); }

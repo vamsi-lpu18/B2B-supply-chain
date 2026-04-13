@@ -140,29 +140,125 @@ app.Use(async (context, next) =>
     }
     catch (ValidationException ex)
     {
-        context.Response.StatusCode = StatusCodes.Status400BadRequest;
-        await context.Response.WriteAsJsonAsync(new
-        {
-            message = "Validation failed.",
-            errors = ex.Errors.Select(e => new { e.PropertyName, e.ErrorMessage })
-        });
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status400BadRequest,
+            "validation.failed",
+            "Validation failed.",
+            retryable: false,
+            details: ex.Errors.Select(e => new { field = e.PropertyName, error = e.ErrorMessage }));
     }
     catch (UnauthorizedAccessException ex)
     {
-        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-        await context.Response.WriteAsJsonAsync(new { message = ex.Message });
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status401Unauthorized,
+            "auth.unauthorized",
+            ex.Message,
+            retryable: false);
+    }
+    catch (KeyNotFoundException ex)
+    {
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status404NotFound,
+            "resource.not-found",
+            ex.Message,
+            retryable: false);
     }
     catch (DomainValidationException ex)
     {
-        context.Response.StatusCode = StatusCodes.Status400BadRequest;
-        await context.Response.WriteAsJsonAsync(new { message = ex.Message });
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status400BadRequest,
+            "domain.validation",
+            ex.Message,
+            retryable: false);
+    }
+    catch (HttpRequestException ex)
+    {
+        app.Logger.LogWarning(ex, "IdentityAuth dependency call failed.");
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status503ServiceUnavailable,
+            "dependency.unavailable",
+            "A downstream service is unavailable. Please retry.",
+            retryable: true);
+    }
+    catch (TaskCanceledException ex) when (!context.RequestAborted.IsCancellationRequested)
+    {
+        app.Logger.LogWarning(ex, "IdentityAuth dependency call timed out.");
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status504GatewayTimeout,
+            "dependency.timeout",
+            "A downstream service timed out. Please retry.",
+            retryable: true);
     }
     catch (InvalidOperationException ex)
     {
-        context.Response.StatusCode = StatusCodes.Status400BadRequest;
-        await context.Response.WriteAsJsonAsync(new { message = ex.Message });
+        var mapped = MapInvalidOperation(ex.Message);
+        await WriteErrorAsync(
+            context,
+            mapped.StatusCode,
+            mapped.Code,
+            ex.Message,
+            mapped.Retryable);
+    }
+    catch (Exception ex)
+    {
+        app.Logger.LogError(ex, "Unhandled IdentityAuth API exception for {Method} {Path}", context.Request.Method, context.Request.Path);
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status500InternalServerError,
+            "internal.unexpected",
+            "Unexpected server error.",
+            retryable: true);
     }
 });
+
+static (int StatusCode, string Code, bool Retryable) MapInvalidOperation(string message)
+{
+    if (message.Contains("downstream service", StringComparison.OrdinalIgnoreCase)
+        || message.Contains("payment service", StringComparison.OrdinalIgnoreCase))
+    {
+        return (StatusCodes.Status503ServiceUnavailable, "dependency.unavailable", true);
+    }
+
+    if (message.Contains("invalid", StringComparison.OrdinalIgnoreCase)
+        || message.Contains("already", StringComparison.OrdinalIgnoreCase)
+        || message.Contains("not found", StringComparison.OrdinalIgnoreCase))
+    {
+        return (StatusCodes.Status409Conflict, "business.conflict", false);
+    }
+
+    return (StatusCodes.Status400BadRequest, "business.rule-violation", false);
+}
+
+static Task WriteErrorAsync(HttpContext context, int statusCode, string code, string message, bool retryable, object? details = null)
+{
+    if (context.Response.HasStarted)
+    {
+        return Task.CompletedTask;
+    }
+
+    context.Response.StatusCode = statusCode;
+    context.Response.ContentType = "application/json";
+
+    var correlationId = context.Request.Headers.TryGetValue("X-Correlation-Id", out var header)
+        && !string.IsNullOrWhiteSpace(header)
+        ? header.ToString()
+        : context.TraceIdentifier;
+
+    return context.Response.WriteAsJsonAsync(new
+    {
+        code,
+        message,
+        retryable,
+        correlationId,
+        details
+    });
+}
 
 app.UseSerilogRequestLogging();
 app.UseAuthentication();

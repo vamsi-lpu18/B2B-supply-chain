@@ -11,7 +11,9 @@ namespace Notification.API.Controllers;
 [ApiController]
 [Route("api/notifications")]
 [Authorize]
-public sealed class NotificationsController(ISender sender) : ControllerBase
+public sealed class NotificationsController(
+    ISender sender,
+    IConfiguration configuration) : ControllerBase
 {
     [HttpPost("manual")]
     [Authorize(Roles = "Admin")]
@@ -25,8 +27,14 @@ public sealed class NotificationsController(ISender sender) : ControllerBase
     [HttpPost("ingest")]
     [AllowAnonymous]
     [ProducesResponseType(typeof(NotificationDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> Ingest([FromBody] IngestIntegrationEventRequest request, CancellationToken cancellationToken)
     {
+        if (!IsAuthorizedInternalCall())
+        {
+            return Unauthorized(new { message = "Invalid internal API key." });
+        }
+
         var created = await sender.Send(new IngestIntegrationEventCommand(request), cancellationToken);
         return Ok(created);
     }
@@ -148,6 +156,22 @@ public sealed class NotificationsController(ISender sender) : ControllerBase
 
         var updated = await sender.Send(new MarkNotificationUnreadCommand(notificationId), cancellationToken);
         return updated ? Ok(new { message = "Notification marked unread." }) : NotFound();
+    }
+
+    private bool IsAuthorizedInternalCall()
+    {
+        var expectedKey = configuration["InternalApi:Key"];
+        if (string.IsNullOrWhiteSpace(expectedKey))
+        {
+            return false;
+        }
+
+        if (!Request.Headers.TryGetValue("X-Internal-Api-Key", out var providedKey))
+        {
+            return false;
+        }
+
+        return string.Equals(providedKey.ToString(), expectedKey, StringComparison.Ordinal);
     }
 
     private bool TryGetUserId(out Guid userId)

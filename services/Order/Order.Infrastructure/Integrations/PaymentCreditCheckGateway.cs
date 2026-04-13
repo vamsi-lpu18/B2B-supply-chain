@@ -8,17 +8,28 @@ namespace Order.Infrastructure.Integrations;
 internal sealed class PaymentCreditCheckGateway(HttpClient httpClient, IConfiguration configuration) : ICreditCheckGateway
 {
     private readonly string _baseUrl = configuration["ExternalServices:PaymentBaseUrl"] ?? "http://localhost:8005";
+    private readonly string? _internalApiKey = configuration["InternalApi:Key"];
 
     public async Task<CreditCheckResult> CheckCreditAsync(Guid dealerId, decimal amount, CancellationToken cancellationToken)
     {
-        var endpoint = new Uri(new Uri(_baseUrl), $"/api/payment/dealers/{dealerId}/credit-check?amount={amount}");
+        var endpoint = new Uri(new Uri(_baseUrl), $"/api/payment/internal/dealers/{dealerId}/credit-check?amount={amount}");
 
         try
         {
-            var response = await httpClient.GetFromJsonAsync<CreditCheckResult>(endpoint, cancellationToken);
-            if (response is not null)
+            using var request = new HttpRequestMessage(HttpMethod.Get, endpoint);
+            if (!string.IsNullOrWhiteSpace(_internalApiKey))
             {
-                return response;
+                request.Headers.TryAddWithoutValidation("X-Internal-Api-Key", _internalApiKey);
+            }
+
+            using var response = await httpClient.SendAsync(request, cancellationToken);
+            if (response.IsSuccessStatusCode)
+            {
+                var payload = await response.Content.ReadFromJsonAsync<CreditCheckResult>(cancellationToken: cancellationToken);
+                if (payload is not null)
+                {
+                    return payload;
+                }
             }
         }
         catch

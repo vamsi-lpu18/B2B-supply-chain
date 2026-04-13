@@ -113,4 +113,33 @@ public sealed record OrderListItemDto(
     decimal TotalAmount,
     DateTime PlacedAtUtc);
 
+public sealed record DealerPurchaseStatDto(
+    Guid DealerId,
+    int OrderCount,
+    decimal TotalAmount);
+
+public sealed record ProductPurchaseStatDto(
+    Guid ProductId,
+    string ProductName,
+    string Sku,
+    int UnitsSold,
+    decimal Revenue);
+
+public sealed record DailyRevenuePointDto(
+    DateTime DayUtc,
+    int OrderCount,
+    decimal Revenue);
+
+public sealed record OrderAnalyticsDto(
+    DateTime FromUtc,
+    DateTime ToUtc,
+    int TotalOrders,
+    decimal TotalRevenue,
+    decimal AverageOrderValue,
+    int UniqueDealers,
+    int UnitsSold,
+    IReadOnlyList<DealerPurchaseStatDto> TopDealers,
+    IReadOnlyList<ProductPurchaseStatDto> TopProducts,
+    IReadOnlyList<DailyRevenuePointDto> DailyRevenue);
+
 public sealed record PagedResult<T>(IReadOnlyList<T> Items, int TotalCount, int Page, int PageSize);

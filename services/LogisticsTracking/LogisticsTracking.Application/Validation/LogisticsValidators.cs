@@ -39,6 +39,29 @@ public sealed class AssignVehicleRequestValidator : AbstractValidator<AssignVehi
     }
 }
 
+public sealed class RejectAssignmentRequestValidator : AbstractValidator<RejectAssignmentRequest>
+{
+    public RejectAssignmentRequestValidator()
+    {
+        RuleFor(x => x.Reason)
+            .NotEmpty()
+            .MaximumLength(500);
+    }
+}
+
+public sealed class RateDeliveryAgentRequestValidator : AbstractValidator<RateDeliveryAgentRequest>
+{
+    public RateDeliveryAgentRequestValidator()
+    {
+        RuleFor(x => x.Rating)
+            .InclusiveBetween(1, 5);
+
+        RuleFor(x => x.Comment)
+            .MaximumLength(500)
+            .When(x => !string.IsNullOrWhiteSpace(x.Comment));
+    }
+}
+
 public sealed class UpdateShipmentStatusRequestValidator : AbstractValidator<UpdateShipmentStatusRequest>
 {
     public UpdateShipmentStatusRequestValidator()

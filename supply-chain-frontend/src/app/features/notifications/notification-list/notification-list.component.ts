@@ -6,15 +6,25 @@ import { AuthStore } from '../../../core/stores/auth.store';
 import { ToastService } from '../../../core/services/toast.service';
 import { NotificationPreferences, NotificationPreferencesService } from '../../../core/services/notification-preferences.service';
 import { NotificationDto, CreateManualNotificationRequest } from '../../../core/models/notification.models';
-import { NotificationChannel, NotificationStatus, UserRole } from '../../../core/models/enums';
+import {
+  AssignmentDecisionStatus,
+  NotificationChannel,
+  NotificationStatus,
+  ShipmentStatus,
+  SHIPMENT_STATUS_LABELS,
+  UserRole
+} from '../../../core/models/enums';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 type NotificationPriorityLevel = 'high' | 'normal' | 'low';
+type NotificationDetailRow = { label: string; value: string };
+type JsonRecord = Record<string, unknown>;
 
 @Component({
   selector: 'app-notification-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterLink],
   template: `
     <div class="page-content">
       <div class="page-header">
@@ -83,14 +93,31 @@ type NotificationPriorityLevel = 'high' | 'normal' | 'low';
                   @if (!isRead(n.notificationId)) {
                     <span class="notif-unread-dot" aria-hidden="true"></span>
                   }
-                  <span class="fw-600">{{ n.title }}</span>
+                  <span class="fw-600">{{ displayTitle(n) }}</span>
                 </div>
                 <div class="d-flex gap-2 align-center">
                   <span class="badge" [class]="statusBadge(n.status)">{{ statusLabel(n.status) }}</span>
                   <span class="text-xs text-secondary">{{ relativeTime(n.createdAtUtc) }}</span>
                 </div>
               </div>
-              <p class="text-sm text-secondary mt-2">{{ n.body }}</p>
+
+              @if (detailRows(n.notificationId).length > 0) {
+                <div class="notif-details mt-2">
+                  @for (row of detailRows(n.notificationId); track row.label + row.value) {
+                    <div class="notif-detail-row">
+                      <span class="notif-detail-label">{{ row.label }}</span>
+                      <span class="notif-detail-value">{{ row.value }}</span>
+                    </div>
+                  }
+                </div>
+              } @else {
+                <p class="text-sm text-secondary mt-2">{{ n.body }}</p>
+              }
+
+              @if (n.failureReason) {
+                <p class="text-xs text-danger mt-2">Failure reason: {{ n.failureReason }}</p>
+              }
+
               <div class="d-flex gap-2 mt-2">
                 <span class="badge badge-neutral">{{ channelLabel(n.channel) }}</span>
                 <span class="badge" [class]="priorityBadge(priorityLevel(n))">{{ priorityLevelLabel(priorityLevel(n)) }}</span>
@@ -103,6 +130,11 @@ type NotificationPriorityLevel = 'high' | 'normal' | 'low';
               <div class="d-flex gap-2 mt-3 flex-wrap">
                 <button class="btn btn-secondary btn-sm" (click)="toggleRead(n.notificationId, true)" [disabled]="isRead(n.notificationId)">Mark Read</button>
                 <button class="btn btn-ghost btn-sm" (click)="toggleRead(n.notificationId, false)" [disabled]="!isRead(n.notificationId)">Mark Unread</button>
+
+                @if (shipmentIdFor(n.notificationId); as shipmentId) {
+                  <a class="btn btn-primary btn-sm" [routerLink]="['/shipments', shipmentId]">{{ shipmentActionLabel(n) }}</a>
+                }
+
                 @if (isAdmin()) {
                   @if (n.status === 0) {
                     <button class="btn btn-secondary btn-sm" (click)="markSent(n.notificationId)">Mark Sent</button>
@@ -214,6 +246,37 @@ type NotificationPriorityLevel = 'high' | 'normal' | 'low';
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
       flex-shrink: 0;
     }
+    .notif-details {
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      background: #f8fbff;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .notif-detail-row {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 8px;
+      align-items: baseline;
+      font-size: 13px;
+    }
+    .notif-detail-label {
+      color: #334155;
+      font-weight: 600;
+    }
+    .notif-detail-value {
+      color: #0f172a;
+      word-break: break-word;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    @media (max-width: 768px) {
+      .notif-detail-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
   `]
 })
 export class NotificationListComponent implements OnInit, OnDestroy {
@@ -232,6 +295,8 @@ export class NotificationListComponent implements OnInit, OnDestroy {
   readonly readMap          = signal<Record<string, true>>({});
   readonly availableEventTypes = signal<string[]>([]);
   readonly availableSources = signal<string[]>([]);
+  readonly detailRowsMap    = signal<Record<string, NotificationDetailRow[]>>({});
+  readonly shipmentIdMap    = signal<Record<string, string>>({});
   readonly preferences      = signal<NotificationPreferences>(this.preferencesService.createDefault());
   readonly preferenceDraft  = signal<NotificationPreferences>(this.preferencesService.createDefault());
   readonly unreadCount      = computed(() => this.all().reduce((count, item) => count + (this.isRead(item.notificationId) ? 0 : 1), 0));
@@ -267,7 +332,21 @@ export class NotificationListComponent implements OnInit, OnDestroy {
   }
 
   eventTypeLabel(eventType: string): string {
-    return eventType.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/_/g, ' ');
+    const normalized = eventType.trim().toLowerCase();
+    const known: Record<string, string> = {
+      shipmentassigned: 'Shipment Assigned',
+      shipmentassignmentaccepted: 'Agent Assignment Accepted',
+      shipmentassignmentrejected: 'Agent Assignment Rejected',
+      shipmentagentrated: 'Delivery Agent Rated',
+      shipmentstatusupdated: 'Shipment Status Updated',
+      shipmentcreated: 'Shipment Created'
+    };
+
+    if (known[normalized]) {
+      return known[normalized];
+    }
+
+    return this.humanizeToken(eventType);
   }
 
   priorityLevel(notification: NotificationDto): NotificationPriorityLevel {
@@ -323,7 +402,10 @@ export class NotificationListComponent implements OnInit, OnDestroy {
     obs.subscribe({
       next: r => {
         const sorted = [...r].sort((a, b) => new Date(b.createdAtUtc).getTime() - new Date(a.createdAtUtc).getTime());
+        const payloadViews = this.buildPayloadViews(sorted);
         this.readMap.set(this.buildReadMap(sorted));
+        this.detailRowsMap.set(payloadViews.rowsByNotificationId);
+        this.shipmentIdMap.set(payloadViews.shipmentIdByNotificationId);
         this.all.set(sorted);
         this.availableEventTypes.set(this.extractEventTypes(sorted));
         this.availableSources.set(this.extractSources(sorted));
@@ -381,6 +463,47 @@ export class NotificationListComponent implements OnInit, OnDestroy {
 
   isRead(notificationId: string): boolean {
     return !!this.readMap()[notificationId];
+  }
+
+  detailRows(notificationId: string): NotificationDetailRow[] {
+    return this.detailRowsMap()[notificationId] ?? [];
+  }
+
+  shipmentIdFor(notificationId: string): string | null {
+    return this.shipmentIdMap()[notificationId] ?? null;
+  }
+
+  displayTitle(notification: NotificationDto): string {
+    const normalizedTitle = notification.title.trim();
+    const fallback = this.eventTypeLabel(notification.eventType);
+
+    if (!normalizedTitle) {
+      return fallback;
+    }
+
+    if (normalizedTitle.toLowerCase() === notification.eventType.toLowerCase()) {
+      return fallback;
+    }
+
+    return this.humanizeToken(normalizedTitle);
+  }
+
+  shipmentActionLabel(notification: NotificationDto): string {
+    const source = this.normalizeSource(notification.sourceService);
+    if (source !== 'logistics' && source !== 'logisticstracking') {
+      return 'Open Shipment';
+    }
+
+    if (notification.eventType.toLowerCase() !== 'shipmentstatusupdated') {
+      return 'Open Shipment';
+    }
+
+    const shipmentStage = this.detailRows(notification.notificationId)
+      .find(row => row.label === 'Shipment Stage')
+      ?.value
+      ?.toLowerCase();
+
+    return shipmentStage === 'delivered' ? 'Rate Delivery Agent' : 'Open Shipment';
   }
 
   toggleRead(notificationId: string, markRead: boolean): void {
@@ -565,6 +688,290 @@ export class NotificationListComponent implements OnInit, OnDestroy {
 
   private extractEventTypes(items: NotificationDto[]): string[] {
     return Array.from(new Set(items.map(item => item.eventType).filter(Boolean))).sort((a, b) => a.localeCompare(b));
+  }
+
+  private buildPayloadViews(items: NotificationDto[]): {
+    rowsByNotificationId: Record<string, NotificationDetailRow[]>;
+    shipmentIdByNotificationId: Record<string, string>;
+  } {
+    const rowsByNotificationId: Record<string, NotificationDetailRow[]> = {};
+    const shipmentIdByNotificationId: Record<string, string> = {};
+
+    for (const item of items) {
+      const payload = this.tryParseJsonRecord(item.body);
+      if (!payload) {
+        rowsByNotificationId[item.notificationId] = [];
+        continue;
+      }
+
+      let rows = this.buildEventRows(item, payload);
+      if (rows.length === 0) {
+        rows = this.buildGenericRows(payload);
+      }
+
+      rowsByNotificationId[item.notificationId] = rows;
+
+      const shipmentId = this.getPayloadGuid(payload, 'ShipmentId');
+      if (shipmentId) {
+        shipmentIdByNotificationId[item.notificationId] = shipmentId;
+      }
+    }
+
+    return { rowsByNotificationId, shipmentIdByNotificationId };
+  }
+
+  private buildEventRows(item: NotificationDto, payload: JsonRecord): NotificationDetailRow[] {
+    const source = this.normalizeSource(item.sourceService);
+    if (source !== 'logistics' && source !== 'logisticstracking') {
+      return [];
+    }
+
+    const eventType = item.eventType.toLowerCase();
+    if (eventType === 'shipmentassigned') {
+      return this.buildShipmentAssignedRows(payload);
+    }
+
+    if (eventType === 'shipmentassignmentaccepted') {
+      return this.buildShipmentAssignmentAcceptedRows(payload);
+    }
+
+    if (eventType === 'shipmentassignmentrejected') {
+      return this.buildShipmentAssignmentRejectedRows(payload);
+    }
+
+    if (eventType === 'shipmentagentrated') {
+      return this.buildShipmentAgentRatedRows(payload);
+    }
+
+    if (eventType === 'shipmentstatusupdated') {
+      return this.buildShipmentStatusUpdatedRows(payload);
+    }
+
+    return [];
+  }
+
+  private buildShipmentAssignedRows(payload: JsonRecord): NotificationDetailRow[] {
+    return [
+      this.requiredRow('Shipment ID', this.getPayloadGuid(payload, 'ShipmentId')),
+      this.requiredRow('Order ID', this.getPayloadGuid(payload, 'OrderId')),
+      this.requiredRow('Dealer ID', this.getPayloadGuid(payload, 'DealerId')),
+      this.requiredRow('Assigned Agent', this.getPayloadGuid(payload, 'AssignedAgentId')),
+      this.requiredRow('Shipment Stage', this.formatShipmentStatus(payload['Status'])),
+      this.requiredRow('Agent Review', this.formatAssignmentDecision(payload['AssignmentDecisionStatus']) ?? 'Pending (awaiting agent response)'),
+      this.requiredRow('Occurred At', this.formatDateValue(payload['occurredAtUtc']))
+    ];
+  }
+
+  private buildShipmentAssignmentAcceptedRows(payload: JsonRecord): NotificationDetailRow[] {
+    return [
+      this.requiredRow('Shipment ID', this.getPayloadGuid(payload, 'ShipmentId')),
+      this.requiredRow('Order ID', this.getPayloadGuid(payload, 'OrderId')),
+      this.requiredRow('Dealer ID', this.getPayloadGuid(payload, 'DealerId')),
+      this.requiredRow('Agent', this.getPayloadGuid(payload, 'AssignedAgentId')),
+      this.requiredRow('Agent Review', this.formatAssignmentDecision(payload['AssignmentDecisionStatus']) ?? 'Accepted'),
+      this.requiredRow('Occurred At', this.formatDateValue(payload['occurredAtUtc']))
+    ];
+  }
+
+  private buildShipmentAssignmentRejectedRows(payload: JsonRecord): NotificationDetailRow[] {
+    return [
+      this.requiredRow('Shipment ID', this.getPayloadGuid(payload, 'ShipmentId')),
+      this.requiredRow('Order ID', this.getPayloadGuid(payload, 'OrderId')),
+      this.requiredRow('Dealer ID', this.getPayloadGuid(payload, 'DealerId')),
+      this.requiredRow('Agent', this.getPayloadGuid(payload, 'rejectedAgentId')),
+      this.requiredRow('Agent Review', 'Rejected'),
+      this.requiredRow('Review Notes', this.readPayloadString(payload, 'reason')),
+      this.requiredRow('Occurred At', this.formatDateValue(payload['occurredAtUtc']))
+    ];
+  }
+
+  private buildShipmentStatusUpdatedRows(payload: JsonRecord): NotificationDetailRow[] {
+    return [
+      this.requiredRow('Shipment ID', this.getPayloadGuid(payload, 'ShipmentId')),
+      this.requiredRow('Order ID', this.getPayloadGuid(payload, 'OrderId')),
+      this.requiredRow('Dealer ID', this.getPayloadGuid(payload, 'DealerId')),
+      this.requiredRow('Shipment Stage', this.formatShipmentStatus(payload['Status'])),
+      this.requiredRow('Status Note', this.readPayloadString(payload, 'note')),
+      this.requiredRow('Occurred At', this.formatDateValue(payload['occurredAtUtc']))
+    ];
+  }
+
+  private buildShipmentAgentRatedRows(payload: JsonRecord): NotificationDetailRow[] {
+    return [
+      this.requiredRow('Shipment ID', this.getPayloadGuid(payload, 'ShipmentId')),
+      this.requiredRow('Order ID', this.getPayloadGuid(payload, 'OrderId')),
+      this.requiredRow('Dealer ID', this.getPayloadGuid(payload, 'DealerId')),
+      this.requiredRow('Delivery Agent', this.getPayloadGuid(payload, 'AssignedAgentId')),
+      this.requiredRow('Rated By User', this.getPayloadGuid(payload, 'DeliveryAgentRatedByUserId')),
+      this.requiredRow('Delivery Agent Rating', this.formatRatingValue(payload['DeliveryAgentRating']) ?? this.formatRatingValue(payload['AgentRating'])),
+      this.requiredRow('Rating Comment', this.readPayloadString(payload, 'Comment')),
+      this.requiredRow('Rated At', this.formatDateValue(payload['DeliveryAgentRatedAtUtc']) ?? this.formatDateValue(payload['occurredAtUtc']))
+    ];
+  }
+
+  private buildGenericRows(payload: JsonRecord): NotificationDetailRow[] {
+    return Object.entries(payload)
+      .slice(0, 8)
+      .map(([key, value]) => ({
+        label: this.humanizeToken(key),
+        value: this.valueToDisplay(value)
+      }))
+      .filter(row => row.value.length > 0);
+  }
+
+  private requiredRow(label: string, value: string | null): NotificationDetailRow {
+    return { label, value: value?.trim().length ? value : 'N/A' };
+  }
+
+  private tryParseJsonRecord(raw: string): JsonRecord | null {
+    const trimmed = raw.trim();
+    if (!trimmed.startsWith('{') || !trimmed.endsWith('}')) {
+      return null;
+    }
+
+    try {
+      const parsed = JSON.parse(trimmed) as unknown;
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+        return null;
+      }
+
+      return parsed as JsonRecord;
+    } catch {
+      return null;
+    }
+  }
+
+  private getPayloadGuid(payload: JsonRecord, key: string): string | null {
+    const value = payload[key];
+    if (typeof value !== 'string') {
+      return null;
+    }
+
+    const guid = value.trim();
+    return /^[0-9a-fA-F-]{36}$/.test(guid) ? guid : null;
+  }
+
+  private readPayloadString(payload: JsonRecord, key: string): string | null {
+    const value = payload[key];
+    return typeof value === 'string' && value.trim().length > 0 ? value.trim() : null;
+  }
+
+  private formatShipmentStatus(value: unknown): string | null {
+    if (typeof value === 'number' && value in SHIPMENT_STATUS_LABELS) {
+      return SHIPMENT_STATUS_LABELS[value as ShipmentStatus];
+    }
+
+    return null;
+  }
+
+  private formatAssignmentDecision(value: unknown): string | null {
+    if (typeof value !== 'number') {
+      return null;
+    }
+
+    if (value === AssignmentDecisionStatus.Pending) return 'Pending';
+    if (value === AssignmentDecisionStatus.Accepted) return 'Accepted';
+    if (value === AssignmentDecisionStatus.Rejected) return 'Rejected';
+    return null;
+  }
+
+  private formatDateValue(value: unknown): string | null {
+    if (typeof value !== 'string') {
+      return null;
+    }
+
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) {
+      return value;
+    }
+
+    return date.toLocaleString();
+  }
+
+  private formatRatingValue(value: unknown): string | null {
+    const numeric = Number(value);
+    if (!Number.isFinite(numeric) || numeric < 1 || numeric > 5) {
+      return null;
+    }
+
+    return `${Math.round(numeric)}/5`;
+  }
+
+  private valueToDisplay(value: unknown): string {
+    if (value === null || value === undefined) {
+      return 'N/A';
+    }
+
+    if (typeof value === 'string') {
+      return this.formatDateValue(value) ?? value;
+    }
+
+    if (typeof value === 'number' || typeof value === 'boolean') {
+      return String(value);
+    }
+
+    try {
+      return JSON.stringify(value);
+    } catch {
+      return String(value);
+    }
+  }
+
+  private humanizeToken(value: string): string {
+    const compact = value.trim();
+    const known: Record<string, string> = {
+      adminapprovalrequired: 'Admin Approval Required',
+      dealerapproved: 'Dealer Approved',
+      dealercreditlimitupdated: 'Dealer Credit Limit Updated',
+      dealerregistered: 'Dealer Registered',
+      dealerrejected: 'Dealer Rejected',
+      finalsmoke: 'Final Smoke',
+      gatewaysmoke: 'Gateway Smoke',
+      invoicegenerated: 'Invoice Generated',
+      manualnotification: 'Manual Notification',
+      mockevent: 'Mock Event',
+      orderapproved: 'Order Approved',
+      ordercancelled: 'Order Cancelled',
+      orderclosed: 'Order Closed',
+      orderdelivered: 'Order Delivered',
+      orderintransit: 'Order In Transit',
+      orderplaced: 'Order Placed',
+      orderprocessing: 'Order Processing',
+      orderreadyfordispatch: 'Order Ready For Dispatch',
+      orderreturnapproved: 'Order Return Approved',
+      passwordresetcompleted: 'Password Reset Completed',
+      passwordresetrequested: 'Password Reset Requested',
+      productcreated: 'Product Created',
+      productdeactivated: 'Product Deactivated',
+      productupdated: 'Product Updated',
+      returnrequested: 'Return Requested',
+      shipmentairecommendationexecuted: 'Shipment AI Recommendation Executed',
+      shipmentassigned: 'Shipment Assigned',
+      shipmentassignmentaccepted: 'Agent Assignment Accepted',
+      shipmentassignmentrejected: 'Agent Assignment Rejected',
+      shipmentagentrated: 'Delivery Agent Rated',
+      deliveryagentrated: 'Delivery Agent Rated',
+      shipmentcreated: 'Shipment Created',
+      shipmentstatusupdated: 'Shipment Status Updated',
+      shipmentvehicleassigned: 'Shipment Vehicle Assigned',
+      smokecheck: 'Smoke Check',
+      stockdeducted: 'Stock Deducted',
+      stockrestored: 'Stock Restored',
+      stocksoftlocked: 'Stock Soft Locked',
+      stocksoftlockreleased: 'Stock Soft Lock Released',
+      occurredatutc: 'Occurred At UTC'
+    };
+
+    const lookup = known[compact.toLowerCase()];
+    if (lookup) {
+      return lookup;
+    }
+
+    return compact
+      .replace(/([a-z])([A-Z])/g, '$1 $2')
+      .replace(/[_-]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .replace(/^./, letter => letter.toUpperCase());
   }
 
   private normalizeSource(source: string): string {

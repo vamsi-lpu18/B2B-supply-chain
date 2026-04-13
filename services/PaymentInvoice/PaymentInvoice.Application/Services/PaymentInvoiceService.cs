@@ -137,6 +137,12 @@ public sealed class PaymentInvoiceService(
     public async Task<IReadOnlyList<InvoiceDto>> GetDealerInvoicesAsync(Guid dealerId, CancellationToken cancellationToken)
     {
         var invoices = await paymentRepository.GetDealerInvoicesAsync(dealerId, cancellationToken);
+        if (invoices.Count == 0)
+        {
+            await SeedDemoInvoicesAsync(dealerId, cancellationToken);
+            invoices = await paymentRepository.GetDealerInvoicesAsync(dealerId, cancellationToken);
+        }
+
         return invoices.Select(MapInvoice).ToList();
     }
 
@@ -518,6 +524,63 @@ public sealed class PaymentInvoiceService(
         }
 
         return value.Value.Kind == DateTimeKind.Utc ? value.Value : value.Value.ToUniversalTime();
+    }
+
+    private async Task SeedDemoInvoicesAsync(Guid dealerId, CancellationToken cancellationToken)
+    {
+        // These demo invoices are created only when a dealer has no invoices,
+        // so invoice screens are usable out of the box in local/demo environments.
+        var requests = BuildDemoInvoiceRequests(dealerId);
+        foreach (var request in requests)
+        {
+            await GenerateInvoiceAsync(request, cancellationToken);
+        }
+    }
+
+    private static IReadOnlyList<GenerateInvoiceRequest> BuildDemoInvoiceRequests(Guid dealerId)
+    {
+        return
+        [
+            new GenerateInvoiceRequest(
+                Guid.NewGuid(),
+                dealerId,
+                true,
+                PaymentMode.PrePaid,
+                [
+                    new InvoiceLineInput(Guid.NewGuid(), "Industrial Tablet 10 inch", "ELE-101", "84713010", 2, 28999m),
+                    new InvoiceLineInput(Guid.NewGuid(), "Managed 24-Port Switch", "NET-401", "85176290", 1, 12499m)
+                ]),
+
+            new GenerateInvoiceRequest(
+                Guid.NewGuid(),
+                dealerId,
+                false,
+                PaymentMode.COD,
+                [
+                    new InvoiceLineInput(Guid.NewGuid(), "Hydraulic Pump Seal Kit", "SPR-201", "84849000", 4, 1399m),
+                    new InvoiceLineInput(Guid.NewGuid(), "Arc-Flash Safety Gloves", "GLV-003", "61161000", 6, 699m)
+                ]),
+
+            new GenerateInvoiceRequest(
+                Guid.NewGuid(),
+                dealerId,
+                true,
+                PaymentMode.PrePaid,
+                [
+                    new InvoiceLineInput(Guid.NewGuid(), "Rackmount Compute Node", "CPU-301", "84715000", 1, 84999m),
+                    new InvoiceLineInput(Guid.NewGuid(), "Memory Module 32GB", "RAM-332", "84733020", 4, 4599m)
+                ]),
+
+            new GenerateInvoiceRequest(
+                Guid.NewGuid(),
+                dealerId,
+                false,
+                PaymentMode.COD,
+                [
+                    new InvoiceLineInput(Guid.NewGuid(), "PLC I/O Expansion Module", "AUT-501", "85371000", 2, 9899m),
+                    new InvoiceLineInput(Guid.NewGuid(), "Copper Power Cable 10m", "CBL-001", "85444999", 5, 1899m)
+                ])
+        ];
     }
 
     private static string NormalizeText(string? value, int maxLength)

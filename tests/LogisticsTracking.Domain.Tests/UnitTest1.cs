@@ -41,11 +41,52 @@ public sealed class ShipmentTests
     public void UpdateStatus_ToDelivered_SetsDeliveredTimestamp()
     {
         var shipment = CreateShipment();
+        shipment.AssignVehicle("TS09AB1234", Guid.NewGuid(), "Logistics");
 
         shipment.UpdateStatus(ShipmentStatus.Delivered, "Delivered successfully", Guid.NewGuid(), "Agent");
 
         Assert.Equal(ShipmentStatus.Delivered, shipment.Status);
         Assert.NotNull(shipment.DeliveredAtUtc);
+    }
+
+    [Fact]
+    public void UpdateStatus_ToDelivered_WithoutVehicle_Throws()
+    {
+        var shipment = CreateShipment();
+
+        var ex = Assert.Throws<InvalidOperationException>(() =>
+            shipment.UpdateStatus(ShipmentStatus.Delivered, "Delivered successfully", Guid.NewGuid(), "Agent"));
+
+        Assert.Equal("Vehicle must be assigned before marking shipment as Delivered.", ex.Message);
+    }
+
+    [Fact]
+    public void RateDeliveryAgent_AfterDelivery_PersistsRatingDetails()
+    {
+        var shipment = CreateShipment();
+        var agentId = Guid.NewGuid();
+        var dealerId = Guid.NewGuid();
+
+        shipment.AssignAgent(agentId, Guid.NewGuid(), "Logistics");
+        shipment.AssignVehicle("TS09AB1234", Guid.NewGuid(), "Logistics");
+        shipment.UpdateStatus(ShipmentStatus.Delivered, "Delivered", Guid.NewGuid(), "Agent");
+
+        shipment.RateDeliveryAgent(5, "Smooth and professional delivery", dealerId, "Dealer");
+
+        Assert.Equal(5, shipment.DeliveryAgentRating);
+        Assert.Equal("Smooth and professional delivery", shipment.DeliveryAgentRatingComment);
+        Assert.Equal(dealerId, shipment.DeliveryAgentRatedByUserId);
+        Assert.NotNull(shipment.DeliveryAgentRatedAtUtc);
+    }
+
+    [Fact]
+    public void RateDeliveryAgent_BeforeDelivery_Throws()
+    {
+        var shipment = CreateShipment();
+        shipment.AssignAgent(Guid.NewGuid(), Guid.NewGuid(), "Logistics");
+
+        Assert.Throws<InvalidOperationException>(() =>
+            shipment.RateDeliveryAgent(4, "Too early", Guid.NewGuid(), "Dealer"));
     }
 
     private static Shipment CreateShipment()

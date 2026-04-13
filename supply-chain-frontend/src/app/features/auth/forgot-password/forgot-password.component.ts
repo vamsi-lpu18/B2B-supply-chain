@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthApiService } from '../../../core/api/auth-api.service';
 import { ToastService } from '../../../core/services/toast.service';
@@ -21,6 +21,11 @@ import { ToastService } from '../../../core/services/toast.service';
         </div>
 
         <div class="auth-card card">
+          @if (forcedFlow()) {
+            <div class="alert alert-warning">
+              This account uses a temporary password. Reset your password to continue.
+            </div>
+          }
 
           @if (step() === 'email') {
             <p class="auth-subtitle">Enter your email to receive an OTP</p>
@@ -80,17 +85,35 @@ export class ForgotPasswordComponent {
   private readonly fb      = inject(FormBuilder);
   private readonly authApi = inject(AuthApiService);
   private readonly toast   = inject(ToastService);
+  private readonly route   = inject(ActivatedRoute);
   private readonly router  = inject(Router);
 
   readonly step     = signal<'email' | 'reset'>('email');
   readonly loading  = signal(false);
   readonly errorMsg = signal('');
+  readonly forcedFlow = signal(false);
 
   readonly emailForm = this.fb.group({ email: ['', [Validators.required, Validators.email]] });
   readonly resetForm = this.fb.group({
     otpCode:     ['', [Validators.required, Validators.pattern(/^\d{6}$/)]],
     newPassword: ['', [Validators.required, Validators.minLength(8)]]
   });
+
+  constructor() {
+    const email = this.route.snapshot.queryParamMap.get('email');
+    const enforced = this.route.snapshot.queryParamMap.get('enforced') === '1';
+
+    if (email) {
+      this.emailForm.patchValue({ email });
+    }
+
+    if (enforced) {
+      this.forcedFlow.set(true);
+      if (email) {
+        queueMicrotask(() => this.sendOtp());
+      }
+    }
+  }
 
   sendOtp(): void {
     if (this.emailForm.invalid) return;

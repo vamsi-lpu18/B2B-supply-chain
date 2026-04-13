@@ -15,8 +15,18 @@ export const authGuard: CanActivateFn = () => {
   }
 
   return authApi.refresh().pipe(
-    switchMap(res =>
-      usersApi.getProfile().pipe(
+    switchMap(res => {
+      if (res.mustChangePassword) {
+        authStore.clear();
+        return of(router.createUrlTree(['/forgot-password'], {
+          queryParams: {
+            email: res.email,
+            enforced: '1'
+          }
+        }));
+      }
+
+      return usersApi.getProfile().pipe(
         map(profile => {
           authStore.setAuth(profile, res.accessToken);
           return true;
@@ -35,8 +45,8 @@ export const authGuard: CanActivateFn = () => {
           );
           return of(true);
         })
-      )
-    ),
+      );
+    }),
     catchError(() => {
       authStore.clear();
       return of(router.createUrlTree(['/login']));

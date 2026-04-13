@@ -34,6 +34,31 @@ export interface AuthResponse {
   accessTokenExpiresAtUtc: string;
   refreshToken: string;
   refreshTokenExpiresAtUtc: string;
+  mustChangePassword: boolean;
+}
+
+export interface CreateAgentRequest {
+  email: string;
+  temporaryPassword: string;
+  fullName: string;
+  phoneNumber: string;
+}
+
+export interface CreateAgentResponse {
+  userId: string;
+  email: string;
+  fullName: string;
+  status: string;
+  message: string;
+}
+
+export interface AgentSummaryDto {
+  userId: string;
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  status: string;
+  createdAtUtc: string;
 }
 
 export interface ForgotPasswordRequest {

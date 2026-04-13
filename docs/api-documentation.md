@@ -122,6 +122,7 @@ Gateway prefix: `/orders`
 | POST | `/api/orders/{id}/cancel` | `/orders/api/orders/{id}/cancel` | Yes | Dealer, Admin | Cancel with reason |
 | POST | `/api/orders/{id}/returns` | `/orders/api/orders/{id}/returns` | Yes | Dealer | Return request |
 | GET | `/api/admin/orders` | `/orders/api/admin/orders` | Yes | Admin, Warehouse, Logistics | Paged all-orders view |
+| GET | `/api/admin/orders/analytics` | `/orders/api/admin/orders/analytics` | Yes | Admin, Warehouse, Logistics | Purchase KPIs, top dealers, top products |
 | POST | `/api/admin/orders/bulk-status` | `/orders/api/admin/orders/bulk-status` | Yes | Admin, Warehouse, Logistics | Validate/apply bulk transition |
 | PUT | `/api/admin/orders/{id}/approve-hold` | `/orders/api/admin/orders/{id}/approve-hold` | Yes | Admin, Warehouse, Logistics | Approve hold |
 | PUT | `/api/admin/orders/{id}/reject-hold` | `/orders/api/admin/orders/{id}/reject-hold` | Yes | Admin, Warehouse, Logistics | Reject hold |

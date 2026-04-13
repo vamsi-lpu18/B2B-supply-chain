@@ -301,6 +301,8 @@ internal sealed class NotificationEmailDispatcher(
             ("order", "returnrequested") => "Return Request Received",
             ("logistics", "shipmentcreated") => "Shipment Created",
             ("logistics", "shipmentassigned") => "Shipment Assignment Confirmation",
+            ("logistics", "shipmentassignmentaccepted") => "Shipment Assignment Accepted",
+            ("logistics", "shipmentassignmentrejected") => "Shipment Assignment Rejected",
             ("logistics", "shipmentstatusupdated") => "Shipment Status Update",
             _ when sourceService == "order" && eventType.StartsWith("order", StringComparison.Ordinal) => "Order Status Update",
             _ => $"Platform Notification: {ToDisplayText(eventType)}"

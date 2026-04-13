@@ -1,6 +1,7 @@
 using Hangfire;
 using Hangfire.SqlServer;
 using CatalogInventory.Application;
+using CatalogInventory.Application.Abstractions;
 using CatalogInventory.Domain.Entities;
 using CatalogInventory.Infrastructure;
 using CatalogInventory.Infrastructure.Persistence;
@@ -104,7 +105,7 @@ using (var scope = app.Services.CreateScope())
     var appliedMigrations = await dbContext.Database.GetAppliedMigrationsAsync();
     startupLogger.LogInformation("CatalogInventory migrations applied count: {AppliedCount}", appliedMigrations.Count());
 
-    await SeedCatalogAsync(dbContext);
+    await SeedCatalogAsync(dbContext, scope.ServiceProvider);
 }
 
 if (app.Environment.IsDevelopment())
@@ -128,19 +129,117 @@ app.Use(async (context, next) =>
     }
     catch (ValidationException ex)
     {
-        context.Response.StatusCode = StatusCodes.Status400BadRequest;
-        await context.Response.WriteAsJsonAsync(new
-        {
-            message = "Validation failed.",
-            errors = ex.Errors.Select(e => new { e.PropertyName, e.ErrorMessage })
-        });
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status400BadRequest,
+            "validation.failed",
+            "Validation failed.",
+            retryable: false,
+            details: ex.Errors.Select(e => new { field = e.PropertyName, error = e.ErrorMessage }));
+    }
+    catch (UnauthorizedAccessException ex)
+    {
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status401Unauthorized,
+            "auth.unauthorized",
+            ex.Message,
+            retryable: false);
+    }
+    catch (KeyNotFoundException ex)
+    {
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status404NotFound,
+            "resource.not-found",
+            ex.Message,
+            retryable: false);
+    }
+    catch (HttpRequestException ex)
+    {
+        app.Logger.LogWarning(ex, "CatalogInventory dependency call failed.");
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status503ServiceUnavailable,
+            "dependency.unavailable",
+            "A downstream service is unavailable. Please retry.",
+            retryable: true);
+    }
+    catch (TaskCanceledException ex) when (!context.RequestAborted.IsCancellationRequested)
+    {
+        app.Logger.LogWarning(ex, "CatalogInventory dependency call timed out.");
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status504GatewayTimeout,
+            "dependency.timeout",
+            "A downstream service timed out. Please retry.",
+            retryable: true);
     }
     catch (InvalidOperationException ex)
     {
-        context.Response.StatusCode = StatusCodes.Status400BadRequest;
-        await context.Response.WriteAsJsonAsync(new { message = ex.Message });
+        var mapped = MapInvalidOperation(ex.Message);
+        await WriteErrorAsync(
+            context,
+            mapped.StatusCode,
+            mapped.Code,
+            ex.Message,
+            mapped.Retryable);
+    }
+    catch (Exception ex)
+    {
+        app.Logger.LogError(ex, "Unhandled CatalogInventory API exception for {Method} {Path}", context.Request.Method, context.Request.Path);
+        await WriteErrorAsync(
+            context,
+            StatusCodes.Status500InternalServerError,
+            "internal.unexpected",
+            "Unexpected server error.",
+            retryable: true);
     }
 });
+
+static (int StatusCode, string Code, bool Retryable) MapInvalidOperation(string message)
+{
+    if (message.Contains("gateway is disabled", StringComparison.OrdinalIgnoreCase)
+        || message.Contains("downstream service", StringComparison.OrdinalIgnoreCase))
+    {
+        return (StatusCodes.Status503ServiceUnavailable, "dependency.unavailable", true);
+    }
+
+    if (message.Contains("insufficient", StringComparison.OrdinalIgnoreCase)
+        || message.Contains("already exists", StringComparison.OrdinalIgnoreCase)
+        || message.Contains("stock", StringComparison.OrdinalIgnoreCase)
+        || message.Contains("cannot", StringComparison.OrdinalIgnoreCase))
+    {
+        return (StatusCodes.Status409Conflict, "business.conflict", false);
+    }
+
+    return (StatusCodes.Status400BadRequest, "business.rule-violation", false);
+}
+
+static Task WriteErrorAsync(HttpContext context, int statusCode, string code, string message, bool retryable, object? details = null)
+{
+    if (context.Response.HasStarted)
+    {
+        return Task.CompletedTask;
+    }
+
+    context.Response.StatusCode = statusCode;
+    context.Response.ContentType = "application/json";
+
+    var correlationId = context.Request.Headers.TryGetValue("X-Correlation-Id", out var header)
+        && !string.IsNullOrWhiteSpace(header)
+        ? header.ToString()
+        : context.TraceIdentifier;
+
+    return context.Response.WriteAsJsonAsync(new
+    {
+        code,
+        message,
+        retryable,
+        correlationId,
+        details
+    });
+}
 
 app.UseSerilogRequestLogging();
 app.UseAuthentication();
@@ -157,7 +256,7 @@ RecurringJob.AddOrUpdate<HangfireHeartbeatJob>(
 
 app.Run();
 
-static async Task SeedCatalogAsync(CatalogInventoryDbContext dbContext)
+static async Task SeedCatalogAsync(CatalogInventoryDbContext dbContext, IServiceProvider serviceProvider)
 {
     var categorySeeds = new[]
     {
@@ -445,19 +544,67 @@ static async Task SeedCatalogAsync(CatalogInventoryDbContext dbContext)
             299m,
             10,
             520,
-            "https://image.pollinations.ai/prompt/electrical%20fuse%20replacement%20pack%20industrial%20spare%20product%20photo?width=1024&height=768&nologo=true")
+            "https://image.pollinations.ai/prompt/electrical%20fuse%20replacement%20pack%20industrial%20spare%20product%20photo?width=1024&height=768&nologo=true"),
+        new SeedCatalogProduct(
+            "AIV-611",
+            "AI Vision Defect Inspection Camera",
+            "AI-generated catalog item for demo: edge vision camera optimized for automated defect detection on production lines.",
+            "Sensors",
+            26999m,
+            1,
+            22,
+            string.Empty),
+        new SeedCatalogProduct(
+            "AIG-612",
+            "AI Route Optimization Edge Gateway",
+            "AI-generated catalog item for demo: on-prem edge gateway for route planning and fleet ETA optimization.",
+            "Networking",
+            31999m,
+            1,
+            16,
+            string.Empty),
+        new SeedCatalogProduct(
+            "AIP-613",
+            "Predictive Maintenance Sensor Hub",
+            "AI-generated catalog item for demo: sensor fusion hub for predicting failures across rotating equipment.",
+            "Automation",
+            21499m,
+            1,
+            30,
+            string.Empty),
+        new SeedCatalogProduct(
+            "AID-614",
+            "Generative Demand Forecast Console",
+            "AI-generated catalog item for demo: touchscreen console that summarizes SKU demand projections and replenishment advice.",
+            "Displays",
+            28999m,
+            1,
+            14,
+            string.Empty),
+        new SeedCatalogProduct(
+            "AIR-615",
+            "Autonomous Picking Robot Controller",
+            "AI-generated catalog item for demo: industrial control module for orchestrating autonomous picking robots.",
+            "Electronics",
+            45999m,
+            1,
+            10,
+            string.Empty)
     };
 
     var productSkus = products.Select(x => x.Sku).ToArray();
+    var categoryNamesById = categoriesByName.Values.ToDictionary(c => c.CategoryId, c => c.Name);
     var existingProducts = await dbContext.Products
         .Where(p => productSkus.Contains(p.Sku))
         .ToDictionaryAsync(p => p.Sku);
 
     var productsChanged = false;
+    var touchedProductIds = new HashSet<Guid>();
 
     foreach (var seed in products)
     {
         var category = categoriesByName[seed.CategoryName];
+        var resolvedImageUrl = ResolveSeedImageUrl(seed);
         if (existingProducts.TryGetValue(seed.Sku, out var existingProduct))
         {
             existingProduct.Update(
@@ -466,13 +613,14 @@ static async Task SeedCatalogAsync(CatalogInventoryDbContext dbContext)
                 category.CategoryId,
                 seed.UnitPrice,
                 seed.MinOrderQty,
-                seed.ImageUrl,
+                resolvedImageUrl,
                 true);
             productsChanged = true;
+            touchedProductIds.Add(existingProduct.ProductId);
             continue;
         }
 
-        await dbContext.Products.AddAsync(Product.Create(
+        var createdProduct = Product.Create(
             seed.Sku,
             seed.Name,
             seed.Description,
@@ -480,14 +628,116 @@ static async Task SeedCatalogAsync(CatalogInventoryDbContext dbContext)
             seed.UnitPrice,
             seed.MinOrderQty,
             seed.OpeningStock,
-            seed.ImageUrl));
+            resolvedImageUrl);
+
+        await dbContext.Products.AddAsync(createdProduct);
         productsChanged = true;
+        touchedProductIds.Add(createdProduct.ProductId);
+    }
+
+    var productsMissingImage = await dbContext.Products
+        .Where(p => p.ImageUrl == null
+            || p.ImageUrl == ""
+            || p.ImageUrl.Contains("picsum.photos/seed/scp-")
+            || p.ImageUrl.Contains("image.pollinations.ai"))
+        .ToListAsync();
+
+    foreach (var product in productsMissingImage)
+    {
+        var categoryName = categoryNamesById.TryGetValue(product.CategoryId, out var resolvedCategoryName)
+            ? resolvedCategoryName
+            : null;
+
+        product.Update(
+            product.Name,
+            product.Description,
+            product.CategoryId,
+            product.UnitPrice,
+            product.MinOrderQty,
+            BuildRelevantAiImageUrl(product.Name, product.Sku, categoryName),
+            product.IsActive);
+        productsChanged = true;
+        touchedProductIds.Add(product.ProductId);
     }
 
     if (productsChanged)
     {
         await dbContext.SaveChangesAsync();
+        await InvalidateCatalogCachesAfterSeedAsync(serviceProvider, touchedProductIds);
     }
+}
+
+static async Task InvalidateCatalogCachesAfterSeedAsync(IServiceProvider serviceProvider, IEnumerable<Guid> productIds)
+{
+    var cacheStore = serviceProvider.GetService<IInventoryCacheStore>();
+    if (cacheStore is null)
+    {
+        return;
+    }
+
+    await cacheStore.InvalidateTrackedKeysAsync("catalog:products:keys");
+    await cacheStore.InvalidateTrackedKeysAsync("catalog:search:keys");
+
+    foreach (var productId in productIds.Distinct())
+    {
+        await cacheStore.DeleteAsync($"catalog:product:{productId}");
+        await cacheStore.DeleteAsync($"inventory:available:{productId}");
+    }
+}
+
+static string ResolveSeedImageUrl(SeedCatalogProduct seed)
+{
+    if (string.IsNullOrWhiteSpace(seed.ImageUrl)
+        || seed.ImageUrl.Contains("image.pollinations.ai", StringComparison.OrdinalIgnoreCase)
+        || seed.ImageUrl.Contains("picsum.photos/seed/scp-", StringComparison.OrdinalIgnoreCase))
+    {
+        return BuildRelevantAiImageUrl(seed.Name, seed.Sku, seed.CategoryName);
+    }
+
+    return seed.ImageUrl;
+}
+
+static string BuildRelevantAiImageUrl(string productName, string sku, string? categoryName = null)
+{
+    var safeName = NormalizeForPrompt(productName, 90);
+    var safeSku = NormalizeForPrompt(sku, 24).ToUpperInvariant();
+    var safeCategory = NormalizeForPrompt(categoryName ?? "Industrial catalog", 48);
+
+    var paletteHex = ResolveCategoryPaletteHex(safeCategory);
+    var text = Uri.EscapeDataString($"{safeName}\n{safeCategory}\n{safeSku}");
+    return $"https://placehold.co/1200x900/{paletteHex}/FFFFFF/png?text={text}";
+}
+
+static string ResolveCategoryPaletteHex(string categoryName)
+{
+    var normalized = categoryName.Trim().ToLowerInvariant();
+
+    if (normalized.Contains("electrical")) return "1E3A8A";
+    if (normalized.Contains("safety")) return "7C2D12";
+    if (normalized.Contains("network")) return "0F766E";
+    if (normalized.Contains("automation")) return "4C1D95";
+    if (normalized.Contains("sensor")) return "155E75";
+    if (normalized.Contains("display")) return "1D4ED8";
+    if (normalized.Contains("mobile")) return "0F766E";
+    if (normalized.Contains("computer") || normalized.Contains("processor") || normalized.Contains("memory") || normalized.Contains("storage") || normalized.Contains("motherboard") || normalized.Contains("graphics") || normalized.Contains("peripheral")) return "1E293B";
+    if (normalized.Contains("spare") || normalized.Contains("maintenance")) return "92400E";
+    if (normalized.Contains("packaging")) return "9A3412";
+    if (normalized.Contains("office")) return "374151";
+    if (normalized.Contains("tool")) return "1F2937";
+    if (normalized.Contains("logistics")) return "14532D";
+
+    return "1F3A8A";
+}
+
+static string NormalizeForPrompt(string value, int maxLength)
+{
+    if (string.IsNullOrWhiteSpace(value))
+    {
+        return string.Empty;
+    }
+
+    var normalized = string.Join(' ', value.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries));
+    return normalized.Length <= maxLength ? normalized : normalized[..maxLength];
 }
 
 internal sealed record SeedCatalogCategory(

@@ -13,7 +13,15 @@ import { PaginationComponent } from '../../../shared/components/pagination/pagin
   imports: [CommonModule, RouterLink, FormsModule, PaginationComponent],
   template: `
     <div class="page-content">
-      <div class="page-header"><h1>Dealer Management</h1></div>
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Dealer Management</h1>
+          <p>Review dealer onboarding, status, and credit summaries.</p>
+        </div>
+        <div class="page-actions">
+          <a routerLink="/admin/agents/create" class="btn btn-primary">Create Agent</a>
+        </div>
+      </div>
 
       <div class="d-flex gap-3 mb-6">
         <input type="search" class="form-control" style="max-width:300px"
@@ -65,6 +73,7 @@ export class DealerListComponent implements OnInit {
   readonly dealers    = signal<DealerSummaryDto[]>([]);
   readonly page       = signal(1);
   readonly totalCount = signal(0);
+
   searchQuery = '';
   readonly search$ = new Subject<string>();
 

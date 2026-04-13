@@ -27,6 +27,13 @@ public sealed class LogisticsTrackingDbContext(DbContextOptions<LogisticsTrackin
             builder.Property(x => x.State).HasMaxLength(100).IsRequired();
             builder.Property(x => x.PostalCode).HasMaxLength(12).IsRequired();
             builder.Property(x => x.VehicleNumber).HasMaxLength(32);
+            builder.Property(x => x.AssignmentDecisionStatus).HasConversion<string>().HasMaxLength(20).IsRequired();
+            builder.Property(x => x.AssignmentDecisionReason).HasMaxLength(500);
+            builder.Property(x => x.AssignmentDecisionAtUtc);
+            builder.Property(x => x.DeliveryAgentRating);
+            builder.Property(x => x.DeliveryAgentRatingComment).HasMaxLength(500);
+            builder.Property(x => x.DeliveryAgentRatedAtUtc);
+            builder.Property(x => x.DeliveryAgentRatedByUserId);
             builder.Property(x => x.Status).HasConversion<string>().HasMaxLength(32).IsRequired();
             builder.HasMany(x => x.Events)
                 .WithOne()

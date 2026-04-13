@@ -54,6 +54,12 @@ export enum ShipmentStatus {
   Returned = 7
 }
 
+export enum AssignmentDecisionStatus {
+  Pending = 0,
+  Accepted = 1,
+  Rejected = 2
+}
+
 // Matches backend Notification.Domain.Enums
 export enum NotificationChannel {
   InApp = 0,
@@ -142,3 +148,10 @@ export const ORDER_STATUS_TRANSITIONS: Partial<Record<OrderStatus, OrderStatus[]
   [OrderStatus.Closed]:          [],
   [OrderStatus.Cancelled]:       [],
 };
+
+export const LOGISTICS_MANAGED_ORDER_STATUSES: ReadonlyArray<OrderStatus> = [
+  OrderStatus.ReadyForDispatch,
+  OrderStatus.InTransit,
+  OrderStatus.Exception,
+  OrderStatus.Delivered
+];

@@ -14,3 +14,6 @@ C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Domain\obj\Debug\ne
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Domain\obj\Debug\net10.0\IdentityAuth.Domain.pdb
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Domain\obj\Debug\net10.0\ref\IdentityAuth.Domain.dll
 C:\Users\Hey\Desktop\demo\services\IdentityAuth\IdentityAuth.Domain\obj\Debug\net10.0\IdentityAuth.Domain.sourcelink.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\IdentityAuth.Domain.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\IdentityAuth.Domain.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\identityauth-api\IdentityAuth.Domain.pdb

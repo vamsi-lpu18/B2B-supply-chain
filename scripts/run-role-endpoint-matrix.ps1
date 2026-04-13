@@ -3,6 +3,7 @@ $ErrorActionPreference = 'Stop'
 
 $BaseUrl = 'http://localhost:5000'
 $ClientId = 'supply-chain-frontend-test'
+$InternalApiKey = 'SupplyChainInternalApiKey_DevOnly_2026'
 $Now = Get-Date
 $Stamp = $Now.ToString('yyyyMMddHHmmss')
 $ReportRows = New-Object System.Collections.Generic.List[object]
@@ -69,19 +70,31 @@ function Invoke-ApiCall {
         [Parameter(Mandatory = $true)][string]$Method,
         [Parameter(Mandatory = $true)][string]$Path,
         [string]$Token,
-        $Body
+        $Body,
+        [hashtable]$Headers
     )
 
-    $headers = @{
+    $requestHeaders = @{
         'Oc-Client' = $ClientId
         'X-Correlation-Id' = [Guid]::NewGuid().ToString('N')
     }
 
     if (-not [string]::IsNullOrWhiteSpace($Token)) {
-        $headers['Authorization'] = "Bearer $Token"
+        $requestHeaders['Authorization'] = "Bearer $Token"
     }
 
-    $uri = "$BaseUrl$Path"
+    if ($null -ne $Headers) {
+        foreach ($key in @($Headers.Keys)) {
+            $requestHeaders[$key] = [string]$Headers[$key]
+        }
+    }
+
+    if ($Path -match '^https?://') {
+        $uri = $Path
+    }
+    else {
+        $uri = "$BaseUrl$Path"
+    }
     $statusCode = 0
     $bodyText = ''
     $json = $null
@@ -93,10 +106,10 @@ function Invoke-ApiCall {
                 $payload = $Body | ConvertTo-Json -Depth 12 -Compress
             }
 
-            $resp = Invoke-WebRequest -UseBasicParsing -Method $Method -Uri $uri -Headers $headers -ContentType 'application/json' -Body $payload -TimeoutSec 20
+            $resp = Invoke-WebRequest -UseBasicParsing -Method $Method -Uri $uri -Headers $requestHeaders -ContentType 'application/json' -Body $payload -TimeoutSec 20
         }
         else {
-            $resp = Invoke-WebRequest -UseBasicParsing -Method $Method -Uri $uri -Headers $headers -TimeoutSec 20
+            $resp = Invoke-WebRequest -UseBasicParsing -Method $Method -Uri $uri -Headers $requestHeaders -TimeoutSec 20
         }
 
         $statusCode = [int]$resp.StatusCode
@@ -143,10 +156,11 @@ function Add-Test {
         [Parameter(Mandatory = $true)][string]$Path,
         [string]$Token,
         $Body,
+        [hashtable]$Headers,
         [Parameter(Mandatory = $true)][int[]]$Expected
     )
 
-    $result = Invoke-ApiCall -Method $Method -Path $Path -Token $Token -Body $Body
+    $result = Invoke-ApiCall -Method $Method -Path $Path -Token $Token -Body $Body -Headers $Headers
     $pass = $Expected -contains $result.Status
     $preview = ''
     if (-not [string]::IsNullOrWhiteSpace($result.Body)) {
@@ -403,7 +417,8 @@ Add-Test -Name 'Catalog detail anonymous denied by gateway auth' -Role 'Anonymou
 Add-Test -Name 'Catalog search anonymous denied by gateway auth' -Role 'Anonymous' -Method 'GET' -Path '/catalog/api/products/search?q=Mock' -Expected @(401) | Out-Null
 Add-Test -Name 'Catalog stock warehouse' -Role 'Warehouse' -Method 'GET' -Path "/catalog/api/products/$productId/stock" -Token $warehouseToken -Expected @(200, 404) | Out-Null
 Add-Test -Name 'Inventory soft-lock dealer' -Role 'Dealer' -Method 'POST' -Path '/catalog/api/inventory/soft-lock' -Token $dealerToken -Body @{ productId = $productId; orderId = $orderId; quantity = 1 } -Expected @(200, 409, 404) | Out-Null
-Add-Test -Name 'Inventory hard-deduct logistics' -Role 'Logistics' -Method 'POST' -Path '/catalog/api/inventory/hard-deduct' -Token $logisticsToken -Body @{ productId = $productId; orderId = $orderId; quantity = 1 } -Expected @(200, 409, 404) | Out-Null
+Add-Test -Name 'Inventory hard-deduct logistics denied' -Role 'Logistics' -Method 'POST' -Path '/catalog/api/inventory/hard-deduct' -Token $logisticsToken -Body @{ productId = $productId; orderId = $orderId; quantity = 1 } -Expected @(403) | Out-Null
+Add-Test -Name 'Inventory hard-deduct internal key' -Role 'Internal' -Method 'POST' -Path 'http://localhost:8002/api/internal/inventory/hard-deduct' -Headers @{ 'X-Internal-Api-Key' = $InternalApiKey } -Body @{ productId = $productId; orderId = $orderId; quantity = 1 } -Expected @(200, 409, 404) | Out-Null
 Add-Test -Name 'Inventory release-soft-lock admin' -Role 'Admin' -Method 'POST' -Path '/catalog/api/inventory/release-soft-lock' -Token $adminToken -Body @{ productId = $productId; orderId = $orderId } -Expected @(200, 404) | Out-Null
 Add-Test -Name 'Inventory subscribe dealer' -Role 'Dealer' -Method 'POST' -Path '/catalog/api/inventory/subscriptions' -Token $dealerToken -Body @{ dealerId = $dealerId; productId = $productId } -Expected @(200, 400, 404) | Out-Null
 Add-Test -Name 'Inventory unsubscribe dealer' -Role 'Dealer' -Method 'DELETE' -Path '/catalog/api/inventory/subscriptions' -Token $dealerToken -Body @{ dealerId = $dealerId; productId = $productId } -Expected @(200, 404) | Out-Null
@@ -413,28 +428,42 @@ Add-Test -Name 'Orders create admin denied' -Role 'Admin' -Method 'POST' -Path '
 Add-Test -Name 'Orders my dealer' -Role 'Dealer' -Method 'GET' -Path '/orders/api/orders/my?page=1&pageSize=20' -Token $dealerToken -Expected @(200) | Out-Null
 Add-Test -Name 'Orders detail dealer' -Role 'Dealer' -Method 'GET' -Path "/orders/api/orders/$orderId" -Token $dealerToken -Expected @(200, 404) | Out-Null
 Add-Test -Name 'Orders detail admin' -Role 'Admin' -Method 'GET' -Path "/orders/api/orders/$orderId" -Token $adminToken -Expected @(200, 404) | Out-Null
-Add-Test -Name 'Orders update status logistics' -Role 'Logistics' -Method 'PUT' -Path "/orders/api/orders/$orderId/status" -Token $logisticsToken -Body @{ newStatus = 2 } -Expected @(200, 404, 400) | Out-Null
+Add-Test -Name 'Orders update status logistics (restricted target denied)' -Role 'Logistics' -Method 'PUT' -Path "/orders/api/orders/$orderId/status" -Token $logisticsToken -Body @{ newStatus = 2 } -Expected @(400, 404) | Out-Null
+Add-Test -Name 'Orders update status warehouse denied' -Role 'Warehouse' -Method 'PUT' -Path "/orders/api/orders/$orderId/status" -Token $warehouseToken -Body @{ newStatus = 2 } -Expected @(403) | Out-Null
 Add-Test -Name 'Orders cancel dealer' -Role 'Dealer' -Method 'POST' -Path "/orders/api/orders/$orderId/cancel" -Token $dealerToken -Body @{ reason = 'Mock cancel request' } -Expected @(200, 404, 400) | Out-Null
 Add-Test -Name 'Orders return request dealer' -Role 'Dealer' -Method 'POST' -Path "/orders/api/orders/$orderId/returns" -Token $dealerToken -Body @{ reason = 'Mock return request' } -Expected @(200, 404, 400) | Out-Null
 Add-Test -Name 'Admin orders list admin' -Role 'Admin' -Method 'GET' -Path '/orders/api/admin/orders?page=1&pageSize=20' -Token $adminToken -Expected @(200) | Out-Null
 Add-Test -Name 'Admin orders list warehouse' -Role 'Warehouse' -Method 'GET' -Path '/orders/api/admin/orders?page=1&pageSize=20' -Token $warehouseToken -Expected @(200) | Out-Null
 Add-Test -Name 'Admin orders list logistics' -Role 'Logistics' -Method 'GET' -Path '/orders/api/admin/orders?page=1&pageSize=20' -Token $logisticsToken -Expected @(200) | Out-Null
+Add-Test -Name 'Admin orders analytics admin' -Role 'Admin' -Method 'GET' -Path '/orders/api/admin/orders/analytics?days=90&top=5' -Token $adminToken -Expected @(200) | Out-Null
+Add-Test -Name 'Admin orders analytics warehouse' -Role 'Warehouse' -Method 'GET' -Path '/orders/api/admin/orders/analytics?days=90&top=5' -Token $warehouseToken -Expected @(200) | Out-Null
+Add-Test -Name 'Admin orders analytics logistics' -Role 'Logistics' -Method 'GET' -Path '/orders/api/admin/orders/analytics?days=90&top=5' -Token $logisticsToken -Expected @(200) | Out-Null
+Add-Test -Name 'Admin orders analytics dealer denied' -Role 'Dealer' -Method 'GET' -Path '/orders/api/admin/orders/analytics?days=90&top=5' -Token $dealerToken -Expected @(403) | Out-Null
+Add-Test -Name 'Admin orders bulk status warehouse denied' -Role 'Warehouse' -Method 'POST' -Path '/orders/api/admin/orders/bulk-status' -Token $warehouseToken -Body @{ newStatus = 3; orderIds = @($orderId); validateOnly = $true } -Expected @(403) | Out-Null
 Add-Test -Name 'Admin approve hold' -Role 'Admin' -Method 'PUT' -Path "/orders/api/admin/orders/$orderId/approve-hold" -Token $adminToken -Expected @(200, 404, 400) | Out-Null
 Add-Test -Name 'Admin reject hold' -Role 'Admin' -Method 'PUT' -Path "/orders/api/admin/orders/$orderId/reject-hold" -Token $adminToken -Body @{ reason = 'Mock reject hold' } -Expected @(200, 404, 400) | Out-Null
+Add-Test -Name 'Admin approve hold logistics denied' -Role 'Logistics' -Method 'PUT' -Path "/orders/api/admin/orders/$orderId/approve-hold" -Token $logisticsToken -Expected @(403) | Out-Null
 
 # Logistics
 Add-Test -Name 'Logistics create shipment dealer denied' -Role 'Dealer' -Method 'POST' -Path '/logistics/api/logistics/shipments' -Token $dealerToken -Body @{ orderId = $orderId; dealerId = $dealerId; deliveryAddress = 'deny'; city = 'x'; state = 'x'; postalCode = '000000' } -Expected @(403) | Out-Null
+Add-Test -Name 'Logistics create shipment warehouse denied' -Role 'Warehouse' -Method 'POST' -Path '/logistics/api/logistics/shipments' -Token $warehouseToken -Body @{ orderId = $orderId; dealerId = $dealerId; deliveryAddress = 'deny'; city = 'x'; state = 'x'; postalCode = '000000' } -Expected @(403) | Out-Null
 Add-Test -Name 'Logistics get shipment dealer' -Role 'Dealer' -Method 'GET' -Path "/logistics/api/logistics/shipments/$shipmentId" -Token $dealerToken -Expected @(200, 404) | Out-Null
+Add-Test -Name 'Logistics get shipment warehouse denied' -Role 'Warehouse' -Method 'GET' -Path "/logistics/api/logistics/shipments/$shipmentId" -Token $warehouseToken -Expected @(403) | Out-Null
 Add-Test -Name 'Logistics get my dealer shipments' -Role 'Dealer' -Method 'GET' -Path '/logistics/api/logistics/shipments/my' -Token $dealerToken -Expected @(200) | Out-Null
 Add-Test -Name 'Logistics get all agent denied' -Role 'Agent' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $agentToken -Expected @(403) | Out-Null
+Add-Test -Name 'Logistics get all warehouse denied' -Role 'Warehouse' -Method 'GET' -Path '/logistics/api/logistics/shipments' -Token $warehouseToken -Expected @(403) | Out-Null
 Add-Test -Name 'Logistics get assigned agent shipments' -Role 'Agent' -Method 'GET' -Path '/logistics/api/logistics/shipments/assigned' -Token $agentToken -Expected @(200) | Out-Null
 Add-Test -Name 'Logistics assign agent logistics' -Role 'Logistics' -Method 'PUT' -Path "/logistics/api/logistics/shipments/$shipmentId/assign-agent" -Token $logisticsToken -Body @{ agentId = $agentId } -Expected @(200, 404, 400) | Out-Null
-Add-Test -Name 'Logistics update status agent' -Role 'Agent' -Method 'PUT' -Path "/logistics/api/logistics/shipments/$shipmentId/status" -Token $agentToken -Body @{ status = 3; note = 'Mock in-transit update' } -Expected @(200, 404, 400) | Out-Null
+Add-Test -Name 'Logistics update status agent' -Role 'Agent' -Method 'PUT' -Path "/logistics/api/logistics/shipments/$shipmentId/status" -Token $agentToken -Body @{ status = 3; note = 'Mock in-transit update' } -Expected @(200, 404, 400, 409) | Out-Null
 Add-Test -Name 'Logistics update status dealer denied' -Role 'Dealer' -Method 'PUT' -Path "/logistics/api/logistics/shipments/$shipmentId/status" -Token $dealerToken -Body @{ status = 3; note = 'deny' } -Expected @(403) | Out-Null
+Add-Test -Name 'Logistics rate delivery agent dealer' -Role 'Dealer' -Method 'PUT' -Path "/logistics/api/logistics/shipments/$shipmentId/agent-rating" -Token $dealerToken -Body @{ rating = 4; comment = 'Endpoint matrix rating check' } -Expected @(200, 400, 404) | Out-Null
+Add-Test -Name 'Logistics rate delivery agent agent denied' -Role 'Agent' -Method 'PUT' -Path "/logistics/api/logistics/shipments/$shipmentId/agent-rating" -Token $agentToken -Body @{ rating = 4; comment = 'deny' } -Expected @(403) | Out-Null
+Add-Test -Name 'Logistics rate delivery agent logistics denied' -Role 'Logistics' -Method 'PUT' -Path "/logistics/api/logistics/shipments/$shipmentId/agent-rating" -Token $logisticsToken -Body @{ rating = 4; comment = 'deny' } -Expected @(403) | Out-Null
 
 # Payments
 Add-Test -Name 'Payments seed account dealer denied' -Role 'Dealer' -Method 'POST' -Path "/payments/api/payment/dealers/$dealerId/account" -Token $dealerToken -Body @{ initialCreditLimit = 1000 } -Expected @(403) | Out-Null
-Add-Test -Name 'Payments credit check anonymous' -Role 'Anonymous' -Method 'GET' -Path "/payments/api/payment/dealers/$dealerId/credit-check?amount=1000" -Expected @(200) | Out-Null
+Add-Test -Name 'Payments credit check anonymous denied' -Role 'Anonymous' -Method 'GET' -Path "/payments/api/payment/dealers/$dealerId/credit-check?amount=1000" -Expected @(401) | Out-Null
+Add-Test -Name 'Payments credit check internal key' -Role 'Internal' -Method 'GET' -Path "http://localhost:8005/api/payment/internal/dealers/$dealerId/credit-check?amount=1000" -Headers @{ 'X-Internal-Api-Key' = $InternalApiKey } -Expected @(200) | Out-Null
 Add-Test -Name 'Payments update credit limit admin' -Role 'Admin' -Method 'PUT' -Path "/payments/api/payment/dealers/$dealerId/credit-limit" -Token $adminToken -Body @{ creditLimit = 300000 } -Expected @(200, 404) | Out-Null
 Add-Test -Name 'Payments settle outstanding dealer' -Role 'Dealer' -Method 'POST' -Path "/payments/api/payment/dealers/$dealerId/settlements" -Token $dealerToken -Body @{ amount = 500; referenceNo = "SET-$Stamp" } -Expected @(200, 404, 400) | Out-Null
 Add-Test -Name 'Payments get invoice dealer' -Role 'Dealer' -Method 'GET' -Path "/payments/api/payment/invoices/$invoiceId" -Token $dealerToken -Expected @(200, 404) | Out-Null
@@ -443,7 +472,8 @@ Add-Test -Name 'Payments download invoice admin' -Role 'Admin' -Method 'GET' -Pa
 
 # Notifications
 Add-Test -Name 'Notifications create manual dealer denied' -Role 'Dealer' -Method 'POST' -Path '/notifications/api/notifications/manual' -Token $dealerToken -Body @{ title = 'deny'; body = 'deny'; channel = 0 } -Expected @(403) | Out-Null
-Add-Test -Name 'Notifications ingest anonymous' -Role 'Anonymous' -Method 'POST' -Path '/notifications/api/notifications/ingest' -Body @{ sourceService = 'EndpointMatrix'; eventType = 'MockEvent'; payload = '{"status":"ok"}'; recipientUserId = $dealerId } -Expected @(200, 400) | Out-Null
+Add-Test -Name 'Notifications ingest anonymous denied' -Role 'Anonymous' -Method 'POST' -Path '/notifications/api/notifications/ingest' -Body @{ sourceService = 'EndpointMatrix'; eventType = 'MockEvent'; payload = '{"status":"ok"}'; recipientUserId = $dealerId } -Expected @(401) | Out-Null
+Add-Test -Name 'Notifications ingest internal key' -Role 'Internal' -Method 'POST' -Path '/notifications/api/notifications/ingest' -Headers @{ 'X-Internal-Api-Key' = $InternalApiKey } -Body @{ sourceService = 'EndpointMatrix'; eventType = 'MockEvent'; payload = '{"status":"ok"}'; recipientUserId = $dealerId } -Expected @(200, 400) | Out-Null
 Add-Test -Name 'Notifications my dealer' -Role 'Dealer' -Method 'GET' -Path '/notifications/api/notifications/my' -Token $dealerToken -Expected @(200) | Out-Null
 Add-Test -Name 'Notifications all admin' -Role 'Admin' -Method 'GET' -Path '/notifications/api/notifications' -Token $adminToken -Expected @(200) | Out-Null
 Add-Test -Name 'Notifications by id dealer' -Role 'Dealer' -Method 'GET' -Path "/notifications/api/notifications/$notificationId" -Token $dealerToken -Expected @(200, 404) | Out-Null

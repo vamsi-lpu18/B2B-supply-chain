@@ -105,6 +105,10 @@ namespace Order.Infrastructure.Persistence.Migrations
                     b.HasIndex("OrderNumber")
                         .IsUnique();
 
+                    b.HasIndex("DealerId", "PlacedAtUtc");
+
+                    b.HasIndex("Status", "PlacedAtUtc");
+
                     b.ToTable("Orders", (string)null);
                 });
 

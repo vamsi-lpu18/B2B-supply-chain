@@ -184,6 +184,8 @@ namespace IdentityAuth.Infrastructure.Persistence.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
+                    b.HasIndex("Role", "Status", "CreatedAtUtc");
+
                     b.ToTable("Users", (string)null);
                 });
 
