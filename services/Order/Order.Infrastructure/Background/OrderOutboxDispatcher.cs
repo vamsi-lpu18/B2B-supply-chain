@@ -15,10 +15,10 @@ internal sealed class OrderOutboxDispatcher(
     IConfiguration configuration,
     ILogger<OrderOutboxDispatcher> logger) : BackgroundService
 {
-    private const string ExchangeName = "supplychain.events";
-    private const int BatchSize = 20;
-    private const int MaxRetryAttempts = 5;
-    private static readonly TimeSpan PollInterval = TimeSpan.FromSeconds(5);
+    private const string _exchangeName = "supplychain.events";
+    private const int _batchSize = 20;
+    private const int _maxRetryAttempts = 5;
+    private static readonly TimeSpan _pollInterval = TimeSpan.FromSeconds(5);
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -32,7 +32,7 @@ internal sealed class OrderOutboxDispatcher(
                 var pendingMessages = await dbContext.OutboxMessages
                     .Where(x => x.Status == OutboxStatus.Pending)
                     .OrderBy(x => x.CreatedAtUtc)
-                    .Take(BatchSize)
+                    .Take(_batchSize)
                     .ToListAsync(stoppingToken);
 
                 if (pendingMessages.Count > 0)
@@ -42,7 +42,7 @@ internal sealed class OrderOutboxDispatcher(
                     await using var channel = await connection.CreateChannelAsync(cancellationToken: stoppingToken);
 
                     await channel.ExchangeDeclareAsync(
-                        exchange: ExchangeName,
+                        exchange: _exchangeName,
                         type: ExchangeType.Topic,
                         durable: true,
                         autoDelete: false,
@@ -56,7 +56,7 @@ internal sealed class OrderOutboxDispatcher(
                             var body = Encoding.UTF8.GetBytes(message.Payload);
 
                             await channel.BasicPublishAsync(
-                                exchange: ExchangeName,
+                                exchange: _exchangeName,
                                 routingKey: routingKey,
                                 mandatory: false,
                                 body: body,
@@ -71,7 +71,7 @@ internal sealed class OrderOutboxDispatcher(
                             message.RetryCount += 1;
                             var error = ex.Message.Length > 2000 ? ex.Message[..2000] : ex.Message;
 
-                            if (message.RetryCount >= MaxRetryAttempts)
+                            if (message.RetryCount >= _maxRetryAttempts)
                             {
                                 logger.LogError(ex,
                                     "Order outbox message {MessageId} moved to failed after {RetryCount} attempts",
@@ -84,7 +84,7 @@ internal sealed class OrderOutboxDispatcher(
                                 logger.LogWarning(ex,
                                     "Order outbox publish retry {RetryCount}/{MaxRetryAttempts} for message {MessageId}",
                                     message.RetryCount,
-                                    MaxRetryAttempts,
+                                    _maxRetryAttempts,
                                     message.MessageId);
                                 message.Status = OutboxStatus.Pending;
                             }
@@ -101,7 +101,7 @@ internal sealed class OrderOutboxDispatcher(
                 logger.LogError(ex, "Unexpected order outbox dispatcher error.");
             }
 
-            await Task.Delay(PollInterval, stoppingToken);
+            await Task.Delay(_pollInterval, stoppingToken);
         }
     }
 

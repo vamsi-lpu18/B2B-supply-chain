@@ -1,6 +1,7 @@
-import { Component, inject, computed, signal, HostListener, DestroyRef } from '@angular/core';
+import { Component, inject, computed, signal, HostListener, DestroyRef, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs/operators';
@@ -8,16 +9,19 @@ import { AuthStore } from '../../../core/stores/auth.store';
 import { CartStore } from '../../../core/stores/cart.store';
 import { LoadingStore } from '../../../core/stores/loading.store';
 import { AuthApiService } from '../../../core/api/auth-api.service';
+import { LogisticsApiService } from '../../../core/api/logistics-api.service';
+import { LogisticsChatbotResponseDto } from '../../../core/models/logistics.models';
 import { UserRole } from '../../../core/models/enums';
 import { ToastContainerComponent } from '../toast-container/toast-container.component';
 
 interface NavGroup { label: string; items: NavItem[]; }
 interface NavItem  { label: string; icon: SafeHtml; route: string; roles?: UserRole[]; badge?: () => number; }
+interface ShellChatMessage { sender: 'user' | 'bot'; text: string; intent?: string; createdAtUtc: string; }
 
 @Component({
   selector: 'app-shell',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, CommonModule, ToastContainerComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, CommonModule, FormsModule, ToastContainerComponent],
   template: `
     <div class="shell" [class.sidebar-collapsed]="sidebarCollapsed()">
       @if (loading.isLoading()) { <div class="loading-bar"></div> }
@@ -155,6 +159,82 @@ interface NavItem  { label: string; icon: SafeHtml; route: string; roles?: UserR
 
         <main class="main-content"><router-outlet /></main>
       </div>
+
+      @if (shouldShowOpsChatbot()) {
+        <button
+          type="button"
+          class="ops-chat-fab"
+          (click)="toggleOpsChatbot()"
+          [attr.aria-expanded]="opsChatOpen()"
+          [attr.aria-label]="opsChatOpen() ? 'Close chatbot' : 'Open chatbot'">
+          @if (opsChatOpen()) {
+            <span class="ops-chat-fab-icon" aria-hidden="true">×</span>
+          } @else {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M8 10h8" />
+              <path d="M8 14h5" />
+              <path d="M6 19l-1 3 4-2h9a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4z" />
+            </svg>
+          }
+        </button>
+
+        @if (opsChatOpen()) {
+          <section class="ops-chat-panel" role="dialog" aria-label="Operations chatbot">
+            <div class="ops-chat-head">
+              <div class="ops-chat-head-content">
+                <div class="ops-chat-title-row">
+                  <div class="ops-chat-title">Ops Concierge</div>
+                  <span class="ops-chat-status">
+                    <span class="ops-chat-status-dot" aria-hidden="true"></span>
+                    Live
+                  </span>
+                </div>
+                <div class="ops-chat-sub">Ask anything about shipment progress, delays, retries, and assignments.</div>
+              </div>
+              <button type="button" class="ops-chat-minimize" (click)="toggleOpsChatbot()" aria-label="Minimize chatbot">−</button>
+            </div>
+
+            <div class="ops-chat-body" #opsChatBody>
+              @for (msg of opsChatMessages(); track $index) {
+                <div class="ops-chat-msg" [class.ops-chat-msg-user]="msg.sender === 'user'" [class.ops-chat-msg-bot]="msg.sender === 'bot'">
+                  @if (msg.intent && msg.sender === 'bot') {
+                    <div class="ops-chat-intent">{{ msg.intent }}</div>
+                  }
+                  <div class="ops-chat-text">{{ msg.text }}</div>
+                  <div class="ops-chat-time">{{ formatOpsChatTime(msg.createdAtUtc) }}</div>
+                </div>
+              }
+
+              @if (opsChatLoading()) {
+                <div class="ops-chat-msg ops-chat-msg-bot ops-chat-msg-loading" aria-label="Thinking">
+                  <div class="ops-chat-typing" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              }
+            </div>
+
+            @if (opsChatSuggestedPrompts().length > 0) {
+              <div class="ops-chat-suggest">
+                @for (prompt of opsChatSuggestedPrompts(); track $index) {
+                  <button type="button" class="btn btn-ghost btn-sm ops-chat-chip" (click)="useOpsSuggestedPrompt(prompt)">{{ prompt }}</button>
+                }
+              </div>
+            }
+
+            <div class="ops-chat-input">
+              <input
+                class="form-control"
+                type="text"
+                maxlength="500"
+                [(ngModel)]="opsChatPrompt"
+                placeholder="Ask a logistics question"
+                (keyup.enter)="sendOpsChatbotMessage()">
+              <button type="button" class="btn btn-primary btn-sm ops-chat-send" (click)="sendOpsChatbotMessage()" [disabled]="opsChatLoading() || !opsChatPrompt.trim()">Ask</button>
+            </div>
+          </section>
+        }
+      }
 
       <!-- ── Mobile bottom nav ── -->
       @if (isMobile()) {
@@ -670,6 +750,318 @@ interface NavItem  { label: string; icon: SafeHtml; route: string; roles?: UserR
       display: flex; align-items: center; justify-content: center;
     }
 
+    .ops-chat-fab {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 60px;
+      height: 60px;
+      border-radius: 9999px;
+      border: 1px solid rgba(23, 73, 111, 0.7);
+      background: linear-gradient(145deg, #184b73 0%, #2d77ae 52%, #56a2dc 100%);
+      color: #fff;
+      line-height: 1;
+      box-shadow:
+        0 18px 32px rgba(9, 37, 62, 0.28),
+        0 6px 12px rgba(37, 96, 145, 0.2);
+      z-index: 950;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s cubic-bezier(.22,1,.36,1), background .2s ease;
+      animation: opsFabFloat 3.4s ease-in-out infinite;
+      overflow: hidden;
+    }
+    .ops-chat-fab::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 30%, rgba(140, 210, 255, 0.4), transparent 58%);
+      filter: blur(8px);
+      z-index: -1;
+      opacity: 0.9;
+    }
+    .ops-chat-fab:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow:
+        0 22px 36px rgba(9, 37, 62, 0.32),
+        0 9px 16px rgba(37, 96, 145, 0.24);
+    }
+    .ops-chat-fab[aria-expanded='true'] {
+      animation: none;
+      background: linear-gradient(145deg, #215f8f 0%, #3d90c8 100%);
+      transform: rotate(90deg);
+    }
+    .ops-chat-fab svg {
+      width: 24px;
+      height: 24px;
+    }
+    .ops-chat-fab-icon {
+      font-size: 26px;
+      font-weight: 700;
+      transform: rotate(-90deg);
+    }
+
+    .ops-chat-panel {
+      position: fixed;
+      right: 24px;
+      bottom: 92px;
+      width: min(430px, calc(100vw - 24px));
+      max-height: min(75vh, 720px);
+      display: flex;
+      flex-direction: column;
+      border-radius: 18px;
+      border: 1px solid rgba(143, 175, 203, 0.55);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 250, 255, 0.95));
+      backdrop-filter: blur(10px);
+      box-shadow:
+        0 30px 70px rgba(8, 30, 51, 0.2),
+        0 10px 24px rgba(18, 66, 103, 0.16);
+      overflow: hidden;
+      z-index: 950;
+      animation: opsPanelReveal .26s cubic-bezier(.22,1,.36,1) both;
+    }
+    .ops-chat-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #2e76ab, #86c6ff, #2e76ab);
+      background-size: 220% 100%;
+      animation: opsAccentFlow 3.6s linear infinite;
+    }
+    .ops-chat-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 14px 14px 12px;
+      border-bottom: 1px solid rgba(175, 198, 219, 0.52);
+      background:
+        radial-gradient(75% 120% at 0% 0%, rgba(187, 222, 249, 0.42), transparent 60%),
+        linear-gradient(180deg, rgba(250, 253, 255, 0.98), rgba(241, 248, 255, 0.95));
+    }
+    .ops-chat-head-content { min-width: 0; }
+    .ops-chat-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ops-chat-title {
+      font-size: .9rem;
+      font-weight: 800;
+      letter-spacing: .01em;
+      color: #123d62;
+    }
+    .ops-chat-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      border: 1px solid rgba(126, 191, 131, 0.45);
+      background: rgba(232, 250, 235, 0.9);
+      color: #2a7040;
+      font-size: .63rem;
+      font-weight: 700;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .ops-chat-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #3bbd5d;
+      animation: opsStatusPulse 1.4s ease-in-out infinite;
+    }
+    .ops-chat-sub {
+      margin-top: 4px;
+      font-size: .72rem;
+      line-height: 1.35;
+      color: var(--text-secondary);
+      max-width: 290px;
+    }
+    .ops-chat-minimize {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      border: 1px solid rgba(157, 185, 210, 0.7);
+      background: rgba(255, 255, 255, 0.95);
+      color: #3a6b96;
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background .18s ease, transform .18s ease;
+    }
+    .ops-chat-minimize:hover {
+      background: #eef6fd;
+      transform: translateY(-1px);
+    }
+
+    .ops-chat-body {
+      flex: 1;
+      min-height: 196px;
+      max-height: 360px;
+      overflow-y: auto;
+      padding: 12px;
+      background:
+        radial-gradient(140% 140% at 100% 0%, rgba(225, 242, 255, 0.42), transparent 62%),
+        #fbfdff;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(122, 157, 189, 0.68) transparent;
+    }
+    .ops-chat-body::-webkit-scrollbar { width: 8px; }
+    .ops-chat-body::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #9ec5e7, #6d9dc8);
+      border-radius: 9999px;
+    }
+
+    .ops-chat-msg {
+      max-width: 88%;
+      border-radius: 16px;
+      border: 1px solid rgba(193, 212, 229, 0.9);
+      padding: 10px 11px;
+      box-shadow: 0 6px 16px rgba(12, 42, 67, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      animation: opsMessageIn .24s ease-out;
+    }
+    .ops-chat-msg-user {
+      margin-left: auto;
+      background: linear-gradient(145deg, #deefff, #cde7ff);
+      border-color: #b4d7f6;
+    }
+    .ops-chat-msg-bot {
+      margin-right: auto;
+      background: linear-gradient(160deg, #ffffff, #f7fbff);
+      border-color: rgba(188, 209, 229, 0.9);
+    }
+    .ops-chat-msg-loading {
+      width: 84px;
+      min-height: 34px;
+      justify-content: center;
+    }
+    .ops-chat-intent {
+      align-self: flex-start;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: #165d93;
+      background: linear-gradient(180deg, #edf6ff, #e1f1ff);
+      border: 1px solid #c8e0f3;
+      border-radius: 9999px;
+      padding: 2px 8px;
+    }
+    .ops-chat-text {
+      font-size: .8rem;
+      line-height: 1.42;
+      color: #1c3551;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .ops-chat-time {
+      font-size: .64rem;
+      color: #7a92a9;
+      text-align: right;
+      letter-spacing: .01em;
+    }
+    .ops-chat-typing {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 1px 0;
+    }
+    .ops-chat-typing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 9999px;
+      background: #6ea5d3;
+      animation: opsTypingBounce 1s infinite ease-in-out;
+    }
+    .ops-chat-typing span:nth-child(2) { animation-delay: .15s; }
+    .ops-chat-typing span:nth-child(3) { animation-delay: .3s; }
+
+    .ops-chat-suggest {
+      display: flex;
+      gap: 7px;
+      padding: 9px 10px;
+      border-top: 1px solid rgba(187, 208, 227, 0.74);
+      background: linear-gradient(180deg, rgba(248, 251, 255, 0.96), rgba(239, 247, 255, 0.96));
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+    .ops-chat-chip {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      border-radius: 9999px;
+      border: 1px solid #cae0f3;
+      background: #fff;
+      color: #2b628f;
+      font-size: .72rem;
+      font-weight: 600;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      box-shadow: 0 2px 5px rgba(22, 64, 97, 0.07);
+    }
+    .ops-chat-chip:hover {
+      transform: translateY(-1px);
+      border-color: #8fbde4;
+      background: #f3f9ff;
+      color: #1f577f;
+    }
+
+    .ops-chat-input {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 12px 12px;
+      border-top: 1px solid rgba(178, 202, 224, 0.75);
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
+    }
+    .ops-chat-input .form-control {
+      min-height: 38px;
+      padding: 7px 11px;
+      font-size: .8rem;
+      border-radius: 11px;
+      border: 1px solid #b7d3ea;
+      background: #fff;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .ops-chat-input .form-control:focus {
+      border-color: #5e9ccf;
+      box-shadow: 0 0 0 3px rgba(77, 145, 199, 0.2);
+    }
+    .ops-chat-send {
+      min-width: 64px;
+      border: none;
+      border-radius: 11px;
+      background: linear-gradient(145deg, #205f8f, #2f80b9);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 8px 16px rgba(24, 70, 107, 0.25);
+      transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
+    }
+    .ops-chat-send:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 18px rgba(24, 70, 107, 0.3);
+    }
+    .ops-chat-send:disabled {
+      opacity: 0.58;
+      box-shadow: none;
+    }
+
     /* ─── Responsive ─────────────────────────────────────────── */
     @media (max-width: 768px) {
       .sidebar {
@@ -686,6 +1078,20 @@ interface NavItem  { label: string; icon: SafeHtml; route: string; roles?: UserR
       .topbar-search { display: none; }
       .topbar-chip { display: none; }
       .main-content { padding-bottom: 80px; }
+      .ops-chat-fab {
+        right: 12px;
+        bottom: 86px;
+        width: 56px;
+        height: 56px;
+      }
+      .ops-chat-panel {
+        right: 12px;
+        bottom: 154px;
+        width: calc(100vw - 24px);
+        max-height: min(70vh, 640px);
+      }
+      .ops-chat-sub { max-width: 240px; }
+      .ops-chat-msg { max-width: 94%; }
     }
 
     @media (min-width: 769px) {
@@ -699,13 +1105,45 @@ interface NavItem  { label: string; icon: SafeHtml; route: string; roles?: UserR
 
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes opsFabFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes opsPanelReveal {
+      from { opacity: 0; transform: translateY(12px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes opsMessageIn {
+      from { opacity: 0; transform: translateY(7px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes opsStatusPulse {
+      0%, 100% { transform: scale(.86); opacity: .7; }
+      50% { transform: scale(1.18); opacity: 1; }
+    }
+    @keyframes opsTypingBounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: .35; }
+      40% { transform: translateY(-4px); opacity: 1; }
+    }
+    @keyframes opsAccentFlow {
+      from { background-position: 0 50%; }
+      to { background-position: 220% 50%; }
+    }
     @keyframes contentReveal {
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .sidebar, .main-content, .profile-menu, .mobile-overlay {
+      .sidebar,
+      .main-content,
+      .profile-menu,
+      .mobile-overlay,
+      .ops-chat-fab,
+      .ops-chat-panel,
+      .ops-chat-msg,
+      .ops-chat-status-dot,
+      .ops-chat-typing span {
         animation: none !important;
         transition: none !important;
       }
@@ -713,11 +1151,15 @@ interface NavItem  { label: string; icon: SafeHtml; route: string; roles?: UserR
   `]
 })
 export class AppShellComponent {
+    @ViewChild('opsChatBody')
+    private opsChatBodyRef?: ElementRef<HTMLDivElement>;
+
   readonly authStore  = inject(AuthStore);
   readonly cartStore  = inject(CartStore);
   readonly loading    = inject(LoadingStore);
   private readonly sanitizer = inject(DomSanitizer);
   private readonly authApi = inject(AuthApiService);
+  private readonly logisticsApi = inject(LogisticsApiService);
   private readonly router  = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -727,7 +1169,26 @@ export class AppShellComponent {
   readonly mobileMenuOpen = signal(false);
   readonly expandedGroups = signal<Record<string, boolean>>({});
   readonly pendingOrderCount = signal(0);
+  readonly currentUrl = signal(this.router.url || '/dashboard');
+  readonly opsChatOpen = signal(false);
+  readonly opsChatLoading = signal(false);
+  readonly opsChatMessages = signal<ShellChatMessage[]>([
+    {
+      sender: 'bot',
+      text: 'Hi, I can answer operational questions about shipments, delays, retries, and assignments.',
+      createdAtUtc: new Date().toISOString()
+    }
+  ]);
+  readonly opsChatSuggestedPrompts = signal<string[]>([
+    'How many shipments are delayed today?',
+    'Show assignment gaps for my scope.',
+    'List active deliveries in transit.',
+    'Which shipments need retry handling?'
+  ]);
+  opsChatPrompt = '';
   private windowWidth = signal(window.innerWidth);
+  readonly canUseOpsChatbot = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics, UserRole.Agent, UserRole.Dealer, UserRole.Warehouse);
+  readonly shouldShowOpsChatbot = computed(() => this.currentUrl().startsWith('/dashboard') && this.canUseOpsChatbot());
 
   constructor() {
     this.router.events
@@ -736,6 +1197,7 @@ export class AppShellComponent {
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe(() => {
+        this.currentUrl.set(this.router.url || '/dashboard');
         this.closeMobileMenu();
       });
   }
@@ -771,6 +1233,328 @@ export class AppShellComponent {
   toggleSidebar(): void { this.sidebarCollapsed.update(v => !v); }
   toggleMobileMenu(): void { this.mobileMenuOpen.update(v => !v); }
   closeMobileMenu(): void { this.mobileMenuOpen.set(false); }
+  toggleOpsChatbot(): void {
+    this.opsChatOpen.update(open => !open);
+    if (this.opsChatOpen()) {
+      this.scrollOpsChatToBottom();
+    }
+  }
+
+  sendOpsChatbotMessage(): void {
+    const message = this.opsChatPrompt.trim();
+    if (!message || this.opsChatLoading() || !this.canUseOpsChatbot()) {
+      return;
+    }
+
+    this.opsChatMessages.update(messages => [
+      ...messages,
+      {
+        sender: 'user',
+        text: message,
+        createdAtUtc: new Date().toISOString()
+      }
+    ]);
+    this.scrollOpsChatToBottom();
+
+    const localContextResponse = this.tryBuildLocalContextResponse(message);
+    if (localContextResponse) {
+      this.opsChatMessages.update(messages => [...messages, localContextResponse]);
+      this.scrollOpsChatToBottom();
+      this.opsChatPrompt = '';
+      return;
+    }
+
+    this.opsChatPrompt = '';
+    this.opsChatLoading.set(true);
+    this.scrollOpsChatToBottom();
+
+    this.logisticsApi.askChatbot({ message }).subscribe({
+      next: (response: LogisticsChatbotResponseDto) => {
+        this.opsChatMessages.update(messages => [
+          ...messages,
+          {
+            sender: 'bot',
+            text: response.reply,
+            intent: response.intent,
+            createdAtUtc: response.createdAtUtc
+          }
+        ]);
+        this.scrollOpsChatToBottom();
+
+        if (response.suggestedPrompts.length > 0) {
+          this.opsChatSuggestedPrompts.set(response.suggestedPrompts.slice(0, 5));
+        }
+
+        this.opsChatLoading.set(false);
+      },
+      error: () => {
+        this.opsChatMessages.update(messages => [
+          ...messages,
+          {
+            sender: 'bot',
+            text: 'I could not fetch a response right now. Please try again in a moment.',
+            createdAtUtc: new Date().toISOString()
+          }
+        ]);
+        this.scrollOpsChatToBottom();
+        this.opsChatLoading.set(false);
+      }
+    });
+  }
+
+  useOpsSuggestedPrompt(prompt: string): void {
+    this.opsChatPrompt = prompt;
+    this.sendOpsChatbotMessage();
+  }
+
+  formatOpsChatTime(value: string): string {
+    const parsed = new Date(value);
+    if (!Number.isFinite(parsed.getTime())) {
+      return '';
+    }
+
+    return parsed.toLocaleTimeString('en-IN', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
+
+  private scrollOpsChatToBottom(): void {
+    setTimeout(() => {
+      const body = this.opsChatBodyRef?.nativeElement;
+      if (!body) {
+        return;
+      }
+
+      body.scrollTop = body.scrollHeight;
+    }, 0);
+  }
+
+  private tryBuildLocalContextResponse(message: string): ShellChatMessage | null {
+    const normalizedMessage = this.normalizeChatMessage(message);
+
+    const dateTimeResponse = this.tryBuildDateTimeContextResponse(normalizedMessage);
+    if (dateTimeResponse) {
+      return dateTimeResponse;
+    }
+
+    const cartResponse = this.tryBuildCartContextResponse(normalizedMessage);
+    if (cartResponse) {
+      return cartResponse;
+    }
+
+    return this.tryBuildBasicAssistantResponse(normalizedMessage);
+  }
+
+  private normalizeChatMessage(message: string): string {
+    return message.toLowerCase().replace(/\s+/g, ' ').trim();
+  }
+
+  private tryBuildCartContextResponse(normalizedMessage: string): ShellChatMessage | null {
+    if (!this.isCartDetailsQuery(normalizedMessage)) {
+      return null;
+    }
+
+    const cartItemCount = this.cartStore.itemCount();
+    const cartTotal = this.cartStore.total();
+    const cartTotalLabel = `INR ${cartTotal.toLocaleString('en-IN', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    })}`;
+
+    const text = cartItemCount > 0
+      ? `You currently have ${cartItemCount} cart item(s) with a total of ${cartTotalLabel}. Next action: open Cart to review items or proceed to checkout.`
+      : 'You currently do not have any cart items. Next action: browse products and add items before checkout.';
+
+    return {
+      sender: 'bot',
+      text,
+      intent: 'ui-cart-context',
+      createdAtUtc: new Date().toISOString()
+    };
+  }
+
+  private tryBuildDateTimeContextResponse(normalizedMessage: string): ShellChatMessage | null {
+    const queryKind = this.resolveDateTimeQueryKind(normalizedMessage);
+    if (!queryKind) {
+      return null;
+    }
+
+    const now = new Date();
+    const dayLabel = now.toLocaleDateString('en-IN', {
+      weekday: 'long'
+    });
+    const dateLabel = now.toLocaleDateString('en-IN', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric'
+    });
+    const fullDateLabel = `${dayLabel}, ${dateLabel}`;
+    const timeLabel = now.toLocaleTimeString('en-IN', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? 'local time zone';
+
+    let text = `It is currently ${timeLabel} on ${fullDateLabel} (${timeZone}).`;
+    if (queryKind === 'time') {
+      text = `It is currently ${timeLabel} (${timeZone}).`;
+    } else if (queryKind === 'date') {
+      text = `Today is ${fullDateLabel}.`;
+    } else if (queryKind === 'day') {
+      text = `Today is ${dayLabel}.`;
+    }
+
+    return {
+      sender: 'bot',
+      text,
+      intent: 'ui-datetime-context',
+      createdAtUtc: now.toISOString()
+    };
+  }
+
+  private resolveDateTimeQueryKind(normalizedMessage: string): 'date-time' | 'date' | 'time' | 'day' | null {
+    if (!normalizedMessage) {
+      return null;
+    }
+
+    const dateTimePatterns: RegExp[] = [
+      /\bdate\s*(?:and|&)\s*time\b/,
+      /\bwhat(?:'s| is)\s+(?:the\s+)?(?:current\s+)?date\s+and\s+time\b/,
+      /\bcurrent\s+date\s+and\s+time\b/
+    ];
+    const timePatterns: RegExp[] = [
+      /\bwhat\s+time\s+is\s+it\b/,
+      /\bcurrent\s+time\b/,
+      /\btime\s+now\b/,
+      /\btell\s+me\s+(?:the\s+)?time\b/,
+      /^(?:time|time\s+please)\??$/
+    ];
+    const datePatterns: RegExp[] = [
+      /\bwhat(?:'s| is)\s+(?:the\s+)?(?:current\s+)?date\b/,
+      /\btoday(?:'s)?\s+date\b/,
+      /\bcurrent\s+date\b/,
+      /\btell\s+me\s+(?:the\s+)?date\b/,
+      /^(?:date|date\s+please)\??$/
+    ];
+    const dayPatterns: RegExp[] = [
+      /\bwhat\s+day\s+is\s+it\b/,
+      /\bwhich\s+day\s+is\s+it\b/,
+      /\bday\s+today\b/,
+      /\btoday\s+is\s+what\s+day\b/
+    ];
+
+    if (dateTimePatterns.some(pattern => pattern.test(normalizedMessage))) {
+      return 'date-time';
+    }
+
+    const mentionsDate = /\bdate\b/.test(normalizedMessage);
+    const mentionsTime = /\btime\b/.test(normalizedMessage);
+    if (mentionsDate && mentionsTime) {
+      return 'date-time';
+    }
+
+    if (dayPatterns.some(pattern => pattern.test(normalizedMessage))) {
+      return 'day';
+    }
+
+    if (timePatterns.some(pattern => pattern.test(normalizedMessage))) {
+      return 'time';
+    }
+
+    if (datePatterns.some(pattern => pattern.test(normalizedMessage))) {
+      return 'date';
+    }
+
+    return null;
+  }
+
+  private tryBuildBasicAssistantResponse(normalizedMessage: string): ShellChatMessage | null {
+    if (!normalizedMessage || this.isLikelyOperationsQuery(normalizedMessage)) {
+      return null;
+    }
+
+    if (/^(?:hi|hello|hey|hey there|good morning|good afternoon|good evening|yo)\b/.test(normalizedMessage)) {
+      return {
+        sender: 'bot',
+        text: 'Hi! I am Ops Concierge. I can help with shipment operations, cart checks, and quick basics like date/time.',
+        intent: 'ui-greeting-context',
+        createdAtUtc: new Date().toISOString()
+      };
+    }
+
+    if (/\b(?:what(?:'s| is)\s+your\s+name|who\s+are\s+you|your\s+name)\b/.test(normalizedMessage)) {
+      return {
+        sender: 'bot',
+        text: 'I am Ops Concierge, your SupplyChain operations assistant.',
+        intent: 'ui-identity-context',
+        createdAtUtc: new Date().toISOString()
+      };
+    }
+
+    if (/^(?:help|menu|options|what\s+can\s+you\s+do|how\s+can\s+you\s+help|capabilities|commands)\b/.test(normalizedMessage)) {
+      return {
+        sender: 'bot',
+        text: 'I can answer shipment questions (status, delays, retries, assignments), check your cart summary, and share current date/time. Try: "How many shipments are delayed today?"',
+        intent: 'ui-help-context',
+        createdAtUtc: new Date().toISOString()
+      };
+    }
+
+    if (/^(?:thanks|thank\s+you|thx|ty)\b/.test(normalizedMessage)) {
+      return {
+        sender: 'bot',
+        text: 'You are welcome. If you want, I can show shipment status insights or quick cart/date-time info.',
+        intent: 'ui-thanks-context',
+        createdAtUtc: new Date().toISOString()
+      };
+    }
+
+    return null;
+  }
+
+  private isLikelyOperationsQuery(normalizedMessage: string): boolean {
+    return [
+      'shipment',
+      'shipments',
+      'delay',
+      'delayed',
+      'delivery',
+      'deliveries',
+      'in transit',
+      'retry',
+      'assignment',
+      'warehouse',
+      'invoice',
+      'order status'
+    ].some(token => normalizedMessage.includes(token));
+  }
+
+  private isCartDetailsQuery(normalizedMessage: string): boolean {
+    if (!normalizedMessage) {
+      return false;
+    }
+
+    const mentionsCart = /\bcart\b|\bbasket\b|\bbag\b|\bcheckout\b/.test(normalizedMessage);
+    if (!mentionsCart) {
+      return false;
+    }
+
+    return [
+      /\bdo\s+i\s+have\b/,
+      /\bhow\s+many\b/,
+      /\bany\b/,
+      /\bcount\b/,
+      /\bitem\b/,
+      /\bitems\b/,
+      /\btotal\b/,
+      /\bamount\b/,
+      /\bvalue\b/,
+      /\bwhat(?:'s| is)\s+in\s+my\s+(?:cart|basket|bag)\b/,
+      /\bmy\s+(?:cart|basket|bag)\b/
+    ].some(pattern => pattern.test(normalizedMessage));
+  }
 
   isGroupExpanded(label: string): boolean {
     return this.expandedGroups()[label] ?? true;

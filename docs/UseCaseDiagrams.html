@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply Chain Platform — Use Case Diagrams</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --brand: #1e3a5f; --brand-light: #e8f0fa; --accent: #d97706;
+    --text: #1a1a2e; --text-secondary: #475569; --bg: #ffffff;
+    --border: #e2e8f0; --surface: #f8fafc;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 14px; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text); background: var(--bg); line-height: 1.65;
+    max-width: 1060px; margin: 0 auto; padding: 36px 44px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  .cover {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    min-height: 92vh; text-align: center; page-break-after: always;
+  }
+  .cover-badge {
+    display: inline-block; padding: 6px 20px; border-radius: 40px;
+    background: var(--brand); color: #fff; font-size: .7rem;
+    font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 28px;
+  }
+  .cover h1 {
+    font-size: 2.6rem; font-weight: 900; letter-spacing: -.04em;
+    color: var(--brand); line-height: 1.1; margin-bottom: 12px;
+  }
+  .cover-sub { font-size: 1.05rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 48px; }
+  .cover-meta { font-size: .78rem; color: var(--text-secondary); line-height: 2; }
+  .cover-meta strong { color: var(--text); }
+
+  .toc { page-break-after: always; }
+  .toc h2 { font-size: 1.3rem; margin-bottom: 16px; color: var(--brand); border: none; padding: 0; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: .82rem; color: var(--text-secondary); }
+  .toc li a { color: var(--brand); text-decoration: none; font-weight: 600; }
+
+  h2 {
+    font-size: 1.2rem; font-weight: 800; color: var(--brand);
+    border-bottom: 3px solid var(--brand); padding-bottom: 7px;
+    margin: 40px 0 14px; letter-spacing: -.02em;
+  }
+  h3 { font-size: .92rem; font-weight: 700; color: var(--text); margin: 20px 0 8px; }
+  h4 { font-size: .82rem; font-weight: 700; margin: 14px 0 5px; color: var(--text-secondary); }
+  p, li { font-size: .82rem; margin-bottom: 6px; }
+  ul, ol { padding-left: 20px; margin-bottom: 12px; }
+
+  table {
+    width: 100%; border-collapse: collapse; margin: 10px 0 18px;
+    font-size: .72rem; page-break-inside: avoid;
+  }
+  thead th {
+    background: var(--brand); color: #fff; padding: 7px 9px;
+    text-align: left; font-weight: 700; font-size: .64rem;
+    text-transform: uppercase; letter-spacing: .06em;
+  }
+  tbody td { padding: 6px 9px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--surface); }
+
+  .callout {
+    background: var(--brand-light); border-left: 4px solid var(--brand);
+    padding: 11px 15px; border-radius: 0 8px 8px 0; margin: 12px 0;
+    font-size: .78rem; color: var(--text);
+  }
+  .callout strong { color: var(--brand); }
+
+  .diagram-wrapper {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px; margin: 12px 0 20px;
+    page-break-inside: avoid; text-align: center;
+  }
+  .diagram-caption {
+    text-align: center; font-size: .66rem; font-weight: 600;
+    color: var(--text-secondary); margin-top: 8px; text-transform: uppercase; letter-spacing: .06em;
+  }
+
+  .badge {
+    display: inline-block; padding: 2px 7px; border-radius: 4px;
+    font-size: .6rem; font-weight: 700; letter-spacing: .04em;
+  }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-green { background: #dcfce7; color: #166534; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+  .badge-purple { background: #f3e8ff; color: #6b21a8; }
+  .badge-slate { background: #f1f5f9; color: #334155; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace; font-size: .82em;
+    background: var(--surface); padding: 2px 5px; border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .page-break { page-break-before: always; }
+
+  .svc-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .svc-icon {
+    width: 36px; height: 36px; border-radius: 8px; display: flex;
+    align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+  .svc-title { font-size: .88rem; font-weight: 800; color: var(--brand); }
+  .svc-db { font-size: .7rem; color: var(--text-secondary); font-weight: 500; }
+
+  @media print {
+    body { padding: 16px 24px; font-size: 12px; }
+    .cover { min-height: 88vh; }
+    h2 { page-break-before: auto; }
+    .diagram-wrapper, table { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════ COVER ════════════════════════ -->
+<div class="cover">
+  <div class="cover-badge">Behavioral Design Document</div>
+  <h1>Use Case Diagrams</h1>
+  <p class="cover-sub">Complete Actor-System Interaction Reference — All 5 Roles &amp; 6 Bounded Contexts</p>
+  <div class="cover-meta">
+    <strong>Version:</strong> 2.0 &nbsp;|&nbsp; <strong>Date:</strong> April 2026<br>
+    <strong>Actors:</strong> Dealer, Admin, Warehouse, Logistics, Delivery Agent<br>
+    <strong>System Actors:</strong> Outbox Dispatcher, Notification Consumer, Email Dispatcher<br>
+    <strong>Bounded Contexts:</strong> Identity, Catalog, Order, Logistics, Payment, Notification<br>
+    <strong>Classification:</strong> Confidential — Internal Use Only
+  </div>
+</div>
+
+<!-- ════════════════════════ TOC ════════════════════════ -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#s1">Actor Inventory &amp; Role Matrix</a></li>
+    <li><a href="#s2">System-Level Use Case Overview</a></li>
+    <li><a href="#s3">UC-1: Identity &amp; Authentication</a></li>
+    <li><a href="#s4">UC-2: Catalog &amp; Inventory Management</a></li>
+    <li><a href="#s5">UC-3: Order Lifecycle</a></li>
+    <li><a href="#s6">UC-4: Logistics &amp; Shipment Tracking</a></li>
+    <li><a href="#s7">UC-5: Payment &amp; Invoicing</a></li>
+    <li><a href="#s8">UC-6: Notification Engine</a></li>
+    <li><a href="#s9">UC-7: AI Exception Playbooks</a></li>
+    <li><a href="#s10">Cross-Cutting System Automation</a></li>
+    <li><a href="#s11">Use Case Traceability Matrix</a></li>
+  </ol>
+</div>
+
+<!-- ════════════════════════ SECTION 1 ════════════════════════ -->
+<h2 id="s1">1. Actor Inventory &amp; Role Matrix</h2>
+
+<h3>1.1 Human Actors</h3>
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph LR
+    subgraph Actors["Human Actors"]
+        D["👤 Dealer"]
+        A["👑 Admin"]
+        W["🏭 Warehouse"]
+        L["🚛 Logistics"]
+        AG["🚴 Agent"]
+    end
+
+    subgraph System["Supply Chain Platform"]
+        S1["🔐 Identity"]
+        S2["📦 Catalog"]
+        S3["📋 Orders"]
+        S4["🚚 Shipments"]
+        S5["💰 Payments"]
+        S6["🔔 Notifications"]
+    end
+
+    D --> S1 & S2 & S3 & S5 & S6
+    A --> S1 & S2 & S3 & S4 & S5 & S6
+    W --> S2 & S3 & S4
+    L --> S3 & S4
+    AG --> S4
+
+    style Actors fill:#f8fafc,stroke:#2563eb
+    style System fill:#f0fdf4,stroke:#16a34a
+  </pre>
+  <div class="diagram-caption">Figure 1 — Actor-to-Module Access Map</div>
+</div>
+
+<h3>1.2 Role Permission Matrix</h3>
+<table>
+  <thead><tr><th>Actor</th><th>Description</th><th>Auth Level</th><th>Accessible Modules</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Dealer</strong></td><td>B2B customer registered via self-service</td><td>JWT (Approved status)</td><td>Catalog, Orders, Cart, Invoices, Shipments (own), Notifications, Profile</td></tr>
+    <tr><td><strong>Admin</strong></td><td>Platform operator with full system access</td><td>JWT (Admin role)</td><td>All modules — full CRUD + dealer management + analytics</td></tr>
+    <tr><td><strong>Warehouse</strong></td><td>Fulfillment team — stock and dispatch</td><td>JWT (Warehouse role)</td><td>Catalog (restock), Orders (status), Shipments (create)</td></tr>
+    <tr><td><strong>Logistics</strong></td><td>Logistics coordinator — shipment routing</td><td>JWT (Logistics role)</td><td>Orders (status), Shipments (assign agent, status), AI chatbot</td></tr>
+    <tr><td><strong>Agent</strong></td><td>Last-mile delivery agent</td><td>JWT (Agent role)</td><td>Shipments (assigned, status update, accept/reject)</td></tr>
+  </tbody>
+</table>
+
+<h3>1.3 System Actors</h3>
+<table>
+  <thead><tr><th>Actor</th><th>Type</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Outbox Dispatcher</strong></td><td>Background Worker</td><td>Polls outbox tables and publishes events to RabbitMQ</td></tr>
+    <tr><td><strong>Notification Consumer</strong></td><td>RabbitMQ Consumer</td><td>Consumes domain events and creates notification records</td></tr>
+    <tr><td><strong>Email Dispatcher</strong></td><td>Background Worker</td><td>Resolves recipient emails and sends via SMTP</td></tr>
+    <tr><td><strong>RabbitMQ</strong></td><td>Message Broker</td><td>Topic exchange routing for all domain events</td></tr>
+    <tr><td><strong>Redis</strong></td><td>Cache Store</td><td>Token revocation and command idempotency</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 2 ════════════════════════ -->
+<h2 id="s2" class="page-break">2. System-Level Use Case Overview</h2>
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph TB
+    subgraph External["External Actors"]
+        DEALER["👤 Dealer"]
+        ADMIN["👑 Admin"]
+        WAREHOUSE["🏭 Warehouse"]
+        LOGISTICS["🚛 Logistics"]
+        AGENT["🚴 Agent"]
+    end
+
+    subgraph Platform["Supply Chain Platform"]
+        subgraph Auth["🔐 Identity"]
+            UA1(["Register"])
+            UA2(["Login / Logout"])
+            UA3(["Reset Password"])
+            UA4(["Approve Dealer"])
+        end
+        subgraph Cat["📦 Catalog"]
+            UC1(["Browse Products"])
+            UC2(["Manage Products"])
+            UC3(["Manage Stock"])
+            UC4(["Submit Review"])
+        end
+        subgraph Ord["📋 Orders"]
+            UO1(["Place Order"])
+            UO2(["Track Order"])
+            UO3(["Cancel Order"])
+            UO4(["Manage Returns"])
+            UO5(["Bulk Status"])
+        end
+        subgraph Ship["🚚 Shipments"]
+            US1(["Create Shipment"])
+            US2(["Assign Agent"])
+            US3(["Update Status"])
+            US4(["Track Delivery"])
+        end
+        subgraph Pay["💰 Payments"]
+            UP1(["Credit Check"])
+            UP2(["Process Payment"])
+            UP3(["Generate Invoice"])
+            UP4(["Download PDF"])
+        end
+        subgraph Not["🔔 Notifications"]
+            UN1(["View Feed"])
+            UN2(["Send Manual"])
+            UN3(["Mark Read"])
+        end
+    end
+
+    DEALER --> UA1 & UA2 & UA3
+    DEALER --> UC1 & UC4
+    DEALER --> UO1 & UO2 & UO3 & UO4
+    DEALER --> US4
+    DEALER --> UP2 & UP4
+    DEALER --> UN1 & UN3
+
+    ADMIN --> UA4 & UA2
+    ADMIN --> UC2 & UC3
+    ADMIN --> UO5
+    ADMIN --> US1 & US2
+    ADMIN --> UP1 & UP3
+    ADMIN --> UN2
+
+    WAREHOUSE --> UC3
+    WAREHOUSE --> UO5
+    WAREHOUSE --> US1
+
+    LOGISTICS --> US2 & US3
+    LOGISTICS --> UO5
+
+    AGENT --> US3 & US4
+
+    style External fill:#f8fafc,stroke:#64748b
+    style Auth fill:#dbeafe,stroke:#2563eb
+    style Cat fill:#dcfce7,stroke:#16a34a
+    style Ord fill:#fce7f3,stroke:#db2777
+    style Ship fill:#e0e7ff,stroke:#4f46e5
+    style Pay fill:#fef9c3,stroke:#ca8a04
+    style Not fill:#fee2e2,stroke:#dc2626
+  </pre>
+  <div class="diagram-caption">Figure 2 — System-Level Use Case Overview (All Actors and Bounded Contexts)</div>
+</div>
+
+<!-- ════════════════════════ SECTION 3 ════════════════════════ -->
+<h2 id="s3" class="page-break">3. UC-1: Identity &amp; Authentication</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#dbeafe;color:#2563eb;">🔐</div>
+  <div><div class="svc-title">IdentityAuth Service</div><div class="svc-db">8 Use Cases · Port 8001</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph LR
+    DEALER["👤 Dealer"]
+    ADMIN["👑 Admin"]
+    SYS["⚙️ System"]
+
+    subgraph Identity["Identity and Authentication"]
+        UC1(["UC-1.1 Self Register"])
+        UC2(["UC-1.2 Login"])
+        UC3(["UC-1.3 Refresh Token"])
+        UC4(["UC-1.4 Logout"])
+        UC5(["UC-1.5 Forgot Password"])
+        UC6(["UC-1.6 Reset Password"])
+        UC7(["UC-1.7 Approve Dealer"])
+        UC8(["UC-1.8 Reject Dealer"])
+        UC9(["UC-1.9 Update Credit Limit"])
+        UC10(["UC-1.10 View Profile"])
+        UC11(["UC-1.11 List Dealers"])
+    end
+
+    DEALER --> UC1 & UC2 & UC3 & UC4 & UC5 & UC6 & UC10
+    ADMIN --> UC2 & UC4 & UC7 & UC8 & UC9 & UC11
+
+    UC1 -.->|"triggers"| SYS
+    UC7 -.->|"triggers"| SYS
+    UC8 -.->|"triggers"| SYS
+    UC5 -.->|"triggers"| SYS
+
+    style Identity fill:#dbeafe,stroke:#2563eb
+  </pre>
+  <div class="diagram-caption">Figure 3 — UC-1: Identity and Authentication Use Cases</div>
+</div>
+
+<h3>3.1 Use Case Specifications</h3>
+<table>
+  <thead><tr><th>ID</th><th>Use Case</th><th>Actor</th><th>Precondition</th><th>Primary Flow</th><th>Events Emitted</th></tr></thead>
+  <tbody>
+    <tr><td>UC-1.1</td><td>Self Register</td><td>Dealer</td><td>Not registered</td><td>Submit form with business details and GST → create User (Pending) + DealerProfile → publish event</td><td>DealerRegistered</td></tr>
+    <tr><td>UC-1.2</td><td>Login</td><td>Any</td><td>Approved status</td><td>Email + Password → validate → issue JWT + Refresh Token cookie</td><td>—</td></tr>
+    <tr><td>UC-1.3</td><td>Refresh Token</td><td>Any</td><td>Valid refresh cookie</td><td>Validate refresh token → issue new JWT + rotate refresh</td><td>—</td></tr>
+    <tr><td>UC-1.4</td><td>Logout</td><td>Any</td><td>Authenticated</td><td>Revoke refresh token → add JTI to Redis revocation set</td><td>—</td></tr>
+    <tr><td>UC-1.5</td><td>Forgot Password</td><td>Dealer</td><td>Registered</td><td>Email → generate OTP → hash and store → trigger email</td><td>PasswordResetRequested</td></tr>
+    <tr><td>UC-1.6</td><td>Reset Password</td><td>Dealer</td><td>Valid OTP</td><td>OTP + new password → verify OTP → update hash → mark OTP used</td><td>PasswordResetCompleted</td></tr>
+    <tr><td>UC-1.7</td><td>Approve Dealer</td><td>Admin</td><td>Dealer in Pending</td><td>Set status = Approved → create credit account in PaymentService → publish event</td><td>DealerApproved</td></tr>
+    <tr><td>UC-1.8</td><td>Reject Dealer</td><td>Admin</td><td>Dealer in Pending</td><td>Set status = Rejected with reason → publish event</td><td>DealerRejected</td></tr>
+    <tr><td>UC-1.9</td><td>Update Credit Limit</td><td>Admin</td><td>Dealer approved</td><td>Update CreditLimit field → call PaymentService internal API</td><td>CreditLimitUpdated</td></tr>
+    <tr><td>UC-1.10</td><td>View Profile</td><td>Any</td><td>Authenticated</td><td>Return current user + dealer profile if applicable</td><td>—</td></tr>
+    <tr><td>UC-1.11</td><td>List Dealers</td><td>Admin</td><td>Admin role</td><td>Paginated dealer list with status and role filters</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 4 ════════════════════════ -->
+<h2 id="s4" class="page-break">4. UC-2: Catalog &amp; Inventory Management</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#dcfce7;color:#16a34a;">📦</div>
+  <div><div class="svc-title">CatalogInventory Service</div><div class="svc-db">12 Use Cases · Port 8002</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph LR
+    DEALER["👤 Dealer"]
+    ADMIN["👑 Admin"]
+    WAREHOUSE["🏭 Warehouse"]
+
+    subgraph Catalog["Catalog and Inventory"]
+        UC1(["UC-2.1 Browse Products"])
+        UC2(["UC-2.2 Search Products"])
+        UC3(["UC-2.3 View Product Detail"])
+        UC4(["UC-2.4 Create Product"])
+        UC5(["UC-2.5 Update Product"])
+        UC6(["UC-2.6 Restock Product"])
+        UC7(["UC-2.7 Soft Lock Stock"])
+        UC8(["UC-2.8 Hard Deduct Stock"])
+        UC9(["UC-2.9 Release Soft Lock"])
+        UC10(["UC-2.10 Subscribe Low Stock"])
+        UC11(["UC-2.11 Submit Review"])
+        UC12(["UC-2.12 Moderate Review"])
+    end
+
+    DEALER --> UC1 & UC2 & UC3 & UC10 & UC11
+    ADMIN --> UC1 & UC2 & UC3 & UC4 & UC5 & UC6 & UC7 & UC9 & UC12
+    WAREHOUSE --> UC6 & UC8
+
+    style Catalog fill:#dcfce7,stroke:#16a34a
+  </pre>
+  <div class="diagram-caption">Figure 4 — UC-2: Catalog and Inventory Use Cases</div>
+</div>
+
+<h3>4.1 Use Case Specifications</h3>
+<table>
+  <thead><tr><th>ID</th><th>Use Case</th><th>Actor</th><th>Precondition</th><th>Primary Flow</th><th>Events Emitted</th></tr></thead>
+  <tbody>
+    <tr><td>UC-2.1</td><td>Browse Products</td><td>Any</td><td>None</td><td>Paginated product list with category filter and sorting</td><td>—</td></tr>
+    <tr><td>UC-2.2</td><td>Search Products</td><td>Any</td><td>None</td><td>Keyword search across name / SKU / description</td><td>—</td></tr>
+    <tr><td>UC-2.3</td><td>View Product Detail</td><td>Any</td><td>None</td><td>Full product info + stock availability + reviews</td><td>—</td></tr>
+    <tr><td>UC-2.4</td><td>Create Product</td><td>Admin</td><td>Admin role</td><td>Product name + SKU + price + category → create with initial stock</td><td>ProductCreated</td></tr>
+    <tr><td>UC-2.5</td><td>Update Product</td><td>Admin</td><td>Product exists</td><td>Update name / price / description / active status</td><td>ProductUpdated</td></tr>
+    <tr><td>UC-2.6</td><td>Restock Product</td><td>Admin / Warehouse</td><td>Product exists</td><td>Add quantity → create StockTransaction(Restock) → increase PhysicalStock</td><td>StockUpdated</td></tr>
+    <tr><td>UC-2.7</td><td>Soft Lock Stock</td><td>System</td><td>Order placed</td><td>Reserve quantity → create StockTransaction(SoftLock) → increase LockedStock</td><td>—</td></tr>
+    <tr><td>UC-2.8</td><td>Hard Deduct Stock</td><td>System</td><td>Shipment dispatched</td><td>Deduct from physical → create StockTransaction(HardDeduct) → decrease both</td><td>StockUpdated</td></tr>
+    <tr><td>UC-2.9</td><td>Release Soft Lock</td><td>System</td><td>Order cancelled</td><td>Reverse lock → create StockTransaction(Release) → decrease LockedStock</td><td>—</td></tr>
+    <tr><td>UC-2.10</td><td>Subscribe Low Stock</td><td>Dealer</td><td>Authenticated</td><td>Set alert threshold for a product → notify when stock drops below</td><td>—</td></tr>
+    <tr><td>UC-2.11</td><td>Submit Review</td><td>Dealer</td><td>Has purchased product</td><td>Submit rating + comment → pending moderation</td><td>—</td></tr>
+    <tr><td>UC-2.12</td><td>Moderate Review</td><td>Admin</td><td>Review pending</td><td>Approve or reject review → update visibility</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 5 ════════════════════════ -->
+<h2 id="s5" class="page-break">5. UC-3: Order Lifecycle</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#fce7f3;color:#db2777;">📋</div>
+  <div><div class="svc-title">Order Service</div><div class="svc-db">11 Use Cases · Port 8003</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph LR
+    DEALER["👤 Dealer"]
+    ADMIN["👑 Admin"]
+    WH["🏭 Warehouse"]
+    LOG["🚛 Logistics"]
+
+    subgraph Orders["Order Management"]
+        UC1(["UC-3.1 Place Order"])
+        UC2(["UC-3.2 View My Orders"])
+        UC3(["UC-3.3 View Order Detail"])
+        UC4(["UC-3.4 Cancel Order"])
+        UC5(["UC-3.5 Request Return"])
+        UC6(["UC-3.6 Update Status"])
+        UC7(["UC-3.7 Approve Credit Hold"])
+        UC8(["UC-3.8 Reject Credit Hold"])
+        UC9(["UC-3.9 Approve Return"])
+        UC10(["UC-3.10 Reject Return"])
+        UC11(["UC-3.11 Bulk Status Update"])
+        UC12(["UC-3.12 View Analytics"])
+    end
+
+    DEALER --> UC1 & UC2 & UC3 & UC4 & UC5
+    ADMIN --> UC3 & UC4 & UC6 & UC7 & UC8 & UC9 & UC10 & UC11 & UC12
+    WH --> UC6 & UC7 & UC8 & UC11
+    LOG --> UC6 & UC11
+
+    style Orders fill:#fce7f3,stroke:#db2777
+  </pre>
+  <div class="diagram-caption">Figure 5 — UC-3: Order Lifecycle Use Cases</div>
+</div>
+
+<h3>5.1 Use Case Specifications</h3>
+<table>
+  <thead><tr><th>ID</th><th>Use Case</th><th>Actor</th><th>Precondition</th><th>Primary Flow</th><th>Events Emitted</th></tr></thead>
+  <tbody>
+    <tr><td>UC-3.1</td><td>Place Order</td><td>Dealer</td><td>Cart has items</td><td>Submit cart → credit check → soft lock stock → if approved: Processing / if rejected: OnHold</td><td>OrderPlaced or CreditHoldRequired</td></tr>
+    <tr><td>UC-3.2</td><td>View My Orders</td><td>Dealer</td><td>Authenticated</td><td>Paginated list of dealer's own orders with status filter</td><td>—</td></tr>
+    <tr><td>UC-3.3</td><td>View Order Detail</td><td>Any</td><td>Ownership check</td><td>Order aggregate + lines + status history + return request + saga state</td><td>—</td></tr>
+    <tr><td>UC-3.4</td><td>Cancel Order</td><td>Dealer / Admin</td><td>Cancellable status</td><td>Validate state machine transition → release stock lock → set Cancelled</td><td>OrderCancelled</td></tr>
+    <tr><td>UC-3.5</td><td>Request Return</td><td>Dealer</td><td>Order = Delivered</td><td>Submit reason → create ReturnRequest → set ReturnRequested</td><td>ReturnRequested</td></tr>
+    <tr><td>UC-3.6</td><td>Update Status</td><td>Admin / WH / Log</td><td>Valid transition</td><td>Validate against state machine → record in StatusHistory → emit event</td><td>OrderStatusUpdated</td></tr>
+    <tr><td>UC-3.7</td><td>Approve Credit Hold</td><td>Admin / WH</td><td>Order = OnHold</td><td>Set CreditHoldStatus = Approved → status = Processing → soft lock stock</td><td>OrderPlaced</td></tr>
+    <tr><td>UC-3.8</td><td>Reject Credit Hold</td><td>Admin / WH</td><td>Order = OnHold</td><td>Set CreditHoldStatus = Rejected → status = Cancelled</td><td>OrderCancelled</td></tr>
+    <tr><td>UC-3.9</td><td>Approve Return</td><td>Admin</td><td>ReturnRequested</td><td>ReturnRequest.IsApproved = true → status = ReturnApproved → close</td><td>ReturnApproved</td></tr>
+    <tr><td>UC-3.10</td><td>Reject Return</td><td>Admin</td><td>ReturnRequested</td><td>ReturnRequest.IsApproved = false → status = ReturnRejected → close</td><td>ReturnRejected</td></tr>
+    <tr><td>UC-3.11</td><td>Bulk Status Update</td><td>Admin / WH / Log</td><td>Valid orders</td><td>Select multiple orders → validate all transitions → apply or preview</td><td>Multiple OrderStatusUpdated</td></tr>
+    <tr><td>UC-3.12</td><td>View Analytics</td><td>Admin</td><td>Admin role</td><td>Purchase KPIs and top dealers/products aggregation</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 6 ════════════════════════ -->
+<h2 id="s6" class="page-break">6. UC-4: Logistics &amp; Shipment Tracking</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#e0e7ff;color:#4f46e5;">🚚</div>
+  <div><div class="svc-title">LogisticsTracking Service</div><div class="svc-db">9 Use Cases · Port 8004</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph LR
+    DEALER["👤 Dealer"]
+    ADMIN["👑 Admin"]
+    WH["🏭 Warehouse"]
+    LOG["🚛 Logistics"]
+    AGENT["🚴 Agent"]
+
+    subgraph Logistics["Logistics and Shipment Tracking"]
+        UC1(["UC-4.1 Create Shipment"])
+        UC2(["UC-4.2 Assign Agent"])
+        UC3(["UC-4.3 Update Status"])
+        UC4(["UC-4.4 View Shipments"])
+        UC5(["UC-4.5 Track My Shipments"])
+        UC6(["UC-4.6 View Shipment Detail"])
+        UC7(["UC-4.7 Accept Assignment"])
+        UC8(["UC-4.8 Rate Delivery"])
+        UC9(["UC-4.9 AI Chatbot Query"])
+    end
+
+    ADMIN --> UC1 & UC2 & UC3 & UC4 & UC6 & UC9
+    WH --> UC1 & UC4
+    LOG --> UC2 & UC3 & UC4 & UC6 & UC9
+    AGENT --> UC3 & UC7
+    DEALER --> UC5 & UC6 & UC8
+
+    style Logistics fill:#e0e7ff,stroke:#4f46e5
+  </pre>
+  <div class="diagram-caption">Figure 6 — UC-4: Logistics and Shipment Tracking Use Cases</div>
+</div>
+
+<h3>6.1 Use Case Specifications</h3>
+<table>
+  <thead><tr><th>ID</th><th>Use Case</th><th>Actor</th><th>Precondition</th><th>Primary Flow</th><th>Events Emitted</th></tr></thead>
+  <tbody>
+    <tr><td>UC-4.1</td><td>Create Shipment</td><td>Admin / WH</td><td>Order = ReadyForDispatch</td><td>Create shipment with delivery address → status = Created → link to order</td><td>ShipmentCreated</td></tr>
+    <tr><td>UC-4.2</td><td>Assign Agent</td><td>Admin / Logistics</td><td>Shipment = Created</td><td>Select agent + vehicle → status = Assigned → emit event</td><td>ShipmentAssigned</td></tr>
+    <tr><td>UC-4.3</td><td>Update Status</td><td>Admin / Log / Agent</td><td>Valid transition</td><td>Validate shipment state machine → create ShipmentEvent → emit</td><td>ShipmentStatusUpdated</td></tr>
+    <tr><td>UC-4.4</td><td>View Shipments</td><td>Admin / WH / Log</td><td>Authenticated</td><td>Paginated shipment list with status and date filters</td><td>—</td></tr>
+    <tr><td>UC-4.5</td><td>Track My Shipments</td><td>Dealer</td><td>Authenticated</td><td>View own shipments filtered by DealerId with event timeline</td><td>—</td></tr>
+    <tr><td>UC-4.6</td><td>View Shipment Detail</td><td>Any</td><td>Ownership/role check</td><td>Full shipment info + event timeline + ops state</td><td>—</td></tr>
+    <tr><td>UC-4.7</td><td>Accept Assignment</td><td>Agent</td><td>Assigned to agent</td><td>Agent accepts/rejects assignment → update decision status</td><td>ShipmentStatusUpdated</td></tr>
+    <tr><td>UC-4.8</td><td>Rate Delivery</td><td>Dealer</td><td>Shipment = Delivered</td><td>Submit 1-5 rating + optional comment → persist on shipment</td><td>—</td></tr>
+    <tr><td>UC-4.9</td><td>AI Chatbot Query</td><td>Admin / Log / Agent</td><td>Authenticated</td><td>Natural language query → AI processes shipment context → return insights</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 7 ════════════════════════ -->
+<h2 id="s7" class="page-break">7. UC-5: Payment &amp; Invoicing</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#fef9c3;color:#ca8a04;">💰</div>
+  <div><div class="svc-title">PaymentInvoice Service</div><div class="svc-db">10 Use Cases · Port 8005</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph LR
+    DEALER["👤 Dealer"]
+    ADMIN["👑 Admin"]
+    SYS["⚙️ Order Service"]
+
+    subgraph Payment["Payment and Invoicing"]
+        UC1(["UC-5.1 Credit Check"])
+        UC2(["UC-5.2 Create Gateway Order"])
+        UC3(["UC-5.3 Verify Payment"])
+        UC4(["UC-5.4 Update Credit Limit"])
+        UC5(["UC-5.5 Settle Balance"])
+        UC6(["UC-5.6 Generate Invoice"])
+        UC7(["UC-5.7 Download Invoice PDF"])
+        UC8(["UC-5.8 View Workflow State"])
+        UC9(["UC-5.9 Update Workflow"])
+        UC10(["UC-5.10 Add Workflow Activity"])
+    end
+
+    DEALER --> UC2 & UC3 & UC5 & UC7 & UC8
+    ADMIN --> UC4 & UC5 & UC6 & UC7 & UC8 & UC9 & UC10
+    SYS -->|"internal call"| UC1
+
+    style Payment fill:#fef9c3,stroke:#ca8a04
+  </pre>
+  <div class="diagram-caption">Figure 7 — UC-5: Payment and Invoicing Use Cases</div>
+</div>
+
+<h3>7.1 Use Case Specifications</h3>
+<table>
+  <thead><tr><th>ID</th><th>Use Case</th><th>Actor</th><th>Precondition</th><th>Primary Flow</th><th>Events Emitted</th></tr></thead>
+  <tbody>
+    <tr><td>UC-5.1</td><td>Credit Check</td><td>System</td><td>Order being placed</td><td>Lookup DealerCreditAccount → compare AvailableCredit vs order amount → return pass/fail</td><td>—</td></tr>
+    <tr><td>UC-5.2</td><td>Create Gateway Order</td><td>Dealer</td><td>Order confirmed</td><td>Create Razorpay order → return order ID and key to frontend</td><td>—</td></tr>
+    <tr><td>UC-5.3</td><td>Verify Payment</td><td>Dealer</td><td>Razorpay checkout done</td><td>HMAC-SHA256 signature verify → record payment → optionally capture</td><td>PaymentVerified</td></tr>
+    <tr><td>UC-5.4</td><td>Update Credit Limit</td><td>Admin</td><td>Dealer approved</td><td>Update CreditLimit on DealerCreditAccount</td><td>CreditLimitUpdated</td></tr>
+    <tr><td>UC-5.5</td><td>Settle Balance</td><td>Admin / Dealer</td><td>Outstanding > 0</td><td>Apply settlement amount → reduce CurrentOutstanding</td><td>—</td></tr>
+    <tr><td>UC-5.6</td><td>Generate Invoice</td><td>Admin</td><td>Order exists</td><td>Idempotency check → build lines from order → calculate GST → generate QuestPDF → persist</td><td>InvoiceGenerated</td></tr>
+    <tr><td>UC-5.7</td><td>Download Invoice PDF</td><td>Admin / Dealer</td><td>Invoice exists</td><td>Return stored PDF file for download</td><td>—</td></tr>
+    <tr><td>UC-5.8</td><td>View Workflow State</td><td>Admin / Dealer</td><td>Invoice exists</td><td>Return current collection workflow state and due date</td><td>—</td></tr>
+    <tr><td>UC-5.9</td><td>Update Workflow</td><td>Admin</td><td>Workflow exists</td><td>Upsert workflow state (Pending → Reminded → Overdue → Collected)</td><td>—</td></tr>
+    <tr><td>UC-5.10</td><td>Add Workflow Activity</td><td>Admin / Dealer</td><td>Invoice exists</td><td>Append activity log entry (Created / Reminded / Escalated / Collected / Note)</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 8 ════════════════════════ -->
+<h2 id="s8" class="page-break">8. UC-6: Notification Engine</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#fee2e2;color:#dc2626;">🔔</div>
+  <div><div class="svc-title">Notification Service</div><div class="svc-db">5 Use Cases · Port 8006</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph LR
+    DEALER["👤 Dealer"]
+    ADMIN["👑 Admin"]
+    SYS["⚙️ System Workers"]
+
+    subgraph Notif["Notification Engine"]
+        UC1(["UC-6.1 View My Notifications"])
+        UC2(["UC-6.2 Mark as Read"])
+        UC3(["UC-6.3 Send Manual Notification"])
+        UC4(["UC-6.4 Ingest Domain Event"])
+        UC5(["UC-6.5 Dispatch Email"])
+    end
+
+    DEALER --> UC1 & UC2
+    ADMIN --> UC1 & UC2 & UC3
+    SYS --> UC4 & UC5
+
+    style Notif fill:#fee2e2,stroke:#dc2626
+  </pre>
+  <div class="diagram-caption">Figure 8 — UC-6: Notification Engine Use Cases</div>
+</div>
+
+<h3>8.1 Use Case Specifications</h3>
+<table>
+  <thead><tr><th>ID</th><th>Use Case</th><th>Actor</th><th>Precondition</th><th>Primary Flow</th><th>Events Emitted</th></tr></thead>
+  <tbody>
+    <tr><td>UC-6.1</td><td>View My Notifications</td><td>Any</td><td>Authenticated</td><td>Paginated feed filtered by RecipientUserId. Admin sees all.</td><td>—</td></tr>
+    <tr><td>UC-6.2</td><td>Mark as Read</td><td>Any</td><td>Owns notification</td><td>Set IsRead = true and ReadAtUtc = now</td><td>—</td></tr>
+    <tr><td>UC-6.3</td><td>Send Manual Notification</td><td>Admin</td><td>Admin role</td><td>Create notification with title + body + channel + recipient</td><td>—</td></tr>
+    <tr><td>UC-6.4</td><td>Ingest Domain Event</td><td>System</td><td>Event published</td><td>Consumer receives from RabbitMQ → classify channel → create notification record</td><td>—</td></tr>
+    <tr><td>UC-6.5</td><td>Dispatch Email</td><td>System</td><td>Email-channel pending</td><td>Poll pending → resolve email via IdentityAuth → send HTML via SMTP → mark sent/failed</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 9 ════════════════════════ -->
+<h2 id="s9" class="page-break">9. UC-7: AI Exception Playbooks</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#f3e8ff;color:#7c3aed;">🤖</div>
+  <div><div class="svc-title">AI Decision Support</div><div class="svc-db">4 Use Cases · Human-in-the-Loop</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph LR
+    ADMIN["👑 Admin"]
+    LOG["🚛 Logistics"]
+    AI["🤖 AI Orchestrator"]
+
+    subgraph AIPlaybook["AI Exception Playbooks"]
+        UC1(["UC-7.1 Get Recommendation"])
+        UC2(["UC-7.2 Execute Approved Action"])
+        UC3(["UC-7.3 View Audit Trail"])
+        UC4(["UC-7.4 AI Chatbot Query"])
+    end
+
+    ADMIN --> UC1 & UC2 & UC3
+    LOG --> UC1 & UC3 & UC4
+    AI -.->|"generates"| UC1
+
+    style AIPlaybook fill:#f3e8ff,stroke:#7c3aed
+  </pre>
+  <div class="diagram-caption">Figure 9 — UC-7: AI Exception Playbooks Use Cases</div>
+</div>
+
+<h3>9.1 Use Case Specifications</h3>
+<table>
+  <thead><tr><th>ID</th><th>Use Case</th><th>Actor</th><th>Precondition</th><th>Primary Flow</th><th>Governance</th></tr></thead>
+  <tbody>
+    <tr><td>UC-7.1</td><td>Get Recommendation</td><td>Admin / Logistics</td><td>Exception detected</td><td>Gather entity context → AI generates recommendation → validate schema → return with confidence score</td><td>Confidence threshold + schema validation</td></tr>
+    <tr><td>UC-7.2</td><td>Execute Approved Action</td><td>Admin</td><td>Recommendation approved</td><td>Execute suggested actions in sequence → record outcome → update audit trail</td><td>Human approval required for medium/high impact</td></tr>
+    <tr><td>UC-7.3</td><td>View Audit Trail</td><td>Admin / Logistics</td><td>Exception exists</td><td>View full history: exception → recommendation → decision → outcome</td><td>Immutable audit log</td></tr>
+    <tr><td>UC-7.4</td><td>AI Chatbot Query</td><td>Admin / Logistics</td><td>Authenticated</td><td>Natural language question about shipments → AI responds with insights and suggested actions</td><td>Read-only — no state mutations</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 10 ════════════════════════ -->
+<h2 id="s10" class="page-break">10. Cross-Cutting System Automation</h2>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph TB
+    subgraph Trigger["Domain Event Trigger"]
+        BIZ["Business Operation"]
+    end
+
+    subgraph Auto["Automated System Use Cases"]
+        A1(["UC-S.1 Write to Outbox"])
+        A2(["UC-S.2 Dispatch to RabbitMQ"])
+        A3(["UC-S.3 Create Notification"])
+        A4(["UC-S.4 Send Email"])
+        A5(["UC-S.5 Check Idempotency"])
+        A6(["UC-S.6 Revoke Token"])
+    end
+
+    BIZ --> A1
+    A1 -->|"Background Worker"| A2
+    A2 -->|"RabbitMQ Topic"| A3
+    A3 -->|"Email Channel"| A4
+    BIZ --> A5
+    BIZ --> A6
+
+    style Trigger fill:#f8fafc,stroke:#64748b
+    style Auto fill:#fef3c7,stroke:#d97706
+  </pre>
+  <div class="diagram-caption">Figure 10 — Cross-Cutting System Automation Flow</div>
+</div>
+
+<table>
+  <thead><tr><th>ID</th><th>System Use Case</th><th>Trigger</th><th>Flow</th><th>Failure Handling</th></tr></thead>
+  <tbody>
+    <tr><td>UC-S.1</td><td>Write to Outbox</td><td>Any domain write</td><td>Domain data + OutboxMessage in single transaction</td><td>Fail = no event (strong consistency)</td></tr>
+    <tr><td>UC-S.2</td><td>Dispatch to RabbitMQ</td><td>Background poll</td><td>Read Pending messages → publish → mark Published</td><td>Retry up to max → mark Failed</td></tr>
+    <tr><td>UC-S.3</td><td>Create Notification</td><td>RabbitMQ event</td><td>Consumer → classify channel → persist notification</td><td>Dead-letter queue on repeated failure</td></tr>
+    <tr><td>UC-S.4</td><td>Send Email</td><td>Email-channel pending</td><td>Resolve email via Identity → send HTML via SMTP</td><td>Mark failed + retry next cycle</td></tr>
+    <tr><td>UC-S.5</td><td>Check Idempotency</td><td>Any POST/PUT command</td><td>Check Redis for key → skip if exists → set key with TTL</td><td>Redis unavailable → allow through</td></tr>
+    <tr><td>UC-S.6</td><td>Revoke Token</td><td>Logout</td><td>Add JTI to Redis revocation set with token TTL</td><td>Redis unavailable → log warning</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 11 ════════════════════════ -->
+<h2 id="s11" class="page-break">11. Use Case Traceability Matrix</h2>
+<p>Maps each use case to its implementing API endpoint and service:</p>
+
+<table>
+  <thead><tr><th>Use Case ID</th><th>Name</th><th>Service</th><th>API Endpoint</th><th>HTTP Method</th></tr></thead>
+  <tbody>
+    <tr><td>UC-1.1</td><td>Self Register</td><td>IdentityAuth</td><td>/api/auth/register</td><td>POST</td></tr>
+    <tr><td>UC-1.2</td><td>Login</td><td>IdentityAuth</td><td>/api/auth/login</td><td>POST</td></tr>
+    <tr><td>UC-1.5</td><td>Forgot Password</td><td>IdentityAuth</td><td>/api/auth/forgot-password</td><td>POST</td></tr>
+    <tr><td>UC-1.7</td><td>Approve Dealer</td><td>IdentityAuth</td><td>/api/admin/dealers/{id}/approve</td><td>PUT</td></tr>
+    <tr><td>UC-2.1</td><td>Browse Products</td><td>CatalogInventory</td><td>/api/products</td><td>GET</td></tr>
+    <tr><td>UC-2.4</td><td>Create Product</td><td>CatalogInventory</td><td>/api/products</td><td>POST</td></tr>
+    <tr><td>UC-2.6</td><td>Restock Product</td><td>CatalogInventory</td><td>/api/products/{id}/restock</td><td>POST</td></tr>
+    <tr><td>UC-2.7</td><td>Soft Lock Stock</td><td>CatalogInventory</td><td>/api/inventory/soft-lock</td><td>POST</td></tr>
+    <tr><td>UC-2.11</td><td>Submit Review</td><td>CatalogInventory</td><td>/api/products/{id}/reviews</td><td>POST</td></tr>
+    <tr><td>UC-3.1</td><td>Place Order</td><td>Order</td><td>/api/orders</td><td>POST</td></tr>
+    <tr><td>UC-3.4</td><td>Cancel Order</td><td>Order</td><td>/api/orders/{id}/cancel</td><td>POST</td></tr>
+    <tr><td>UC-3.5</td><td>Request Return</td><td>Order</td><td>/api/orders/{id}/returns</td><td>POST</td></tr>
+    <tr><td>UC-3.7</td><td>Approve Credit Hold</td><td>Order</td><td>/api/admin/orders/{id}/approve-hold</td><td>PUT</td></tr>
+    <tr><td>UC-3.11</td><td>Bulk Status Update</td><td>Order</td><td>/api/admin/orders/bulk-status</td><td>POST</td></tr>
+    <tr><td>UC-3.12</td><td>View Analytics</td><td>Order</td><td>/api/admin/orders/analytics</td><td>GET</td></tr>
+    <tr><td>UC-4.1</td><td>Create Shipment</td><td>Logistics</td><td>/api/logistics/shipments</td><td>POST</td></tr>
+    <tr><td>UC-4.2</td><td>Assign Agent</td><td>Logistics</td><td>/api/logistics/shipments/{id}/assign-agent</td><td>PUT</td></tr>
+    <tr><td>UC-4.9</td><td>AI Chatbot Query</td><td>Logistics</td><td>/api/logistics/shipments/chatbot/ask</td><td>POST</td></tr>
+    <tr><td>UC-5.1</td><td>Credit Check</td><td>PaymentInvoice</td><td>/api/payment/dealers/{id}/credit-check</td><td>GET</td></tr>
+    <tr><td>UC-5.6</td><td>Generate Invoice</td><td>PaymentInvoice</td><td>/api/payment/invoices</td><td>POST</td></tr>
+    <tr><td>UC-5.7</td><td>Download Invoice</td><td>PaymentInvoice</td><td>/api/payment/invoices/{id}/download</td><td>GET</td></tr>
+    <tr><td>UC-6.1</td><td>View Notifications</td><td>Notification</td><td>/api/notifications/my</td><td>GET</td></tr>
+    <tr><td>UC-6.3</td><td>Send Manual</td><td>Notification</td><td>/api/notifications/manual</td><td>POST</td></tr>
+    <tr><td>UC-7.1</td><td>Get Recommendation</td><td>AI Orchestrator</td><td>/api/ai/exceptions/{id}/recommend</td><td>POST</td></tr>
+    <tr><td>UC-7.2</td><td>Execute Approved</td><td>AI Orchestrator</td><td>/api/ai/exceptions/{id}/execute</td><td>POST</td></tr>
+  </tbody>
+</table>
+
+<div style="margin-top: 64px; text-align: center; padding: 32px; border-top: 2px solid var(--border);">
+  <p style="font-size: .76rem; color: var(--text-secondary); margin: 0;">
+    <strong>Supply Chain Management Platform — Use Case Diagrams v2.0</strong><br>
+    57 Use Cases · 5 Human Actors · 5 System Actors · April 2026
+  </p>
+</div>
+
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'neutral', themeVariables: { fontSize: '11px' } });
+</script>
+</body>
+</html>

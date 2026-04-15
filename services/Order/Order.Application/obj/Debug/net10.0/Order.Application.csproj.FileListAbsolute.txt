@@ -39,3 +39,9 @@ C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-fix\Order.Application.
 C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-warehouse-ready\Order.Application.deps.json
 C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-warehouse-ready\Order.Application.dll
 C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-warehouse-ready\Order.Application.pdb
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-ai\Order.Application.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-ai\Order.Application.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-ai\Order.Application.pdb
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-no-ollama\Order.Application.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-no-ollama\Order.Application.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-no-ollama\Order.Application.pdb

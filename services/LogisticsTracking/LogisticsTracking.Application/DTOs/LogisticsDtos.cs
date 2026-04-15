@@ -73,30 +73,16 @@ public sealed record ShipmentOpsStateDto(
     DateTime? LastRetryScheduledAtUtc,
     DateTime UpdatedAtUtc);
 
-public sealed record ShipmentAiActionDto(
-    string ActionType,
-    string Description,
-    string ProposedValue);
+public sealed record LogisticsChatbotRequest(string Message);
 
-public sealed record ShipmentAiRecommendationDto(
-    Guid RecommendationId,
-    Guid ShipmentId,
-    string PlaybookType,
-    double ConfidenceScore,
-    string ExplanationText,
-    bool RequiresHumanApproval,
-    DateTime CreatedAtUtc,
-    IReadOnlyList<ShipmentAiActionDto> SuggestedActions);
+public sealed record LogisticsChatbotSourceDto(
+    string Type,
+    string Reference,
+    string Detail);
 
-public sealed record AiRecommendationExecutionStepDto(
-    string ActionType,
-    string Result,
-    string Message);
-
-public sealed record ApproveAiRecommendationResultDto(
-    Guid RecommendationId,
-    Guid ShipmentId,
-    bool Executed,
-    DateTime ApprovedAtUtc,
-    IReadOnlyList<AiRecommendationExecutionStepDto> Steps,
-    ShipmentDto Shipment);
+public sealed record LogisticsChatbotResponseDto(
+    string Intent,
+    string Reply,
+    IReadOnlyList<LogisticsChatbotSourceDto> Sources,
+    IReadOnlyList<string> SuggestedPrompts,
+    DateTime CreatedAtUtc);

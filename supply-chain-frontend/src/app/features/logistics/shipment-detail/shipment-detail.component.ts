@@ -13,9 +13,7 @@ import { ShipmentOpsQueueService, ShipmentOpsState } from '../../../core/service
 import { AgentSummaryDto } from '../../../core/models/auth.models';
 import {
   ShipmentDto,
-  ShipmentAiRecommendationDto,
-  ApproveAiRecommendationResultDto,
-  AiRecommendationExecutionStepDto
+  LogisticsChatbotResponseDto
 } from '../../../core/models/logistics.models';
 import { AssignmentDecisionStatus, NotificationChannel, ShipmentStatus, SHIPMENT_STATUS_LABELS, SHIPMENT_STATUS_BADGE, UserRole } from '../../../core/models/enums';
 import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle.mocks';
@@ -73,6 +71,60 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
           }
         </div>
       </div>
+
+      @if (canAskOpsChatbot()) {
+        <button
+          type="button"
+          class="shipment-chat-fab"
+          (click)="showQuickChatbot.set(true)"
+          [attr.aria-label]="showQuickChatbot() ? 'Chatbot open' : 'Open chatbot'">
+          💬
+        </button>
+
+        @if (showQuickChatbot()) {
+          <section class="shipment-chat-panel" role="dialog" aria-label="Shipment chatbot">
+            <div class="shipment-chat-panel-head">
+              <div>
+                <div class="shipment-chat-title">Logistics Chatbot</div>
+                <div class="shipment-chat-sub">Ask about status, delays, retries, or assignment gaps.</div>
+              </div>
+              <button type="button" class="btn btn-ghost btn-sm" (click)="showQuickChatbot.set(false)">Close</button>
+            </div>
+
+            <div class="form-group mb-3">
+              <label>Question</label>
+              <textarea
+                class="form-control"
+                rows="3"
+                maxlength="500"
+                [(ngModel)]="chatPrompt"
+                placeholder="Example: Show delayed shipments and retry queue details"></textarea>
+            </div>
+
+            <div class="d-flex justify-end">
+              <button class="btn btn-primary btn-sm" (click)="askOpsChatbot()" [disabled]="chatLoading() || !chatPrompt.trim()">{{ chatLoading() ? 'Thinking...' : 'Ask' }}</button>
+            </div>
+
+            @if (chatResponse()) {
+              <div class="chatbot-reply mt-3">
+                <div><span class="field-label">Intent</span><span class="badge badge-info">{{ chatResponse()!.intent }}</span></div>
+                <div class="mt-2"><span class="field-label">Response</span><p class="text-sm mb-0">{{ chatResponse()!.reply }}</p></div>
+              </div>
+
+              @if (chatResponse()!.suggestedPrompts.length > 0) {
+                <div class="mt-3">
+                  <span class="field-label">Try Asking</span>
+                  <div class="d-flex gap-2" style="flex-wrap: wrap;">
+                    @for (prompt of chatResponse()!.suggestedPrompts; track $index) {
+                      <button class="btn btn-ghost btn-sm" (click)="useSuggestedPrompt(prompt)">{{ prompt }}</button>
+                    }
+                  </div>
+                </div>
+              }
+            }
+          </section>
+        }
+      }
 
       @if (loading()) {
         <div class="skeleton" style="height:400px;border-radius:8px"></div>
@@ -176,59 +228,58 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
 
         <div class="card mb-4">
           <div class="d-flex align-center justify-space-between mb-3">
-            <h2>AI Exception Playbook</h2>
-            <div class="d-flex gap-2">
-              @if (canGenerateAiRecommendation()) {
-                <button class="btn btn-secondary" (click)="generateAiRecommendation()" [disabled]="aiGenerating() || aiApproving()">{{ aiGenerating() ? 'Generating...' : 'Generate Recommendation' }}</button>
-              }
-              @if (canApproveAiRecommendation()) {
-                <button class="btn btn-primary" (click)="approveAiRecommendation()" [disabled]="aiApproving() || aiGenerating()">{{ aiApproving() ? 'Approving...' : 'Approve Recommendation' }}</button>
-              }
-            </div>
+            <h2>Logistics Chatbot</h2>
+            @if (canAskOpsChatbot()) {
+              <button class="btn btn-primary" (click)="askOpsChatbot()" [disabled]="chatLoading() || !chatPrompt.trim()">{{ chatLoading() ? 'Thinking...' : 'Ask' }}</button>
+            }
           </div>
 
-          @if (aiRecommendation()) {
-            <div class="shipment-header-grid">
-              <div><span class="field-label">Playbook</span><span>{{ aiRecommendation()!.playbookType }}</span></div>
-              <div><span class="field-label">Confidence</span><span class="badge" [class]="aiConfidenceBadgeClass(aiRecommendation()!.confidenceScore)">{{ (aiRecommendation()!.confidenceScore * 100) | number:'1.0-0' }}%</span></div>
-              <div><span class="field-label">Approval Required</span><span>{{ aiRecommendation()!.requiresHumanApproval ? 'Yes' : 'No' }}</span></div>
-              <div><span class="field-label">Generated At</span><span>{{ aiRecommendation()!.createdAtUtc | date:'dd MMM yyyy, HH:mm' }}</span></div>
-            </div>
-
-            <div class="mt-3">
-              <span class="field-label">Explanation</span>
-              <p class="text-sm">{{ aiRecommendation()!.explanationText }}</p>
-            </div>
-
-            <div class="mt-3">
-              <span class="field-label">Suggested Actions</span>
-              <div class="timeline mt-2">
-                @for (action of aiRecommendation()!.suggestedActions; track $index) {
-                  <div class="timeline-item">
-                    <div class="timeline-title"><span class="badge badge-info">{{ formatAiActionType(action.actionType) }}</span></div>
-                    <div class="timeline-body">{{ action.description }}</div>
-                    <div class="text-xs text-secondary">Proposed value: {{ action.proposedValue }}</div>
-                  </div>
-                }
-              </div>
+          @if (canAskOpsChatbot()) {
+            <div class="form-group mb-3">
+              <label>Question</label>
+              <textarea
+                class="form-control"
+                rows="3"
+                maxlength="500"
+                [(ngModel)]="chatPrompt"
+                placeholder="Example: Show delayed shipments and retry queue details"></textarea>
             </div>
           } @else {
-            <p class="text-sm text-secondary">No AI recommendation generated for this shipment yet.</p>
+            <p class="text-sm text-secondary">Chatbot access is available for Admin, Logistics, Agent, and Dealer roles.</p>
           }
 
-          @if (aiApprovalResult()) {
-            <div class="mt-4">
-              <span class="field-label">Last Execution Result</span>
-              <p class="text-sm">Approved at {{ aiApprovalResult()!.approvedAtUtc | date:'dd MMM yyyy, HH:mm' }}</p>
-              <div class="timeline mt-2">
-                @for (step of aiApprovalResult()!.steps; track $index) {
-                  <div class="timeline-item">
-                    <div class="timeline-title"><span class="badge" [class]="formatAiExecutionBadge(step)">{{ formatAiActionType(step.actionType) }}</span></div>
-                    <div class="timeline-body">{{ step.message }}</div>
-                  </div>
-                }
-              </div>
+          @if (chatResponse()) {
+            <div class="chatbot-reply mt-3">
+              <div><span class="field-label">Intent</span><span class="badge badge-info">{{ chatResponse()!.intent }}</span></div>
+              <div class="mt-2"><span class="field-label">Response</span><p class="text-sm mb-0">{{ chatResponse()!.reply }}</p></div>
             </div>
+
+            @if (chatResponse()!.sources.length > 0) {
+              <div class="mt-3">
+                <span class="field-label">Sources</span>
+                <div class="timeline mt-2">
+                  @for (source of chatResponse()!.sources; track $index) {
+                    <div class="timeline-item">
+                      <div class="timeline-title"><span class="badge badge-neutral">{{ source.type }}</span> {{ source.reference }}</div>
+                      <div class="timeline-body">{{ source.detail }}</div>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+
+            @if (chatResponse()!.suggestedPrompts.length > 0) {
+              <div class="mt-3">
+                <span class="field-label">Try Asking</span>
+                <div class="d-flex gap-2" style="flex-wrap: wrap;">
+                  @for (prompt of chatResponse()!.suggestedPrompts; track $index) {
+                    <button class="btn btn-ghost btn-sm" (click)="useSuggestedPrompt(prompt)">{{ prompt }}</button>
+                  }
+                </div>
+              </div>
+            }
+          } @else {
+            <p class="text-sm text-secondary">Ask about shipment status, delays, retries, or mention a shipment number for details.</p>
           }
         </div>
 
@@ -508,6 +559,45 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
   styles: [`
     .shipment-header-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .field-label { display: block; font-size: 11px; color: #616161; text-transform: uppercase; margin-bottom: 4px; }
+    .shipment-chat-fab {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 58px;
+      height: 58px;
+      border-radius: 9999px;
+      border: 1px solid #1d4c73;
+      background: linear-gradient(145deg, #1f5d8e, #2f77ad);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.2);
+      z-index: 810;
+      cursor: pointer;
+    }
+    .shipment-chat-panel {
+      position: fixed;
+      right: 24px;
+      bottom: 92px;
+      width: min(420px, calc(100vw - 24px));
+      max-height: min(72vh, 680px);
+      overflow-y: auto;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #dbe4ee;
+      background: #ffffff;
+      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.2);
+      z-index: 810;
+    }
+    .shipment-chat-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .shipment-chat-title { font-size: .88rem; font-weight: 700; color: #0f172a; }
+    .shipment-chat-sub { margin-top: 2px; font-size: .72rem; color: #475569; }
     .vehicle-meta {
       margin-top: 8px;
       background: #f8fafc;
@@ -522,7 +612,17 @@ import { mockVehicleFleet, MockVehicleOption } from '../../../core/mocks/vehicle
       font-weight: 700;
       color: #0f172a;
     }
+    .chatbot-reply {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+    }
     @media (max-width: 600px) { .shipment-header-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 680px) {
+      .shipment-chat-fab { right: 12px; bottom: 12px; }
+      .shipment-chat-panel { right: 12px; bottom: 82px; width: calc(100vw - 24px); }
+    }
   `]
 })
 export class ShipmentDetailComponent implements OnInit, OnDestroy {
@@ -540,13 +640,11 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
   readonly loading          = signal(true);
   readonly actionLoading    = signal(false);
   readonly agentsLoading    = signal(false);
-  readonly aiGenerating     = signal(false);
-  readonly aiApproving      = signal(false);
+  readonly chatLoading      = signal(false);
   readonly shipment         = signal<ShipmentDto | null>(null);
   readonly availableAgents  = signal<AgentSummaryDto[]>([]);
   readonly attempts         = signal<ShipmentDeliveryAttempt[]>([]);
-  readonly aiRecommendation = signal<ShipmentAiRecommendationDto | null>(null);
-  readonly aiApprovalResult = signal<ApproveAiRecommendationResultDto | null>(null);
+  readonly chatResponse     = signal<LogisticsChatbotResponseDto | null>(null);
   readonly opsState         = signal<ShipmentOpsState>({
     shipmentId: '',
     handoverState: 'pending',
@@ -557,6 +655,7 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
   readonly showAssignDialog = signal(false);
   readonly showVehicleDialog = signal(false);
   readonly showRejectAssignmentDialog = signal(false);
+  readonly showQuickChatbot = signal(false);
   readonly showStatusDialog = signal(false);
   readonly showAttemptDialog = signal(false);
   readonly showRatingDialog = signal(false);
@@ -574,6 +673,7 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
   retryDate = '';
   retryReason = '';
   ratingComment = '';
+  chatPrompt = 'Give me a shipment status summary.';
   ratingScore = 5;
   attemptOutcome: DeliveryAttemptOutcome = 'failed';
   newStatus: ShipmentStatus = ShipmentStatus.Assigned;
@@ -653,12 +753,7 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
   };
   readonly canLogAttempt = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics, UserRole.Agent);
   readonly canManageOps = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics);
-  readonly canGenerateAiRecommendation = () => {
-    return !!this.shipment() && this.authStore.hasRole(UserRole.Admin, UserRole.Logistics);
-  };
-  readonly canApproveAiRecommendation = () => {
-    return !!this.aiRecommendation() && this.authStore.hasRole(UserRole.Admin, UserRole.Logistics);
-  };
+  readonly canAskOpsChatbot = () => this.authStore.hasRole(UserRole.Admin, UserRole.Logistics, UserRole.Agent, UserRole.Dealer);
   readonly canEscalateDelay = () => {
     const shipment = this.shipment();
     if (!shipment || !this.authStore.hasRole(UserRole.Admin)) {
@@ -818,27 +913,6 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
     if (outcome === 'no-response') return 'badge badge-warning';
     if (outcome === 'address-issue') return 'badge badge-error';
     return 'badge badge-neutral';
-  }
-
-  aiConfidenceBadgeClass(confidenceScore: number): string {
-    if (confidenceScore >= 0.85) return 'badge badge-success';
-    if (confidenceScore >= 0.7) return 'badge badge-info';
-    if (confidenceScore >= 0.5) return 'badge badge-warning';
-    return 'badge badge-error';
-  }
-
-  formatAiActionType(actionType: string): string {
-    if (actionType === 'update-status') return 'Update Status';
-    if (actionType === 'set-retry-state') return 'Set Retry State';
-    if (actionType === 'no-action') return 'No Action';
-    return actionType;
-  }
-
-  formatAiExecutionBadge(step: AiRecommendationExecutionStepDto): string {
-    if (step.result === 'executed') return 'badge badge-success';
-    if (step.result === 'skipped') return 'badge badge-warning';
-    if (step.result === 'no-op') return 'badge badge-neutral';
-    return 'badge badge-info';
   }
 
   isValidVehicleNumber(value: string): boolean {
@@ -1084,60 +1158,27 @@ export class ShipmentDetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  generateAiRecommendation(): void {
-    const shipment = this.shipment();
-    if (!shipment) {
+  askOpsChatbot(): void {
+    const message = this.chatPrompt.trim();
+    if (!message || !this.canAskOpsChatbot()) {
       return;
     }
 
-    this.aiGenerating.set(true);
-    this.logisticsApi.generateAiRecommendation(shipment.shipmentId).subscribe({
-      next: recommendation => {
-        this.aiRecommendation.set(recommendation);
-        this.aiApprovalResult.set(null);
-        this.toast.info('AI recommendation generated');
-        this.aiGenerating.set(false);
+    this.chatLoading.set(true);
+    this.logisticsApi.askChatbot({ message }).subscribe({
+      next: response => {
+        this.chatResponse.set(response);
+        this.chatLoading.set(false);
       },
       error: err => {
-        this.toast.error(this.getErrorMessage(err, 'Failed to generate AI recommendation'));
-        this.aiGenerating.set(false);
+        this.chatLoading.set(false);
+        this.toast.error(this.getErrorMessage(err, 'Failed to fetch chatbot response'));
       }
     });
   }
 
-  approveAiRecommendation(): void {
-    const recommendation = this.aiRecommendation();
-    if (!recommendation) {
-      return;
-    }
-
-    this.aiApproving.set(true);
-    this.logisticsApi.approveAiRecommendation(recommendation.recommendationId).subscribe({
-      next: result => {
-        this.aiApprovalResult.set(result);
-        this.aiRecommendation.set(null);
-        this.shipment.set(result.shipment);
-
-        this.opsQueue.syncWithShipment(result.shipment.shipmentId, {
-          assignedAgentId: result.shipment.assignedAgentId,
-          vehicleNumber: result.shipment.vehicleNumber,
-          status: result.shipment.status
-        }).subscribe({
-          next: state => this.opsState.set(state),
-          error: () => {
-            // Keep approval successful even if ops-state sync fails.
-          }
-        });
-
-        this.toast.success('AI recommendation approved');
-        this.aiApproving.set(false);
-        this.loadShipment();
-      },
-      error: err => {
-        this.toast.error(this.getErrorMessage(err, 'Failed to approve AI recommendation'));
-        this.aiApproving.set(false);
-      }
-    });
+  useSuggestedPrompt(prompt: string): void {
+    this.chatPrompt = prompt;
   }
 
   acceptAssignment(): void {

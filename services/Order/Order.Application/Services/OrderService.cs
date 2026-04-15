@@ -539,6 +539,22 @@ public sealed class OrderService(
             return false;
         }
 
+        var inventoryRestocked = await RestockReturnedStockAsync(order, cancellationToken);
+        if (!inventoryRestocked)
+        {
+            throw new InvalidOperationException("Unable to restock returned items.");
+        }
+
+        var creditSettled = await creditCheckGateway.SettleOutstandingAsync(
+            order.DealerId,
+            order.TotalAmount,
+            $"return-{order.OrderId:N}",
+            cancellationToken);
+        if (!creditSettled)
+        {
+            throw new InvalidOperationException("Unable to settle dealer outstanding for approved return.");
+        }
+
         order.ApproveReturn(adminUserId, "Admin");
 
         await orderRepository.AddOutboxMessageAsync("ReturnApproved", new
@@ -682,6 +698,27 @@ public sealed class OrderService(
         {
             var released = await inventoryGateway.ReleaseSoftLockAsync(order.OrderId, stockLine.ProductId, cancellationToken);
             if (!released)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private async Task<bool> RestockReturnedStockAsync(OrderAggregate order, CancellationToken cancellationToken)
+    {
+        var stockLines = BuildOrderStockLines(order);
+        foreach (var stockLine in stockLines)
+        {
+            var restocked = await inventoryGateway.RestockStockAsync(
+                order.OrderId,
+                stockLine.ProductId,
+                stockLine.Quantity,
+                $"return-{order.OrderId:N}-{stockLine.ProductId:N}",
+                cancellationToken);
+
+            if (!restocked)
             {
                 return false;
             }

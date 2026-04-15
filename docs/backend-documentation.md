@@ -89,7 +89,7 @@ Key behaviors:
 - assign agent and vehicle
 - shipment status lifecycle
 - shipment ops-state query/upsert and batch retrieval
-- AI recommendation generation and approval endpoints
+- role-scoped logistics chatbot endpoint for status and retry insights
 - role/ownership checks for dealer and agent views
 
 ## 4.5 PaymentInvoice

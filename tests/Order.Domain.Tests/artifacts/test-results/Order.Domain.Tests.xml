@@ -1,0 +1,23 @@
+<testsuites>
+  <testsuite name="Order.Domain.Tests.dll" tests="10" skipped="0" failures="0" errors="0" time="0.18576389999999998" timestamp="2026-04-15T09:24:40" hostname="DESKTOP-NFND817" id="0" package="Order.Domain.Tests.dll">
+    <properties />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.Create_SetsPlacedStatusAndPaymentMode" time="0.0446972" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.RaiseReturn_WhenDeliveredWithinWindow_CreatesReturnRequest" time="0.0023271" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.TransitionTo_AllowedTransition_UpdatesStatusAndHistory" time="0.0076618" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.RaiseReturn_UsesDeliveryTimeForWindow_NotPlacedTime" time="0.0031441" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.AddLine_RecalculatesTotalAmount" time="0.0186073" />
+    <testcase classname="Order.Domain.Tests.OrderServiceReturnApprovalTests" name="OrderServiceReturnApprovalTests.ApproveReturnAsync_WhenRestockFails_ThrowsAndDoesNotSettleOrApprove" time="0.0907884" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.TransitionTo_InvalidTransition_ThrowsInvalidOperationException" time="0.0041207" />
+    <testcase classname="Order.Domain.Tests.OrderAggregateTests" name="OrderAggregateTests.MarkCreditRejected_CancelsOrderAndSetsReason" time="0.0010633" />
+    <testcase classname="Order.Domain.Tests.OrderServiceReturnApprovalTests" name="OrderServiceReturnApprovalTests.ApproveReturnAsync_WhenCompensationSucceeds_RestocksGroupedLinesSettlesCreditAndApproves" time="0.0095190" />
+    <testcase classname="Order.Domain.Tests.OrderServiceReturnApprovalTests" name="OrderServiceReturnApprovalTests.ApproveReturnAsync_WhenCreditSettlementFails_ThrowsAndKeepsReturnRequested" time="0.0038350" />
+    <system-out>
+Test Framework Informational Messages:
+[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.6)
+[xUnit.net 00:00:00.52]   Discovering: Order.Domain.Tests
+[xUnit.net 00:00:00.67]   Discovered:  Order.Domain.Tests
+[xUnit.net 00:00:00.75]   Starting:    Order.Domain.Tests
+[xUnit.net 00:00:01.03]   Finished:    Order.Domain.Tests
+</system-out>
+  </testsuite>
+</testsuites>

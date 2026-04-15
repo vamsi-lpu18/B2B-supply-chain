@@ -81,7 +81,7 @@ public sealed class OrderDbContext(DbContextOptions<OrderDbContext> options) : D
         modelBuilder.Entity<OrderSagaStateEntity>(builder =>
         {
             builder.ToTable("OrderSagaStates");
-            builder.HasKey(x => x.OrderId);
+            builder.HasKey(x => x.OrderId); 
             builder.Property(x => x.OrderNumber).HasMaxLength(32).IsRequired();
             builder.Property(x => x.CurrentState).HasConversion<string>().HasMaxLength(64).IsRequired();
             builder.Property(x => x.LastMessage).HasMaxLength(500);

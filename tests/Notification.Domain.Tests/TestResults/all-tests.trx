@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="157c3e13-5dcb-4716-aeb1-decbdf198dcc" name="Hey@DESKTOP-NFND817 2026-04-13 16:01:48" runUser="DESKTOP-NFND817\Hey" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-04-13T16:01:48.8254772+05:30" queuing="2026-04-13T16:01:48.8254778+05:30" start="2026-04-13T16:01:40.8855914+05:30" finish="2026-04-13T16:01:48.9350898+05:30" />
+  <TestSettings name="default" id="7be259f1-eb93-4293-87ca-ae9476b0f9b9">
+    <Deployment runDeploymentRoot="Hey_DESKTOP-NFND817_2026-04-13_16_01_48" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="cef11238-d654-4d9a-b191-68cbff917fa1" testId="13d55005-8f9c-e669-f22a-f2741d1eff2b" testName="Notification.Domain.Tests.NotificationMessageTests.MarkSent_ClearsFailureReasonAndSetsSentTimestamp" computerName="DESKTOP-NFND817" duration="00:00:00.0061491" startTime="2026-04-13T16:01:48.7923047+05:30" endTime="2026-04-13T16:01:48.7926118+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cef11238-d654-4d9a-b191-68cbff917fa1" />
+    <UnitTestResult executionId="9b3b5e32-da51-4c4f-b063-d40917cdd274" testId="1093c6ee-d707-b545-1acc-44925e9b37c4" testName="Notification.Domain.Tests.NotificationMessageTests.CreateFromEvent_LogisticsAssignmentDecision_UsesEmailChannel(eventType: &quot;ShipmentAssignmentAccepted&quot;)" computerName="DESKTOP-NFND817" duration="00:00:00.0004957" startTime="2026-04-13T16:01:48.7874550+05:30" endTime="2026-04-13T16:01:48.7877057+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9b3b5e32-da51-4c4f-b063-d40917cdd274" />
+    <UnitTestResult executionId="7f833980-4950-4100-ade7-24aa4515070a" testId="b4d458d0-a915-cebf-8c5c-2dc1f6c95dc8" testName="Notification.Domain.Tests.NotificationMessageTests.CreateFromEvent_UnknownEvent_FallsBackToInApp" computerName="DESKTOP-NFND817" duration="00:00:00.0002276" startTime="2026-04-13T16:01:48.7949556+05:30" endTime="2026-04-13T16:01:48.7961062+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7f833980-4950-4100-ade7-24aa4515070a" />
+    <UnitTestResult executionId="372a4ddd-c105-4898-ad18-02697d85a7c2" testId="0e88f2ac-5679-bc1c-b0f6-b15f7311d80b" testName="Notification.Domain.Tests.NotificationMessageTests.CreateFromEvent_IdentityPasswordReset_UsesEmailChannel" computerName="DESKTOP-NFND817" duration="00:00:00.0016005" startTime="2026-04-13T16:01:48.7965496+05:30" endTime="2026-04-13T16:01:48.7966829+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="372a4ddd-c105-4898-ad18-02697d85a7c2" />
+    <UnitTestResult executionId="e6317bab-e9ce-4305-8601-a6083c533597" testId="b98134a0-1812-3113-7b6c-a8468604a323" testName="Notification.Domain.Tests.NotificationMessageTests.MarkFailed_SetsFailedStatusAndTrimmedReason" computerName="DESKTOP-NFND817" duration="00:00:00.0002811" startTime="2026-04-13T16:01:48.7969945+05:30" endTime="2026-04-13T16:01:48.7970948+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6317bab-e9ce-4305-8601-a6083c533597" />
+    <UnitTestResult executionId="342855e8-b6ca-4da8-a554-7fb73d5a2ac6" testId="dc3620df-1e24-8314-0d17-192b4cce7bae" testName="Notification.Domain.Tests.NotificationMessageTests.CreateFromEvent_LogisticsAssignmentDecision_UsesEmailChannel(eventType: &quot;ShipmentAssignmentRejected&quot;)" computerName="DESKTOP-NFND817" duration="00:00:01.8204432" startTime="2026-04-13T16:01:46.9627241+05:30" endTime="2026-04-13T16:01:48.6993670+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="342855e8-b6ca-4da8-a554-7fb73d5a2ac6" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Notification.Domain.Tests.NotificationMessageTests.MarkSent_ClearsFailureReasonAndSetsSentTimestamp" storage="c:\users\hey\desktop\demo\tests\notification.domain.tests\bin\release\net10.0\notification.domain.tests.dll" id="13d55005-8f9c-e669-f22a-f2741d1eff2b">
+      <Execution id="cef11238-d654-4d9a-b191-68cbff917fa1" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Notification.Domain.Tests\bin\Release\net10.0\Notification.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Notification.Domain.Tests.NotificationMessageTests" name="MarkSent_ClearsFailureReasonAndSetsSentTimestamp" />
+    </UnitTest>
+    <UnitTest name="Notification.Domain.Tests.NotificationMessageTests.CreateFromEvent_UnknownEvent_FallsBackToInApp" storage="c:\users\hey\desktop\demo\tests\notification.domain.tests\bin\release\net10.0\notification.domain.tests.dll" id="b4d458d0-a915-cebf-8c5c-2dc1f6c95dc8">
+      <Execution id="7f833980-4950-4100-ade7-24aa4515070a" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Notification.Domain.Tests\bin\Release\net10.0\Notification.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Notification.Domain.Tests.NotificationMessageTests" name="CreateFromEvent_UnknownEvent_FallsBackToInApp" />
+    </UnitTest>
+    <UnitTest name="Notification.Domain.Tests.NotificationMessageTests.CreateFromEvent_LogisticsAssignmentDecision_UsesEmailChannel(eventType: &quot;ShipmentAssignmentRejected&quot;)" storage="c:\users\hey\desktop\demo\tests\notification.domain.tests\bin\release\net10.0\notification.domain.tests.dll" id="dc3620df-1e24-8314-0d17-192b4cce7bae">
+      <Execution id="342855e8-b6ca-4da8-a554-7fb73d5a2ac6" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Notification.Domain.Tests\bin\Release\net10.0\Notification.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Notification.Domain.Tests.NotificationMessageTests" name="CreateFromEvent_LogisticsAssignmentDecision_UsesEmailChannel" />
+    </UnitTest>
+    <UnitTest name="Notification.Domain.Tests.NotificationMessageTests.CreateFromEvent_LogisticsAssignmentDecision_UsesEmailChannel(eventType: &quot;ShipmentAssignmentAccepted&quot;)" storage="c:\users\hey\desktop\demo\tests\notification.domain.tests\bin\release\net10.0\notification.domain.tests.dll" id="1093c6ee-d707-b545-1acc-44925e9b37c4">
+      <Execution id="9b3b5e32-da51-4c4f-b063-d40917cdd274" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Notification.Domain.Tests\bin\Release\net10.0\Notification.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Notification.Domain.Tests.NotificationMessageTests" name="CreateFromEvent_LogisticsAssignmentDecision_UsesEmailChannel" />
+    </UnitTest>
+    <UnitTest name="Notification.Domain.Tests.NotificationMessageTests.CreateFromEvent_IdentityPasswordReset_UsesEmailChannel" storage="c:\users\hey\desktop\demo\tests\notification.domain.tests\bin\release\net10.0\notification.domain.tests.dll" id="0e88f2ac-5679-bc1c-b0f6-b15f7311d80b">
+      <Execution id="372a4ddd-c105-4898-ad18-02697d85a7c2" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Notification.Domain.Tests\bin\Release\net10.0\Notification.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Notification.Domain.Tests.NotificationMessageTests" name="CreateFromEvent_IdentityPasswordReset_UsesEmailChannel" />
+    </UnitTest>
+    <UnitTest name="Notification.Domain.Tests.NotificationMessageTests.MarkFailed_SetsFailedStatusAndTrimmedReason" storage="c:\users\hey\desktop\demo\tests\notification.domain.tests\bin\release\net10.0\notification.domain.tests.dll" id="b98134a0-1812-3113-7b6c-a8468604a323">
+      <Execution id="e6317bab-e9ce-4305-8601-a6083c533597" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Notification.Domain.Tests\bin\Release\net10.0\Notification.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Notification.Domain.Tests.NotificationMessageTests" name="MarkFailed_SetsFailedStatusAndTrimmedReason" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="13d55005-8f9c-e669-f22a-f2741d1eff2b" executionId="cef11238-d654-4d9a-b191-68cbff917fa1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1093c6ee-d707-b545-1acc-44925e9b37c4" executionId="9b3b5e32-da51-4c4f-b063-d40917cdd274" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b4d458d0-a915-cebf-8c5c-2dc1f6c95dc8" executionId="7f833980-4950-4100-ade7-24aa4515070a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0e88f2ac-5679-bc1c-b0f6-b15f7311d80b" executionId="372a4ddd-c105-4898-ad18-02697d85a7c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b98134a0-1812-3113-7b6c-a8468604a323" executionId="e6317bab-e9ce-4305-8601-a6083c533597" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc3620df-1e24-8314-0d17-192b4cce7bae" executionId="342855e8-b6ca-4da8-a554-7fb73d5a2ac6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="6" executed="6" passed="6" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.5)&#xD;
+[xUnit.net 00:00:02.20]   Discovering: Notification.Domain.Tests&#xD;
+[xUnit.net 00:00:02.39]   Discovered:  Notification.Domain.Tests&#xD;
+[xUnit.net 00:00:02.50]   Starting:    Notification.Domain.Tests&#xD;
+[xUnit.net 00:00:04.52]   Finished:    Notification.Domain.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

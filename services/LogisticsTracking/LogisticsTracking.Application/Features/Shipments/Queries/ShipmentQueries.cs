@@ -58,3 +58,13 @@ public sealed class GetShipmentOpsStatesQueryHandler(ILogisticsService service)
     public Task<IReadOnlyList<ShipmentOpsStateDto>> Handle(GetShipmentOpsStatesQuery request, CancellationToken cancellationToken)
         => service.GetShipmentOpsStatesAsync(request.Request, cancellationToken);
 }
+
+public sealed record AskLogisticsChatbotQuery(LogisticsChatbotRequest Request, Guid UserId, string UserRole)
+    : IRequest<LogisticsChatbotResponseDto>;
+
+public sealed class AskLogisticsChatbotQueryHandler(ILogisticsService service)
+    : IRequestHandler<AskLogisticsChatbotQuery, LogisticsChatbotResponseDto>
+{
+    public Task<LogisticsChatbotResponseDto> Handle(AskLogisticsChatbotQuery request, CancellationToken cancellationToken)
+        => service.AskChatbotAsync(request.Request, request.UserId, request.UserRole, cancellationToken);
+}

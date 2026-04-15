@@ -1,0 +1,20 @@
+<testsuites>
+  <testsuite name="LogisticsTracking.Domain.Tests.dll" tests="7" skipped="0" failures="0" errors="0" time="0.0631847" timestamp="2026-04-15T09:24:21" hostname="DESKTOP-NFND817" id="0" package="LogisticsTracking.Domain.Tests.dll">
+    <properties />
+    <testcase classname="LogisticsTracking.Domain.Tests.ShipmentTests" name="ShipmentTests.UpdateStatus_ToDelivered_WithoutVehicle_Throws" time="0.0287720" />
+    <testcase classname="LogisticsTracking.Domain.Tests.ShipmentTests" name="ShipmentTests.AssignVehicle_BlankValue_Throws" time="0.0006812" />
+    <testcase classname="LogisticsTracking.Domain.Tests.ShipmentTests" name="ShipmentTests.RateDeliveryAgent_AfterDelivery_PersistsRatingDetails" time="0.0194791" />
+    <testcase classname="LogisticsTracking.Domain.Tests.ShipmentTests" name="ShipmentTests.AssignAgent_FromCreated_MovesToAssignedAndAddsEvent" time="0.0086438" />
+    <testcase classname="LogisticsTracking.Domain.Tests.ShipmentTests" name="ShipmentTests.Create_InitializesCreatedStateAndFirstEvent" time="0.0039550" />
+    <testcase classname="LogisticsTracking.Domain.Tests.ShipmentTests" name="ShipmentTests.UpdateStatus_ToDelivered_SetsDeliveredTimestamp" time="0.0006678" />
+    <testcase classname="LogisticsTracking.Domain.Tests.ShipmentTests" name="ShipmentTests.RateDeliveryAgent_BeforeDelivery_Throws" time="0.0009858" />
+    <system-out>
+Test Framework Informational Messages:
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.6)
+[xUnit.net 00:00:01.33]   Discovering: LogisticsTracking.Domain.Tests
+[xUnit.net 00:00:01.80]   Discovered:  LogisticsTracking.Domain.Tests
+[xUnit.net 00:00:02.05]   Starting:    LogisticsTracking.Domain.Tests
+[xUnit.net 00:00:02.37]   Finished:    LogisticsTracking.Domain.Tests
+</system-out>
+  </testsuite>
+</testsuites>

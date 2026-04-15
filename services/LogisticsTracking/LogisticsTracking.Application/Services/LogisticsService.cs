@@ -3,13 +3,12 @@ using LogisticsTracking.Application.Abstractions;
 using LogisticsTracking.Application.DTOs;
 using LogisticsTracking.Domain.Entities;
 using LogisticsTracking.Domain.Enums;
-using System.Collections.Concurrent;
 
 namespace LogisticsTracking.Application.Services;
 
 public sealed class LogisticsService(
     IShipmentRepository shipmentRepository,
-    IShipmentAiRecommendationProvider aiRecommendationProvider,
+    ILogisticsChatLlmClient llmClient,
     IValidator<CreateShipmentRequest> createValidator,
     IValidator<AssignAgentRequest> assignValidator,
     IValidator<RejectAssignmentRequest> rejectAssignmentValidator,
@@ -18,36 +17,6 @@ public sealed class LogisticsService(
     IValidator<UpdateShipmentStatusRequest> statusValidator)
     : ILogisticsService
 {
-    private enum AiActionKind
-    {
-        UpdateStatus,
-        SetRetryState,
-        NoAction
-    }
-
-    private sealed record AiSuggestedAction(
-        AiActionKind Kind,
-        ShipmentStatus? Status,
-        string Description,
-        string ProposedValue,
-        HandoverState? HandoverState = null,
-        bool RetryRequired = false,
-        int RetryCount = 0,
-        string? RetryReason = null,
-        DateTime? NextRetryAtUtc = null);
-
-    private sealed record AiRecommendationState(
-        Guid RecommendationId,
-        Guid ShipmentId,
-        string PlaybookType,
-        double ConfidenceScore,
-        string ExplanationText,
-        bool RequiresHumanApproval,
-        DateTime CreatedAtUtc,
-        IReadOnlyList<AiSuggestedAction> SuggestedActions);
-
-    private static readonly ConcurrentDictionary<Guid, AiRecommendationState> AiRecommendations = new();
-
     public async Task<ShipmentDto> CreateShipmentAsync(CreateShipmentRequest request, Guid createdByUserId, string createdByRole, CancellationToken cancellationToken)
     {
         await createValidator.ValidateAndThrowAsync(request, cancellationToken);
@@ -426,403 +395,848 @@ public sealed class LogisticsService(
         return MapOpsState(state);
     }
 
-    public async Task<ShipmentAiRecommendationDto?> GenerateAiRecommendationAsync(Guid shipmentId, Guid requestedByUserId, string requestedByRole, CancellationToken cancellationToken)
+    public async Task<LogisticsChatbotResponseDto> AskChatbotAsync(LogisticsChatbotRequest request, Guid userId, string userRole, CancellationToken cancellationToken)
     {
-        var shipment = await shipmentRepository.GetShipmentByIdAsync(shipmentId, cancellationToken);
-        if (shipment is null)
+        var prompt = NormalizeText(request.Message, 500);
+        if (string.IsNullOrWhiteSpace(prompt))
         {
-            return null;
+            return new LogisticsChatbotResponseDto(
+                "validation",
+                "Enter a question so I can help with shipment operations.",
+                [],
+                BuildSuggestedPrompts(),
+                DateTime.UtcNow);
         }
 
-        var recommendation = await TryBuildProviderRecommendationAsync(shipment, requestedByRole, cancellationToken)
-            ?? BuildAiRecommendation(shipment, requestedByRole);
-        AiRecommendations[recommendation.RecommendationId] = recommendation;
+        var shipments = await GetRoleScopedShipmentsAsync(userId, userRole, cancellationToken);
+        if (shipments.Count == 0)
+        {
+            return new LogisticsChatbotResponseDto(
+                "no-data",
+                "No shipments are currently available in your scope.",
+                [],
+                BuildSuggestedPrompts(),
+                DateTime.UtcNow);
+        }
 
-        return MapAiRecommendation(recommendation);
+        var liveLlmResponse = await TryBuildLiveLlmResponseAsync(prompt, userRole, shipments, cancellationToken);
+        if (liveLlmResponse is not null)
+        {
+            return liveLlmResponse;
+        }
+
+        var normalizedPrompt = prompt.ToLowerInvariant();
+
+        if (ContainsAny(normalizedPrompt, "help", "what can you do", "capability", "how to use"))
+        {
+            return BuildHelpResponse(shipments);
+        }
+
+        var matchedShipment = shipments.FirstOrDefault(shipment =>
+            normalizedPrompt.Contains(shipment.ShipmentNumber.ToLowerInvariant(), StringComparison.Ordinal)
+            || normalizedPrompt.Contains(shipment.ShipmentId.ToString("N"), StringComparison.Ordinal)
+            || normalizedPrompt.Contains(shipment.ShipmentId.ToString(), StringComparison.Ordinal));
+
+        if (matchedShipment is not null)
+        {
+            return await BuildShipmentInsightResponseAsync(matchedShipment, cancellationToken);
+        }
+
+        var mentionedStatuses = DetectMentionedStatuses(normalizedPrompt);
+        var timeWindow = ParseTimeWindow(normalizedPrompt);
+        if (mentionedStatuses.Count > 0
+            || timeWindow != QueryTimeWindow.None
+            || ContainsAny(normalizedPrompt, "status of", "shipment status", "where is my shipment", "where is shipment"))
+        {
+            return BuildStatusQueryResponse(shipments, mentionedStatuses, timeWindow, normalizedPrompt);
+        }
+
+        if (ContainsAny(normalizedPrompt, "delay", "delayed", "failed", "running late", "late shipment", "late delivery", "risk"))
+        {
+            return BuildDelayResponse(shipments);
+        }
+
+        if (ContainsAny(normalizedPrompt, "retry", "handover", "exception"))
+        {
+            return await BuildRetryResponseAsync(shipments, cancellationToken);
+        }
+
+        if (ContainsAny(normalizedPrompt, "delivered", "completed", "done"))
+        {
+            return BuildDeliveredResponse(shipments);
+        }
+
+        if (ContainsAny(normalizedPrompt, "unassigned", "without agent", "assign", "agent", "vehicle"))
+        {
+            return BuildAssignmentResponse(shipments);
+        }
+
+        if (ContainsAny(normalizedPrompt, "in transit", "out for delivery", "picked up", "active delivery"))
+        {
+            return BuildTransitResponse(shipments);
+        }
+
+        return await BuildConversationalResponseAsync(prompt, normalizedPrompt, shipments, cancellationToken);
     }
 
-    public async Task<ApproveAiRecommendationResultDto?> ApproveAiRecommendationAsync(Guid recommendationId, Guid approvedByUserId, string approvedByRole, CancellationToken cancellationToken)
+    private async Task<IReadOnlyList<Shipment>> GetRoleScopedShipmentsAsync(Guid userId, string userRole, CancellationToken cancellationToken)
     {
-        if (!AiRecommendations.TryGetValue(recommendationId, out var recommendation))
+        if (string.Equals(userRole, "Dealer", StringComparison.OrdinalIgnoreCase) && userId != Guid.Empty)
         {
-            return null;
+            return await shipmentRepository.GetDealerShipmentsAsync(userId, cancellationToken);
         }
 
-        if (recommendation.CreatedAtUtc < DateTime.UtcNow.AddHours(-6))
+        if (string.Equals(userRole, "Agent", StringComparison.OrdinalIgnoreCase) && userId != Guid.Empty)
         {
-            AiRecommendations.TryRemove(recommendationId, out _);
-            return null;
+            return await shipmentRepository.GetAgentShipmentsAsync(userId, cancellationToken);
         }
 
-        var shipment = await shipmentRepository.GetShipmentByIdAsync(recommendation.ShipmentId, cancellationToken);
-        if (shipment is null)
+        if (string.Equals(userRole, "Admin", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(userRole, "Logistics", StringComparison.OrdinalIgnoreCase)
+            || string.Equals(userRole, "Warehouse", StringComparison.OrdinalIgnoreCase))
         {
-            AiRecommendations.TryRemove(recommendationId, out _);
-            return null;
+            return await shipmentRepository.GetAllShipmentsAsync(cancellationToken);
         }
 
-        var steps = new List<AiRecommendationExecutionStepDto>();
+        return [];
+    }
 
-        foreach (var action in recommendation.SuggestedActions)
-        {
-            switch (action.Kind)
+    private LogisticsChatbotResponseDto BuildStatusSummaryResponse(IReadOnlyList<Shipment> shipments)
+    {
+        var grouped = shipments
+            .GroupBy(shipment => shipment.Status)
+            .OrderByDescending(group => group.Count())
+            .ToList();
+        var failedCount = shipments.Count(shipment => shipment.Status == ShipmentStatus.DeliveryFailed);
+        var assignmentGapCount = shipments.Count(shipment => !shipment.AssignedAgentId.HasValue || string.IsNullOrWhiteSpace(shipment.VehicleNumber));
+
+        var summary = grouped.Select(group => $"{group.Key}: {group.Count()}");
+        var recent = shipments
+            .OrderByDescending(shipment => shipment.CreatedAtUtc)
+            .Take(3)
+            .Select(BuildSource)
+            .ToList();
+        var nextAction = failedCount > 0
+            ? "review failed shipments and retry worklist first"
+            : "focus on active deliveries and assignment gaps";
+
+        return new LogisticsChatbotResponseDto(
+            "status-summary",
+            $"Current shipment distribution: {string.Join(", ", summary)}. Assignment gaps: {assignmentGapCount}. Next action: {nextAction}.",
+            recent,
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
+
+    private LogisticsChatbotResponseDto BuildHelpResponse(IReadOnlyList<Shipment> shipments)
+    {
+        var total = shipments.Count;
+        var active = shipments.Count(shipment => shipment.Status is ShipmentStatus.InTransit or ShipmentStatus.OutForDelivery);
+        var failed = shipments.Count(shipment => shipment.Status == ShipmentStatus.DeliveryFailed);
+        var delivered = shipments.Count(shipment => shipment.Status == ShipmentStatus.Delivered);
+        var gaps = shipments.Count(shipment => !shipment.AssignedAgentId.HasValue || string.IsNullOrWhiteSpace(shipment.VehicleNumber));
+
+        var reply =
+            "I can summarize shipment status, flag delays, list retry exceptions, inspect a shipment by number, "
+            + $"and show assignment gaps. In your scope: {total} total, {active} active, {failed} failed, {delivered} delivered, {gaps} assignment gap(s).";
+
+        var recent = shipments
+            .OrderByDescending(shipment => shipment.CreatedAtUtc)
+            .Take(3)
+            .Select(BuildSource)
+            .ToList();
+
+        return new LogisticsChatbotResponseDto(
+            "help",
+            reply,
+            recent,
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
+
+    private LogisticsChatbotResponseDto BuildDelayResponse(IReadOnlyList<Shipment> shipments)
+    {
+        var failed = shipments
+            .Where(shipment => shipment.Status == ShipmentStatus.DeliveryFailed)
+            .OrderByDescending(shipment => shipment.CreatedAtUtc)
+            .ToList();
+
+        var active = shipments.Count(shipment => shipment.Status is ShipmentStatus.InTransit or ShipmentStatus.OutForDelivery);
+        var sources = failed.Take(5).Select(BuildSource).ToList();
+        var reply = failed.Count == 0
+            ? $"No failed shipments right now. Active deliveries to monitor: {active}. Next action: check assignment and transit health."
+            : $"Found {failed.Count} failed shipment(s). Active deliveries to monitor: {active}. Next action: review retry queue and resolve handover exceptions.";
+
+        return new LogisticsChatbotResponseDto(
+            "delay-monitor",
+            reply,
+            sources,
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
+
+    private async Task<LogisticsChatbotResponseDto> BuildRetryResponseAsync(IReadOnlyList<Shipment> shipments, CancellationToken cancellationToken)
+    {
+        var shipmentIds = shipments.Select(shipment => shipment.ShipmentId).ToArray();
+        var states = await shipmentRepository.GetShipmentOpsStatesAsync(shipmentIds, cancellationToken);
+        var stateByShipmentId = states.ToDictionary(state => state.ShipmentId);
+
+        var candidates = shipments
+            .Where(shipment => stateByShipmentId.TryGetValue(shipment.ShipmentId, out var state)
+                && (state.RetryRequired || state.HandoverState == HandoverState.Exception))
+            .OrderByDescending(shipment => shipment.CreatedAtUtc)
+            .Take(5)
+            .ToList();
+
+        var sources = candidates
+            .Select(shipment =>
             {
-                case AiActionKind.UpdateStatus:
-                    if (!action.Status.HasValue)
-                    {
-                        steps.Add(new AiRecommendationExecutionStepDto(
-                            ToActionTypeText(action.Kind),
-                            "skipped",
-                            "No target status provided."));
-                        break;
-                    }
+                var state = stateByShipmentId[shipment.ShipmentId];
+                var retryText = state.NextRetryAtUtc.HasValue
+                    ? state.NextRetryAtUtc.Value.ToString("yyyy-MM-dd HH:mm")
+                    : "not scheduled";
+                return new LogisticsChatbotSourceDto(
+                    "shipment-ops",
+                    shipment.ShipmentNumber,
+                    $"State={state.HandoverState}; RetryRequired={state.RetryRequired}; NextRetry={retryText}");
+            })
+            .ToList();
 
-                    if (shipment.Status is ShipmentStatus.Delivered or ShipmentStatus.Returned)
-                    {
-                        steps.Add(new AiRecommendationExecutionStepDto(
-                            ToActionTypeText(action.Kind),
-                            "skipped",
-                            "Shipment is already completed."));
-                        break;
-                    }
+        var reply = candidates.Count == 0
+            ? "No shipments currently require retry workflow intervention."
+            : $"{candidates.Count} shipment(s) need retry or handover exception handling. Next action: prioritize entries with Exception state or unscheduled next retry.";
 
-                    shipment.UpdateStatus(action.Status.Value, action.Description, approvedByUserId, approvedByRole);
-                    await SyncOpsStateWithShipmentAsync(shipment, cancellationToken);
+        return new LogisticsChatbotResponseDto(
+            "retry-worklist",
+            reply,
+            sources,
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
 
-                    await shipmentRepository.AddOutboxMessageAsync("ShipmentStatusUpdated", new
-                    {
-                        shipment.ShipmentId,
-                        shipment.OrderId,
-                        shipment.DealerId,
-                        shipment.Status,
-                        note = action.Description,
-                        occurredAtUtc = DateTime.UtcNow
-                    }, cancellationToken);
+    private LogisticsChatbotResponseDto BuildDeliveredResponse(IReadOnlyList<Shipment> shipments)
+    {
+        var delivered = shipments
+            .Where(shipment => shipment.Status == ShipmentStatus.Delivered)
+            .OrderByDescending(shipment => shipment.DeliveredAtUtc ?? shipment.CreatedAtUtc)
+            .ToList();
 
-                    steps.Add(new AiRecommendationExecutionStepDto(
-                        ToActionTypeText(action.Kind),
-                        "executed",
-                        $"Shipment status moved to {action.Status.Value}."));
-                    break;
+        var recent = delivered
+            .Take(5)
+            .Select(shipment => new LogisticsChatbotSourceDto(
+                "shipment",
+                shipment.ShipmentNumber,
+                $"DeliveredAt={shipment.DeliveredAtUtc:yyyy-MM-dd HH:mm}"))
+            .ToList();
+        var pending = shipments.Count - delivered.Count;
 
-                case AiActionKind.SetRetryState:
-                    {
-                        var state = await shipmentRepository.GetShipmentOpsStateAsync(shipment.ShipmentId, cancellationToken)
-                            ?? ShipmentOpsState.CreateDefault(shipment);
+        return new LogisticsChatbotResponseDto(
+            "delivery-summary",
+            $"Delivered shipments in scope: {delivered.Count}. Remaining non-delivered shipments: {pending}.",
+            recent,
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
 
-                        state.Update(
-                            action.HandoverState ?? state.HandoverState,
-                            action.RetryRequired ? "AI suggested retry workflow." : state.HandoverExceptionReason,
-                            action.RetryRequired,
-                            action.RetryCount,
-                            action.RetryReason,
-                            action.NextRetryAtUtc,
-                            DateTime.UtcNow);
+    private LogisticsChatbotResponseDto BuildAssignmentResponse(IReadOnlyList<Shipment> shipments)
+    {
+        var missingAgentCount = shipments.Count(shipment => !shipment.AssignedAgentId.HasValue);
+        var missingVehicleCount = shipments.Count(shipment => string.IsNullOrWhiteSpace(shipment.VehicleNumber));
 
-                        await shipmentRepository.UpsertShipmentOpsStateAsync(state, cancellationToken);
+        var sources = shipments
+            .Where(shipment => !shipment.AssignedAgentId.HasValue || string.IsNullOrWhiteSpace(shipment.VehicleNumber))
+            .OrderByDescending(shipment => shipment.CreatedAtUtc)
+            .Take(5)
+            .Select(shipment => new LogisticsChatbotSourceDto(
+                "shipment-assignment",
+                shipment.ShipmentNumber,
+                $"Agent={(shipment.AssignedAgentId.HasValue ? "assigned" : "missing")}; Vehicle={(string.IsNullOrWhiteSpace(shipment.VehicleNumber) ? "missing" : "assigned")}; Status={shipment.Status}"))
+            .ToList();
 
-                        steps.Add(new AiRecommendationExecutionStepDto(
-                            ToActionTypeText(action.Kind),
-                            "executed",
-                            action.Description));
-                        break;
-                    }
+        var reply = missingAgentCount == 0 && missingVehicleCount == 0
+            ? "All shipments in your scope have both agent and vehicle assignments."
+            : $"Assignment gaps found: {missingAgentCount} shipment(s) missing agents, {missingVehicleCount} shipment(s) missing vehicles. Next action: complete assignments before moving shipments to InTransit.";
 
-                default:
-                    steps.Add(new AiRecommendationExecutionStepDto(
-                        ToActionTypeText(action.Kind),
-                        "no-op",
-                        action.Description));
-                    break;
+        return new LogisticsChatbotResponseDto(
+            "assignment-overview",
+            reply,
+            sources,
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
+
+    private LogisticsChatbotResponseDto BuildTransitResponse(IReadOnlyList<Shipment> shipments)
+    {
+        var active = shipments
+            .Where(shipment => shipment.Status is ShipmentStatus.InTransit or ShipmentStatus.OutForDelivery)
+            .OrderByDescending(shipment => shipment.CreatedAtUtc)
+            .Take(5)
+            .ToList();
+
+        var sources = active
+            .Select(shipment => new LogisticsChatbotSourceDto(
+                "shipment-transit",
+                shipment.ShipmentNumber,
+                $"Status={shipment.Status}; Vehicle={(string.IsNullOrWhiteSpace(shipment.VehicleNumber) ? "unassigned" : shipment.VehicleNumber)}"))
+            .ToList();
+
+        var inTransitCount = shipments.Count(shipment => shipment.Status == ShipmentStatus.InTransit);
+        var outForDeliveryCount = shipments.Count(shipment => shipment.Status == ShipmentStatus.OutForDelivery);
+
+        var reply = active.Count == 0
+            ? "No active deliveries are currently in transit or out for delivery."
+            : $"Active delivery view: {inTransitCount} in transit and {outForDeliveryCount} out for delivery. Next action: prioritize out-for-delivery completions and check any unassigned vehicle.";
+
+        return new LogisticsChatbotResponseDto(
+            "active-deliveries",
+            reply,
+            sources,
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
+
+    private LogisticsChatbotResponseDto BuildStatusQueryResponse(
+        IReadOnlyList<Shipment> shipments,
+        IReadOnlyList<ShipmentStatus> mentionedStatuses,
+        QueryTimeWindow timeWindow,
+        string normalizedPrompt)
+    {
+        var statusFilter = mentionedStatuses.Count == 0
+            ? Enum.GetValues<ShipmentStatus>()
+            : [.. mentionedStatuses];
+
+        var matching = shipments
+            .Where(shipment => statusFilter.Contains(shipment.Status))
+            .Where(shipment => IsWithinTimeWindow(shipment, timeWindow))
+            .OrderByDescending(ResolveReferenceTimeUtc)
+            .ToList();
+
+        var timeScopeLabel = timeWindow switch
+        {
+            QueryTimeWindow.Today => " for today",
+            QueryTimeWindow.Yesterday => " for yesterday",
+            QueryTimeWindow.Last7Days => " in the last 7 days",
+            _ => string.Empty
+        };
+
+        if (matching.Count == 0)
+        {
+            return new LogisticsChatbotResponseDto(
+                "status-query",
+                $"No shipments matched your status/time filter{timeScopeLabel}. Try removing the date filter or asking for a broader status summary.",
+                [],
+                BuildSuggestedPrompts(),
+                DateTime.UtcNow);
+        }
+
+        var grouped = matching
+            .GroupBy(shipment => shipment.Status)
+            .OrderByDescending(group => group.Count())
+            .Select(group => $"{group.Key}: {group.Count()}")
+            .ToArray();
+
+        var sources = matching
+            .Take(5)
+            .Select(shipment => new LogisticsChatbotSourceDto(
+                "shipment-status",
+                shipment.ShipmentNumber,
+                $"Status={shipment.Status}; UpdatedView={ResolveReferenceTimeUtc(shipment):yyyy-MM-dd HH:mm}"))
+            .ToList();
+
+        var isCountQuery = ContainsAny(normalizedPrompt, "how many", "count", "number", "total");
+        var isListQuery = ContainsAny(normalizedPrompt, "list", "show", "which", "details", "give me");
+
+        var reply = isCountQuery
+            ? $"Matching shipments{timeScopeLabel}: {matching.Count}. Breakdown: {string.Join(", ", grouped)}."
+            : isListQuery
+                ? $"Found {matching.Count} matching shipment(s){timeScopeLabel}. Showing the latest {sources.Count} entries below."
+                : $"I interpreted your question as a status lookup and found {matching.Count} shipment(s){timeScopeLabel}. Breakdown: {string.Join(", ", grouped)}.";
+
+        return new LogisticsChatbotResponseDto(
+            "status-query",
+            reply,
+            sources,
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
+
+    private async Task<LogisticsChatbotResponseDto> BuildConversationalResponseAsync(
+        string prompt,
+        string normalizedPrompt,
+        IReadOnlyList<Shipment> shipments,
+        CancellationToken cancellationToken)
+    {
+        var shipmentIds = shipments.Select(shipment => shipment.ShipmentId).ToArray();
+        var opsStates = await shipmentRepository.GetShipmentOpsStatesAsync(shipmentIds, cancellationToken);
+        var stateByShipmentId = opsStates.ToDictionary(state => state.ShipmentId);
+        var tokens = ExtractSearchTokens(normalizedPrompt);
+
+        var ranked = shipments
+            .Select(shipment =>
+            {
+                stateByShipmentId.TryGetValue(shipment.ShipmentId, out var opsState);
+                var score = CalculateRelevanceScore(shipment, opsState, normalizedPrompt, tokens);
+                return new
+                {
+                    Shipment = shipment,
+                    OpsState = opsState,
+                    Score = score
+                };
+            })
+            .OrderByDescending(item => item.Score)
+            .ThenByDescending(item => ResolveReferenceTimeUtc(item.Shipment))
+            .ToList();
+
+        var topMatches = ranked
+            .Where(item => item.Score > 0)
+            .Take(5)
+            .ToList();
+
+        if (topMatches.Count == 0)
+        {
+            var summary = BuildStatusSummaryResponse(shipments);
+            var compactPrompt = prompt.Length <= 90 ? prompt : $"{prompt[..90]}...";
+            return new LogisticsChatbotResponseDto(
+                "contextual-summary",
+                $"I do not have a direct match for \"{compactPrompt}\" in your shipment data, so here is the nearest operations snapshot: {summary.Reply}",
+                summary.Sources,
+                summary.SuggestedPrompts,
+                DateTime.UtcNow);
+        }
+
+        var matchingShipments = topMatches
+            .Select(item => item.Shipment)
+            .ToList();
+
+        var grouped = matchingShipments
+            .GroupBy(shipment => shipment.Status)
+            .OrderByDescending(group => group.Count())
+            .Select(group => $"{group.Key}: {group.Count()}")
+            .ToArray();
+
+        var sources = topMatches
+            .Select(item => BuildConversationalSource(item.Shipment, item.OpsState))
+            .ToList();
+
+        var isCountQuery = ContainsAny(normalizedPrompt, "how many", "count", "number", "total");
+        var asksNextAction = ContainsAny(normalizedPrompt, "next", "what should", "priority", "prioritize", "action");
+
+        var failedCount = matchingShipments.Count(shipment => shipment.Status == ShipmentStatus.DeliveryFailed);
+        var missingAgentCount = matchingShipments.Count(shipment => !shipment.AssignedAgentId.HasValue);
+        var missingVehicleCount = matchingShipments.Count(shipment => string.IsNullOrWhiteSpace(shipment.VehicleNumber));
+        var retryCount = topMatches.Count(item => item.OpsState?.RetryRequired == true || item.OpsState?.HandoverState == HandoverState.Exception);
+
+        var nextAction = retryCount > 0
+            ? "prioritize retry-required and handover-exception shipments first"
+            : missingAgentCount > 0 || missingVehicleCount > 0
+                ? "close assignment gaps (agent/vehicle) before dispatch progression"
+                : failedCount > 0
+                    ? "review failed shipments and capture recovery notes"
+                    : "monitor in-transit and out-for-delivery progression";
+
+        var reply = isCountQuery
+            ? $"I found {matchingShipments.Count} relevant shipment(s) for your question. Breakdown: {string.Join(", ", grouped)}."
+            : $"Here is the most relevant view from your shipment data: {string.Join(", ", grouped)}.";
+
+        if (asksNextAction || !isCountQuery)
+        {
+            reply = $"{reply} Next action: {nextAction}.";
+        }
+
+        return new LogisticsChatbotResponseDto(
+            "llm-lite",
+            reply,
+            sources,
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
+
+    private async Task<LogisticsChatbotResponseDto?> TryBuildLiveLlmResponseAsync(
+        string prompt,
+        string userRole,
+        IReadOnlyList<Shipment> shipments,
+        CancellationToken cancellationToken)
+    {
+        if (!llmClient.IsEnabled)
+        {
+            return null;
+        }
+
+        var shipmentIds = shipments.Select(shipment => shipment.ShipmentId).ToArray();
+        var states = await shipmentRepository.GetShipmentOpsStatesAsync(shipmentIds, cancellationToken);
+        var stateByShipmentId = states.ToDictionary(state => state.ShipmentId);
+
+        var operationsContext = BuildLlmOperationsContext(userRole, shipments, stateByShipmentId);
+        var llmReply = await llmClient.GenerateReplyAsync(userRole, prompt, operationsContext, cancellationToken);
+        if (string.IsNullOrWhiteSpace(llmReply))
+        {
+            return null;
+        }
+
+        var sources = shipments
+            .OrderByDescending(ResolveReferenceTimeUtc)
+            .Take(5)
+            .Select(shipment => stateByShipmentId.TryGetValue(shipment.ShipmentId, out var state)
+                ? BuildConversationalSource(shipment, state)
+                : BuildSource(shipment))
+            .ToList();
+
+        return new LogisticsChatbotResponseDto(
+            "llm-live",
+            llmReply,
+            sources,
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
+
+    private static string BuildLlmOperationsContext(
+        string userRole,
+        IReadOnlyList<Shipment> shipments,
+        IReadOnlyDictionary<Guid, ShipmentOpsState> stateByShipmentId)
+    {
+        var statusSummary = shipments
+            .GroupBy(shipment => shipment.Status)
+            .OrderByDescending(group => group.Count())
+            .Select(group => $"{group.Key}:{group.Count()}")
+            .ToArray();
+
+        var failedCount = shipments.Count(shipment => shipment.Status == ShipmentStatus.DeliveryFailed);
+        var assignmentGapCount = shipments.Count(shipment => !shipment.AssignedAgentId.HasValue || string.IsNullOrWhiteSpace(shipment.VehicleNumber));
+        var retryOrExceptionCount = stateByShipmentId.Values.Count(state => state.RetryRequired || state.HandoverState == HandoverState.Exception);
+
+        var recentLines = shipments
+            .OrderByDescending(ResolveReferenceTimeUtc)
+            .Take(12)
+            .Select(shipment =>
+            {
+                stateByShipmentId.TryGetValue(shipment.ShipmentId, out var state);
+                var handover = state?.HandoverState.ToString() ?? "Unknown";
+                var retry = state is not null && state.RetryRequired
+                    ? $"Yes({state.RetryCount})"
+                    : "No";
+                var agent = shipment.AssignedAgentId.HasValue ? "assigned" : "missing";
+                var vehicle = string.IsNullOrWhiteSpace(shipment.VehicleNumber) ? "missing" : shipment.VehicleNumber;
+
+                return $"{shipment.ShipmentNumber} | Status={shipment.Status} | Agent={agent} | Vehicle={vehicle} | Handover={handover} | Retry={retry}";
+            })
+            .ToArray();
+
+        return string.Join('\n',
+            $"UserRole: {userRole}",
+            $"TotalShipments: {shipments.Count}",
+            $"StatusSummary: {string.Join(", ", statusSummary)}",
+            $"DeliveryFailedCount: {failedCount}",
+            $"AssignmentGapCount: {assignmentGapCount}",
+            $"RetryOrExceptionCount: {retryOrExceptionCount}",
+            "RecentShipments:",
+            string.Join('\n', recentLines));
+    }
+
+    private async Task<LogisticsChatbotResponseDto> BuildShipmentInsightResponseAsync(Shipment shipment, CancellationToken cancellationToken)
+    {
+        var opsState = await shipmentRepository.GetShipmentOpsStateAsync(shipment.ShipmentId, cancellationToken);
+        var retryLabel = opsState?.RetryRequired == true
+            ? $"Retry required (count={opsState.RetryCount})."
+            : "Retry not required.";
+        var handoverLabel = opsState is null
+            ? "Handover state unavailable."
+            : $"Handover={opsState.HandoverState}.";
+
+        var agentLabel = shipment.AssignedAgentId.HasValue
+            ? shipment.AssignedAgentId.Value.ToString()
+            : "Unassigned";
+        var vehicleLabel = string.IsNullOrWhiteSpace(shipment.VehicleNumber)
+            ? "Unassigned"
+            : shipment.VehicleNumber;
+        var nextAction = shipment.Status switch
+        {
+            ShipmentStatus.Created when !shipment.AssignedAgentId.HasValue => "Next action: assign an agent.",
+            ShipmentStatus.Assigned when string.IsNullOrWhiteSpace(shipment.VehicleNumber) => "Next action: assign a vehicle.",
+            ShipmentStatus.DeliveryFailed => "Next action: inspect retry and handover exception details.",
+            ShipmentStatus.OutForDelivery => "Next action: confirm delivery completion or failure reason.",
+            ShipmentStatus.Delivered => "Next action: no shipment action required.",
+            _ => "Next action: monitor status progression."
+        };
+
+        return new LogisticsChatbotResponseDto(
+            "shipment-insight",
+            $"{shipment.ShipmentNumber} is {shipment.Status}. Agent: {agentLabel}. Vehicle: {vehicleLabel}. {handoverLabel} {retryLabel} {nextAction}",
+            [BuildSource(shipment)],
+            BuildSuggestedPrompts(),
+            DateTime.UtcNow);
+    }
+
+    private static LogisticsChatbotSourceDto BuildSource(Shipment shipment)
+    {
+        return new LogisticsChatbotSourceDto(
+            "shipment",
+            shipment.ShipmentNumber,
+            $"Status={shipment.Status}; CreatedAt={shipment.CreatedAtUtc:yyyy-MM-dd HH:mm}");
+    }
+
+    private static LogisticsChatbotSourceDto BuildConversationalSource(Shipment shipment, ShipmentOpsState? opsState)
+    {
+        var agentLabel = shipment.AssignedAgentId.HasValue ? "assigned" : "missing";
+        var vehicleLabel = string.IsNullOrWhiteSpace(shipment.VehicleNumber) ? "missing" : shipment.VehicleNumber;
+        var handoverLabel = opsState is null ? "unknown" : opsState.HandoverState.ToString();
+        var retryLabel = opsState is null
+            ? "unknown"
+            : opsState.RetryRequired
+                ? $"required({opsState.RetryCount})"
+                : "not-required";
+
+        return new LogisticsChatbotSourceDto(
+            "shipment-context",
+            shipment.ShipmentNumber,
+            $"Status={shipment.Status}; Agent={agentLabel}; Vehicle={vehicleLabel}; Handover={handoverLabel}; Retry={retryLabel}");
+    }
+
+    private static int CalculateRelevanceScore(
+        Shipment shipment,
+        ShipmentOpsState? opsState,
+        string normalizedPrompt,
+        IReadOnlyList<string> tokens)
+    {
+        var score = 0;
+
+        if (normalizedPrompt.Contains(shipment.ShipmentNumber.ToLowerInvariant(), StringComparison.Ordinal))
+        {
+            score += 30;
+        }
+
+        if (ContainsAny(normalizedPrompt, shipment.Status.ToString().ToLowerInvariant()))
+        {
+            score += 6;
+        }
+
+        if (ContainsAny(normalizedPrompt, "retry", "handover", "exception")
+            && opsState is not null
+            && (opsState.RetryRequired || opsState.HandoverState == HandoverState.Exception))
+        {
+            score += 10;
+        }
+
+        if (ContainsAny(normalizedPrompt, "agent", "assignment") && !shipment.AssignedAgentId.HasValue)
+        {
+            score += 7;
+        }
+
+        if (ContainsAny(normalizedPrompt, "vehicle") && string.IsNullOrWhiteSpace(shipment.VehicleNumber))
+        {
+            score += 7;
+        }
+
+        if (ContainsAny(normalizedPrompt, "active", "in transit", "out for delivery")
+            && shipment.Status is ShipmentStatus.InTransit or ShipmentStatus.OutForDelivery)
+        {
+            score += 8;
+        }
+
+        if (ContainsAny(normalizedPrompt, "shipment", "shipments", "delivery", "deliveries", "ops", "operations"))
+        {
+            score += 2;
+        }
+
+        if (ContainsAny(normalizedPrompt, "block", "blocking", "issue", "problem", "stuck"))
+        {
+            if (shipment.Status == ShipmentStatus.DeliveryFailed)
+            {
+                score += 8;
+            }
+
+            if (!shipment.AssignedAgentId.HasValue || string.IsNullOrWhiteSpace(shipment.VehicleNumber))
+            {
+                score += 6;
+            }
+
+            if (opsState?.RetryRequired == true || opsState?.HandoverState == HandoverState.Exception)
+            {
+                score += 8;
             }
         }
 
-        await shipmentRepository.AddOutboxMessageAsync("ShipmentAiRecommendationExecuted", new
+        var searchable = string.Join(' ',
+            shipment.ShipmentNumber,
+            shipment.Status,
+            shipment.VehicleNumber ?? "",
+            opsState?.HandoverState.ToString() ?? string.Empty,
+            opsState?.RetryReason ?? string.Empty,
+            opsState?.HandoverExceptionReason ?? string.Empty).ToLowerInvariant();
+
+        foreach (var token in tokens)
         {
-            recommendationId,
-            shipmentId = shipment.ShipmentId,
-            approvedByUserId,
-            approvedByRole,
-            executedAtUtc = DateTime.UtcNow,
-            actionCount = steps.Count
-        }, cancellationToken);
+            if (searchable.Contains(token, StringComparison.Ordinal))
+            {
+                score += 2;
+            }
+        }
 
-        await shipmentRepository.SaveChangesAsync(cancellationToken);
-        AiRecommendations.TryRemove(recommendationId, out _);
-
-        return new ApproveAiRecommendationResultDto(
-            recommendationId,
-            shipment.ShipmentId,
-            true,
-            DateTime.UtcNow,
-            steps,
-            MapShipment(shipment));
+        return score;
     }
 
-    private async Task<AiRecommendationState?> TryBuildProviderRecommendationAsync(Shipment shipment, string requestedByRole, CancellationToken cancellationToken)
+    private static IReadOnlyList<string> ExtractSearchTokens(string normalizedPrompt)
     {
-        ShipmentAiGenerationResult? generated;
+        var sanitizedChars = normalizedPrompt
+            .Select(character => char.IsLetterOrDigit(character) ? character : ' ')
+            .ToArray();
+        var sanitized = new string(sanitizedChars);
 
-        try
-        {
-            generated = await aiRecommendationProvider.GenerateAsync(
-                new ShipmentAiGenerationRequest(
-                    shipment.ShipmentId,
-                    shipment.Status,
-                    shipment.AssignedAgentId,
-                    shipment.VehicleNumber,
-                    requestedByRole,
-                    DateTime.UtcNow),
-                cancellationToken);
-        }
-        catch
-        {
-            return null;
-        }
-
-        if (generated is null)
-        {
-            return null;
-        }
-
-        return BuildAiRecommendationFromProvider(shipment.ShipmentId, generated);
-    }
-
-    private static AiRecommendationState? BuildAiRecommendationFromProvider(Guid shipmentId, ShipmentAiGenerationResult generated)
-    {
-        var actions = generated.SuggestedActions
-            .Select(MapProviderAction)
-            .Where(x => x is not null)
-            .Cast<AiSuggestedAction>()
-            .Take(3)
+        return sanitized
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Where(token => token.Length >= 3 && !_promptStopWords.Contains(token))
+            .Distinct(StringComparer.Ordinal)
             .ToList();
-
-        if (actions.Count == 0)
-        {
-            return null;
-        }
-
-        var playbookType = NormalizeText(generated.PlaybookType, 80) ?? "AiGenerated";
-        var explanationText = NormalizeText(generated.ExplanationText, 500)
-            ?? "AI recommendation generated from shipment context.";
-
-        return new AiRecommendationState(
-            Guid.NewGuid(),
-            shipmentId,
-            playbookType,
-            Math.Clamp(generated.ConfidenceScore, 0d, 1d),
-            explanationText,
-            true,
-            DateTime.UtcNow,
-            actions);
     }
 
-    private static AiSuggestedAction? MapProviderAction(ShipmentAiGeneratedAction action)
+    private static IReadOnlyList<ShipmentStatus> DetectMentionedStatuses(string normalizedPrompt)
     {
-        var actionType = (NormalizeText(action.ActionType, 40) ?? string.Empty).ToLowerInvariant();
-        var description = NormalizeText(action.Description, 300) ?? "AI suggested action.";
-        var proposedValue = NormalizeText(action.ProposedValue, 120) ?? "NoAction";
+        var statuses = new List<ShipmentStatus>();
 
-        return actionType switch
+        if (ContainsAny(normalizedPrompt, "out for delivery", "out-for-delivery", "ofd"))
         {
-            "update-status" when action.Status.HasValue => new AiSuggestedAction(
-                AiActionKind.UpdateStatus,
-                action.Status,
-                description,
-                proposedValue),
-
-            "set-retry-state" => new AiSuggestedAction(
-                AiActionKind.SetRetryState,
-                null,
-                description,
-                proposedValue,
-                action.HandoverState,
-                action.RetryRequired,
-                Math.Max(0, action.RetryCount),
-                NormalizeText(action.RetryReason, 300),
-                NormalizeOptionalUtc(action.NextRetryAtUtc)),
-
-            "no-action" => new AiSuggestedAction(
-                AiActionKind.NoAction,
-                null,
-                description,
-                proposedValue),
-
-            _ => null
-        };
-    }
-
-    private static AiRecommendationState BuildAiRecommendation(Shipment shipment, string requestedByRole)
-    {
-        var playbookType = "DelayRecovery";
-        var confidence = 0.72d;
-        var actions = new List<AiSuggestedAction>();
-        var explanationParts = new List<string>
-        {
-            $"Current shipment status is {shipment.Status}."
-        };
-
-        if (!shipment.AssignedAgentId.HasValue && shipment.Status is not ShipmentStatus.Delivered and not ShipmentStatus.Returned)
-        {
-            explanationParts.Add("No assigned agent detected.");
+            statuses.Add(ShipmentStatus.OutForDelivery);
         }
 
-        if (string.IsNullOrWhiteSpace(shipment.VehicleNumber) && shipment.Status is ShipmentStatus.InTransit or ShipmentStatus.OutForDelivery)
+        if (ContainsAny(normalizedPrompt, "in transit", "in-transit", "transit", "on the way"))
         {
-            explanationParts.Add("Vehicle number is missing for an active delivery stage.");
+            statuses.Add(ShipmentStatus.InTransit);
         }
 
-        switch (shipment.Status)
+        if (ContainsAny(normalizedPrompt, "delivery failed", "failed", "delayed", "delay", "running late", "late shipment", "late delivery", "risk"))
         {
-            case ShipmentStatus.Created:
-                playbookType = "AssignmentKickstart";
-                confidence = 0.74d;
-                actions.Add(new AiSuggestedAction(
-                    AiActionKind.UpdateStatus,
-                    ShipmentStatus.Assigned,
-                    "AI playbook: move shipment to Assigned to start fulfillment.",
-                    "Assigned"));
-                break;
-
-            case ShipmentStatus.Assigned:
-                playbookType = "PickupAcceleration";
-                confidence = 0.75d;
-                actions.Add(new AiSuggestedAction(
-                    AiActionKind.UpdateStatus,
-                    ShipmentStatus.PickedUp,
-                    "AI playbook: progress shipment to PickedUp to reduce idle time.",
-                    "PickedUp"));
-                break;
-
-            case ShipmentStatus.PickedUp:
-                playbookType = "TransitAcceleration";
-                confidence = 0.77d;
-                actions.Add(new AiSuggestedAction(
-                    AiActionKind.UpdateStatus,
-                    ShipmentStatus.InTransit,
-                    "AI playbook: progress shipment to InTransit for active tracking.",
-                    "InTransit"));
-                break;
-
-            case ShipmentStatus.InTransit:
-                playbookType = "DeliveryRecovery";
-                confidence = 0.81d;
-                actions.Add(new AiSuggestedAction(
-                    AiActionKind.UpdateStatus,
-                    ShipmentStatus.OutForDelivery,
-                    "AI playbook: route shipment to OutForDelivery for faster completion.",
-                    "OutForDelivery"));
-                actions.Add(new AiSuggestedAction(
-                    AiActionKind.SetRetryState,
-                    null,
-                    "AI playbook: clear retry flags and mark handover ready.",
-                    "RetryRequired=false",
-                    HandoverState.Ready,
-                    false,
-                    0,
-                    null,
-                    null));
-                break;
-
-            case ShipmentStatus.OutForDelivery:
-                playbookType = "MonitorOnly";
-                confidence = 0.67d;
-                actions.Add(new AiSuggestedAction(
-                    AiActionKind.NoAction,
-                    null,
-                    "AI playbook: keep monitoring and escalate only if no delivery event in 30 minutes.",
-                    "NoAction"));
-                break;
-
-            case ShipmentStatus.DeliveryFailed:
-                playbookType = "RetryRecovery";
-                confidence = 0.79d;
-                var nextRetryAtUtc = DateTime.UtcNow.AddHours(2);
-
-                actions.Add(new AiSuggestedAction(
-                    AiActionKind.SetRetryState,
-                    null,
-                    "AI playbook: schedule a retry attempt and mark exception workflow.",
-                    $"RetryAtUtc={nextRetryAtUtc:O}",
-                    HandoverState.Exception,
-                    true,
-                    1,
-                    "AI recommended delivery retry",
-                    nextRetryAtUtc));
-
-                actions.Add(new AiSuggestedAction(
-                    AiActionKind.UpdateStatus,
-                    ShipmentStatus.OutForDelivery,
-                    "AI playbook: move shipment back to OutForDelivery for retry dispatch.",
-                    "OutForDelivery"));
-                break;
-
-            case ShipmentStatus.Delivered:
-            case ShipmentStatus.Returned:
-                playbookType = "CompletedNoAction";
-                confidence = 0.98d;
-                actions.Add(new AiSuggestedAction(
-                    AiActionKind.NoAction,
-                    null,
-                    "Shipment is already completed. No action is required.",
-                    "NoAction"));
-                break;
-
-            default:
-                actions.Add(new AiSuggestedAction(
-                    AiActionKind.NoAction,
-                    null,
-                    "No deterministic playbook action is available.",
-                    "NoAction"));
-                break;
+            statuses.Add(ShipmentStatus.DeliveryFailed);
         }
 
-        explanationParts.Add($"Playbook {playbookType} was selected for role {requestedByRole}.");
+        if (ContainsAny(normalizedPrompt, "delivered", "completed", "done"))
+        {
+            statuses.Add(ShipmentStatus.Delivered);
+        }
 
-        return new AiRecommendationState(
-            Guid.NewGuid(),
-            shipment.ShipmentId,
-            playbookType,
-            confidence,
-            string.Join(" ", explanationParts),
-            true,
-            DateTime.UtcNow,
-            actions);
-    }
+        if (ContainsAny(normalizedPrompt, "status assigned", "assigned status", "assigned shipments", "shipments assigned", "assignment accepted"))
+        {
+            statuses.Add(ShipmentStatus.Assigned);
+        }
 
-    private static ShipmentAiRecommendationDto MapAiRecommendation(AiRecommendationState recommendation)
-    {
-        var actions = recommendation.SuggestedActions
-            .Select(MapAiAction)
+        if (ContainsAny(normalizedPrompt, "created", "new shipment", "new shipments"))
+        {
+            statuses.Add(ShipmentStatus.Created);
+        }
+
+        if (ContainsAny(normalizedPrompt, "active delivery", "active deliveries"))
+        {
+            statuses.Add(ShipmentStatus.InTransit);
+            statuses.Add(ShipmentStatus.OutForDelivery);
+        }
+
+        return statuses
+            .Distinct()
             .ToList();
-
-        return new ShipmentAiRecommendationDto(
-            recommendation.RecommendationId,
-            recommendation.ShipmentId,
-            recommendation.PlaybookType,
-            recommendation.ConfidenceScore,
-            recommendation.ExplanationText,
-            recommendation.RequiresHumanApproval,
-            recommendation.CreatedAtUtc,
-            actions);
     }
 
-    private static ShipmentAiActionDto MapAiAction(AiSuggestedAction action)
+    private static QueryTimeWindow ParseTimeWindow(string normalizedPrompt)
     {
-        return new ShipmentAiActionDto(
-            ToActionTypeText(action.Kind),
-            action.Description,
-            action.ProposedValue);
-    }
-
-    private static string ToActionTypeText(AiActionKind value)
-    {
-        return value switch
+        if (ContainsAny(normalizedPrompt, "today", "todays", "this day"))
         {
-            AiActionKind.UpdateStatus => "update-status",
-            AiActionKind.SetRetryState => "set-retry-state",
-            _ => "no-action"
+            return QueryTimeWindow.Today;
+        }
+
+        if (ContainsAny(normalizedPrompt, "yesterday"))
+        {
+            return QueryTimeWindow.Yesterday;
+        }
+
+        if (ContainsAny(normalizedPrompt, "last 7 days", "past 7 days", "this week", "last week"))
+        {
+            return QueryTimeWindow.Last7Days;
+        }
+
+        return QueryTimeWindow.None;
+    }
+
+    private static bool IsWithinTimeWindow(Shipment shipment, QueryTimeWindow timeWindow)
+    {
+        if (timeWindow == QueryTimeWindow.None)
+        {
+            return true;
+        }
+
+        var referenceUtc = ResolveReferenceTimeUtc(shipment);
+        var todayUtc = DateTime.UtcNow.Date;
+
+        return timeWindow switch
+        {
+            QueryTimeWindow.Today => referenceUtc.Date == todayUtc,
+            QueryTimeWindow.Yesterday => referenceUtc.Date == todayUtc.AddDays(-1),
+            QueryTimeWindow.Last7Days => referenceUtc >= todayUtc.AddDays(-6),
+            _ => true
         };
+    }
+
+    private static DateTime ResolveReferenceTimeUtc(Shipment shipment)
+    {
+        return shipment.DeliveredAtUtc ?? shipment.CreatedAtUtc;
+    }
+
+    private static bool ContainsAny(string text, params string[] tokens)
+    {
+        return tokens.Any(token => text.Contains(token, StringComparison.Ordinal));
+    }
+
+    private static readonly HashSet<string> _promptStopWords = new(StringComparer.Ordinal)
+    {
+        "the",
+        "and",
+        "for",
+        "with",
+        "from",
+        "into",
+        "that",
+        "this",
+        "what",
+        "when",
+        "where",
+        "which",
+        "who",
+        "how",
+        "many",
+        "your",
+        "my",
+        "our",
+        "show",
+        "list",
+        "give",
+        "tell",
+        "about",
+        "current",
+        "please",
+        "there",
+        "have",
+        "does",
+        "need",
+        "needed"
+    };
+
+    private enum QueryTimeWindow
+    {
+        None,
+        Today,
+        Yesterday,
+        Last7Days
+    }
+
+    private static IReadOnlyList<string> BuildSuggestedPrompts()
+    {
+        return
+        [
+            "What can you help me with?",
+            "Give me a shipment status summary.",
+            "What is blocking deliveries right now?",
+            "Show failed or delayed shipments.",
+            "Which shipments need retry handling?",
+            "Show assignment gaps (missing agent/vehicle).",
+            "How many active deliveries are in transit right now?",
+            "What should I prioritize next in logistics ops?"
+        ];
     }
 
     private static bool IsDbUpdateConcurrencyException(Exception ex)

@@ -247,8 +247,7 @@ Allowed transitions:
 | GET | /api/logistics/shipments/{shipmentId}/ops-state | Yes | Admin, Warehouse, Logistics, Agent, Dealer | Read ops state |
 | POST | /api/logistics/shipments/ops-states/batch | Yes | Admin, Warehouse, Logistics, Agent, Dealer | Read batch ops states |
 | PUT | /api/logistics/shipments/{shipmentId}/ops-state | Yes | Admin, Logistics | Upsert ops state |
-| POST | /api/logistics/shipments/{shipmentId}/ai-recommendation | Yes | Admin, Warehouse, Logistics | Generate AI recommendation |
-| POST | /api/logistics/shipments/ai-recommendations/{recommendationId}/approve | Yes | Admin, Logistics | Approve AI recommendation |
+| POST | /api/logistics/shipments/chatbot/ask | Yes | Admin, Logistics, Agent, Dealer | Ask logistics chatbot |
 
 ### 7.3 Data Model
 - Shipments

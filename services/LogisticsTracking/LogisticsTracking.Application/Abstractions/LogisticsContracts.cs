@@ -20,39 +20,7 @@ public interface ILogisticsService
     Task<ShipmentOpsStateDto?> GetShipmentOpsStateAsync(Guid shipmentId, CancellationToken cancellationToken);
     Task<IReadOnlyList<ShipmentOpsStateDto>> GetShipmentOpsStatesAsync(GetShipmentOpsStatesRequest request, CancellationToken cancellationToken);
     Task<ShipmentOpsStateDto?> UpsertShipmentOpsStateAsync(Guid shipmentId, UpsertShipmentOpsStateRequest request, CancellationToken cancellationToken);
-    Task<ShipmentAiRecommendationDto?> GenerateAiRecommendationAsync(Guid shipmentId, Guid requestedByUserId, string requestedByRole, CancellationToken cancellationToken);
-    Task<ApproveAiRecommendationResultDto?> ApproveAiRecommendationAsync(Guid recommendationId, Guid approvedByUserId, string approvedByRole, CancellationToken cancellationToken);
-}
-
-public sealed record ShipmentAiGenerationRequest(
-    Guid ShipmentId,
-    ShipmentStatus Status,
-    Guid? AssignedAgentId,
-    string? VehicleNumber,
-    string RequestedByRole,
-    DateTime RequestedAtUtc);
-
-public sealed record ShipmentAiGeneratedAction(
-    string ActionType,
-    string Description,
-    string ProposedValue,
-    ShipmentStatus? Status,
-    HandoverState? HandoverState,
-    bool RetryRequired,
-    int RetryCount,
-    string? RetryReason,
-    DateTime? NextRetryAtUtc);
-
-public sealed record ShipmentAiGenerationResult(
-    string PlaybookType,
-    double ConfidenceScore,
-    string ExplanationText,
-    bool RequiresHumanApproval,
-    IReadOnlyList<ShipmentAiGeneratedAction> SuggestedActions);
-
-public interface IShipmentAiRecommendationProvider
-{
-    Task<ShipmentAiGenerationResult?> GenerateAsync(ShipmentAiGenerationRequest request, CancellationToken cancellationToken);
+    Task<LogisticsChatbotResponseDto> AskChatbotAsync(LogisticsChatbotRequest request, Guid userId, string userRole, CancellationToken cancellationToken);
 }
 
 public interface IShipmentRepository
@@ -68,4 +36,10 @@ public interface IShipmentRepository
     Task UpsertShipmentOpsStateAsync(ShipmentOpsState state, CancellationToken cancellationToken);
     Task AddOutboxMessageAsync(string eventType, object payload, CancellationToken cancellationToken);
     Task SaveChangesAsync(CancellationToken cancellationToken);
+}
+
+public interface ILogisticsChatLlmClient
+{
+    bool IsEnabled { get; }
+    Task<string?> GenerateReplyAsync(string userRole, string userQuestion, string operationsContext, CancellationToken cancellationToken);
 }

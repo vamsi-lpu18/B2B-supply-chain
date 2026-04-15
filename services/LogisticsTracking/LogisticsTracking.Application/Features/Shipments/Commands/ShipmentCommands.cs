@@ -121,31 +121,3 @@ public sealed class UpsertShipmentOpsStateCommandHandler(ILogisticsService servi
     public Task<ShipmentOpsStateDto?> Handle(UpsertShipmentOpsStateCommand request, CancellationToken cancellationToken)
         => service.UpsertShipmentOpsStateAsync(request.ShipmentId, request.Request, cancellationToken);
 }
-
-public sealed record GenerateAiRecommendationCommand(Guid ShipmentId, Guid RequestedByUserId, string RequestedByRole)
-    : IRequest<ShipmentAiRecommendationDto?>;
-
-public sealed class GenerateAiRecommendationCommandHandler(ILogisticsService service)
-    : IRequestHandler<GenerateAiRecommendationCommand, ShipmentAiRecommendationDto?>
-{
-    public Task<ShipmentAiRecommendationDto?> Handle(GenerateAiRecommendationCommand request, CancellationToken cancellationToken)
-        => service.GenerateAiRecommendationAsync(
-            request.ShipmentId,
-            request.RequestedByUserId,
-            request.RequestedByRole,
-            cancellationToken);
-}
-
-public sealed record ApproveAiRecommendationCommand(Guid RecommendationId, Guid ApprovedByUserId, string ApprovedByRole)
-    : IRequest<ApproveAiRecommendationResultDto?>;
-
-public sealed class ApproveAiRecommendationCommandHandler(ILogisticsService service)
-    : IRequestHandler<ApproveAiRecommendationCommand, ApproveAiRecommendationResultDto?>
-{
-    public Task<ApproveAiRecommendationResultDto?> Handle(ApproveAiRecommendationCommand request, CancellationToken cancellationToken)
-        => service.ApproveAiRecommendationAsync(
-            request.RecommendationId,
-            request.ApprovedByUserId,
-            request.ApprovedByRole,
-            cancellationToken);
-}

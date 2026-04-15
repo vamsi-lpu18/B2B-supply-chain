@@ -1,6 +1,7 @@
 import { Component, inject, signal, OnInit, computed } from '@angular/core';
 import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { AuthStore } from '../../core/stores/auth.store';
 import { CartStore } from '../../core/stores/cart.store';
@@ -12,7 +13,7 @@ import { CatalogApiService } from '../../core/api/catalog-api.service';
 import { NotificationApiService } from '../../core/api/notification-api.service';
 import { PaymentApiService } from '../../core/api/payment-api.service';
 import { OrderListItemDto, OrderAnalyticsDto, DealerPurchaseStatDto, ProductPurchaseStatDto } from '../../core/models/order.models';
-import { ShipmentDto } from '../../core/models/logistics.models';
+import { LogisticsChatbotResponseDto, ShipmentDto } from '../../core/models/logistics.models';
 import { ProductListItemDto } from '../../core/models/catalog.models';
 import { buildProductPlaceholderDataUrl, enterpriseProductFallbackImageUrl, resolveEnterpriseProductImageUrl } from '../../core/services/product-image.service';
 import { InventoryAlertRulesService } from '../../core/services/inventory-alert-rules.service';
@@ -21,11 +22,12 @@ import { catchError, forkJoin, map, of } from 'rxjs';
 interface PieSlice { label: string; value: number; color: string; pct: number; dashArray: string; dashOffset: number; }
 interface StatCard  { label: string; value: string; sub: string; icon: SafeHtml; color: string; bg: string; trend?: string; trendDir?: 'up'|'down'|'neutral'; }
 interface DealerInsight extends DealerPurchaseStatDto { displayName: string; }
+interface DashboardChatMessage { sender: 'user' | 'bot'; text: string; intent?: string; createdAtUtc: string; }
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink, CurrencyPipe, DatePipe],
+  imports: [CommonModule, RouterLink, CurrencyPipe, DatePipe, FormsModule],
   template: `
 <div class="dash page-content">
 
@@ -485,6 +487,65 @@ interface DealerInsight extends DealerPurchaseStatDto { displayName: string; }
 
     </div>
   </div>
+
+  @if (canUseDashboardChatbot()) {
+    <button
+      type="button"
+      class="dash-chat-fab"
+      (click)="toggleDashboardChatbot()"
+      [attr.aria-expanded]="dashboardChatOpen()"
+      [attr.aria-label]="dashboardChatOpen() ? 'Close chatbot' : 'Open chatbot'">
+      {{ dashboardChatOpen() ? '×' : '💬' }}
+    </button>
+
+    @if (dashboardChatOpen()) {
+      <section class="dash-chat-panel" role="dialog" aria-label="Dashboard chatbot">
+        <div class="dash-chat-head">
+          <div>
+            <div class="dash-chat-title">Ops Chatbot</div>
+            <div class="dash-chat-sub">Ask about shipment status, delays, retries, and assignment gaps.</div>
+          </div>
+        </div>
+
+        <div class="dash-chat-body">
+          @for (msg of dashboardChatMessages(); track $index) {
+            <div class="dash-chat-msg" [class.dash-chat-msg-user]="msg.sender === 'user'" [class.dash-chat-msg-bot]="msg.sender === 'bot'">
+              @if (msg.intent && msg.sender === 'bot') {
+                <div class="dash-chat-intent">{{ msg.intent }}</div>
+              }
+              <div class="dash-chat-text">{{ msg.text }}</div>
+              <div class="dash-chat-time">{{ formatDashboardChatTime(msg.createdAtUtc) }}</div>
+            </div>
+          }
+
+          @if (dashboardChatLoading()) {
+            <div class="dash-chat-msg dash-chat-msg-bot">
+              <div class="dash-chat-text">Thinking...</div>
+            </div>
+          }
+        </div>
+
+        @if (dashboardChatSuggestedPrompts().length > 0) {
+          <div class="dash-chat-suggest">
+            @for (prompt of dashboardChatSuggestedPrompts(); track $index) {
+              <button type="button" class="btn btn-ghost btn-sm" (click)="useDashboardSuggestedPrompt(prompt)">{{ prompt }}</button>
+            }
+          </div>
+        }
+
+        <div class="dash-chat-input">
+          <input
+            class="form-control"
+            type="text"
+            maxlength="500"
+            [(ngModel)]="dashboardChatPrompt"
+            placeholder="Ask a logistics question"
+            (keyup.enter)="sendDashboardChatbotQuestion()">
+          <button type="button" class="btn btn-primary btn-sm" (click)="sendDashboardChatbotQuestion()" [disabled]="dashboardChatLoading() || !dashboardChatPrompt.trim()">Ask</button>
+        </div>
+      </section>
+    }
+  }
 </div>
   `,
   styles: [`
@@ -631,9 +692,140 @@ interface DealerInsight extends DealerPurchaseStatDto { displayName: string; }
     .row-link { font-size: .8rem; font-weight: 600; color: var(--brand-600); text-decoration: none; white-space: nowrap; transition: color 150ms; }
     .row-link:hover { color: var(--brand-700); }
 
+    .dash-chat-fab {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 58px;
+      height: 58px;
+      border-radius: 9999px;
+      border: 1px solid var(--brand-400);
+      background: linear-gradient(145deg, #1f5d8e, #2f77ad);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1;
+      box-shadow: var(--shadow-lg);
+      z-index: 70;
+      cursor: pointer;
+      transition: transform 180ms cubic-bezier(.22,1,.36,1), box-shadow 180ms cubic-bezier(.22,1,.36,1);
+    }
+    .dash-chat-fab:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 30px rgba(20, 63, 97, 0.25);
+    }
+
+    .dash-chat-panel {
+      position: fixed;
+      right: 24px;
+      bottom: 92px;
+      width: min(400px, calc(100vw - 24px));
+      max-height: min(70vh, 640px);
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--r-xl);
+      border: 1px solid var(--border-2);
+      background: var(--surface);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      z-index: 70;
+      animation: dashboardChatReveal 180ms cubic-bezier(.22,1,.36,1) both;
+    }
+    .dash-chat-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #f9fcff, #f3f8fc);
+    }
+    .dash-chat-title { font-size: .86rem; font-weight: 800; color: var(--text-primary); }
+    .dash-chat-sub { margin-top: 2px; font-size: .72rem; color: var(--text-secondary); }
+
+    .dash-chat-body {
+      flex: 1;
+      min-height: 180px;
+      max-height: 320px;
+      overflow-y: auto;
+      padding: 10px 12px;
+      background: #fbfdff;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .dash-chat-msg {
+      max-width: 86%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .dash-chat-msg-user {
+      margin-left: auto;
+      background: #e9f4ff;
+      border-color: #b7d6f2;
+    }
+    .dash-chat-msg-bot {
+      margin-right: auto;
+      background: #ffffff;
+    }
+    .dash-chat-intent {
+      align-self: flex-start;
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #225b88;
+      background: #ecf5fd;
+      border: 1px solid #cde2f5;
+      border-radius: 9999px;
+      padding: 2px 7px;
+    }
+    .dash-chat-text { font-size: .79rem; line-height: 1.35; color: var(--text-primary); }
+    .dash-chat-time { font-size: .65rem; color: var(--text-tertiary); text-align: right; }
+
+    .dash-chat-suggest {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 10px 12px;
+      border-top: 1px solid var(--border);
+      background: var(--surface-2);
+      max-height: 120px;
+      overflow-y: auto;
+    }
+
+    .dash-chat-input {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 12px;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+    }
+    .dash-chat-input .form-control {
+      min-height: 34px;
+      padding: 6px 10px;
+      font-size: .8rem;
+    }
+
+    @keyframes dashboardChatReveal {
+      from { opacity: 0; transform: translateY(10px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
     @keyframes panelReveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     @media (prefers-reduced-motion: reduce) { .dash-title, .stat-row .sc, .panel { animation: none !important; } }
     @media (max-width: 520px) { .insight-summary-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 680px) {
+      .dash-chat-fab { right: 12px; bottom: 12px; }
+      .dash-chat-panel { right: 12px; bottom: 82px; width: calc(100vw - 24px); }
+      .dash-chat-msg { max-width: 92%; }
+    }
   `]
 })
 export class DashboardComponent implements OnInit {
@@ -662,6 +854,22 @@ export class DashboardComponent implements OnInit {
   readonly recentProducts  = signal<ProductListItemDto[]>([]);
   readonly inventoryProducts = signal<ProductListItemDto[]>([]);
   readonly recentShipments = signal<ShipmentDto[]>([]);
+  readonly dashboardChatOpen = signal(false);
+  readonly dashboardChatLoading = signal(false);
+  readonly dashboardChatMessages = signal<DashboardChatMessage[]>([
+    {
+      sender: 'bot',
+      text: 'Hi, I can help with shipment status, delays, retries, and assignment gaps.',
+      createdAtUtc: new Date().toISOString()
+    }
+  ]);
+  readonly dashboardChatSuggestedPrompts = signal<string[]>([
+    'Give me a shipment status summary.',
+    'Show assignment gaps (missing agent/vehicle).',
+    'How many active deliveries are in transit right now?',
+    'Which shipments need retry handling?'
+  ]);
+  dashboardChatPrompt = '';
   readonly totalOrders     = signal(0);
   readonly creditAvail     = signal(0);
   readonly creditLimit     = signal(0);
@@ -779,6 +987,7 @@ export class DashboardComponent implements OnInit {
   readonly isWarehouse = () => this.authStore.hasRole(UserRole.Warehouse);
   readonly isLogistics = () => this.authStore.hasRole(UserRole.Logistics);
   readonly isAgent     = () => this.authStore.hasRole(UserRole.Agent);
+  readonly canUseDashboardChatbot = () => false;
   readonly showInventoryAlerts = () => this.isAdmin() || this.isWarehouse();
   readonly showCommercialInsights = () => this.isAdmin() || this.isWarehouse() || this.isLogistics();
 
@@ -839,6 +1048,81 @@ export class DashboardComponent implements OnInit {
   toggleIncludeOutOfStock(include: boolean): void {
     this.includeOutOfStock.set(include);
     this.inventoryAlertRules.updateIncludeOutOfStock(include);
+  }
+
+  toggleDashboardChatbot(): void {
+    this.dashboardChatOpen.update(open => !open);
+  }
+
+  sendDashboardChatbotQuestion(): void {
+    if (!this.canUseDashboardChatbot()) {
+      return;
+    }
+
+    const message = this.dashboardChatPrompt.trim();
+    if (!message || this.dashboardChatLoading()) {
+      return;
+    }
+
+    this.dashboardChatMessages.update(messages => [
+      ...messages,
+      {
+        sender: 'user',
+        text: message,
+        createdAtUtc: new Date().toISOString()
+      }
+    ]);
+
+    this.dashboardChatPrompt = '';
+    this.dashboardChatLoading.set(true);
+
+    this.logisticsApi.askChatbot({ message }).subscribe({
+      next: (response: LogisticsChatbotResponseDto) => {
+        this.dashboardChatMessages.update(messages => [
+          ...messages,
+          {
+            sender: 'bot',
+            text: response.reply,
+            intent: response.intent,
+            createdAtUtc: response.createdAtUtc
+          }
+        ]);
+
+        if (response.suggestedPrompts.length > 0) {
+          this.dashboardChatSuggestedPrompts.set(response.suggestedPrompts.slice(0, 5));
+        }
+
+        this.dashboardChatLoading.set(false);
+      },
+      error: () => {
+        this.dashboardChatMessages.update(messages => [
+          ...messages,
+          {
+            sender: 'bot',
+            text: 'Unable to fetch chatbot response right now. Please try again in a moment.',
+            createdAtUtc: new Date().toISOString()
+          }
+        ]);
+        this.dashboardChatLoading.set(false);
+      }
+    });
+  }
+
+  useDashboardSuggestedPrompt(prompt: string): void {
+    this.dashboardChatPrompt = prompt;
+    this.sendDashboardChatbotQuestion();
+  }
+
+  formatDashboardChatTime(value: string): string {
+    const parsed = new Date(value);
+    if (!Number.isFinite(parsed.getTime())) {
+      return '';
+    }
+
+    return parsed.toLocaleTimeString('en-IN', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
   }
 
   ngOnInit(): void {

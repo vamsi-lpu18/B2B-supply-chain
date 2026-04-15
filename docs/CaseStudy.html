@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply Chain Platform — Technical Case Study</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --brand: #1e3a5f; --brand-light: #e8f0fa; --accent: #d97706;
+    --text: #1a1a2e; --text-secondary: #475569; --bg: #ffffff;
+    --border: #e2e8f0; --surface: #f8fafc;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 15px; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text); background: var(--bg); line-height: 1.7;
+    max-width: 1000px; margin: 0 auto; padding: 40px 48px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  /* ─── Cover Page ─── */
+  .cover {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    min-height: 92vh; text-align: center; page-break-after: always;
+  }
+  .cover-badge {
+    display: inline-block; padding: 6px 20px; border-radius: 40px;
+    background: var(--brand); color: #fff; font-size: .7rem;
+    font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 28px;
+  }
+  .cover h1 {
+    font-size: 2.8rem; font-weight: 900; letter-spacing: -.04em;
+    color: var(--brand); line-height: 1.1; margin-bottom: 12px;
+  }
+  .cover-sub { font-size: 1.15rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 48px; }
+  .cover-meta { font-size: .8rem; color: var(--text-secondary); line-height: 2; }
+  .cover-meta strong { color: var(--text); }
+
+  /* ─── TOC ─── */
+  .toc { page-break-after: always; }
+  .toc h2 { font-size: 1.4rem; margin-bottom: 18px; color: var(--brand); border: none; padding: 0; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 6px 0; font-size: .88rem; color: var(--text-secondary); }
+  .toc li a { color: var(--brand); text-decoration: none; font-weight: 600; }
+
+  /* ─── Headings ─── */
+  h2 {
+    font-size: 1.35rem; font-weight: 800; color: var(--brand);
+    border-bottom: 3px solid var(--brand); padding-bottom: 8px;
+    margin: 48px 0 18px; letter-spacing: -.02em;
+  }
+  h3 {
+    font-size: 1.05rem; font-weight: 700; color: var(--text);
+    margin: 28px 0 10px; letter-spacing: -.01em;
+  }
+  h4 { font-size: .9rem; font-weight: 700; margin: 18px 0 6px; color: var(--text-secondary); }
+  p, li { font-size: .88rem; margin-bottom: 8px; }
+  ul, ol { padding-left: 22px; margin-bottom: 14px; }
+
+  /* ─── Tables ─── */
+  table {
+    width: 100%; border-collapse: collapse; margin: 16px 0 24px;
+    font-size: .8rem; page-break-inside: avoid;
+  }
+  thead th {
+    background: var(--brand); color: #fff; padding: 10px 12px;
+    text-align: left; font-weight: 700; font-size: .72rem;
+    text-transform: uppercase; letter-spacing: .06em;
+  }
+  tbody td {
+    padding: 9px 12px; border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--surface); }
+
+  /* ─── Callout ─── */
+  .callout {
+    background: var(--brand-light); border-left: 4px solid var(--brand);
+    padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0;
+    font-size: .84rem; color: var(--text);
+  }
+  .callout strong { color: var(--brand); }
+  .callout-warn {
+    background: #fef3c7; border-left: 4px solid #d97706;
+    padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0;
+    font-size: .84rem; color: var(--text);
+  }
+  .callout-warn strong { color: #92400e; }
+  .callout-success {
+    background: #dcfce7; border-left: 4px solid #16a34a;
+    padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0;
+    font-size: .84rem; color: var(--text);
+  }
+  .callout-success strong { color: #166534; }
+
+  /* ─── Diagram container ─── */
+  .diagram-wrapper {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 24px; margin: 18px 0 28px;
+    page-break-inside: avoid; text-align: center;
+  }
+  .diagram-wrapper .mermaid { display: inline-block; text-align: center; }
+  .diagram-caption {
+    text-align: center; font-size: .72rem; font-weight: 600;
+    color: var(--text-secondary); margin-top: 10px; text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+
+  /* ─── Tech stack grid ─── */
+  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 24px; }
+  .tech-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 16px; page-break-inside: avoid;
+  }
+  .tech-card-label {
+    font-size: .65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--accent); margin-bottom: 4px;
+  }
+  .tech-card-value { font-size: .88rem; font-weight: 700; color: var(--text); }
+  .tech-card-desc { font-size: .76rem; color: var(--text-secondary); margin-top: 3px; }
+
+  /* ─── NFR / Metric grid ─── */
+  .nfr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .nfr-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px; page-break-inside: avoid;
+  }
+  .nfr-card h4 { margin: 0 0 6px; color: var(--brand); font-size: .82rem; }
+  .nfr-card p { font-size: .78rem; margin: 0; color: var(--text-secondary); }
+
+  /* ─── Stat cards ─── */
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0 24px; }
+  .stat-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px; text-align: center; page-break-inside: avoid;
+  }
+  .stat-number { font-size: 1.6rem; font-weight: 900; color: var(--brand); margin-bottom: 2px; }
+  .stat-label { font-size: .68rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .06em; }
+
+  /* ─── Timeline ─── */
+  .timeline { position: relative; padding-left: 28px; margin: 16px 0 24px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px; background: var(--brand); }
+  .timeline-item { position: relative; margin-bottom: 18px; }
+  .timeline-item::before { content: ''; position: absolute; left: -24px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--brand); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--brand); }
+  .timeline-item h4 { margin: 0 0 3px; font-size: .84rem; color: var(--brand); font-weight: 700; }
+  .timeline-item p { margin: 0; font-size: .78rem; color: var(--text-secondary); }
+
+  /* ─── Print ─── */
+  @media print {
+    body { padding: 20px 30px; font-size: 13px; }
+    h2 { page-break-before: auto; }
+    .diagram-wrapper, table, .tech-grid, .nfr-grid, .stat-grid { page-break-inside: avoid; }
+    .cover { min-height: 90vh; }
+  }
+
+  .page-break { page-break-before: always; }
+
+  .badge {
+    display: inline-block; padding: 3px 10px; border-radius: 4px;
+    font-size: .68rem; font-weight: 700; letter-spacing: .04em;
+  }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-green { background: #dcfce7; color: #166534; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+  .badge-purple { background: #f3e8ff; color: #6b21a8; }
+  .badge-slate { background: #f1f5f9; color: #334155; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace; font-size: .82em;
+    background: var(--surface); padding: 2px 6px; border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 16px 0; }
+  .two-col > div { font-size: .84rem; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- COVER PAGE -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-badge">Technical Case Study</div>
+  <h1>Supply Chain<br>Management Platform</h1>
+  <p class="cover-sub">Enterprise B2B SaaS — Microservices Architecture Case Study</p>
+  <div class="cover-meta">
+    <strong>Type:</strong> Full-Stack Distributed System &nbsp;|&nbsp; <strong>Date:</strong> April 2026<br>
+    <strong>Backend:</strong> .NET 10 (C# 13) · 6 Microservices · Ocelot API Gateway<br>
+    <strong>Frontend:</strong> Angular 21 · Standalone Components · Signal-Based State<br>
+    <strong>Infrastructure:</strong> SQL Server · RabbitMQ · Redis · Docker Compose<br>
+    <strong>Classification:</strong> Portfolio Case Study — Interview Ready
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#s1">Executive Summary</a></li>
+    <li><a href="#s2">Business Problem &amp; Context</a></li>
+    <li><a href="#s3">System Architecture Overview</a></li>
+    <li><a href="#s4">Technology Stack &amp; Justification</a></li>
+    <li><a href="#s5">Microservice Deep Dive — The 6 Domain Services</a></li>
+    <li><a href="#s6">Design Patterns &amp; Architectural Decisions</a></li>
+    <li><a href="#s7">API Gateway — Cross-Cutting Concerns</a></li>
+    <li><a href="#s8">Frontend Architecture — Angular 21 SPA</a></li>
+    <li><a href="#s9">Security Architecture</a></li>
+    <li><a href="#s10">Data Flow — Order Lifecycle (End-to-End Walkthrough)</a></li>
+    <li><a href="#s11">Event-Driven Architecture &amp; Messaging</a></li>
+    <li><a href="#s12">Performance, Scalability &amp; Resilience</a></li>
+    <li><a href="#s13">Project Metrics &amp; Complexity</a></li>
+    <li><a href="#s14">Key Challenges &amp; Solutions</a></li>
+    <li><a href="#s15">Lessons Learned &amp; Interview Talking Points</a></li>
+  </ol>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1 — Executive Summary -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s1">1. Executive Summary</h2>
+<p>The <strong>Supply Chain Management Platform</strong> is an enterprise-grade B2B SaaS application that digitizes the full dealer-to-delivery lifecycle for a manufacturing/distribution business. It handles <strong>dealer onboarding, product catalog management, order processing with credit-hold workflows, logistics tracking with agent assignment, GST-compliant invoicing, and multi-channel notifications</strong> — all built on a production-ready microservices architecture.</p>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">6</div>
+    <div class="stat-label">Domain Microservices</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">69+</div>
+    <div class="stat-label">Angular Components</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">80+</div>
+    <div class="stat-label">REST API Endpoints</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">5</div>
+    <div class="stat-label">User Roles (RBAC)</div>
+  </div>
+</div>
+
+<div class="callout">
+  <strong>What makes this project stand out:</strong> This isn't a CRUD application with a monolithic backend. It implements real distributed systems patterns — Saga orchestration, Transactional Outbox, Event-Driven Architecture, API Gateway with circuit breakers, and RBAC with JWT token revocation — all connected through a premium Angular SPA with role-adaptive dashboards.
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2 — Business Problem -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s2">2. Business Problem &amp; Context</h2>
+<h3>2.1 The Problem</h3>
+<p>A B2B manufacturing company manages hundreds of dealers who place bulk orders for products. The existing process is manual — orders via phone/email, credit checks on spreadsheets, shipment tracking through WhatsApp, and invoices generated in Tally. This leads to:</p>
+<ul>
+  <li><strong>Order errors</strong> — manual data entry causes wrong quantities, pricing mismatches, and duplicate orders</li>
+  <li><strong>Credit risk</strong> — no real-time visibility into dealer outstanding balances, leading to credit overexposure</li>
+  <li><strong>Delivery blind spots</strong> — no centralized tracking; dealers call warehouse staff for status updates</li>
+  <li><strong>Invoice delays</strong> — GST-compliant invoices generated days after delivery, causing payment collection lags</li>
+  <li><strong>No analytics</strong> — management lacks dashboards for revenue trends, top dealers, or inventory health</li>
+</ul>
+
+<h3>2.2 The Solution</h3>
+<p>A fully digital platform where:</p>
+<ul>
+  <li><strong>Dealers</strong> self-register, browse the catalog, place orders, and track shipments through a web portal</li>
+  <li><strong>Admins</strong> manage dealer approvals, product catalog, credit limits, and monitor analytics dashboards</li>
+  <li><strong>Warehouse</strong> staff process orders and manage inventory with automated stock alerts</li>
+  <li><strong>Logistics</strong> managers create shipments, assign delivery agents, and track last-mile delivery</li>
+  <li><strong>Agents</strong> update shipment status in real-time during delivery</li>
+</ul>
+
+<h3>2.3 User Roles &amp; Access Matrix</h3>
+<table>
+  <thead><tr><th>Role</th><th>Responsibilities</th><th>Key Capabilities</th></tr></thead>
+  <tbody>
+    <tr><td><span class="badge badge-blue">Admin</span></td><td>Platform governance &amp; full operational visibility</td><td>All services — full CRUD, dealer approval/rejection, credit management, analytics</td></tr>
+    <tr><td><span class="badge badge-green">Dealer</span></td><td>Browse, order, pay, track</td><td>Catalog browse, cart/checkout, own orders, own invoices, shipment tracking</td></tr>
+    <tr><td><span class="badge badge-amber">Warehouse</span></td><td>Stock management &amp; fulfillment</td><td>Inventory management, order queue processing, mark ReadyForDispatch</td></tr>
+    <tr><td><span class="badge badge-purple">Logistics</span></td><td>Shipment orchestration</td><td>Create shipments, assign agents, manage delivery lifecycle</td></tr>
+    <tr><td><span class="badge badge-slate">Agent</span></td><td>Last-mile delivery execution</td><td>View assigned shipments, update delivery status, record delivery attempts</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3 — Architecture Overview -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s3" class="page-break">3. System Architecture Overview</h2>
+<p>The platform follows a <strong>domain-driven microservices architecture</strong> with an API gateway pattern, event-driven integration, and database-per-service isolation.</p>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph TB
+    subgraph Client["Client Layer"]
+        SPA["🖥️ Angular 21 SPA<br/>Standalone Components · Signals"]
+    end
+
+    subgraph Gateway["API Gateway Layer"]
+        OC["🔀 Ocelot API Gateway<br/>JWT Auth · Rate Limit · Circuit Breaker · LB"]
+    end
+
+    subgraph Services["Domain Microservices (.NET 10)"]
+        ID["🔐 Identity & Auth<br/>:8001"]
+        CA["📦 Catalog & Inventory<br/>:8002"]
+        OR["📋 Order Management<br/>:8003"]
+        LG["🚚 Logistics Tracking<br/>:8004"]
+        PY["💰 Payment & Invoice<br/>:8005"]
+        NT["🔔 Notification<br/>:8006"]
+    end
+
+    subgraph Data["Data & Messaging Layer"]
+        SQL[("SQL Server<br/>6 Databases")]
+        RMQ["🐇 RabbitMQ<br/>Topic Exchange"]
+        RED["⚡ Redis<br/>Cache + Revocation"]
+    end
+
+    subgraph External["External Integrations"]
+        RP["💳 Razorpay"]
+        SMTP["📧 SMTP / MailKit"]
+    end
+
+    SPA --> OC
+    OC --> ID & CA & OR & LG & PY & NT
+    ID & CA & OR & LG & PY --> SQL
+    NT --> SQL
+    ID & CA & OR & LG & PY --> RMQ
+    RMQ -->|"Consume All Events"| NT
+    ID --> RED
+    PY --> RP
+    NT --> SMTP
+
+    style SPA fill:#dbeafe,stroke:#2563eb
+    style OC fill:#fef3c7,stroke:#d97706
+    style SQL fill:#f1f5f9,stroke:#64748b
+    style RMQ fill:#fee2e2,stroke:#dc2626
+    style RED fill:#fce7f3,stroke:#9d174d
+  </pre>
+  <div class="diagram-caption">Figure 1 — High-Level System Architecture</div>
+</div>
+
+<div class="callout">
+  <strong>Key Architecture Decisions:</strong>
+  <ul style="margin-top:8px; margin-bottom:0;">
+    <li><strong>Database-per-Service</strong> — Each microservice owns its dedicated SQL Server database. No shared schemas.</li>
+    <li><strong>Transactional Outbox + RabbitMQ</strong> — Events are written to an outbox table atomically with business data, then published asynchronously.</li>
+    <li><strong>Saga Orchestration</strong> — The Order service coordinates multi-step workflows (stock reservation → credit check → approval) via an explicit state machine.</li>
+    <li><strong>Single Entry Point</strong> — All frontend traffic flows through the Ocelot API Gateway, which handles JWT validation, rate limiting, and routing.</li>
+  </ul>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4 — Tech Stack -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s4" class="page-break">4. Technology Stack &amp; Justification</h2>
+<div class="tech-grid">
+  <div class="tech-card">
+    <div class="tech-card-label">Backend Runtime</div>
+    <div class="tech-card-value">.NET 10 (C# 13)</div>
+    <div class="tech-card-desc">Minimal APIs + Clean Architecture per service. Chosen for strong typing, high performance, and mature ecosystem for enterprise backends.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">Frontend Framework</div>
+    <div class="tech-card-value">Angular 21</div>
+    <div class="tech-card-desc">Standalone components, Signal-based state management, lazy-loaded routes. Chosen for its opinionated structure suited to enterprise SPAs.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">API Gateway</div>
+    <div class="tech-card-value">Ocelot + Polly</div>
+    <div class="tech-card-desc">Route mapping, JWT pass-through, rate limiting (500/min per route), RoundRobin load balancing, circuit breaker with QoS policies.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">Primary Database</div>
+    <div class="tech-card-value">SQL Server 2022</div>
+    <div class="tech-card-desc">6 isolated databases (one per service). EF Core 10 Code-First with migrations. Transactional integrity within each bounded context.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">Message Broker</div>
+    <div class="tech-card-value">RabbitMQ 4.1</div>
+    <div class="tech-card-desc">Topic exchange (<code>supplychain.events</code>) for async cross-service communication. Dead-letter queues for failed messages. Outbox dispatchers per service.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">Cache &amp; Idempotency</div>
+    <div class="tech-card-value">Redis 7.4</div>
+    <div class="tech-card-desc">JWT token revocation store, idempotency key enforcement, response caching for high-read endpoints.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">Application Pipeline</div>
+    <div class="tech-card-value">MediatR + FluentValidation</div>
+    <div class="tech-card-desc">CQRS-lite pattern with cross-cutting pipeline behaviors: validation, logging, idempotency, transaction management.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">Payment Gateway</div>
+    <div class="tech-card-value">Razorpay</div>
+    <div class="tech-card-desc">Order creation, webhook signature verification, optional payment capture for prepaid orders.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">PDF Generation</div>
+    <div class="tech-card-value">QuestPDF</div>
+    <div class="tech-card-desc">GST-compliant invoice PDF generation with branded templates, IGST vs CGST+SGST breakdown.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">Email Transport</div>
+    <div class="tech-card-value">MailKit (SMTP)</div>
+    <div class="tech-card-desc">Branded HTML email templates. Development emails routed to Mailpit for safe testing.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">Observability</div>
+    <div class="tech-card-value">Serilog + Health Checks</div>
+    <div class="tech-card-desc">Structured JSON logging, X-Correlation-Id tracing across all services, per-service health endpoints.</div>
+  </div>
+  <div class="tech-card">
+    <div class="tech-card-label">Containerization</div>
+    <div class="tech-card-value">Docker Compose</div>
+    <div class="tech-card-desc">Redis, RabbitMQ, and Mailpit orchestrated via docker-compose.yml for consistent dev environments.</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5 — Microservice Deep Dive -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s5" class="page-break">5. Microservice Deep Dive — The 6 Domain Services</h2>
+
+<h3>5.1 Identity &amp; Auth Service <span class="badge badge-blue">Port 8001</span></h3>
+<table>
+  <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Bounded Context</strong></td><td>User lifecycle, authentication, dealer onboarding, role management</td></tr>
+    <tr><td><strong>Core Entities</strong></td><td>Users, DealerProfiles, RefreshTokens, OtpRecords</td></tr>
+    <tr><td><strong>Key Features</strong></td><td>JWT access + httpOnly refresh token, OTP-based password reset, admin dealer approval/rejection workflow, credit limit sync to Payment service</td></tr>
+    <tr><td><strong>Integration</strong></td><td>→ Payment Service (HTTP PUT: sync credit limit on dealer approval)<br>← Notification Service (HTTP GET: resolve user email)</td></tr>
+    <tr><td><strong>Events Published</strong></td><td>DealerRegistered, DealerApproved, DealerRejected, PasswordResetRequested, PasswordResetCompleted</td></tr>
+  </tbody>
+</table>
+
+<h3>5.2 Catalog &amp; Inventory Service <span class="badge badge-green">Port 8002</span></h3>
+<table>
+  <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Bounded Context</strong></td><td>Product catalog, category hierarchy, stock management</td></tr>
+    <tr><td><strong>Core Entities</strong></td><td>Products, Categories, StockTransactions, StockSubscriptions</td></tr>
+    <tr><td><strong>Key Features</strong></td><td>Product CRUD with image management, category tree, <strong>two-phase stock management</strong> (SoftLock → HardDeduct), low-stock alerts, product reviews with moderation</td></tr>
+    <tr><td><strong>Stock Model</strong></td><td><code>SoftLock</code>: reserve on order placement · <code>HardDeduct</code>: deduct on dispatch · <code>Release</code>: undo on cancellation · <code>Restock</code>: add back on return</td></tr>
+    <tr><td><strong>Events Published</strong></td><td>ProductCreated, StockUpdated, LowStockAlert</td></tr>
+  </tbody>
+</table>
+
+<h3>5.3 Order Management Service <span class="badge badge-red">Port 8003</span></h3>
+<table>
+  <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Bounded Context</strong></td><td>Order lifecycle, credit-hold decisioning, returns, analytics</td></tr>
+    <tr><td><strong>Core Entities</strong></td><td>Orders (Aggregate Root), OrderLines, OrderStatusHistory, ReturnRequests, OrderSagaStates</td></tr>
+    <tr><td><strong>State Machine</strong></td><td>Placed → OnHold | Processing → ReadyForDispatch → InTransit → Delivered → Closed<br>With branches: Exception, ReturnRequested → ReturnApproved/Rejected, Cancelled</td></tr>
+    <tr><td><strong>Saga Coordinator</strong></td><td>Orchestrates: Started → CreditCheckInProgress → AwaitingManualApproval | CompletedApproved | CompletedRejected | CompletedCancelled</td></tr>
+    <tr><td><strong>Key Features</strong></td><td>Credit check integration, bulk status updates, role-scoped transitions, purchase analytics (top dealers, products, daily revenue), idempotent order placement</td></tr>
+    <tr><td><strong>Events Published</strong></td><td>OrderPlaced, AdminApprovalRequired, OrderApproved, OrderCancelled, ReturnRequested, ReturnApproved, ReturnRejected</td></tr>
+  </tbody>
+</table>
+
+<h3>5.4 Logistics &amp; Tracking Service <span class="badge badge-purple">Port 8004</span></h3>
+<table>
+  <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Bounded Context</strong></td><td>Shipment lifecycle, agent assignment, delivery tracking</td></tr>
+    <tr><td><strong>Core Entities</strong></td><td>Shipments, ShipmentEvents (timeline), Vehicles, DeliveryAttempts, ShipmentOpsStates</td></tr>
+    <tr><td><strong>Shipment States</strong></td><td>Created → Assigned → PickedUp → InTransit → OutForDelivery → Delivered | DeliveryFailed → Returned</td></tr>
+    <tr><td><strong>Key Features</strong></td><td>Agent assignment with accept/reject, delivery attempt tracking, ETA calculation, vehicle management, operations queue for exception handling</td></tr>
+    <tr><td><strong>Events Published</strong></td><td>ShipmentCreated, ShipmentAssigned, ShipmentStatusUpdated, ShipmentDelivered</td></tr>
+  </tbody>
+</table>
+
+<h3>5.5 Payment &amp; Invoice Service <span class="badge badge-amber">Port 8005</span></h3>
+<table>
+  <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Bounded Context</strong></td><td>Credit management, invoice generation, payment processing</td></tr>
+    <tr><td><strong>Core Entities</strong></td><td>DealerCreditAccounts, Invoices, InvoiceLines, PaymentRecords, InvoiceWorkflowStates</td></tr>
+    <tr><td><strong>Key Features</strong></td><td>Dealer credit limit management, credit check API (consumed by Order service), GST-compliant invoice generation (IGST vs CGST+SGST), Razorpay integration, payment capture, invoice workflow state machine, PDF download</td></tr>
+    <tr><td><strong>Events Published</strong></td><td>InvoiceGenerated, PaymentCaptured, PaymentFailed, DealerCreditLimitUpdated</td></tr>
+  </tbody>
+</table>
+
+<h3>5.6 Notification Service <span class="badge badge-slate">Port 8006</span></h3>
+<table>
+  <thead><tr><th>Aspect</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Bounded Context</strong></td><td>Notification delivery, preferences, email dispatch</td></tr>
+    <tr><td><strong>Core Entities</strong></td><td>Notifications, NotificationPreferences</td></tr>
+    <tr><td><strong>Key Features</strong></td><td>Consumes ALL domain events from RabbitMQ, routes to In-App or Email channel, HTML email templates via MailKit, digest batching, mark-as-read, user preference management</td></tr>
+    <tr><td><strong>Channels</strong></td><td>InApp (0) · Email (1) · SMS (2 — placeholder) · Push (3 — placeholder)</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 6 — Design Patterns -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s6" class="page-break">6. Design Patterns &amp; Architectural Decisions</h2>
+
+<h3>6.1 Saga Pattern — Order Orchestration</h3>
+<p>The Order service implements a <strong>Saga Orchestration</strong> pattern to coordinate the multi-step order creation workflow across Catalog (stock) and Payment (credit) services.</p>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+stateDiagram-v2
+    [*] --> Started : Dealer places order
+    Started --> CreditCheckInProgress : Stock reserved, checking credit
+    CreditCheckInProgress --> CompletedApproved : Credit OK
+    CreditCheckInProgress --> AwaitingManualApproval : Credit exceeded
+    AwaitingManualApproval --> CompletedApproved : Admin approves
+    AwaitingManualApproval --> CompletedRejected : Admin rejects
+    AwaitingManualApproval --> CompletedCancelled : Dealer cancels
+    CompletedApproved --> [*]
+    CompletedRejected --> [*]
+    CompletedCancelled --> [*]
+  </pre>
+  <div class="diagram-caption">Figure 2 — Order Saga State Machine</div>
+</div>
+
+<div class="callout-warn">
+  <strong>Why Saga instead of 2PC?</strong> With 6 independent databases, a Two-Phase Commit is not feasible — it would require all databases to support XA transactions and would create blocking locks across services. The Saga pattern provides eventual consistency through compensating transactions (e.g., releasing stock locks on cancellation, restocking on return approval).
+</div>
+
+<h3>6.2 Transactional Outbox Pattern</h3>
+<p>Each service writes domain events to an <code>OutboxMessages</code> table in the same database transaction as the business data. A background <code>OutboxDispatcher</code> polls this table and publishes events to RabbitMQ.</p>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+sequenceDiagram
+    participant Svc as Service Logic
+    participant DB as Service Database
+    participant Disp as OutboxDispatcher
+    participant RMQ as RabbitMQ
+
+    Svc->>DB: BEGIN TRANSACTION
+    Svc->>DB: INSERT Order + UPDATE Stock
+    Svc->>DB: INSERT OutboxMessages (OrderPlaced)
+    Svc->>DB: COMMIT
+
+    Note over Disp: Polls every 5 seconds
+    Disp->>DB: SELECT WHERE Status = Pending (batch 20)
+    Disp->>RMQ: BasicPublish (routing key: order.orderplaced)
+    Disp->>DB: UPDATE Status = Published
+  </pre>
+  <div class="diagram-caption">Figure 3 — Transactional Outbox Pattern — Guaranteed Event Delivery</div>
+</div>
+
+<div class="callout-success">
+  <strong>Guarantee:</strong> The outbox pattern ensures that if the business transaction succeeds, the event will eventually be published — even if RabbitMQ is temporarily down. The dispatcher retries up to 5 times before moving a message to Failed status.
+</div>
+
+<h3>6.3 Other Key Patterns</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Where Used</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><strong>CQRS-Lite</strong></td><td>All services via MediatR</td><td>Separate command/query pipelines with cross-cutting behaviors (validation, logging, transactions)</td></tr>
+    <tr><td><strong>Aggregate Root (DDD)</strong></td><td>OrderAggregate, Shipment</td><td>Encapsulate domain logic and enforce invariants — status transitions, stock rules</td></tr>
+    <tr><td><strong>Repository Abstraction</strong></td><td>IOrderRepository, IPaymentRepository</td><td>Decouple domain logic from EF Core persistence, enable unit testing with mocks</td></tr>
+    <tr><td><strong>Gateway Aggregation</strong></td><td>Ocelot routes to 6 services</td><td>Single entry point for frontend — simplifies CORS, auth, rate limiting</td></tr>
+    <tr><td><strong>Idempotency Keys</strong></td><td>Order creation via Redis</td><td>Prevent duplicate order placement from network retries or double-clicks</td></tr>
+    <tr><td><strong>Circuit Breaker</strong></td><td>Ocelot + Polly</td><td>3 failures → 10s break → prevents cascade failures from downstream outages</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 7 — API Gateway -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s7" class="page-break">7. API Gateway — Cross-Cutting Concerns</h2>
+<p>The Ocelot API Gateway acts as the single entry point for all client requests to the backend microservices.</p>
+
+<table>
+  <thead><tr><th>Concern</th><th>Implementation</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Routing</strong></td><td>URL prefix → service mapping</td><td><code>/identity/*</code> → :8001, <code>/catalog/*</code> → :8002, <code>/orders/*</code> → :8003, etc.</td></tr>
+    <tr><td><strong>Authentication</strong></td><td>JWT Bearer validation</td><td>Validates issuer, audience, signature, and lifetime at the gateway level before forwarding</td></tr>
+    <tr><td><strong>Rate Limiting</strong></td><td>Per-route + Global</td><td>500 requests/min per route, 120 requests/min global per IP (keyed by <code>Oc-Client</code> header)</td></tr>
+    <tr><td><strong>Load Balancing</strong></td><td>RoundRobin via Ocelot</td><td>Demo routes (<code>/identity-lb/*</code>) distribute across primary (:8001) and secondary (:8101) instances</td></tr>
+    <tr><td><strong>Circuit Breaker</strong></td><td>Polly QoS policies</td><td>3 exceptions before breaking, 10s break duration, 5s request timeout</td></tr>
+    <tr><td><strong>CORS</strong></td><td>Configured on gateway only</td><td><code>WithOrigins("http://localhost:4200")</code> — AllowCredentials for httpOnly cookies</td></tr>
+    <tr><td><strong>Correlation Tracking</strong></td><td>X-Correlation-Id header</td><td>Frontend generates UUID per request → gateway propagates → all services log with same correlation ID</td></tr>
+    <tr><td><strong>Response Caching</strong></td><td>File cache per route</td><td>15s TTL on identity GET routes to reduce redundant profile lookups</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 8 — Frontend -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s8" class="page-break">8. Frontend Architecture — Angular 21 SPA</h2>
+<p>The frontend is a premium B2B SaaS application built with Angular 21 using modern patterns — standalone components, signal-based state management, and lazy-loaded routes.</p>
+
+<h3>8.1 Architecture Layers</h3>
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph TB
+    subgraph Presentation["Presentation Layer (10 Feature Modules)"]
+        AUTH["Auth<br/>Login · Register · Forgot Password"]
+        DASH["Dashboard<br/>Role-Adaptive Analytics"]
+        CAT["Catalog<br/>Product List · Detail · Form"]
+        CART["Cart & Checkout<br/>Dealer Purchase Flow"]
+        ORD["Orders<br/>List · Detail · Tracking"]
+        LOG["Logistics<br/>Shipment List · Detail"]
+        PAY["Payments<br/>Invoice List · Detail"]
+        NOT["Notifications<br/>Center + Preferences"]
+        ADM["Admin<br/>Dealer & Agent Mgmt"]
+        PRO["Profile<br/>User Settings"]
+    end
+
+    subgraph Shared["Shared Layer"]
+        SHELL["App Shell (Sidebar + Topbar)"]
+        PAG["Pagination"]
+        TOAST["Toast Notifications"]
+        BANNER["Page Banner"]
+        DIALOG["Confirm Dialog"]
+    end
+
+    subgraph Core["Core Layer (Singletons)"]
+        API["7 API Services"]
+        GUARD["Auth + Role Guards"]
+        INT["5 HTTP Interceptors"]
+        STORE["Signal Stores (Auth · Cart · Loading)"]
+        SVC["12 Business Services"]
+        MODEL["9 Model Files"]
+    end
+
+    Presentation --> Shared
+    Shared --> Core
+
+    style Presentation fill:#dbeafe,stroke:#2563eb
+    style Shared fill:#fef3c7,stroke:#d97706
+    style Core fill:#dcfce7,stroke:#16a34a
+  </pre>
+  <div class="diagram-caption">Figure 4 — Frontend Three-Layer Architecture</div>
+</div>
+
+<h3>8.2 Key Frontend Patterns</h3>
+<table>
+  <thead><tr><th>Pattern</th><th>Implementation</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Signal-Based State</strong></td><td>AuthStore, CartStore, LoadingStore use Angular <code>signal()</code> and <code>computed()</code> — no NgRx dependency</td></tr>
+    <tr><td><strong>Lazy Loading</strong></td><td>All 24 feature components are lazy-loaded via <code>loadComponent()</code> in routes — minimal initial bundle</td></tr>
+    <tr><td><strong>Functional Guards</strong></td><td><code>authGuard</code> (checks JWT + silent refresh), <code>roleGuard</code> (checks <code>route.data.roles[]</code>)</td></tr>
+    <tr><td><strong>Functional Interceptors</strong></td><td>5 interceptors chained: Correlation ID → Auth Bearer → UTC Date Normalization → Loading Spinner → Error Handler</td></tr>
+    <tr><td><strong>Silent Token Refresh</strong></td><td>On 401 error: refresh via httpOnly cookie → queue pending requests → retry with new token. Uses <code>BehaviorSubject</code> for concurrency.</td></tr>
+    <tr><td><strong>Role-Adaptive UI</strong></td><td>Dashboard, sidebar, and action buttons dynamically adjust based on <code>AuthStore.role()</code>. Admin sees all; Dealer sees own data.</td></tr>
+    <tr><td><strong>Dev Proxy</strong></td><td><code>proxy.conf.json</code> maps 6 URL prefixes to gateway (:5000) — eliminates CORS in development</td></tr>
+  </tbody>
+</table>
+
+<h3>8.3 HTTP Interceptor Chain</h3>
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph LR
+    REQ["HTTP Request"] --> C1["① Correlation ID<br/>+ X-Correlation-Id UUID<br/>+ Oc-Client header"]
+    C1 --> C2["② Auth Interceptor<br/>+ Bearer token<br/>(skip public URLs)"]
+    C2 --> C3["③ UTC Date Normalizer<br/>Standardize date fields"]
+    C3 --> C4["④ Loading Interceptor<br/>isLoading = true/false"]
+    C4 --> C5["⑤ Error Interceptor<br/>401 → silent refresh<br/>4xx/5xx → toast"]
+    C5 --> API["→ API Gateway"]
+
+    style REQ fill:#dbeafe,stroke:#2563eb
+    style API fill:#dcfce7,stroke:#16a34a
+  </pre>
+  <div class="diagram-caption">Figure 5 — Angular HTTP Interceptor Pipeline (Order Matters)</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 9 — Security -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s9" class="page-break">9. Security Architecture</h2>
+<table>
+  <thead><tr><th>Layer</th><th>Mechanism</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Authentication</strong></td><td>JWT Bearer + httpOnly Refresh Cookie</td><td>Short-lived access token (15 min) + long-lived refresh token in httpOnly cookie. Silent refresh via interceptor.</td></tr>
+    <tr><td><strong>Authorization</strong></td><td>RBAC at 3 levels</td><td>① Gateway route-level auth ② Backend <code>[Authorize(Roles)]</code> per endpoint ③ Frontend <code>roleGuard</code> per route</td></tr>
+    <tr><td><strong>Token Revocation</strong></td><td>Redis JTI store</td><td>On logout, token's JTI (JWT ID) is added to Redis revocation set. All services check this on every request.</td></tr>
+    <tr><td><strong>Internal API Security</strong></td><td>X-Internal-Api-Key header</td><td>Service-to-service calls (e.g., Notification → Identity) protected by shared API key — not exposed to frontend.</td></tr>
+    <tr><td><strong>Password Storage</strong></td><td>Bcrypt hashing</td><td>No cleartext passwords stored. OTP-based reset flow with time-limited codes.</td></tr>
+    <tr><td><strong>CORS Policy</strong></td><td>Gateway-only, single origin</td><td>Only <code>http://localhost:4200</code> allowed. <code>AllowCredentials</code> for cookie-based refresh.</td></tr>
+    <tr><td><strong>Rate Limiting</strong></td><td>Gateway-level throttling</td><td>Prevents brute force on auth endpoints. 429 with structured JSON error response.</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 10 — Flow Walkthrough -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s10" class="page-break">10. Data Flow — Order Lifecycle (End-to-End)</h2>
+<p>This traces a complete order from dealer placement through delivery, showing every service touched.</p>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+sequenceDiagram
+    actor Dealer
+    participant FE as Angular SPA
+    participant GW as API Gateway
+    participant OR as Order Service
+    participant CA as Catalog Service
+    participant PY as Payment Service
+    participant LG as Logistics Service
+    participant RMQ as RabbitMQ
+    participant NT as Notification Svc
+
+    Dealer->>FE: Click "Place Order"
+    FE->>GW: POST /orders/api/orders
+    GW->>OR: Forward (JWT validated)
+
+    OR->>CA: SoftLockStock() per product
+    CA-->>OR: Stock reserved ✓
+
+    OR->>PY: CheckCredit(dealerId, amount)
+    alt Credit Approved
+        PY-->>OR: Approved ✓
+        OR->>OR: Save Order (Processing)
+        OR->>OR: Saga → CompletedApproved
+        OR->>OR: Write OutboxMessage (OrderPlaced)
+    else Credit Exceeded
+        PY-->>OR: Rejected ✗
+        OR->>OR: Save Order (OnHold)
+        OR->>OR: Saga → AwaitingManualApproval
+        OR->>OR: Write OutboxMessage (AdminApprovalRequired)
+    end
+
+    OR-->>GW: OrderDto response
+    GW-->>FE: 201 Created
+    FE-->>Dealer: Order confirmation
+
+    Note over RMQ: Outbox Dispatcher publishes
+    OR->>RMQ: order.orderplaced
+    RMQ->>NT: Consume event
+    NT->>NT: Create notification + send email
+
+    Note over LG: Later - Admin/Warehouse flow
+    Dealer->>FE: Track order
+    FE->>GW: GET /orders/api/orders/{id}/tracking
+  </pre>
+  <div class="diagram-caption">Figure 6 — Complete Order Placement Flow Across All Services</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 11 — Event Architecture -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s11">11. Event-Driven Architecture &amp; Messaging</h2>
+<h3>11.1 RabbitMQ Topology</h3>
+<table>
+  <thead><tr><th>Component</th><th>Name</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Exchange</strong></td><td><code>supplychain.events</code></td><td>Topic exchange — routing keys like <code>order.orderplaced</code>, <code>logistics.shipmentdelivered</code></td></tr>
+    <tr><td><strong>Queue</strong></td><td><code>notification.events.queue</code></td><td>Binds with wildcard <code>#</code> — receives ALL events from ALL services</td></tr>
+    <tr><td><strong>Dead Letter Exchange</strong></td><td>DLX</td><td>Failed messages (after 5 retries) are moved here for manual inspection</td></tr>
+    <tr><td><strong>Producers</strong></td><td>5 services (all except Notification)</td><td>Each has its own <code>OutboxDispatcher</code> background service</td></tr>
+    <tr><td><strong>Consumer</strong></td><td>Notification Service only</td><td>Single consumer pattern — processes events and fans out to In-App + Email channels</td></tr>
+  </tbody>
+</table>
+
+<h3>11.2 Event Catalog</h3>
+<table>
+  <thead><tr><th>Service</th><th>Routing Key Pattern</th><th>Events</th></tr></thead>
+  <tbody>
+    <tr><td>Identity</td><td><code>identity.*</code></td><td>DealerRegistered, DealerApproved, DealerRejected, PasswordResetRequested, PasswordResetCompleted</td></tr>
+    <tr><td>Catalog</td><td><code>catalog.*</code></td><td>ProductCreated, StockUpdated, LowStockAlert</td></tr>
+    <tr><td>Order</td><td><code>order.*</code></td><td>OrderPlaced, AdminApprovalRequired, OrderApproved, OrderCancelled, ReturnRequested, ReturnApproved</td></tr>
+    <tr><td>Logistics</td><td><code>logistics.*</code></td><td>ShipmentCreated, ShipmentAssigned, ShipmentStatusUpdated, ShipmentDelivered</td></tr>
+    <tr><td>Payment</td><td><code>payment.*</code></td><td>InvoiceGenerated, PaymentCaptured, PaymentFailed, CreditLimitUpdated</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 12 — Performance -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s12" class="page-break">12. Performance, Scalability &amp; Resilience</h2>
+<div class="nfr-grid">
+  <div class="nfr-card">
+    <h4>⏱️ Performance</h4>
+    <p>Target p95 read latency &lt; 300ms, write latency &lt; 500ms. Redis caching for frequently read data. EF Core compiled queries for hot paths.</p>
+  </div>
+  <div class="nfr-card">
+    <h4>📈 Horizontal Scalability</h4>
+    <p>Stateless API services scale via RoundRobin LB. RabbitMQ decouples producers from consumers. Each service independently deployable.</p>
+  </div>
+  <div class="nfr-card">
+    <h4>🛡️ Resilience</h4>
+    <p>Circuit breaker (Polly) prevents cascade failures. Outbox pattern survives broker outages. Retry with exponential backoff on transient failures.</p>
+  </div>
+  <div class="nfr-card">
+    <h4>🔄 Eventual Consistency</h4>
+    <p>Strong consistency within each service (SQL transactions). Eventual consistency across services via Outbox + RabbitMQ events.</p>
+  </div>
+  <div class="nfr-card">
+    <h4>🔒 Idempotency</h4>
+    <p>Redis-backed idempotency keys prevent duplicate order processing from retries or double-clicks. Outbox dispatcher uses status tracking.</p>
+  </div>
+  <div class="nfr-card">
+    <h4>📊 Observability</h4>
+    <p>X-Correlation-Id traces requests across all 6 services + gateway. Serilog structured logging. Health check endpoints per service.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 13 — Project Metrics -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s13">13. Project Metrics &amp; Complexity</h2>
+<div class="two-col">
+  <div>
+    <h3>Backend Metrics</h3>
+    <table>
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Microservices</td><td>6 domain services + 1 gateway</td></tr>
+        <tr><td>Databases</td><td>6 SQL Server databases</td></tr>
+        <tr><td>API Endpoints</td><td>80+ REST endpoints</td></tr>
+        <tr><td>EF Core Migrations</td><td>20+ migrations total</td></tr>
+        <tr><td>Domain Events</td><td>20+ event types</td></tr>
+        <tr><td>Background Services</td><td>6 outbox dispatchers + email dispatcher</td></tr>
+        <tr><td>Ocelot Routes</td><td>35+ route configurations</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h3>Frontend Metrics</h3>
+    <table>
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Framework</td><td>Angular 21 (standalone)</td></tr>
+        <tr><td>Feature Modules</td><td>10 domains</td></tr>
+        <tr><td>Components</td><td>24 route components + 5 shared</td></tr>
+        <tr><td>API Services</td><td>7 HTTP services</td></tr>
+        <tr><td>Interceptors</td><td>5 functional interceptors</td></tr>
+        <tr><td>Business Services</td><td>12 domain services</td></tr>
+        <tr><td>Total Source Files</td><td>69 TypeScript files (~650 KB)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 14 — Challenges -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s14" class="page-break">14. Key Challenges &amp; Solutions</h2>
+
+<table>
+  <thead><tr><th>Challenge</th><th>Problem</th><th>Solution Implemented</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Distributed Transactions</strong></td>
+      <td>Order placement touches 3 services (Catalog, Payment, Order) — can't use a single DB transaction</td>
+      <td>Saga Orchestration pattern with <code>OrderSagaCoordinator</code>. Compensating transactions (stock release, credit reversal) on failure. Persisted saga state for auditability.</td>
+    </tr>
+    <tr>
+      <td><strong>Event Delivery Reliability</strong></td>
+      <td>If RabbitMQ is down when an order is placed, the notification is lost</td>
+      <td>Transactional Outbox pattern — events are persisted atomically with business data. Background dispatcher retries up to 5 times with dead-letter fallback.</td>
+    </tr>
+    <tr>
+      <td><strong>Concurrent Stock Updates</strong></td>
+      <td>Two dealers ordering the last 10 units simultaneously could oversell</td>
+      <td>Two-phase stock model: <code>SoftLock</code> (reserve) → <code>HardDeduct</code> (confirm on dispatch). Optimistic concurrency via EF Core row versioning.</td>
+    </tr>
+    <tr>
+      <td><strong>Token Refresh Race Condition</strong></td>
+      <td>Multiple parallel API calls hitting 401 simultaneously, each trying to refresh the token</td>
+      <td>Frontend <code>errorInterceptor</code> uses a <code>BehaviorSubject</code> gate: first 401 triggers refresh, all subsequent 401s queue and wait for the new token, then retry.</td>
+    </tr>
+    <tr>
+      <td><strong>Cross-Service Email Resolution</strong></td>
+      <td>Notification service receives events with <code>userId</code> but needs email address — owned by Identity service</td>
+      <td>Internal HTTP call from Notification → Identity API (protected by <code>X-Internal-Api-Key</code> header, not JWT).</td>
+    </tr>
+    <tr>
+      <td><strong>Role-Adaptive Frontend</strong></td>
+      <td>5 different roles need different dashboards, menus, and action buttons from the same codebase</td>
+      <td>Signal-based <code>AuthStore.role()</code> drives conditional rendering throughout. Route guards prevent unauthorized access. API services return role-scoped data.</td>
+    </tr>
+    <tr>
+      <td><strong>CORS in Development</strong></td>
+      <td>Angular (:4200) and Gateway (:5000) on different ports — browser blocks cross-origin requests</td>
+      <td>Angular dev proxy (<code>proxy.conf.json</code>) forwards all API paths to :5000 as same-origin. CORS configured only on Gateway for production.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 15 — Interview Talking Points -->
+<!-- ════════════════════════════════════════════════════════════════════════════ -->
+<h2 id="s15" class="page-break">15. Lessons Learned &amp; Interview Talking Points</h2>
+
+<h3>15.1 Architecture &amp; System Design</h3>
+<div class="timeline">
+  <div class="timeline-item">
+    <h4>Why Microservices over Monolith?</h4>
+    <p>Each domain (Identity, Catalog, Order, Logistics, Payment, Notification) has distinct scaling needs and deployment cadences. Orders need high availability; Notifications can tolerate queuing. Independent deployment reduces blast radius.</p>
+  </div>
+  <div class="timeline-item">
+    <h4>Why Saga over 2PC?</h4>
+    <p>6 separate databases make 2PC impossible — it would require XA-compatible transactions across all DBs, blocking locks, and single-point-of-failure coordinator. Saga provides eventual consistency with compensating actions, maintaining high availability.</p>
+  </div>
+  <div class="timeline-item">
+    <h4>Why Outbox over Direct Publish?</h4>
+    <p>Direct publish creates dual-write problem: DB write succeeds but RabbitMQ publish fails = lost event. Outbox guarantees atomic event persistence with business data. The dispatcher is the reliability bridge.</p>
+  </div>
+  <div class="timeline-item">
+    <h4>Why API Gateway?</h4>
+    <p>Single entry point simplifies frontend (one base URL), centralizes cross-cutting concerns (auth, rate limiting, CORS, circuit breaker), and enables load balancing without client changes.</p>
+  </div>
+</div>
+
+<h3>15.2 Frontend &amp; Angular Specifics</h3>
+<div class="timeline">
+  <div class="timeline-item">
+    <h4>Why Signals over NgRx?</h4>
+    <p>Angular Signals provide reactive state management without the boilerplate of actions, reducers, effects, and selectors. For this app's state complexity (auth + cart + loading), signals with <code>computed()</code> are sufficient and more maintainable.</p>
+  </div>
+  <div class="timeline-item">
+    <h4>Why Functional Interceptors?</h4>
+    <p>Angular 21 deprecates class-based interceptors. Functional <code>HttpInterceptorFn</code> interceptors are simpler, tree-shakable, and align with standalone component architecture — no NgModule registration needed.</p>
+  </div>
+  <div class="timeline-item">
+    <h4>How does Silent Token Refresh work?</h4>
+    <p>Error interceptor catches 401 → calls <code>/identity/api/auth/refresh</code> with <code>withCredentials: true</code> (sends httpOnly cookie) → receives new JWT → updates AuthStore → retries original request. A <code>BehaviorSubject</code> ensures only one refresh happens if multiple requests fail simultaneously.</p>
+  </div>
+  <div class="timeline-item">
+    <h4>How is the CartStore persisted?</h4>
+    <p>Uses Angular <code>effect()</code> to automatically serialize cart items to <code>localStorage</code> on every signal change. On initialization, it hydrates from localStorage with full sanitization and validation of each item.</p>
+  </div>
+</div>
+
+<h3>15.3 Backend &amp; .NET Specifics</h3>
+<div class="timeline">
+  <div class="timeline-item">
+    <h4>How does the Order State Machine enforce valid transitions?</h4>
+    <p>The <code>OrderAggregate</code> (DDD aggregate root) maintains a <code>CanTransitionTo()</code> method with an explicit transition map. Invalid transitions throw <code>InvalidOperationException</code>. Status history is tracked in a separate table for audit trail.</p>
+  </div>
+  <div class="timeline-item">
+    <h4>How is stock consistency maintained?</h4>
+    <p>Two-phase model: SoftLock on order placement (reserves stock), HardDeduct on dispatch (permanently removes). If soft-lock expires before dispatch, the system re-locks and retries once. On cancellation, locks are released. On return approval, stock is restocked.</p>
+  </div>
+  <div class="timeline-item">
+    <h4>How are concurrent modifications handled?</h4>
+    <p>EF Core optimistic concurrency with row version columns. On <code>DbUpdateConcurrencyException</code>, the operation returns false rather than throwing — the caller can retry or report conflict.</p>
+  </div>
+</div>
+
+<div class="callout-success" style="margin-top: 32px;">
+  <strong>Summary:</strong> This project demonstrates end-to-end design and implementation of a <strong>production-grade distributed system</strong> — from microservice decomposition and event-driven integration to a premium Angular SPA with role-based access — solving real B2B supply chain problems with industry-standard patterns and practices.
+</div>
+
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'base', themeVariables: { primaryColor: '#dbeafe', primaryTextColor: '#1e3a5f', primaryBorderColor: '#1e3a5f', lineColor: '#475569', secondaryColor: '#f8fafc', tertiaryColor: '#fef3c7' }});
+</script>
+
+</body>
+</html>

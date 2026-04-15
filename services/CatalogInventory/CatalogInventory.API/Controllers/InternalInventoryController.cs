@@ -57,6 +57,26 @@ public sealed class InternalInventoryController(
         return success ? Ok(new { message = "Soft-lock released." }) : Conflict(new { message = "Soft-lock release failed." });
     }
 
+    [HttpPost("restock")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
+    public async Task<IActionResult> Restock([FromBody] InternalRestockRequest request, CancellationToken cancellationToken)
+    {
+        if (!IsAuthorizedInternalCall())
+        {
+            return Unauthorized(new { message = "Invalid internal API key." });
+        }
+
+        var success = await sender.Send(
+            new RestockProductCommand(
+                request.ProductId,
+                new RestockProductRequest(request.Quantity, request.ReferenceId)),
+            cancellationToken);
+
+        return success ? Ok(new { message = "Stock restocked." }) : Conflict(new { message = "Stock restock failed." });
+    }
+
     private bool IsAuthorizedInternalCall()
     {
         var expectedKey = configuration["InternalApi:Key"];
@@ -72,4 +92,6 @@ public sealed class InternalInventoryController(
 
         return string.Equals(providedKey.ToString(), expectedKey, StringComparison.Ordinal);
     }
+
+    public sealed record InternalRestockRequest(Guid ProductId, int Quantity, string ReferenceId);
 }

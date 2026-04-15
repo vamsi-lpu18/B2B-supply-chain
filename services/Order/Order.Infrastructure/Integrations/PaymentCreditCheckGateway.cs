@@ -2,6 +2,7 @@ using Microsoft.Extensions.Configuration;
 using Order.Application.Abstractions;
 using Order.Application.DTOs;
 using System.Net.Http.Json;
+using System.Net;
 
 namespace Order.Infrastructure.Integrations;
 
@@ -38,5 +39,34 @@ internal sealed class PaymentCreditCheckGateway(HttpClient httpClient, IConfigur
         }
 
         return new CreditCheckResult(false, 0m, 0m, 0m);
+    }
+
+    public async Task<bool> SettleOutstandingAsync(Guid dealerId, decimal amount, string referenceNo, CancellationToken cancellationToken)
+    {
+        var endpoint = new Uri(new Uri(_baseUrl), $"/api/payment/internal/dealers/{dealerId}/settlements");
+
+        try
+        {
+            using var request = new HttpRequestMessage(HttpMethod.Post, endpoint)
+            {
+                Content = JsonContent.Create(new
+                {
+                    amount,
+                    referenceNo
+                })
+            };
+
+            if (!string.IsNullOrWhiteSpace(_internalApiKey))
+            {
+                request.Headers.TryAddWithoutValidation("X-Internal-Api-Key", _internalApiKey);
+            }
+
+            using var response = await httpClient.SendAsync(request, cancellationToken);
+            return response.StatusCode != HttpStatusCode.NotFound && response.IsSuccessStatusCode;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }

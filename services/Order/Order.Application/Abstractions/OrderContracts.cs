@@ -36,6 +36,7 @@ public interface IOrderRepository
 public interface ICreditCheckGateway
 {
     Task<CreditCheckResult> CheckCreditAsync(Guid dealerId, decimal amount, CancellationToken cancellationToken);
+    Task<bool> SettleOutstandingAsync(Guid dealerId, decimal amount, string referenceNo, CancellationToken cancellationToken);
 }
 
 public interface IInventoryGateway
@@ -43,6 +44,7 @@ public interface IInventoryGateway
     Task<bool> SoftLockStockAsync(Guid orderId, Guid productId, int quantity, CancellationToken cancellationToken);
     Task<bool> HardDeductStockAsync(Guid orderId, Guid productId, int quantity, CancellationToken cancellationToken);
     Task<bool> ReleaseSoftLockAsync(Guid orderId, Guid productId, CancellationToken cancellationToken);
+    Task<bool> RestockStockAsync(Guid orderId, Guid productId, int quantity, string referenceId, CancellationToken cancellationToken);
 }
 
 public interface IOrderSagaCoordinator

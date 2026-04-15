@@ -1,0 +1,16 @@
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\bin\Release\net10.0\Notification.Domain.deps.json
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\bin\Release\net10.0\Notification.Domain.dll
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\bin\Release\net10.0\Notification.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\bin\Release\net10.0\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\bin\Release\net10.0\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\Notification.Domain.csproj.AssemblyReference.cache
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\Notification.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\Notification.Domain.AssemblyInfoInputs.cache
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\Notification.Domain.AssemblyInfo.cs
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\Notification.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\Notification.Domain.sourcelink.json
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\Notifica.CAFA9061.Up2Date
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\Notification.Domain.dll
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\refint\Notification.Domain.dll
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\Notification.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\Notification\Notification.Domain\obj\Release\net10.0\ref\Notification.Domain.dll

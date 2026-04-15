@@ -1,10 +1,11 @@
 using BuildingBlocks.Extensions;
 using LogisticsTracking.Application.Abstractions;
-using LogisticsTracking.Infrastructure.Ai;
 using LogisticsTracking.Infrastructure.Background;
+using LogisticsTracking.Infrastructure.Llm;
 using LogisticsTracking.Infrastructure.Persistence;
 using LogisticsTracking.Infrastructure.Repositories;
 using BuildingBlocks.Persistence;
+using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,10 +24,20 @@ public static class DependencyInjection
         services.AddDbContext<LogisticsTrackingDbContext>(options => options.UseSqlServer(sqlConnection));
         services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<LogisticsTrackingDbContext>());
         services.AddPlatformRedis(redisConnection);
+        services
+            .AddOptions<LogisticsLlmOptions>()
+            .Bind(configuration.GetSection(LogisticsLlmOptions.SectionName));
+        services.AddHttpClient<ILogisticsChatLlmClient, OpenAiLogisticsChatLlmClient>((sp, client) =>
+        {
+            var options = sp.GetRequiredService<IOptions<LogisticsLlmOptions>>().Value;
+            var timeoutSeconds = options.TimeoutSeconds < 5
+                ? 5
+                : options.TimeoutSeconds > 120
+                    ? 120
+                    : options.TimeoutSeconds;
+            client.Timeout = TimeSpan.FromSeconds(timeoutSeconds);
+        });
         services.AddScoped<IShipmentRepository, ShipmentRepository>();
-        services.Configure<ShipmentAiProviderOptions>(configuration.GetSection("Ai"));
-        services.AddHttpClient("GeminiShipmentAi");
-        services.AddSingleton<IShipmentAiRecommendationProvider, GeminiShipmentAiRecommendationProvider>();
         services.AddHostedService<LogisticsOutboxDispatcher>();
 
         return services;

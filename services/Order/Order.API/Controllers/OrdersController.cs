@@ -142,7 +142,6 @@ public sealed class OrdersController(ISender sender) : ControllerBase
     private static bool CanManageOrderStatus(string role)
     {
         return string.Equals(role, "Admin", StringComparison.OrdinalIgnoreCase)
-            || string.Equals(role, "Logistics", StringComparison.OrdinalIgnoreCase)
-            || string.Equals(role, "Warehouse", StringComparison.OrdinalIgnoreCase);
+            || string.Equals(role, "Logistics", StringComparison.OrdinalIgnoreCase);
     }
 }

@@ -1,0 +1,16 @@
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\bin\Release\net10.0\CatalogInventory.Domain.deps.json
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\bin\Release\net10.0\CatalogInventory.Domain.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\bin\Release\net10.0\CatalogInventory.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\bin\Release\net10.0\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\bin\Release\net10.0\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\CatalogInventory.Domain.csproj.AssemblyReference.cache
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\CatalogInventory.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\CatalogInventory.Domain.AssemblyInfoInputs.cache
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\CatalogInventory.Domain.AssemblyInfo.cs
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\CatalogInventory.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\CatalogInventory.Domain.sourcelink.json
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\CatalogI.3A651FA0.Up2Date
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\CatalogInventory.Domain.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\refint\CatalogInventory.Domain.dll
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\CatalogInventory.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\CatalogInventory\CatalogInventory.Domain\obj\Release\net10.0\ref\CatalogInventory.Domain.dll

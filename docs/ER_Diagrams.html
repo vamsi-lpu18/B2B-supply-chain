@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply Chain Platform — Entity-Relationship Diagrams</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --brand: #1e3a5f; --brand-light: #e8f0fa; --accent: #d97706;
+    --text: #1a1a2e; --text-secondary: #475569; --bg: #ffffff;
+    --border: #e2e8f0; --surface: #f8fafc;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 14px; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text); background: var(--bg); line-height: 1.65;
+    max-width: 1060px; margin: 0 auto; padding: 36px 44px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  .cover {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    min-height: 92vh; text-align: center; page-break-after: always;
+  }
+  .cover-badge {
+    display: inline-block; padding: 6px 20px; border-radius: 40px;
+    background: var(--brand); color: #fff; font-size: .7rem;
+    font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 28px;
+  }
+  .cover h1 {
+    font-size: 2.6rem; font-weight: 900; letter-spacing: -.04em;
+    color: var(--brand); line-height: 1.1; margin-bottom: 12px;
+  }
+  .cover-sub { font-size: 1.05rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 48px; }
+  .cover-meta { font-size: .78rem; color: var(--text-secondary); line-height: 2; }
+  .cover-meta strong { color: var(--text); }
+
+  .toc { page-break-after: always; }
+  .toc h2 { font-size: 1.3rem; margin-bottom: 16px; color: var(--brand); border: none; padding: 0; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: .82rem; color: var(--text-secondary); }
+  .toc li a { color: var(--brand); text-decoration: none; font-weight: 600; }
+
+  h2 {
+    font-size: 1.2rem; font-weight: 800; color: var(--brand);
+    border-bottom: 3px solid var(--brand); padding-bottom: 7px;
+    margin: 40px 0 14px; letter-spacing: -.02em;
+  }
+  h3 { font-size: .92rem; font-weight: 700; color: var(--text); margin: 20px 0 8px; }
+  h4 { font-size: .82rem; font-weight: 700; margin: 14px 0 5px; color: var(--text-secondary); }
+  p, li { font-size: .82rem; margin-bottom: 6px; }
+  ul, ol { padding-left: 20px; margin-bottom: 12px; }
+
+  table {
+    width: 100%; border-collapse: collapse; margin: 10px 0 18px;
+    font-size: .72rem; page-break-inside: avoid;
+  }
+  thead th {
+    background: var(--brand); color: #fff; padding: 7px 9px;
+    text-align: left; font-weight: 700; font-size: .64rem;
+    text-transform: uppercase; letter-spacing: .06em;
+  }
+  tbody td { padding: 6px 9px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--surface); }
+
+  .callout {
+    background: var(--brand-light); border-left: 4px solid var(--brand);
+    padding: 11px 15px; border-radius: 0 8px 8px 0; margin: 12px 0;
+    font-size: .78rem; color: var(--text);
+  }
+  .callout strong { color: var(--brand); }
+
+  .diagram-wrapper {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px; margin: 12px 0 20px;
+    page-break-inside: avoid; text-align: center;
+  }
+  .diagram-caption {
+    text-align: center; font-size: .66rem; font-weight: 600;
+    color: var(--text-secondary); margin-top: 8px; text-transform: uppercase; letter-spacing: .06em;
+  }
+
+  .badge {
+    display: inline-block; padding: 2px 7px; border-radius: 4px;
+    font-size: .6rem; font-weight: 700; letter-spacing: .04em;
+  }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-green { background: #dcfce7; color: #166534; }
+  .badge-amber { background: #fef3c7; color: #92400e; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+  .badge-purple { background: #f3e8ff; color: #6b21a8; }
+  .badge-slate { background: #f1f5f9; color: #334155; }
+
+  code {
+    font-family: 'JetBrains Mono', monospace; font-size: .82em;
+    background: var(--surface); padding: 2px 5px; border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .page-break { page-break-before: always; }
+
+  .svc-header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  }
+  .svc-icon {
+    width: 36px; height: 36px; border-radius: 8px; display: flex;
+    align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+  .svc-title { font-size: .88rem; font-weight: 800; color: var(--brand); }
+  .svc-db { font-size: .7rem; color: var(--text-secondary); font-weight: 500; }
+
+  .idx-table td:first-child { font-family: 'JetBrains Mono', monospace; font-size: .68rem; }
+
+  @media print {
+    body { padding: 16px 24px; font-size: 12px; }
+    .cover { min-height: 88vh; }
+    h2 { page-break-before: auto; }
+    .diagram-wrapper, table { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════ COVER ════════════════════════ -->
+<div class="cover">
+  <div class="cover-badge">Data Architecture Document</div>
+  <h1>Entity-Relationship<br>Diagrams</h1>
+  <p class="cover-sub">Complete Database Schema Reference — All 6 Microservice Databases</p>
+  <div class="cover-meta">
+    <strong>Version:</strong> 2.0 &nbsp;|&nbsp; <strong>Date:</strong> April 2026<br>
+    <strong>Databases:</strong> 6 SQL Server Instances (Database-per-Service)<br>
+    <strong>ORM:</strong> Entity Framework Core — Code-First Migrations<br>
+    <strong>Total Entities:</strong> 28 tables across all bounded contexts<br>
+    <strong>Classification:</strong> Confidential — Internal Use Only
+  </div>
+</div>
+
+<!-- ════════════════════════ TOC ════════════════════════ -->
+<div class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#s1">Data Architecture Overview</a></li>
+    <li><a href="#s2">Cross-Service Data Flow Map</a></li>
+    <li><a href="#s3">IdentityAuth Database (5 Tables)</a></li>
+    <li><a href="#s4">CatalogInventory Database (5 Tables)</a></li>
+    <li><a href="#s5">Order Database (6 Tables)</a></li>
+    <li><a href="#s6">LogisticsTracking Database (4 Tables)</a></li>
+    <li><a href="#s7">PaymentInvoice Database (7 Tables)</a></li>
+    <li><a href="#s8">Notification Database (2 Tables)</a></li>
+    <li><a href="#s9">Shared Outbox Pattern Schema</a></li>
+    <li><a href="#s10">Indexing Strategy &amp; Performance</a></li>
+    <li><a href="#s11">Data Integrity &amp; Constraints Summary</a></li>
+  </ol>
+</div>
+
+<!-- ════════════════════════ SECTION 1 ════════════════════════ -->
+<h2 id="s1">1. Data Architecture Overview</h2>
+<div class="callout">
+  <strong>Design Principle:</strong> Each microservice owns a dedicated SQL Server database. No direct cross-database joins or shared schemas. Inter-service data access is achieved exclusively through published REST APIs or asynchronous domain events via RabbitMQ.
+</div>
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph LR
+    subgraph Databases["SQL Server — 6 Isolated Databases"]
+        DB1[("🔐 IdentityAuthDb\n5 tables")]
+        DB2[("📦 CatalogInventoryDb\n5 tables")]
+        DB3[("📋 OrderDb\n6 tables")]
+        DB4[("🚚 LogisticsTrackingDb\n4 tables")]
+        DB5[("💰 PaymentInvoiceDb\n7 tables")]
+        DB6[("🔔 NotificationDb\n2 tables")]
+    end
+
+    subgraph Services["Microservices"]
+        S1["IdentityAuth :8001"]
+        S2["CatalogInventory :8002"]
+        S3["Order :8003"]
+        S4["LogisticsTracking :8004"]
+        S5["PaymentInvoice :8005"]
+        S6["Notification :8006"]
+    end
+
+    S1 --- DB1
+    S2 --- DB2
+    S3 --- DB3
+    S4 --- DB4
+    S5 --- DB5
+    S6 --- DB6
+
+    style DB1 fill:#dbeafe,stroke:#2563eb
+    style DB2 fill:#dcfce7,stroke:#16a34a
+    style DB3 fill:#fce7f3,stroke:#db2777
+    style DB4 fill:#e0e7ff,stroke:#4f46e5
+    style DB5 fill:#fef9c3,stroke:#ca8a04
+    style DB6 fill:#fee2e2,stroke:#dc2626
+  </pre>
+  <div class="diagram-caption">Figure 1 — Database-per-Service Ownership Model (28 Total Tables)</div>
+</div>
+
+<!-- ════════════════════════ SECTION 2 ════════════════════════ -->
+<h2 id="s2">2. Cross-Service Data Flow Map</h2>
+<p>While databases are isolated, services reference each other's entities by ID. This diagram shows how primary keys are referenced across boundaries:</p>
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+graph TB
+    subgraph Identity["🔐 IdentityAuthDb"]
+        USERS["Users.UserId"]
+    end
+
+    subgraph Catalog["📦 CatalogInventoryDb"]
+        PRODUCTS["Products.ProductId"]
+        CATEGORIES["Categories.CategoryId"]
+    end
+
+    subgraph Orders["📋 OrderDb"]
+        ORDERS_T["Orders.OrderId"]
+        ORDERLINES["OrderLines (refs ProductId)"]
+    end
+
+    subgraph Logistics["🚚 LogisticsTrackingDb"]
+        SHIPMENTS["Shipments (refs OrderId, DealerId, AgentId)"]
+    end
+
+    subgraph Payment["💰 PaymentInvoiceDb"]
+        CREDITS["DealerCreditAccounts (refs DealerId)"]
+        INVOICES_T["Invoices (refs OrderId, DealerId)"]
+        PAYMENTS["PaymentRecords (refs OrderId, DealerId)"]
+    end
+
+    subgraph Notif["🔔 NotificationDb"]
+        NOTIFS["Notifications (refs RecipientUserId)"]
+    end
+
+    USERS -.->|"DealerId"| ORDERS_T
+    USERS -.->|"DealerId"| SHIPMENTS
+    USERS -.->|"DealerId"| CREDITS
+    USERS -.->|"DealerId"| INVOICES_T
+    USERS -.->|"RecipientUserId"| NOTIFS
+    PRODUCTS -.->|"ProductId"| ORDERLINES
+    ORDERS_T -.->|"OrderId"| SHIPMENTS
+    ORDERS_T -.->|"OrderId"| INVOICES_T
+    ORDERS_T -.->|"OrderId"| PAYMENTS
+    CATEGORIES -.->|"CategoryId"| PRODUCTS
+
+    style Identity fill:#dbeafe,stroke:#2563eb
+    style Catalog fill:#dcfce7,stroke:#16a34a
+    style Orders fill:#fce7f3,stroke:#db2777
+    style Logistics fill:#e0e7ff,stroke:#4f46e5
+    style Payment fill:#fef9c3,stroke:#ca8a04
+    style Notif fill:#fee2e2,stroke:#dc2626
+  </pre>
+  <div class="diagram-caption">Figure 2 — Cross-Service ID Reference Map (Logical, Not Physical FK)</div>
+</div>
+<div class="callout">
+  <strong>Important:</strong> Dashed arrows represent <em>logical references</em> by ID value — NOT physical foreign keys. Each service stores only the GUID/ID of entities from other bounded contexts. Data consistency is maintained through the Outbox + RabbitMQ event pattern.
+</div>
+
+<!-- ════════════════════════ SECTION 3 ════════════════════════ -->
+<h2 id="s3" class="page-break">3. IdentityAuth Database</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#dbeafe;color:#2563eb;">🔐</div>
+  <div><div class="svc-title">IdentityAuthDb</div><div class="svc-db">5 Tables · Port 8001 · User Lifecycle &amp; Authentication</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+erDiagram
+    USERS ||--o| DEALER_PROFILES : "has profile"
+    USERS ||--o{ REFRESH_TOKENS : "owns tokens"
+    USERS ||--o{ OTP_RECORDS : "has OTPs"
+
+    USERS {
+        guid UserId PK
+        string Email UK "max-256 unique"
+        string PasswordHash "max-1024"
+        string FullName "max-120"
+        string PhoneNumber "max-20"
+        string Role "Admin | Dealer | Warehouse | Logistics | Agent"
+        string Status "Pending | Approved | Rejected | Suspended"
+        decimal CreditLimit "precision-18-2"
+        string RejectionReason "max-400 nullable"
+        datetime CreatedAtUtc
+        datetime UpdatedAtUtc
+    }
+
+    DEALER_PROFILES {
+        guid DealerProfileId PK
+        guid UserId FK "unique 1-to-1"
+        string BusinessName "max-180"
+        string GstNumber UK "max-20 unique"
+        string TradeLicenseNo "max-80"
+        string Address "max-300"
+        string City "max-100"
+        string State "max-100"
+        string PinCode "max-6"
+    }
+
+    REFRESH_TOKENS {
+        guid RefreshTokenId PK
+        guid UserId FK
+        string TokenHash UK "max-128 unique"
+        datetime ExpiresAtUtc
+        bool IsRevoked
+        datetime CreatedAtUtc
+    }
+
+    OTP_RECORDS {
+        guid OtpRecordId PK
+        guid UserId FK
+        string OtpHash "max-128"
+        datetime ExpiresAtUtc
+        bool IsUsed
+        datetime CreatedAtUtc
+    }
+  </pre>
+  <div class="diagram-caption">Figure 3 — IdentityAuth ER Diagram (4 Domain Tables + Outbox)</div>
+</div>
+
+<h3>3.1 Column Details &amp; Constraints</h3>
+<table>
+  <thead><tr><th>Table</th><th>Constraint</th><th>Type</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td>Users</td><td>Email</td><td>Unique Index</td><td>Ensures no duplicate registrations</td></tr>
+    <tr><td>Users</td><td>(Role, Status, CreatedAtUtc)</td><td>Composite Index</td><td>Optimizes admin dealer list queries with filtering</td></tr>
+    <tr><td>DealerProfiles</td><td>GstNumber</td><td>Unique Index</td><td>GST compliance — one profile per GST number</td></tr>
+    <tr><td>DealerProfiles</td><td>UserId</td><td>FK + Unique</td><td>1:1 relationship with Users, CASCADE delete</td></tr>
+    <tr><td>RefreshTokens</td><td>TokenHash</td><td>Unique Index</td><td>Fast lookup for token refresh/revocation</td></tr>
+    <tr><td>RefreshTokens</td><td>UserId</td><td>FK</td><td>N:1 to Users, CASCADE delete</td></tr>
+    <tr><td>OtpRecords</td><td>UserId</td><td>FK</td><td>N:1 to Users, CASCADE delete</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 4 ════════════════════════ -->
+<h2 id="s4" class="page-break">4. CatalogInventory Database</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#dcfce7;color:#16a34a;">📦</div>
+  <div><div class="svc-title">CatalogInventoryDb</div><div class="svc-db">5 Tables · Port 8002 · Products, Categories, Stock &amp; Reviews</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+erDiagram
+    CATEGORIES ||--o{ PRODUCTS : "contains"
+    CATEGORIES ||--o{ CATEGORIES : "parent-child"
+    PRODUCTS ||--o{ STOCK_TRANSACTIONS : "tracks stock"
+    PRODUCTS ||--o{ STOCK_SUBSCRIPTIONS : "dealer alerts"
+
+    CATEGORIES {
+        guid CategoryId PK
+        string Name "max-140"
+        guid ParentCategoryId FK "nullable self-ref"
+    }
+
+    PRODUCTS {
+        guid ProductId PK
+        string Name "max-200"
+        string Sku UK "max-60 unique"
+        string Description "max-2000"
+        decimal UnitPrice "precision-18-2"
+        int PhysicalStock
+        int LockedStock
+        bool IsActive
+        guid CategoryId FK
+        string ImageUrl "max-500 nullable"
+        datetime CreatedAtUtc
+        datetime UpdatedAtUtc
+    }
+
+    STOCK_TRANSACTIONS {
+        guid TxId PK
+        guid ProductId FK
+        string TransactionType "Restock | SoftLock | HardDeduct | Release"
+        int Quantity
+        string ReferenceId "max-120"
+        datetime CreatedAtUtc
+    }
+
+    STOCK_SUBSCRIPTIONS {
+        guid StockSubscriptionId PK
+        guid DealerId "logical-ref IdentityAuth"
+        guid ProductId FK
+        int ThresholdQuantity
+        datetime CreatedAtUtc
+    }
+  </pre>
+  <div class="diagram-caption">Figure 4 — CatalogInventory ER Diagram (4 Domain Tables + Outbox)</div>
+</div>
+
+<h3>4.1 Column Details &amp; Constraints</h3>
+<table>
+  <thead><tr><th>Table</th><th>Constraint</th><th>Type</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td>Products</td><td>Sku</td><td>Unique Index</td><td>Business key — unique product identifier</td></tr>
+    <tr><td>Products</td><td>CategoryId</td><td>FK</td><td>N:1 to Categories, RESTRICT delete (preserve products)</td></tr>
+    <tr><td>Products</td><td>AvailableStock</td><td>Computed</td><td>PhysicalStock - LockedStock (ignored by EF, computed in domain)</td></tr>
+    <tr><td>Categories</td><td>ParentCategoryId</td><td>Self-referencing FK</td><td>Nullable — root categories have NULL parent, RESTRICT delete</td></tr>
+    <tr><td>StockTransactions</td><td>ProductId</td><td>FK</td><td>N:1 to Products, CASCADE delete</td></tr>
+    <tr><td>StockSubscriptions</td><td>(DealerId, ProductId)</td><td>Composite Unique</td><td>One subscription per dealer per product</td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <strong>Stock Calculation:</strong> <code>AvailableStock = PhysicalStock - LockedStock</code>. This is a computed property in the domain model (EF <code>Ignore</code>), not a persisted column. Stock changes flow through StockTransactions for full audit trail.
+</div>
+
+<!-- ════════════════════════ SECTION 5 ════════════════════════ -->
+<h2 id="s5" class="page-break">5. Order Database</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#fce7f3;color:#db2777;">📋</div>
+  <div><div class="svc-title">OrderDb</div><div class="svc-db">6 Tables · Port 8003 · Order Aggregate, Saga State &amp; Returns</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+erDiagram
+    ORDERS ||--o{ ORDER_LINES : "contains items"
+    ORDERS ||--o{ ORDER_STATUS_HISTORY : "tracks transitions"
+    ORDERS ||--o| RETURN_REQUESTS : "may have return"
+    ORDERS ||--o| ORDER_SAGA_STATES : "saga tracking"
+
+    ORDERS {
+        guid OrderId PK
+        string OrderNumber UK "max-32"
+        guid DealerId "logical-ref IdentityAuth"
+        string Status "Placed | Processing | OnHold | InTransit | Delivered"
+        string CreditHoldStatus "NotApplicable | Pending | Approved | Rejected"
+        string PaymentMode "Prepaid | Credit"
+        decimal TotalAmount "precision-18-2"
+        string CancellationReason "max-400 nullable"
+        datetime PlacedAtUtc
+        datetime UpdatedAtUtc
+    }
+
+    ORDER_LINES {
+        guid OrderLineId PK
+        guid OrderId FK
+        guid ProductId "logical-ref CatalogInventory"
+        string ProductName "max-220"
+        string Sku "max-60"
+        int Quantity
+        decimal UnitPrice "precision-18-2"
+    }
+
+    ORDER_STATUS_HISTORY {
+        guid HistoryId PK
+        guid OrderId FK
+        string FromStatus "enum-string max-40"
+        string ToStatus "enum-string max-40"
+        string ChangedByRole "max-40"
+        datetime ChangedAtUtc
+    }
+
+    RETURN_REQUESTS {
+        guid ReturnRequestId PK
+        guid OrderId FK "unique 1-to-1"
+        string Reason "max-500"
+        bool IsApproved
+        datetime RequestedAtUtc
+    }
+
+    ORDER_SAGA_STATES {
+        guid OrderId PK "shared-key with Orders"
+        string OrderNumber "max-32"
+        string CurrentState "enum-string max-64"
+        string LastMessage "max-500 nullable"
+        datetime InventoryLockedAtUtc "nullable"
+        datetime CreditCheckedAtUtc "nullable"
+        datetime UpdatedAtUtc
+    }
+  </pre>
+  <div class="diagram-caption">Figure 5 — Order ER Diagram (5 Domain Tables + Outbox)</div>
+</div>
+
+<h3>5.1 Column Details &amp; Constraints</h3>
+<table>
+  <thead><tr><th>Table</th><th>Constraint</th><th>Type</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td>Orders</td><td>OrderNumber</td><td>Unique Index</td><td>Human-readable order reference (ORD-YYYYMMDD-XXXX)</td></tr>
+    <tr><td>Orders</td><td>(DealerId, PlacedAtUtc)</td><td>Composite Index</td><td>Optimizes "my orders" dealer queries</td></tr>
+    <tr><td>Orders</td><td>(Status, PlacedAtUtc)</td><td>Composite Index</td><td>Optimizes admin order list with status filtering</td></tr>
+    <tr><td>OrderLines</td><td>OrderId</td><td>FK</td><td>N:1 to Orders, CASCADE delete</td></tr>
+    <tr><td>OrderLines</td><td>LineTotal</td><td>Computed</td><td>Quantity × UnitPrice (EF Ignore)</td></tr>
+    <tr><td>OrderStatusHistory</td><td>OrderId</td><td>FK</td><td>N:1 to Orders, CASCADE delete</td></tr>
+    <tr><td>ReturnRequests</td><td>OrderId</td><td>FK + Unique</td><td>1:1 with Orders, CASCADE delete</td></tr>
+    <tr><td>OrderSagaStates</td><td>OrderId</td><td>PK + FK</td><td>1:1 with Orders — uses OrderId as PK</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 6 ════════════════════════ -->
+<h2 id="s6" class="page-break">6. LogisticsTracking Database</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#e0e7ff;color:#4f46e5;">🚚</div>
+  <div><div class="svc-title">LogisticsTrackingDb</div><div class="svc-db">4 Tables · Port 8004 · Shipments, Events, Ops State &amp; Agent Assignment</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+erDiagram
+    SHIPMENTS ||--o{ SHIPMENT_EVENTS : "timeline"
+    SHIPMENTS ||--o| SHIPMENT_OPS_STATES : "ops tracking"
+
+    SHIPMENTS {
+        guid ShipmentId PK
+        string ShipmentNumber UK "max-32 unique"
+        guid OrderId "logical-ref OrderDb"
+        guid DealerId "logical-ref IdentityAuth"
+        guid AssignedAgentId "nullable logical-ref"
+        string Status "Created | Assigned | PickedUp | InTransit | Delivered"
+        string DeliveryAddress "max-500"
+        string City "max-100"
+        string State "max-100"
+        string PostalCode "max-12"
+        string VehicleNumber "max-32 nullable"
+        string AssignmentDecisionStatus "Pending | Accepted | Rejected"
+        string AssignmentDecisionReason "max-500 nullable"
+        datetime AssignmentDecisionAtUtc "nullable"
+        int DeliveryAgentRating "nullable 1-5 scale"
+        string DeliveryAgentRatingComment "max-500 nullable"
+        datetime DeliveryAgentRatedAtUtc "nullable"
+        guid DeliveryAgentRatedByUserId "nullable"
+        datetime CreatedAtUtc
+        datetime UpdatedAtUtc
+    }
+
+    SHIPMENT_EVENTS {
+        guid ShipmentEventId PK
+        guid ShipmentId FK
+        string Status "enum-string max-32"
+        string Note "max-500"
+        string UpdatedByRole "max-40"
+        datetime OccurredAtUtc
+    }
+
+    SHIPMENT_OPS_STATES {
+        guid ShipmentId PK "shared-key with Shipments"
+        string HandoverState "Ready | Pending | Exception"
+        string HandoverExceptionReason "max-300 nullable"
+        bool RetryRequired
+        int RetryCount
+        string RetryReason "max-300 nullable"
+        datetime UpdatedAtUtc
+    }
+  </pre>
+  <div class="diagram-caption">Figure 6 — LogisticsTracking ER Diagram (3 Domain Tables + Outbox)</div>
+</div>
+
+<h3>6.1 Column Details &amp; Constraints</h3>
+<table>
+  <thead><tr><th>Table</th><th>Constraint</th><th>Type</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td>Shipments</td><td>ShipmentNumber</td><td>Unique Index</td><td>Human-readable shipment reference</td></tr>
+    <tr><td>Shipments</td><td>(DealerId, CreatedAtUtc)</td><td>Composite Index</td><td>Dealer's shipment history queries</td></tr>
+    <tr><td>Shipments</td><td>(AssignedAgentId, CreatedAtUtc)</td><td>Composite Index</td><td>Agent's assigned shipments view</td></tr>
+    <tr><td>Shipments</td><td>CreatedAtUtc</td><td>Index</td><td>Time-based shipment listing (admin)</td></tr>
+    <tr><td>ShipmentEvents</td><td>ShipmentId</td><td>FK</td><td>N:1 to Shipments, CASCADE delete</td></tr>
+    <tr><td>ShipmentOpsStates</td><td>ShipmentId</td><td>PK + FK</td><td>1:1 with Shipments — uses ShipmentId as PK, CASCADE delete</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 7 ════════════════════════ -->
+<h2 id="s7" class="page-break">7. PaymentInvoice Database</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#fef9c3;color:#ca8a04;">💰</div>
+  <div><div class="svc-title">PaymentInvoiceDb</div><div class="svc-db">7 Tables · Port 8005 · Credit, Invoicing, Workflow &amp; Payments</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+erDiagram
+    DEALER_CREDIT_ACCOUNTS ||--o{ INVOICES : "billed to"
+    INVOICES ||--o{ INVOICE_LINES : "contains items"
+    INVOICES ||--o| INVOICE_WORKFLOW_STATES : "tracked by"
+    INVOICES ||--o{ INVOICE_WORKFLOW_ACTIVITIES : "activity log"
+    INVOICES ||--o{ PAYMENT_RECORDS : "paid via"
+
+    DEALER_CREDIT_ACCOUNTS {
+        guid AccountId PK
+        guid DealerId UK "logical-ref IdentityAuth"
+        decimal CreditLimit "precision-18-2"
+        decimal CurrentOutstanding "precision-18-2"
+    }
+
+    INVOICES {
+        guid InvoiceId PK
+        string InvoiceNumber UK "max-40 unique"
+        string IdempotencyKey UK "max-64 unique"
+        guid OrderId "logical-ref OrderDb"
+        guid DealerId "logical-ref IdentityAuth"
+        string GstType "CGST_SGST | IGST"
+        decimal GstRate "precision-6-2"
+        decimal Subtotal "precision-18-2"
+        decimal GstAmount "precision-18-2"
+        decimal GrandTotal "precision-18-2"
+        string PdfStoragePath "max-500 nullable"
+        datetime CreatedAtUtc
+    }
+
+    INVOICE_LINES {
+        guid InvoiceLineId PK
+        guid InvoiceId FK
+        string ProductName "max-220"
+        string Sku "max-60"
+        string HsnCode "max-20"
+        int Quantity
+        decimal UnitPrice "precision-18-2"
+    }
+
+    INVOICE_WORKFLOW_STATES {
+        guid InvoiceId PK "shared-key with Invoices"
+        string Status "Pending | Reminded | Overdue | Collected | WrittenOff"
+        datetime DueAtUtc
+        string InternalNote "max-500"
+        int ReminderCount
+        datetime UpdatedAtUtc
+    }
+
+    INVOICE_WORKFLOW_ACTIVITIES {
+        guid ActivityId PK
+        guid InvoiceId FK
+        string Type "Created | Reminded | Escalated | Collected | Note"
+        string Message "max-300"
+        string CreatedByRole "max-40"
+        datetime CreatedAtUtc
+    }
+
+    PAYMENT_RECORDS {
+        guid PaymentRecordId PK
+        guid OrderId "logical-ref OrderDb"
+        guid DealerId "logical-ref IdentityAuth"
+        string PaymentMode "Razorpay | Credit | Manual"
+        decimal Amount "precision-18-2"
+        string ReferenceNo "max-100 nullable"
+        datetime CreatedAtUtc
+    }
+  </pre>
+  <div class="diagram-caption">Figure 7 — PaymentInvoice ER Diagram (6 Domain Tables + Outbox)</div>
+</div>
+
+<h3>7.1 Column Details &amp; Constraints</h3>
+<table>
+  <thead><tr><th>Table</th><th>Constraint</th><th>Type</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td>DealerCreditAccounts</td><td>DealerId</td><td>Unique Index</td><td>One credit account per dealer</td></tr>
+    <tr><td>DealerCreditAccounts</td><td>AvailableCredit</td><td>Computed</td><td>CreditLimit - CurrentOutstanding (EF Ignore)</td></tr>
+    <tr><td>Invoices</td><td>InvoiceNumber</td><td>Unique Index</td><td>Human-readable invoice ID (INV-YYYYMMDD-XXXX)</td></tr>
+    <tr><td>Invoices</td><td>IdempotencyKey</td><td>Unique Index</td><td>Prevents duplicate invoice creation</td></tr>
+    <tr><td>Invoices</td><td>(DealerId, CreatedAtUtc)</td><td>Composite Index</td><td>Dealer's invoice listing</td></tr>
+    <tr><td>InvoiceLines</td><td>InvoiceId</td><td>FK</td><td>N:1 to Invoices, CASCADE delete</td></tr>
+    <tr><td>InvoiceLines</td><td>LineTotal</td><td>Computed</td><td>Quantity × UnitPrice (EF Ignore)</td></tr>
+    <tr><td>InvoiceWorkflowStates</td><td>InvoiceId</td><td>PK + FK</td><td>1:1 with Invoices, CASCADE delete</td></tr>
+    <tr><td>InvoiceWorkflowActivities</td><td>(InvoiceId, CreatedAtUtc)</td><td>Composite Index</td><td>Chronological activity timeline</td></tr>
+    <tr><td>InvoiceWorkflowActivities</td><td>InvoiceId</td><td>FK</td><td>N:1 to Invoices, CASCADE delete</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 8 ════════════════════════ -->
+<h2 id="s8" class="page-break">8. Notification Database</h2>
+<div class="svc-header">
+  <div class="svc-icon" style="background:#fee2e2;color:#dc2626;">🔔</div>
+  <div><div class="svc-title">NotificationDb</div><div class="svc-db">2 Tables · Port 8006 · Multi-Channel Notification Feed</div></div>
+</div>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+erDiagram
+    NOTIFICATIONS {
+        guid NotificationId PK
+        guid RecipientUserId "logical-ref IdentityAuth"
+        string Title "max-180"
+        string Body "max-4000"
+        string SourceService "max-100"
+        string EventType "max-100"
+        string Channel "InApp | Email"
+        string Status "Pending | Sent | Failed | Read"
+        string FailureReason "max-1000 nullable"
+        bool IsRead
+        datetime CreatedAtUtc
+        datetime SentAtUtc "nullable"
+        datetime ReadAtUtc "nullable"
+    }
+  </pre>
+  <div class="diagram-caption">Figure 8 — Notification ER Diagram (1 Domain Table + Outbox)</div>
+</div>
+
+<h3>8.1 Column Details &amp; Constraints</h3>
+<table>
+  <thead><tr><th>Table</th><th>Constraint</th><th>Type</th><th>Details</th></tr></thead>
+  <tbody>
+    <tr><td>Notifications</td><td>RecipientUserId</td><td>Index</td><td>Fast lookup for user's notification feed</td></tr>
+    <tr><td>Notifications</td><td>CreatedAtUtc</td><td>Index</td><td>Admin notification listing (chronological)</td></tr>
+    <tr><td>Notifications</td><td>(RecipientUserId, CreatedAtUtc)</td><td>Composite Index</td><td>Optimized "my notifications" query with time ordering</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 9 ════════════════════════ -->
+<h2 id="s9">9. Shared Outbox Pattern Schema</h2>
+<p>Every microservice includes an identical <code>OutboxMessages</code> table for guaranteed event delivery:</p>
+
+<div class="diagram-wrapper">
+  <pre class="mermaid">
+erDiagram
+    OUTBOX_MESSAGES {
+        guid MessageId PK
+        string EventType "max-200"
+        string Payload "JSON text required"
+        string Status "Pending | Published | Failed"
+        datetime CreatedAtUtc
+        datetime PublishedAtUtc "nullable"
+        int RetryCount
+        string Error "max-2000 nullable"
+    }
+  </pre>
+  <div class="diagram-caption">Figure 9 — Outbox Message Schema (Present in All 6 Databases)</div>
+</div>
+
+<table>
+  <thead><tr><th>Field</th><th>Type</th><th>Max Length</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td>MessageId</td><td>GUID (PK)</td><td>—</td><td>Unique identifier for idempotent publish</td></tr>
+    <tr><td>EventType</td><td>string</td><td>200</td><td>Fully qualified event name (e.g., OrderPlaced)</td></tr>
+    <tr><td>Payload</td><td>nvarchar(max)</td><td>Unlimited</td><td>JSON-serialized event payload</td></tr>
+    <tr><td>Status</td><td>enum → string</td><td>32</td><td>Pending → Published by dispatcher, or Failed after max retries</td></tr>
+    <tr><td>CreatedAtUtc</td><td>datetime</td><td>—</td><td>Written in same transaction as domain data</td></tr>
+    <tr><td>PublishedAtUtc</td><td>datetime?</td><td>—</td><td>When successfully published to RabbitMQ</td></tr>
+    <tr><td>RetryCount</td><td>int</td><td>—</td><td>Number of publish attempts by background worker</td></tr>
+    <tr><td>Error</td><td>string?</td><td>2000</td><td>Last error message for failed publishes</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 10 ════════════════════════ -->
+<h2 id="s10" class="page-break">10. Indexing Strategy &amp; Performance</h2>
+<p>All indexes are defined in EF Core <code>OnModelCreating</code> and applied via code-first migrations. Additional operational indexes are managed via the SQL patch at <code>scripts/migrations/IndexingPatch.sql</code>.</p>
+
+<table class="idx-table">
+  <thead><tr><th>Database</th><th>Table</th><th>Index Columns</th><th>Type</th><th>Rationale</th></tr></thead>
+  <tbody>
+    <tr><td>IdentityAuth</td><td>Users</td><td>(Email)</td><td>Unique</td><td>Login lookup, duplicate prevention</td></tr>
+    <tr><td>IdentityAuth</td><td>Users</td><td>(Role, Status, CreatedAtUtc)</td><td>Composite</td><td>Admin dealer listing with role/status filter</td></tr>
+    <tr><td>IdentityAuth</td><td>DealerProfiles</td><td>(GstNumber)</td><td>Unique</td><td>GST compliance uniqueness</td></tr>
+    <tr><td>IdentityAuth</td><td>RefreshTokens</td><td>(TokenHash)</td><td>Unique</td><td>Token refresh/revocation lookup</td></tr>
+    <tr><td>CatalogInventory</td><td>Products</td><td>(Sku)</td><td>Unique</td><td>Product search by SKU</td></tr>
+    <tr><td>CatalogInventory</td><td>StockSubscriptions</td><td>(DealerId, ProductId)</td><td>Composite Unique</td><td>One sub per dealer per product</td></tr>
+    <tr><td>Order</td><td>Orders</td><td>(OrderNumber)</td><td>Unique</td><td>Order lookup by business reference</td></tr>
+    <tr><td>Order</td><td>Orders</td><td>(DealerId, PlacedAtUtc)</td><td>Composite</td><td>"My orders" dealer query</td></tr>
+    <tr><td>Order</td><td>Orders</td><td>(Status, PlacedAtUtc)</td><td>Composite</td><td>Admin filtered order listing</td></tr>
+    <tr><td>Logistics</td><td>Shipments</td><td>(ShipmentNumber)</td><td>Unique</td><td>Shipment lookup</td></tr>
+    <tr><td>Logistics</td><td>Shipments</td><td>(DealerId, CreatedAtUtc)</td><td>Composite</td><td>Dealer shipment history</td></tr>
+    <tr><td>Logistics</td><td>Shipments</td><td>(AssignedAgentId, CreatedAtUtc)</td><td>Composite</td><td>Agent workload view</td></tr>
+    <tr><td>Payment</td><td>DealerCreditAccounts</td><td>(DealerId)</td><td>Unique</td><td>One credit account per dealer</td></tr>
+    <tr><td>Payment</td><td>Invoices</td><td>(InvoiceNumber)</td><td>Unique</td><td>Invoice lookup</td></tr>
+    <tr><td>Payment</td><td>Invoices</td><td>(IdempotencyKey)</td><td>Unique</td><td>Duplicate invoice prevention</td></tr>
+    <tr><td>Payment</td><td>Invoices</td><td>(DealerId, CreatedAtUtc)</td><td>Composite</td><td>Dealer invoice listing</td></tr>
+    <tr><td>Notification</td><td>Notifications</td><td>(RecipientUserId, CreatedAtUtc)</td><td>Composite</td><td>User notification feed</td></tr>
+  </tbody>
+</table>
+
+<!-- ════════════════════════ SECTION 11 ════════════════════════ -->
+<h2 id="s11">11. Data Integrity &amp; Constraints Summary</h2>
+
+<h3>11.1 Relationship Cardinality Summary</h3>
+<table>
+  <thead><tr><th>Relationship</th><th>Cardinality</th><th>Delete Behavior</th></tr></thead>
+  <tbody>
+    <tr><td>Users → DealerProfile</td><td>1:1</td><td>CASCADE</td></tr>
+    <tr><td>Users → RefreshTokens</td><td>1:N</td><td>CASCADE</td></tr>
+    <tr><td>Users → OtpRecords</td><td>1:N</td><td>CASCADE</td></tr>
+    <tr><td>Categories → Products</td><td>1:N</td><td>RESTRICT</td></tr>
+    <tr><td>Categories → Children</td><td>1:N (self-ref)</td><td>RESTRICT</td></tr>
+    <tr><td>Products → StockTransactions</td><td>1:N</td><td>CASCADE</td></tr>
+    <tr><td>Products → StockSubscriptions</td><td>1:N</td><td>CASCADE</td></tr>
+    <tr><td>Orders → OrderLines</td><td>1:N</td><td>CASCADE</td></tr>
+    <tr><td>Orders → StatusHistory</td><td>1:N</td><td>CASCADE</td></tr>
+    <tr><td>Orders → ReturnRequest</td><td>1:1</td><td>CASCADE</td></tr>
+    <tr><td>Orders → OrderSagaStates</td><td>1:1</td><td>PK sharing</td></tr>
+    <tr><td>Shipments → ShipmentEvents</td><td>1:N</td><td>CASCADE</td></tr>
+    <tr><td>Shipments → ShipmentOpsStates</td><td>1:1</td><td>CASCADE</td></tr>
+    <tr><td>Invoices → InvoiceLines</td><td>1:N</td><td>CASCADE</td></tr>
+    <tr><td>Invoices → WorkflowState</td><td>1:1</td><td>CASCADE</td></tr>
+    <tr><td>Invoices → WorkflowActivities</td><td>1:N</td><td>CASCADE</td></tr>
+  </tbody>
+</table>
+
+<h3>11.2 Computed Properties (EF Ignore)</h3>
+<table>
+  <thead><tr><th>Entity</th><th>Property</th><th>Formula</th></tr></thead>
+  <tbody>
+    <tr><td>Products</td><td>AvailableStock</td><td>PhysicalStock - LockedStock</td></tr>
+    <tr><td>OrderLines</td><td>LineTotal</td><td>Quantity × UnitPrice</td></tr>
+    <tr><td>InvoiceLines</td><td>LineTotal</td><td>Quantity × UnitPrice</td></tr>
+    <tr><td>DealerCreditAccounts</td><td>AvailableCredit</td><td>CreditLimit - CurrentOutstanding</td></tr>
+  </tbody>
+</table>
+
+<h3>11.3 Enum Storage Convention</h3>
+<div class="callout">
+  <strong>Convention:</strong> All enum fields are stored as <code>string</code> (not int) using EF Core <code>HasConversion&lt;string&gt;()</code>. This improves query readability in SQL Server Management Studio and avoids breaking changes when enum values are reordered.
+</div>
+
+<div style="margin-top: 64px; text-align: center; padding: 32px; border-top: 2px solid var(--border);">
+  <p style="font-size: .76rem; color: var(--text-secondary); margin: 0;">
+    <strong>Supply Chain Management Platform — Entity-Relationship Diagrams v2.0</strong><br>
+    28 Tables · 6 Databases · Confidential · April 2026
+  </p>
+</div>
+
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'neutral', themeVariables: { fontSize: '11px' } });
+</script>
+</body>
+</html>

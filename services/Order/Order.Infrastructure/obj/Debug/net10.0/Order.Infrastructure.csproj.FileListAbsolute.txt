@@ -50,3 +50,11 @@ C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-warehouse-ready\Order.
 C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-warehouse-ready\Order.Infrastructure.runtimeconfig.json
 C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-warehouse-ready\Order.Infrastructure.dll
 C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-warehouse-ready\Order.Infrastructure.pdb
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-ai\Order.Infrastructure.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-ai\Order.Infrastructure.runtimeconfig.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-ai\Order.Infrastructure.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-ai\Order.Infrastructure.pdb
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-no-ollama\Order.Infrastructure.deps.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-no-ollama\Order.Infrastructure.runtimeconfig.json
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-no-ollama\Order.Infrastructure.dll
+C:\Users\Hey\Desktop\demo\artifacts\build-check\order-api-no-ollama\Order.Infrastructure.pdb

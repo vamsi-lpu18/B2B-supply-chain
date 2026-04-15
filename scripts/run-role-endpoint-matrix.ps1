@@ -428,7 +428,7 @@ Add-Test -Name 'Orders create admin denied' -Role 'Admin' -Method 'POST' -Path '
 Add-Test -Name 'Orders my dealer' -Role 'Dealer' -Method 'GET' -Path '/orders/api/orders/my?page=1&pageSize=20' -Token $dealerToken -Expected @(200) | Out-Null
 Add-Test -Name 'Orders detail dealer' -Role 'Dealer' -Method 'GET' -Path "/orders/api/orders/$orderId" -Token $dealerToken -Expected @(200, 404) | Out-Null
 Add-Test -Name 'Orders detail admin' -Role 'Admin' -Method 'GET' -Path "/orders/api/orders/$orderId" -Token $adminToken -Expected @(200, 404) | Out-Null
-Add-Test -Name 'Orders update status logistics (restricted target denied)' -Role 'Logistics' -Method 'PUT' -Path "/orders/api/orders/$orderId/status" -Token $logisticsToken -Body @{ newStatus = 2 } -Expected @(400, 404) | Out-Null
+Add-Test -Name 'Orders update status logistics (restricted target denied)' -Role 'Logistics' -Method 'PUT' -Path "/orders/api/orders/$orderId/status" -Token $logisticsToken -Body @{ newStatus = 2 } -Expected @(400, 404, 409) | Out-Null
 Add-Test -Name 'Orders update status warehouse denied' -Role 'Warehouse' -Method 'PUT' -Path "/orders/api/orders/$orderId/status" -Token $warehouseToken -Body @{ newStatus = 2 } -Expected @(403) | Out-Null
 Add-Test -Name 'Orders cancel dealer' -Role 'Dealer' -Method 'POST' -Path "/orders/api/orders/$orderId/cancel" -Token $dealerToken -Body @{ reason = 'Mock cancel request' } -Expected @(200, 404, 400) | Out-Null
 Add-Test -Name 'Orders return request dealer' -Role 'Dealer' -Method 'POST' -Path "/orders/api/orders/$orderId/returns" -Token $dealerToken -Body @{ reason = 'Mock return request' } -Expected @(200, 404, 400) | Out-Null

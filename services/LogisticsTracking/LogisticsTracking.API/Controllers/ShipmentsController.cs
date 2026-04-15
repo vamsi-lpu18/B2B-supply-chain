@@ -261,26 +261,19 @@ public sealed class ShipmentsController(ISender sender) : ControllerBase
         return state is null ? NotFound() : Ok(state);
     }
 
-    [HttpPost("{shipmentId:guid}/ai-recommendation")]
-    [Authorize(Roles = "Admin,Logistics")]
-    [ProducesResponseType(typeof(ShipmentAiRecommendationDto), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GenerateAiRecommendation([FromRoute] Guid shipmentId, CancellationToken cancellationToken)
+    [HttpPost("chatbot/ask")]
+    [Authorize(Roles = "Admin,Logistics,Agent,Dealer,Warehouse")]
+    [ProducesResponseType(typeof(LogisticsChatbotResponseDto), StatusCodes.Status200OK)]
+    public async Task<IActionResult> AskChatbot([FromBody] LogisticsChatbotRequest request, CancellationToken cancellationToken)
     {
-        var (userId, role) = GetActor();
-        var recommendation = await sender.Send(new GenerateAiRecommendationCommand(shipmentId, userId, role), cancellationToken);
-        return recommendation is null ? NotFound() : Ok(recommendation);
-    }
+        if (string.IsNullOrWhiteSpace(request.Message))
+        {
+            return BadRequest(new { message = "Message is required." });
+        }
 
-    [HttpPost("ai-recommendations/{recommendationId:guid}/approve")]
-    [Authorize(Roles = "Admin,Logistics")]
-    [ProducesResponseType(typeof(ApproveAiRecommendationResultDto), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> ApproveAiRecommendation([FromRoute] Guid recommendationId, CancellationToken cancellationToken)
-    {
         var (userId, role) = GetActor();
-        var result = await sender.Send(new ApproveAiRecommendationCommand(recommendationId, userId, role), cancellationToken);
-        return result is null ? NotFound() : Ok(result);
+        var result = await sender.Send(new AskLogisticsChatbotQuery(request, userId, role), cancellationToken);
+        return Ok(result);
     }
 
     private (Guid UserId, string Role) GetActor()

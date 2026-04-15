@@ -34,7 +34,10 @@ import { CreditHoldStatus, LOGISTICS_MANAGED_ORDER_STATUSES, ORDER_STATUS_BADGE,
             <button class="btn btn-danger" (click)="showCancelDialog.set(true)">Cancel Order</button>
           }
           @if (canReturn()) {
-            <button class="btn btn-secondary" (click)="showReturnDialog.set(true)">Request Return</button>
+            <button class="btn btn-secondary" (click)="openReturnDialog()">Request Return</button>
+          }
+          @if (showReturnExpiredNotice()) {
+            <button class="btn btn-ghost" disabled title="Returns are allowed only within 48 hours after delivery.">Return Expired</button>
           }
           @if (canReorder()) {
             <button class="btn btn-secondary" (click)="reorderItems()" [disabled]="actionLoading()">Reorder Items</button>
@@ -185,6 +188,9 @@ import { CreditHoldStatus, LOGISTICS_MANAGED_ORDER_STATUSES, ORDER_STATUS_BADGE,
           <div class="modal" (click)="$event.stopPropagation()">
             <div class="modal-header"><h2>Request Return</h2><button class="btn btn-ghost btn-icon" (click)="showReturnDialog.set(false)">✕</button></div>
             <div class="modal-body">
+              @if (isReturnWindowExpired()) {
+                <div class="alert-error mb-3">Return window expired on {{ returnWindowExpiryLabel() }}.</div>
+              }
               <div class="form-group">
                 <label>Reason *</label>
                 <textarea class="form-control" [(ngModel)]="returnReason" rows="3" maxlength="500" placeholder="Reason for return..."></textarea>
@@ -192,7 +198,7 @@ import { CreditHoldStatus, LOGISTICS_MANAGED_ORDER_STATUSES, ORDER_STATUS_BADGE,
             </div>
             <div class="modal-footer">
               <button class="btn btn-secondary" (click)="showReturnDialog.set(false)">Back</button>
-              <button class="btn btn-primary" (click)="requestReturn()" [disabled]="!returnReason.trim() || actionLoading()">Submit Return</button>
+              <button class="btn btn-primary" (click)="requestReturn()" [disabled]="!returnReason.trim() || actionLoading() || isReturnWindowExpired()">Submit Return</button>
             </div>
           </div>
         </div>
@@ -268,6 +274,7 @@ import { CreditHoldStatus, LOGISTICS_MANAGED_ORDER_STATUSES, ORDER_STATUS_BADGE,
 })
 export class OrderDetailComponent implements OnInit {
   readonly id = input.required<string>();
+  private readonly returnWindowHours = 48;
 
   private readonly orderApi      = inject(OrderApiService);
   private readonly adminOrderApi = inject(AdminOrderApiService);
@@ -313,7 +320,21 @@ export class OrderDetailComponent implements OnInit {
     if (this.isAdmin()) return o.status !== OrderStatus.Cancelled && o.status !== OrderStatus.Closed;
     return false;
   }
-  canReturn(): boolean { return this.isDealer() && this.order()?.status === OrderStatus.Delivered; }
+  canReturn(): boolean {
+    const currentOrder = this.order();
+    return this.isDealer() && !!currentOrder
+      && currentOrder.status === OrderStatus.Delivered
+      && !currentOrder.returnRequest
+      && !this.isReturnWindowExpired();
+  }
+
+  showReturnExpiredNotice(): boolean {
+    const currentOrder = this.order();
+    return this.isDealer() && !!currentOrder
+      && currentOrder.status === OrderStatus.Delivered
+      && !currentOrder.returnRequest
+      && this.isReturnWindowExpired();
+  }
   canReorder(): boolean {
     const o = this.order();
     return this.isDealer() && !!o && o.lines.length > 0;
@@ -414,14 +435,29 @@ export class OrderDetailComponent implements OnInit {
 
   requestReturn(): void {
     if (!this.returnReason.trim()) return;
+
+    if (this.isReturnWindowExpired()) {
+      this.toast.error(`Return window expired on ${this.returnWindowExpiryLabel()}.`);
+      this.showReturnDialog.set(false);
+      return;
+    }
+
     this.actionLoading.set(true);
     this.orderApi.requestReturn(this.id(), { reason: this.returnReason }).subscribe({
       next: () => { this.toast.success('Return request submitted'); this.showReturnDialog.set(false); this.loadOrder(); this.actionLoading.set(false); },
-      error: err => {
-        this.toast.error(this.getErrorMessage(err, 'Failed to submit return request'));
+      error: () => {
         this.actionLoading.set(false);
       }
     });
+  }
+
+  openReturnDialog(): void {
+    if (this.isReturnWindowExpired()) {
+      this.toast.error(`Return window expired on ${this.returnWindowExpiryLabel()}.`);
+      return;
+    }
+
+    this.showReturnDialog.set(true);
   }
 
   updateStatus(): void {
@@ -560,6 +596,46 @@ export class OrderDetailComponent implements OnInit {
   private getErrorMessage(err: unknown, fallback: string): string {
     const candidate = err as { error?: { message?: string; title?: string } };
     return candidate?.error?.message ?? candidate?.error?.title ?? fallback;
+  }
+
+  private returnWindowExpiryDate(): Date | null {
+    const order = this.order();
+    if (!order) {
+      return null;
+    }
+
+    const deliveredAtUtc = order.statusHistory
+      .filter(history => history.toStatus === OrderStatus.Delivered)
+      .map(history => Date.parse(history.changedAtUtc))
+      .filter(timestamp => Number.isFinite(timestamp))
+      .sort((a, b) => b - a)[0];
+
+    const startTimestamp = deliveredAtUtc ?? Date.parse(order.placedAtUtc);
+    if (!Number.isFinite(startTimestamp)) {
+      return null;
+    }
+
+    return new Date(startTimestamp + this.returnWindowHours * 60 * 60 * 1000);
+  }
+
+  isReturnWindowExpired(): boolean {
+    const expiryDate = this.returnWindowExpiryDate();
+    return !!expiryDate && expiryDate.getTime() < Date.now();
+  }
+
+  returnWindowExpiryLabel(): string {
+    const expiryDate = this.returnWindowExpiryDate();
+    if (!expiryDate) {
+      return 'N/A';
+    }
+
+    return new Intl.DateTimeFormat('en-IN', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    }).format(expiryDate);
   }
 
   private loadOpsNotes(): void {

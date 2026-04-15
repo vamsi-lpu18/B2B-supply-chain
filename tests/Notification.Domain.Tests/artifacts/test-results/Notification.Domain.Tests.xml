@@ -1,0 +1,19 @@
+<testsuites>
+  <testsuite name="Notification.Domain.Tests.dll" tests="6" skipped="0" failures="0" errors="0" time="0.1138693" timestamp="2026-04-15T09:24:30" hostname="DESKTOP-NFND817" id="0" package="Notification.Domain.Tests.dll">
+    <properties />
+    <testcase classname="Notification.Domain.Tests.NotificationMessageTests" name="NotificationMessageTests.CreateFromEvent_LogisticsAssignmentDecision_UsesEmailChannel(eventType: &quot;ShipmentAssignmentRejected&quot;)" time="0.0756315" />
+    <testcase classname="Notification.Domain.Tests.NotificationMessageTests" name="NotificationMessageTests.CreateFromEvent_LogisticsAssignmentDecision_UsesEmailChannel(eventType: &quot;ShipmentAssignmentAccepted&quot;)" time="0.0006229" />
+    <testcase classname="Notification.Domain.Tests.NotificationMessageTests" name="NotificationMessageTests.MarkSent_ClearsFailureReasonAndSetsSentTimestamp" time="0.0344873" />
+    <testcase classname="Notification.Domain.Tests.NotificationMessageTests" name="NotificationMessageTests.CreateFromEvent_UnknownEvent_FallsBackToInApp" time="0.0003620" />
+    <testcase classname="Notification.Domain.Tests.NotificationMessageTests" name="NotificationMessageTests.CreateFromEvent_IdentityPasswordReset_UsesEmailChannel" time="0.0023388" />
+    <testcase classname="Notification.Domain.Tests.NotificationMessageTests" name="NotificationMessageTests.MarkFailed_SetsFailedStatusAndTrimmedReason" time="0.0004268" />
+    <system-out>
+Test Framework Informational Messages:
+[xUnit.net 00:00:00.03] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.6)
+[xUnit.net 00:00:01.18]   Discovering: Notification.Domain.Tests
+[xUnit.net 00:00:01.62]   Discovered:  Notification.Domain.Tests
+[xUnit.net 00:00:01.87]   Starting:    Notification.Domain.Tests
+[xUnit.net 00:00:02.39]   Finished:    Notification.Domain.Tests
+</system-out>
+  </testsuite>
+</testsuites>

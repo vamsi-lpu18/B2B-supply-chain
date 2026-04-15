@@ -4,6 +4,7 @@ import { provideHttpClient, withInterceptors, withFetch } from '@angular/common/
 import { routes } from './app.routes';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
 import { correlationIdInterceptor } from './core/interceptors/correlation-id.interceptor';
+import { utcDateNormalizationInterceptor } from './core/interceptors/utc-date-normalization.interceptor';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 import { errorInterceptor } from './core/interceptors/error.interceptor';
 
@@ -16,6 +17,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([
         correlationIdInterceptor,
         authInterceptor,
+        utcDateNormalizationInterceptor,
         loadingInterceptor,
         errorInterceptor
       ])

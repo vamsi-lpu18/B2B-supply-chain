@@ -92,34 +92,20 @@ export interface UpsertShipmentOpsStateRequest {
   lastRetryScheduledAtUtc?: string | null;
 }
 
-export interface ShipmentAiActionDto {
-  actionType: string;
-  description: string;
-  proposedValue: string;
-}
-
-export interface ShipmentAiRecommendationDto {
-  recommendationId: string;
-  shipmentId: string;
-  playbookType: string;
-  confidenceScore: number;
-  explanationText: string;
-  requiresHumanApproval: boolean;
-  createdAtUtc: string;
-  suggestedActions: ShipmentAiActionDto[];
-}
-
-export interface AiRecommendationExecutionStepDto {
-  actionType: string;
-  result: string;
+export interface LogisticsChatbotRequest {
   message: string;
 }
 
-export interface ApproveAiRecommendationResultDto {
-  recommendationId: string;
-  shipmentId: string;
-  executed: boolean;
-  approvedAtUtc: string;
-  steps: AiRecommendationExecutionStepDto[];
-  shipment: ShipmentDto;
+export interface LogisticsChatbotSourceDto {
+  type: string;
+  reference: string;
+  detail: string;
+}
+
+export interface LogisticsChatbotResponseDto {
+  intent: string;
+  reply: string;
+  sources: LogisticsChatbotSourceDto[];
+  suggestedPrompts: string[];
+  createdAtUtc: string;
 }

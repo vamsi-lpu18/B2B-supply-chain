@@ -12,8 +12,8 @@ import {
   ShipmentOpsStateDto,
   GetShipmentOpsStatesRequest,
   UpsertShipmentOpsStateRequest,
-  ShipmentAiRecommendationDto,
-  ApproveAiRecommendationResultDto
+  LogisticsChatbotRequest,
+  LogisticsChatbotResponseDto
 } from '../models/logistics.models';
 
 @Injectable({ providedIn: 'root' })
@@ -77,11 +77,7 @@ export class LogisticsApiService {
     return this.http.put<ShipmentOpsStateDto>(`${this.base}/${shipmentId}/ops-state`, req);
   }
 
-  generateAiRecommendation(shipmentId: string): Observable<ShipmentAiRecommendationDto> {
-    return this.http.post<ShipmentAiRecommendationDto>(`${this.base}/${shipmentId}/ai-recommendation`, {});
-  }
-
-  approveAiRecommendation(recommendationId: string): Observable<ApproveAiRecommendationResultDto> {
-    return this.http.post<ApproveAiRecommendationResultDto>(`${this.base}/ai-recommendations/${recommendationId}/approve`, {});
+  askChatbot(req: LogisticsChatbotRequest): Observable<LogisticsChatbotResponseDto> {
+    return this.http.post<LogisticsChatbotResponseDto>(`${this.base}/chatbot/ask`, req);
   }
 }

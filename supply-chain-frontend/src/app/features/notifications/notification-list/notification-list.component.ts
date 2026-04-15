@@ -945,7 +945,6 @@ export class NotificationListComponent implements OnInit, OnDestroy {
       productdeactivated: 'Product Deactivated',
       productupdated: 'Product Updated',
       returnrequested: 'Return Requested',
-      shipmentairecommendationexecuted: 'Shipment AI Recommendation Executed',
       shipmentassigned: 'Shipment Assigned',
       shipmentassignmentaccepted: 'Agent Assignment Accepted',
       shipmentassignmentrejected: 'Agent Assignment Rejected',

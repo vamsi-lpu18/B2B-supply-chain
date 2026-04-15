@@ -4,6 +4,8 @@ namespace Order.Domain.Entities;
 
 public sealed class OrderAggregate
 {
+    private const int ReturnWindowHours = 48;
+
     private static readonly Dictionary<OrderStatus, HashSet<OrderStatus>> AllowedTransitions = new()
     {
         [OrderStatus.Placed] = [OrderStatus.Processing, OrderStatus.OnHold, OrderStatus.Cancelled],
@@ -124,7 +126,14 @@ public sealed class OrderAggregate
             throw new InvalidOperationException("Return request can only be raised after delivery.");
         }
 
-        if (PlacedAtUtc.AddHours(48) < DateTime.UtcNow)
+        var returnWindowStartUtc = StatusHistory
+            .Where(x => x.ToStatus == OrderStatus.Delivered)
+            .OrderByDescending(x => x.ChangedAtUtc)
+            .Select(x => (DateTime?)x.ChangedAtUtc)
+            .FirstOrDefault()
+            ?? PlacedAtUtc;
+
+        if (returnWindowStartUtc.AddHours(ReturnWindowHours) < DateTime.UtcNow)
         {
             throw new InvalidOperationException("Return window has expired.");
         }

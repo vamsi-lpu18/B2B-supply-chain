@@ -1,0 +1,17 @@
+<testsuites>
+  <testsuite name="PaymentInvoice.Domain.Tests.dll" tests="4" skipped="0" failures="0" errors="0" time="0.26865839999999996" timestamp="2026-04-15T09:24:33" hostname="DESKTOP-NFND817" id="0" package="PaymentInvoice.Domain.Tests.dll">
+    <properties />
+    <testcase classname="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests" name="PaymentInvoiceDomainTests.InvoiceCreate_Interstate_SetsIgstType" time="0.2111374" />
+    <testcase classname="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests" name="PaymentInvoiceDomainTests.InvoiceWorkflowState_Update_ClampsReminderCountAndTrimsNote" time="0.0277587" />
+    <testcase classname="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests" name="PaymentInvoiceDomainTests.DealerCreditAccount_AddAndReduceOutstanding_UpdatesAvailableCredit" time="0.0143541" />
+    <testcase classname="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests" name="PaymentInvoiceDomainTests.Invoice_AddLine_RecalculatesTotals" time="0.0154082" />
+    <system-out>
+Test Framework Informational Messages:
+[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.6)
+[xUnit.net 00:00:00.75]   Discovering: PaymentInvoice.Domain.Tests
+[xUnit.net 00:00:01.13]   Discovered:  PaymentInvoice.Domain.Tests
+[xUnit.net 00:00:01.38]   Starting:    PaymentInvoice.Domain.Tests
+[xUnit.net 00:00:01.89]   Finished:    PaymentInvoice.Domain.Tests
+</system-out>
+  </testsuite>
+</testsuites>

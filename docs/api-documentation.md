@@ -145,8 +145,7 @@ Gateway prefix: `/logistics`
 | GET | `/api/logistics/shipments/{shipmentId}/ops-state` | `/logistics/api/logistics/shipments/{shipmentId}/ops-state` | Yes | Admin, Warehouse, Logistics, Agent, Dealer | Access scope checks |
 | POST | `/api/logistics/shipments/ops-states/batch` | `/logistics/api/logistics/shipments/ops-states/batch` | Yes | Admin, Warehouse, Logistics, Agent, Dealer | Dealer/Agent filtered by ownership |
 | PUT | `/api/logistics/shipments/{shipmentId}/ops-state` | `/logistics/api/logistics/shipments/{shipmentId}/ops-state` | Yes | Admin, Logistics | Upsert ops state |
-| POST | `/api/logistics/shipments/{shipmentId}/ai-recommendation` | `/logistics/api/logistics/shipments/{shipmentId}/ai-recommendation` | Yes | Admin, Warehouse, Logistics | Create AI recommendation |
-| POST | `/api/logistics/shipments/ai-recommendations/{recommendationId}/approve` | `/logistics/api/logistics/shipments/ai-recommendations/{recommendationId}/approve` | Yes | Admin, Logistics | Approve AI recommendation |
+| POST | `/api/logistics/shipments/chatbot/ask` | `/logistics/api/logistics/shipments/chatbot/ask` | Yes | Admin, Logistics, Agent, Dealer | Ask logistics chatbot for status, delay, retry insights |
 
 ## 5.5 PaymentInvoice API
 Gateway prefix: `/payments`

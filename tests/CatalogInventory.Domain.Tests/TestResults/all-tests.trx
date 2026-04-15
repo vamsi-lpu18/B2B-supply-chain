@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="5c297bff-56cd-45b5-87f8-f8d1920a48ad" name="Hey@DESKTOP-NFND817 2026-04-13 16:01:46" runUser="DESKTOP-NFND817\Hey" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-04-13T16:01:46.2616650+05:30" queuing="2026-04-13T16:01:46.2616657+05:30" start="2026-04-13T16:01:40.2068767+05:30" finish="2026-04-13T16:01:46.2832856+05:30" />
+  <TestSettings name="default" id="4bb5bf49-fbe9-4265-a7b7-ee9f67612633">
+    <Deployment runDeploymentRoot="Hey_DESKTOP-NFND817_2026-04-13_16_01_46" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="873f05e1-bbcb-4b40-a70a-7d8b303c4faf" testId="d03b8afb-0939-24eb-fe2b-a45f9ba29447" testName="CatalogInventory.Domain.Tests.ProductTests.Create_NormalizesSkuAndInitialStock" computerName="DESKTOP-NFND817" duration="00:00:00.0017552" startTime="2026-04-13T16:01:45.9770334+05:30" endTime="2026-04-13T16:01:45.9771632+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="873f05e1-bbcb-4b40-a70a-7d8b303c4faf" />
+    <UnitTestResult executionId="f5cd8274-fb30-4ed8-85e9-e8ea5552fa0a" testId="a8892023-33f9-b4c1-defa-ca8649966ab0" testName="CatalogInventory.Domain.Tests.ProductTests.Restock_IncreasesTotalStock" computerName="DESKTOP-NFND817" duration="00:00:00.0068405" startTime="2026-04-13T16:01:45.9764992+05:30" endTime="2026-04-13T16:01:45.9766621+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f5cd8274-fb30-4ed8-85e9-e8ea5552fa0a" />
+    <UnitTestResult executionId="946507e2-1fe3-42bd-95cf-65e8dbda6995" testId="28d1b1a6-22a7-db74-1ecc-6f2f3a0f51d1" testName="CatalogInventory.Domain.Tests.ProductTests.HardDeduct_WithInsufficientAvailableStock_Throws" computerName="DESKTOP-NFND817" duration="00:00:00.0020821" startTime="2026-04-13T16:01:45.9747249+05:30" endTime="2026-04-13T16:01:45.9750015+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="946507e2-1fe3-42bd-95cf-65e8dbda6995" />
+    <UnitTestResult executionId="d3b9c670-7ae6-4288-a678-9b33fc7fbc7d" testId="f209e24f-4ac8-9bc0-40e5-c5f1162cab79" testName="CatalogInventory.Domain.Tests.ProductTests.Deactivate_SetsProductInactive" computerName="DESKTOP-NFND817" duration="00:00:01.0663002" startTime="2026-04-13T16:01:44.9817678+05:30" endTime="2026-04-13T16:01:45.9435341+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d3b9c670-7ae6-4288-a678-9b33fc7fbc7d" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="CatalogInventory.Domain.Tests.ProductTests.Deactivate_SetsProductInactive" storage="c:\users\hey\desktop\demo\tests\cataloginventory.domain.tests\bin\release\net10.0\cataloginventory.domain.tests.dll" id="f209e24f-4ac8-9bc0-40e5-c5f1162cab79">
+      <Execution id="d3b9c670-7ae6-4288-a678-9b33fc7fbc7d" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\CatalogInventory.Domain.Tests\bin\Release\net10.0\CatalogInventory.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="CatalogInventory.Domain.Tests.ProductTests" name="Deactivate_SetsProductInactive" />
+    </UnitTest>
+    <UnitTest name="CatalogInventory.Domain.Tests.ProductTests.Restock_IncreasesTotalStock" storage="c:\users\hey\desktop\demo\tests\cataloginventory.domain.tests\bin\release\net10.0\cataloginventory.domain.tests.dll" id="a8892023-33f9-b4c1-defa-ca8649966ab0">
+      <Execution id="f5cd8274-fb30-4ed8-85e9-e8ea5552fa0a" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\CatalogInventory.Domain.Tests\bin\Release\net10.0\CatalogInventory.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="CatalogInventory.Domain.Tests.ProductTests" name="Restock_IncreasesTotalStock" />
+    </UnitTest>
+    <UnitTest name="CatalogInventory.Domain.Tests.ProductTests.HardDeduct_WithInsufficientAvailableStock_Throws" storage="c:\users\hey\desktop\demo\tests\cataloginventory.domain.tests\bin\release\net10.0\cataloginventory.domain.tests.dll" id="28d1b1a6-22a7-db74-1ecc-6f2f3a0f51d1">
+      <Execution id="946507e2-1fe3-42bd-95cf-65e8dbda6995" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\CatalogInventory.Domain.Tests\bin\Release\net10.0\CatalogInventory.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="CatalogInventory.Domain.Tests.ProductTests" name="HardDeduct_WithInsufficientAvailableStock_Throws" />
+    </UnitTest>
+    <UnitTest name="CatalogInventory.Domain.Tests.ProductTests.Create_NormalizesSkuAndInitialStock" storage="c:\users\hey\desktop\demo\tests\cataloginventory.domain.tests\bin\release\net10.0\cataloginventory.domain.tests.dll" id="d03b8afb-0939-24eb-fe2b-a45f9ba29447">
+      <Execution id="873f05e1-bbcb-4b40-a70a-7d8b303c4faf" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\CatalogInventory.Domain.Tests\bin\Release\net10.0\CatalogInventory.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="CatalogInventory.Domain.Tests.ProductTests" name="Create_NormalizesSkuAndInitialStock" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="d03b8afb-0939-24eb-fe2b-a45f9ba29447" executionId="873f05e1-bbcb-4b40-a70a-7d8b303c4faf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8892023-33f9-b4c1-defa-ca8649966ab0" executionId="f5cd8274-fb30-4ed8-85e9-e8ea5552fa0a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="28d1b1a6-22a7-db74-1ecc-6f2f3a0f51d1" executionId="946507e2-1fe3-42bd-95cf-65e8dbda6995" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f209e24f-4ac8-9bc0-40e5-c5f1162cab79" executionId="d3b9c670-7ae6-4288-a678-9b33fc7fbc7d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="4" executed="4" passed="4" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.07] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.5)&#xD;
+[xUnit.net 00:00:01.31]   Discovering: CatalogInventory.Domain.Tests&#xD;
+[xUnit.net 00:00:01.46]   Discovered:  CatalogInventory.Domain.Tests&#xD;
+[xUnit.net 00:00:01.57]   Starting:    CatalogInventory.Domain.Tests&#xD;
+[xUnit.net 00:00:02.75]   Finished:    CatalogInventory.Domain.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

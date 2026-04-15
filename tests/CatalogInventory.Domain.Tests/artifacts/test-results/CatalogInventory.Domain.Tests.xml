@@ -1,0 +1,17 @@
+<testsuites>
+  <testsuite name="CatalogInventory.Domain.Tests.dll" tests="4" skipped="0" failures="0" errors="0" time="0.0384919" timestamp="2026-04-15T09:24:17" hostname="DESKTOP-NFND817" id="0" package="CatalogInventory.Domain.Tests.dll">
+    <properties />
+    <testcase classname="CatalogInventory.Domain.Tests.ProductTests" name="ProductTests.Deactivate_SetsProductInactive" time="0.0198086" />
+    <testcase classname="CatalogInventory.Domain.Tests.ProductTests" name="ProductTests.HardDeduct_WithInsufficientAvailableStock_Throws" time="0.0031589" />
+    <testcase classname="CatalogInventory.Domain.Tests.ProductTests" name="ProductTests.Restock_IncreasesTotalStock" time="0.0121019" />
+    <testcase classname="CatalogInventory.Domain.Tests.ProductTests" name="ProductTests.Create_NormalizesSkuAndInitialStock" time="0.0034225" />
+    <system-out>
+Test Framework Informational Messages:
+[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.6)
+[xUnit.net 00:00:00.58]   Discovering: CatalogInventory.Domain.Tests
+[xUnit.net 00:00:00.84]   Discovered:  CatalogInventory.Domain.Tests
+[xUnit.net 00:00:01.01]   Starting:    CatalogInventory.Domain.Tests
+[xUnit.net 00:00:01.89]   Finished:    CatalogInventory.Domain.Tests
+</system-out>
+  </testsuite>
+</testsuites>

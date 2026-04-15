@@ -424,3 +424,1414 @@
 2026-04-13 04:58:03.601 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:28:03.6010039Z"
 2026-04-13 04:59:03.662 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:29:03.6627164Z"
 2026-04-13 05:00:03.729 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:30:03.7293194Z"
+2026-04-13 05:01:03.805 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:31:03.8051489Z"
+2026-04-13 05:02:03.899 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:32:03.8994387Z"
+2026-04-13 05:03:03.989 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:33:03.9895733Z"
+2026-04-13 05:04:04.049 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:34:04.0490272Z"
+2026-04-13 05:05:04.154 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:35:04.1543545Z"
+2026-04-13 05:06:04.290 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:36:04.2906091Z"
+2026-04-13 05:06:19.724 +05:30 [INF] Handling GetAllShipmentsQuery at "2026-04-12T23:36:19.7238834Z"
+2026-04-13 05:06:19.773 +05:30 [INF] Handled GetAllShipmentsQuery in 49.2228ms
+2026-04-13 05:06:19.790 +05:30 [INF] HTTP GET /api/logistics/shipments responded 200 in 94.2238 ms
+2026-04-13 05:07:04.454 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:37:04.4540633Z"
+2026-04-13 05:08:04.581 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:38:04.5810314Z"
+2026-04-13 05:09:04.625 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:39:04.6257600Z"
+2026-04-13 05:10:04.760 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:40:04.7607113Z"
+2026-04-13 05:11:04.999 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:41:04.9993184Z"
+2026-04-13 05:12:05.301 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:42:05.3017347Z"
+2026-04-13 05:13:05.419 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:43:05.4197200Z"
+2026-04-13 05:14:05.494 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:44:05.4942625Z"
+2026-04-13 05:15:05.575 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:45:05.5758246Z"
+2026-04-13 05:16:05.700 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:46:05.7004140Z"
+2026-04-13 05:17:05.920 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:47:05.9203151Z"
+2026-04-13 05:18:05.928 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:48:05.9287853Z"
+2026-04-13 05:19:06.015 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:49:06.0153136Z"
+2026-04-13 05:20:06.178 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:50:06.1784332Z"
+2026-04-13 05:21:06.269 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:51:06.2697767Z"
+2026-04-13 05:22:06.380 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:52:06.3806387Z"
+2026-04-13 05:23:06.467 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:53:06.4676498Z"
+2026-04-13 05:24:06.756 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:54:06.7560498Z"
+2026-04-13 05:25:06.855 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:55:06.8554078Z"
+2026-04-13 05:26:07.115 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:56:07.1157918Z"
+2026-04-13 05:27:07.217 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:57:07.2172567Z"
+2026-04-13 05:28:07.318 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:58:07.3188601Z"
+2026-04-13 05:29:07.425 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-12T23:59:07.4253521Z"
+2026-04-13 05:30:07.538 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:00:07.5386370Z"
+2026-04-13 05:31:07.611 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:01:07.6115009Z"
+2026-04-13 05:32:07.790 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:02:07.7905447Z"
+2026-04-13 05:33:07.884 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:03:07.8842173Z"
+2026-04-13 05:34:08.178 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:04:08.1789145Z"
+2026-04-13 05:35:08.307 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:05:08.3078424Z"
+2026-04-13 05:36:08.406 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:06:08.4065190Z"
+2026-04-13 05:37:08.519 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:07:08.5192323Z"
+2026-04-13 05:38:08.609 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:08:08.6091917Z"
+2026-04-13 05:39:08.702 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:09:08.7024661Z"
+2026-04-13 05:40:08.810 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:10:08.8101827Z"
+2026-04-13 05:41:09.064 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:11:09.0643057Z"
+2026-04-13 05:42:09.359 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:12:09.3599159Z"
+2026-04-13 05:43:09.470 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:13:09.4705647Z"
+2026-04-13 05:44:09.674 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:14:09.6745942Z"
+2026-04-13 05:45:09.769 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:15:09.7694654Z"
+2026-04-13 05:46:09.881 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:16:09.8818752Z"
+2026-04-13 05:47:10.169 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:17:10.1691591Z"
+2026-04-13 05:48:10.288 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:18:10.2882529Z"
+2026-04-13 05:49:10.423 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:19:10.4233444Z"
+2026-04-13 05:50:10.526 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:20:10.5267436Z"
+2026-04-13 05:51:10.651 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:21:10.6510404Z"
+2026-04-13 05:52:10.775 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:22:10.7757784Z"
+2026-04-13 05:53:10.905 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:23:10.9057321Z"
+2026-04-13 05:54:11.016 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:24:11.0163926Z"
+2026-04-13 05:55:11.122 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:25:11.1222866Z"
+2026-04-13 05:56:11.228 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:26:11.2281355Z"
+2026-04-13 05:57:11.333 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:27:11.3338807Z"
+2026-04-13 05:58:11.470 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:28:11.4702360Z"
+2026-04-13 05:59:11.569 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:29:11.5694939Z"
+2026-04-13 06:00:11.645 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:30:11.6454963Z"
+2026-04-13 06:01:11.785 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:31:11.7856403Z"
+2026-04-13 06:02:11.879 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:32:11.8798440Z"
+2026-04-13 06:03:11.980 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:33:11.9808959Z"
+2026-04-13 06:04:12.223 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:34:12.2239733Z"
+2026-04-13 06:05:12.382 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:35:12.3820318Z"
+2026-04-13 06:06:12.506 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:36:12.5065169Z"
+2026-04-13 06:07:12.630 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:37:12.6306998Z"
+2026-04-13 06:08:12.851 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:38:12.8512333Z"
+2026-04-13 06:09:12.969 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:39:12.9691393Z"
+2026-04-13 06:10:13.096 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:40:13.0968704Z"
+2026-04-13 06:11:13.188 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:41:13.1886125Z"
+2026-04-13 06:12:13.322 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:42:13.3221097Z"
+2026-04-13 06:13:13.406 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:43:13.4062018Z"
+2026-04-13 06:14:13.493 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:44:13.4937682Z"
+2026-04-13 06:15:13.596 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:45:13.5964878Z"
+2026-04-13 06:16:13.697 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:46:13.6970064Z"
+2026-04-13 06:17:13.818 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:47:13.8186433Z"
+2026-04-13 06:18:13.930 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:48:13.9304642Z"
+2026-04-13 06:19:14.150 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:49:14.1500391Z"
+2026-04-13 06:20:14.186 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:50:14.1869081Z"
+2026-04-13 06:21:14.483 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:51:14.4839044Z"
+2026-04-13 06:22:14.588 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:52:14.5886648Z"
+2026-04-13 06:23:14.711 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:53:14.7119348Z"
+2026-04-13 06:24:14.814 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:54:14.8143174Z"
+2026-04-13 06:25:14.931 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:55:14.9315968Z"
+2026-04-13 06:26:15.094 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:56:15.0941013Z"
+2026-04-13 06:27:00.209 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:57:00.2096644Z"
+2026-04-13 06:28:00.366 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:58:00.3665662Z"
+2026-04-13 06:29:00.524 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T00:59:00.5242345Z"
+2026-04-13 06:30:00.712 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:00:00.7121030Z"
+2026-04-13 06:31:00.823 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:01:00.8239549Z"
+2026-04-13 06:32:00.890 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:02:00.8907573Z"
+2026-04-13 06:33:01.045 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:03:01.0449924Z"
+2026-04-13 06:34:01.163 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:04:01.1637557Z"
+2026-04-13 06:35:01.290 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:05:01.2901493Z"
+2026-04-13 06:36:01.390 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:06:01.3903617Z"
+2026-04-13 06:37:01.487 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:07:01.4870246Z"
+2026-04-13 06:38:01.611 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:08:01.6112424Z"
+2026-04-13 06:39:01.725 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:09:01.7251252Z"
+2026-04-13 06:40:01.838 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:10:01.8384952Z"
+2026-04-13 06:41:01.961 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:11:01.9619094Z"
+2026-04-13 06:42:02.066 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:12:02.0662837Z"
+2026-04-13 06:43:02.359 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:13:02.3596304Z"
+2026-04-13 06:44:02.478 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:14:02.4785412Z"
+2026-04-13 06:45:02.580 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:15:02.5808306Z"
+2026-04-13 06:46:02.657 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:16:02.6571907Z"
+2026-04-13 06:47:02.817 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:17:02.8174115Z"
+2026-04-13 06:48:02.946 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:18:02.9467929Z"
+2026-04-13 06:49:03.081 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:19:03.0819423Z"
+2026-04-13 06:50:03.210 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:20:03.2102236Z"
+2026-04-13 06:51:03.324 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:21:03.3245308Z"
+2026-04-13 06:52:03.462 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:22:03.4628801Z"
+2026-04-13 06:53:03.514 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:23:03.5142857Z"
+2026-04-13 06:54:03.783 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:24:03.7830438Z"
+2026-04-13 06:55:04.053 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:25:04.0537319Z"
+2026-04-13 06:56:04.227 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:26:04.2273876Z"
+2026-04-13 06:57:04.352 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:27:04.3521983Z"
+2026-04-13 06:58:04.479 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:28:04.4796104Z"
+2026-04-13 06:59:04.610 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:29:04.6107708Z"
+2026-04-13 07:00:04.721 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:30:04.7219536Z"
+2026-04-13 07:01:04.826 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:31:04.8264152Z"
+2026-04-13 07:02:04.959 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:32:04.9595492Z"
+2026-04-13 07:03:05.023 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:33:05.0236783Z"
+2026-04-13 07:04:05.221 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:34:05.2219141Z"
+2026-04-13 07:05:05.269 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:35:05.2690629Z"
+2026-04-13 07:06:05.382 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:36:05.3821383Z"
+2026-04-13 07:07:05.483 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:37:05.4830340Z"
+2026-04-13 07:08:05.601 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:38:05.6016274Z"
+2026-04-13 07:09:05.688 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:39:05.6888637Z"
+2026-04-13 07:10:05.802 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:40:05.8027517Z"
+2026-04-13 07:11:05.912 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:41:05.9122195Z"
+2026-04-13 07:12:06.013 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:42:06.0132773Z"
+2026-04-13 07:13:06.127 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:43:06.1270878Z"
+2026-04-13 07:14:06.244 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:44:06.2444567Z"
+2026-04-13 07:15:06.366 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:45:06.3666680Z"
+2026-04-13 07:16:06.576 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:46:06.5768985Z"
+2026-04-13 07:17:06.791 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:47:06.7913983Z"
+2026-04-13 07:18:06.881 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:48:06.8818218Z"
+2026-04-13 07:19:07.000 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:49:07.0009312Z"
+2026-04-13 07:20:07.168 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:50:07.1684612Z"
+2026-04-13 07:21:07.306 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:51:07.3060283Z"
+2026-04-13 07:22:07.533 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:52:07.5339561Z"
+2026-04-13 07:23:07.689 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:53:07.6897883Z"
+2026-04-13 07:24:07.814 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:54:07.8142067Z"
+2026-04-13 07:25:08.011 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:55:08.0116620Z"
+2026-04-13 07:26:08.122 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:56:08.1229612Z"
+2026-04-13 07:27:08.233 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:57:08.2336274Z"
+2026-04-13 07:28:08.381 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:58:08.3810676Z"
+2026-04-13 07:29:08.594 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T01:59:08.5945405Z"
+2026-04-13 07:30:08.690 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:00:08.6905596Z"
+2026-04-13 07:31:08.782 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:01:08.7825756Z"
+2026-04-13 07:32:08.908 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:02:08.9082802Z"
+2026-04-13 07:33:09.016 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:03:09.0169297Z"
+2026-04-13 07:34:09.172 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:04:09.1722883Z"
+2026-04-13 07:35:09.274 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:05:09.2748084Z"
+2026-04-13 07:36:09.401 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:06:09.4013463Z"
+2026-04-13 07:37:09.531 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:07:09.5311102Z"
+2026-04-13 07:38:09.645 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:08:09.6453998Z"
+2026-04-13 07:39:09.776 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:09:09.7765846Z"
+2026-04-13 07:40:09.906 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:10:09.9067826Z"
+2026-04-13 07:41:10.023 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:11:10.0232402Z"
+2026-04-13 07:42:10.130 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:12:10.1300673Z"
+2026-04-13 07:43:10.235 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:13:10.2353290Z"
+2026-04-13 07:44:10.348 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:14:10.3481865Z"
+2026-04-13 07:45:10.451 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:15:10.4511025Z"
+2026-04-13 07:46:10.560 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:16:10.5608745Z"
+2026-04-13 07:47:10.685 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:17:10.6856215Z"
+2026-04-13 07:48:10.770 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:18:10.7703362Z"
+2026-04-13 07:49:10.896 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:19:10.8962654Z"
+2026-04-13 07:50:11.027 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:20:11.0273279Z"
+2026-04-13 07:51:11.149 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:21:11.1491973Z"
+2026-04-13 07:52:11.309 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:22:11.3093906Z"
+2026-04-13 07:53:11.396 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:23:11.3964603Z"
+2026-04-13 07:54:11.471 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:24:11.4711063Z"
+2026-04-13 07:55:11.582 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:25:11.5829523Z"
+2026-04-13 07:56:11.673 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:26:11.6731558Z"
+2026-04-13 07:57:11.785 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:27:11.7854018Z"
+2026-04-13 07:58:11.908 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:28:11.9082467Z"
+2026-04-13 07:59:12.026 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:29:12.0263718Z"
+2026-04-13 08:00:12.117 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:30:12.1172800Z"
+2026-04-13 08:01:12.386 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:31:12.3868746Z"
+2026-04-13 08:02:12.550 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:32:12.5503699Z"
+2026-04-13 08:03:12.667 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:33:12.6673930Z"
+2026-04-13 08:04:12.802 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:34:12.8021160Z"
+2026-04-13 08:05:12.913 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:35:12.9138319Z"
+2026-04-13 08:06:13.036 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:36:13.0362062Z"
+2026-04-13 08:07:13.169 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:37:13.1691316Z"
+2026-04-13 08:08:13.253 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:38:13.2535383Z"
+2026-04-13 08:09:13.522 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:39:13.5227076Z"
+2026-04-13 08:10:13.652 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T02:40:13.6520358Z"
+2026-04-13 08:59:20.239 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T03:29:20.2390099Z"
+2026-04-13 09:43:25.408 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:13:25.4084465Z"
+2026-04-13 09:43:33.192 +05:30 [ERR] Failed executing DbCommand (1,555ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@p) [o].[MessageId], [o].[CreatedAtUtc], [o].[Error], [o].[EventType], [o].[Payload], [o].[PublishedAtUtc], [o].[RetryCount], [o].[Status]
+FROM [OutboxMessages] AS [o]
+WHERE [o].[Status] = N'Pending'
+ORDER BY [o].[CreatedAtUtc]
+2026-04-13 09:43:33.327 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'LogisticsTracking.Infrastructure.Persistence.LogisticsTrackingDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:93e1ee2c-98c2-4437-b3cf-4ba2f4542086
+Error Number:10053,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:93e1ee2c-98c2-4437-b3cf-4ba2f4542086
+Error Number:10053,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-04-13 09:43:33.364 +05:30 [ERR] Unexpected logistics outbox dispatcher error.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:93e1ee2c-98c2-4437-b3cf-4ba2f4542086
+Error Number:10053,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at LogisticsTracking.Infrastructure.Background.LogisticsOutboxDispatcher.ExecuteAsync(CancellationToken stoppingToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Infrastructure\Background\LogisticsOutboxDispatcher.cs:line 32
+2026-04-13 09:43:42.164 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T04:13:42.1641282Z"
+2026-04-13 09:43:42.211 +05:30 [INF] Handled GetDealerShipmentsQuery in 46.1919ms
+2026-04-13 09:43:42.222 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 61.3256 ms
+2026-04-13 09:44:10.558 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:14:10.5585883Z"
+2026-04-13 09:44:10.619 +05:30 [INF] Execution Worker recovered from the Faulted state after 00:00:37.6734352 and is in the Running state now
+2026-04-13 09:45:10.699 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:15:10.6998633Z"
+2026-04-13 09:45:31.026 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T04:15:31.0266666Z"
+2026-04-13 09:45:31.047 +05:30 [INF] Handled GetDealerShipmentsQuery in 21.1938ms
+2026-04-13 09:45:31.054 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 28.4320 ms
+2026-04-13 09:46:11.007 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:16:11.0073995Z"
+2026-04-13 09:47:11.196 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:17:11.1964412Z"
+2026-04-13 09:48:11.316 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:18:11.3164713Z"
+2026-04-13 09:49:08.005 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T04:19:08.0051020Z"
+2026-04-13 09:49:08.045 +05:30 [INF] Handled GetDealerShipmentsQuery in 40.4248ms
+2026-04-13 09:49:08.051 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 47.6959 ms
+2026-04-13 09:49:11.558 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:19:11.5589751Z"
+2026-04-13 09:50:11.660 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:20:11.6600394Z"
+2026-04-13 09:51:11.816 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:21:11.8161114Z"
+2026-04-13 09:52:11.882 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:22:11.8826122Z"
+2026-04-13 09:53:12.024 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:23:12.0242969Z"
+2026-04-13 09:54:12.149 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:24:12.1492303Z"
+2026-04-13 09:55:12.276 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:25:12.2769591Z"
+2026-04-13 09:56:12.423 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:26:12.4233102Z"
+2026-04-13 09:57:12.538 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:27:12.5389292Z"
+2026-04-13 09:58:12.661 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:28:12.6613785Z"
+2026-04-13 09:59:12.803 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:29:12.8033312Z"
+2026-04-13 10:00:13.101 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:30:13.1016481Z"
+2026-04-13 10:01:13.208 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:31:13.2089498Z"
+2026-04-13 10:02:13.331 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:32:13.3316500Z"
+2026-04-13 10:03:13.497 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:33:13.4978573Z"
+2026-04-13 10:04:13.586 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:34:13.5863681Z"
+2026-04-13 10:05:13.705 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:35:13.7054889Z"
+2026-04-13 10:06:13.791 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:36:13.7917426Z"
+2026-04-13 10:07:13.886 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:37:13.8867721Z"
+2026-04-13 10:08:13.980 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:38:13.9802447Z"
+2026-04-13 10:09:14.102 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:39:14.1029423Z"
+2026-04-13 10:10:14.207 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:40:14.2076129Z"
+2026-04-13 10:11:14.285 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:41:14.2852706Z"
+2026-04-13 10:12:14.419 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:42:14.4195556Z"
+2026-04-13 10:13:14.547 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:43:14.5478869Z"
+2026-04-13 10:22:43.001 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T04:52:43.0019286Z"
+2026-04-13 10:22:43.046 +05:30 [INF] Handled GetDealerShipmentsQuery in 44.3728ms
+2026-04-13 10:22:43.055 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 53.9459 ms
+2026-04-13 10:22:43.530 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T04:52:43.5308648Z"
+2026-04-13 10:37:46.869 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:07:46.8694048Z"
+2026-04-13 10:38:01.888 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:08:01.8883230Z"
+2026-04-13 10:39:02.012 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:09:02.0121070Z"
+2026-04-13 10:40:02.095 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:10:02.0950994Z"
+2026-04-13 10:41:02.222 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:11:02.2225633Z"
+2026-04-13 10:42:02.386 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:12:02.3862845Z"
+2026-04-13 10:43:02.559 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:13:02.5594033Z"
+2026-04-13 10:44:02.801 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:14:02.8016472Z"
+2026-04-13 10:45:03.014 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:15:03.0141280Z"
+2026-04-13 10:46:03.362 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:16:03.3626436Z"
+2026-04-13 10:47:03.462 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:17:03.4620143Z"
+2026-04-13 10:48:03.632 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:18:03.6327889Z"
+2026-04-13 10:49:03.816 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:19:03.8163411Z"
+2026-04-13 10:50:04.061 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:20:04.0619523Z"
+2026-04-13 10:51:04.209 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:21:04.2090690Z"
+2026-04-13 10:52:04.424 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:22:04.4243848Z"
+2026-04-13 10:53:04.618 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:23:04.6189708Z"
+2026-04-13 10:54:04.827 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:24:04.8276566Z"
+2026-04-13 10:55:05.213 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:25:05.2132673Z"
+2026-04-13 10:56:05.435 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:26:05.4353028Z"
+2026-04-13 10:57:05.705 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:27:05.7055528Z"
+2026-04-13 10:58:05.864 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:28:05.8643839Z"
+2026-04-13 10:59:06.104 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:29:06.1041520Z"
+2026-04-13 11:00:06.300 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:30:06.3007151Z"
+2026-04-13 11:01:06.483 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:31:06.4833983Z"
+2026-04-13 11:02:06.652 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:32:06.6527638Z"
+2026-04-13 11:03:06.905 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:33:06.9053977Z"
+2026-04-13 11:04:07.004 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:34:07.0046044Z"
+2026-04-13 11:05:07.102 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:35:07.1024022Z"
+2026-04-13 11:06:07.195 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:36:07.1951445Z"
+2026-04-13 11:07:07.568 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:37:07.5689255Z"
+2026-04-13 11:08:07.684 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:38:07.6847857Z"
+2026-04-13 11:09:07.777 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:39:07.7772638Z"
+2026-04-13 11:10:07.881 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:40:07.8816782Z"
+2026-04-13 11:11:07.999 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:41:07.9990535Z"
+2026-04-13 11:12:08.110 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:42:08.1107850Z"
+2026-04-13 11:13:08.220 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:43:08.2208560Z"
+2026-04-13 11:14:08.320 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:44:08.3201632Z"
+2026-04-13 11:15:08.436 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:45:08.4366984Z"
+2026-04-13 11:16:08.730 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:46:08.7308721Z"
+2026-04-13 11:17:08.835 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:47:08.8352232Z"
+2026-04-13 11:18:08.985 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:48:08.9852189Z"
+2026-04-13 11:19:09.126 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:49:09.1265332Z"
+2026-04-13 11:20:09.193 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:50:09.1931181Z"
+2026-04-13 11:21:09.283 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:51:09.2832290Z"
+2026-04-13 11:22:09.394 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:52:09.3942469Z"
+2026-04-13 11:23:09.521 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:53:09.5214524Z"
+2026-04-13 11:24:09.619 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:54:09.6199601Z"
+2026-04-13 11:25:09.696 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:55:09.6964140Z"
+2026-04-13 11:26:09.739 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:56:09.7392771Z"
+2026-04-13 11:27:09.841 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:57:09.8418226Z"
+2026-04-13 11:28:09.954 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:58:09.9541943Z"
+2026-04-13 11:29:10.037 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T05:59:10.0377197Z"
+2026-04-13 11:30:10.097 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:00:10.0970366Z"
+2026-04-13 11:31:10.213 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:01:10.2137078Z"
+2026-04-13 11:32:10.310 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:02:10.3104368Z"
+2026-04-13 11:33:10.602 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:03:10.6029493Z"
+2026-04-13 11:34:10.675 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:04:10.6758233Z"
+2026-04-13 11:35:10.800 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:05:10.8007801Z"
+2026-04-13 11:36:11.254 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:06:11.2545959Z"
+2026-04-13 11:37:11.374 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:07:11.3745409Z"
+2026-04-13 11:38:11.687 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:08:11.6876369Z"
+2026-04-13 11:39:11.840 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:09:11.8409232Z"
+2026-04-13 11:39:15.542 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T06:09:15.5419678Z"
+2026-04-13 11:39:15.660 +05:30 [INF] Handled GetDealerShipmentsQuery in 118.2698ms
+2026-04-13 11:39:15.677 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 199.7778 ms
+2026-04-13 11:40:11.907 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:10:11.9078821Z"
+2026-04-13 11:41:11.979 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:11:11.9794810Z"
+2026-04-13 11:42:12.062 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:12:12.0627837Z"
+2026-04-13 11:43:12.118 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:13:12.1180839Z"
+2026-04-13 11:44:12.189 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:14:12.1890781Z"
+2026-04-13 11:45:12.421 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:15:12.4218179Z"
+2026-04-13 11:46:12.365 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:16:12.3655330Z"
+2026-04-13 11:47:12.427 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:17:12.4275523Z"
+2026-04-13 11:48:12.491 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:18:12.4912196Z"
+2026-04-13 11:49:12.577 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:19:12.5776249Z"
+2026-04-13 11:50:12.653 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:20:12.6531251Z"
+2026-04-13 11:51:12.744 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:21:12.7441362Z"
+2026-04-13 11:52:12.827 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:22:12.8277713Z"
+2026-04-13 11:53:12.930 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:23:12.9303852Z"
+2026-04-13 11:54:13.007 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:24:13.0079363Z"
+2026-04-13 11:55:13.247 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:25:13.2472891Z"
+2026-04-13 11:56:13.356 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:26:13.3568041Z"
+2026-04-13 11:57:13.431 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:27:13.4310832Z"
+2026-04-13 11:58:13.669 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:28:13.6690286Z"
+2026-04-13 11:59:13.754 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:29:13.7548223Z"
+2026-04-13 12:00:13.819 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:30:13.8191919Z"
+2026-04-13 12:01:13.924 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:31:13.9240557Z"
+2026-04-13 12:02:14.012 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:32:14.0126152Z"
+2026-04-13 12:03:14.240 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:33:14.2400558Z"
+2026-04-13 12:04:14.331 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:34:14.3314159Z"
+2026-04-13 12:05:14.418 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:35:14.4188952Z"
+2026-04-13 12:06:14.493 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:36:14.4938271Z"
+2026-04-13 12:07:14.570 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:37:14.5700633Z"
+2026-04-13 12:08:14.646 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:38:14.6467587Z"
+2026-04-13 12:09:14.901 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:39:14.9016486Z"
+2026-04-13 12:10:14.993 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:40:14.9934797Z"
+2026-04-13 12:11:00.067 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:41:00.0674250Z"
+2026-04-13 12:12:00.152 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:42:00.1526819Z"
+2026-04-13 12:13:00.270 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:43:00.2700362Z"
+2026-04-13 12:14:00.411 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:44:00.4116185Z"
+2026-04-13 12:15:00.478 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:45:00.4787446Z"
+2026-04-13 12:16:00.554 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:46:00.5545052Z"
+2026-04-13 12:17:00.647 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:47:00.6479497Z"
+2026-04-13 12:18:00.948 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:48:00.9486266Z"
+2026-04-13 12:19:01.034 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:49:01.0342524Z"
+2026-04-13 12:20:01.153 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:50:01.1537133Z"
+2026-04-13 12:21:01.220 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:51:01.2209704Z"
+2026-04-13 12:22:01.314 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:52:01.3142608Z"
+2026-04-13 12:23:01.414 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:53:01.4147565Z"
+2026-04-13 12:24:01.493 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:54:01.4930772Z"
+2026-04-13 12:25:01.609 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:55:01.6090870Z"
+2026-04-13 12:26:01.717 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:56:01.7176441Z"
+2026-04-13 12:27:01.893 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:57:01.8936512Z"
+2026-04-13 12:28:02.007 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:58:02.0078863Z"
+2026-04-13 12:29:02.140 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T06:59:02.1400318Z"
+2026-04-13 12:30:02.228 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:00:02.2280301Z"
+2026-04-13 12:31:02.337 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:01:02.3375249Z"
+2026-04-13 12:32:02.436 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:02:02.4360124Z"
+2026-04-13 12:33:02.548 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:03:02.5485332Z"
+2026-04-13 12:34:02.664 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:04:02.6641499Z"
+2026-04-13 12:35:02.799 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:05:02.7998597Z"
+2026-04-13 12:36:02.907 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:06:02.9076498Z"
+2026-04-13 12:37:03.118 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:07:03.1187479Z"
+2026-04-13 12:38:03.375 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:08:03.3753246Z"
+2026-04-13 12:39:03.550 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:09:03.5507878Z"
+2026-04-13 12:40:03.668 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:10:03.6686488Z"
+2026-04-13 12:41:03.802 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:11:03.8023101Z"
+2026-04-13 12:42:03.916 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:12:03.9164014Z"
+2026-04-13 12:43:04.027 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:13:04.0273788Z"
+2026-04-13 12:44:04.130 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:14:04.1302031Z"
+2026-04-13 12:45:04.267 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:15:04.2677107Z"
+2026-04-13 12:46:04.401 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:16:04.4011266Z"
+2026-04-13 12:47:04.493 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:17:04.4930505Z"
+2026-04-13 12:48:04.594 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:18:04.5942805Z"
+2026-04-13 12:49:04.757 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:19:04.7572080Z"
+2026-04-13 12:50:04.978 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T07:20:04.9783669Z"
+2026-04-13 14:26:05.710 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T08:56:05.7106456Z"
+2026-04-13 14:26:23.730 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T08:56:23.7305844Z"
+2026-04-13 14:26:23.828 +05:30 [INF] Handled GetDealerShipmentsQuery in 97.8755ms
+2026-04-13 14:26:23.966 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 244.6990 ms
+2026-04-13 14:27:05.981 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T08:57:05.9819561Z"
+2026-04-13 14:28:06.096 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T08:58:06.0969688Z"
+2026-04-13 14:29:06.247 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T08:59:06.2478361Z"
+2026-04-13 14:30:06.395 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:00:06.3959718Z"
+2026-04-13 14:31:06.529 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:01:06.5292905Z"
+2026-04-13 14:32:06.666 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:02:06.6666763Z"
+2026-04-13 14:33:06.775 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:03:06.7758118Z"
+2026-04-13 14:34:06.902 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:04:06.9023206Z"
+2026-04-13 14:35:06.996 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:05:06.9960349Z"
+2026-04-13 14:36:07.261 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:06:07.2612959Z"
+2026-04-13 14:37:07.521 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:07:07.5214081Z"
+2026-04-13 14:38:07.852 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:08:07.8526357Z"
+2026-04-13 14:39:08.058 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:09:08.0583680Z"
+2026-04-13 14:40:08.319 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:10:08.3195471Z"
+2026-04-13 14:41:08.612 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:11:08.6124304Z"
+2026-04-13 14:42:08.741 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:12:08.7412354Z"
+2026-04-13 14:43:08.979 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:13:08.9790431Z"
+2026-04-13 14:44:09.106 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:14:09.1062767Z"
+2026-04-13 14:45:09.210 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:15:09.2105023Z"
+2026-04-13 14:46:09.301 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:16:09.3014918Z"
+2026-04-13 14:47:09.403 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:17:09.4039378Z"
+2026-04-13 14:48:09.517 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:18:09.5177171Z"
+2026-04-13 14:49:09.635 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:19:09.6355755Z"
+2026-04-13 14:50:09.751 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:20:09.7518562Z"
+2026-04-13 14:51:09.847 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:21:09.8473921Z"
+2026-04-13 14:52:09.940 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:22:09.9407526Z"
+2026-04-13 14:53:10.054 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:23:10.0543196Z"
+2026-04-13 14:54:10.173 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:24:10.1736447Z"
+2026-04-13 14:55:10.269 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:25:10.2694884Z"
+2026-04-13 14:56:10.433 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:26:10.4331829Z"
+2026-04-13 14:57:10.589 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:27:10.5893301Z"
+2026-04-13 14:58:10.743 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:28:10.7435823Z"
+2026-04-13 14:59:10.958 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:29:10.9585216Z"
+2026-04-13 15:00:11.061 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:30:11.0610336Z"
+2026-04-13 15:01:11.208 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:31:11.2085001Z"
+2026-04-13 15:02:11.382 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:32:11.3826839Z"
+2026-04-13 15:03:11.649 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:33:11.6498311Z"
+2026-04-13 15:04:11.650 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:34:11.6503867Z"
+2026-04-13 15:05:11.757 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:35:11.7577364Z"
+2026-04-13 15:06:12.406 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:36:12.4063955Z"
+2026-04-13 15:07:12.086 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:37:12.0869457Z"
+2026-04-13 15:08:12.199 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:38:12.1992130Z"
+2026-04-13 15:09:12.299 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:39:12.2993718Z"
+2026-04-13 15:10:12.411 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:40:12.4112698Z"
+2026-04-13 15:11:12.521 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:41:12.5211315Z"
+2026-04-13 15:12:12.667 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:42:12.6671183Z"
+2026-04-13 15:13:12.925 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:43:12.9258881Z"
+2026-04-13 15:14:12.978 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:44:12.9786123Z"
+2026-04-13 15:15:13.112 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:45:13.1127901Z"
+2026-04-13 15:16:13.228 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:46:13.2281311Z"
+2026-04-13 15:17:13.510 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:47:13.5100445Z"
+2026-04-13 15:18:13.613 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:48:13.6137593Z"
+2026-04-13 15:19:13.733 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:49:13.7331295Z"
+2026-04-13 15:20:13.829 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:50:13.8299722Z"
+2026-04-13 15:21:14.048 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:51:14.0485183Z"
+2026-04-13 15:22:14.226 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:52:14.2263504Z"
+2026-04-13 15:23:14.312 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:53:14.3124223Z"
+2026-04-13 15:24:14.479 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:54:14.4798397Z"
+2026-04-13 15:25:14.550 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:55:14.5500745Z"
+2026-04-13 15:26:14.832 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:56:14.8321145Z"
+2026-04-13 15:27:14.936 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:57:14.9361117Z"
+2026-04-13 15:28:15.083 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:58:15.0839175Z"
+2026-04-13 15:29:00.348 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T09:59:00.3486313Z"
+2026-04-13 15:30:00.447 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:00:00.4470922Z"
+2026-04-13 15:31:00.561 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:01:00.5619713Z"
+2026-04-13 15:32:01.002 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:02:01.0027899Z"
+2026-04-13 15:33:01.090 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:03:01.0903501Z"
+2026-04-13 15:34:01.333 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:04:01.3337190Z"
+2026-04-13 15:35:01.427 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:05:01.4276294Z"
+2026-04-13 15:36:01.538 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:06:01.5389342Z"
+2026-04-13 15:37:01.749 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:07:01.7498933Z"
+2026-04-13 15:38:01.824 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:08:01.8244027Z"
+2026-04-13 15:39:02.047 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:09:02.0471704Z"
+2026-04-13 15:40:02.038 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:10:02.0386536Z"
+2026-04-13 15:41:02.148 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:11:02.1486855Z"
+2026-04-13 15:42:02.238 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:12:02.2381804Z"
+2026-04-13 15:43:02.301 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:13:02.3015573Z"
+2026-04-13 15:44:02.746 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:14:02.7464210Z"
+2026-04-13 15:45:02.898 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:15:02.8982451Z"
+2026-04-13 15:46:03.083 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:16:03.0836650Z"
+2026-04-13 15:47:03.209 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:17:03.2097014Z"
+2026-04-13 15:48:03.379 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:18:03.3797075Z"
+2026-04-13 15:49:03.513 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:19:03.5138518Z"
+2026-04-13 15:50:03.775 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:20:03.7754963Z"
+2026-04-13 15:51:03.866 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:21:03.8669546Z"
+2026-04-13 15:52:03.949 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:22:03.9495747Z"
+2026-04-13 15:52:52.137 +05:30 [INF] HTTP GET /health responded 200 in 50.2968 ms
+2026-04-13 15:53:04.184 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:23:04.1849249Z"
+2026-04-13 15:54:04.354 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:24:04.3542716Z"
+2026-04-13 15:54:30.878 +05:30 [INF] Handling GetAllShipmentsQuery at "2026-04-13T10:24:30.8781904Z"
+2026-04-13 15:54:30.918 +05:30 [INF] Handled GetAllShipmentsQuery in 40.243ms
+2026-04-13 15:54:30.935 +05:30 [INF] HTTP GET /api/logistics/shipments responded 200 in 107.8145 ms
+2026-04-13 15:54:30.985 +05:30 [INF] HTTP POST /api/logistics/shipments//ai-recommendation responded 404 in 1.5636 ms
+2026-04-13 15:54:47.659 +05:30 [INF] Handling GetAllShipmentsQuery at "2026-04-13T10:24:47.6592184Z"
+2026-04-13 15:54:47.677 +05:30 [INF] Handled GetAllShipmentsQuery in 18.2019ms
+2026-04-13 15:54:47.681 +05:30 [INF] HTTP GET /api/logistics/shipments responded 200 in 24.4583 ms
+2026-04-13 15:55:04.516 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:25:04.5163601Z"
+2026-04-13 15:55:22.168 +05:30 [INF] Handling GetAllShipmentsQuery at "2026-04-13T10:25:22.1683421Z"
+2026-04-13 15:55:22.184 +05:30 [INF] Handled GetAllShipmentsQuery in 16.3754ms
+2026-04-13 15:55:22.189 +05:30 [INF] HTTP GET /api/logistics/shipments responded 200 in 21.3861 ms
+2026-04-13 15:56:04.803 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:26:04.8033108Z"
+2026-04-13 15:56:07.766 +05:30 [INF] Handling GetAllShipmentsQuery at "2026-04-13T10:26:07.7667858Z"
+2026-04-13 15:56:07.781 +05:30 [INF] Handled GetAllShipmentsQuery in 15.144ms
+2026-04-13 15:56:07.783 +05:30 [INF] HTTP GET /api/logistics/shipments responded 200 in 18.5469 ms
+2026-04-13 15:56:07.837 +05:30 [INF] HTTP POST /api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03 fa68734c-d4f4-4147-8105-0329f27b7d69 3fda2949-177d-418f-ae05-941bbb2cc5c8 a9ff315f-2b6d-473e-ad1d-51976ec11a38 cb398ec3-ae46-4039-9c73-7a2a46a53f8e 0cb0ec0c-8545-45b3-a434-81522c79fbd1 024c524d-e207-4681-8236-44f1ba56053d b037dd4d-e510-4c28-9c8c-053efbe5ebf9 656df23e-9557-4514-9eff-c8c5ae7c4fde 495a2a47-5e8f-4b74-89fc-caf7a63d4b13 399f0bdd-071f-4aee-aae3-b9230b9f9f36 e7325344-c1e5-44bf-87b0-f52bd8d0c762 184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2 7f4e59fc-6a60-4df2-aa00-1f5214e56e89 b1fb20b8-4cd0-4c79-9a78-e5e10e72dc48 3989bb01-5c79-4da4-8363-25bd1c0e10ae bbcecbd6-ac82-4f5a-9d3f-0920da747fe9 cef6c78d-84de-4787-8f30-e2e9527ccd2b aae26b92-c45b-40d3-96e9-abf6c9a8efc3 35aa246d-621c-4d5b-bd8f-95a3c84d967d 1a8d6224-faa1-4027-8a98-e7045b01dcc7 f22684bd-33d1-4d98-91ed-327d50c0fe8d 459a25d3-c11e-4e9a-9109-353765661baf d30d5835-e3c0-4619-b93c-8de61134bd6f b485491b-01bc-4454-9cb2-1fc4de6ec6bc ef243ff4-12d4-474a-af2d-7df8e8da4960 3e987ba7-8083-4479-bbc2-e5ad451eb904 e0779a34-cf4c-4971-9e29-1a877bc4e0fe 441c0a53-c929-47d2-9ebb-736af6030dd9 ddeb0470-7347-4076-8958-fce56d14d8af eb2b40c1-a122-473d-aef1-a9dfc7cf25a4 fe113bd9-5b6c-436e-a63e-efe63e3f56a7 eb985329-301b-4b1d-a2e3-ec520fb9e63e fd5da729-2604-454f-9a72-7d197f264253 466769a3-f25f-4805-a351-806b58ae7eb8 ce619cf9-b4f8-4312-a88c-0c54a114fea3 f6721b0f-e492-4432-8b09-1aa5f5de65fd fbc19406-1b33-45c9-8785-bdba461061ea e776ae4f-bede-45f2-816c-d39bfcb8bc43 f81e0eb9-3887-4ab0-bb9c-75a6e2341668 f5b314d5-614d-485f-9de6-da012864f8bb 0c3c4a72-585e-4aeb-b552-21d9fdb0e9b5 761c12f3-d5d6-4c77-a114-bcc8cfde9fba fa188025-d11a-4a95-a1a3-9dbc2dd315a7 13891b6a-203b-4d78-9229-8f646232d548 9fd00909-e279-45b9-95ad-1ae64b1d4782 05355051-d801-4890-9673-6edd9374072f 453c4705-76ff-4c4d-a800-590f19d53442 5b560186-f5b4-4fc8-879c-66709cc93bac e0b10ba0-f865-4b10-af74-9be01bc07890 c54ce07b-9921-473f-b946-de0663c28641 942360fd-aa0a-4ad5-9bc3-3b1896f77a46 c070a50b-0e86-471c-b711-cb53c9628c8c b4cb47ca-c66f-483c-a278-bc3e55eaecfd f600beec-ce13-4ad8-bee8-3c662102099f 4266cd96-a7b1-4591-a456-944e4810341c 42333d98-851b-434b-9397-95f3cba531c5 5aa04036-e946-4ee8-bbb5-1d801f6e1f17 d00b7e18-73b3-4fc8-838d-2244a1e0845a 302ee5ea-bd54-4a82-bb5a-0a72c5d19664 7d1331de-0738-4d29-92a8-dad770649e5a/ai-recommendation responded 404 in 0.1761 ms
+2026-04-13 15:57:04.528 +05:30 [INF] Handling GetAllShipmentsQuery at "2026-04-13T10:27:04.5282969Z"
+2026-04-13 15:57:04.547 +05:30 [INF] Handled GetAllShipmentsQuery in 18.8888ms
+2026-04-13 15:57:04.554 +05:30 [INF] HTTP GET /api/logistics/shipments responded 200 in 27.3156 ms
+2026-04-13 15:57:05.028 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:27:05.0281645Z"
+2026-04-13 15:57:28.309 +05:30 [INF] Handling GenerateAiRecommendationCommand at "2026-04-13T10:27:28.3098376Z"
+2026-04-13 15:57:28.400 +05:30 [INF] Handled GenerateAiRecommendationCommand in 90.4115ms
+2026-04-13 15:57:28.409 +05:30 [INF] HTTP POST /api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ai-recommendation responded 200 in 145.8699 ms
+2026-04-13 15:57:28.441 +05:30 [INF] Handling GenerateAiRecommendationCommand at "2026-04-13T10:27:28.4413798Z"
+2026-04-13 15:57:28.457 +05:30 [INF] Handled GenerateAiRecommendationCommand in 16.4796ms
+2026-04-13 15:57:28.459 +05:30 [INF] HTTP POST /api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ai-recommendation responded 200 in 26.4563 ms
+2026-04-13 15:58:05.197 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:28:05.1978078Z"
+2026-04-13 15:58:05.846 +05:30 [INF] Handling GetAllShipmentsQuery at "2026-04-13T10:28:05.8460311Z"
+2026-04-13 15:58:05.862 +05:30 [INF] Handled GetAllShipmentsQuery in 16.6121ms
+2026-04-13 15:58:05.869 +05:30 [INF] HTTP GET /api/logistics/shipments responded 200 in 23.7381 ms
+2026-04-13 15:58:05.920 +05:30 [INF] HTTP POST /api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03 fa68734c-d4f4-4147-8105-0329f27b7d69 3fda2949-177d-418f-ae05-941bbb2cc5c8 a9ff315f-2b6d-473e-ad1d-51976ec11a38 cb398ec3-ae46-4039-9c73-7a2a46a53f8e 0cb0ec0c-8545-45b3-a434-81522c79fbd1 024c524d-e207-4681-8236-44f1ba56053d b037dd4d-e510-4c28-9c8c-053efbe5ebf9 656df23e-9557-4514-9eff-c8c5ae7c4fde 495a2a47-5e8f-4b74-89fc-caf7a63d4b13 399f0bdd-071f-4aee-aae3-b9230b9f9f36 e7325344-c1e5-44bf-87b0-f52bd8d0c762 184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2 7f4e59fc-6a60-4df2-aa00-1f5214e56e89 b1fb20b8-4cd0-4c79-9a78-e5e10e72dc48 3989bb01-5c79-4da4-8363-25bd1c0e10ae bbcecbd6-ac82-4f5a-9d3f-0920da747fe9 cef6c78d-84de-4787-8f30-e2e9527ccd2b aae26b92-c45b-40d3-96e9-abf6c9a8efc3 35aa246d-621c-4d5b-bd8f-95a3c84d967d 1a8d6224-faa1-4027-8a98-e7045b01dcc7 f22684bd-33d1-4d98-91ed-327d50c0fe8d 459a25d3-c11e-4e9a-9109-353765661baf d30d5835-e3c0-4619-b93c-8de61134bd6f b485491b-01bc-4454-9cb2-1fc4de6ec6bc ef243ff4-12d4-474a-af2d-7df8e8da4960 3e987ba7-8083-4479-bbc2-e5ad451eb904 e0779a34-cf4c-4971-9e29-1a877bc4e0fe 441c0a53-c929-47d2-9ebb-736af6030dd9 ddeb0470-7347-4076-8958-fce56d14d8af eb2b40c1-a122-473d-aef1-a9dfc7cf25a4 fe113bd9-5b6c-436e-a63e-efe63e3f56a7 eb985329-301b-4b1d-a2e3-ec520fb9e63e fd5da729-2604-454f-9a72-7d197f264253 466769a3-f25f-4805-a351-806b58ae7eb8 ce619cf9-b4f8-4312-a88c-0c54a114fea3 f6721b0f-e492-4432-8b09-1aa5f5de65fd fbc19406-1b33-45c9-8785-bdba461061ea e776ae4f-bede-45f2-816c-d39bfcb8bc43 f81e0eb9-3887-4ab0-bb9c-75a6e2341668 f5b314d5-614d-485f-9de6-da012864f8bb 0c3c4a72-585e-4aeb-b552-21d9fdb0e9b5 761c12f3-d5d6-4c77-a114-bcc8cfde9fba fa188025-d11a-4a95-a1a3-9dbc2dd315a7 13891b6a-203b-4d78-9229-8f646232d548 9fd00909-e279-45b9-95ad-1ae64b1d4782 05355051-d801-4890-9673-6edd9374072f 453c4705-76ff-4c4d-a800-590f19d53442 5b560186-f5b4-4fc8-879c-66709cc93bac e0b10ba0-f865-4b10-af74-9be01bc07890 c54ce07b-9921-473f-b946-de0663c28641 942360fd-aa0a-4ad5-9bc3-3b1896f77a46 c070a50b-0e86-471c-b711-cb53c9628c8c b4cb47ca-c66f-483c-a278-bc3e55eaecfd f600beec-ce13-4ad8-bee8-3c662102099f 4266cd96-a7b1-4591-a456-944e4810341c 42333d98-851b-434b-9397-95f3cba531c5 5aa04036-e946-4ee8-bbb5-1d801f6e1f17 d00b7e18-73b3-4fc8-838d-2244a1e0845a 302ee5ea-bd54-4a82-bb5a-0a72c5d19664 7d1331de-0738-4d29-92a8-dad770649e5a/ai-recommendation responded 404 in 0.1598 ms
+2026-04-13 15:58:24.573 +05:30 [INF] Handling GetAllShipmentsQuery at "2026-04-13T10:28:24.5738535Z"
+2026-04-13 15:58:24.595 +05:30 [INF] Handled GetAllShipmentsQuery in 21.4287ms
+2026-04-13 15:58:24.598 +05:30 [INF] HTTP GET /api/logistics/shipments responded 200 in 25.2339 ms
+2026-04-13 15:58:24.806 +05:30 [INF] Handling GenerateAiRecommendationCommand at "2026-04-13T10:28:24.8068806Z"
+2026-04-13 15:58:24.822 +05:30 [INF] Handled GenerateAiRecommendationCommand in 15.1279ms
+2026-04-13 15:58:24.824 +05:30 [INF] HTTP POST /api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ai-recommendation responded 200 in 19.0839 ms
+2026-04-13 15:58:24.858 +05:30 [INF] Handling GenerateAiRecommendationCommand at "2026-04-13T10:28:24.8583047Z"
+2026-04-13 15:58:24.874 +05:30 [INF] Handled GenerateAiRecommendationCommand in 16.3134ms
+2026-04-13 15:58:24.877 +05:30 [INF] HTTP POST /api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ai-recommendation responded 200 in 20.2808 ms
+2026-04-13 15:58:36.265 +05:30 [INF] Handling GetAllShipmentsQuery at "2026-04-13T10:28:36.2658923Z"
+2026-04-13 15:58:36.284 +05:30 [INF] Handled GetAllShipmentsQuery in 18.1446ms
+2026-04-13 15:58:36.286 +05:30 [INF] HTTP GET /api/logistics/shipments responded 200 in 21.1526 ms
+2026-04-13 15:58:36.711 +05:30 [INF] Handling GenerateAiRecommendationCommand at "2026-04-13T10:28:36.7113494Z"
+2026-04-13 15:58:36.760 +05:30 [INF] Handled GenerateAiRecommendationCommand in 49.0387ms
+2026-04-13 15:58:36.948 +05:30 [INF] HTTP POST /api/logistics/shipments/2e7d472c-7061-41a2-bef9-763bf6053a03/ai-recommendation responded 200 in 412.7513 ms
+2026-04-13 15:58:37.104 +05:30 [INF] Handling ApproveAiRecommendationCommand at "2026-04-13T10:28:37.1048088Z"
+2026-04-13 15:58:37.193 +05:30 [INF] Handled ApproveAiRecommendationCommand in 89.0369ms
+2026-04-13 15:58:37.196 +05:30 [INF] HTTP POST /api/logistics/shipments/ai-recommendations/c8625daa-1588-41d9-9bda-3a7e2e129d13/approve responded 200 in 94.2148 ms
+2026-04-13 15:59:05.392 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:29:05.3929869Z"
+2026-04-13 16:00:05.518 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:30:05.5189509Z"
+2026-04-13 16:00:42.311 +05:30 [INF] Handling CreateShipmentCommand at "2026-04-13T10:30:42.3100148Z"
+2026-04-13 16:00:42.441 +05:30 [INF] Handled CreateShipmentCommand in 131.1784ms
+2026-04-13 16:00:42.507 +05:30 [INF] HTTP POST /api/logistics/shipments responded 201 in 323.8839 ms
+2026-04-13 16:00:48.656 +05:30 [INF] HTTP POST /api/logistics/shipments responded 403 in 10.7472 ms
+2026-04-13 16:00:48.669 +05:30 [INF] HTTP POST /api/logistics/shipments responded 403 in 0.3424 ms
+2026-04-13 16:00:48.684 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T10:30:48.6841455Z"
+2026-04-13 16:00:48.695 +05:30 [INF] Handled GetShipmentQuery in 11.0414ms
+2026-04-13 16:00:48.697 +05:30 [INF] HTTP GET /api/logistics/shipments/fd3d196e-a29b-4ea5-9c7c-84ca1bd3ac1e responded 200 in 14.9493 ms
+2026-04-13 16:00:48.726 +05:30 [INF] HTTP GET /api/logistics/shipments/fd3d196e-a29b-4ea5-9c7c-84ca1bd3ac1e responded 403 in 0.2183 ms
+2026-04-13 16:00:48.742 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T10:30:48.7421365Z"
+2026-04-13 16:00:48.754 +05:30 [INF] Handled GetDealerShipmentsQuery in 12.5251ms
+2026-04-13 16:00:48.756 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 19.2402 ms
+2026-04-13 16:00:48.774 +05:30 [INF] HTTP GET /api/logistics/shipments responded 403 in 0.1719 ms
+2026-04-13 16:00:48.783 +05:30 [INF] HTTP GET /api/logistics/shipments responded 403 in 0.1676 ms
+2026-04-13 16:00:48.804 +05:30 [INF] Handling GetAgentShipmentsQuery at "2026-04-13T10:30:48.8040790Z"
+2026-04-13 16:00:48.928 +05:30 [INF] Handled GetAgentShipmentsQuery in 124.3655ms
+2026-04-13 16:00:48.930 +05:30 [INF] HTTP GET /api/logistics/shipments/assigned responded 200 in 138.1315 ms
+2026-04-13 16:00:48.971 +05:30 [INF] Handling AssignAgentCommand at "2026-04-13T10:30:48.9714923Z"
+2026-04-13 16:00:49.015 +05:30 [INF] Handled AssignAgentCommand in 43.6407ms
+2026-04-13 16:00:49.017 +05:30 [INF] HTTP PUT /api/logistics/shipments/fd3d196e-a29b-4ea5-9c7c-84ca1bd3ac1e/assign-agent responded 200 in 64.3914 ms
+2026-04-13 16:00:49.059 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T10:30:49.0597753Z"
+2026-04-13 16:00:49.062 +05:30 [INF] Handled GetShipmentQuery in 2.5681ms
+2026-04-13 16:00:49.064 +05:30 [INF] HTTP PUT /api/logistics/shipments/fd3d196e-a29b-4ea5-9c7c-84ca1bd3ac1e/status responded 409 in 29.4390 ms
+2026-04-13 16:00:49.076 +05:30 [INF] HTTP PUT /api/logistics/shipments/fd3d196e-a29b-4ea5-9c7c-84ca1bd3ac1e/status responded 403 in 0.2193 ms
+2026-04-13 16:00:49.105 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T10:30:49.1057804Z"
+2026-04-13 16:00:49.114 +05:30 [INF] Handled GetShipmentQuery in 9.1835ms
+2026-04-13 16:00:49.118 +05:30 [INF] Handling RateDeliveryAgentCommand at "2026-04-13T10:30:49.1185231Z"
+2026-04-13 16:00:49.146 +05:30 [ERR] HTTP PUT /api/logistics/shipments/fd3d196e-a29b-4ea5-9c7c-84ca1bd3ac1e/agent-rating responded 500 in 54.8249 ms
+System.InvalidOperationException: Delivery agent can be rated only after shipment is delivered.
+   at LogisticsTracking.Domain.Entities.Shipment.RateDeliveryAgent(Int32 rating, String comment, Guid ratedByUserId, String ratedByRole)
+   at LogisticsTracking.Application.Services.LogisticsService.RateDeliveryAgentAsync(Guid shipmentId, Int32 rating, String comment, Guid ratedByUserId, String ratedByRole, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\Services\LogisticsService.cs:line 221
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at LogisticsTracking.API.Controllers.ShipmentsController.RateDeliveryAgent(Guid shipmentId, RateDeliveryAgentRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.API\Controllers\ShipmentsController.cs:line 141
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-13 16:00:49.215 +05:30 [INF] HTTP PUT /api/logistics/shipments/fd3d196e-a29b-4ea5-9c7c-84ca1bd3ac1e/agent-rating responded 403 in 0.1785 ms
+2026-04-13 16:00:49.229 +05:30 [INF] HTTP PUT /api/logistics/shipments/fd3d196e-a29b-4ea5-9c7c-84ca1bd3ac1e/agent-rating responded 403 in 0.1954 ms
+2026-04-13 16:01:05.664 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:31:05.6644494Z"
+2026-04-13 16:02:06.016 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:32:06.0160349Z"
+2026-04-13 16:03:06.224 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:33:06.2245978Z"
+2026-04-13 16:04:06.370 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:34:06.3705833Z"
+2026-04-13 16:04:43.324 +05:30 [INF] Handling CreateShipmentCommand at "2026-04-13T10:34:43.3243036Z"
+2026-04-13 16:04:43.368 +05:30 [INF] Handled CreateShipmentCommand in 44.1881ms
+2026-04-13 16:04:43.371 +05:30 [INF] HTTP POST /api/logistics/shipments responded 201 in 52.3932 ms
+2026-04-13 16:04:50.465 +05:30 [INF] HTTP POST /api/logistics/shipments responded 403 in 0.3331 ms
+2026-04-13 16:04:50.487 +05:30 [INF] HTTP POST /api/logistics/shipments responded 403 in 0.3018 ms
+2026-04-13 16:04:50.521 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T10:34:50.5210225Z"
+2026-04-13 16:04:50.544 +05:30 [INF] Handled GetShipmentQuery in 23.389ms
+2026-04-13 16:04:50.547 +05:30 [INF] HTTP GET /api/logistics/shipments/d191f54d-34c8-4522-bc38-67fd81b3d4f9 responded 200 in 26.9313 ms
+2026-04-13 16:04:50.593 +05:30 [INF] HTTP GET /api/logistics/shipments/d191f54d-34c8-4522-bc38-67fd81b3d4f9 responded 403 in 0.5797 ms
+2026-04-13 16:04:50.615 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T10:34:50.6158791Z"
+2026-04-13 16:04:50.633 +05:30 [INF] Handled GetDealerShipmentsQuery in 17.9835ms
+2026-04-13 16:04:50.639 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 24.2789 ms
+2026-04-13 16:04:50.690 +05:30 [INF] HTTP GET /api/logistics/shipments responded 403 in 0.2858 ms
+2026-04-13 16:04:50.713 +05:30 [INF] HTTP GET /api/logistics/shipments responded 403 in 0.2858 ms
+2026-04-13 16:04:50.738 +05:30 [INF] Handling GetAgentShipmentsQuery at "2026-04-13T10:34:50.7388766Z"
+2026-04-13 16:04:50.758 +05:30 [INF] Handled GetAgentShipmentsQuery in 20.0482ms
+2026-04-13 16:04:50.760 +05:30 [INF] HTTP GET /api/logistics/shipments/assigned responded 200 in 24.1396 ms
+2026-04-13 16:04:50.810 +05:30 [INF] Handling AssignAgentCommand at "2026-04-13T10:34:50.8106530Z"
+2026-04-13 16:04:50.855 +05:30 [INF] Handled AssignAgentCommand in 45.1117ms
+2026-04-13 16:04:50.858 +05:30 [INF] HTTP PUT /api/logistics/shipments/d191f54d-34c8-4522-bc38-67fd81b3d4f9/assign-agent responded 200 in 51.3578 ms
+2026-04-13 16:04:50.908 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T10:34:50.9088995Z"
+2026-04-13 16:04:50.923 +05:30 [INF] Handled GetShipmentQuery in 14.9283ms
+2026-04-13 16:04:50.925 +05:30 [INF] HTTP PUT /api/logistics/shipments/d191f54d-34c8-4522-bc38-67fd81b3d4f9/status responded 409 in 17.8027 ms
+2026-04-13 16:04:50.947 +05:30 [INF] HTTP PUT /api/logistics/shipments/d191f54d-34c8-4522-bc38-67fd81b3d4f9/status responded 403 in 0.2732 ms
+2026-04-13 16:04:50.983 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T10:34:50.9833583Z"
+2026-04-13 16:04:51.003 +05:30 [INF] Handled GetShipmentQuery in 19.7675ms
+2026-04-13 16:04:51.009 +05:30 [INF] Handling RateDeliveryAgentCommand at "2026-04-13T10:34:51.0090820Z"
+2026-04-13 16:04:51.015 +05:30 [ERR] HTTP PUT /api/logistics/shipments/d191f54d-34c8-4522-bc38-67fd81b3d4f9/agent-rating responded 500 in 33.3695 ms
+System.InvalidOperationException: Delivery agent can be rated only after shipment is delivered.
+   at LogisticsTracking.Domain.Entities.Shipment.RateDeliveryAgent(Int32 rating, String comment, Guid ratedByUserId, String ratedByRole)
+   at LogisticsTracking.Application.Services.LogisticsService.RateDeliveryAgentAsync(Guid shipmentId, Int32 rating, String comment, Guid ratedByUserId, String ratedByRole, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\Services\LogisticsService.cs:line 221
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at LogisticsTracking.API.Controllers.ShipmentsController.RateDeliveryAgent(Guid shipmentId, RateDeliveryAgentRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.API\Controllers\ShipmentsController.cs:line 141
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-13 16:04:51.049 +05:30 [INF] HTTP PUT /api/logistics/shipments/d191f54d-34c8-4522-bc38-67fd81b3d4f9/agent-rating responded 403 in 0.2396 ms
+2026-04-13 16:04:51.067 +05:30 [INF] HTTP PUT /api/logistics/shipments/d191f54d-34c8-4522-bc38-67fd81b3d4f9/agent-rating responded 403 in 0.2204 ms
+2026-04-13 16:05:06.697 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:35:06.6975272Z"
+2026-04-13 16:06:07.539 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:36:07.5398942Z"
+2026-04-13 16:07:07.718 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:37:07.7181598Z"
+2026-04-13 16:08:07.892 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:38:07.8921534Z"
+2026-04-13 16:08:17.933 +05:30 [INF] Handling CreateShipmentCommand at "2026-04-13T10:38:17.9334523Z"
+2026-04-13 16:08:17.972 +05:30 [INF] Handled CreateShipmentCommand in 39.0188ms
+2026-04-13 16:08:17.975 +05:30 [INF] HTTP POST /api/logistics/shipments responded 201 in 49.5688 ms
+2026-04-13 16:08:24.526 +05:30 [INF] HTTP POST /api/logistics/shipments responded 403 in 0.2586 ms
+2026-04-13 16:08:24.545 +05:30 [INF] HTTP POST /api/logistics/shipments responded 403 in 0.2757 ms
+2026-04-13 16:08:24.570 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T10:38:24.5709052Z"
+2026-04-13 16:08:24.591 +05:30 [INF] Handled GetShipmentQuery in 20.9337ms
+2026-04-13 16:08:24.595 +05:30 [INF] HTTP GET /api/logistics/shipments/f924141e-cb2c-4db9-a78c-6633d2ee1464 responded 200 in 25.2023 ms
+2026-04-13 16:08:24.652 +05:30 [INF] HTTP GET /api/logistics/shipments/f924141e-cb2c-4db9-a78c-6633d2ee1464 responded 403 in 0.4035 ms
+2026-04-13 16:08:24.675 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T10:38:24.6753371Z"
+2026-04-13 16:08:24.696 +05:30 [INF] Handled GetDealerShipmentsQuery in 20.6508ms
+2026-04-13 16:08:24.699 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 24.3454 ms
+2026-04-13 16:08:24.770 +05:30 [INF] HTTP GET /api/logistics/shipments responded 403 in 0.3523 ms
+2026-04-13 16:08:24.805 +05:30 [INF] HTTP GET /api/logistics/shipments responded 403 in 0.2869 ms
+2026-04-13 16:08:24.845 +05:30 [INF] Handling GetAgentShipmentsQuery at "2026-04-13T10:38:24.8458257Z"
+2026-04-13 16:08:24.875 +05:30 [INF] Handled GetAgentShipmentsQuery in 29.2318ms
+2026-04-13 16:08:24.889 +05:30 [INF] HTTP GET /api/logistics/shipments/assigned responded 200 in 53.2678 ms
+2026-04-13 16:08:24.984 +05:30 [INF] Handling AssignAgentCommand at "2026-04-13T10:38:24.9844859Z"
+2026-04-13 16:08:25.080 +05:30 [INF] Handled AssignAgentCommand in 96.3762ms
+2026-04-13 16:08:25.104 +05:30 [INF] HTTP PUT /api/logistics/shipments/f924141e-cb2c-4db9-a78c-6633d2ee1464/assign-agent responded 200 in 136.0598 ms
+2026-04-13 16:08:25.229 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T10:38:25.2292319Z"
+2026-04-13 16:08:25.253 +05:30 [INF] Handled GetShipmentQuery in 24.4993ms
+2026-04-13 16:08:25.272 +05:30 [INF] HTTP PUT /api/logistics/shipments/f924141e-cb2c-4db9-a78c-6633d2ee1464/status responded 409 in 44.5660 ms
+2026-04-13 16:08:25.337 +05:30 [INF] HTTP PUT /api/logistics/shipments/f924141e-cb2c-4db9-a78c-6633d2ee1464/status responded 403 in 0.2902 ms
+2026-04-13 16:08:25.470 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T10:38:25.4705401Z"
+2026-04-13 16:08:25.524 +05:30 [INF] Handled GetShipmentQuery in 54.1937ms
+2026-04-13 16:08:25.553 +05:30 [INF] Handling RateDeliveryAgentCommand at "2026-04-13T10:38:25.5533159Z"
+2026-04-13 16:08:25.568 +05:30 [ERR] HTTP PUT /api/logistics/shipments/f924141e-cb2c-4db9-a78c-6633d2ee1464/agent-rating responded 500 in 98.6262 ms
+System.InvalidOperationException: Delivery agent can be rated only after shipment is delivered.
+   at LogisticsTracking.Domain.Entities.Shipment.RateDeliveryAgent(Int32 rating, String comment, Guid ratedByUserId, String ratedByRole)
+   at LogisticsTracking.Application.Services.LogisticsService.RateDeliveryAgentAsync(Guid shipmentId, Int32 rating, String comment, Guid ratedByUserId, String ratedByRole, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\Services\LogisticsService.cs:line 221
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at LogisticsTracking.API.Controllers.ShipmentsController.RateDeliveryAgent(Guid shipmentId, RateDeliveryAgentRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.API\Controllers\ShipmentsController.cs:line 141
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-13 16:08:25.689 +05:30 [INF] HTTP PUT /api/logistics/shipments/f924141e-cb2c-4db9-a78c-6633d2ee1464/agent-rating responded 403 in 0.3138 ms
+2026-04-13 16:08:25.727 +05:30 [INF] HTTP PUT /api/logistics/shipments/f924141e-cb2c-4db9-a78c-6633d2ee1464/agent-rating responded 403 in 0.5392 ms
+2026-04-13 16:09:08.065 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:39:08.0651702Z"
+2026-04-13 16:10:08.405 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:40:08.4059181Z"
+2026-04-13 16:11:08.545 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:41:08.5458888Z"
+2026-04-13 16:12:08.870 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:42:08.8700152Z"
+2026-04-13 16:13:09.074 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:43:09.0745633Z"
+2026-04-13 16:14:09.203 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:44:09.2034440Z"
+2026-04-13 16:15:09.326 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:45:09.3268669Z"
+2026-04-13 16:16:09.498 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:46:09.4984930Z"
+2026-04-13 16:17:09.650 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:47:09.6506134Z"
+2026-04-13 16:18:09.764 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:48:09.7649846Z"
+2026-04-13 16:19:10.110 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:49:10.1100158Z"
+2026-04-13 16:20:10.306 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:50:10.3069609Z"
+2026-04-13 16:21:10.602 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:51:10.6025827Z"
+2026-04-13 16:22:10.975 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:52:10.9751448Z"
+2026-04-13 16:23:11.056 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:53:11.0564625Z"
+2026-04-13 16:24:11.325 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:54:11.3251840Z"
+2026-04-13 16:25:11.393 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:55:11.3936343Z"
+2026-04-13 16:26:11.618 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:56:11.6183909Z"
+2026-04-13 16:27:11.887 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:57:11.8875532Z"
+2026-04-13 16:28:11.974 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:58:11.9744424Z"
+2026-04-13 16:29:12.146 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T10:59:12.1464998Z"
+2026-04-13 16:30:12.243 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T11:00:12.2432875Z"
+2026-04-13 16:31:12.490 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T11:01:12.4907349Z"
+2026-04-13 16:32:12.616 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T11:02:12.6163747Z"
+2026-04-13 16:33:12.699 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T11:03:12.6999587Z"
+2026-04-13 16:34:12.804 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T11:04:12.8045171Z"
+2026-04-13 16:35:12.938 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T11:05:12.9384068Z"
+2026-04-13 16:36:13.001 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T11:06:13.0014120Z"
+2026-04-13 17:09:13.884 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T11:39:13.8846678Z"
+2026-04-13 20:06:11.184 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-13 21:09:11.646 +05:30 [ERR] Execution Worker is in the Failed state now due to an exception, execution will be retried in no more than 00:00:04
+Microsoft.Data.SqlClient.SqlException (0x80131904): A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine.)
+ ---> System.ComponentModel.Win32Exception (10053): An established connection was aborted by the software in your host machine.
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParser.ConsumePreLoginHandshake(SqlConnectionEncryptOption encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean& marsCapable, Boolean& fedAuthRequired, Boolean tlsFirst, String serverCertificateFilename)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 406
+   at Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingSlidingInvisibilityTimeout(String[] queues, CancellationToken cancellationToken) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerJobQueue.cs:line 103
+   at Hangfire.Server.Worker.Execute(BackgroundProcessContext context) in C:\projects\hangfire-525\src\Hangfire.Core\Server\Worker.cs:line 104
+   at Hangfire.Server.BackgroundProcessDispatcherBuilder.ExecuteProcess(Guid executionId, Object state) in C:\projects\hangfire-525\src\Hangfire.Core\Server\BackgroundProcessDispatcherBuilder.cs:line 82
+   at Hangfire.Processing.BackgroundExecution.Run(Action`2 callback, Object state) in C:\projects\hangfire-525\src\Hangfire.Core\Processing\BackgroundExecution.cs:line 118
+ClientConnectionId:e60bc244-95fc-4a0c-abf0-e2619b826752
+Error Number:10053,State:0,Class:20
+2026-04-13 21:09:16.403 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:39:16.4038655Z"
+2026-04-13 21:09:16.423 +05:30 [INF] Execution Worker recovered from the Failed state after 00:00:04.0909264 and is in the Running state now
+2026-04-13 21:09:19.037 +05:30 [WRN] Server desktop-nfnd817:20324:5d63f68e was considered dead by other servers, restarting...
+2026-04-13 21:09:19.039 +05:30 [INF] Server desktop-nfnd817:20324:5d63f68e caught restart signal...
+2026-04-13 21:09:19.046 +05:30 [WRN] Server desktop-nfnd817:20324:5d63f68e stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2026-04-13 21:09:19.071 +05:30 [INF] Server desktop-nfnd817:20324:5d63f68e successfully reported itself as stopped in 17.6735 ms
+2026-04-13 21:09:19.073 +05:30 [INF] Server desktop-nfnd817:20324:5d63f68e has been stopped in total 31.4264 ms
+2026-04-13 21:09:19.123 +05:30 [INF] Server desktop-nfnd817:20324:993d058d successfully announced in 26.5161 ms
+2026-04-13 21:09:19.129 +05:30 [INF] Server desktop-nfnd817:20324:993d058d is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-13 21:09:19.151 +05:30 [INF] Server desktop-nfnd817:20324:993d058d all the dispatchers started
+2026-04-13 21:10:04.257 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:40:04.2575470Z"
+2026-04-13 21:11:04.462 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:41:04.4623606Z"
+2026-04-13 21:12:04.560 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:42:04.5602252Z"
+2026-04-13 21:13:04.749 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:43:04.7498939Z"
+2026-04-13 21:14:04.842 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:44:04.8426772Z"
+2026-04-13 21:15:04.933 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:45:04.9337102Z"
+2026-04-13 21:16:05.030 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:46:05.0305046Z"
+2026-04-13 21:17:05.126 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:47:05.1267236Z"
+2026-04-13 21:18:05.228 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:48:05.2288379Z"
+2026-04-13 21:19:05.364 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:49:05.3641369Z"
+2026-04-13 21:20:05.428 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:50:05.4281096Z"
+2026-04-13 21:21:05.506 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:51:05.5060199Z"
+2026-04-13 21:22:05.740 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:52:05.7404478Z"
+2026-04-13 21:23:05.804 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:53:05.8048684Z"
+2026-04-13 21:24:05.886 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:54:05.8867698Z"
+2026-04-13 21:25:06.541 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:55:06.5413891Z"
+2026-04-13 21:26:06.434 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:56:06.4343174Z"
+2026-04-13 21:27:07.304 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:57:07.3040837Z"
+2026-04-13 21:28:07.430 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:58:07.4302461Z"
+2026-04-13 21:29:09.003 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T15:59:09.0033054Z"
+2026-04-13 21:29:48.458 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T15:59:48.4572796Z"
+2026-04-13 21:29:48.668 +05:30 [INF] Handled GetDealerShipmentsQuery in 207.3382ms
+2026-04-13 21:29:48.855 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 473.1153 ms
+2026-04-13 21:30:09.149 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:00:09.1491088Z"
+2026-04-13 21:30:44.357 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:00:44.3578170Z"
+2026-04-13 21:30:44.509 +05:30 [INF] Handled GetDealerShipmentsQuery in 151.689ms
+2026-04-13 21:30:44.662 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 304.9199 ms
+2026-04-13 21:31:09.666 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:01:09.6663707Z"
+2026-04-13 21:31:23.806 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:01:23.8064555Z"
+2026-04-13 21:31:23.859 +05:30 [INF] Handled GetDealerShipmentsQuery in 53.2347ms
+2026-04-13 21:31:23.989 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 182.4390 ms
+2026-04-13 21:31:46.432 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:01:46.4322801Z"
+2026-04-13 21:31:46.874 +05:30 [INF] Handled GetDealerShipmentsQuery in 442.1731ms
+2026-04-13 21:31:46.950 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 521.1129 ms
+2026-04-13 21:32:09.910 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:02:09.9109249Z"
+2026-04-13 21:32:25.213 +05:30 [INF] Handling CreateShipmentCommand at "2026-04-13T16:02:25.2132789Z"
+2026-04-13 21:32:25.406 +05:30 [INF] Handled CreateShipmentCommand in 193.6634ms
+2026-04-13 21:32:25.424 +05:30 [INF] HTTP POST /api/logistics/shipments responded 201 in 280.9129 ms
+2026-04-13 21:32:28.918 +05:30 [INF] HTTP POST /api/logistics/shipments responded 403 in 4.6446 ms
+2026-04-13 21:32:28.940 +05:30 [INF] HTTP POST /api/logistics/shipments responded 403 in 0.4621 ms
+2026-04-13 21:32:28.966 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T16:02:28.9662253Z"
+2026-04-13 21:32:28.977 +05:30 [INF] Handled GetShipmentQuery in 11.3866ms
+2026-04-13 21:32:28.979 +05:30 [INF] HTTP GET /api/logistics/shipments/0a2a0832-4740-473b-9835-f366226850e8 responded 200 in 16.0997 ms
+2026-04-13 21:32:29.022 +05:30 [INF] HTTP GET /api/logistics/shipments/0a2a0832-4740-473b-9835-f366226850e8 responded 403 in 0.2214 ms
+2026-04-13 21:32:29.041 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:02:29.0416229Z"
+2026-04-13 21:32:29.055 +05:30 [INF] Handled GetDealerShipmentsQuery in 13.7821ms
+2026-04-13 21:32:29.057 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 16.7722 ms
+2026-04-13 21:32:29.104 +05:30 [INF] HTTP GET /api/logistics/shipments responded 403 in 0.4737 ms
+2026-04-13 21:32:29.124 +05:30 [INF] HTTP GET /api/logistics/shipments responded 403 in 0.2306 ms
+2026-04-13 21:32:29.147 +05:30 [INF] Handling GetAgentShipmentsQuery at "2026-04-13T16:02:29.1475442Z"
+2026-04-13 21:32:29.167 +05:30 [INF] Handled GetAgentShipmentsQuery in 19.4883ms
+2026-04-13 21:32:29.168 +05:30 [INF] HTTP GET /api/logistics/shipments/assigned responded 200 in 23.7749 ms
+2026-04-13 21:32:29.216 +05:30 [INF] Handling AssignAgentCommand at "2026-04-13T16:02:29.2160698Z"
+2026-04-13 21:32:29.244 +05:30 [INF] Handled AssignAgentCommand in 28.2763ms
+2026-04-13 21:32:29.246 +05:30 [INF] HTTP PUT /api/logistics/shipments/0a2a0832-4740-473b-9835-f366226850e8/assign-agent responded 200 in 34.3853 ms
+2026-04-13 21:32:29.306 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T16:02:29.3064762Z"
+2026-04-13 21:32:29.310 +05:30 [INF] Handled GetShipmentQuery in 4.481ms
+2026-04-13 21:32:29.314 +05:30 [INF] HTTP PUT /api/logistics/shipments/0a2a0832-4740-473b-9835-f366226850e8/status responded 409 in 12.5393 ms
+2026-04-13 21:32:29.333 +05:30 [INF] HTTP PUT /api/logistics/shipments/0a2a0832-4740-473b-9835-f366226850e8/status responded 403 in 0.8466 ms
+2026-04-13 21:32:29.354 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T16:02:29.3547651Z"
+2026-04-13 21:32:29.359 +05:30 [INF] Handled GetShipmentQuery in 4.2537ms
+2026-04-13 21:32:29.361 +05:30 [INF] Handling RateDeliveryAgentCommand at "2026-04-13T16:02:29.3615752Z"
+2026-04-13 21:32:29.370 +05:30 [ERR] HTTP PUT /api/logistics/shipments/0a2a0832-4740-473b-9835-f366226850e8/agent-rating responded 500 in 17.7459 ms
+System.InvalidOperationException: Delivery agent can be rated only after shipment is delivered.
+   at LogisticsTracking.Domain.Entities.Shipment.RateDeliveryAgent(Int32 rating, String comment, Guid ratedByUserId, String ratedByRole)
+   at LogisticsTracking.Application.Services.LogisticsService.RateDeliveryAgentAsync(Guid shipmentId, Int32 rating, String comment, Guid ratedByUserId, String ratedByRole, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\Services\LogisticsService.cs:line 221
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 20
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at LogisticsTracking.API.Controllers.ShipmentsController.RateDeliveryAgent(Guid shipmentId, RateDeliveryAgentRequest request, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.API\Controllers\ShipmentsController.cs:line 141
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-13 21:32:29.418 +05:30 [INF] HTTP PUT /api/logistics/shipments/0a2a0832-4740-473b-9835-f366226850e8/agent-rating responded 403 in 0.2746 ms
+2026-04-13 21:32:29.436 +05:30 [INF] HTTP PUT /api/logistics/shipments/0a2a0832-4740-473b-9835-f366226850e8/agent-rating responded 403 in 0.2651 ms
+2026-04-13 21:33:10.141 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:03:10.1415603Z"
+2026-04-13 21:33:19.797 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:03:19.7970289Z"
+2026-04-13 21:33:19.813 +05:30 [INF] Handled GetDealerShipmentsQuery in 16.2043ms
+2026-04-13 21:33:19.816 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 20.2352 ms
+2026-04-13 21:33:30.358 +05:30 [INF] Handling GetAllShipmentsQuery at "2026-04-13T16:03:30.3588634Z"
+2026-04-13 21:33:30.427 +05:30 [INF] Handled GetAllShipmentsQuery in 68.8587ms
+2026-04-13 21:33:30.446 +05:30 [INF] HTTP GET /api/logistics/shipments responded 200 in 89.9950 ms
+2026-04-13 21:34:10.472 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:04:10.4722608Z"
+2026-04-13 21:34:10.781 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:04:10.7807119Z"
+2026-04-13 21:34:10.862 +05:30 [INF] Handled GetDealerShipmentsQuery in 81.6474ms
+2026-04-13 21:34:10.901 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 122.8542 ms
+2026-04-13 21:34:31.673 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:04:31.6733593Z"
+2026-04-13 21:34:31.931 +05:30 [INF] Handled GetDealerShipmentsQuery in 257.9407ms
+2026-04-13 21:34:32.144 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 471.4513 ms
+2026-04-13 21:34:44.887 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:04:44.8875516Z"
+2026-04-13 21:34:44.911 +05:30 [INF] Handled GetDealerShipmentsQuery in 23.6737ms
+2026-04-13 21:34:44.915 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 28.4056 ms
+2026-04-13 21:35:10.639 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:05:10.6398552Z"
+2026-04-13 21:36:10.752 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:06:10.7525387Z"
+2026-04-13 21:37:10.866 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:07:10.8662436Z"
+2026-04-13 21:38:11.053 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:08:11.0532790Z"
+2026-04-13 21:39:11.237 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:09:11.2378100Z"
+2026-04-13 21:40:13.538 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:10:13.5384963Z"
+2026-04-13 21:41:13.791 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:11:13.7917523Z"
+2026-04-13 21:42:15.581 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:12:15.5812011Z"
+2026-04-13 21:43:01.015 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:13:01.0153975Z"
+2026-04-13 21:44:01.105 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:14:01.1057046Z"
+2026-04-13 21:45:01.260 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:15:01.2604315Z"
+2026-04-13 21:45:06.936 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 404 in 2.5605 ms
+2026-04-13 21:46:01.370 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:16:01.3709279Z"
+2026-04-13 21:46:21.829 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 404 in 0.2691 ms
+2026-04-13 21:47:01.656 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:17:01.6562388Z"
+2026-04-13 21:47:33.582 +05:30 [INF] LogisticsTracking migrations applied count: 6
+2026-04-13 21:47:33.792 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-13 21:47:34.670 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-13 21:47:35.934 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@LogisticsTrackingMigrationsDB'
+2026-04-13 21:47:35.937 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-13 21:47:35.939 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-13 21:47:36.019 +05:30 [INF] Server desktop-nfnd817:4608:ce9fe3ca successfully announced in 49.5554 ms
+2026-04-13 21:47:36.026 +05:30 [INF] Server desktop-nfnd817:4608:ce9fe3ca is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-13 21:47:36.081 +05:30 [INF] Server desktop-nfnd817:4608:ce9fe3ca all the dispatchers started
+2026-04-13 21:47:51.439 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-13 21:47:51.764 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:17:51.7632324Z"
+2026-04-13 21:47:52.177 +05:30 [INF] Handled AskLogisticsChatbotQuery in 414.1177ms
+2026-04-13 21:47:52.232 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 972.0218 ms
+2026-04-13 21:48:06.618 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:18:06.6176792Z"
+2026-04-13 21:48:08.289 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:18:08.2896807Z"
+2026-04-13 21:48:08.317 +05:30 [INF] Handled AskLogisticsChatbotQuery in 28.1481ms
+2026-04-13 21:48:08.321 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 40.0013 ms
+2026-04-13 21:48:08.358 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:18:08.3584839Z"
+2026-04-13 21:48:08.386 +05:30 [INF] Handled AskLogisticsChatbotQuery in 28.1671ms
+2026-04-13 21:48:08.390 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 49.9930 ms
+2026-04-13 21:48:08.407 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:18:08.4072336Z"
+2026-04-13 21:48:08.421 +05:30 [INF] Handled AskLogisticsChatbotQuery in 14.2785ms
+2026-04-13 21:48:08.425 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 19.5692 ms
+2026-04-13 21:48:08.443 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:18:08.4433610Z"
+2026-04-13 21:48:08.456 +05:30 [INF] Handled AskLogisticsChatbotQuery in 13.0149ms
+2026-04-13 21:48:08.459 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 17.3168 ms
+2026-04-13 21:48:08.477 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:18:08.4777803Z"
+2026-04-13 21:48:08.606 +05:30 [INF] Handled AskLogisticsChatbotQuery in 128.5855ms
+2026-04-13 21:48:08.609 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 133.3829 ms
+2026-04-13 21:48:08.628 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:18:08.6281452Z"
+2026-04-13 21:48:08.646 +05:30 [INF] Handled AskLogisticsChatbotQuery in 18.7252ms
+2026-04-13 21:48:08.650 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 23.7920 ms
+2026-04-13 21:48:40.486 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:18:40.4861170Z"
+2026-04-13 21:48:40.533 +05:30 [INF] Handled AskLogisticsChatbotQuery in 47.0674ms
+2026-04-13 21:48:40.536 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 51.6121 ms
+2026-04-13 21:48:40.550 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:18:40.5502814Z"
+2026-04-13 21:48:40.554 +05:30 [INF] Handled AskLogisticsChatbotQuery in 4.3526ms
+2026-04-13 21:48:40.557 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 7.6921 ms
+2026-04-13 21:48:40.569 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:18:40.5693882Z"
+2026-04-13 21:48:40.575 +05:30 [INF] Handled AskLogisticsChatbotQuery in 5.8184ms
+2026-04-13 21:48:40.577 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 9.1313 ms
+2026-04-13 21:48:40.591 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:18:40.5916888Z"
+2026-04-13 21:48:40.596 +05:30 [INF] Handled AskLogisticsChatbotQuery in 4.8364ms
+2026-04-13 21:48:40.599 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 8.5162 ms
+2026-04-13 21:49:06.551 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:19:06.5512950Z"
+2026-04-13 21:50:01.340 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:20:01.3403609Z"
+2026-04-13 21:50:01.367 +05:30 [INF] Handled GetDealerShipmentsQuery in 26.9175ms
+2026-04-13 21:50:01.516 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 196.8398 ms
+2026-04-13 21:50:06.729 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:20:06.7295584Z"
+2026-04-13 21:51:06.823 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:21:06.8234131Z"
+2026-04-13 21:51:09.364 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:21:09.3640343Z"
+2026-04-13 21:51:09.411 +05:30 [INF] Handled GetDealerShipmentsQuery in 47.2369ms
+2026-04-13 21:51:09.566 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 205.9444 ms
+2026-04-13 21:52:06.950 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:22:06.9507113Z"
+2026-04-13 21:52:35.375 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:22:35.3754878Z"
+2026-04-13 21:52:35.389 +05:30 [INF] Handled GetDealerShipmentsQuery in 14.2459ms
+2026-04-13 21:52:35.392 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 24.3283 ms
+2026-04-13 21:52:35.456 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T16:22:35.4563399Z"
+2026-04-13 21:52:35.820 +05:30 [INF] Handled GetShipmentQuery in 363.9892ms
+2026-04-13 21:52:35.827 +05:30 [INF] Handling GetShipmentOpsStatesQuery at "2026-04-13T16:22:35.8275152Z"
+2026-04-13 21:52:35.887 +05:30 [INF] Handled GetShipmentOpsStatesQuery in 59.7932ms
+2026-04-13 21:52:35.898 +05:30 [INF] HTTP POST /api/logistics/shipments/ops-states/batch responded 200 in 476.6186 ms
+2026-04-13 21:52:36.050 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-13 21:52:39.265 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T16:22:39.2657275Z"
+2026-04-13 21:52:39.272 +05:30 [INF] Handled GetShipmentQuery in 6.828ms
+2026-04-13 21:52:39.277 +05:30 [INF] HTTP GET /api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2 responded 200 in 27.0189 ms
+2026-04-13 21:52:39.328 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T16:22:39.3279938Z"
+2026-04-13 21:52:39.334 +05:30 [INF] Handled GetShipmentQuery in 6.0416ms
+2026-04-13 21:52:39.337 +05:30 [INF] Handling GetShipmentOpsStateQuery at "2026-04-13T16:22:39.3376916Z"
+2026-04-13 21:52:39.406 +05:30 [INF] Handled GetShipmentOpsStateQuery in 69.2613ms
+2026-04-13 21:52:39.410 +05:30 [INF] HTTP GET /api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2/ops-state responded 200 in 109.3524 ms
+2026-04-13 21:52:48.689 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:22:48.6895674Z"
+2026-04-13 21:52:48.693 +05:30 [INF] Handled AskLogisticsChatbotQuery in 4.1917ms
+2026-04-13 21:52:48.696 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 8.1401 ms
+2026-04-13 21:53:07.081 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:23:07.0813096Z"
+2026-04-13 21:54:07.284 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:24:07.2847566Z"
+2026-04-13 21:55:07.403 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:25:07.4031498Z"
+2026-04-13 21:56:07.620 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:26:07.6207535Z"
+2026-04-13 21:57:05.026 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T16:27:05.0267502Z"
+2026-04-13 21:57:05.236 +05:30 [INF] Handled GetShipmentQuery in 210.0032ms
+2026-04-13 21:57:05.337 +05:30 [INF] HTTP GET /api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2 responded 200 in 315.7103 ms
+2026-04-13 21:57:06.821 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:27:06.8212364Z"
+2026-04-13 21:57:07.086 +05:30 [INF] Handling GetShipmentQuery at "2026-04-13T16:27:07.0862541Z"
+2026-04-13 21:57:07.107 +05:30 [INF] Handled GetDealerShipmentsQuery in 285.9544ms
+2026-04-13 21:57:07.262 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 447.3549 ms
+2026-04-13 21:57:07.308 +05:30 [INF] Handled GetShipmentQuery in 222.2012ms
+2026-04-13 21:57:07.733 +05:30 [INF] Handling GetShipmentOpsStateQuery at "2026-04-13T16:27:07.7333204Z"
+2026-04-13 21:57:08.028 +05:30 [INF] Handled GetShipmentOpsStateQuery in 295.5933ms
+2026-04-13 21:57:08.352 +05:30 [INF] HTTP GET /api/logistics/shipments/184bae1f-4cf2-4a5e-bd42-91ebb6cb0aa2/ops-state responded 200 in 1271.8264 ms
+2026-04-13 21:57:08.383 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:27:08.3836608Z"
+2026-04-13 21:58:08.654 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:28:08.6546829Z"
+2026-04-13 21:59:01.949 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:29:01.9494231Z"
+2026-04-13 21:59:01.957 +05:30 [INF] Handled AskLogisticsChatbotQuery in 8.4243ms
+2026-04-13 21:59:01.960 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 13.8569 ms
+2026-04-13 21:59:07.767 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:29:07.7675535Z"
+2026-04-13 21:59:07.778 +05:30 [INF] Handled AskLogisticsChatbotQuery in 11.4217ms
+2026-04-13 21:59:07.787 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 20.9162 ms
+2026-04-13 21:59:08.756 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:29:08.7565288Z"
+2026-04-13 21:59:12.092 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:29:12.0921409Z"
+2026-04-13 21:59:12.096 +05:30 [INF] Handled AskLogisticsChatbotQuery in 3.8882ms
+2026-04-13 21:59:12.099 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 8.2307 ms
+2026-04-13 21:59:14.112 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:29:14.1126757Z"
+2026-04-13 21:59:14.116 +05:30 [INF] Handled AskLogisticsChatbotQuery in 4.0809ms
+2026-04-13 21:59:14.120 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 8.4496 ms
+2026-04-13 21:59:18.802 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:29:18.8024444Z"
+2026-04-13 21:59:18.810 +05:30 [INF] Handled AskLogisticsChatbotQuery in 8.4494ms
+2026-04-13 21:59:18.884 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 83.2723 ms
+2026-04-13 22:00:08.843 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:30:08.8433164Z"
+2026-04-13 22:01:08.950 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:31:08.9509592Z"
+2026-04-13 22:02:09.292 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:32:09.2924650Z"
+2026-04-13 22:02:31.235 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:32:31.2356572Z"
+2026-04-13 22:02:31.336 +05:30 [INF] Handled GetDealerShipmentsQuery in 100.3532ms
+2026-04-13 22:02:31.367 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 139.7555 ms
+2026-04-13 22:03:09.815 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:33:09.8158481Z"
+2026-04-13 22:03:13.619 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:33:13.6191725Z"
+2026-04-13 22:03:13.772 +05:30 [INF] Handled GetDealerShipmentsQuery in 153.562ms
+2026-04-13 22:03:13.810 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 192.7742 ms
+2026-04-13 22:04:10.014 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:34:10.0145637Z"
+2026-04-13 22:04:12.883 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:34:12.8837531Z"
+2026-04-13 22:04:12.926 +05:30 [INF] Handled GetDealerShipmentsQuery in 42.8655ms
+2026-04-13 22:04:12.967 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 84.5518 ms
+2026-04-13 22:04:14.113 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:34:14.1132055Z"
+2026-04-13 22:04:14.277 +05:30 [ERR] HTTP GET /api/logistics/shipments/my responded 500 in 165.0957 ms
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at LogisticsTracking.Infrastructure.Repositories.ShipmentRepository.GetDealerShipmentsAsync(Guid dealerId, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Infrastructure\Repositories\ShipmentRepository.cs:line 26
+   at LogisticsTracking.Application.Services.LogisticsService.GetDealerShipmentsAsync(Guid dealerId, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\Services\LogisticsService.cs:line 59
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at LogisticsTracking.API.Controllers.ShipmentsController.GetMine(CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.API\Controllers\ShipmentsController.cs:line 71
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-04-13 22:04:15.137 +05:30 [ERR] Unhandled LogisticsTracking API exception for GET /api/logistics/shipments/my
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at LogisticsTracking.Infrastructure.Repositories.ShipmentRepository.GetDealerShipmentsAsync(Guid dealerId, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Infrastructure\Repositories\ShipmentRepository.cs:line 26
+   at LogisticsTracking.Application.Services.LogisticsService.GetDealerShipmentsAsync(Guid dealerId, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Application\Services\LogisticsService.cs:line 59
+   at BuildingBlocks.Application.Behaviors.TransactionBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\TransactionBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\ValidationBehavior.cs:line 27
+   at BuildingBlocks.Application.Behaviors.IdempotencyBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\IdempotencyBehavior.cs:line 17
+   at BuildingBlocks.Application.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\src\BuildingBlocks\Application\Behaviors\LoggingBehavior.cs:line 20
+   at LogisticsTracking.API.Controllers.ShipmentsController.GetMine(CancellationToken cancellationToken) in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.API\Controllers\ShipmentsController.cs:line 71
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Program.<>c__DisplayClass0_0.<<<Main>$>b__4>d.MoveNext() in C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.API\Program.cs:line 120
+2026-04-13 22:04:15.311 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:34:15.3118980Z"
+2026-04-13 22:04:15.381 +05:30 [INF] Handled GetDealerShipmentsQuery in 69.233ms
+2026-04-13 22:04:15.396 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 86.9631 ms
+2026-04-13 22:04:24.716 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:34:24.7167479Z"
+2026-04-13 22:04:24.737 +05:30 [INF] Handled AskLogisticsChatbotQuery in 20.9635ms
+2026-04-13 22:04:24.741 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 28.0535 ms
+2026-04-13 22:04:58.359 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:34:58.3595632Z"
+2026-04-13 22:04:58.393 +05:30 [INF] Handled GetDealerShipmentsQuery in 34.194ms
+2026-04-13 22:04:58.440 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 82.2918 ms
+2026-04-13 22:05:10.219 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:35:10.2196051Z"
+2026-04-13 22:06:10.601 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:36:10.6017478Z"
+2026-04-13 22:07:10.932 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:37:10.9326056Z"
+2026-04-13 22:08:11.099 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:38:11.0994133Z"
+2026-04-13 22:09:11.337 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:39:11.3376572Z"
+2026-04-13 22:10:11.532 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:40:11.5325679Z"
+2026-04-13 22:11:00.714 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T16:41:00.7141663Z"
+2026-04-13 22:11:00.857 +05:30 [INF] Handled GetDealerShipmentsQuery in 143.0096ms
+2026-04-13 22:11:00.875 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 165.6360 ms
+2026-04-13 22:11:11.673 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:41:11.6730441Z"
+2026-04-13 22:12:12.073 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:42:12.0734011Z"
+2026-04-13 22:13:15.175 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:43:15.1751363Z"
+2026-04-13 22:14:13.589 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:44:13.5890843Z"
+2026-04-13 22:15:13.726 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:45:13.7263208Z"
+2026-04-13 22:15:33.256 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:45:33.2567706Z"
+2026-04-13 22:15:33.306 +05:30 [INF] Handled AskLogisticsChatbotQuery in 50.0721ms
+2026-04-13 22:15:33.320 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 67.1832 ms
+2026-04-13 22:15:33.354 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:45:33.3549141Z"
+2026-04-13 22:15:33.387 +05:30 [INF] Handled AskLogisticsChatbotQuery in 32.5481ms
+2026-04-13 22:15:33.390 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 37.6322 ms
+2026-04-13 22:16:46.420 +05:30 [INF] LogisticsTracking migrations applied count: 6
+2026-04-13 22:16:46.734 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-13 22:16:47.836 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-13 22:16:49.106 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@LogisticsTrackingMigrationsDB'
+2026-04-13 22:16:49.110 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-13 22:16:49.113 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-13 22:16:49.204 +05:30 [INF] Server desktop-nfnd817:2368:65e78307 successfully announced in 52.5901 ms
+2026-04-13 22:16:49.214 +05:30 [INF] Server desktop-nfnd817:2368:65e78307 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-13 22:16:49.247 +05:30 [INF] Server desktop-nfnd817:2368:65e78307 all the dispatchers started
+2026-04-13 22:16:49.969 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:46:49.9677740Z"
+2026-04-13 22:17:04.848 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:47:04.8478735Z"
+2026-04-13 22:17:18.609 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-13 22:17:18.921 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:47:18.9214027Z"
+2026-04-13 22:17:19.276 +05:30 [INF] Handled AskLogisticsChatbotQuery in 354.8366ms
+2026-04-13 22:17:19.337 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 931.8436 ms
+2026-04-13 22:17:19.383 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:47:19.3839166Z"
+2026-04-13 22:17:19.412 +05:30 [INF] Handled AskLogisticsChatbotQuery in 29.0032ms
+2026-04-13 22:17:19.419 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 47.0530 ms
+2026-04-13 22:17:44.152 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:47:44.1526180Z"
+2026-04-13 22:17:44.224 +05:30 [INF] Handled AskLogisticsChatbotQuery in 71.7746ms
+2026-04-13 22:17:44.230 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 106.9640 ms
+2026-04-13 22:17:44.248 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:47:44.2486078Z"
+2026-04-13 22:17:44.265 +05:30 [INF] Handled AskLogisticsChatbotQuery in 16.7222ms
+2026-04-13 22:17:44.270 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 24.6013 ms
+2026-04-13 22:18:05.172 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:48:05.1722577Z"
+2026-04-13 22:19:05.309 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:49:05.3091832Z"
+2026-04-13 22:20:05.623 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:50:05.6238669Z"
+2026-04-13 22:21:05.933 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:51:05.9339509Z"
+2026-04-13 22:21:49.257 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-13 22:22:06.097 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:52:06.0978408Z"
+2026-04-13 22:23:06.234 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:53:06.2337146Z"
+2026-04-13 22:24:06.557 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:54:06.5576540Z"
+2026-04-13 22:25:06.714 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:55:06.7146644Z"
+2026-04-13 22:26:41.736 +05:30 [INF] LogisticsTracking migrations applied count: 6
+2026-04-13 22:26:41.976 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-13 22:26:43.084 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-13 22:26:44.184 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@LogisticsTrackingMigrationsDB'
+2026-04-13 22:26:44.187 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-13 22:26:44.190 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-13 22:26:44.279 +05:30 [INF] Server desktop-nfnd817:26436:14040cb0 successfully announced in 51.4276 ms
+2026-04-13 22:26:44.287 +05:30 [INF] Server desktop-nfnd817:26436:14040cb0 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-13 22:26:44.370 +05:30 [INF] Server desktop-nfnd817:26436:14040cb0 all the dispatchers started
+2026-04-13 22:26:45.456 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:56:45.4542576Z"
+2026-04-13 22:27:00.701 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:57:00.7006852Z"
+2026-04-13 22:28:00.774 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:58:00.7747638Z"
+2026-04-13 22:28:05.537 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-13 22:28:05.856 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:58:05.8565505Z"
+2026-04-13 22:28:06.559 +05:30 [INF] Handled AskLogisticsChatbotQuery in 702.9116ms
+2026-04-13 22:28:06.642 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 1283.0472 ms
+2026-04-13 22:28:06.733 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:58:06.7329750Z"
+2026-04-13 22:28:06.767 +05:30 [INF] Handled AskLogisticsChatbotQuery in 34.7741ms
+2026-04-13 22:28:06.783 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 61.4698 ms
+2026-04-13 22:28:06.866 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T16:58:06.8660503Z"
+2026-04-13 22:28:06.939 +05:30 [INF] Handled AskLogisticsChatbotQuery in 73.233ms
+2026-04-13 22:28:06.952 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 118.5010 ms
+2026-04-13 22:29:04.944 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T16:59:04.9442668Z"
+2026-04-13 22:30:05.038 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:00:05.0388672Z"
+2026-04-13 22:31:05.536 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:01:05.5362482Z"
+2026-04-13 22:32:15.275 +05:30 [INF] LogisticsTracking migrations applied count: 6
+2026-04-13 22:32:15.494 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-13 22:32:16.774 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-13 22:32:17.521 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@LogisticsTrackingMigrationsDB'
+2026-04-13 22:32:17.525 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-13 22:32:17.530 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-13 22:32:17.625 +05:30 [INF] Server desktop-nfnd817:28964:eff7045c successfully announced in 56.1131 ms
+2026-04-13 22:32:17.637 +05:30 [INF] Server desktop-nfnd817:28964:eff7045c is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-13 22:32:17.655 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-13 22:32:17.655 +05:30 [INF] Server desktop-nfnd817:28964:eff7045c all the dispatchers started
+2026-04-13 22:32:18.368 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:02:18.3672213Z"
+2026-04-13 22:33:03.293 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:03:03.2928901Z"
+2026-04-13 22:33:17.587 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-13 22:33:18.023 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:03:18.0232657Z"
+2026-04-13 22:33:18.725 +05:30 [INF] Handled AskLogisticsChatbotQuery in 702.3938ms
+2026-04-13 22:33:18.838 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 1521.6428 ms
+2026-04-13 22:33:18.986 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:03:18.9863694Z"
+2026-04-13 22:33:19.029 +05:30 [INF] Handled AskLogisticsChatbotQuery in 43.5118ms
+2026-04-13 22:33:19.037 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 64.0739 ms
+2026-04-13 22:33:19.086 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:03:19.0862720Z"
+2026-04-13 22:33:19.132 +05:30 [INF] Handled AskLogisticsChatbotQuery in 46.2836ms
+2026-04-13 22:33:19.137 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 72.1154 ms
+2026-04-13 22:34:03.469 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:04:03.4695324Z"
+2026-04-13 22:35:04.033 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:05:04.0331033Z"
+2026-04-13 22:35:04.088 +05:30 [INF] Handled AskLogisticsChatbotQuery in 55.4863ms
+2026-04-13 22:35:04.141 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 110.6177 ms
+2026-04-13 22:35:04.160 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:05:04.1605896Z"
+2026-04-13 22:35:29.745 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:05:29.7456077Z"
+2026-04-13 22:35:29.771 +05:30 [INF] Handled AskLogisticsChatbotQuery in 25.7485ms
+2026-04-13 22:35:29.774 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 32.0213 ms
+2026-04-13 22:36:04.230 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:06:04.2299698Z"
+2026-04-13 22:36:20.920 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:06:20.9204793Z"
+2026-04-13 22:36:20.950 +05:30 [INF] Handled AskLogisticsChatbotQuery in 30.1603ms
+2026-04-13 22:36:20.953 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 33.8352 ms
+2026-04-13 22:37:04.719 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:07:04.7195606Z"
+2026-04-13 22:37:17.678 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-13 22:38:05.096 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:08:05.0965695Z"
+2026-04-13 22:38:48.161 +05:30 [INF] LogisticsTracking migrations applied count: 6
+2026-04-13 22:38:48.375 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-13 22:38:49.246 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-13 22:38:50.139 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@LogisticsTrackingMigrationsDB'
+2026-04-13 22:38:50.141 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-13 22:38:50.147 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-13 22:38:50.221 +05:30 [INF] Server desktop-nfnd817:27112:c2ee96fa successfully announced in 41.6194 ms
+2026-04-13 22:38:50.230 +05:30 [INF] Server desktop-nfnd817:27112:c2ee96fa is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-13 22:38:50.252 +05:30 [INF] Server desktop-nfnd817:27112:c2ee96fa all the dispatchers started
+2026-04-13 22:39:05.946 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:09:05.9451098Z"
+2026-04-13 22:40:06.212 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:10:06.2127281Z"
+2026-04-13 22:41:06.371 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:11:06.3715125Z"
+2026-04-13 22:42:06.657 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:12:06.6571671Z"
+2026-04-13 22:43:06.806 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:13:06.8069354Z"
+2026-04-13 22:43:50.263 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-13 22:44:06.932 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:14:06.9320254Z"
+2026-04-13 22:45:07.056 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:15:07.0563937Z"
+2026-04-13 22:46:07.162 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:16:07.1627778Z"
+2026-04-13 22:47:07.436 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:17:07.4369061Z"
+2026-04-13 22:48:07.685 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:18:07.6856795Z"
+2026-04-13 22:48:56.344 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-13 22:48:57.405 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:18:57.4048713Z"
+2026-04-13 22:48:58.147 +05:30 [INF] Handled AskLogisticsChatbotQuery in 742.5542ms
+2026-04-13 22:48:58.238 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 2262.0423 ms
+2026-04-13 22:48:58.319 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:18:58.3192981Z"
+2026-04-13 22:48:58.348 +05:30 [INF] Handled AskLogisticsChatbotQuery in 29.6391ms
+2026-04-13 22:48:58.356 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 63.5088 ms
+2026-04-13 22:48:58.447 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:18:58.4470824Z"
+2026-04-13 22:48:58.489 +05:30 [INF] Handled AskLogisticsChatbotQuery in 42.6324ms
+2026-04-13 22:48:58.493 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 105.9165 ms
+2026-04-13 22:49:07.916 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:19:07.9166801Z"
+2026-04-13 22:50:08.377 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:20:08.3778787Z"
+2026-04-13 22:51:08.627 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:21:08.6275093Z"
+2026-04-13 22:51:45.883 +05:30 [INF] LogisticsTracking migrations applied count: 6
+2026-04-13 22:51:46.037 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-13 22:51:46.683 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-13 22:51:47.783 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@LogisticsTrackingMigrationsDB'
+2026-04-13 22:51:47.966 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-13 22:51:48.025 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-13 22:51:48.159 +05:30 [INF] Server desktop-nfnd817:9760:792cda36 successfully announced in 61.0001 ms
+2026-04-13 22:51:48.250 +05:30 [INF] Server desktop-nfnd817:9760:792cda36 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-13 22:51:48.367 +05:30 [INF] Server desktop-nfnd817:9760:792cda36 all the dispatchers started
+2026-04-13 22:52:04.041 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:22:04.0405086Z"
+2026-04-13 22:52:57.676 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-13 22:52:58.090 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:22:58.0891126Z"
+2026-04-13 22:52:58.676 +05:30 [INF] Handled AskLogisticsChatbotQuery in 587.017ms
+2026-04-13 22:52:58.724 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 1343.2415 ms
+2026-04-13 22:52:58.767 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:22:58.7670772Z"
+2026-04-13 22:52:58.798 +05:30 [INF] Handled AskLogisticsChatbotQuery in 31.4101ms
+2026-04-13 22:52:58.820 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 62.0634 ms
+2026-04-13 22:52:58.884 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:22:58.8847466Z"
+2026-04-13 22:52:58.946 +05:30 [INF] Handled AskLogisticsChatbotQuery in 61.3317ms
+2026-04-13 22:52:58.948 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 96.8740 ms
+2026-04-13 22:53:04.012 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:23:04.0121347Z"
+2026-04-13 22:54:04.128 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:24:04.1284154Z"
+2026-04-13 22:55:04.220 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:25:04.2202657Z"
+2026-04-13 22:56:04.603 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:26:04.6038726Z"
+2026-04-13 22:56:48.329 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-13 22:57:04.745 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:27:04.7456696Z"
+2026-04-13 22:58:04.855 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:28:04.8556009Z"
+2026-04-13 22:59:04.979 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:29:04.9795593Z"
+2026-04-13 23:00:05.117 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:30:05.1178223Z"
+2026-04-13 23:00:34.093 +05:30 [INF] LogisticsTracking migrations applied count: 6
+2026-04-13 23:00:34.305 +05:30 [INF] Start installing Hangfire SQL objects...
+2026-04-13 23:00:35.235 +05:30 [INF] Hangfire SQL objects installed.
+2026-04-13 23:00:35.731 +05:30 [INF] Starting Hangfire Server using job storage: 'SQL Server: localhost@LogisticsTrackingMigrationsDB'
+2026-04-13 23:00:35.733 +05:30 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2026-04-13 23:00:35.735 +05:30 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2026-04-13 23:00:35.781 +05:30 [INF] Server desktop-nfnd817:20420:0afa0b28 successfully announced in 27.7399 ms
+2026-04-13 23:00:35.787 +05:30 [INF] Server desktop-nfnd817:20420:0afa0b28 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, SqlServerHeartbeatProcess, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2026-04-13 23:00:35.820 +05:30 [INF] Server desktop-nfnd817:20420:0afa0b28 all the dispatchers started
+2026-04-13 23:01:00.775 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-04-13 23:01:01.019 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T17:31:01.0189028Z"
+2026-04-13 23:01:01.334 +05:30 [INF] Handled AskLogisticsChatbotQuery in 315.0412ms
+2026-04-13 23:01:01.370 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 750.3271 ms
+2026-04-13 23:01:06.128 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:31:06.1278435Z"
+2026-04-13 23:02:06.141 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:32:06.1414002Z"
+2026-04-13 23:03:06.344 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:33:06.3443133Z"
+2026-04-13 23:04:06.454 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:34:06.4547929Z"
+2026-04-13 23:05:06.586 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:35:06.5861415Z"
+2026-04-13 23:05:35.818 +05:30 [INF] 1 servers were removed due to timeout
+2026-04-13 23:06:06.685 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:36:06.6852839Z"
+2026-04-13 23:07:06.837 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:37:06.8378464Z"
+2026-04-13 23:08:06.968 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:38:06.9682923Z"
+2026-04-13 23:09:07.338 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:39:07.3380942Z"
+2026-04-13 23:10:07.488 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:40:07.4886943Z"
+2026-04-13 23:11:07.507 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:41:07.5077283Z"
+2026-04-13 23:12:07.768 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:42:07.7689492Z"
+2026-04-13 23:13:07.998 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:43:07.9979640Z"
+2026-04-13 23:14:08.107 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:44:08.1072291Z"
+2026-04-13 23:15:08.442 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:45:08.4419008Z"
+2026-04-13 23:16:08.742 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:46:08.7429008Z"
+2026-04-13 23:17:08.916 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:47:08.9166050Z"
+2026-04-13 23:18:09.222 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:48:09.2222690Z"
+2026-04-13 23:19:09.516 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:49:09.5167356Z"
+2026-04-13 23:20:09.648 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:50:09.6483355Z"
+2026-04-13 23:21:09.828 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:51:09.8288149Z"
+2026-04-13 23:22:10.014 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:52:10.0139778Z"
+2026-04-13 23:23:10.035 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:53:10.0353511Z"
+2026-04-13 23:24:10.208 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:54:10.2079872Z"
+2026-04-13 23:25:10.199 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:55:10.1996343Z"
+2026-04-13 23:26:10.337 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:56:10.3373779Z"
+2026-04-13 23:27:10.840 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:57:10.8401941Z"
+2026-04-13 23:28:10.783 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:58:10.7831585Z"
+2026-04-13 23:29:10.859 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T17:59:10.8597691Z"
+2026-04-13 23:30:12.008 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:00:12.0084638Z"
+2026-04-13 23:31:11.453 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:01:11.4535751Z"
+2026-04-13 23:32:11.648 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:02:11.6480720Z"
+2026-04-13 23:33:12.057 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:03:12.0574249Z"
+2026-04-13 23:34:12.041 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:04:12.0416467Z"
+2026-04-13 23:35:13.213 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:05:13.2137620Z"
+2026-04-13 23:36:13.133 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:06:13.1334291Z"
+2026-04-13 23:37:13.306 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:07:13.3063896Z"
+2026-04-13 23:38:13.411 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:08:13.4111108Z"
+2026-04-13 23:39:13.502 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:09:13.5024651Z"
+2026-04-13 23:40:13.583 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:10:13.5833591Z"
+2026-04-13 23:41:13.675 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:11:13.6757799Z"
+2026-04-13 23:42:13.775 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:12:13.7750270Z"
+2026-04-13 23:43:13.863 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:13:13.8638680Z"
+2026-04-13 23:44:13.922 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:14:13.9226659Z"
+2026-04-13 23:45:13.989 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:15:13.9899046Z"
+2026-04-13 23:46:14.082 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:16:14.0821906Z"
+2026-04-13 23:47:14.227 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:17:14.2271333Z"
+2026-04-13 23:47:42.082 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T18:17:42.0821439Z"
+2026-04-13 23:47:42.128 +05:30 [INF] Handled GetDealerShipmentsQuery in 46.6232ms
+2026-04-13 23:47:42.310 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 280.0249 ms
+2026-04-13 23:47:48.667 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T18:17:48.6670003Z"
+2026-04-13 23:47:48.751 +05:30 [INF] Handled AskLogisticsChatbotQuery in 84.7083ms
+2026-04-13 23:47:48.755 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 104.7890 ms
+2026-04-13 23:48:14.382 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:18:14.3827372Z"
+2026-04-13 23:49:14.532 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:19:14.5319569Z"
+2026-04-13 23:49:19.564 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T18:19:19.5640148Z"
+2026-04-13 23:49:19.599 +05:30 [INF] Handled AskLogisticsChatbotQuery in 35.3364ms
+2026-04-13 23:49:19.602 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 48.7785 ms
+2026-04-13 23:50:14.881 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:20:14.8818470Z"
+2026-04-13 23:51:14.997 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:21:14.9976107Z"
+2026-04-13 23:52:00.285 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:22:00.2851785Z"
+2026-04-13 23:53:00.420 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:23:00.4202540Z"
+2026-04-13 23:54:00.601 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:24:00.6009836Z"
+2026-04-13 23:55:00.813 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:25:00.8135639Z"
+2026-04-13 23:56:01.151 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:26:01.1509746Z"
+2026-04-13 23:57:01.437 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:27:01.4370128Z"
+2026-04-13 23:57:39.627 +05:30 [INF] Handling GetDealerShipmentsQuery at "2026-04-13T18:27:39.6277330Z"
+2026-04-13 23:57:39.875 +05:30 [INF] Handled GetDealerShipmentsQuery in 247.6842ms
+2026-04-13 23:57:39.952 +05:30 [INF] HTTP GET /api/logistics/shipments/my responded 200 in 342.0064 ms
+2026-04-13 23:57:44.140 +05:30 [INF] Handling AskLogisticsChatbotQuery at "2026-04-13T18:27:44.1408140Z"
+2026-04-13 23:57:44.172 +05:30 [INF] Handled AskLogisticsChatbotQuery in 31.5969ms
+2026-04-13 23:57:44.175 +05:30 [INF] HTTP POST /api/logistics/shipments/chatbot/ask responded 200 in 37.8009 ms
+2026-04-13 23:58:01.560 +05:30 [INF] Hangfire heartbeat job executed at "2026-04-13T18:28:01.5602363Z"

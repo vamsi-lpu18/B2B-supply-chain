@@ -1,0 +1,17 @@
+<testsuites>
+  <testsuite name="IdentityAuth.Domain.Tests.dll" tests="4" skipped="0" failures="0" errors="0" time="0.1080287" timestamp="2026-04-15T09:24:19" hostname="DESKTOP-NFND817" id="0" package="IdentityAuth.Domain.Tests.dll">
+    <properties />
+    <testcase classname="IdentityAuth.Domain.Tests.UserTests" name="UserTests.RejectDealer_SetsRejectedStatusAndTrimmedReason" time="0.0564807" />
+    <testcase classname="IdentityAuth.Domain.Tests.UserTests" name="UserTests.CreateDealer_SetsDealerRolePendingStatusAndProfile" time="0.0400291" />
+    <testcase classname="IdentityAuth.Domain.Tests.UserTests" name="UserTests.UpdateCreditLimit_StoresNewValue" time="0.0110618" />
+    <testcase classname="IdentityAuth.Domain.Tests.UserTests" name="UserTests.ApproveDealer_ActivatesUserAndClearsRejectionReason" time="0.0004571" />
+    <system-out>
+Test Framework Informational Messages:
+[xUnit.net 00:00:00.02] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.6)
+[xUnit.net 00:00:00.54]   Discovering: IdentityAuth.Domain.Tests
+[xUnit.net 00:00:01.21]   Discovered:  IdentityAuth.Domain.Tests
+[xUnit.net 00:00:01.46]   Starting:    IdentityAuth.Domain.Tests
+[xUnit.net 00:00:01.92]   Finished:    IdentityAuth.Domain.Tests
+</system-out>
+  </testsuite>
+</testsuites>

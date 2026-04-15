@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supply Chain Platform — Low Level Design (LLD)</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --brand: #1e3a5f;
+      --brand-light: #e8f0fa;
+      --accent: #d97706;
+      --text: #1a1a2e;
+      --text-secondary: #475569;
+      --bg: #ffffff;
+      --border: #e2e8f0;
+      --surface: #f8fafc;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 14.5px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 36px 44px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 92vh;
+      text-align: center;
+      page-break-after: always;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      padding: 6px 20px;
+      border-radius: 40px;
+      background: var(--brand);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .cover h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      color: var(--brand);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .cover-sub {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 48px;
+    }
+
+    .cover-meta {
+      font-size: .78rem;
+      color: var(--text-secondary);
+      line-height: 2;
+    }
+
+    .cover-meta strong {
+      color: var(--text);
+    }
+
+    .toc {
+      page-break-after: always;
+    }
+
+    .toc h2 {
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+      color: var(--brand);
+      border: none;
+      padding: 0;
+    }
+
+    .toc ol {
+      padding-left: 20px;
+    }
+
+    .toc li {
+      padding: 4px 0;
+      font-size: .84rem;
+      color: var(--text-secondary);
+    }
+
+    .toc li a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--brand);
+      border-bottom: 3px solid var(--brand);
+      padding-bottom: 7px;
+      margin: 42px 0 16px;
+      letter-spacing: -.02em;
+    }
+
+    h3 {
+      font-size: .98rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 24px 0 8px;
+    }
+
+    h4 {
+      font-size: .84rem;
+      font-weight: 700;
+      margin: 14px 0 5px;
+      color: var(--text-secondary);
+    }
+
+    p,
+    li {
+      font-size: .84rem;
+      margin-bottom: 6px;
+    }
+
+    ul,
+    ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px;
+      font-size: .76rem;
+      page-break-inside: avoid;
+    }
+
+    thead th {
+      background: var(--brand);
+      color: #fff;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 700;
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    tbody td {
+      padding: 7px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--surface);
+    }
+
+    .callout {
+      background: var(--brand-light);
+      border-left: 4px solid var(--brand);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 14px 0;
+      font-size: .8rem;
+      color: var(--text);
+    }
+
+    .callout strong {
+      color: var(--brand);
+    }
+
+    .diagram-wrapper {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 14px 0 24px;
+      page-break-inside: avoid;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      text-align: center;
+      font-size: .68rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .82em;
+      background: var(--surface);
+      padding: 2px 5px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    pre.code-block {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .76rem;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin: 12px 0 20px;
+      page-break-inside: avoid;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: .64rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .badge-blue {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .badge-green {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .badge-amber {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge-red {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .badge-purple {
+      background: #f3e8ff;
+      color: #6b21a8;
+    }
+
+    .badge-slate {
+      background: #f1f5f9;
+      color: #334155;
+    }
+
+    .layer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0 20px;
+    }
+
+    .layer-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      page-break-inside: avoid;
+    }
+
+    .layer-card-label {
+      font-size: .62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+
+    .layer-card-value {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .layer-card-desc {
+      font-size: .72rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    @media print {
+      body {
+        padding: 18px 28px;
+        font-size: 12.5px;
+      }
+
+      .cover {
+        min-height: 88vh;
+      }
+
+      h2 {
+        page-break-before: auto;
+      }
+
+      .diagram-wrapper,
+      table {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════ COVER ════════════════════════════════ -->
+  <div class="cover">
+    <div class="cover-badge">Low Level Design Document</div>
+    <h1>Supply Chain<br>Management Platform</h1>
+    <p class="cover-sub">Detailed Service Design — API Contracts, Data Models, State Machines &amp; Workflows</p>
+    <div class="cover-meta">
+      <strong>Version:</strong> 2.0 &nbsp;|&nbsp; <strong>Date:</strong> April 2026<br>
+      <strong>Services:</strong> 6 Microservices + Gateway + Angular SPA<br>
+      <strong>Patterns:</strong> Clean Architecture · Outbox · CQRS-Lite · MediatR Pipeline<br>
+      <strong>Classification:</strong> Confidential — Internal Use Only
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════ TOC ════════════════════════════════ -->
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#s1">Global Technical Conventions</a></li>
+      <li><a href="#s2">Service Layer Architecture</a></li>
+      <li><a href="#s3">Gateway Service — LLD</a></li>
+      <li><a href="#s4">IdentityAuth Service — LLD</a></li>
+      <li><a href="#s5">CatalogInventory Service — LLD</a></li>
+      <li><a href="#s6">Order Service — LLD</a></li>
+      <li><a href="#s7">LogisticsTracking Service — LLD</a></li>
+      <li><a href="#s8">PaymentInvoice Service — LLD</a></li>
+      <li><a href="#s9">Notification Service — LLD</a></li>
+      <li><a href="#s10">Frontend (Angular SPA) — LLD</a></li>
+      <li><a href="#s11">Order Lifecycle — Sequence Diagram</a></li>
+      <li><a href="#s12">Order Status — State Machine</a></li>
+      <li><a href="#s13">Shipment Status — State Machine</a></li>
+      <li><a href="#s14">Entity-Relationship Diagrams</a></li>
+      <li><a href="#s15">Outbox &amp; Async Processing Architecture</a></li>
+      <li><a href="#s16">Cross-Cutting Behaviors (MediatR Pipeline)</a></li>
+      <li><a href="#s17">Error Handling Strategy</a></li>
+      <li><a href="#s18">Testing Strategy</a></li>
+      <li><a href="#s19">AI Exception Playbooks — API &amp; Contract</a></li>
+    </ol>
+  </div>
+
+  <!-- ════════════════════════════════ SECTION 1 ════════════════════════════════ -->
+  <h2 id="s1">1. Global Technical Conventions</h2>
+  <h3>1.1 Clean Architecture Per Service</h3>
+  <p>Every microservice follows a 4-layer architecture:</p>
+  <div class="layer-grid">
+    <div class="layer-card">
+      <div class="layer-card-label">API Layer</div>
+      <div class="layer-card-value">Controllers &amp; Auth Policies</div>
+      <div class="layer-card-desc">HTTP endpoints, request routing, authorization attributes</div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-card-label">Application Layer</div>
+      <div class="layer-card-value">Use Cases &amp; DTOs</div>
+      <div class="layer-card-desc">Service interfaces, validators, MediatR handlers, data transfer objects</div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-card-label">Domain Layer</div>
+      <div class="layer-card-value">Entities &amp; Business Rules</div>
+      <div class="layer-card-desc">Aggregate roots, enums, value objects, domain invariants</div>
+    </div>
+    <div class="layer-card">
+      <div class="layer-card-label">Infrastructure Layer</div>
+      <div class="layer-card-value">Persistence &amp; Integrations</div>
+      <div class="layer-card-desc">EF Core DbContext, repositories, HTTP clients, background workers</div>
+    </div>
+  </div>
+
+  <h3>1.2 Outbox Message Contract</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>MessageId</td>
+        <td>GUID</td>
+        <td>Unique identifier for the message</td>
+      </tr>
+      <tr>
+        <td>EventType</td>
+        <td>string</td>
+        <td>Event type name (e.g., OrderPlaced)</td>
+      </tr>
+      <tr>
+        <td>Payload</td>
+        <td>JSON text</td>
+        <td>Serialized event payload</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>enum</td>
+        <td>Pending → Published → Failed</td>
+      </tr>
+      <tr>
+        <td>CreatedAtUtc</td>
+        <td>DateTime</td>
+        <td>When the event was created</td>
+      </tr>
+      <tr>
+        <td>PublishedAtUtc</td>
+        <td>DateTime?</td>
+        <td>When successfully published to RabbitMQ</td>
+      </tr>
+      <tr>
+        <td>RetryCount</td>
+        <td>int</td>
+        <td>Number of publish attempts</td>
+      </tr>
+      <tr>
+        <td>Error</td>
+        <td>string?</td>
+        <td>Last error message if failed</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>1.3 Redis Key Namespaces</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Namespace</th>
+        <th>Purpose</th>
+        <th>TTL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>idempotency:{key}</code></td>
+        <td>Prevent duplicate command processing</td>
+        <td>24 hours</td>
+      </tr>
+      <tr>
+        <td><code>revoked:{jti}</code></td>
+        <td>Token revocation check</td>
+        <td>Token lifetime</td>
+      </tr>
+      <tr>
+        <td><code>cache:{service}:{key}</code></td>
+        <td>Response caching</td>
+        <td>Configurable</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ════════════════════════════════ SECTION 2 ════════════════════════════════ -->
+  <h2 id="s2" class="page-break">2. Service Layer Architecture</h2>
+  <div class="diagram-wrapper">
+    <pre class="mermaid">
+graph TB
+    subgraph API["API Layer"]
+        C1["Controllers"]
+        AUTH["Auth Policies"]
+        MW["Middleware"]
+    end
+
+    subgraph APP["Application Layer"]
+        SVC["Service Classes"]
+        VAL["FluentValidation"]
+        DTO["DTOs / Contracts"]
+        MED["MediatR Handlers"]
+    end
+
+    subgraph DOM["Domain Layer"]
+        ENT["Entities"]
+        ENM["Enums"]
+        BIZ["Business Rules"]
+    end
+
+    subgraph INFRA["Infrastructure Layer"]
+        DB["EF Core DbContext"]
+        REPO["Repositories"]
+        HTTP["HTTP Clients"]
+        BG["Background Workers"]
+        OBX["Outbox Dispatcher"]
+    end
+
+    C1 --> SVC
+    SVC --> MED
+    MED --> VAL
+    SVC --> ENT
+    SVC --> REPO
+    REPO --> DB
+    BG --> OBX
+    OBX --> DB
+
+    style API fill:#dbeafe,stroke:#2563eb
+    style APP fill:#dcfce7,stroke:#16a34a
+    style DOM fill:#fef3c7,stroke:#d97706
+    style INFRA fill:#f1f5f9,stroke:#64748b
+  </pre>
+    <div class="diagram-caption">Figure 1 — Layered Architecture Per Microservice</div>
+  </div>
+
+  <!-- ════════════════════════════════ SECTION 3 ════════════════════════════════ -->
+  <h2 id="s3">3. Gateway Service — LLD</h2>
+  <h3>3.1 Responsibilities</h3>
+  <ul>
+    <li>Upstream entry point for all client requests (port 5000)</li>
+    <li>Route mapping to 6 downstream microservices</li>
+    <li>JWT authentication pass-through for protected routes</li>
+    <li>Per-route and global rate limiting (keyed by <code>Oc-Client</code> header)</li>
+    <li>Request correlation via <code>X-Correlation-Id</code> injection</li>
+    <li>Round-robin load balancing across service instances</li>
+  </ul>
+
+  <h3>3.2 Route Mapping</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Upstream Prefix</th>
+        <th>Downstream Service</th>
+        <th>Auth</th>
+        <th>Rate Limit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>/identity/*</code></td>
+        <td>IdentityAuth :8001</td>
+        <td>Public (auth routes) / JWT</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><code>/catalog/*</code></td>
+        <td>CatalogInventory :8002</td>
+        <td>Optional / JWT</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><code>/orders/*</code></td>
+        <td>Order :8003</td>
+        <td>JWT Required</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><code>/logistics/*</code></td>
+        <td>LogisticsTracking :8004</td>
+        <td>JWT Required</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><code>/payments/*</code></td>
+        <td>PaymentInvoice :8005</td>
+        <td>Public (credit check) / JWT</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td><code>/notifications/*</code></td>
+        <td>Notification :8006</td>
+        <td>Public (ingest) / JWT</td>
+        <td>Yes</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ════════════════════════════════ SECTION 4 ════════════════════════════════ -->
+  <h2 id="s4" class="page-break">4. IdentityAuth Service — LLD</h2>
+  <h3>4.1 API Endpoints</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Auth</th>
+        <th>Role</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/auth/register</code></td>
+        <td>No</td>
+        <td>Public</td>
+        <td>Dealer registration</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/auth/login</code></td>
+        <td>No</td>
+        <td>Public</td>
+        <td>Login &amp; token issuance</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/auth/refresh</code></td>
+        <td>No</td>
+        <td>Public</td>
+        <td>Refresh access token via cookie</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/auth/forgot-password</code></td>
+        <td>No</td>
+        <td>Public</td>
+        <td>Initiate OTP reset flow</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/auth/reset-password</code></td>
+        <td>No</td>
+        <td>Public</td>
+        <td>Complete password reset</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/auth/logout</code></td>
+        <td>JWT</td>
+        <td>Any</td>
+        <td>Logout &amp; token revocation</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/users/profile</code></td>
+        <td>JWT</td>
+        <td>Any</td>
+        <td>Current user profile</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/admin/dealers</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Paginated dealer list</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/admin/dealers/{id}/approve</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Approve dealer</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/admin/dealers/{id}/reject</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Reject dealer</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/admin/dealers/{id}/credit-limit</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Update credit limit</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/internal/users/{id}/contact</code></td>
+        <td>API Key</td>
+        <td>Internal</td>
+        <td>Resolve user email</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>4.2 Data Model</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Entity</th>
+        <th>Key Fields</th>
+        <th>Relationships</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Users</strong></td>
+        <td>UserId, Email, PasswordHash, Role, Status</td>
+        <td>→ DealerProfile (1:1), → RefreshTokens (1:N)</td>
+      </tr>
+      <tr>
+        <td><strong>DealerProfiles</strong></td>
+        <td>DealerId, CompanyName, GSTIN, CreditLimit</td>
+        <td>→ Users (1:1)</td>
+      </tr>
+      <tr>
+        <td><strong>RefreshTokens</strong></td>
+        <td>TokenId, Token, ExpiresUtc, IsRevoked</td>
+        <td>→ Users (N:1)</td>
+      </tr>
+      <tr>
+        <td><strong>OtpRecords</strong></td>
+        <td>OtpId, Code, ExpiresUtc, IsUsed</td>
+        <td>→ Users (N:1)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>4.3 Background Workers</h3>
+  <ul>
+    <li><strong>IdentityOutboxDispatcher:</strong> Polls pending outbox messages and publishes to RabbitMQ with routing
+      key <code>identity.{eventType}</code></li>
+  </ul>
+
+  <!-- ════════════════════════════════ SECTION 5 ════════════════════════════════ -->
+  <h2 id="s5">5. CatalogInventory Service — LLD</h2>
+  <h3>5.1 API Endpoints</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Auth</th>
+        <th>Role</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/products</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Create product</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/products/{id}</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Update product</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/products/{id}/restock</code></td>
+        <td>JWT</td>
+        <td>Admin, Warehouse</td>
+        <td>Restock product</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/products</code></td>
+        <td>Optional</td>
+        <td>Public</td>
+        <td>Paginated product list</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/products/{id}</code></td>
+        <td>Optional</td>
+        <td>Public</td>
+        <td>Product detail</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/products/search</code></td>
+        <td>Optional</td>
+        <td>Public</td>
+        <td>Search products</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/products/{id}/reviews</code></td>
+        <td>Optional</td>
+        <td>Public/Admin</td>
+        <td>Product review list</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/products/{id}/reviews</code></td>
+        <td>JWT</td>
+        <td>Dealer</td>
+        <td>Submit product review</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/products/reviews/{reviewId}/approve</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Approve review (moderation)</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/products/reviews/{reviewId}/reject</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Reject review (moderation)</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/inventory/soft-lock</code></td>
+        <td>JWT</td>
+        <td>Admin, Dealer</td>
+        <td>Reserve stock</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/inventory/hard-deduct</code></td>
+        <td>JWT</td>
+        <td>Admin, Warehouse</td>
+        <td>Final stock deduction</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/inventory/release-soft-lock</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Release reserved stock</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/inventory/subscriptions</code></td>
+        <td>JWT</td>
+        <td>Dealer</td>
+        <td>Subscribe low-stock alert</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-red">DELETE</span></td>
+        <td><code>/api/inventory/subscriptions</code></td>
+        <td>JWT</td>
+        <td>Dealer</td>
+        <td>Unsubscribe low-stock alert</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 Data Model</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Entity</th>
+        <th>Key Fields</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Products</strong></td>
+        <td>ProductId, Name, SKU (unique), UnitPrice, AvailableStock, IsActive, CategoryId</td>
+      </tr>
+      <tr>
+        <td><strong>Categories</strong></td>
+        <td>CategoryId, Name, ParentCategoryId (self-ref hierarchy)</td>
+      </tr>
+      <tr>
+        <td><strong>StockTransactions</strong></td>
+        <td>TransactionId, ProductId, QuantityChange, Type (Restock/Lock/Deduct/Release)</td>
+      </tr>
+      <tr>
+        <td><strong>StockSubscriptions</strong></td>
+        <td>SubscriptionId, ProductId, DealerId, ThresholdQty</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ════════════════════════════════ SECTION 6 ════════════════════════════════ -->
+  <h2 id="s6" class="page-break">6. Order Service — LLD</h2>
+  <h3>6.1 API Endpoints</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Auth</th>
+        <th>Role</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/orders</code></td>
+        <td>JWT</td>
+        <td>Dealer</td>
+        <td>Create order (triggers credit check)</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/orders/my</code></td>
+        <td>JWT</td>
+        <td>Dealer</td>
+        <td>Dealer's own orders</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/orders/{id}</code></td>
+        <td>JWT</td>
+        <td>Any (ownership check)</td>
+        <td>Order detail</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/orders/{id}/status</code></td>
+        <td>JWT</td>
+        <td>Admin, Warehouse, Logistics</td>
+        <td>Update order status</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/orders/{id}/cancel</code></td>
+        <td>JWT</td>
+        <td>Dealer, Admin</td>
+        <td>Cancel order</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/orders/{id}/returns</code></td>
+        <td>JWT</td>
+        <td>Dealer</td>
+        <td>Request return</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/orders/{id}/saga</code></td>
+        <td>JWT</td>
+        <td>Any (role-scoped)</td>
+        <td>Get saga state for order</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/admin/orders</code></td>
+        <td>JWT</td>
+        <td>Admin, Warehouse, Logistics</td>
+        <td>All orders (paginated)</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/admin/orders/analytics</code></td>
+        <td>JWT</td>
+        <td>Admin, Warehouse, Logistics</td>
+        <td>Purchase KPIs, top dealers/products</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/admin/orders/bulk-status</code></td>
+        <td>JWT</td>
+        <td>Admin, Logistics</td>
+        <td>Validate or apply bulk transition</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/admin/orders/{id}/approve-hold</code></td>
+        <td>JWT</td>
+        <td>Admin, Warehouse</td>
+        <td>Approve credit hold</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/admin/orders/{id}/reject-hold</code></td>
+        <td>JWT</td>
+        <td>Admin, Warehouse</td>
+        <td>Reject credit hold</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/admin/orders/{id}/approve-return</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Approve return request</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/admin/orders/{id}/reject-return</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Reject return request</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>6.2 Data Model</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Entity</th>
+        <th>Key Fields</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Orders</strong></td>
+        <td>OrderId, OrderNumber, DealerId, Status, TotalAmount, PlacedAtUtc, CreditHoldStatus</td>
+      </tr>
+      <tr>
+        <td><strong>OrderLines</strong></td>
+        <td>OrderLineId, OrderId, ProductId, Quantity, UnitPrice, LineTotal</td>
+      </tr>
+      <tr>
+        <td><strong>OrderStatusHistory</strong></td>
+        <td>HistoryId, OrderId, OldStatus, NewStatus, ChangedAtUtc, ChangedBy</td>
+      </tr>
+      <tr>
+        <td><strong>ReturnRequests</strong></td>
+        <td>ReturnId, OrderId, Reason, Status, RequestedAtUtc</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>6.3 Order Creation Flow</h3>
+  <div class="callout">
+    <strong>Credit Check Path:</strong> Order → calls PaymentInvoice credit-check API → if sufficient credit → status =
+    Processing → emit OrderPlaced event. If insufficient → status = OnHold → emit AdminApprovalRequired event → Admin
+    can approve/reject hold.
+  </div>
+
+  <!-- ════════════════════════════════ SECTION 7 ════════════════════════════════ -->
+  <h2 id="s7">7. LogisticsTracking Service — LLD</h2>
+  <h3>7.1 API Endpoints</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Auth</th>
+        <th>Role</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/logistics/shipments</code></td>
+        <td>JWT</td>
+        <td>Admin, Warehouse, Logistics</td>
+        <td>Create shipment</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/logistics/shipments/{id}</code></td>
+        <td>JWT</td>
+        <td>Any</td>
+        <td>Shipment detail</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/logistics/shipments/my</code></td>
+        <td>JWT</td>
+        <td>Dealer</td>
+        <td>Dealer's shipments</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/logistics/shipments/{id}/assign-agent</code></td>
+        <td>JWT</td>
+        <td>Admin, Logistics</td>
+        <td>Assign delivery agent</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/logistics/shipments/{id}/status</code></td>
+        <td>JWT</td>
+        <td>Admin, Logistics, Agent</td>
+        <td>Update shipment status</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/logistics/shipments/chatbot/ask</code></td>
+        <td>JWT</td>
+        <td>Admin, Logistics, Agent</td>
+        <td>AI logistics chatbot query</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 Data Model</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Entity</th>
+        <th>Key Fields</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Shipments</strong></td>
+        <td>ShipmentId, OrderId, Status, AgentId, VehicleNumber, DeliveredAtUtc</td>
+      </tr>
+      <tr>
+        <td><strong>ShipmentEvents</strong></td>
+        <td>EventId, ShipmentId, Status, Timestamp, Description</td>
+      </tr>
+      <tr>
+        <td><strong>ShipmentOpsStates</strong></td>
+        <td>OpsStateId, ShipmentId, ReadinessState, RetryCount, ExceptionReason</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ════════════════════════════════ SECTION 8 ════════════════════════════════ -->
+  <h2 id="s8" class="page-break">8. PaymentInvoice Service — LLD</h2>
+  <h3>8.1 API Endpoints</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Auth</th>
+        <th>Role</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/payment/gateway/orders</code></td>
+        <td>JWT</td>
+        <td>Dealer</td>
+        <td>Create Razorpay order</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/payment/gateway/verify</code></td>
+        <td>JWT</td>
+        <td>Dealer</td>
+        <td>Verify payment + optional capture</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/payment/dealers/{id}/credit-check</code></td>
+        <td>No</td>
+        <td>Public</td>
+        <td>Credit check by amount</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/payment/dealers/{id}/credit-limit</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Update credit limit</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/payment/dealers/{id}/settlements</code></td>
+        <td>JWT</td>
+        <td>Admin, Dealer</td>
+        <td>Settle outstanding balance</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/payment/invoices</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Generate invoice</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/payment/invoices/{id}</code></td>
+        <td>JWT</td>
+        <td>Admin, Dealer</td>
+        <td>Get invoice detail</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/payment/invoices/{id}/workflow</code></td>
+        <td>JWT</td>
+        <td>Admin, Dealer</td>
+        <td>Get collection workflow state</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/payment/invoices/{id}/workflow</code></td>
+        <td>JWT</td>
+        <td>Admin, Dealer</td>
+        <td>Upsert workflow state</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/payment/invoices/{id}/workflow-activities</code></td>
+        <td>JWT</td>
+        <td>Admin, Dealer</td>
+        <td>Activity timeline</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/payment/invoices/{id}/workflow-activities</code></td>
+        <td>JWT</td>
+        <td>Admin, Dealer</td>
+        <td>Add workflow activity</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/payment/invoices/{id}/download</code></td>
+        <td>JWT</td>
+        <td>Admin, Dealer</td>
+        <td>Download invoice PDF</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>8.2 Data Model</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Entity</th>
+        <th>Key Fields</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>DealerCreditAccounts</strong></td>
+        <td>AccountId, DealerId, CreditLimit, UsedCredit, AvailableCredit</td>
+      </tr>
+      <tr>
+        <td><strong>Invoices</strong></td>
+        <td>InvoiceId, OrderId, DealerId, TotalAmount, GstAmount, Status</td>
+      </tr>
+      <tr>
+        <td><strong>InvoiceLines</strong></td>
+        <td>LineId, InvoiceId, ProductName, Quantity, UnitPrice, LineTotal</td>
+      </tr>
+      <tr>
+        <td><strong>PaymentRecords</strong></td>
+        <td>PaymentId, OrderId, RazorpayOrderId, RazorpayPaymentId, Status</td>
+      </tr>
+      <tr>
+        <td><strong>InvoiceWorkflowStates</strong></td>
+        <td>WorkflowId, InvoiceId, State, DueDate, ReminderCount</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>8.3 Razorpay Integration Flow</h3>
+  <div class="callout">
+    <strong>Payment Flow:</strong> Dealer creates gateway order → receives Razorpay order ID → Frontend opens Razorpay
+    checkout → User pays → Frontend sends payment details → Backend verifies HMAC-SHA256 signature → Optionally captures
+    payment → Marks order as paid
+  </div>
+
+  <!-- ════════════════════════════════ SECTION 9 ════════════════════════════════ -->
+  <h2 id="s9">9. Notification Service — LLD</h2>
+  <h3>9.1 API Endpoints</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Auth</th>
+        <th>Role</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/notifications/manual</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Create manual notification</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/notifications/ingest</code></td>
+        <td>No</td>
+        <td>Public</td>
+        <td>Ingest integration event</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/notifications/my</code></td>
+        <td>JWT</td>
+        <td>Any</td>
+        <td>User's notifications</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-amber">PUT</span></td>
+        <td><code>/api/notifications/{id}/read</code></td>
+        <td>JWT</td>
+        <td>Any</td>
+        <td>Mark as read</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>9.2 Background Workers</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Worker</th>
+        <th>Responsibility</th>
+        <th>Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>NotificationEventConsumer</strong></td>
+        <td>Consumes all events from <code>notification.events.queue</code> bound to <code>supplychain.events</code>
+          with routing key <code>#</code></td>
+        <td>RabbitMQ</td>
+      </tr>
+      <tr>
+        <td><strong>NotificationEmailDispatcher</strong></td>
+        <td>Polls pending Email-channel notifications, resolves recipient email via IdentityAuth, sends branded HTML
+          emails via SMTP</td>
+        <td>Database polling</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ════════════════════════════════ SECTION 10 ════════════════════════════════ -->
+  <h2 id="s10" class="page-break">10. Frontend (Angular SPA) — LLD</h2>
+  <h3>10.1 Architecture Overview</h3>
+  <div class="diagram-wrapper">
+    <pre class="mermaid">
+graph TB
+    subgraph Shell["App Shell"]
+        SB["Sidebar Navigation"]
+        TB["Topbar + Breadcrumbs"]
+        RO["Router Outlet"]
+    end
+
+    subgraph Guards["Route Guards"]
+        AG["AuthGuard"]
+        RG["RoleGuard"]
+    end
+
+    subgraph Features["Feature Modules (Lazy-Loaded)"]
+        F1["🔐 Auth (Login/Register)"]
+        F2["📊 Dashboard"]
+        F3["📦 Catalog (Products)"]
+        F4["🛒 Cart & Checkout"]
+        F5["📋 Orders"]
+        F6["🚚 Shipments"]
+        F7["💰 Invoices"]
+        F8["🔔 Notifications"]
+        F9["👥 Admin (Dealers)"]
+        F10["👤 Profile"]
+    end
+
+    subgraph Core["Core Layer"]
+        AS["API Services"]
+        ST["State Stores (Signals)"]
+        INT["HTTP Interceptors"]
+    end
+
+    RO --> Guards
+    Guards --> Features
+    Features --> Core
+    Core -->|"HTTPS"| GW["Gateway :5000"]
+
+    style Shell fill:#dbeafe,stroke:#2563eb
+    style Features fill:#dcfce7,stroke:#16a34a
+    style Core fill:#fef3c7,stroke:#d97706
+  </pre>
+    <div class="diagram-caption">Figure 2 — Angular SPA Architecture</div>
+  </div>
+
+  <h3>10.2 Core API Services</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Backend Target</th>
+        <th>Key Methods</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AuthApiService</td>
+        <td>IdentityAuth</td>
+        <td>login(), register(), refresh(), logout(), forgotPassword()</td>
+      </tr>
+      <tr>
+        <td>AdminApiService</td>
+        <td>IdentityAuth</td>
+        <td>getDealers(), approveDealer(), updateCreditLimit()</td>
+      </tr>
+      <tr>
+        <td>CatalogApiService</td>
+        <td>CatalogInventory</td>
+        <td>getProducts(), getById(), search(), createProduct()</td>
+      </tr>
+      <tr>
+        <td>OrderApiService</td>
+        <td>Order</td>
+        <td>createOrder(), getMyOrders(), cancelOrder()</td>
+      </tr>
+      <tr>
+        <td>AdminOrderApiService</td>
+        <td>Order</td>
+        <td>getAllOrders(), updateStatus(), bulkUpdateStatus()</td>
+      </tr>
+      <tr>
+        <td>LogisticsApiService</td>
+        <td>LogisticsTracking</td>
+        <td>getShipments(), updateStatus(), assignAgent()</td>
+      </tr>
+      <tr>
+        <td>PaymentApiService</td>
+        <td>PaymentInvoice</td>
+        <td>creditCheck(), createGatewayOrder(), verifyPayment()</td>
+      </tr>
+      <tr>
+        <td>NotificationApiService</td>
+        <td>Notification</td>
+        <td>getMyNotifications(), markRead(), markUnread()</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>10.3 State Management</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Store</th>
+        <th>State</th>
+        <th>Pattern</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>AuthStore</strong></td>
+        <td>User, Role, Token, isAuthenticated</td>
+        <td>Angular Signals + localStorage persistence</td>
+      </tr>
+      <tr>
+        <td><strong>CartStore</strong></td>
+        <td>Items, itemCount, total</td>
+        <td>Angular Signals + localStorage persistence</td>
+      </tr>
+      <tr>
+        <td><strong>LoadingStore</strong></td>
+        <td>isLoading flag</td>
+        <td>Angular Signals (used by HTTP interceptor)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ════════════════════════════════ SECTION 11 ════════════════════════════════ -->
+  <h2 id="s11" class="page-break">11. Order Lifecycle — Sequence Diagram</h2>
+  <div class="diagram-wrapper">
+    <pre class="mermaid">
+sequenceDiagram
+    actor Dealer
+    participant FE as Angular SPA
+    participant GW as API Gateway
+    participant ORD as Order Service
+    participant PAY as Payment Service
+    participant CAT as Catalog Service
+    participant RMQ as RabbitMQ
+    participant NOT as Notification
+
+    Dealer->>FE: Place Order
+    FE->>GW: POST /orders
+    GW->>ORD: Forward request
+    ORD->>PAY: GET /credit-check
+    PAY-->>ORD: Credit result
+
+    alt Credit Approved
+        ORD->>CAT: POST /soft-lock (reserve stock)
+        CAT-->>ORD: Lock confirmed
+        ORD->>ORD: Status = Processing
+        ORD->>RMQ: Publish order.OrderPlaced
+        RMQ->>NOT: Consume event
+        NOT->>NOT: Create notification
+    else Credit Insufficient
+        ORD->>ORD: Status = OnHold
+        ORD->>RMQ: Publish order.CreditHoldRequired
+        RMQ->>NOT: Notify Admin
+    end
+
+    ORD-->>GW: Order response
+    GW-->>FE: Order created
+    FE-->>Dealer: Show confirmation
+  </pre>
+    <div class="diagram-caption">Figure 3 — Order Creation Sequence Diagram (with Credit Hold Path)</div>
+  </div>
+
+  <!-- ════════════════════════════════ SECTION 12 ════════════════════════════════ -->
+  <h2 id="s12">12. Order Status — State Machine</h2>
+  <div class="diagram-wrapper">
+    <pre class="mermaid">
+stateDiagram-v2
+    [*] --> Placed
+    Placed --> Processing : Credit approved
+    Placed --> OnHold : Credit insufficient
+    Placed --> Cancelled : Dealer/Admin cancel
+
+    OnHold --> Processing : Admin approves hold
+    OnHold --> Cancelled : Admin rejects hold
+
+    Processing --> ReadyForDispatch : Fulfillment complete
+    Processing --> Cancelled : Cancel
+
+    ReadyForDispatch --> InTransit : Dispatched
+    ReadyForDispatch --> Cancelled : Cancel
+
+    InTransit --> Delivered : Delivery confirmed
+    InTransit --> Exception : Delivery issue
+
+    Exception --> InTransit : Issue resolved
+    Exception --> Cancelled : Unresolvable
+
+    Delivered --> Closed : Auto-close
+    Delivered --> ReturnRequested : Dealer requests return
+
+    ReturnRequested --> ReturnApproved : Admin approves
+    ReturnRequested --> ReturnRejected : Admin rejects
+
+    ReturnApproved --> Closed
+    ReturnRejected --> Closed
+
+    Cancelled --> [*]
+    Closed --> [*]
+  </pre>
+    <div class="diagram-caption">Figure 4 — Order Status State Machine (12 States, All Valid Transitions)</div>
+  </div>
+
+  <!-- ════════════════════════════════ SECTION 13 ════════════════════════════════ -->
+  <h2 id="s13" class="page-break">13. Shipment Status — State Machine</h2>
+  <div class="diagram-wrapper">
+    <pre class="mermaid">
+stateDiagram-v2
+    [*] --> Created
+    Created --> Assigned : Agent assigned
+    Assigned --> PickedUp : Agent picks up
+    PickedUp --> InTransit : In transit
+    InTransit --> OutForDelivery : Last mile
+    OutForDelivery --> Delivered : Delivery success
+    OutForDelivery --> DeliveryFailed : Delivery failed
+    DeliveryFailed --> InTransit : Retry delivery
+    DeliveryFailed --> Returned : Return to origin
+    Delivered --> [*]
+    Returned --> [*]
+  </pre>
+    <div class="diagram-caption">Figure 5 — Shipment Status State Machine (8 States)</div>
+  </div>
+
+  <!-- ════════════════════════════════ SECTION 14 ════════════════════════════════ -->
+  <h2 id="s14">14. Entity-Relationship Diagrams</h2>
+
+  <h3>14.1 Order Domain ER Diagram</h3>
+  <div class="diagram-wrapper">
+    <pre class="mermaid">
+erDiagram
+    ORDERS ||--o{ ORDER_LINES : contains
+    ORDERS ||--o{ ORDER_STATUS_HISTORY : tracks
+    ORDERS ||--o| RETURN_REQUESTS : "may have"
+    ORDERS ||--o{ OUTBOX_MESSAGES : emits
+
+    ORDERS {
+        guid OrderId PK
+        string OrderNumber UK
+        guid DealerId
+        int Status
+        decimal TotalAmount
+        datetime PlacedAtUtc
+        int CreditHoldStatus
+    }
+
+    ORDER_LINES {
+        guid OrderLineId PK
+        guid OrderId FK
+        guid ProductId
+        int Quantity
+        decimal UnitPrice
+        decimal LineTotal
+    }
+
+    ORDER_STATUS_HISTORY {
+        guid HistoryId PK
+        guid OrderId FK
+        int OldStatus
+        int NewStatus
+        datetime ChangedAtUtc
+        string ChangedBy
+    }
+
+    RETURN_REQUESTS {
+        guid ReturnId PK
+        guid OrderId FK
+        string Reason
+        int Status
+        datetime RequestedAtUtc
+    }
+  </pre>
+    <div class="diagram-caption">Figure 6 — Order Domain Entity-Relationship Diagram</div>
+  </div>
+
+  <h3 class="page-break">14.2 Payment Domain ER Diagram</h3>
+  <div class="diagram-wrapper">
+    <pre class="mermaid">
+erDiagram
+    DEALER_CREDIT_ACCOUNTS ||--o{ INVOICES : "billed to"
+    INVOICES ||--o{ INVOICE_LINES : contains
+    INVOICES ||--o| INVOICE_WORKFLOW_STATES : "tracked by"
+    INVOICES ||--o{ INVOICE_WORKFLOW_ACTIVITIES : logs
+    INVOICES ||--o{ PAYMENT_RECORDS : "paid via"
+
+    DEALER_CREDIT_ACCOUNTS {
+        guid AccountId PK
+        guid DealerId UK
+        decimal CreditLimit
+        decimal UsedCredit
+        decimal AvailableCredit
+    }
+
+    INVOICES {
+        guid InvoiceId PK
+        guid OrderId
+        guid DealerId
+        decimal TotalAmount
+        decimal GstAmount
+        int GstType
+        datetime CreatedAtUtc
+    }
+
+    INVOICE_LINES {
+        guid LineId PK
+        guid InvoiceId FK
+        string ProductName
+        int Quantity
+        decimal UnitPrice
+        decimal LineTotal
+    }
+
+    PAYMENT_RECORDS {
+        guid PaymentId PK
+        guid OrderId
+        string RazorpayOrderId
+        string RazorpayPaymentId
+        int Status
+    }
+  </pre>
+    <div class="diagram-caption">Figure 7 — Payment &amp; Invoice Domain Entity-Relationship Diagram</div>
+  </div>
+
+  <!-- ════════════════════════════════ SECTION 15 ════════════════════════════════ -->
+  <h2 id="s15" class="page-break">15. Outbox &amp; Async Processing Architecture</h2>
+  <div class="diagram-wrapper">
+    <pre class="mermaid">
+graph LR
+    subgraph Service["Each Microservice"]
+        BIZ["Business Logic"]
+        DB_W["Write to DB<br/>(Domain + Outbox)"]
+        DISP["Outbox Dispatcher<br/>(Background Worker)"]
+    end
+
+    subgraph Broker["RabbitMQ"]
+        EX["supplychain.events<br/>(Topic Exchange)"]
+    end
+
+    subgraph NotifSvc["Notification Service"]
+        CONS["Event Consumer"]
+        DB_N["Notification DB"]
+        EMAIL["Email Dispatcher"]
+        SMTP["SMTP (Mailpit)"]
+    end
+
+    BIZ -->|"1. SaveChangesAsync<br/>(single transaction)"| DB_W
+    DISP -->|"2. Poll Pending<br/>messages"| DB_W
+    DISP -->|"3. Publish to<br/>exchange"| EX
+    DISP -->|"4. Mark Published"| DB_W
+
+    EX -->|"5. Route by key"| CONS
+    CONS -->|"6. Persist<br/>notification"| DB_N
+    EMAIL -->|"7. Poll pending<br/>emails"| DB_N
+    EMAIL -->|"8. Send"| SMTP
+
+    style Service fill:#dcfce7,stroke:#16a34a
+    style Broker fill:#fee2e2,stroke:#dc2626
+    style NotifSvc fill:#dbeafe,stroke:#2563eb
+  </pre>
+    <div class="diagram-caption">Figure 8 — Outbox Pattern: Guaranteed Event Delivery Flow</div>
+  </div>
+
+  <div class="callout">
+    <strong>Reliability Guarantee:</strong> Domain data and outbox message are written in the same SQL transaction. Even
+    if RabbitMQ is temporarily unavailable, the outbox dispatcher will retry pending messages. After max retry attempts,
+    messages are marked as Failed for manual investigation.
+  </div>
+
+  <!-- ════════════════════════════════ SECTION 16 ════════════════════════════════ -->
+  <h2 id="s16">16. Cross-Cutting Behaviors (MediatR Pipeline)</h2>
+  <div class="diagram-wrapper">
+    <pre class="mermaid">
+graph LR
+    REQ["Incoming<br/>Request"] --> LOG["📝 Logging<br/>Behavior"]
+    LOG --> IDP["🔑 Idempotency<br/>Behavior"]
+    IDP --> VAL["✅ Validation<br/>Behavior"]
+    VAL --> TXN["💾 Transaction<br/>Behavior"]
+    TXN --> HANDLER["⚙️ Business<br/>Handler"]
+    HANDLER --> RESP["Response"]
+
+    style LOG fill:#dbeafe,stroke:#2563eb
+    style IDP fill:#fce7f3,stroke:#db2777
+    style VAL fill:#dcfce7,stroke:#16a34a
+    style TXN fill:#fef3c7,stroke:#d97706
+    style HANDLER fill:#f1f5f9,stroke:#64748b
+  </pre>
+    <div class="diagram-caption">Figure 9 — MediatR Pipeline: Cross-Cutting Behavior Chain</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Behavior</th>
+        <th>Stage</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>LoggingBehavior</strong></td>
+        <td>1st</td>
+        <td>Log request type, duration, and any exceptions via Serilog</td>
+      </tr>
+      <tr>
+        <td><strong>IdempotencyBehavior</strong></td>
+        <td>2nd</td>
+        <td>Check Redis for duplicate command key; skip if already processed</td>
+      </tr>
+      <tr>
+        <td><strong>ValidationBehavior</strong></td>
+        <td>3rd</td>
+        <td>Execute FluentValidation rules; return 400 with structured errors</td>
+      </tr>
+      <tr>
+        <td><strong>TransactionBehavior</strong></td>
+        <td>4th</td>
+        <td>Wrap handler execution in EF Core DbContext transaction</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ════════════════════════════════ SECTION 17 ════════════════════════════════ -->
+  <h2 id="s17">17. Error Handling Strategy</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Error Type</th>
+        <th>HTTP Status</th>
+        <th>Handling</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Validation failure</td>
+        <td>400 Bad Request</td>
+        <td>FluentValidation → structured property-level error response</td>
+      </tr>
+      <tr>
+        <td>Domain rule violation</td>
+        <td>400 Bad Request</td>
+        <td>InvalidOperationException caught by middleware</td>
+      </tr>
+      <tr>
+        <td>Unauthenticated</td>
+        <td>401 Unauthorized</td>
+        <td>Missing/invalid JWT token</td>
+      </tr>
+      <tr>
+        <td>Insufficient role</td>
+        <td>403 Forbidden</td>
+        <td>ASP.NET Core [Authorize(Roles)] policy</td>
+      </tr>
+      <tr>
+        <td>Resource not found</td>
+        <td>404 Not Found</td>
+        <td>Repository returns null → controller returns NotFound</td>
+      </tr>
+      <tr>
+        <td>Duplicate (idempotency)</td>
+        <td>200 OK (cached)</td>
+        <td>Redis idempotency key hit → return previous response</td>
+      </tr>
+      <tr>
+        <td>Outbox publish failure</td>
+        <td>N/A (async)</td>
+        <td>Retry with max attempts → mark Failed</td>
+      </tr>
+      <tr>
+        <td>Event consumer failure</td>
+        <td>N/A (async)</td>
+        <td>Redelivery → dead-letter queue after max retries</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ════════════════════════════════ SECTION 18 ════════════════════════════════ -->
+  <h2 id="s18" class="page-break">18. Testing Strategy</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Tool</th>
+        <th>Scope</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Unit Tests</strong></td>
+        <td>xUnit</td>
+        <td>Domain state transitions, validation rules, workflow logic</td>
+        <td>Order.CanTransitionTo(Processing) from Placed</td>
+      </tr>
+      <tr>
+        <td><strong>Integration Tests</strong></td>
+        <td>xUnit + WebApplicationFactory</td>
+        <td>Controller auth, repository persistence, external adapters</td>
+        <td>POST /orders with Dealer JWT → 201 Created</td>
+      </tr>
+      <tr>
+        <td><strong>Contract Tests</strong></td>
+        <td>xUnit</td>
+        <td>Event payload shape, gateway route mapping</td>
+        <td>Outbox payload deserializes to OrderPlacedEvent</td>
+      </tr>
+      <tr>
+        <td><strong>E2E Tests</strong></td>
+        <td>Manual / Automated</td>
+        <td>Full lifecycle flows</td>
+        <td>Register → Approve → Order → Ship → Invoice → Pay</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>18.1 Test Projects</h3>
+  <ul>
+    <li><code>tests/IdentityAuth.Domain.Tests</code></li>
+    <li><code>tests/CatalogInventory.Domain.Tests</code></li>
+    <li><code>tests/Order.Domain.Tests</code></li>
+    <li><code>tests/LogisticsTracking.Domain.Tests</code></li>
+    <li><code>tests/PaymentInvoice.Domain.Tests</code></li>
+    <li><code>tests/Notification.Domain.Tests</code></li>
+  </ul>
+
+  <h3>18.2 Test Execution</h3>
+  <pre class="code-block">
+# Run all tests with JUnit XML output
+dotnet test SupplyChainPlatform.slnx \
+  --logger "junit;LogFilePath=artifacts/test-results/{assembly}.xml"
+
+# Or use the convenience script
+./scripts/run-dotnet-junit-tests.ps1
+</pre>
+
+  <!-- ════════════════════════════════ SECTION 19 ════════════════════════════════ -->
+  <h2 id="s19" class="page-break">19. AI Exception Playbooks — API &amp; Contract</h2>
+  <p>The AI Exception Playbook system provides intelligent decision support for operational exceptions (delivery
+    failures, stock shortages, credit holds). It operates as a <strong>human-in-the-loop</strong> system with strict
+    governance guardrails.</p>
+
+  <h3>19.1 API Endpoints</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Auth</th>
+        <th>Role</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/logistics/shipments/chatbot/ask</code></td>
+        <td>JWT</td>
+        <td>Admin, Logistics, Agent, Dealer</td>
+        <td>AI chatbot query for shipment insights</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/ai/exceptions/{id}/recommend</code></td>
+        <td>JWT</td>
+        <td>Admin, Logistics</td>
+        <td>Get AI recommendation for exception</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">POST</span></td>
+        <td><code>/api/ai/exceptions/{id}/execute</code></td>
+        <td>JWT</td>
+        <td>Admin</td>
+        <td>Execute approved recommendation</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">GET</span></td>
+        <td><code>/api/ai/exceptions/{id}/history</code></td>
+        <td>JWT</td>
+        <td>Admin, Logistics</td>
+        <td>Recommendation audit trail</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>19.2 AI Recommendation Request</h3>
+  <pre class="code-block">
+POST /api/ai/exceptions/{exceptionId}/recommend
+{
+  "exceptionType": "DeliveryFailed",
+  "entityId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "entityType": "Shipment",
+  "context": {
+    "currentStatus": "DeliveryFailed",
+    "failureReason": "Customer not available",
+    "retryCount": 2,
+    "maxRetries": 3,
+    "daysOverdue": 1
+  }
+}
+</pre>
+
+  <h3>19.3 AI Recommendation Response</h3>
+  <pre class="code-block">
+{
+  "recommendationId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+  "exceptionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "playbookType": "RetryDelivery",
+  "suggestedActions": [
+    { "step": 1, "action": "ContactCustomer",
+      "params": { "channel": "SMS", "template": "delivery_reschedule" }},
+    { "step": 2, "action": "RescheduleDelivery",
+      "params": { "delayHours": 24, "assignSameAgent": true }},
+    { "step": 3, "action": "EscalateToManager",
+      "params": { "condition": "ifRetryFails" }}
+  ],
+  "confidenceScore": 0.87,
+  "expectedImpact": {
+    "etaReductionMinutes": 120,
+    "serviceRiskBefore": "High",
+    "serviceRiskAfter": "Low",
+    "costDeltaEstimate": -450.00
+  },
+  "explanationText": "Customer was unavailable during previous 2 attempts...",
+  "requiresHumanApproval": true,
+  "modelVersion": "gpt-4o-2024-05-13",
+  "generatedAtUtc": "2026-04-14T10:30:00Z"
+}
+</pre>
+
+  <h3>19.4 Decision Flow</h3>
+  <div class="diagram-wrapper">
+    <pre class="mermaid">
+graph TB
+    EXC["Exception<br/>Detected"] --> CONTEXT["Gather Context<br/>(Entity State + History)"]
+    CONTEXT --> AI["AI Orchestrator<br/>Generate Recommendation"]
+    AI --> VALID{"Schema<br/>Valid?"}
+    VALID -->|No| FALLBACK["Rule-Based<br/>Fallback Playbook"]
+    VALID -->|Yes| CONF{"Confidence<br/>>= Threshold?"}
+    CONF -->|No| FALLBACK
+    CONF -->|Yes| RISK{"Impact<br/>Level?"}
+    RISK -->|Low| AUTO["Auto-Execute<br/>(Phase 3 only)"]
+    RISK -->|Medium/High| HUMAN["Human<br/>Approval Required"]
+    HUMAN -->|Approved| EXEC["Execute<br/>Actions"]
+    HUMAN -->|Rejected| LOG["Log Rejection<br/>+ Learn"]
+    AUTO --> EXEC
+    FALLBACK --> EXEC
+    EXEC --> AUDIT["Audit Trail<br/>+ Outcome Tracking"]
+    LOG --> AUDIT
+
+    style AI fill:#f3e8ff,stroke:#7c3aed
+    style HUMAN fill:#fef3c7,stroke:#d97706
+    style AUDIT fill:#dcfce7,stroke:#16a34a
+    style FALLBACK fill:#fee2e2,stroke:#dc2626
+  </pre>
+    <div class="diagram-caption">Figure 10 — AI Exception Resolution Decision Flow</div>
+  </div>
+
+  <h3>19.5 Playbook Catalog</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Playbook Type</th>
+        <th>Trigger</th>
+        <th>Typical Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>RetryDelivery</strong></td>
+        <td>Shipment delivery failed</td>
+        <td>Contact customer → Reschedule → Escalate</td>
+      </tr>
+      <tr>
+        <td><strong>RerouteShipment</strong></td>
+        <td>Agent unavailable / vehicle breakdown</td>
+        <td>Reassign agent → Update ETA → Notify dealer</td>
+      </tr>
+      <tr>
+        <td><strong>StockShortage</strong></td>
+        <td>Inventory below threshold</td>
+        <td>Alert warehouse → Suggest restock qty → Hold affected orders</td>
+      </tr>
+      <tr>
+        <td><strong>CreditHoldResolution</strong></td>
+        <td>Order on credit hold</td>
+        <td>Check payment history → Suggest approval/rejection → Notify dealer</td>
+      </tr>
+      <tr>
+        <td><strong>InvoiceOverdue</strong></td>
+        <td>Invoice past due date</td>
+        <td>Send reminder → Escalate to admin → Suspend credit</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 64px; text-align: center; padding: 32px; border-top: 2px solid var(--border);">
+    <p style="font-size: .76rem; color: var(--text-secondary); margin: 0;">
+      <strong>Supply Chain Management Platform — Low Level Design Document v2.0</strong><br>
+      Confidential · April 2026 · Page generated for print/PDF export
+    </p>
+  </div>
+
+  <script>
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral', themeVariables: { fontSize: '12px' } });
+  </script>
+</body>
+
+</html>

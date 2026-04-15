@@ -87,7 +87,7 @@ The system supports 5 primary roles:
 - Shipment status updates across delivery lifecycle
 - Shipment ops-state read and upsert APIs
 - Batch ops-state query for operational dashboards
-- AI recommendation generation and approval for shipment handling
+- Role-scoped logistics chatbot for operational shipment insights
 
 ### 5.5 Payment and Invoice
 - Dealer account seeding

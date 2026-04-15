@@ -48,6 +48,17 @@ internal sealed class CatalogInventoryGateway(
             cancellationToken);
     }
 
+    public Task<bool> RestockStockAsync(Guid orderId, Guid productId, int quantity, string referenceId, CancellationToken cancellationToken)
+    {
+        return PostAsync(
+            "/api/internal/inventory/restock",
+            new InventoryRestockRequest(productId, quantity, referenceId),
+            "restock",
+            productId,
+            orderId,
+            cancellationToken);
+    }
+
     private async Task<bool> PostAsync<TRequest>(
         string path,
         TRequest payload,
@@ -143,4 +154,5 @@ internal sealed class CatalogInventoryGateway(
 
     private sealed record InventoryQuantityRequest(Guid ProductId, Guid OrderId, int Quantity);
     private sealed record InventoryReleaseRequest(Guid ProductId, Guid OrderId);
+    private sealed record InventoryRestockRequest(Guid ProductId, int Quantity, string ReferenceId);
 }

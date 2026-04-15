@@ -1,0 +1,16 @@
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\bin\Release\net10.0\LogisticsTracking.Domain.deps.json
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\bin\Release\net10.0\LogisticsTracking.Domain.dll
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\bin\Release\net10.0\LogisticsTracking.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\bin\Release\net10.0\SharedKernel.dll
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\bin\Release\net10.0\SharedKernel.pdb
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\LogisticsTracking.Domain.csproj.AssemblyReference.cache
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\LogisticsTracking.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\LogisticsTracking.Domain.AssemblyInfoInputs.cache
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\LogisticsTracking.Domain.AssemblyInfo.cs
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\LogisticsTracking.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\LogisticsTracking.Domain.sourcelink.json
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\Logistic.CE10B927.Up2Date
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\LogisticsTracking.Domain.dll
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\refint\LogisticsTracking.Domain.dll
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\LogisticsTracking.Domain.pdb
+C:\Users\Hey\Desktop\demo\services\LogisticsTracking\LogisticsTracking.Domain\obj\Release\net10.0\ref\LogisticsTracking.Domain.dll

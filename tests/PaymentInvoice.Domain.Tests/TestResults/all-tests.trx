@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="54592e9b-c0a4-4ac3-bb02-89f6b010382b" name="Hey@DESKTOP-NFND817 2026-04-13 16:01:59" runUser="DESKTOP-NFND817\Hey" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-04-13T16:01:59.1112808+05:30" queuing="2026-04-13T16:01:59.1112813+05:30" start="2026-04-13T16:01:53.2664973+05:30" finish="2026-04-13T16:01:59.1238620+05:30" />
+  <TestSettings name="default" id="448b2abc-4efc-42a5-be99-ce727c792ea4">
+    <Deployment runDeploymentRoot="Hey_DESKTOP-NFND817_2026-04-13_16_01_59" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="a5a44bc1-f744-4bcd-80a8-18436cd8c658" testId="85a66f5a-7f03-802b-0bfc-8e4f25ae1ead" testName="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests.InvoiceWorkflowState_Update_ClampsReminderCountAndTrimsNote" computerName="DESKTOP-NFND817" duration="00:00:00.0166724" startTime="2026-04-13T16:01:58.7948681+05:30" endTime="2026-04-13T16:01:58.7950658+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a5a44bc1-f744-4bcd-80a8-18436cd8c658" />
+    <UnitTestResult executionId="720557ad-faa8-46e3-916f-e1132d3b2a03" testId="738e1370-d641-9cc6-c8b5-1e4062322da4" testName="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests.InvoiceCreate_Interstate_SetsIgstType" computerName="DESKTOP-NFND817" duration="00:00:00.1910306" startTime="2026-04-13T16:01:58.5641618+05:30" endTime="2026-04-13T16:01:58.7708622+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="720557ad-faa8-46e3-916f-e1132d3b2a03" />
+    <UnitTestResult executionId="fdf6bc1a-5443-4c55-bc0d-43a389c915b7" testId="a0f24d52-1b47-09c7-7a53-0fe12f1b4f10" testName="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests.DealerCreditAccount_AddAndReduceOutstanding_UpdatesAvailableCredit" computerName="DESKTOP-NFND817" duration="00:00:00.0085885" startTime="2026-04-13T16:01:58.7964664+05:30" endTime="2026-04-13T16:01:58.7973799+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fdf6bc1a-5443-4c55-bc0d-43a389c915b7" />
+    <UnitTestResult executionId="2c97125a-792f-4886-90dd-b477ec1598d7" testId="c1d7d85c-ed3d-7087-4664-c6ad643363af" testName="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests.Invoice_AddLine_RecalculatesTotals" computerName="DESKTOP-NFND817" duration="00:00:00.0048952" startTime="2026-04-13T16:01:58.7977483+05:30" endTime="2026-04-13T16:01:58.8025081+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2c97125a-792f-4886-90dd-b477ec1598d7" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests.InvoiceWorkflowState_Update_ClampsReminderCountAndTrimsNote" storage="c:\users\hey\desktop\demo\tests\paymentinvoice.domain.tests\bin\release\net10.0\paymentinvoice.domain.tests.dll" id="85a66f5a-7f03-802b-0bfc-8e4f25ae1ead">
+      <Execution id="a5a44bc1-f744-4bcd-80a8-18436cd8c658" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\PaymentInvoice.Domain.Tests\bin\Release\net10.0\PaymentInvoice.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests" name="InvoiceWorkflowState_Update_ClampsReminderCountAndTrimsNote" />
+    </UnitTest>
+    <UnitTest name="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests.DealerCreditAccount_AddAndReduceOutstanding_UpdatesAvailableCredit" storage="c:\users\hey\desktop\demo\tests\paymentinvoice.domain.tests\bin\release\net10.0\paymentinvoice.domain.tests.dll" id="a0f24d52-1b47-09c7-7a53-0fe12f1b4f10">
+      <Execution id="fdf6bc1a-5443-4c55-bc0d-43a389c915b7" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\PaymentInvoice.Domain.Tests\bin\Release\net10.0\PaymentInvoice.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests" name="DealerCreditAccount_AddAndReduceOutstanding_UpdatesAvailableCredit" />
+    </UnitTest>
+    <UnitTest name="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests.InvoiceCreate_Interstate_SetsIgstType" storage="c:\users\hey\desktop\demo\tests\paymentinvoice.domain.tests\bin\release\net10.0\paymentinvoice.domain.tests.dll" id="738e1370-d641-9cc6-c8b5-1e4062322da4">
+      <Execution id="720557ad-faa8-46e3-916f-e1132d3b2a03" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\PaymentInvoice.Domain.Tests\bin\Release\net10.0\PaymentInvoice.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests" name="InvoiceCreate_Interstate_SetsIgstType" />
+    </UnitTest>
+    <UnitTest name="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests.Invoice_AddLine_RecalculatesTotals" storage="c:\users\hey\desktop\demo\tests\paymentinvoice.domain.tests\bin\release\net10.0\paymentinvoice.domain.tests.dll" id="c1d7d85c-ed3d-7087-4664-c6ad643363af">
+      <Execution id="2c97125a-792f-4886-90dd-b477ec1598d7" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\PaymentInvoice.Domain.Tests\bin\Release\net10.0\PaymentInvoice.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="PaymentInvoice.Domain.Tests.PaymentInvoiceDomainTests" name="Invoice_AddLine_RecalculatesTotals" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="85a66f5a-7f03-802b-0bfc-8e4f25ae1ead" executionId="a5a44bc1-f744-4bcd-80a8-18436cd8c658" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="738e1370-d641-9cc6-c8b5-1e4062322da4" executionId="720557ad-faa8-46e3-916f-e1132d3b2a03" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a0f24d52-1b47-09c7-7a53-0fe12f1b4f10" executionId="fdf6bc1a-5443-4c55-bc0d-43a389c915b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c1d7d85c-ed3d-7087-4664-c6ad643363af" executionId="2c97125a-792f-4886-90dd-b477ec1598d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="4" executed="4" passed="4" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.5)&#xD;
+[xUnit.net 00:00:00.76]   Discovering: PaymentInvoice.Domain.Tests&#xD;
+[xUnit.net 00:00:00.92]   Discovered:  PaymentInvoice.Domain.Tests&#xD;
+[xUnit.net 00:00:01.01]   Starting:    PaymentInvoice.Domain.Tests&#xD;
+[xUnit.net 00:00:01.31]   Finished:    PaymentInvoice.Domain.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

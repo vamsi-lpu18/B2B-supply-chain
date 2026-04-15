@@ -1,5 +1,6 @@
 ﻿using Order.Domain.Entities;
 using Order.Domain.Enums;
+using System.Reflection;
 
 namespace Order.Domain.Tests;
 
@@ -76,6 +77,20 @@ public sealed class OrderAggregateTests
     }
 
     [Fact]
+    public void RaiseReturn_UsesDeliveryTimeForWindow_NotPlacedTime()
+    {
+        var order = CreateOrder();
+        SetPlacedAtUtc(order, DateTime.UtcNow.AddDays(-10));
+        MoveToDelivered(order);
+
+        var ex = Record.Exception(() => order.RaiseReturn(order.DealerId, "Damaged package"));
+
+        Assert.Null(ex);
+        Assert.Equal(OrderStatus.ReturnRequested, order.Status);
+        Assert.NotNull(order.ReturnRequest);
+    }
+
+    [Fact]
     public void MarkCreditRejected_CancelsOrderAndSetsReason()
     {
         var order = CreateOrder();
@@ -100,5 +115,12 @@ public sealed class OrderAggregateTests
         order.TransitionTo(OrderStatus.ReadyForDispatch, changedByUserId, "System");
         order.TransitionTo(OrderStatus.InTransit, changedByUserId, "System");
         order.TransitionTo(OrderStatus.Delivered, changedByUserId, "System");
+    }
+
+    private static void SetPlacedAtUtc(OrderAggregate order, DateTime placedAtUtc)
+    {
+        var property = typeof(OrderAggregate).GetProperty("PlacedAtUtc", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        Assert.NotNull(property);
+        property!.SetValue(order, placedAtUtc);
     }
 }

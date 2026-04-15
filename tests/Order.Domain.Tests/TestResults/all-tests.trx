@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="26fe9a5f-ddc5-45cd-b0d3-8d9fecf0ae2a" name="Hey@DESKTOP-NFND817 2026-04-13 16:01:51" runUser="DESKTOP-NFND817\Hey" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-04-13T16:01:51.4234379+05:30" queuing="2026-04-13T16:01:51.4234386+05:30" start="2026-04-13T16:01:40.7810622+05:30" finish="2026-04-13T16:01:51.5841082+05:30" />
+  <TestSettings name="default" id="a4df6165-0fb6-40cf-97fc-c0d4b7195365">
+    <Deployment runDeploymentRoot="Hey_DESKTOP-NFND817_2026-04-13_16_01_51" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="c46d99d6-d856-448a-a15e-e0c5674fa549" testId="f80df9b8-10d4-9288-8aca-ccee3560991d" testName="Order.Domain.Tests.OrderAggregateTests.TransitionTo_AllowedTransition_UpdatesStatusAndHistory" computerName="DESKTOP-NFND817" duration="00:00:00.0049042" startTime="2026-04-13T16:01:51.3945293+05:30" endTime="2026-04-13T16:01:51.3948872+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c46d99d6-d856-448a-a15e-e0c5674fa549" />
+    <UnitTestResult executionId="3f857bc5-2283-4077-971c-989bc8131e44" testId="039258d9-d1b7-e8b6-70db-d16799094630" testName="Order.Domain.Tests.OrderAggregateTests.AddLine_RecalculatesTotalAmount" computerName="DESKTOP-NFND817" duration="00:00:00.0147777" startTime="2026-04-13T16:01:51.3956077+05:30" endTime="2026-04-13T16:01:51.3957832+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3f857bc5-2283-4077-971c-989bc8131e44" />
+    <UnitTestResult executionId="23e53cc6-759c-46e0-8d73-80e800d6ea4a" testId="2c032e38-c943-81c2-fc20-7947e6cf0578" testName="Order.Domain.Tests.OrderAggregateTests.Create_SetsPlacedStatusAndPaymentMode" computerName="DESKTOP-NFND817" duration="00:00:02.1411045" startTime="2026-04-13T16:01:49.2648331+05:30" endTime="2026-04-13T16:01:51.3468211+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23e53cc6-759c-46e0-8d73-80e800d6ea4a" />
+    <UnitTestResult executionId="b67496a1-f47d-4e97-9469-80b8e3734635" testId="d2d148e4-7bf3-4d8e-a5d0-89a64a1b4d40" testName="Order.Domain.Tests.OrderAggregateTests.RaiseReturn_WhenDeliveredWithinWindow_CreatesReturnRequest" computerName="DESKTOP-NFND817" duration="00:00:00.0097238" startTime="2026-04-13T16:01:51.3916956+05:30" endTime="2026-04-13T16:01:51.3928633+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b67496a1-f47d-4e97-9469-80b8e3734635" />
+    <UnitTestResult executionId="803bbf52-96fb-43bc-aaed-280ed16d124d" testId="ddd3e1cb-dfd4-87b5-3dbb-d6923bca966f" testName="Order.Domain.Tests.OrderAggregateTests.TransitionTo_InvalidTransition_ThrowsInvalidOperationException" computerName="DESKTOP-NFND817" duration="00:00:00.0072789" startTime="2026-04-13T16:01:51.3962377+05:30" endTime="2026-04-13T16:01:51.3964094+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="803bbf52-96fb-43bc-aaed-280ed16d124d" />
+    <UnitTestResult executionId="835fbc7a-cb3c-47d4-aed7-923b84997b56" testId="10dce44a-9df0-5056-ad53-fb85b06e22ee" testName="Order.Domain.Tests.OrderAggregateTests.MarkCreditRejected_CancelsOrderAndSetsReason" computerName="DESKTOP-NFND817" duration="00:00:00.0015437" startTime="2026-04-13T16:01:51.3968760+05:30" endTime="2026-04-13T16:01:51.3970186+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="835fbc7a-cb3c-47d4-aed7-923b84997b56" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Order.Domain.Tests.OrderAggregateTests.RaiseReturn_WhenDeliveredWithinWindow_CreatesReturnRequest" storage="c:\users\hey\desktop\demo\tests\order.domain.tests\bin\release\net10.0\order.domain.tests.dll" id="d2d148e4-7bf3-4d8e-a5d0-89a64a1b4d40">
+      <Execution id="b67496a1-f47d-4e97-9469-80b8e3734635" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Order.Domain.Tests\bin\Release\net10.0\Order.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Order.Domain.Tests.OrderAggregateTests" name="RaiseReturn_WhenDeliveredWithinWindow_CreatesReturnRequest" />
+    </UnitTest>
+    <UnitTest name="Order.Domain.Tests.OrderAggregateTests.TransitionTo_AllowedTransition_UpdatesStatusAndHistory" storage="c:\users\hey\desktop\demo\tests\order.domain.tests\bin\release\net10.0\order.domain.tests.dll" id="f80df9b8-10d4-9288-8aca-ccee3560991d">
+      <Execution id="c46d99d6-d856-448a-a15e-e0c5674fa549" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Order.Domain.Tests\bin\Release\net10.0\Order.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Order.Domain.Tests.OrderAggregateTests" name="TransitionTo_AllowedTransition_UpdatesStatusAndHistory" />
+    </UnitTest>
+    <UnitTest name="Order.Domain.Tests.OrderAggregateTests.Create_SetsPlacedStatusAndPaymentMode" storage="c:\users\hey\desktop\demo\tests\order.domain.tests\bin\release\net10.0\order.domain.tests.dll" id="2c032e38-c943-81c2-fc20-7947e6cf0578">
+      <Execution id="23e53cc6-759c-46e0-8d73-80e800d6ea4a" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Order.Domain.Tests\bin\Release\net10.0\Order.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Order.Domain.Tests.OrderAggregateTests" name="Create_SetsPlacedStatusAndPaymentMode" />
+    </UnitTest>
+    <UnitTest name="Order.Domain.Tests.OrderAggregateTests.AddLine_RecalculatesTotalAmount" storage="c:\users\hey\desktop\demo\tests\order.domain.tests\bin\release\net10.0\order.domain.tests.dll" id="039258d9-d1b7-e8b6-70db-d16799094630">
+      <Execution id="3f857bc5-2283-4077-971c-989bc8131e44" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Order.Domain.Tests\bin\Release\net10.0\Order.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Order.Domain.Tests.OrderAggregateTests" name="AddLine_RecalculatesTotalAmount" />
+    </UnitTest>
+    <UnitTest name="Order.Domain.Tests.OrderAggregateTests.TransitionTo_InvalidTransition_ThrowsInvalidOperationException" storage="c:\users\hey\desktop\demo\tests\order.domain.tests\bin\release\net10.0\order.domain.tests.dll" id="ddd3e1cb-dfd4-87b5-3dbb-d6923bca966f">
+      <Execution id="803bbf52-96fb-43bc-aaed-280ed16d124d" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Order.Domain.Tests\bin\Release\net10.0\Order.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Order.Domain.Tests.OrderAggregateTests" name="TransitionTo_InvalidTransition_ThrowsInvalidOperationException" />
+    </UnitTest>
+    <UnitTest name="Order.Domain.Tests.OrderAggregateTests.MarkCreditRejected_CancelsOrderAndSetsReason" storage="c:\users\hey\desktop\demo\tests\order.domain.tests\bin\release\net10.0\order.domain.tests.dll" id="10dce44a-9df0-5056-ad53-fb85b06e22ee">
+      <Execution id="835fbc7a-cb3c-47d4-aed7-923b84997b56" />
+      <TestMethod codeBase="C:\Users\Hey\Desktop\demo\tests\Order.Domain.Tests\bin\Release\net10.0\Order.Domain.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="Order.Domain.Tests.OrderAggregateTests" name="MarkCreditRejected_CancelsOrderAndSetsReason" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="f80df9b8-10d4-9288-8aca-ccee3560991d" executionId="c46d99d6-d856-448a-a15e-e0c5674fa549" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="039258d9-d1b7-e8b6-70db-d16799094630" executionId="3f857bc5-2283-4077-971c-989bc8131e44" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2c032e38-c943-81c2-fc20-7947e6cf0578" executionId="23e53cc6-759c-46e0-8d73-80e800d6ea4a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d2d148e4-7bf3-4d8e-a5d0-89a64a1b4d40" executionId="b67496a1-f47d-4e97-9469-80b8e3734635" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ddd3e1cb-dfd4-87b5-3dbb-d6923bca966f" executionId="803bbf52-96fb-43bc-aaed-280ed16d124d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="10dce44a-9df0-5056-ad53-fb85b06e22ee" executionId="835fbc7a-cb3c-47d4-aed7-923b84997b56" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="6" executed="6" passed="6" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.5)&#xD;
+[xUnit.net 00:00:02.31]   Discovering: Order.Domain.Tests&#xD;
+[xUnit.net 00:00:02.44]   Discovered:  Order.Domain.Tests&#xD;
+[xUnit.net 00:00:02.52]   Starting:    Order.Domain.Tests&#xD;
+[xUnit.net 00:00:04.89]   Finished:    Order.Domain.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

@@ -43,29 +43,23 @@ dotnet run --project services/Notification/Notification.API
 dotnet run --project gateway/OcelotGateway
 ```
 
-## Logistics AI (simple real provider)
+## Logistics chatbot (built-in)
 
-The LogisticsTracking service supports a minimal real AI integration with Gemini.
+The LogisticsTracking service now exposes a built-in deterministic chatbot for operations insights.
 
-1. Create a Gemini API key from Google AI Studio.
-2. Set the key in your shell before starting LogisticsTracking:
+- No external provider setup is required.
+- No API key is required.
+- Endpoint: `POST /api/logistics/shipments/chatbot/ask`
 
-```powershell
-$env:AI_PROVIDER_API_KEY = "your-gemini-api-key"
-```
-
-3. Enable AI for LogisticsTracking in `services/LogisticsTracking/LogisticsTracking.API/appsettings.Development.json`:
+Example request:
 
 ```json
-"Ai": {
-	"Provider": "gemini",
-	"Enabled": true
+{
+  "message": "Show delayed shipments and retry worklist"
 }
 ```
 
-4. Start the LogisticsTracking API.
-
-When enabled, `POST /api/logistics/shipments/{shipmentId}/ai-recommendation` first tries Gemini and automatically falls back to the built-in deterministic recommendation logic if the AI call fails.
+The chatbot answers from shipment and ops-state data that is already available in the platform, scoped by the caller role.
 
 Gateway notes:
 
