@@ -1,0 +1,49 @@
+## .NET build outputs
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+## Logs
+logs/
+*.log
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+## Visual Studio
+.vs/
+
+## NuGet
+**/packages/*
+*.nupkg
+**/[Pp]ackages/
+
+## Node
+node_modules/
+npm-debug.log*
+
+## OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+## Artifacts (build outputs)
+artifacts/
+
+## Temp files
+*.tmp
+*.bak
+*.swp
