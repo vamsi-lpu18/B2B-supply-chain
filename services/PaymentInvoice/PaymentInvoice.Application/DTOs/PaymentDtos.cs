@@ -10,6 +10,12 @@ public sealed record SeedDealerAccountRequest(decimal? InitialCreditLimit);
 
 public sealed record SettleOutstandingRequest(decimal Amount, string? ReferenceNo);
 
+public sealed record AddOutstandingRequest(
+    Guid OrderId,
+    PaymentMode PaymentMode,
+    decimal Amount,
+    string? ReferenceNo);
+
 public sealed record InvoiceLineInput(
     Guid ProductId,
     string ProductName,

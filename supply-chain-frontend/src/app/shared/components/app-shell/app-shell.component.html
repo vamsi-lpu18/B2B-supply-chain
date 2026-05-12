@@ -1,0 +1,231 @@
+
+    <div class="shell" [class.sidebar-collapsed]="sidebarCollapsed()">
+      @if (loading.isLoading()) { <div class="loading-bar"></div> }
+
+      <!-- ── Mobile overlay ── -->
+      @if (mobileMenuOpen()) {
+        <div class="mobile-overlay" (click)="closeMobileMenu()"></div>
+      }
+
+      <!-- ── Sidebar ── -->
+      <aside class="sidebar" [class.mobile-open]="mobileMenuOpen()">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="20" height="20">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </div>
+          <div class="sidebar-brand" *ngIf="!sidebarCollapsed()">
+            <span class="sidebar-brand-name">SupplyChain</span>
+            <span class="sidebar-brand-sub">Platform</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Primary navigation">
+          @for (group of visibleGroups(); track group.label) {
+            <div class="nav-group">
+              <button
+                *ngIf="!sidebarCollapsed()"
+                type="button"
+                class="nav-group-toggle"
+                [attr.aria-expanded]="isGroupExpanded(group.label)"
+                (click)="toggleGroup(group.label)">
+                <span class="nav-group-label">{{ group.label }}</span>
+                <svg class="nav-group-caret" [class.rotated]="isGroupExpanded(group.label)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+
+              <div class="nav-group-items" [class.expanded]="sidebarCollapsed() || isGroupExpanded(group.label)">
+                @for (item of group.items; track item.route) {
+                  <a [routerLink]="item.route" routerLinkActive="active"
+                     class="nav-item" [title]="item.label"
+                     (click)="closeMobileMenu()">
+                    <span class="nav-icon" [innerHTML]="item.icon"></span>
+                    <span class="nav-label" *ngIf="!sidebarCollapsed()">{{ item.label }}</span>
+                    @if (item.badge && item.badge() > 0 && !sidebarCollapsed()) {
+                      <span class="nav-badge">{{ item.badge() }}</span>
+                    }
+                  </a>
+                }
+              </div>
+            </div>
+          }
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-profile" (click)="$event.stopPropagation(); toggleProfileMenu()">
+            <div class="sidebar-avatar">{{ userInitial() }}</div>
+            <div class="sidebar-profile-info" *ngIf="!sidebarCollapsed()">
+              <span class="sidebar-profile-name">{{ firstName() }}</span>
+              <span class="sidebar-profile-role">{{ authStore.role() }}</span>
+            </div>
+            <svg *ngIf="!sidebarCollapsed()" class="sidebar-profile-caret" [class.rotated]="profileMenuOpen()" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+
+          @if (profileMenuOpen()) {
+            <div class="profile-menu" role="menu" aria-label="Profile menu">
+              <a routerLink="/profile" class="profile-menu-item" role="menuitem" (click)="closeProfileMenu()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                View Profile
+              </a>
+              <button type="button" class="profile-menu-item danger" role="menuitem" (click)="onLogoutFromMenu()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Logout
+              </button>
+            </div>
+          }
+
+          <button class="sidebar-collapse-btn" (click)="toggleSidebar()" *ngIf="!isMobile()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              @if (sidebarCollapsed()) {
+                <polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/>
+              } @else {
+                <polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/>
+              }
+            </svg>
+            <span *ngIf="!sidebarCollapsed()">Collapse</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- ── Main ── -->
+      <div class="main-area">
+        <header class="topbar">
+          <button class="topbar-hamburger" (click)="toggleMobileMenu()" *ngIf="isMobile()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+
+          <div class="topbar-breadcrumb">
+            <span class="topbar-section">{{ currentSectionLabel() }}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="topbar-page">{{ currentRouteLabel() }}</span>
+          </div>
+
+          <div class="topbar-search">
+            <svg class="topbar-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Search orders, products..." readonly>
+            <kbd class="topbar-kbd">⌘K</kbd>
+          </div>
+
+          <div class="topbar-right">
+            <span class="topbar-chip">{{ todayLabel() }}</span>
+
+            @if (authStore.hasRole(UserRole.Dealer)) {
+              <a routerLink="/cart" class="topbar-icon-btn" title="Cart">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                @if (cartStore.itemCount()>0) {
+                  <span class="topbar-badge">{{ cartStore.itemCount() }}</span>
+                }
+              </a>
+            }
+
+            <a routerLink="/notifications" class="topbar-icon-btn" title="Notifications">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+            </a>
+          </div>
+        </header>
+
+        <main class="main-content"><router-outlet /></main>
+      </div>
+
+      @if (shouldShowOpsChatbot()) {
+        <button
+          type="button"
+          class="ops-chat-fab"
+          (click)="toggleOpsChatbot()"
+          [attr.aria-expanded]="opsChatOpen()"
+          [attr.aria-label]="opsChatOpen() ? 'Close chatbot' : 'Open chatbot'">
+          @if (opsChatOpen()) {
+            <span class="ops-chat-fab-icon" aria-hidden="true">×</span>
+          } @else {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M8 10h8" />
+              <path d="M8 14h5" />
+              <path d="M6 19l-1 3 4-2h9a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4z" />
+            </svg>
+          }
+        </button>
+
+        @if (opsChatOpen()) {
+          <section class="ops-chat-panel" role="dialog" aria-label="Operations chatbot">
+            <div class="ops-chat-head">
+              <div class="ops-chat-head-content">
+                <div class="ops-chat-title-row">
+                  <div class="ops-chat-title">Ops Concierge</div>
+                  <span class="ops-chat-status">
+                    <span class="ops-chat-status-dot" aria-hidden="true"></span>
+                    Live
+                  </span>
+                </div>
+                <div class="ops-chat-sub">Ask anything about shipment progress, delays, retries, and assignments.</div>
+              </div>
+              <button type="button" class="ops-chat-minimize" (click)="toggleOpsChatbot()" aria-label="Minimize chatbot">−</button>
+            </div>
+
+            <div class="ops-chat-body" #opsChatBody>
+              @for (msg of opsChatMessages(); track $index) {
+                <div class="ops-chat-msg" [class.ops-chat-msg-user]="msg.sender === 'user'" [class.ops-chat-msg-bot]="msg.sender === 'bot'">
+                  @if (msg.intent && msg.sender === 'bot') {
+                    <div class="ops-chat-intent">{{ msg.intent }}</div>
+                  }
+                  <div class="ops-chat-text">{{ msg.text }}</div>
+                  <div class="ops-chat-time">{{ formatOpsChatTime(msg.createdAtUtc) }}</div>
+                </div>
+              }
+
+              @if (opsChatLoading()) {
+                <div class="ops-chat-msg ops-chat-msg-bot ops-chat-msg-loading" aria-label="Thinking">
+                  <div class="ops-chat-typing" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              }
+            </div>
+
+            @if (opsChatSuggestedPrompts().length > 0) {
+              <div class="ops-chat-suggest">
+                @for (prompt of opsChatSuggestedPrompts(); track $index) {
+                  <button type="button" class="btn btn-ghost btn-sm ops-chat-chip" (click)="useOpsSuggestedPrompt(prompt)">{{ prompt }}</button>
+                }
+              </div>
+            }
+
+            <div class="ops-chat-input">
+              <input
+                class="form-control"
+                type="text"
+                maxlength="500"
+                [(ngModel)]="opsChatPrompt"
+                placeholder="Ask a logistics question"
+                (keyup.enter)="sendOpsChatbotMessage()">
+              <button type="button" class="btn btn-primary btn-sm ops-chat-send" (click)="sendOpsChatbotMessage()" [disabled]="opsChatLoading() || !opsChatPrompt.trim()">Ask</button>
+            </div>
+          </section>
+        }
+      }
+
+      <!-- ── Mobile bottom nav ── -->
+      @if (isMobile()) {
+        <nav class="mobile-nav">
+          @for (item of mobileNavItems(); track item.route) {
+            <a [routerLink]="item.route" routerLinkActive="active" class="mobile-nav-item">
+              <span class="mobile-nav-icon" [innerHTML]="item.icon"></span>
+              <span class="mobile-nav-label">{{ item.label }}</span>
+              @if (item.badge && item.badge() > 0) {
+                <span class="mobile-nav-badge">{{ item.badge() }}</span>
+              }
+            </a>
+          }
+        </nav>
+      }
+    </div>
+    <app-toast-container />
+  

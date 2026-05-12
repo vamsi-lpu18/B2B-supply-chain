@@ -22,13 +22,13 @@ public sealed class GetInvoiceQueryHandler(IPaymentInvoiceService service)
         => service.GetInvoiceAsync(request.InvoiceId, cancellationToken);
 }
 
-public sealed record GetDealerInvoicesQuery(Guid DealerId) : IRequest<IReadOnlyList<InvoiceDto>>;
+public sealed record GetDealerInvoicesQuery(Guid DealerId, bool AllowDemoSeed) : IRequest<IReadOnlyList<InvoiceDto>>;
 
 public sealed class GetDealerInvoicesQueryHandler(IPaymentInvoiceService service)
     : IRequestHandler<GetDealerInvoicesQuery, IReadOnlyList<InvoiceDto>>
 {
     public Task<IReadOnlyList<InvoiceDto>> Handle(GetDealerInvoicesQuery request, CancellationToken cancellationToken)
-        => service.GetDealerInvoicesAsync(request.DealerId, cancellationToken);
+        => service.GetDealerInvoicesAsync(request.DealerId, request.AllowDemoSeed, cancellationToken);
 }
 
 public sealed record GetInvoicePdfPathQuery(Guid InvoiceId) : IRequest<string?>;

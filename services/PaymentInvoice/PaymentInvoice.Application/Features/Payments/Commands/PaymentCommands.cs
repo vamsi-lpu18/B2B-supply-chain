@@ -43,6 +43,16 @@ public sealed class SettleOutstandingCommandHandler(IPaymentInvoiceService servi
         => service.SettleOutstandingAsync(request.DealerId, request.Amount, request.ReferenceNo, cancellationToken);
 }
 
+public sealed record AddOutstandingCommand(Guid DealerId, AddOutstandingRequest Request)
+    : IRequest<DealerCreditAccountDto?>;
+
+public sealed class AddOutstandingCommandHandler(IPaymentInvoiceService service)
+    : IRequestHandler<AddOutstandingCommand, DealerCreditAccountDto?>
+{
+    public Task<DealerCreditAccountDto?> Handle(AddOutstandingCommand request, CancellationToken cancellationToken)
+        => service.AddOutstandingAsync(request.DealerId, request.Request, cancellationToken);
+}
+
 public sealed record CreateGatewayOrderCommand(Guid DealerId, CreateGatewayOrderRequest Request)
     : IRequest<GatewayOrderDto>;
 

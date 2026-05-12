@@ -1,6 +1,7 @@
 using Hangfire;
 using Hangfire.SqlServer;
 using PaymentInvoice.Application;
+using PaymentInvoice.Application.Options;
 using PaymentInvoice.Infrastructure;
 using PaymentInvoice.Infrastructure.Persistence;
 using FluentValidation;
@@ -77,6 +78,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
+builder.Services.Configure<DemoDataOptions>(builder.Configuration.GetSection("DemoData"));
 builder.Services.AddPaymentInvoiceApplication();
 builder.Services.AddPaymentInvoiceInfrastructure(builder.Configuration);
 

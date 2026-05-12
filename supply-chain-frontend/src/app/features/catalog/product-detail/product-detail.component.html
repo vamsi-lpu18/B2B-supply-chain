@@ -1,0 +1,196 @@
+
+    <div class="page-content feature-catalog">
+      <div class="page-header">
+        <a routerLink="/products" class="btn btn-ghost">← Products</a>
+        @if (isAdmin()) {
+          <div class="d-flex gap-2">
+            <a [routerLink]="['/products', id(), 'edit']" class="btn btn-secondary">Edit</a>
+            <button class="btn btn-danger" (click)="deactivate()" [disabled]="!product()?.isActive">Deactivate</button>
+          </div>
+        }
+      </div>
+
+      @if (loading()) {
+        <div class="skeleton" style="height:400px;border-radius:8px"></div>
+      } @else if (product()) {
+        <div class="product-detail-layout">
+          <div class="product-image-section">
+            <img [src]="getProductImageUrl(product()!)"
+                 [alt]="product()!.name"
+                 class="product-detail-img"
+                 (error)="onProductImageError($event)">
+          </div>
+
+          <div class="product-info-section">
+            <div class="d-flex gap-2 align-center mb-2">
+              @if (!product()!.isActive) { <span class="badge badge-neutral">Inactive</span> }
+              @if (product()!.availableStock === 0) { <span class="badge badge-error">Out of Stock</span> }
+              @if (product()!.availableStock > 0 && product()!.availableStock < 10) { <span class="badge badge-warning">Low Stock</span> }
+            </div>
+
+            <h1 class="product-title">{{ product()!.name }}</h1>
+            <p class="text-secondary text-sm mb-4">SKU: {{ product()!.sku }}</p>
+            <p class="mb-4">{{ product()!.description }}</p>
+
+            <div class="price-section mb-4">
+              <span class="price-value">{{ product()!.unitPrice | currency:'INR':'symbol':'1.2-2' }}</span>
+              <span class="text-secondary text-sm ml-2">per unit</span>
+            </div>
+
+            <div class="stock-grid mb-4">
+              <div class="stock-item">
+                <span class="stock-label">Available</span>
+                <span class="stock-value" [class.text-error]="product()!.availableStock < 10">{{ product()!.availableStock }}</span>
+              </div>
+              <div class="stock-item">
+                <span class="stock-label">Reserved</span>
+                <span class="stock-value">{{ product()!.reservedStock }}</span>
+              </div>
+              <div class="stock-item">
+                <span class="stock-label">Total</span>
+                <span class="stock-value">{{ product()!.totalStock }}</span>
+              </div>
+              <div class="stock-item">
+                <span class="stock-label">Min Order</span>
+                <span class="stock-value fw-600 text-primary">{{ product()!.minOrderQty }}</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-secondary mb-4">Updated {{ relativeTime(product()!.updatedAtUtc) }}</p>
+
+            @if (isDealer()) {
+              <div class="add-to-cart">
+                <div class="text-sm text-secondary mb-2">Order Quantity</div>
+                <div class="d-flex gap-3 align-center flex-wrap">
+                  <div class="qty-control">
+                    <button type="button" class="qty-btn" (click)="stepQty(-1)" [disabled]="!canPurchase()">-</button>
+                    <input type="number"
+                           class="form-control qty-input"
+                           [ngModel]="qty"
+                           (ngModelChange)="onQtyInput($event)"
+                           (blur)="onQtyBlur()"
+                           [min]="product()!.minOrderQty"
+                           [max]="maxPurchasable()"
+                           [step]="product()!.minOrderQty">
+                    <button type="button" class="qty-btn" (click)="stepQty(1)" [disabled]="!canPurchase()">+</button>
+                  </div>
+
+                  <button type="button" class="btn btn-secondary btn-sm" (click)="setQtyToMin()" [disabled]="!canPurchase()">
+                    Min {{ product()!.minOrderQty }}
+                  </button>
+                  <button type="button" class="btn btn-secondary btn-sm" (click)="setQtyToMax()" [disabled]="!canPurchase() || maxPurchasable() === 0">
+                    Max {{ maxPurchasable() }}
+                  </button>
+                </div>
+
+                <div class="text-xs text-secondary mt-2">
+                  Step {{ product()!.minOrderQty }} · Available {{ product()!.availableStock }}
+                </div>
+
+                <button class="btn btn-primary btn-lg"
+                        [disabled]="!canPurchase()"
+                        (click)="addToCart()">
+                  🛒 Add to Cart
+                </button>
+              </div>
+            }
+
+            @if (canRestock()) {
+              <button class="btn btn-secondary mt-4" (click)="showRestockDialog.set(true)">📦 Restock</button>
+            }
+          </div>
+        </div>
+
+        <div class="card mt-4">
+          <div class="d-flex justify-between align-center mb-4 flex-wrap gap-2">
+            <h2>Reviews</h2>
+            <span class="text-sm text-secondary">Average {{ averageRating() }} / 5 · {{ reviews().length }} review(s)</span>
+          </div>
+
+          @if (isDealer()) {
+            <div class="review-form mb-4">
+              <h3 class="mb-2">Add Review</h3>
+              <div class="d-flex gap-2 mb-2 flex-wrap">
+                <select class="form-control" style="max-width:140px" [(ngModel)]="reviewRating">
+                  <option [ngValue]="5">5 - Excellent</option>
+                  <option [ngValue]="4">4 - Good</option>
+                  <option [ngValue]="3">3 - Average</option>
+                  <option [ngValue]="2">2 - Poor</option>
+                  <option [ngValue]="1">1 - Bad</option>
+                </select>
+                <input class="form-control" style="min-width:220px" maxlength="120" placeholder="Review title" [(ngModel)]="reviewTitle">
+              </div>
+              <textarea class="form-control" rows="3" maxlength="1500" placeholder="Write your review" [(ngModel)]="reviewComment"></textarea>
+              <div class="mt-2">
+                <button class="btn btn-primary" (click)="submitReview()" [disabled]="!reviewTitle.trim() || !reviewComment.trim() || actionLoading()">Submit Review</button>
+              </div>
+            </div>
+          }
+
+          @if (reviews().length === 0) {
+            <p class="text-sm text-secondary">No reviews yet.</p>
+          } @else {
+            <div class="review-list">
+              @for (r of reviews(); track r.reviewId) {
+                <div class="review-item">
+                  <div class="d-flex justify-between align-center flex-wrap gap-2">
+                    <div>
+                      <span class="fw-700">{{ r.title }}</span>
+                      <span class="text-sm text-secondary ml-2">{{ stars(r.rating) }} · {{ r.createdAtUtc | date:'dd MMM yyyy' }}</span>
+                    </div>
+                    @if (r.isApproved) { <span class="badge badge-success">Approved</span> }
+                    @if (r.isRejected) { <span class="badge badge-error">Rejected</span> }
+                    @if (!r.isApproved && !r.isRejected) { <span class="badge badge-warning">Pending Moderation</span> }
+                  </div>
+                  <p class="text-sm mt-2">{{ r.comment }}</p>
+
+                  @if (isAdmin() && !r.isApproved && !r.isRejected) {
+                    <div class="d-flex gap-2 mt-2">
+                      <button class="btn btn-primary btn-sm" (click)="approveReview(r.reviewId)" [disabled]="actionLoading()">Approve</button>
+                      <button class="btn btn-danger btn-sm" (click)="rejectReview(r.reviewId)" [disabled]="actionLoading()">Reject</button>
+                    </div>
+                  }
+
+                  @if (r.moderationNote) {
+                    <p class="text-xs text-secondary mt-2">Moderation note: {{ r.moderationNote }}</p>
+                  }
+                </div>
+              }
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="empty-state">
+          <div class="empty-icon">❌</div>
+          <div class="empty-title">Product not found</div>
+          <a routerLink="/products" class="btn btn-primary mt-4">Back to Products</a>
+        </div>
+      }
+
+      <!-- Restock Dialog -->
+      @if (showRestockDialog()) {
+        <div class="modal-backdrop" (click)="showRestockDialog.set(false)">
+          <div class="modal" (click)="$event.stopPropagation()">
+            <div class="modal-header">
+              <h2>Restock Product</h2>
+              <button class="btn btn-ghost btn-icon" (click)="showRestockDialog.set(false)">✕</button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Quantity *</label>
+                <input type="number" class="form-control" [(ngModel)]="restockQty" min="1">
+              </div>
+              <div class="form-group">
+                <label>Reference ID *</label>
+                <input type="text" class="form-control" [(ngModel)]="restockRef" placeholder="PO-12345">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" (click)="showRestockDialog.set(false)">Cancel</button>
+              <button class="btn btn-primary" (click)="restock()" [disabled]="restockQty < 1 || !restockRef">Restock</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  

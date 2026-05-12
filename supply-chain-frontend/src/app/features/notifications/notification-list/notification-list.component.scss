@@ -1,0 +1,49 @@
+
+    .notif-list { display: flex; flex-direction: column; gap: 12px; }
+    .notif-item { padding: 16px; }
+    .notif-item-unread {
+      border-color: #bfdbfe;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.12);
+    }
+    .notif-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .notif-title-wrap { display: flex; align-items: center; gap: 8px; }
+    .notif-unread-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+      flex-shrink: 0;
+    }
+    .notif-details {
+      border: 1px solid #dbeafe;
+      border-radius: 10px;
+      background: #f8fbff;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .notif-detail-row {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 8px;
+      align-items: baseline;
+      font-size: 13px;
+    }
+    .notif-detail-label {
+      color: #334155;
+      font-weight: 600;
+    }
+    .notif-detail-value {
+      color: #0f172a;
+      word-break: break-word;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    @media (max-width: 768px) {
+      .notif-detail-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+    }
+  

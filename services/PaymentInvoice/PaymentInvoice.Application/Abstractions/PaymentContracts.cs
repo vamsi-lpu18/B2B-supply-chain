@@ -11,7 +11,8 @@ public interface IPaymentInvoiceService
     Task<DealerCreditAccountDto?> UpdateCreditLimitAsync(Guid dealerId, decimal creditLimit, CancellationToken cancellationToken);
     Task<InvoiceDto> GenerateInvoiceAsync(GenerateInvoiceRequest request, CancellationToken cancellationToken);
     Task<InvoiceDto?> GetInvoiceAsync(Guid invoiceId, CancellationToken cancellationToken);
-    Task<IReadOnlyList<InvoiceDto>> GetDealerInvoicesAsync(Guid dealerId, CancellationToken cancellationToken);
+    Task<IReadOnlyList<InvoiceDto>> GetDealerInvoicesAsync(Guid dealerId, bool allowDemoSeed, CancellationToken cancellationToken);
+    Task<DealerCreditAccountDto?> AddOutstandingAsync(Guid dealerId, AddOutstandingRequest request, CancellationToken cancellationToken);
     Task<DealerCreditAccountDto?> SettleOutstandingAsync(Guid dealerId, decimal amount, string? referenceNo, CancellationToken cancellationToken);
     Task<string?> GetInvoicePdfPathAsync(Guid invoiceId, CancellationToken cancellationToken);
     Task<GatewayOrderDto> CreateGatewayOrderAsync(Guid dealerId, CreateGatewayOrderRequest request, CancellationToken cancellationToken);
@@ -37,6 +38,7 @@ public interface IPaymentRepository
     Task AddInvoiceWorkflowActivityAsync(InvoiceWorkflowActivity activity, CancellationToken cancellationToken);
     Task AddInvoiceAsync(Invoice invoice, CancellationToken cancellationToken);
     Task AddPaymentRecordAsync(PaymentRecord record, CancellationToken cancellationToken);
+    Task<bool> HasPaymentRecordForOrderAsync(Guid orderId, CancellationToken cancellationToken);
     Task AddOutboxMessageAsync(string eventType, object payload, CancellationToken cancellationToken);
     Task SaveChangesAsync(CancellationToken cancellationToken);
 }

@@ -1,0 +1,119 @@
+
+    .cart-layout { 
+      display: grid; 
+      grid-template-columns: 1fr 360px; 
+      gap: 24px; 
+      align-items: start; 
+    }
+    .cart-items { display: flex; flex-direction: column; gap: 14px; }
+    .cart-item { 
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) minmax(190px, 240px) 130px 36px;
+      gap: 12px 18px;
+      align-items: center;
+      padding: 20px; 
+      transition: box-shadow var(--t-base) var(--ease), border-color var(--t-base) var(--ease);
+    }
+    .cart-item:hover {
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.10);
+      border-color: #c8d7e8;
+    }
+    .cart-item-info { min-width: 0; }
+    .cart-item-name { 
+      font-weight: 600; 
+      font-size: .9375rem; 
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .cart-item-qty { 
+      display: flex; 
+      align-items: center; 
+      gap: 10px; 
+      background: var(--gray-50);
+      padding: 4px 8px;
+      border-radius: var(--r-lg);
+    }
+    .cart-item-qty-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .qty-input {
+      width: 72px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 8px;
+      text-align: center;
+      font-weight: 700;
+      background: #fff;
+    }
+    .qty-meta {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .qty-display { 
+      min-width: 36px; 
+      text-align: center; 
+      font-weight: 700; 
+      font-size: .9375rem;
+      color: var(--text-primary);
+    }
+    .cart-item-total { 
+      min-width: 110px; 
+      text-align: right; 
+      font-size: 1.0625rem;
+      color: var(--brand-700);
+      justify-self: end;
+    }
+    .cart-note-wrap {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 8px;
+    }
+    .cart-note-wrap .form-control {
+      width: 100%;
+    }
+    .cart-item .btn-icon {
+      justify-self: end;
+    }
+    .cart-summary {
+      position: sticky;
+      top: 88px;
+      padding: 24px;
+    }
+    .cart-summary h2 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+    .summary-row { 
+      display: flex; 
+      justify-content: space-between; 
+      margin-bottom: 10px; 
+      font-size: .875rem;
+      color: var(--text-secondary);
+    }
+    .summary-divider { 
+      border-top: 1px solid var(--border); 
+      margin: 16px 0; 
+    }
+    .w-full { width: 100%; justify-content: center; }
+    @media (max-width: 768px) { 
+      .cart-layout { grid-template-columns: 1fr; }
+      .cart-summary { position: static; }
+      .cart-item {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .cart-item-qty-wrap { align-items: flex-start; }
+      .cart-item-total { justify-self: start; text-align: left; }
+      .cart-item .btn-icon { justify-self: start; }
+    }
+  

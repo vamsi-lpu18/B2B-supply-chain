@@ -1,6 +1,8 @@
 using FluentValidation;
+using Microsoft.Extensions.Options;
 using PaymentInvoice.Application.Abstractions;
 using PaymentInvoice.Application.DTOs;
+using PaymentInvoice.Application.Options;
 using PaymentInvoice.Domain.Entities;
 using PaymentInvoice.Domain.Enums;
 using System.Security.Cryptography;
@@ -15,10 +17,13 @@ public sealed class PaymentInvoiceService(
     IValidator<UpdateCreditLimitRequest> updateLimitValidator,
     IValidator<GenerateInvoiceRequest> generateInvoiceValidator,
     IValidator<SettleOutstandingRequest> settleOutstandingValidator,
+    IValidator<AddOutstandingRequest> addOutstandingValidator,
     IValidator<CreateGatewayOrderRequest> createGatewayOrderValidator,
-    IValidator<VerifyGatewayPaymentRequest> verifyGatewayPaymentValidator)
+    IValidator<VerifyGatewayPaymentRequest> verifyGatewayPaymentValidator,
+    IOptions<DemoDataOptions> demoDataOptions)
     : IPaymentInvoiceService
 {
+    private readonly DemoDataOptions _demoDataOptions = demoDataOptions.Value;
     public async Task<DealerCreditAccountDto> EnsureDealerAccountAsync(Guid dealerId, decimal? initialLimit, CancellationToken cancellationToken)
     {
         var account = await paymentRepository.GetDealerAccountAsync(dealerId, cancellationToken);
@@ -105,12 +110,16 @@ public sealed class PaymentInvoiceService(
             await paymentRepository.AddDealerAccountAsync(account, cancellationToken);
         }
 
-        account.AddOutstanding(invoice.GrandTotal);
+        var hasPaymentRecord = await paymentRepository.HasPaymentRecordForOrderAsync(request.OrderId, cancellationToken);
+        if (!hasPaymentRecord)
+        {
+            account.AddOutstanding(invoice.GrandTotal);
+            await paymentRepository.AddPaymentRecordAsync(
+                PaymentRecord.Create(request.OrderId, request.DealerId, request.PaymentMode, invoice.GrandTotal, null),
+                cancellationToken);
+        }
 
         await paymentRepository.AddInvoiceAsync(invoice, cancellationToken);
-        await paymentRepository.AddPaymentRecordAsync(
-            PaymentRecord.Create(request.OrderId, request.DealerId, request.PaymentMode, invoice.GrandTotal, null),
-            cancellationToken);
 
         await paymentRepository.AddOutboxMessageAsync("InvoiceGenerated", new
         {
@@ -134,16 +143,49 @@ public sealed class PaymentInvoiceService(
         return invoice is null ? null : MapInvoice(invoice);
     }
 
-    public async Task<IReadOnlyList<InvoiceDto>> GetDealerInvoicesAsync(Guid dealerId, CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<InvoiceDto>> GetDealerInvoicesAsync(Guid dealerId, bool allowDemoSeed, CancellationToken cancellationToken)
     {
         var invoices = await paymentRepository.GetDealerInvoicesAsync(dealerId, cancellationToken);
-        if (invoices.Count == 0)
+        if (invoices.Count == 0 && allowDemoSeed && _demoDataOptions.SeedInvoices)
         {
             await SeedDemoInvoicesAsync(dealerId, cancellationToken);
             invoices = await paymentRepository.GetDealerInvoicesAsync(dealerId, cancellationToken);
         }
 
         return invoices.Select(MapInvoice).ToList();
+    }
+
+    public async Task<DealerCreditAccountDto?> AddOutstandingAsync(Guid dealerId, AddOutstandingRequest request, CancellationToken cancellationToken)
+    {
+        await addOutstandingValidator.ValidateAndThrowAsync(request, cancellationToken);
+
+        var account = await paymentRepository.GetDealerAccountAsync(dealerId, cancellationToken);
+        var accountCreated = false;
+        if (account is null)
+        {
+            account = DealerCreditAccount.Create(dealerId);
+            await paymentRepository.AddDealerAccountAsync(account, cancellationToken);
+            accountCreated = true;
+        }
+
+        var alreadyRecorded = await paymentRepository.HasPaymentRecordForOrderAsync(request.OrderId, cancellationToken);
+        if (alreadyRecorded)
+        {
+            if (accountCreated)
+            {
+                await paymentRepository.SaveChangesAsync(cancellationToken);
+            }
+
+            return MapAccount(account);
+        }
+
+        account.AddOutstanding(request.Amount);
+        await paymentRepository.AddPaymentRecordAsync(
+            PaymentRecord.Create(request.OrderId, dealerId, request.PaymentMode, request.Amount, request.ReferenceNo),
+            cancellationToken);
+
+        await paymentRepository.SaveChangesAsync(cancellationToken);
+        return MapAccount(account);
     }
 
     public async Task<DealerCreditAccountDto?> SettleOutstandingAsync(Guid dealerId, decimal amount, string? referenceNo, CancellationToken cancellationToken)

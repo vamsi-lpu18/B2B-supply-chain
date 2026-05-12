@@ -5,17 +5,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-pagination',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    @if (totalPages() > 1) {
-      <div class="pagination">
-        <button [disabled]="currentPage() === 1" (click)="go(currentPage() - 1)">‹</button>
-        @for (p of pages(); track p) {
-          <button [class.active]="p === currentPage()" (click)="go(p)">{{ p }}</button>
-        }
-        <button [disabled]="currentPage() === totalPages()" (click)="go(currentPage() + 1)">›</button>
-      </div>
-    }
-  `
+  templateUrl: './pagination.component.html'
 })
 export class PaginationComponent {
   readonly currentPage = input.required<number>();

@@ -138,6 +138,22 @@ public sealed class PaymentController(ISender sender, IConfiguration configurati
         return updated is null ? NotFound() : Ok(updated);
     }
 
+    [HttpPost("internal/dealers/{dealerId:guid}/outstanding")]
+    [AllowAnonymous]
+    [ProducesResponseType(typeof(DealerCreditAccountDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> AddOutstandingInternal(Guid dealerId, [FromBody] AddOutstandingRequest request, CancellationToken cancellationToken)
+    {
+        if (!IsAuthorizedInternalCall())
+        {
+            return Unauthorized(new { message = "Invalid internal API key." });
+        }
+
+        var updated = await sender.Send(new AddOutstandingCommand(dealerId, request), cancellationToken);
+        return updated is null ? NotFound() : Ok(updated);
+    }
+
     [HttpPost("invoices")]
     [Authorize(Roles = "Admin")]
     [ProducesResponseType(typeof(InvoiceDto), StatusCodes.Status201Created)]
@@ -168,7 +184,8 @@ public sealed class PaymentController(ISender sender, IConfiguration configurati
             return scopeResult;
         }
 
-        var invoices = await sender.Send(new GetDealerInvoicesQuery(dealerId), cancellationToken);
+        var allowDemoSeed = ShouldSeedDemoInvoices();
+        var invoices = await sender.Send(new GetDealerInvoicesQuery(dealerId, allowDemoSeed), cancellationToken);
         return Ok(invoices);
     }
 
@@ -261,6 +278,23 @@ public sealed class PaymentController(ISender sender, IConfiguration configurati
         }
 
         return string.Equals(providedKey.ToString(), expectedKey, StringComparison.Ordinal);
+    }
+
+    private bool ShouldSeedDemoInvoices()
+    {
+        if (!User.IsInRole("Dealer"))
+        {
+            return false;
+        }
+
+        var email = User.FindFirst(JwtRegisteredClaimNames.Email)?.Value;
+        if (string.IsNullOrWhiteSpace(email))
+        {
+            return false;
+        }
+
+        var demoDomain = configuration["DemoData:DealerEmailDomain"] ?? "supplychain.local";
+        return email.EndsWith($"@{demoDomain}", StringComparison.OrdinalIgnoreCase);
     }
 
     private IActionResult? EnsureDealerScope(Guid dealerId)

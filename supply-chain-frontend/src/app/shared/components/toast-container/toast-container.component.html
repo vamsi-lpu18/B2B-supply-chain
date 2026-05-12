@@ -1,0 +1,14 @@
+
+    <div class="toast-container">
+      @for (toast of toastService.toasts(); track toast.id) {
+        <div class="toast toast-{{ toast.type }}">
+          <div class="toast-icon-wrap toast-icon-{{ toast.type }}">{{ icon(toast.type) }}</div>
+          <div class="toast-body">
+            <div class="toast-title">{{ title(toast.type) }}</div>
+            <div class="toast-msg">{{ toast.message }}</div>
+          </div>
+          <button class="toast-close" (click)="toastService.dismiss(toast.id)">✕</button>
+        </div>
+      }
+    </div>
+  

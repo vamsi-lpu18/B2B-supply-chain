@@ -1,0 +1,179 @@
+
+    <div class="page-content feature-payments">
+      <div class="page-header">
+        <h1>Invoices</h1>
+        <button class="btn btn-secondary btn-sm" (click)="exportCsv()" [disabled]="invoices().length === 0">Export CSV</button>
+      </div>
+
+      @if (isAdmin()) {
+        <div class="d-flex gap-2 mb-4 flex-wrap">
+          <input type="text"
+                 class="form-control"
+                 style="min-width:320px"
+                 placeholder="Enter dealer ID to view invoices"
+                 [(ngModel)]="dealerIdInput">
+          <button class="btn btn-primary btn-sm" (click)="loadForDealer()">Load</button>
+        </div>
+      }
+
+      <div class="d-flex gap-3 mb-6 flex-wrap">
+        <input type="search"
+               class="form-control"
+               style="min-width:220px"
+               placeholder="Search invoice/order"
+               [(ngModel)]="searchQuery"
+               (ngModelChange)="onFilterChange()">
+
+        <select class="form-control" style="width:160px" [(ngModel)]="gstFilter" (ngModelChange)="onFilterChange()">
+          <option value="all">All GST</option>
+          <option value="IGST">IGST</option>
+          <option value="CGST_SGST">CGST/SGST</option>
+        </select>
+
+        <input type="date" class="form-control" style="width:170px" [(ngModel)]="fromDate" (ngModelChange)="onFilterChange()">
+        <input type="date" class="form-control" style="width:170px" [(ngModel)]="toDate" (ngModelChange)="onFilterChange()">
+
+        <input type="number" class="form-control" style="width:160px" placeholder="Min total" [(ngModel)]="minAmount" (ngModelChange)="onFilterChange()">
+        <input type="number" class="form-control" style="width:160px" placeholder="Max total" [(ngModel)]="maxAmount" (ngModelChange)="onFilterChange()">
+
+        <select class="form-control" style="width:190px" [(ngModel)]="workflowFilter" (ngModelChange)="onFilterChange()">
+          <option value="all">All Workflow</option>
+          <option value="action-required">Action Required</option>
+          <option value="overdue">Overdue</option>
+          <option value="pending">Pending</option>
+          <option value="reminder-sent">Reminder Sent</option>
+          <option value="promise-to-pay">Promise To Pay</option>
+          <option value="disputed">Disputed</option>
+          <option value="escalated">Escalated</option>
+          <option value="paid">Paid</option>
+        </select>
+
+        <select class="form-control" style="width:170px" [(ngModel)]="agingFilter" (ngModelChange)="onFilterChange()">
+          <option value="all">All Aging</option>
+          <option value="current">Current</option>
+          <option value="1-7">1-7 days</option>
+          <option value="8-15">8-15 days</option>
+          <option value="16+">16+ days</option>
+        </select>
+      </div>
+
+      <div class="d-flex gap-3 mb-4 flex-wrap">
+        <div class="card" style="min-width:160px">
+          <div class="text-xs text-secondary">Visible Invoices</div>
+          <div class="fw-700" style="font-size:20px">{{ invoices().length }}</div>
+        </div>
+        <div class="card" style="min-width:180px">
+          <div class="text-xs text-secondary">Action Required</div>
+          <div class="fw-700" style="font-size:20px">{{ actionRequiredCount() }}</div>
+        </div>
+        <div class="card" style="min-width:220px">
+          <div class="text-xs text-secondary">Overdue Amount</div>
+          <div class="fw-700 text-danger" style="font-size:20px">{{ overdueAmount() | currency:'INR':'symbol':'1.2-2' }}</div>
+        </div>
+        <div class="card" style="min-width:220px">
+          <div class="text-xs text-secondary">Selected Amount</div>
+          <div class="fw-700 text-primary" style="font-size:20px">{{ selectedAmount() | currency:'INR':'symbol':'1.2-2' }}</div>
+        </div>
+        <div class="card" style="min-width:200px">
+          <div class="text-xs text-secondary">Follow-up Due</div>
+          <div class="fw-700" style="font-size:20px">{{ followUpDueCount() }}</div>
+        </div>
+      </div>
+
+      @if (canManageWorkflow() && invoices().length > 0) {
+        <div class="card mb-4">
+          <div class="d-flex gap-2 align-center flex-wrap">
+            <label class="text-sm d-flex align-center gap-2" style="margin-right:8px">
+              <input type="checkbox"
+                     [checked]="selectAllVisibleChecked()"
+                     [indeterminate]="selectAllVisibleIndeterminate()"
+                     (change)="toggleSelectAllVisible($any($event.target).checked)">
+              Select all visible
+            </label>
+            <span class="badge badge-info">{{ selectedCount() }} selected</span>
+            <button class="btn btn-ghost btn-sm" (click)="clearSelection()" [disabled]="selectedCount() === 0">Clear</button>
+            <button class="btn btn-secondary btn-sm"
+                    (click)="bulkSendReminders()"
+                    [disabled]="bulkActionLoading() || reminderEligibleCount() === 0">Bulk Reminder ({{ reminderEligibleCount() }})</button>
+            <button class="btn btn-success btn-sm"
+                    (click)="bulkMarkAsPaid()"
+                    [disabled]="bulkActionLoading() || paidEligibleCount() === 0">Bulk Paid ({{ paidEligibleCount() }})</button>
+            <button class="btn btn-warning btn-sm"
+                    (click)="bulkMarkAsDisputed()"
+                    [disabled]="bulkActionLoading() || disputedEligibleCount() === 0">Bulk Dispute ({{ disputedEligibleCount() }})</button>
+            <button class="btn btn-danger btn-sm"
+                    (click)="bulkEscalate()"
+                    [disabled]="bulkActionLoading() || escalationEligibleCount() === 0">Bulk Escalate ({{ escalationEligibleCount() }})</button>
+          </div>
+        </div>
+      }
+
+      @if (loading()) {
+        <div class="skeleton" style="height:300px;border-radius:8px"></div>
+      } @else if (invoices().length === 0) {
+        <div class="empty-state">
+          <div class="empty-icon">🧾</div>
+          <div class="empty-title">No invoices found</div>
+        </div>
+      } @else {
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width:42px">
+                  <input type="checkbox"
+                         [checked]="selectAllVisibleChecked()"
+                         [indeterminate]="selectAllVisibleIndeterminate()"
+                         (click)="$event.stopPropagation()"
+                         (change)="toggleSelectAllVisible($any($event.target).checked)">
+                </th>
+                <th>Invoice #</th><th>Order ID</th><th>GST Type</th><th>Grand Total</th><th>Due By</th><th>Aging</th><th>Workflow</th><th>Created</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (inv of invoices(); track inv.invoiceId) {
+                <tr [routerLink]="['/invoices', inv.invoiceId]">
+                  <td (click)="$event.stopPropagation()">
+                    <input type="checkbox"
+                           [checked]="isSelected(inv.invoiceId)"
+                           (change)="toggleSelection(inv.invoiceId, $any($event.target).checked)">
+                  </td>
+                  <td class="fw-600">{{ inv.invoiceNumber }}</td>
+                  <td class="text-xs text-secondary">{{ inv.orderId | slice:0:8 }}...</td>
+                  <td><span class="badge badge-info">{{ inv.gstType }}</span></td>
+                  <td class="fw-600 text-primary">{{ inv.grandTotal | currency:'INR':'symbol':'1.2-2' }}</td>
+                  <td class="text-sm">{{ dueDateLabel(inv) }}</td>
+                  <td>
+                    <span class="badge" [class]="agingBadge(inv)">{{ agingLabel(inv) }}</span>
+                  </td>
+                  <td>
+                    <span class="badge" [class]="workflowBadge(inv)">{{ workflowLabel(inv) }}</span>
+                  </td>
+                  <td class="text-sm">{{ inv.createdAtUtc | date:'dd MMM yyyy' }}</td>
+                  <td>
+                    <div class="d-flex gap-2 flex-wrap" (click)="$event.stopPropagation()">
+                      <a [routerLink]="['/invoices', inv.invoiceId]" class="btn btn-ghost btn-sm">View →</a>
+                      @if (canManageWorkflow()) {
+                        <button class="btn btn-secondary btn-sm"
+                                (click)="sendReminder(inv, $event)"
+                          [disabled]="bulkActionLoading() || actionInvoiceId() === inv.invoiceId || workflowStatus(inv) === 'paid'">Reminder</button>
+                        <button class="btn btn-success btn-sm"
+                                (click)="markAsPaid(inv, $event)"
+                          [disabled]="bulkActionLoading() || workflowStatus(inv) === 'paid'">Paid</button>
+                        <button class="btn btn-warning btn-sm"
+                                (click)="markAsDisputed(inv, $event)"
+                          [disabled]="bulkActionLoading() || workflowStatus(inv) === 'paid'">Dispute</button>
+                        <button class="btn btn-danger btn-sm"
+                                (click)="escalate(inv, $event)"
+                          [disabled]="bulkActionLoading() || actionInvoiceId() === inv.invoiceId || workflowStatus(inv) === 'paid' || workflowStatus(inv) === 'escalated'">Escalate</button>
+                      }
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+  

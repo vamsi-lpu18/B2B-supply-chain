@@ -1,0 +1,211 @@
+
+    <div class="page-content feature-orders">
+      <div class="page-header">
+        <div>
+          <a [routerLink]="isAgent() ? '/shipments' : '/orders'" class="btn btn-ghost mb-2">← Back</a>
+          <h1>Order Tracking</h1>
+          <p class="text-sm text-secondary">{{ titleLabel() }}</p>
+        </div>
+        <div class="header-actions">
+          <span class="live-pill">Live Tracking</span>
+          <button class="btn btn-secondary" (click)="refresh()" [disabled]="loading()">Refresh</button>
+          @if (order()) {
+            <a [routerLink]="['/orders', id()]" class="btn btn-ghost">Open Order</a>
+          }
+        </div>
+      </div>
+
+      @if (loading()) {
+        <div class="skeleton" style="height:320px;border-radius:8px"></div>
+      } @else {
+        <div class="tracking-kpis mb-4">
+          <div class="tracking-kpi">
+            <span class="kpi-label">Shipments Linked</span>
+            <span class="kpi-value">{{ shipments().length }}</span>
+          </div>
+          <div class="tracking-kpi">
+            <span class="kpi-label">Tracking Events</span>
+            <span class="kpi-value">{{ trackingEventCount() }}</span>
+          </div>
+          <div class="tracking-kpi">
+            <span class="kpi-label">Latest Update</span>
+            <span class="kpi-value kpi-small">{{ latestUpdateLabel() }}</span>
+          </div>
+          <div class="tracking-kpi">
+            <span class="kpi-label">Delivery Health</span>
+            <span class="badge" [class]="deliveryHealthBadge()">{{ deliveryHealthLabel() }}</span>
+          </div>
+        </div>
+
+        <div class="grid-2 mb-4">
+          <div class="card">
+            <h2 class="mb-3">Order Stage</h2>
+            @if (order(); as currentOrder) {
+              <div class="d-flex gap-2 align-center mb-3">
+                <span class="badge" [class]="orderStatusBadge(currentOrder.status)">{{ orderStatusLabel(currentOrder.status) }}</span>
+                <span class="text-sm text-secondary">{{ currentOrder.orderNumber }}</span>
+              </div>
+              <div class="stage-rail mb-3">
+                @for (stage of orderStages; track stage; let idx = $index) {
+                  <div class="stage-node" [class.reached]="isOrderStageReached(idx)" [class.current]="isOrderStageCurrent(idx)">
+                    <span class="stage-dot"></span>
+                    <span class="stage-label">{{ stage }}</span>
+                  </div>
+                }
+              </div>
+              <div class="progress-track mb-2">
+                <div class="progress-fill progress-order" [style.width.%]="orderProgressPercent()"></div>
+              </div>
+              <p class="text-sm text-secondary">{{ orderProgressPercent() }}% complete</p>
+            } @else {
+              <p class="text-sm text-secondary">Order details are not available for this role. Shipment tracking remains active.</p>
+            }
+          </div>
+
+          <div class="card">
+            <h2 class="mb-3">Shipment Stage</h2>
+            @if (selectedShipment(); as currentShipment) {
+              <div class="d-flex gap-2 align-center mb-3 flex-wrap">
+                <span class="badge" [class]="shipmentStatusBadge(currentShipment.status)">{{ shipmentStatusLabel(currentShipment.status) }}</span>
+                <span class="text-sm text-secondary">{{ currentShipment.shipmentNumber }}</span>
+              </div>
+              <div class="stage-rail mb-3">
+                @for (stage of shipmentStages; track stage; let idx = $index) {
+                  <div class="stage-node" [class.reached]="isShipmentStageReached(currentShipment.status, idx)" [class.current]="isShipmentStageCurrent(currentShipment.status, idx)">
+                    <span class="stage-dot"></span>
+                    <span class="stage-label">{{ stage }}</span>
+                  </div>
+                }
+              </div>
+              <div class="progress-track mb-2">
+                <div class="progress-fill progress-shipment" [style.width.%]="shipmentProgressPercent(currentShipment.status)"></div>
+              </div>
+              <p class="text-sm text-secondary">{{ shipmentProgressPercent(currentShipment.status) }}% complete</p>
+            } @else {
+              <p class="text-sm text-secondary">No shipment is linked to this order yet.</p>
+            }
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="d-flex justify-between align-center flex-wrap gap-2 mb-3">
+            <h2>Shipment Tracker</h2>
+            <span class="text-sm text-secondary">{{ shipments().length }} shipment(s)</span>
+          </div>
+
+          @if (shipments().length > 1) {
+            <div class="form-group" style="max-width:360px">
+              <label>Choose Shipment</label>
+              <select class="form-control" [ngModel]="selectedShipmentId()" (ngModelChange)="onSelectShipment($event)">
+                @for (shipment of shipments(); track shipment.shipmentId) {
+                  <option [value]="shipment.shipmentId">{{ shipment.shipmentNumber }} · {{ shipmentStatusLabel(shipment.status) }}</option>
+                }
+              </select>
+            </div>
+          }
+
+          @if (selectedShipment(); as currentShipment) {
+            <div class="shipment-headline mb-3">
+              <div><span class="field-label">Address</span><span>{{ currentShipment.deliveryAddress }}, {{ currentShipment.city }}, {{ currentShipment.state }} - {{ currentShipment.postalCode }}</span></div>
+              <div><span class="field-label">Vehicle</span><span>{{ currentShipment.vehicleNumber || 'Not assigned' }}</span></div>
+              <div><span class="field-label">Assigned Agent</span><span>{{ currentShipment.assignedAgentId ? (currentShipment.assignedAgentId | slice:0:8) + '...' : 'Not assigned' }}</span></div>
+              <div><span class="field-label">Assignment</span><span class="badge" [class]="assignmentDecisionBadge(currentShipment.assignmentDecisionStatus)">{{ assignmentDecisionLabel(currentShipment.assignmentDecisionStatus) }}</span></div>
+              <div><span class="field-label">Agent Response</span><span>{{ currentShipment.assignmentDecisionAtUtc ? (currentShipment.assignmentDecisionAtUtc | date:'dd MMM yyyy, HH:mm') : 'Pending' }}</span></div>
+            </div>
+
+            @if (currentShipment.assignmentDecisionReason) {
+              <p class="text-sm text-danger mb-3">Assignment note: {{ currentShipment.assignmentDecisionReason }}</p>
+            }
+
+            <div class="timeline">
+              @for (event of currentShipment.events; track event.shipmentEventId) {
+                <div class="timeline-item">
+                  <div class="timeline-time">{{ event.createdAtUtc | date:'dd MMM yyyy, HH:mm' }} · {{ event.updatedByRole }}</div>
+                  <div class="timeline-title">
+                    <span class="badge" [class]="shipmentStatusBadge(event.status)">{{ shipmentStatusLabel(event.status) }}</span>
+                  </div>
+                  @if (event.note) {
+                    <div class="timeline-body">{{ event.note }}</div>
+                  }
+                </div>
+              }
+            </div>
+          } @else {
+            <p class="text-sm text-secondary">No shipment events available.</p>
+          }
+        </div>
+
+        @if (isAgent() && selectedShipment()) {
+          <div class="card mb-4">
+            <h2 class="mb-3">Delivery Agent Approval</h2>
+            @if (canRespondToAssignment()) {
+              <p class="text-sm text-secondary mb-2">
+                Confirm if you can take this assignment before updating delivery status.
+              </p>
+              <div class="form-group mb-2">
+                <label>Assignment Response Note</label>
+                <textarea
+                  class="form-control"
+                  rows="2"
+                  maxlength="500"
+                  [(ngModel)]="assignmentResponseNote"
+                  placeholder="Optional for accept, required for reject"></textarea>
+              </div>
+              <div class="delivery-actions mb-3">
+                <button class="btn btn-primary" (click)="acceptAssignment()" [disabled]="actionLoading()">Accept Assignment</button>
+                <button class="btn btn-danger" (click)="rejectAssignment()" [disabled]="actionLoading()">Reject Assignment</button>
+              </div>
+            }
+            <p class="text-sm text-secondary mb-3">
+              Keep this timeline accurate by moving the shipment to out-for-delivery and finally delivered.
+            </p>
+            <div class="form-group">
+              <label>Delivery Note</label>
+              <textarea
+                class="form-control"
+                rows="3"
+                maxlength="500"
+                [(ngModel)]="deliveryNote"
+                placeholder="Add location/proof/receiver details"></textarea>
+            </div>
+            <div class="delivery-actions">
+              <button
+                class="btn btn-secondary"
+                (click)="markOutForDelivery()"
+                [disabled]="!canMarkOutForDelivery() || actionLoading()">
+                Mark Out For Delivery
+              </button>
+              <button
+                class="btn btn-primary"
+                (click)="approveDelivery()"
+                [disabled]="!canApproveDelivery() || actionLoading()">
+                Approve Delivery
+              </button>
+            </div>
+          </div>
+        }
+
+        @if (order()?.statusHistory?.length) {
+          <div class="card">
+            <h2 class="mb-3">Order Status Timeline</h2>
+            <div class="timeline">
+              @for (history of order()!.statusHistory; track history.historyId) {
+                <div class="timeline-item">
+                  <div class="timeline-time">{{ history.changedAtUtc | date:'dd MMM yyyy, HH:mm' }} · {{ history.changedByRole }}</div>
+                  <div class="timeline-title">{{ orderStatusLabel(history.fromStatus) }} → {{ orderStatusLabel(history.toStatus) }}</div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+
+        @if (!order() && shipments().length === 0) {
+          <div class="empty-state">
+            <div class="empty-icon">📍</div>
+            <div class="empty-title">Nothing to track yet</div>
+            <div class="empty-desc">This order currently has no tracking data for your role.</div>
+          </div>
+        }
+      }
+    </div>
+  

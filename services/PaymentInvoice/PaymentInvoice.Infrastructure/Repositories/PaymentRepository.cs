@@ -107,6 +107,11 @@ internal sealed class PaymentRepository(PaymentInvoiceDbContext dbContext) : IPa
         await dbContext.PaymentRecords.AddAsync(record, cancellationToken);
     }
 
+    public Task<bool> HasPaymentRecordForOrderAsync(Guid orderId, CancellationToken cancellationToken)
+    {
+        return dbContext.PaymentRecords.AnyAsync(x => x.OrderId == orderId, cancellationToken);
+    }
+
     public async Task AddOutboxMessageAsync(string eventType, object payload, CancellationToken cancellationToken)
     {
         var outbox = new OutboxMessage

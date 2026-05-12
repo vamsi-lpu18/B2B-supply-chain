@@ -40,6 +40,16 @@ public sealed class SettleOutstandingRequestValidator : AbstractValidator<Settle
     }
 }
 
+public sealed class AddOutstandingRequestValidator : AbstractValidator<AddOutstandingRequest>
+{
+    public AddOutstandingRequestValidator()
+    {
+        RuleFor(x => x.OrderId).NotEmpty();
+        RuleFor(x => x.Amount).GreaterThan(0m);
+        RuleFor(x => x.ReferenceNo).MaximumLength(100).When(x => !string.IsNullOrWhiteSpace(x.ReferenceNo));
+    }
+}
+
 public sealed class CreateGatewayOrderRequestValidator : AbstractValidator<CreateGatewayOrderRequest>
 {
     public CreateGatewayOrderRequestValidator()

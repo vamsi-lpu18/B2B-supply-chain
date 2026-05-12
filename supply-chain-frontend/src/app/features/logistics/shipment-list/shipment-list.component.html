@@ -1,0 +1,107 @@
+
+    <div class="page-content feature-logistics">
+      <div class="page-header">
+        <h1>Shipments</h1>
+      </div>
+
+      <div class="d-flex gap-3 mb-6">
+        <select class="form-control" style="width:200px" [(ngModel)]="statusFilter" (ngModelChange)="applyFilter()">
+          <option [ngValue]="null">All Statuses</option>
+          @for (s of statusOptions; track s.value) {
+            <option [ngValue]="s.value">{{ s.label }}</option>
+          }
+        </select>
+
+        <select class="form-control" style="width:180px" [(ngModel)]="slaFilter" (ngModelChange)="applyFilter()">
+          <option value="all">All SLA States</option>
+          <option value="on-track">On Track</option>
+          <option value="at-risk">At Risk</option>
+          <option value="delayed">Delayed</option>
+          <option value="exception">Exception</option>
+          <option value="delivered">Delivered</option>
+        </select>
+
+        <select class="form-control" style="width:220px" [(ngModel)]="opsFilter" (ngModelChange)="applyFilter()">
+          <option value="all">All Ops Queues</option>
+          <option value="handover-pending">Handover Pending</option>
+          <option value="exception-queue">Exception Queue</option>
+          <option value="retry-required">Retry Required</option>
+        </select>
+      </div>
+
+      <div class="d-flex gap-3 mb-4 flex-wrap">
+        <div class="card" style="min-width:160px">
+          <div class="text-xs text-secondary">Visible Shipments</div>
+          <div class="fw-700" style="font-size:20px">{{ filtered().length }}</div>
+        </div>
+        <div class="card" style="min-width:190px">
+          <div class="text-xs text-secondary">Handover Pending</div>
+          <div class="fw-700" style="font-size:20px">{{ handoverPendingCount() }}</div>
+        </div>
+        <div class="card" style="min-width:180px">
+          <div class="text-xs text-secondary">Exceptions</div>
+          <div class="fw-700 text-danger" style="font-size:20px">{{ exceptionQueueCount() }}</div>
+        </div>
+        <div class="card" style="min-width:180px">
+          <div class="text-xs text-secondary">Retry Required</div>
+          <div class="fw-700 text-warning" style="font-size:20px">{{ retryRequiredCount() }}</div>
+        </div>
+      </div>
+
+      @if (loading()) {
+        <div class="skeleton" style="height:300px;border-radius:8px"></div>
+      } @else if (filtered().length === 0) {
+        <div class="empty-state">
+          <div class="empty-icon">🚚</div>
+          <div class="empty-title">No shipments found</div>
+        </div>
+      } @else {
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Shipment #</th>
+                <th>Order ID</th>
+                <th>Status</th>
+                <th>ETA</th>
+                <th>SLA</th>
+                <th>Ops Queue</th>
+                <th>Delivery Address</th>
+                <th>Created</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (s of filtered(); track s.shipmentId) {
+                <tr [routerLink]="['/shipments', s.shipmentId]">
+                  <td class="fw-600">{{ s.shipmentNumber }}</td>
+                  <td class="text-xs text-secondary">{{ s.orderId | slice:0:8 }}...</td>
+                  <td><span class="badge" [class]="statusBadge(s.status)">{{ statusLabel(s.status) }}</span></td>
+                  <td class="text-sm">{{ etaDateLabel(s) }}</td>
+                  <td>
+                    <span class="badge" [class]="slaBadgeClass(s)">{{ etaStatusLabel(s) }}</span>
+                  </td>
+                  <td>
+                    <div class="d-flex gap-1 flex-wrap">
+                      @if (isHandoverPending(s)) {
+                        <span class="badge badge-warning">Handover Pending</span>
+                      }
+                      @if (isExceptionQueue(s)) {
+                        <span class="badge badge-error">Exception</span>
+                      }
+                      @if (isRetryRequired(s)) {
+                        <span class="badge badge-info">Retry Required</span>
+                      }
+                    </div>
+                  </td>
+                  <td class="text-sm">{{ s.deliveryAddress }}, {{ s.city }}</td>
+                  <td class="text-sm">{{ s.createdAtUtc | date:'dd MMM yyyy' }}</td>
+                  <td><a [routerLink]="['/shipments', s.shipmentId]" class="btn btn-ghost btn-sm">Track →</a></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </div>
+  

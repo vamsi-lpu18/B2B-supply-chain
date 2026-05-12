@@ -8,64 +8,7 @@ import { AdminApiService } from '../../../core/api/admin-api.service';
   selector: 'app-agent-create',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
-  template: `
-    <div class="page-content">
-      <div class="page-header">
-        <div class="page-title">
-          <h1>Create Agent</h1>
-          <p>Create an Agent user with a temporary password and mandatory first-login reset.</p>
-        </div>
-        <div class="page-actions">
-          <a routerLink="/admin/dealers" class="btn btn-ghost">Back to Dealers</a>
-        </div>
-      </div>
-
-      <div class="card" style="max-width:760px;padding:20px;">
-        <div class="d-flex gap-3" style="flex-wrap:wrap;">
-          <div style="flex:1;min-width:220px;">
-            <label class="text-sm" style="display:block;margin-bottom:6px;">Full name</label>
-            <input class="form-control" placeholder="Full name" [(ngModel)]="fullName">
-          </div>
-
-          <div style="flex:1;min-width:240px;">
-            <label class="text-sm" style="display:block;margin-bottom:6px;">Email</label>
-            <input class="form-control" placeholder="Email" [(ngModel)]="email">
-          </div>
-        </div>
-
-        <div class="d-flex gap-3 mt-4" style="flex-wrap:wrap;">
-          <div style="flex:1;min-width:200px;">
-            <label class="text-sm" style="display:block;margin-bottom:6px;">Phone</label>
-            <input class="form-control" placeholder="10-digit phone" [(ngModel)]="phoneNumber">
-          </div>
-
-          <div style="flex:1;min-width:240px;">
-            <label class="text-sm" style="display:block;margin-bottom:6px;">Temporary password</label>
-            <input class="form-control" placeholder="Temporary password" [(ngModel)]="temporaryPassword" type="password">
-          </div>
-        </div>
-
-        <p class="text-sm text-secondary mt-4" style="margin-bottom:0;">
-          The new Agent can log in with this password once and will be forced to reset it.
-        </p>
-
-        <div class="d-flex gap-3 mt-5" style="align-items:center;flex-wrap:wrap;">
-          <button class="btn btn-primary" (click)="createAgent()" [disabled]="creating()">
-            @if (creating()) { Creating... } @else { Create Agent }
-          </button>
-          <a routerLink="/admin/dealers" class="btn btn-ghost">Cancel</a>
-        </div>
-
-        @if (createSuccess()) {
-          <div class="alert alert-success mt-4">{{ createSuccess() }}</div>
-        }
-
-        @if (createError()) {
-          <div class="alert alert-error mt-4">{{ createError() }}</div>
-        }
-      </div>
-    </div>
-  `
+  templateUrl: './agent-create.component.html'
 })
 export class AgentCreateComponent {
   private readonly adminApi = inject(AdminApiService);

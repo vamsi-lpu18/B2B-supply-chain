@@ -1,0 +1,174 @@
+
+    <div class="page-content feature-orders">
+      <div class="page-header">
+        <h1>{{ isDealer() ? 'My Orders' : 'All Orders' }}</h1>
+        <div class="d-flex gap-2 flex-wrap">
+          <button class="btn btn-secondary btn-sm" (click)="exportCsv()" [disabled]="orders().length === 0">Export CSV</button>
+          @if (isStatusManager()) {
+            <button class="btn btn-secondary btn-sm" (click)="selectAllMatchingAcrossPages()" [disabled]="!canSelectAllMatching() || selectAllMatchingLoading()">
+              {{ selectAllMatchingLoading() ? 'Selecting...' : 'Select All Matching' }}
+            </button>
+            <button class="btn btn-ghost btn-sm" (click)="clearSelection()" [disabled]="selectedCount() === 0">Clear Selection</button>
+          }
+        </div>
+      </div>
+
+      @if (isStatusManager() && selectedCount() > 0) {
+        <div class="card mb-4 d-flex gap-3 align-center flex-wrap" style="padding:12px 14px">
+          <span class="text-sm fw-600">{{ selectedCount() }} selected</span>
+          <select class="form-control" style="width:220px" [(ngModel)]="bulkStatus" (ngModelChange)="onBulkStatusChange()">
+            <option [ngValue]="null">Select status</option>
+            @for (s of bulkStatusOptions(); track s.value) {
+              <option [ngValue]="s.value">{{ s.label }}</option>
+            }
+          </select>
+          <button class="btn btn-secondary btn-sm" (click)="runBulkPrecheck()" [disabled]="bulkStatus === null || precheckLoading()">Validate Selection</button>
+          <button class="btn btn-primary btn-sm" (click)="applyBulkStatus()" [disabled]="!canApplyBulkStatus()">Apply Bulk Status</button>
+          @if (transitionEstimate(); as estimate) {
+            <span class="text-xs text-secondary">Estimated valid {{ estimate.valid }}, invalid {{ estimate.invalid }}</span>
+            @if (estimate.unknown > 0) {
+              <span class="text-xs text-secondary">({{ estimate.unknown }} not loaded)</span>
+            }
+          }
+          @if (needsPrecheck()) {
+            <span class="text-xs text-secondary">Run Validate Selection before applying.</span>
+          }
+        </div>
+
+        @if (currentBulkPrecheck(); as precheck) {
+          <div class="card mb-4" style="padding:12px 14px">
+            <div class="d-flex gap-2 align-center flex-wrap">
+              <span class="badge badge-success">Valid {{ precheck.validCount }}</span>
+              <span class="badge badge-error">Invalid {{ precheck.invalidCount }}</span>
+              @if (precheck.appliedCount > 0) {
+                <span class="badge badge-primary">Applied {{ precheck.appliedCount }}</span>
+              }
+            </div>
+
+            @if (invalidPrecheckItems().length > 0) {
+              <div class="text-sm fw-600 mt-2">Invalid selections</div>
+              <ul class="text-sm text-secondary" style="margin:4px 0 0; padding-left:16px">
+                @for (item of invalidPrecheckItems(); track item.orderId) {
+                  <li>{{ item.orderNumber ?? (item.orderId | slice:0:8) }}: {{ item.message ?? 'Invalid transition' }}</li>
+                }
+              </ul>
+            }
+          </div>
+        }
+      }
+
+      <!-- Filters -->
+      <div class="d-flex gap-3 mb-6 flex-wrap">
+        <select class="form-control" style="width:190px" [(ngModel)]="statusFilter" (ngModelChange)="onStatusFilterChange()">
+          <option [ngValue]="null">All Statuses</option>
+          @for (s of statusOptions; track s.value) {
+            <option [ngValue]="s.value">{{ s.label }}</option>
+          }
+        </select>
+
+        <select class="form-control" style="width:170px" [(ngModel)]="slaFilter" (ngModelChange)="onClientFilterChange()">
+          <option value="all">All SLA</option>
+          <option value="on-track">On Track</option>
+          <option value="at-risk">At Risk</option>
+          <option value="delayed">Delayed</option>
+          <option value="closed">Closed</option>
+        </select>
+
+        <input type="search"
+               class="form-control"
+               style="min-width:220px"
+               placeholder="Search order number"
+               [(ngModel)]="searchQuery"
+               (ngModelChange)="onClientFilterChange()">
+
+        @if (!isDealer()) {
+          <input type="search"
+                 class="form-control"
+                 style="min-width:220px"
+                 placeholder="Dealer ID contains..."
+                 [(ngModel)]="dealerQuery"
+                 (ngModelChange)="onClientFilterChange()">
+        }
+
+        <input type="date" class="form-control" style="width:180px" [(ngModel)]="fromDate" (ngModelChange)="onClientFilterChange()">
+        <input type="date" class="form-control" style="width:180px" [(ngModel)]="toDate" (ngModelChange)="onClientFilterChange()">
+
+        <button class="btn btn-ghost btn-sm" (click)="resetFilters()">Reset</button>
+      </div>
+
+      @if (loading()) {
+        <div class="skeleton" style="height:300px;border-radius:8px"></div>
+      } @else if (orders().length === 0) {
+        <div class="empty-state">
+          <div class="empty-icon">📋</div>
+          <div class="empty-title">No orders found</div>
+          @if (isDealer()) { <a routerLink="/products" class="btn btn-primary mt-4">Start Shopping</a> }
+        </div>
+      } @else {
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                @if (isStatusManager()) {
+                  <th style="width:40px"><input type="checkbox" [checked]="allVisibleSelected()" [indeterminate]="hasSomeVisibleSelected() && !allVisibleSelected()" (change)="toggleSelectAllVisible($any($event.target).checked)"></th>
+                }
+                <th>Order #</th>
+                @if (!isDealer()) { <th>Dealer ID</th> }
+                <th>Status</th>
+                <th>SLA</th>
+                <th>Expected</th>
+                <th>Total</th>
+                <th>Placed At</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (o of orders(); track o.orderId) {
+                <tr [routerLink]="['/orders', o.orderId]">
+                  @if (isStatusManager()) {
+                    <td>
+                      <input type="checkbox"
+                             [checked]="isSelected(o.orderId)"
+                             (click)="$event.stopPropagation()"
+                             (change)="toggleSelection(o.orderId, $any($event.target).checked)">
+                    </td>
+                  }
+                  <td class="fw-600">{{ o.orderNumber }}</td>
+                  @if (!isDealer()) { <td class="text-xs text-secondary">{{ o.dealerId | slice:0:8 }}...</td> }
+                  <td style="min-width:180px">
+                    <div class="status-pipeline">
+                      @for (step of pipelineSteps(o.status); track step.label) {
+                        <div class="status-pipeline-step" [class.completed]="step.completed" [class.active]="step.active" [class.cancelled]="step.cancelled">
+                          <div class="status-pipeline-dot"></div>
+                          <div class="status-pipeline-bar"></div>
+                          <div class="status-pipeline-label">{{ step.label }}</div>
+                        </div>
+                      }
+                    </div>
+                  </td>
+                  <td><span class="badge" [class]="slaBadgeClass(o)">{{ slaLabel(o) }}</span></td>
+                  <td class="text-sm">{{ expectedLabel(o) }}</td>
+                  <td class="fw-600">{{ o.totalAmount | currency:'INR':'symbol':'1.2-2' }}</td>
+                  <td class="text-sm">{{ o.placedAtUtc | date:'dd MMM yyyy, HH:mm' }}</td>
+                  <td>
+                    <div class="d-flex gap-2" (click)="$event.stopPropagation()">
+                      <a [routerLink]="['/orders', o.orderId]" class="btn btn-ghost btn-sm">View</a>
+                      @if (canTrackDelivery()) {
+                        <a [routerLink]="['/orders', o.orderId, 'tracking']" class="btn btn-secondary btn-sm">Track</a>
+                      }
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+        @if (showPagination()) {
+          <app-pagination [currentPage]="page()" [totalCount]="totalCount()" [pageSize]="20" (pageChange)="loadPage($event)" />
+        } @else {
+          <div class="text-sm text-secondary mt-3">Showing {{ orders().length }} filtered result(s).</div>
+        }
+      }
+    </div>
+  

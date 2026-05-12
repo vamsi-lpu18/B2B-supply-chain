@@ -1,0 +1,20 @@
+
+    .unauth-card {
+      width: 100%;
+      padding: 44px 28px;
+      border-radius: 18px;
+      border: 1px solid #d7e3ef;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+    }
+
+    .empty-title {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      letter-spacing: -.02em;
+    }
+
+    .empty-desc {
+      color: #475569;
+      font-weight: 600;
+    }
+  

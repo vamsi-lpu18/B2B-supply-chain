@@ -36,6 +36,7 @@ public interface IOrderRepository
 public interface ICreditCheckGateway
 {
     Task<CreditCheckResult> CheckCreditAsync(Guid dealerId, decimal amount, CancellationToken cancellationToken);
+    Task<bool> AddOutstandingAsync(Guid dealerId, Guid orderId, decimal amount, PaymentMode paymentMode, string? referenceNo, CancellationToken cancellationToken);
     Task<bool> SettleOutstandingAsync(Guid dealerId, decimal amount, string referenceNo, CancellationToken cancellationToken);
 }
 

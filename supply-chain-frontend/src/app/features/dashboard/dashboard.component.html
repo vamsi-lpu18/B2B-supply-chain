@@ -1,0 +1,520 @@
+
+<div class="dash page-content">
+
+  <!-- ── Header ── -->
+  <div class="dash-header page-header">
+    <div>
+      <div class="dash-kicker">Supply Chain Control Tower</div>
+      <h1 class="dash-title">Welcome back, {{ firstName() }}.</h1>
+      <p class="dash-sub">{{ today() }} · {{ authStore.role() }} workspace · Live operations overview</p>
+    </div>
+    <div class="dash-actions">
+      @if (isDealer()) { <a routerLink="/products" class="btn btn-primary btn-sm">Browse Products</a> }
+      @if (isAdmin())  { <a routerLink="/admin/dealers" class="btn btn-primary btn-sm">Manage Dealers</a> }
+    </div>
+  </div>
+
+  <!-- ── Stat Cards ── -->
+  <div class="stat-row">
+    @for (s of stats(); track s.label) {
+      <div class="sc">
+        <div class="sc-icon" [style.background]="s.bg" [style.color]="s.color">
+          <span [innerHTML]="s.icon"></span>
+        </div>
+        <div class="sc-body">
+          <div class="sc-val-row">
+            <span class="sc-val">{{ s.value }}</span>
+            @if (s.trend) {
+              <span class="trend" [class.trend-up]="s.trendDir==='up'" [class.trend-down]="s.trendDir==='down'" [class.trend-neutral]="s.trendDir==='neutral'">
+                {{ s.trendDir === 'up' ? '▲' : s.trendDir === 'down' ? '▼' : '—' }} {{ s.trend }}
+              </span>
+            }
+          </div>
+          <div class="sc-lbl">{{ s.label }}</div>
+          <div class="sc-sub">{{ s.sub }}</div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- ── Main grid ── -->
+  <div class="dash-grid">
+
+    <!-- Left column: tables -->
+    <div class="dash-left">
+
+      <!-- Orders table -->
+      @if (isDealer() || isAdmin() || isWarehouse() || isLogistics()) {
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title">
+              <span class="panel-icon">📋</span>
+              {{ isDealer() ? 'My Recent Orders' : 'Recent Orders' }}
+            </div>
+            <a [routerLink]="'/orders'" class="view-all">View all →</a>
+          </div>
+          @if (ordersLoading()) {
+            <div class="table-skeleton">
+              @for (i of [1,2,3,4]; track i) { <div class="skeleton" style="height:44px;margin-bottom:4px"></div> }
+            </div>
+          } @else if (recentOrders().length === 0) {
+            <div class="panel-empty">No orders yet</div>
+          } @else {
+            <div class="tbl-wrap">
+              <table class="tbl">
+                <thead><tr>
+                  <th>Order #</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                  <th>Date</th>
+                  <th></th>
+                </tr></thead>
+                <tbody>
+                  @for (o of recentOrders(); track o.orderId) {
+                    <tr>
+                      <td class="mono fw">{{ o.orderNumber }}</td>
+                      <td><span class="chip" [class]="orderBadge(o.status)">{{ orderLabel(o.status) }}</span></td>
+                      <td class="fw">{{ o.totalAmount | currency:'INR':'₹':'1.2-2' }}</td>
+                      <td class="muted">{{ o.placedAtUtc | date:'dd MMM yy' }}</td>
+                      <td><a [routerLink]="['/orders', o.orderId]" class="row-link">View</a></td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+      }
+
+      <!-- Products table (Dealer / Admin / Warehouse) -->
+      @if (isDealer() || isAdmin() || isWarehouse()) {
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="panel-icon">📦</span>Products</div>
+            <a routerLink="/products" class="view-all">Browse all →</a>
+          </div>
+          @if (productsLoading()) {
+            <div class="table-skeleton">
+              @for (i of [1,2,3,4]; track i) { <div class="skeleton" style="height:44px;margin-bottom:4px"></div> }
+            </div>
+          } @else if (recentProducts().length === 0) {
+            <div class="panel-empty">No products found</div>
+          } @else {
+            <div class="tbl-wrap">
+              <table class="tbl">
+                <thead><tr>
+                  <th>Product</th>
+                  <th>SKU</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th></th>
+                </tr></thead>
+                <tbody>
+                  @for (p of recentProducts(); track p.productId) {
+                    <tr>
+                      <td>
+                        <div class="product-cell">
+                          <img class="product-thumb"
+                               [src]="getDashboardProductImageUrl(p)"
+                               [alt]="p.name"
+                               [attr.data-sku]="p.sku"
+                               (error)="onDashboardProductImageError($event)">
+                          <span class="fw">{{ p.name }}</span>
+                        </div>
+                      </td>
+                      <td class="mono muted">{{ p.sku }}</td>
+                      <td class="fw brand">{{ p.unitPrice | currency:'INR':'₹':'1.2-2' }}</td>
+                      <td>
+                        <span class="chip" [class]="stockChip(p)">{{ stockLabel(p) }}</span>
+                      </td>
+                      <td>
+                        <a [routerLink]="['/products', p.productId]" class="row-link">View</a>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+      }
+
+      <!-- Shipments table (Logistics / Agent / Dealer) -->
+      @if (isLogistics() || isAgent() || isDealer()) {
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="panel-icon">🚚</span>Shipments</div>
+            <a routerLink="/shipments" class="view-all">Track all →</a>
+          </div>
+          @if (shipmentsLoading()) {
+            <div class="table-skeleton">
+              @for (i of [1,2,3,4]; track i) { <div class="skeleton" style="height:44px;margin-bottom:4px"></div> }
+            </div>
+          } @else if (recentShipments().length === 0) {
+            <div class="panel-empty">No shipments yet</div>
+          } @else {
+            <div class="tbl-wrap">
+              <table class="tbl">
+                <thead><tr>
+                  <th>Shipment #</th>
+                  <th>Status</th>
+                  <th>City</th>
+                  <th>Created</th>
+                  <th></th>
+                </tr></thead>
+                <tbody>
+                  @for (s of recentShipments(); track s.shipmentId) {
+                    <tr>
+                      <td class="mono fw">{{ s.shipmentNumber }}</td>
+                      <td><span class="chip" [class]="shipBadge(s.status)">{{ shipLabel(s.status) }}</span></td>
+                      <td class="muted">{{ s.city }}</td>
+                      <td class="muted">{{ s.createdAtUtc | date:'dd MMM yy' }}</td>
+                      <td><a [routerLink]="['/shipments', s.shipmentId]" class="row-link">Track</a></td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+      }
+
+    </div>
+
+    <!-- Right column: pie chart + quick actions -->
+    <div class="dash-right">
+
+      <!-- Pie chart -->
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title"><span class="panel-icon">📊</span>Order Status</div>
+        </div>
+        <div class="pie-wrap">
+          <div class="pie-shell">
+            <svg class="pie-svg" viewBox="0 0 240 240" aria-label="Order status distribution chart">
+              <defs>
+                <filter id="centerShadow" x="-40%" y="-40%" width="180%" height="180%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1f3550" flood-opacity="0.18"/>
+                </filter>
+              </defs>
+
+              <circle cx="120" cy="120" r="86" fill="none" stroke="#e2e8f0" stroke-width="28"/>
+
+              @for (sl of pieSlices(); track sl.label) {
+                <circle cx="120" cy="120" r="86"
+                        fill="none"
+                        [attr.stroke]="sl.color"
+                        stroke-width="28"
+                        [attr.stroke-dasharray]="sl.dashArray"
+                        [attr.stroke-dashoffset]="sl.dashOffset"
+                        stroke-linecap="round"
+                        transform="rotate(-90 120 120)"/>
+              }
+
+              <circle cx="120" cy="120" r="58" fill="white" filter="url(#centerShadow)"/>
+              <text x="120" y="114" text-anchor="middle" class="pie-center-val">{{ totalOrders() }}</text>
+              <text x="120" y="134" text-anchor="middle" class="pie-center-lbl">Total Orders</text>
+            </svg>
+          </div>
+
+          <div class="pie-legend">
+            @for (sl of pieSlices(); track sl.label) {
+              <div class="legend-card">
+                <div class="legend-top">
+                  <span class="legend-dot" [style.background]="sl.color"></span>
+                  <span class="legend-label">{{ sl.label }}</span>
+                  <span class="legend-val">{{ sl.value }}</span>
+                </div>
+                <div class="legend-bar">
+                  <span [style.width.%]="sl.pct" [style.background]="sl.color"></span>
+                </div>
+              </div>
+            }
+            @if (pieSlices().length === 0) {
+              <div class="legend-empty">No order activity yet.</div>
+            }
+          </div>
+        </div>
+      </div>
+
+      @if (showCommercialInsights()) {
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="panel-icon">📈</span>Purchase Insights</div>
+            <div class="muted" style="font-size:.72rem">Last 90 days</div>
+          </div>
+
+          @if (analyticsLoading()) {
+            <div class="table-skeleton">
+              @for (i of [1,2,3,4]; track i) { <div class="skeleton" style="height:38px;margin-bottom:6px"></div> }
+            </div>
+          } @else if (!orderAnalytics() || (orderAnalytics()?.totalOrders ?? 0) === 0) {
+            <div class="panel-empty">No purchase activity in this period.</div>
+          } @else {
+            <div class="insights-wrap">
+              <div class="insight-summary-grid">
+                <div class="insight-summary-card">
+                  <div class="insight-summary-label">Revenue</div>
+                  <div class="insight-summary-value">{{ orderAnalytics()!.totalRevenue | currency:'INR':'₹':'1.0-0' }}</div>
+                </div>
+                <div class="insight-summary-card">
+                  <div class="insight-summary-label">Avg Order</div>
+                  <div class="insight-summary-value">{{ orderAnalytics()!.averageOrderValue | currency:'INR':'₹':'1.0-0' }}</div>
+                </div>
+                <div class="insight-summary-card">
+                  <div class="insight-summary-label">Active Dealers</div>
+                  <div class="insight-summary-value">{{ orderAnalytics()!.uniqueDealers }}</div>
+                </div>
+                <div class="insight-summary-card">
+                  <div class="insight-summary-label">Units Sold</div>
+                  <div class="insight-summary-value">{{ orderAnalytics()!.unitsSold }}</div>
+                </div>
+              </div>
+
+              <div class="insight-list-grid">
+                <div class="insight-list-card">
+                  <div class="insight-list-title">Top Dealers</div>
+                  @if (topDealers().length === 0) {
+                    <div class="legend-empty" style="padding: 10px 0">No dealer data.</div>
+                  } @else {
+                    @for (dealer of topDealers(); track dealer.dealerId) {
+                      <div class="insight-row">
+                        <div class="insight-main">
+                          <div class="insight-name">{{ dealer.displayName }}</div>
+                          <div class="insight-meta">{{ dealer.orderCount }} orders</div>
+                        </div>
+                        <div class="insight-value">{{ dealer.totalAmount | currency:'INR':'₹':'1.0-0' }}</div>
+                      </div>
+                    }
+                  }
+                </div>
+
+                <div class="insight-list-card">
+                  <div class="insight-list-title">Top Products</div>
+                  @if (topProducts().length === 0) {
+                    <div class="legend-empty" style="padding: 10px 0">No product data.</div>
+                  } @else {
+                    @for (product of topProducts(); track product.productId) {
+                      <div class="insight-row">
+                        <div class="insight-main">
+                          <div class="insight-name">{{ product.productName }}</div>
+                          <div class="insight-meta">{{ product.unitsSold }} units · {{ product.sku }}</div>
+                        </div>
+                        <div class="insight-value">{{ product.revenue | currency:'INR':'₹':'1.0-0' }}</div>
+                      </div>
+                    }
+                  }
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+
+      @if (showInventoryAlerts()) {
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title"><span class="panel-icon">📦</span>Inventory Alerts</div>
+            <a routerLink="/products" class="view-all">Manage →</a>
+          </div>
+
+          <div class="inventory-alerts">
+            <div class="inventory-rule-row">
+              <label class="inventory-rule-label" for="low-stock-threshold">Low stock threshold</label>
+              <div class="inventory-rule-controls">
+                <input id="low-stock-threshold"
+                       type="number"
+                       min="1"
+                       max="999"
+                       class="form-control inventory-threshold-input"
+                       [value]="thresholdDraft()"
+                       (input)="onThresholdDraftInput($any($event.target).value)"
+                       (blur)="saveLowStockThreshold()">
+                <button class="btn btn-secondary btn-sm" (click)="saveLowStockThreshold()">Save</button>
+              </div>
+              <label class="inventory-toggle">
+                <input type="checkbox" [checked]="includeOutOfStock()" (change)="toggleIncludeOutOfStock($any($event.target).checked)">
+                Include out-of-stock products
+              </label>
+            </div>
+
+            <div class="inventory-summary-grid">
+              <div class="inventory-summary-card">
+                <div class="inventory-summary-label">Low Stock</div>
+                <div class="inventory-summary-value">{{ lowStockItems().length }}</div>
+              </div>
+              <div class="inventory-summary-card">
+                <div class="inventory-summary-label">Out of Stock</div>
+                <div class="inventory-summary-value">{{ outOfStockItems().length }}</div>
+              </div>
+              <div class="inventory-summary-card">
+                <div class="inventory-summary-label">Critical</div>
+                <div class="inventory-summary-value">{{ criticalLowStockCount() }}</div>
+              </div>
+            </div>
+
+            @if (activeAlerts().length === 0) {
+              <div class="legend-empty">No inventory alerts for current rules.</div>
+            } @else {
+              <div class="inventory-alert-list">
+                @for (item of activeAlerts(); track item.productId) {
+                  <a [routerLink]="['/products', item.productId]" class="inventory-alert-row">
+                    <div class="inventory-alert-name">{{ item.name }}</div>
+                    <div class="inventory-alert-meta">
+                      <span class="chip" [class]="stockChip(item)">{{ stockLabel(item) }}</span>
+                    </div>
+                  </a>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Quick actions -->
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title"><span class="panel-icon">⚡</span>Quick Actions</div>
+        </div>
+        <div class="qa-list">
+          @if (isDealer()) {
+            <a routerLink="/products" class="qa-row">
+              <div class="qa-icon" style="background:#eff6ff;color:#2563eb">📦</div>
+              <div class="qa-text"><div class="qa-name">Browse Products</div><div class="qa-desc">Explore catalog</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+            <a routerLink="/cart" class="qa-row">
+              <div class="qa-icon" style="background:#ecfdf5;color:#059669">🛒</div>
+              <div class="qa-text"><div class="qa-name">View Cart</div><div class="qa-desc">{{ cartStore.itemCount() }} items</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+            <a routerLink="/orders" class="qa-row">
+              <div class="qa-icon" style="background:#fffbeb;color:#d97706">📋</div>
+              <div class="qa-text"><div class="qa-name">My Orders</div><div class="qa-desc">Track purchases</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+            <a routerLink="/shipments" class="qa-row">
+              <div class="qa-icon" style="background:#f0f9ff;color:#0284c7">🚚</div>
+              <div class="qa-text"><div class="qa-name">Track Shipments</div><div class="qa-desc">Live tracking</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+            <a routerLink="/invoices" class="qa-row">
+              <div class="qa-icon" style="background:#f5f3ff;color:#7c3aed">🧾</div>
+              <div class="qa-text"><div class="qa-name">Invoices</div><div class="qa-desc">Download PDFs</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+          }
+          @if (isAdmin()) {
+            <a routerLink="/admin/dealers" class="qa-row">
+              <div class="qa-icon" style="background:#eff6ff;color:#2563eb">👥</div>
+              <div class="qa-text"><div class="qa-name">Manage Dealers</div><div class="qa-desc">Approve / reject</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+            <a routerLink="/products/new" class="qa-row">
+              <div class="qa-icon" style="background:#ecfdf5;color:#059669">📦</div>
+              <div class="qa-text"><div class="qa-name">Add Product</div><div class="qa-desc">Create listing</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+            <a routerLink="/orders" class="qa-row">
+              <div class="qa-icon" style="background:#fffbeb;color:#d97706">📋</div>
+              <div class="qa-text"><div class="qa-name">All Orders</div><div class="qa-desc">Process queue</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+            <a routerLink="/notifications" class="qa-row">
+              <div class="qa-icon" style="background:#f0f9ff;color:#0284c7">🔔</div>
+              <div class="qa-text"><div class="qa-name">Notifications</div><div class="qa-desc">Send alerts</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+          }
+          @if (isWarehouse()) {
+            <a routerLink="/orders" class="qa-row">
+              <div class="qa-icon" style="background:#eff6ff;color:#2563eb">📋</div>
+              <div class="qa-text"><div class="qa-name">Process Orders</div><div class="qa-desc">Fulfillment queue</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+            <a routerLink="/products" class="qa-row">
+              <div class="qa-icon" style="background:#ecfdf5;color:#059669">📦</div>
+              <div class="qa-text"><div class="qa-name">Inventory</div><div class="qa-desc">Restock products</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+          }
+          @if (isLogistics() || isAgent()) {
+            <a routerLink="/shipments" class="qa-row">
+              <div class="qa-icon" style="background:#eff6ff;color:#2563eb">🚚</div>
+              <div class="qa-text"><div class="qa-name">My Deliveries</div><div class="qa-desc">Active shipments</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+          }
+          @if (isLogistics()) {
+            <a routerLink="/orders" class="qa-row">
+              <div class="qa-icon" style="background:#ecfdf5;color:#059669">📋</div>
+              <div class="qa-text"><div class="qa-name">Orders</div><div class="qa-desc">View all orders</div></div>
+              <span class="qa-arrow">→</span>
+            </a>
+          }
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  @if (canUseDashboardChatbot()) {
+    <button
+      type="button"
+      class="dash-chat-fab"
+      (click)="toggleDashboardChatbot()"
+      [attr.aria-expanded]="dashboardChatOpen()"
+      [attr.aria-label]="dashboardChatOpen() ? 'Close chatbot' : 'Open chatbot'">
+      {{ dashboardChatOpen() ? '×' : '💬' }}
+    </button>
+
+    @if (dashboardChatOpen()) {
+      <section class="dash-chat-panel" role="dialog" aria-label="Dashboard chatbot">
+        <div class="dash-chat-head">
+          <div>
+            <div class="dash-chat-title">Ops Chatbot</div>
+            <div class="dash-chat-sub">Ask about shipment status, delays, retries, and assignment gaps.</div>
+          </div>
+        </div>
+
+        <div class="dash-chat-body">
+          @for (msg of dashboardChatMessages(); track $index) {
+            <div class="dash-chat-msg" [class.dash-chat-msg-user]="msg.sender === 'user'" [class.dash-chat-msg-bot]="msg.sender === 'bot'">
+              @if (msg.intent && msg.sender === 'bot') {
+                <div class="dash-chat-intent">{{ msg.intent }}</div>
+              }
+              <div class="dash-chat-text">{{ msg.text }}</div>
+              <div class="dash-chat-time">{{ formatDashboardChatTime(msg.createdAtUtc) }}</div>
+            </div>
+          }
+
+          @if (dashboardChatLoading()) {
+            <div class="dash-chat-msg dash-chat-msg-bot">
+              <div class="dash-chat-text">Thinking...</div>
+            </div>
+          }
+        </div>
+
+        @if (dashboardChatSuggestedPrompts().length > 0) {
+          <div class="dash-chat-suggest">
+            @for (prompt of dashboardChatSuggestedPrompts(); track $index) {
+              <button type="button" class="btn btn-ghost btn-sm" (click)="useDashboardSuggestedPrompt(prompt)">{{ prompt }}</button>
+            }
+          </div>
+        }
+
+        <div class="dash-chat-input">
+          <input
+            class="form-control"
+            type="text"
+            maxlength="500"
+            [(ngModel)]="dashboardChatPrompt"
+            placeholder="Ask a logistics question"
+            (keyup.enter)="sendDashboardChatbotQuestion()">
+          <button type="button" class="btn btn-primary btn-sm" (click)="sendDashboardChatbotQuestion()" [disabled]="dashboardChatLoading() || !dashboardChatPrompt.trim()">Ask</button>
+        </div>
+      </section>
+    }
+  }
+</div>
+  

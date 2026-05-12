@@ -95,6 +95,17 @@ public sealed class OrderService(
         await orderRepository.AddOrderAsync(order, cancellationToken);
         await orderRepository.SaveChangesAsync(cancellationToken);
 
+        if (creditResult.Approved)
+        {
+            await creditCheckGateway.AddOutstandingAsync(
+                order.DealerId,
+                order.OrderId,
+                order.TotalAmount,
+                order.PaymentMode,
+                $"order-{order.OrderId:N}",
+                cancellationToken);
+        }
+
         await sagaCoordinator.StartAsync(order.OrderId, order.OrderNumber, order.DealerId, cancellationToken);
         await sagaCoordinator.MarkCreditCheckInProgressAsync(order.OrderId, cancellationToken);
 

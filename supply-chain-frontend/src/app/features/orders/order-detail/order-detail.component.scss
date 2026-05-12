@@ -1,0 +1,6 @@
+
+    .order-header-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .field-label { display: block; font-size: 11px; color: #616161; text-transform: uppercase; margin-bottom: 4px; }
+    .alert-error { background: #ffebee; color: #c62828; border-radius: 4px; padding: 10px 12px; font-size: 14px; }
+    @media (max-width: 600px) { .order-header-grid { grid-template-columns: repeat(2, 1fr); } }
+  
